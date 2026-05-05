@@ -10,5 +10,12 @@ shpuld then be saved in the database.
 - Create **8 agents** which have different personas chosen from the database previously built. Then make them chat
 togheter in a group chat and save the messages on the database.
 - Use then **20 judges** to evaluate the chat based on different criterias:
-    @ *Persona identification*: the judges should be able to identify which of the persona defined has sent the messagges in chat;
-    @
+    
+    + *Persona identification*: the judges should be able to identify which of the persona defined has sent the messagges in chat;
+    
+    + *Individual fidelity*: each agent in the chat is evaluated by the fidelity of the messagges sent, based on the persona
+    that it represents;
+
+    + *Group fidelity*: the agents are evaluated based on how they behave on a group situation;
+
+    + *Behavioural fidelity*: the agent is evaluated based on the ability of behave like an human in the chat.
