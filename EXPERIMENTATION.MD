@@ -38,7 +38,7 @@ Fourth, behavioral fidelity: setting aside specific personas, does the conversat
 
 All twenty judges work independently during this phase. They don't see what other judges said. This independence is important because it lets us measure genuine agreement between judges rather than just copying each other's answers. The output from the first phase of the judge stage is twenty separate evaluation datasets, one from each judge, containing their identification guesses, fidelity ratings, and assessments.
 
-## Phase Two: Collaborative Judge Evaluation
+## Phase Two (judge): Collaborative Judge Evaluation
 
 Phase One produces independent judgments with unavoidable variance. Some variance reflects genuine ambiguity in the material—cases where reasonable evaluators could legitimately disagree. Other variance reflects individual judge limitations—mistakes, misreadings, or blind spots that a single judge working alone might not catch. Phase Two attempts to reduce error variance through structured deliberation while preserving the signal from genuine ambiguity.
 
@@ -70,3 +70,69 @@ A crucial component is tracking judge confidence alongside ratings. Judges repor
 | Information leakage | Control access to data during evaluation and deliberation. Track what each judge sees and prevent exposure to hidden information. |
 
 The goal is not to eliminate all risks but to manage them so results remain reliable and interpretable.
+
+## Measuring Quality: Metrics and Statistical Framework
+
+Quality isn't a single number. We measure multiple dimensions of simulation success, and each measurement carries statistical uncertainty that we must quantify.
+
+### Persona Identification Accuracy
+
+We count how many messages judges correctly match to their source persona and calculate a success rate. With eight personas, random guessing gives **12.5% accuracy** (totally random, our baseline). The question is whether we observe significantly better performance.
+
+Suppose twenty judges each evaluate thirty messages (600 total attempts). If we see 210 correct identifications, that's 35% accuracy. But this is a point estimate from our sample, not the true underlying rate. We need confidence intervals to show the uncertainty.
+
+Using a **binomial exact test**, we get a **95% confidence interval**. For 210/600 successes, the interval might be 31% to 39%. This means we're 95% confident the true accuracy lies in that range. Narrow intervals indicate precise estimates; wide intervals indicate more uncertainty.
+
+The statistical test asks: could we observe 210 successes if the true rate were just 12.5%? We compute a p-value measuring how unlikely this would be under random guessing. If p < 0.05, we reject chance performance and conclude agents produce distinguishable outputs. But the confidence interval is often more informative than the **p-value** alone—it shows the range of plausible values, not just whether we beat baseline.
+
+The **confusion matrix** reveals structural patterns. This 8×8 table shows which personas judges confuse with which. If Persona A often gets mistaken for Persona C but rarely for Persona F, that tells us where the simulation struggles. We can test whether confusion patterns differ from random errors using chi-square tests. Systematic confusion between specific pairs suggests they're genuinely similar in simulation output, whether due to source material overlap or extraction failures.
+
+### Individual Fidelity Scores
+
+Judges rate each persona's fidelity on a 1-5 Likert scale. With twenty judges and eight personas, we collect 160 ratings. For each persona, we have twenty ratings to summarize.
+
+We use the **median** as our primary statistic, not the mean. Medians resist outliers, one extreme rating doesn't distort the summary. If fifteen judges give 4, three give 5, and two give 1, the median is 4, reflecting the majority view. The mean would be pulled toward the outlier 1s.
+
+The **interquartile range (IQR)** measures disagreement. It captures the spread of the middle 50% of ratings. If the 25th percentile is 3 and the 75th is 5, the IQR is 2. Narrow IQR means judges agree; wide IQR means substantial disagreement.
+
+We also compute **variance** and **standard deviation**. High variance indicates judges have fundamentally different assessments. Low variance indicates convergence. These measures reveal whether fidelity is objectively measurable or inherently subjective for each persona.
+
+We can check whether judge specialization works by comparing agreement within and across types. Style judges should agree more with each other on style metrics than with ideology judges. If we don't see this pattern, specialization isn't working.
+
+### Group Fidelity Metrics
+
+Group fidelity combines automated metrics with judge assessments.
+
+**Turn distribution via Gini coefficient.** The Gini coefficient measures inequality in distributions. For conversation turns, Gini = 0 means perfect equality (all agents speak equally), Gini = 1 means total inequality (one agent dominates). We compute Gini for our simulation and compare it to real group conversations if available.
+
+Suppose simulated Gini is 0.35, while real conversations range from 0.28 to 0.42 with mean 0.33 and standard deviation 0.05. Is our simulation within expected bounds? We use bootstrap methods: repeatedly sample from real conversation data, compute Gini for each sample, build a distribution of plausible values. If simulated Gini falls in the 95% bootstrap interval, we have evidence the simulation matches real patterns.
+
+**Sentiment divergence between agents.** We embed each agent's messages using sentence transformers and compute pairwise cosine distances, creating an 8×8 matrix. We compare this to a similar matrix from real conversations using **Spearman's rank correlation**. Spearman is appropriate because we care about rank ordering of distances, not absolute values. If agents who should oppose each other ideologically show high sentiment distance in both real and simulated data, Spearman correlation will be high. We report the coefficient with confidence intervals, using bootstrap to estimate uncertainty.
+
+Judge assessments of group fidelity use ordinal scales. We collect twenty ratings and compute medians and IQRs. We track which specific features judges comment on and whether comments converge or diverge.
+
+### Phase Two Deliberation Metrics
+
+Deliberation produces additional metrics we analyze statistically.
+
+**Variance reduction across rounds.** We track variance in ratings or identification choices at each round. Round 0 is Phase One (pre-deliberation), Rounds 1-3 are deliberation. We plot variance evolution and test whether reduction is significant using F-tests comparing variances between rounds.
+
+**Convergence rate.** What fraction of high-disagreement cases showed variance reduction? We report this as a proportion with binomial confidence intervals. If 11 of 15 cases converged, that's 73% with a confidence interval roughly 48% to 90%. The wide interval reflects our small sample—we can't precisely estimate convergence rates with only 15 cases.
+
+**Confidence calibration.** For each judge and case, we track confidence ratings alongside judgments. After deliberation, we compare confidence changes to accuracy changes. We compute correlations between the deltas. Positive correlation means judges appropriately increase confidence when improving accuracy. Negative correlation is a red flag—judges becoming more confident while getting worse.
+
+We can also build calibration curves. Group judgments by confidence level (1-5) and compute actual accuracy within each group. Well-calibrated judges show accuracy increasing with confidence—level 5 judgments should be more accurate than level 1. Overconfident judges show flat or inverted patterns.
+
+### Bootstrap Methods for Small Samples
+
+Many analyses involve small samples where normal approximations might fail. With only eight personas or twenty judges, standard formulas can be unreliable. Bootstrap resampling provides a non-parametric approach to estimate confidence intervals and test hypotheses.
+
+Bootstrap works by repeatedly resampling observed data with replacement. To estimate uncertainty around median individual fidelity:
+1. Start with twenty observed ratings
+2. Draw 20 ratings randomly with replacement (some appear multiple times, others not at all)
+3. Compute the median of this bootstrap sample
+4. Repeat 10,000 times
+5. The distribution of 10,000 bootstrap medians approximates the sampling distribution
+6. The 2.5th and 97.5th percentiles give a 95% confidence interval
+
+Bootstrap works without knowing the underlying distribution and doesn't require large samples for validity (though very small samples like n=5 still give wide intervals). We can use bootstrap for correlation coefficients, variance comparisons, or any statistic where traditional formulas don't fit our sample size.
