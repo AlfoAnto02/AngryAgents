@@ -22,7 +22,7 @@ togheter in a group chat and save the messages on the database.
 
 The judges don't evaluate same aspects of the personas: some evaluate style, other ideology, ... While others pursue a general
 analysis. This has been thought to be able to evaluate different aspects with different focus.
-- The judging phase has different phases: in the first phase, each judge analyze and score individually the chat on the criterias previously indicated. Then, the judges compare their evaluations and try to improve the general accuracy of the system; they finally produce unique score based on their discussion.
+- The judging  has different phases: in the first one, each judge analyze and score individually the chat on the criterias previously indicated. Then, the judges compare their evaluations and try to improve the general accuracy of the system; they finally produce unique score based on their discussion.
 
 ## What type of personas ? 
 
