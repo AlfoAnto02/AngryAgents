@@ -36,6 +36,10 @@ Another interestic aspect to analyze is to evaluate the agents behaviour when th
 + **Same topic**: the eight agents are built upon personas that came from sape area of interest (politics, sport, TV shows, ...).
 + **Different topic**: the personas of reference for the eight agents come from different background.
 
+## How do evaluation on judges work ? 
+
+Another problem is to evaluate judges evaluation. While for the *persona identification* problem we can use ground truth data, for the fidelity, we don't have data to state if judging is good or not. To address this problem, we tought to implement an **External omniscent agent**, which have full context of personas involved in the chat, chat messages and jusges evalutation, and based on all information is able to evaluate the quality of judging process, indicating also the areas of improvement for the evaluation process. 
+
 
 ## Out-of-scope topics
 - The aim of the project is **not** to create an app: the UI implemented is basic and is needed only to visualize clearly the 
