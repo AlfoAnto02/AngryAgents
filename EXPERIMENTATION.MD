@@ -14,3 +14,10 @@ The extraction process creates a structured profile capturing conversational sty
 The challenge is balancing these two concepts:
 - A profile listing only catchphrases creates trivially identifiable but shallow agents. 
 - A profile capturing underlying psychological patterns creates agents that might maintain fidelity even in contexts the source persona never encountered.
+
+## In depth analysis: Group Chat Simulation
+Eight agents are instantiated, each conditioned on one persona profile. 
+The simulation needs to run long enough to show persona characteristics, especially subtle behavioral patterns, but not so long that context windows fill up and agents drift... a reasonable target needs to be defined.
+So, we think that an important part of this stage is how to keep the constext window reasonable by using and testing different types of techniques (e.g history truncation).
+As the conversation progresses, the agent must balance two competing pressures: maintaining coherence with the persona profile and maintaining coherence with the recent conversation history. In long conversations, the second pressure tends to dominate. The agent begins to "follow the flow" of the conversation rather than maintain its distinctive character traits. This is particularly problematic if other agents are converging toward consensus or a common tone—our agent might start imitating them rather than preserving its unique style.
+This creates a tension in experimental design. If the conversation is too short (say, 15-20 turns), we might not see deep behavioral patterns emerge. Superficial differences like vocabulary and tone appear immediately, but more complex patterns—how a character handles prolonged disagreement, reacts to being repeatedly ignored, or evolves (or doesn't evolve) during a debate—require time to manifest. If the conversation is too long (say, 150+ turns), agents may have already "forgotten" who they're supposed to be, making it impossible to distinguish whether a behavior reflects the original persona or simply conversational inertia. We have to find a compromise.
