@@ -24,6 +24,18 @@ The judges don't evaluate same aspects of the personas: some evaluate style, oth
 analysis. This has been thought to be able to evaluate different aspects with different focus.
 - The judging phase has different phases: in the first phase, each judge analyze and score individually the chat on the criterias previously indicated. Then, the judges compare their evaluations and try to improve the general accuracy of the system; they finally produce unique score based on their discussion.
 
+## What type of personas ? 
+
+Like said previously, one important point is to define the type of persona that we're gonna use. We thought of focusing
+on two main types:
+- **Fiction persona**: these are created from movies or TV series scripts. While the task could be considered trivial, the problem 
+id to extract a good personality from relatively scarse resources (the character selected can have very few lines).
+- **Real world personas**: in this case, the persona is built from podcast transcripts, by which many information on the person can be retrieved, as well as his style of conversation. In this case, the challenge relies on the fact that persona hideology and beahviour can be more difficult to extract. 
+
+Another interestic aspect to analyze is to evaluate the agents behaviour when they have different background: for example, how well do one agent from a politician field and one from a sport field interact with each other. To evaluate so, we decided to run different situations tests:
++ **Same topic**: the eight agents are built upon personas that came from sape area of interest (politics, sport, TV shows, ...).
++ **Different topic**: the personas of reference for the eight agents come from different background.
+
 
 ## Out-of-scope topics
 - The aim of the project is **not** to create an app: the UI implemented is basic and is needed only to visualize clearly the 
