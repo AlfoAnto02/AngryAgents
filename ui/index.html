@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angry Agents</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="screen-login" class="screen active">
+    <div class="login-wrap">
+      <div class="login-brand">
+        <div class="brand-icon">⚡</div>
+        <h1>Angry Agents</h1>
+        <p>Chat with AI personas from fiction and reality</p>
+      </div>
+      <form id="login-form" class="login-form">
+        <label for="user-slug">Username</label>
+        <input id="user-slug" type="text" placeholder="e.g. mario-rossi" autocomplete="off" required>
+        <button type="submit" class="btn btn-primary btn-full">Enter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <div id="screen-home" class="screen">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="user-chip">
+          <div class="avatar" id="home-avatar"></div>
+          <span id="home-username"></span>
+        </div>
+        <button class="icon-btn" id="logout-btn" title="Logout">&#x2715;</button>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Conversations</div>
+        <div id="home-chats-list" class="chats-list"></div>
+      </div>
+      <div class="sidebar-footer">
+        <button class="btn btn-primary btn-full" id="new-dm-btn">+ New DM</button>
+        <button class="btn btn-outline btn-full" id="new-group-btn">+ New Group Chat</button>
+      </div>
+    </aside>
+    <main class="home-main">
+      <div class="home-hero">
+        <h2>Available Personas</h2>
+        <p>Select a persona to start a conversation, or pick from your recent chats.</p>
+      </div>
+      <div id="agents-grid" class="agents-grid"></div>
+    </main>
+  </div>
+
+  <!-- CHAT -->
+  <div id="screen-chat" class="screen">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <button class="icon-btn" id="back-btn" title="Back">&#x2190;</button>
+        <div class="user-chip">
+          <div class="avatar" id="chat-avatar"></div>
+          <span id="chat-username"></span>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Conversations</div>
+        <div id="chat-chats-list" class="chats-list"></div>
+      </div>
+      <div class="sidebar-footer">
+        <button class="btn btn-primary btn-full" id="new-dm-btn-2">+ New DM</button>
+        <button class="btn btn-outline btn-full" id="new-group-btn-2">+ New Group Chat</button>
+      </div>
+    </aside>
+    <main class="chat-main">
+      <header class="chat-header">
+        <div class="chat-header-info">
+          <div class="avatars-stack" id="chat-avatars-stack"></div>
+          <div>
+            <div class="chat-header-name" id="chat-header-name"></div>
+            <div class="chat-header-sub" id="chat-header-sub"></div>
+          </div>
+        </div>
+      </header>
+      <div class="messages" id="messages"></div>
+      <footer class="chat-footer">
+        <form id="msg-form">
+          <textarea id="msg-input" placeholder="Type a message&#x2026;" rows="1"></textarea>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </footer>
+    </main>
+  </div>
+
+  <!-- MODAL: New DM -->
+  <div id="modal-dm" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>New Direct Message</h2>
+        <button class="icon-btn" id="close-dm-modal">&#x2715;</button>
+      </div>
+      <p class="modal-sub">Choose a persona to chat with</p>
+      <div id="dm-agent-list" class="modal-agent-list"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: New Group -->
+  <div id="modal-group" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>New Group Chat</h2>
+        <button class="icon-btn" id="close-group-modal">&#x2715;</button>
+      </div>
+      <div class="field">
+        <label for="group-topic">Topic</label>
+        <input id="group-topic" type="text" placeholder="e.g. The ethics of AI">
+      </div>
+      <div class="field">
+        <label>Select personas <span class="label-hint">(up to 8)</span></label>
+        <div id="group-agent-list" class="modal-agent-list checkable"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="cancel-group-btn">Cancel</button>
+        <button class="btn btn-primary" id="start-group-btn">Start Chat</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
