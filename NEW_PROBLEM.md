@@ -41,6 +41,8 @@ Related to the group chat case, an interesting aspect is represented by how the 
 
 Another problem is to evaluate judges evaluation. While for the *persona identification* problem we can use ground truth data, for the fidelity, we don't have data to state if judging is good or not. To address this problem, we tought to implement an **External omniscent agent**, which have full context of personas involved in the chat, chat messages and jusges evalutation, and based on all information is able to evaluate the quality of judging process, indicating also the areas of improvement for the evaluation process. 
 
+The omniscent agent doesn't influence evaluation process.
+
 ## User experience
 
 One user can authenticate as:
