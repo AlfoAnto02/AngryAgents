@@ -1,0 +1,21 @@
+# Sicurezza: NON caricare mai le chiavi API
+.env
+.env.local
+secrets.json
+
+# Python: Ignora i file temporanei e compilati
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambienti Virtuali: Ignora la cartella creata da uv o venv
+.venv/
+venv/
+env/
+
+# Sistema: File spazzatura di Windows e Mac
+Thumbs.db
+.DS_Store
+
+# Editor: Impostazioni personali di VS Code
+.vscode/
