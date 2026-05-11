@@ -130,3 +130,5 @@ The E-R diagram contains the following main relationships.
 | `Podcast_Agent_Context` and `Fiction_Agents_Context` are mutually exclusive | An agent belongs to exactly one scenario type, controlled by `Agents.Type of context` |
 | Judges split by `Role` | Four distinct evaluation types require four judge roles; the role field routes each judge to the correct rubric |
 | Up to 20 evaluations per chat | Bounded multi-judge scoring to ensure coverage without unbounded growth |
+
+
