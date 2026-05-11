@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import json
+import os
 from collections import Counter
 
 # Esempio: IMSDb (Internet Movie Script Database)
@@ -84,13 +86,108 @@ def extract_personas(script_text):
     persona_counts = Counter(personas)
     return persona_counts.most_common()  # Returns list of (name, count) tuples
 
-# Esempio di utilizzo
-if __name__ == "__main__":
-    # Scrape and extract personas from Pulp Fiction
-    # URL: https://imsdb.com/scripts/Pulp-Fiction.html
+
+def extract_character_lines(script_text, character_name):
+    """
+    Extract all dialogue lines spoken by a specific character.
     
-    print("Fetching Pulp Fiction script...")
-    script = scrape_imsdb_script("Pulp-Fiction")
+    Args:
+        script_text: Full script text
+        character_name: Name of the character (e.g., "VINCENT")
+    
+    Returns:
+        List of dialogue lines spoken by the character (excluding stage directions)
+    """
+    if not script_text:
+        return []
+    
+    lines = script_text.split('\n')
+    character_lines = []
+    i = 0
+    
+    while i < len(lines):
+        cleaned = lines[i].strip()
+        
+        # Check if this line is the character name
+        if cleaned and re.match(r'^[A-Z][A-Z\s\-\']+(?:\s*\([^)]*\))?$', cleaned):
+            # Extract the base character name (without parentheticals)
+            base_name = re.sub(r'\s*\([^)]*\).*$', '', cleaned).strip()
+            
+            if base_name.upper() == character_name.upper():
+                # Collect dialogue lines that follow
+                i += 1
+                while i < len(lines):
+                    dialogue = lines[i].strip()
+                    
+                    # Stop conditions
+                    if not dialogue:
+                        # Skip empty lines but continue
+                        i += 1
+                        continue
+                    
+                    # Stop if we hit a scene heading (INT/EXT) or character name
+                    if dialogue.startswith('INT ') or dialogue.startswith('EXT '):
+                        break
+                    if re.match(r'^[A-Z][A-Z\s\-\']+(?:\s*\([^)]*\))?$', dialogue):
+                        break
+                    
+                    # Skip lines that are pure stage directions (enclosed in parentheses/brackets)
+                    if dialogue.startswith('[') or dialogue.startswith('('):
+                        i += 1
+                        continue
+                    
+                    # Add dialogue lines (not stage directions)
+                    if dialogue and not dialogue.startswith('---'):
+                        character_lines.append(dialogue)
+                    
+                    i += 1
+                i -= 1
+        
+        i += 1
+    
+    return character_lines
+
+
+def save_character_to_json(character_name, film_name, lines, output_dir="personas"):
+    """
+    Save character data to a JSON file.
+    
+    Args:
+        character_name: Name of the character
+        film_name: Name of the film
+        lines: List of dialogue lines
+        output_dir: Directory to save JSON files (default: "personas")
+    """
+    # Create output directory if it doesn't exist
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    # Create JSON data
+    data = {
+        "character": character_name,
+        "film": film_name,
+        "lines_count": len(lines),
+        "transcript": "\n".join(lines)
+    }
+    
+    # Create filename from character name (sanitize)
+    safe_name = re.sub(r'[^a-zA-Z0-9_\-]', '_', character_name)
+    filename = os.path.join(output_dir, f"{safe_name}.json")
+    
+    # Save to JSON
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    return filename
+
+if __name__ == "__main__":
+    # Scrape and extract personas from Wolf of Wall Street
+    # URL: https://imsdb.com/scripts/Wolf-of-Wall-Street,-The.html
+    
+    movie_title = "Wolf-of-Wall-Street,-The"  # Exact format from IMSDb URL
+    
+    print(f"Fetching {movie_title} script...")
+    script = scrape_imsdb_script(movie_title)
     
     if script:
         print(f"Script fetched successfully! ({len(script)} characters)")
@@ -103,6 +200,18 @@ if __name__ == "__main__":
             print("-" * 40)
             for i, (name, count) in enumerate(personas[:10], 1):
                 print(f"{i:2d}. {name:<25} ({count:3d} lines)")
+            
+            # Save top 5 characters to JSON files in scraping folder
+            print("\n\nSaving top 5 characters to JSON files...")
+            print("-" * 40)
+            output_dir = os.path.join(os.path.dirname(__file__), "personas")
+            for name, count in personas[:5]:
+                # Extract all lines for this character
+                lines = extract_character_lines(script, name)
+                
+                # Save to JSON
+                filename = save_character_to_json(name, movie_title, lines, output_dir)
+                print(f"✓ {name}: {len(lines)} lines → {filename}")
         else:
             print("No personas found in the script.")
     else:
