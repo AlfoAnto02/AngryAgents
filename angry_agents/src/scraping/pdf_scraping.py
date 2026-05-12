@@ -85,7 +85,7 @@ def _detect_thresholds_pdf(lines):
         if not content or len(content) > 50:
             continue
         if _CHAR_RE.match(content) and content.upper() not in _NON_CHAR_WORDS:
-            char_x0s.append(round(line['x0']))
+            char_x0s.append(int(line['x0']))  # floor avoids x0=185.9 → thresh=186 miss
 
     if len(char_x0s) < 10:
         return 220, 108

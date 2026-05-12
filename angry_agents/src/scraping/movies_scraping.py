@@ -114,7 +114,7 @@ def _extract_speech_type(char_cue_content):
     m = _SPEECH_TYPE_RE.search(char_cue_content)
     if not m:
         return 'direct'
-    tag = m.group(1).upper().replace(' ', '').replace("'", '')
+    tag = re.sub(r'[^A-Z]', '', m.group(1).upper())  # strip dots, spaces, apostrophes
     if 'VO' in tag:
         return 'vo'
     if 'OS' in tag:
