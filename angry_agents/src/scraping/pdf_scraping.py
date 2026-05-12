@@ -20,6 +20,26 @@ from collections import Counter, defaultdict
 _SCENE_RE = re.compile(r'^(INT\.|EXT\.)', re.IGNORECASE)
 _CHAR_RE = re.compile(r'^([A-Z][A-Z\s\-\']+?)(?:\s*\([^)]*\))?$')
 _SPEECH_TYPE_RE = re.compile(r'\((V\.O\.(?:\s+CONT\'D)?|O\.S\.|O\.C\.|CONT\'D)\)', re.IGNORECASE)
+
+# Hollywood screenplay revision watermarks embedded in PDF text layer.
+# Patterns: "4.07.05 TAN REVISION 11." or "WHITE REVISION 7-4-07 26."
+_REVISION_COLORS = r'(?:DOUBLE\s+)?(?:WHITE|BLUE|PINK|YELLOW|GREEN|GOLDENROD|BUFF|SALMON|CHERRY|TAN|GRAY)'
+_REVISION_RE = re.compile(
+    r'\s*(?:'
+    r'\d{1,2}[-\.]\d{1,2}[-\.]\d{2,4}\s+' + _REVISION_COLORS + r'\s+REVISION\s+\d+[A-Z]?\.?'
+    r'|'
+    r'' + _REVISION_COLORS + r'\s+REVISION\s+[\d\-\.]+\s+\d+[A-Z]?\.?'
+    r')\s*',
+    re.IGNORECASE,
+)
+
+# Inline character continuation cues that leak into dialogue when PDF column
+# layout places them at dialogue X position instead of character-cue X.
+# e.g. "JACK (CONT'D)" or "NORRINGTON (V.O.)" appearing mid-dialogue string.
+_INLINE_CHAR_CUE_RE = re.compile(
+    r'\s+[A-Z][A-Z\s]{1,24}\s*\((?:CONT\'D|V\.O\.[^)]*|O\.S\.|O\.C\.)\)\s*',
+)
+
 _NON_CHAR_WORDS = {
     'INT', 'EXT', 'CUT', 'FADE', 'DISSOLVE', 'SCENE',
     'THE', 'A', 'AND', 'OR', 'BUT', 'BACK', 'TO',
@@ -182,7 +202,10 @@ def extract_character_lines_pdf(pdf_path, character_name):
                     if kind2 in ('scene', 'character'):
                         break
                     if kind2 == 'dialogue':
-                        dialogue_parts.append(content2)
+                        cleaned = _REVISION_RE.sub(' ', content2)
+                        cleaned = _INLINE_CHAR_CUE_RE.sub(' ', cleaned).strip()
+                        if cleaned:
+                            dialogue_parts.append(cleaned)
                         if len(dialogue_parts) >= _MAX_DIALOGUE_LINES:
                             break
                     # action and parenthetical lines intentionally skipped
@@ -198,6 +221,25 @@ def extract_character_lines_pdf(pdf_path, character_name):
         i += 1
 
     return result
+
+
+def extract_character_lines_from_pdfs(pdf_paths, character_name):
+    """
+    Extract and merge dialogue lines for a character across multiple PDFs.
+
+    Each line dict includes a 'film' field with the source PDF basename so
+    callers can filter or weight by film.
+
+    Returns list of dicts: [{"film": str, "scene": str, "speech_type": str, "dialogue": str}]
+    """
+    all_lines = []
+    for pdf_path in pdf_paths:
+        film = os.path.splitext(os.path.basename(pdf_path))[0]
+        lines = extract_character_lines_pdf(pdf_path, character_name)
+        for line in lines:
+            line['film'] = film
+        all_lines.extend(lines)
+    return all_lines
 
 
 def save_character_to_json(character_name, film_name, lines, output_dir="personas"):
@@ -221,20 +263,34 @@ def save_character_to_json(character_name, film_name, lines, output_dir="persona
 
 
 if __name__ == "__main__":
+    # Usage:
+    #   single PDF, list personas:        python pdf_scraping.py script.pdf
+    #   single PDF, extract character:    python pdf_scraping.py script.pdf CHARACTER
+    #   multiple PDFs, extract character: python pdf_scraping.py CHARACTER script1.pdf script2.pdf ...
     if len(sys.argv) < 2:
-        print("Usage: python pdf_scraping.py <script.pdf> [CHARACTER_NAME]")
+        print("Usage:")
+        print("  python pdf_scraping.py <script.pdf> [CHARACTER]")
+        print("  python pdf_scraping.py <CHARACTER> <script1.pdf> <script2.pdf> ...")
         sys.exit(1)
 
-    pdf_path = sys.argv[1]
-    film_name = os.path.splitext(os.path.basename(pdf_path))[0]
+    # Detect mode: first arg is PDF → single-file mode; first arg is not a PDF → multi-file mode
+    if sys.argv[1].endswith('.pdf'):
+        pdf_paths = [sys.argv[1]]
+        target = sys.argv[2].upper() if len(sys.argv) > 2 else None
+    else:
+        target = sys.argv[1].upper()
+        pdf_paths = sys.argv[2:]
+        if not pdf_paths:
+            print("Error: provide at least one PDF path after the character name.")
+            sys.exit(1)
 
-    print(f"Extracting from: {pdf_path}")
-
-    lines_data = extract_lines_from_pdf(pdf_path)
+    # Always show personas for the first PDF
+    print(f"Scanning: {pdf_paths[0]}")
+    lines_data = extract_lines_from_pdf(pdf_paths[0])
     char_x0, dialogue_x0 = _detect_thresholds_pdf(lines_data)
     print(f"Detected thresholds — character x0 ≥ {char_x0}, dialogue x0 ≥ {dialogue_x0}")
 
-    personas = extract_personas_pdf(pdf_path)
+    personas = extract_personas_pdf(pdf_paths[0])
     if not personas:
         print("No personas found.")
         sys.exit(1)
@@ -244,10 +300,19 @@ if __name__ == "__main__":
     for idx, (name, count) in enumerate(personas[:10], 1):
         print(f"{idx:2d}. {name:<25} ({count:3d} lines)")
 
-    target = sys.argv[2].upper() if len(sys.argv) > 2 else personas[0][0]
-    print(f"\nExtracting lines for: {target}")
+    if target is None:
+        sys.exit(0)
 
-    char_lines = extract_character_lines_pdf(pdf_path, target)
     output_dir = os.path.join(os.path.dirname(__file__), "personas")
+
+    if len(pdf_paths) == 1:
+        film_name = os.path.splitext(os.path.basename(pdf_paths[0]))[0]
+        print(f"\nExtracting lines for: {target}")
+        char_lines = extract_character_lines_pdf(pdf_paths[0], target)
+    else:
+        film_name = [os.path.splitext(os.path.basename(p))[0] for p in pdf_paths]
+        print(f"\nExtracting lines for: {target} across {len(pdf_paths)} PDFs")
+        char_lines = extract_character_lines_from_pdfs(pdf_paths, target)
+
     filename = save_character_to_json(target, film_name, char_lines, output_dir)
     print(f"Saved {len(char_lines)} lines → {filename}")

@@ -10,12 +10,13 @@ Structure:     validate every persona JSON in the personas/ dir.
 import json
 import os
 import pytest
+from bs4 import BeautifulSoup
 
 from angry_agents.src.scraping.movies_scraping import (
-    _classify_line,
-    _strip_artifacts,
-    _detect_thresholds,
     _extract_speech_type,
+    _iter_nodes,
+    extract_personas,
+    extract_character_lines,
 )
 from angry_agents.src.scraping.pdf_scraping import (
     _classify_pdf_line,
@@ -32,7 +33,7 @@ from angry_agents.src.scraping.pdf_scraping import (
 _HERE = os.path.dirname(__file__)
 _SCRAPING_DIR = os.path.join(_HERE, "..", "src", "scraping")
 PERSONAS_DIR = os.path.join(_SCRAPING_DIR, "personas")
-STAR_WARS_PDF = os.path.join(_SCRAPING_DIR, "starwars_fourth3_76.pdf")
+STAR_WARS_PDF = os.path.join(_SCRAPING_DIR, "scripts", "starwars_fourth3_76.pdf")
 
 pdf_available = pytest.mark.skipif(
     not os.path.exists(STAR_WARS_PDF),
@@ -40,71 +41,123 @@ pdf_available = pytest.mark.skipif(
 )
 
 # ---------------------------------------------------------------------------
-# Unit — _classify_line (movies_scraping)
+# Helpers
 # ---------------------------------------------------------------------------
 
-class TestClassifyLine:
-    def test_character_cue(self):
-        assert _classify_line("                    JACK\r", 15, 10) == ("character", "JACK")
-
-    def test_character_with_vo(self):
-        kind, content = _classify_line("                    JACK (V.O.)\r", 15, 10)
-        assert kind == "character"
-        assert "JACK" in content
-
-    def test_dialogue(self):
-        kind, _ = _classify_line("          What do you say to three shillings?", 15, 10)
-        assert kind == "dialogue"
-
-    def test_scene_ext(self):
-        kind, _ = _classify_line("EXT. PORT ROYAL - DAY", 15, 10)
-        assert kind == "scene"
-
-    def test_scene_int(self):
-        kind, _ = _classify_line("INT. BLACKSMITH'S FORGE - NIGHT", 15, 10)
-        assert kind == "scene"
-
-    def test_action(self):
-        kind, _ = _classify_line("He draws his sword slowly.", 15, 10)
-        assert kind == "action"
-
-    def test_parenthetical(self):
-        kind, _ = _classify_line("          (quietly)", 15, 10)
-        assert kind == "parenthetical"
-
-    def test_empty(self):
-        assert _classify_line("", 15, 10) == ("empty", "")
-
-    def test_whitespace_only(self):
-        kind, _ = _classify_line("   \r\n", 15, 10)
-        assert kind == "empty"
-
-    def test_below_char_thresh_not_character(self):
-        # indent=10, char_thresh=15 → should NOT be character even if ALL-CAPS
-        kind, _ = _classify_line("          HERO", 15, 10)
-        assert kind == "dialogue"
+def _make_script_el(html_body):
+    """Wrap HTML in a <pre> and return the BeautifulSoup element."""
+    return BeautifulSoup(f"<pre>{html_body}</pre>", "html.parser").find("pre")
 
 
 # ---------------------------------------------------------------------------
-# Unit — _strip_artifacts
+# Unit — _iter_nodes (movies_scraping)
 # ---------------------------------------------------------------------------
 
-class TestStripArtifacts:
-    def test_strips_trailing_star(self):
-        assert _strip_artifacts("JORDAN                  *") == "JORDAN"
+class TestIterNodes:
+    def test_b_tag_yields_character(self):
+        el = _make_script_el("<b>JACK</b>")
+        kinds = [k for k, _ in _iter_nodes(el)]
+        assert "character" in kinds
 
-    def test_strips_multiple_stars(self):
-        assert _strip_artifacts("DONNIE        ***") == "DONNIE"
+    def test_b_tag_content(self):
+        el = _make_script_el("<b>JACK (V.O.)</b>")
+        chars = [c for k, c in _iter_nodes(el) if k == "character"]
+        assert chars == ["JACK (V.O.)"]
 
-    def test_strips_page_number(self):
-        assert _strip_artifacts("Watch and learn! 2.") == "Watch and learn!"
+    def test_non_char_b_tag_ignored(self):
+        el = _make_script_el("<b>THE</b>")
+        kinds = [k for k, _ in _iter_nodes(el)]
+        assert "character" not in kinds
 
-    def test_strips_page_number_multidigit(self):
-        assert _strip_artifacts("I love drugs. 42.") == "I love drugs."
+    def test_scene_ext_detected(self):
+        el = _make_script_el("\nEXT. PORT ROYAL - DAY\n")
+        kinds = [k for k, _ in _iter_nodes(el)]
+        assert "scene" in kinds
 
-    def test_clean_line_unchanged(self):
-        line = "What do you think you're doing?"
-        assert _strip_artifacts(line) == line
+    def test_scene_int_detected(self):
+        el = _make_script_el("\nINT. BLACKSMITH'S FORGE - NIGHT\n")
+        kinds = [k for k, _ in _iter_nodes(el)]
+        assert "scene" in kinds
+
+    def test_parenthetical_detected(self):
+        el = _make_script_el("\n(quietly)\n")
+        kinds = [k for k, _ in _iter_nodes(el)]
+        assert "parenthetical" in kinds
+
+    def test_empty_line_detected(self):
+        el = _make_script_el("\n\n")
+        kinds = [k for k, _ in _iter_nodes(el)]
+        assert "empty" in kinds
+
+    def test_dialogue_yields_line(self):
+        el = _make_script_el("\nWhat do you say to three shillings?\n")
+        kinds = [k for k, _ in _iter_nodes(el)]
+        assert "line" in kinds
+
+
+# ---------------------------------------------------------------------------
+# Unit — extract_character_lines (movies_scraping)
+# ---------------------------------------------------------------------------
+
+class TestExtractCharacterLines:
+    def _el(self, html):
+        return _make_script_el(html)
+
+    def test_basic_dialogue(self):
+        el = self._el(
+            "\nEXT. DOCKS - DAY\n\n"
+            "<b>JACK</b>\n"
+            "What do you say to three shillings?\n\n"
+        )
+        lines = extract_character_lines(el, "JACK")
+        assert len(lines) == 1
+        assert lines[0]["dialogue"] == "What do you say to three shillings?"
+
+    def test_scene_attached(self):
+        el = self._el(
+            "\nEXT. DOCKS - DAY\n\n"
+            "<b>JACK</b>\n"
+            "That's a fine boat.\n\n"
+        )
+        lines = extract_character_lines(el, "JACK")
+        assert lines[0]["scene"] == "EXT. DOCKS - DAY"
+
+    def test_speech_type_vo(self):
+        el = self._el("<b>JACK (V.O.)</b>\nNarration here.\n\n")
+        lines = extract_character_lines(el, "JACK")
+        assert lines[0]["speech_type"] == "vo"
+
+    def test_other_character_not_collected(self):
+        el = self._el(
+            "<b>WILL</b>\nI'm Will Turner.\n\n"
+            "<b>JACK</b>\nSo you are.\n\n"
+        )
+        lines = extract_character_lines(el, "JACK")
+        assert len(lines) == 1
+        assert "Will Turner" not in lines[0]["dialogue"]
+
+    def test_action_after_blank_not_included(self):
+        el = self._el(
+            "<b>JACK</b>\n"
+            "Savvy?\n\n"
+            "Jack draws his sword.\n\n"
+            "<b>WILL</b>\nYes.\n\n"
+        )
+        lines = extract_character_lines(el, "JACK")
+        assert len(lines) == 1
+        assert "sword" not in lines[0]["dialogue"]
+
+    def test_multiple_speeches(self):
+        el = self._el(
+            "<b>JACK</b>\nFirst line.\n\n"
+            "<b>WILL</b>\nInterrupt.\n\n"
+            "<b>JACK</b>\nSecond line.\n\n"
+        )
+        lines = extract_character_lines(el, "JACK")
+        assert len(lines) == 2
+
+    def test_empty_script(self):
+        assert extract_character_lines(None, "JACK") == []
 
 
 # ---------------------------------------------------------------------------
@@ -129,35 +182,6 @@ class TestExtractSpeechType:
 
     def test_contd_only_is_direct(self):
         assert _extract_speech_type("JACK (CONT'D)") == "direct"
-
-
-# ---------------------------------------------------------------------------
-# Unit — _detect_thresholds (movies_scraping)
-# ---------------------------------------------------------------------------
-
-def _make_script(char_indent, dialogue_indent, n=15):
-    """Minimal synthetic script with known indentation levels."""
-    char_line = " " * char_indent + "HERO"
-    dlg_line = " " * dialogue_indent + "Hello there."
-    return "\n".join([char_line, dlg_line] * n)
-
-
-def test_detect_thresholds_char_indent():
-    script = _make_script(char_indent=20, dialogue_indent=10)
-    char_thresh, _ = _detect_thresholds(script)
-    assert char_thresh == 20
-
-
-def test_detect_thresholds_dialogue_below_char():
-    script = _make_script(char_indent=20, dialogue_indent=10)
-    char_thresh, dialogue_thresh = _detect_thresholds(script)
-    assert dialogue_thresh < char_thresh
-
-
-def test_detect_thresholds_fallback_on_sparse_data():
-    char_thresh, dialogue_thresh = _detect_thresholds("almost empty script")
-    assert char_thresh == 15
-    assert dialogue_thresh == 10
 
 
 # ---------------------------------------------------------------------------
