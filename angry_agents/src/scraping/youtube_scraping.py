@@ -114,7 +114,7 @@ def scrape(
         print(f"[{i:>4}/{len(videos)}] {video['title'][:50]:<50} {status}")
         time.sleep(REQUEST_DELAY)
 
-    out_file = output_dir / "cicciogamer89.json"
+    out_file = output_dir / "j0k3r.json"
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
