@@ -613,33 +613,51 @@
 
     <!-- Slide 11: Database Architecture -->
     <div class="slide">
-        <h2>Database Architecture</h2>
-        <div class="content">
-            <p style="font-style: italic; margin-bottom: 30px; max-width: 1000px;">Core design: Judge anonymity is protected through cryptographic hashing of agent identities in messages.</p>
-            <div class="feature-boxes-grid">
-                <div class="feature-box">
-                    <strong>Agents</strong>
-                    <p>Agent metadata; linked to Podcast or Fiction context (mutually exclusive)</p>
-                </div>
-                <div class="feature-box">
-                    <strong>Chat_messages</strong>
-                    <p>Message content with anonymized author (name + surname + DIGEST)</p>
-                </div>
-                <div class="feature-box">
-                    <strong>Judges</strong>
-                    <p>Judge roles and parameters; 20 judges with assigned specializations</p>
-                </div>
-                <div class="feature-box">
-                    <strong>Judge_evaluation</strong>
-                    <p>Scores per judge per chat (up to 20 evaluations per chat)</p>
-                </div>
-                <div class="feature-box">
-                    <strong>Context Tables</strong>
-                    <p>Podcast_Agent_Context (Q&A) and Fiction_Agents_Context (script lines)</p>
-                </div>
+    <h2>Database Architecture</h2>
+    <div class="content">
+        <p style="font-style: italic; margin-bottom: 30px; max-width: 1000px;">
+            Core design: chats are organized by topic and agent identities in messages are anonymized through hashing.
+        </p>
+
+        <div class="feature-boxes-grid">
+
+            <div class="feature-box">
+                <strong>Group_chat</strong>
+                <p>Represents a chat session.</p>
+            </div>
+
+            <div class="feature-box">
+                <strong>Chat_messages</strong>
+                <p>Stores chat messages with anonymized author identity.</p>
+            </div>
+
+            <div class="feature-box">
+                <strong>Topic</strong>
+                <p>Defines the subject of discussion and groups related chats and agents.</p>
+            </div>
+
+            <div class="feature-box">
+                <strong>Agents</strong>
+                <p>Stores agent identity, metadata, and optional topic link.</p>
+            </div>
+
+            <div class="feature-box">
+                <strong>Agent_context</strong>
+                <p>Contains contextual traits and signature phrases for each agent.</p>
+            </div>
+
+            <div class="feature-box">
+                <strong>Judges</strong>
+                <p>Defines judge roles and evaluation parameters.</p>
+            </div>
+
+            <div class="feature-box">
+                <strong>Judge_evaluation</strong>
+                <p>Stores each judge’s score for a given chat.</p>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Slide 12: Statistical Methods -->
     <div class="slide">
