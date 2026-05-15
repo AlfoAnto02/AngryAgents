@@ -1,0 +1,2665 @@
+{
+  "character": "INDY",
+  "films": [
+    "Indiana-Jones-and-the-Raiders-of-the-Lost-Ark",
+    "Indiana-Jones-and-the-Last-Crusade"
+  ],
+  "lines_count": 531,
+  "lines": [
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "No."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "We don't need them."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "We'll leave them. Once we've got it, we'll be able to reach the plane by dusk."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "If they knew we were here, they would have killed us already."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "So this is where Forrestal cashed in."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Competitor. He was good, very good."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "No one ever had what we have... partners."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Assuming that pillar there marks the corner and..."
+    },
+    {
+      "scene": "EXT. PERU - HIGH JUNGLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Let's go."
+    },
+    {
+      "scene": "INT. TEMPLE - INCLINED PASSAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Forrestal."
+    },
+    {
+      "scene": "INT. TEMPLE - INCLINED PASSAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now, Satipo, we don't want to be discouraged by every little thing."
+    },
+    {
+      "scene": "INT. TEMPLE - INCLINED PASSAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Let me see that."
+    },
+    {
+      "scene": "INT. TEMPLE - INCLINED PASSAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Try not to touch the vines."
+    },
+    {
+      "scene": "INT. TEMPLE - INCLINED PASSAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's what scares me."
+    },
+    {
+      "scene": "INT. TEMPLE - INCLINED PASSAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You wait here."
+    },
+    {
+      "scene": "INT. TEMPLE - INCLINED PASSAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Adios."
+    },
+    {
+      "scene": "EXT. FRONT OF THE TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Too bad they don't know you like I do, Belloq."
+    },
+    {
+      "scene": "EXT. THE URUBAMBA RIVER - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Get it going! Get it going!"
+    },
+    {
+      "scene": "EXT. THE URUBAMBA RIVER - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Jock starts the plane moving across the water as Indy walks across the wing and falls into the passenger compartment."
+    },
+    {
+      "scene": "INT. JOCK'S PLANE - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I can't stand snakes."
+    },
+    {
+      "scene": "INT. JOCK'S PLANE - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I hate them."
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't know. Just because Belloq had it doesn't mean he kept it."
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Getting it away from those Indians would be a neat trick I hope they got him."
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's all right, Phil. Thanks a lot."
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "No. I'll see you Thursday."
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hey, if you don't like them, I can always return them."
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Then what's wrong?"
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What kind of people?"
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Government?"
+    },
+    {
+      "scene": "INT. INDY'S OFFICE, SMALL EASTERN COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I've already served."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "We haven't spoken in ten years. I'm afraid we had a bit of a falling out."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Just rumors. Somewhere in Asia, last I heard."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I understand."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Tanis. Ain't that somethin'!"
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah, Ravenwood's no Nazi."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "They're looking for the headpiece to the Staff of Ra."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Only half of it. Ravenwood had the other half."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "It all has to do with the Ark of the Covenant. (the Army guys look mystified) The chest the Hebrews used to carry around the Ten Commandments."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "An Egyptian pharaoh stole the Ark from Jerusalem and took it back to the city of Tanis. A short time later, Tanis was consumed by the desert in a sandstorm that lasted a year. But before that, the Pharaoh had had the Ark hidden away in a secret chamber called the Well of the Souls. Which is where the Staff of Ra comes in."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now this was rather clever. The Staff was really just a big stick - oh, I don't know, say like this - (he indicates about six feet) no one really knows for sure. Any way, it was capped by an elaborate headpiece with a carving of the sun at the top. What you had to do was take the Staff to a special map room in Tanis - it had the whole city laid out in miniature on the floor. When you placed the Staff in a certain spot in this room, at a certain time of day, the sun would shine through a hole here in the headpiece and then send a beam of light down here - to the map - giving you the location of the Well of the Souls..."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Which is probably what the Nazis are after."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look like? Why, it's right here..."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes. That's what the Hebrews thought."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Who knows... lightning... fire... the power of God."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh yes. The Bible tells of it leveling mountains and wasting entire regions. Moses promised that when the Ark was with you, \"your enemies will be scattered and your foes fell before you\". An army which carries the Ark before it is invincible."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, there's one other thing that Hitler undoubtably believes about the Ark... It's said that the Lost Ark will be recovered at the time of the coming of the True Messiah."
+    },
+    {
+      "scene": "INT. INDY'S LECTURE HALL / CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Most certainly."
+    },
+    {
+      "scene": "EXT. FRONT DOOR, INDY'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "This isn't really a good time."
+    },
+    {
+      "scene": "EXT. FRONT DOOR, INDY'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "All right. Come on in."
+    },
+    {
+      "scene": "INT. FOYER, INDY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "I'll be in a minute."
+    },
+    {
+      "scene": "INT. STUDY, INDY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Good work, Marcus. I had a feeling this would happen. And, of course, the Museum gets the Ark when we're done."
+    },
+    {
+      "scene": "INT. STUDY, INDY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Okay, here's the way it's gonna be. First, I'll high-tail it to Shanghai and get the piece from General Hok. Then I think I know where I can find Ravenwood. If only I can get -"
+    },
+    {
+      "scene": "INT. STUDY, INDY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "I'll worry about that when the time comes. My only hope is to find the Well of the Souls before the Nazis do."
+    },
+    {
+      "scene": "INT. KEHOE'S CAR (SHANGHAI AIRPORT) - DAY",
+      "speech_type": "direct",
+      "dialogue": "What's the hurry?"
+    },
+    {
+      "scene": "INT. KEHOE'S CAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Great. Got it."
+    },
+    {
+      "scene": "INT. KEHOE'S CAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "I've got to get to Nepal."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hello, Marion."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Nice to see you, too."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Take it easy. I'm looking for your father."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What happened?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Do you find him?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Not a bad way to go. Doing what he loved."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Why not leave? Go back to the States."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Where you gonna get it?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I need one of the pieces your father collected."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I never meant to hurt you."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You knew what you were doing."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I guess that depends on your definition."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Look, I did what I did. I don't expect you to be happy about it. But maybe we can do each other some good."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Shut up and listen for a second. I want that piece your father had. I've got money."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Enough to get you back to the States. Where are his things?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Everything?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That's too bad."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Seltzer."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You're a tough broad now, aren't you?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I can only say I'm sorry so many times."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "A bronze piece, about this size. In the shape of the sun. Probably broken off at the bottom. Has a little hole in it, off-center. Does that sound familiar?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Do you know where it is?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Three thousand. American."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Maybe."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay, five thousand. That's all I can give you now. I can get you more when you land in the States."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm back, aren't I?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You can trust me."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Why?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I trust you."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I've heard that."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bossy, aren't you?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" SALOON - PATAN, NEPAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Tomorrow."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hello."
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Let's get out of here!"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's here?"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Forget it! I want you out of here. Now!"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Let's go!"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I owe you plenty!"
+    },
+    {
+      "scene": "INT. \"THE RAVEN\" - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You're something!"
+    },
+    {
+      "scene": "EXT. COURTYARD - SALLAH'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I knew the Germans would hire you, Sallah. They couldn't have an excavation in the desert without the best digger in Egypt."
+    },
+    {
+      "scene": "EXT. COURTYARD - SALLAH'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Tell me about the map room at Tanis."
+    },
+    {
+      "scene": "EXT. COURTYARD - SALLAH'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Those Nazis are moving awfully fast."
+    },
+    {
+      "scene": "EXT. COURTYARD - SALLAH'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Belloq. So he got away from the Indians. This is going to be more interesting that I thought."
+    },
+    {
+      "scene": "EXT. COURTYARD - SALLAH'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "(indicates the headpiece) Even Belloq won't be able to find it without that. Can you make anything of those markings? They're nothing I'm familiar with."
+    },
+    {
+      "scene": "EXT. COURTYARD - SALLAH'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What is it, my friend?"
+    },
+    {
+      "scene": "EXT. HEAVILY TRAFFICKED CAIRO STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "Do you really need that monkey?"
+    },
+    {
+      "scene": "EXT. HEAVILY TRAFFICKED CAIRO STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "And your brains."
+    },
+    {
+      "scene": "EXT. HEAVILY TRAFFICKED CAIRO STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "He'll be OK. Come on. Come on."
+    },
+    {
+      "scene": "EXT. A SMALL BAZAAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Run! Get out of here!"
+    },
+    {
+      "scene": "EXT. A SMALL BAZAAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Go, dammit! Go!"
+    },
+    {
+      "scene": "EXT. DESERTED SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Marion."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Too bad. I'm drinking alone."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Belloq."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I ought to kill you right now."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Not a very private place for a murder."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Try the local sewer."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Now you're getting nasty."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What about your boss, der Fuhrer? I thought he was waiting to take possession."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I hope your friends are patient. Dangerous work, Belloq."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Tell me, did you get away with the idol?"
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You know, if it's God you want to talk to, maybe I can arrange it."
+    },
+    {
+      "scene": "INT. ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yes. Yes, I'll come now."
+    },
+    {
+      "scene": "INT. SALLAH'S TRUCK - IN FRONT OF ARAB BAR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Thanks you. Marion's dead."
+    },
+    {
+      "scene": "INT. SALLAH'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "And they made the calculation in the map room?"
+    },
+    {
+      "scene": "INT. SALLAH'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "The Well of the Souls."
+    },
+    {
+      "scene": "INT. SALLAH'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Just want I need."
+    },
+    {
+      "scene": "INT. SALLAH'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "How 'bout the height of the staff? Did Belloq get it off of there?"
+    },
+    {
+      "scene": "INT. SALLAH'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "You said their top section was blank. Are you absolutely sure?"
+    },
+    {
+      "scene": "INT. SALLAH'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Belloq's staff is seven and a half inches short. They're digging in the wrong spot!"
+    },
+    {
+      "scene": "EXT. RISE ABOVE THE TANIS DIGS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "My God! They aren't kidding!"
+    },
+    {
+      "scene": "EXT. RISE ABOVE THE TANIS DIGS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "What time does the sun hit the map?"
+    },
+    {
+      "scene": "EXT. RISE ABOVE THE TANIS DIGS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "We haven't got much time. Where are the Germans digging for the Well of the Souls?"
+    },
+    {
+      "scene": "EXT. RISE ABOVE THE TANIS DIGS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Okay. Let's go."
+    },
+    {
+      "scene": "INT. MAP ROOM",
+      "speech_type": "direct",
+      "dialogue": "Sallah. Sallah!"
+    },
+    {
+      "scene": "INT. MAP ROOM",
+      "speech_type": "direct",
+      "dialogue": "Sallah!"
+    },
+    {
+      "scene": "INT. THE TENT",
+      "speech_type": "direct",
+      "dialogue": "I though you were dead."
+    },
+    {
+      "scene": "INT. THE TENT",
+      "speech_type": "direct",
+      "dialogue": "They must have switched baskets. Thank god for that! Bless those bastards. Have they hurt you?"
+    },
+    {
+      "scene": "INT. THE TENT",
+      "speech_type": "direct",
+      "dialogue": "(putting the knife away) I have to leave you here for a little while. I know where the Ark is. If I take you out of here they'll start combing the place for us."
+    },
+    {
+      "scene": "INT. THE TENT",
+      "speech_type": "direct",
+      "dialogue": "Keep your voice down."
+    },
+    {
+      "scene": "INT. THE TENT",
+      "speech_type": "direct",
+      "dialogue": "Look, you don't know how glad I am to see you. And I don't like doing this. But the whole thing will be shot if you don't just sit here quietly. They haven't hurt you in the last twenty-four hours, they aren't going to start now. I'll be back to get you in no time."
+    },
+    {
+      "scene": "EXT. DIFFERENT DUNE - DAY",
+      "speech_type": "direct",
+      "dialogue": "There!"
+    },
+    {
+      "scene": "EXT. INDY'S DIG - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The Ark must be in that stone case. What's that gray stuff all over the floor -"
+    },
+    {
+      "scene": "EXT. INDY'S DIG - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Why snakes? Why did it have to be snakes? Anything else."
+    },
+    {
+      "scene": "EXT. INDY'S DIG - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Lots of torches. And oil. I want a landing strip down there."
+    },
+    {
+      "scene": "INT. THE WELL OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Don't touch it! Never touch it!"
+    },
+    {
+      "scene": "INT. THE WELL OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Hurry up! Why did it have to be snakes?"
+    },
+    {
+      "scene": "INT. THE WELL OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "What the -"
+    },
+    {
+      "scene": "INT. THE WELL OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Why don't you fellows come down here? I'll show you."
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Don't panic. There's plenty of time for that later. Wave that at anything that slithers."
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Just watch the floor."
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "There!"
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Come on!"
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Stay here!"
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "I'll be back in a minute. We're going through this wall."
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Just keep your eyes open and get ready to run. No matter what happens to me."
+    },
+    {
+      "scene": "INT. WELLS OF THE SOULS",
+      "speech_type": "direct",
+      "dialogue": "Come on!"
+    },
+    {
+      "scene": "INT. THE CATACOMBS",
+      "speech_type": "direct",
+      "dialogue": "I guess not. I think I'd be dead."
+    },
+    {
+      "scene": "INT. THE CATACOMBS",
+      "speech_type": "direct",
+      "dialogue": "Absolutely."
+    },
+    {
+      "scene": "INT. THE CATACOMBS",
+      "speech_type": "direct",
+      "dialogue": "Out."
+    },
+    {
+      "scene": "INT. THE CATACOMBS",
+      "speech_type": "direct",
+      "dialogue": "Don't do that. It scares me."
+    },
+    {
+      "scene": "INT. THE CATACOMBS",
+      "speech_type": "direct",
+      "dialogue": "Look!"
+    },
+    {
+      "scene": "EXT. THE TANIS DIGS - NEAR AIRSTRIP - DAY",
+      "speech_type": "direct",
+      "dialogue": "When the Ark gets loaded, we're already going to be on that plane."
+    },
+    {
+      "scene": "EXT. THE TANIS DIGS - NEAR AIRSTRIP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Get out! Get out!"
+    },
+    {
+      "scene": "EXT. THE RISE ABOVE AIRSTRIP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where is it?"
+    },
+    {
+      "scene": "EXT. AMONG THE TENTS - DAY",
+      "speech_type": "direct",
+      "dialogue": "You two get back to Cairo quick and get us transportation to England - a plane, a ship, anything."
+    },
+    {
+      "scene": "EXT. AMONG THE TENTS - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm going to get that truck. I'll meet you at Omar's. Be ready for me."
+    },
+    {
+      "scene": "EXT. AMONG THE TENTS - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't know. I'm making this up as I go."
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's lovely."
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That's what you look like."
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What would you like to recapture?"
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Did I ever say I was sorry I burned down your tavern?"
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You saved my life."
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Seems things have worked out kind of even."
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Maybe we should consider all past accounts closed."
+    },
+    {
+      "scene": "INT. INDY'S CABIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What else?"
+    },
+    {
+      "scene": "INT. INDY'S CABIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "The engines have shut down."
+    },
+    {
+      "scene": "INT. INDY'S CABIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm going to find out."
+    },
+    {
+      "scene": "EXT. THE BRIDGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What's wrong?"
+    },
+    {
+      "scene": "EXT. THE BRIDGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Holy shit."
+    },
+    {
+      "scene": "EXT. THE PERISCOPE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Damn!"
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Hold it. One move from anybody and I blow that box back to Moses."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "What about you? Talked to God yet? Where's the girl?"
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "That depends on how reasonable we're all willing to be. All I want is the girl. We'll keep possession of the Ark only till we've got safe transport to England. Then it's all yours."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Then the Ark and some of us are going up in a big bang. I don't think Hitler would like that a bit. Now I don't want to talk about this anymore. Show me that girl in five seconds or -"
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "It's a bad habit. I'm trying to break it."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Thanks. If you talk to Him, tell Him I'm on my way up."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Marion! Marion, can you hear me?"
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Hi."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Glad I could make it."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Let's get out of here."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Are you game?"
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Okay. Let's do it."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "Whatever you do, don't touch it. Let's put it on the floor."
+    },
+    {
+      "scene": "INT. THE TABERNACLE",
+      "speech_type": "direct",
+      "dialogue": "We'll go down that side. Shoot anyone who looks at us crosseyed."
+    },
+    {
+      "scene": "INT. COMMAND CENTER",
+      "speech_type": "direct",
+      "dialogue": "Get down!"
+    },
+    {
+      "scene": "INT. THE PENTAGON - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's a powerful force. Research should be done -"
+    },
+    {
+      "scene": "INT. THE PENTAGON - DAY",
+      "speech_type": "direct",
+      "dialogue": "Who?"
+    },
+    {
+      "scene": "INT. THE PENTAGON - DAY",
+      "speech_type": "direct",
+      "dialogue": "We may be able to help."
+    },
+    {
+      "scene": "EXT. PENTAGON STEPS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, like what?"
+    },
+    {
+      "scene": "EXT. PENTAGON STEPS - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's not the Ark... but it'll have to do."
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Shhhl"
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's the Cross of Coronadol Cortes gave it to him in 15201"
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "That Cross is an important artifact. It belongs in a museum."
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Run back and find the others. Tell Mister Havelock that there are men looting in the caves."
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Have him bring the sheriff."
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's only a snake."
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Did you hear what I said?"
+    },
+    {
+      "scene": "INT. THE PASSAGEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't know... I'll think of something."
+    },
+    {
+      "scene": "EXT. THE  CLIFFS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Mister Havelock! Anybody Everybody's lost but me!"
+    },
+    {
+      "scene": "EXT. THE  CLIFFS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hyahl Hyah!"
+    },
+    {
+      "scene": "INT. THE REPTILE CAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh..."
+    },
+    {
+      "scene": "INT. THE REPTILE CAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh... Oh..."
+    },
+    {
+      "scene": "EXT. THE RHINO BOXCAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Holy smokes!"
+    },
+    {
+      "scene": "INT. THE STOCKCAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ohhh!"
+    },
+    {
+      "scene": "EXT. THE ROOFTOP OF STOCKCAR",
+      "speech_type": "direct",
+      "dialogue": "It belongs to Coronado."
+    },
+    {
+      "scene": "EXT. THE ROOFTOP OF STOCKCAR",
+      "speech_type": "direct",
+      "dialogue": "This should be in a museum."
+    },
+    {
+      "scene": "EXT. THE ROOFTOP OF STOCKCAR",
+      "speech_type": "direct",
+      "dialogue": "Magic?"
+    },
+    {
+      "scene": "EXT. STREET - SMALL TOWN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. THE HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. THE HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. THE STUDY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. THE STUDY - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's important!"
+    },
+    {
+      "scene": "INT. THE STUDY - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, Dad. You listen to me"
+    },
+    {
+      "scene": "INT. THE STUDY - DAY",
+      "speech_type": "direct",
+      "dialogue": "One, two, three, four..."
+    },
+    {
+      "scene": "INT. THE STUDY - DAY",
+      "speech_type": "direct",
+      "dialogue": "One... two... three... four..."
+    },
+    {
+      "scene": "INT. THE FRONT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Just the man I want to see! Now, there were five or six of them."
+    },
+    {
+      "scene": "INT. THE FRONT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "... they came after... me..."
+    },
+    {
+      "scene": "INT. THE FRONT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, yes, sir. It's right here!"
+    },
+    {
+      "scene": "INT. THE FRONT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Too small for two of us."
+    },
+    {
+      "scene": "INT. THE FRONT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "That belongs in a museum"
+    },
+    {
+      "scene": "EXT. COLLEGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Archaeology is..."
+    },
+    {
+      "scene": "INT. COLLEGE LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "... the search for fact. Not truth. If it's truth you're interested in, Doctor Tyree's Philosophy class is right down the hall."
+    },
+    {
+      "scene": "INT. CORRIDOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "So forget any ideas you've got about lost cities, exotic travel, and digging up the world. Eve do not follow maps to buried treasure and \"X\" never, ever, marks the spot."
+    },
+    {
+      "scene": "INT. CORRIDOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Seventy percent of all archaeology is done in the library. Research. Reading."
+    },
+    {
+      "scene": "INT. LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "We cannot afford to take mythology at face value."
+    },
+    {
+      "scene": "INT. LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Next week: \"Egyptology.\" Starting with the excavation of Naukratis by Blinders Petrie in 1885. I will be in my office if anybody's got any problems for the next hour and a half."
+    },
+    {
+      "scene": "INT. LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Marcus! I did it!"
+    },
+    {
+      "scene": "INT. LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "You know how long I've been looking for that?!"
+    },
+    {
+      "scene": "INT. LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "All my life!"
+    },
+    {
+      "scene": "INT. LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "We can discuss my honorarium over dinner and champagne tonight."
+    },
+    {
+      "scene": "INT. LECTURE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Your treat."
+    },
+    {
+      "scene": "INT. INDY'S OUTER OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Shush! Shush! Shushl"
+    },
+    {
+      "scene": "INT. INDY'S OUTER OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Okay. Irene, put everyone's name on a list, in the order they arrived, and I'll see each and every one of them in turn."
+    },
+    {
+      "scene": "INT. INDY'S OUTER OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"Venice, Italy.\""
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "I know who you are Mr. Donovan. Your contributions to the museum over the years have been extremely generous. Some of the pieces in your collection here are very impressive."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, it's sandstone. Christian symbol. Early Latin text. Mid- Twelfth Century, I should think."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where did this come from?"
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"... who drinks the water I shall give him, says the Lord, will have a spring inside him welling up for eternal life. Let them bring me to your holy mountain in the place where you dwell."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Across the desert and through the mountain to the Canyon of the Crescent Moon, to the Temple where the cup that\""
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"Where the cup that holds the blood of Jesus Christ resides forever. \""
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "The Arthur Legend. I've heard this bedtime story before."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "An old man's dream."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Grail lore is his hobby. He's a teacher of Medieval Literature. The one the students hope they don't get."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "What good is it? This Grail Tablet speaks of deserts and mountains and canyons. Pretty vague. Where do you start looking? Maybe if the Tablet were intact, you'd have something to go on. But the entire top portion is missing."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "I've heard this one as well. Two of these brothers walked out of the desert one hundred and fifty years after having found the Grail and began the long journey back to France. But only one of them made it. And before dying of extreme old age, he supposedly imparted his tale to ato a Franciscan friar, I think."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's usually when the ground falls out from underneath your feet."
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes?"
+    },
+    {
+      "scene": "INT. PENTHOUSE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "You've got the wrong Jones, Mister Donovan. Why don't you try my father?"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Dad? He's an academic A bookworm. He's not a field mans"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Dad? Dad?"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "I don't know. But whatever it is, he's in over his head!"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Dad?"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Mail! That's it, Marcus!"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Venice, Italy!"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "It's Dad's Grail Diary. Every clue he ever followed. Every discovery he made. A complete record of his search for the Holy Grail. This is his whole life. Why would he have sent this to me?"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Do you believe, Marcus?"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Do you believe the Grail actually exists?"
+    },
+    {
+      "scene": "INT. THE HOUSE - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Call Donovan, Marcus. Tell him I'll take that ticket to Venice now."
+    },
+    {
+      "scene": "EXT. VENICE - BOAT LANDING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah, Venice..."
+    },
+    {
+      "scene": "EXT. VENICE - BOAT LANDING - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't know. Maybe he'll know us."
+    },
+    {
+      "scene": "EXT. VENICE - BOAT LANDING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes?"
+    },
+    {
+      "scene": "EXT. VENICE - BOAT LANDING - DAY",
+      "speech_type": "direct",
+      "dialogue": "And my mother's ears. But the rest belongs to you."
+    },
+    {
+      "scene": "EXT. VENICE CANAL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Who? Attila the Professor? He was never giddy, even when he was a schoolboy!"
+    },
+    {
+      "scene": "EXT. VENICE CANAL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Frauleinwill you permit me?"
+    },
+    {
+      "scene": "EXT. VENICE CANAL - DAY",
+      "speech_type": "direct",
+      "dialogue": "I usually don't either."
+    },
+    {
+      "scene": "EXT. VENICE CANAL - DAY",
+      "speech_type": "direct",
+      "dialogue": "It would make me very happy."
+    },
+    {
+      "scene": "EXT. VENICE CANAL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Tomorrow I'll steal you another."
+    },
+    {
+      "scene": "EXT. VENICE CANAL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Roman numerals."
+    },
+    {
+      "scene": "EXT. VENICE PIAZZA - DAY",
+      "speech_type": "direct",
+      "dialogue": "That doesn't look much like a library."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "MarcusI've seen this window before."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Right here. In Dad's Diary. You see?"
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad was onto something here!"
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "My dad sent me this Diary for a reason. Until we find out why, I suggest we keep it to ourselves."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad wasn't looking for a book about the Knight's Tomb... he was looking for the Tomb itself"
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't you get it? The Tomb is somewhere in the library! You said yourself it used to be a church! Look."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Three."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Three!"
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Seven."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Seven... Ten."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "And ten. Now where's the ten? Look around for the ten."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Three, seven and ten."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ten. \"X\" marks the spot."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Bingo."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Except he's lost, and I'm not."
+    },
+    {
+      "scene": "INT. THE LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look after this for me, will you?"
+    },
+    {
+      "scene": "INT. CATACOMBS BELOW LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on."
+    },
+    {
+      "scene": "INT. CATACOMBS BELOW LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Right. Six hundred years before the Crusades."
+    },
+    {
+      "scene": "INT. CATACOMBS BELOW LIBRARY - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's right. If there's a Knight of the First Crusade entombed down here, that's where we'll find him."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "The Ark of the Covenant."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Pretty sure."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Watch out."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Petroleum. I could sink a well down here and retire."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Give me the lighter."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, rats..."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come onl"
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come here."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look. . ."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "It must be one of these..."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "This is itl we found it! Look the engraving on the Shield. It's the same as on the Grail Tablets The Shield is the Second Marker!"
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's a rubbing Dad made of the Grail Tablet."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "He never would have made it past the rats! He hates rats! He's scared to death of them!"
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Get back! Back against the wall."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Quick! Under it!"
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Air pocket!"
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't wander off."
+    },
+    {
+      "scene": "INT. ANOTHER PART OF THE CATACOMBS - DAY",
+      "speech_type": "direct",
+      "dialogue": "I think I've found a way out. Deep breath."
+    },
+    {
+      "scene": "EXT. VENICE PIAZZA - OUTDOOR CAFE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah, Venicel"
+    },
+    {
+      "scene": "EXT. THE HARBOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Are you crazy?! You don't go between them!"
+    },
+    {
+      "scene": "EXT. THE HARBOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "I said go around!"
+    },
+    {
+      "scene": "EXT. THE HARBOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "I said don't go between them!"
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Why are you trying to kill us?"
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "My father was looking for the Holy Grail. Did you kill him too?"
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where is he? Talkor you're dead. Damn it, tell me! Tell me!"
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Then we'll die."
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "This is your last chance."
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "All right! Where's my father"
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Who are you?"
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "And why were you trying to kill me?"
+    },
+    {
+      "scene": "EXT. BETWEEN THE TWO FREIGHTERS - DAY",
+      "speech_type": "direct",
+      "dialogue": "I didn't come for the Cup of Christ. I came to find my father."
+    },
+    {
+      "scene": "INT. VENICE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "How's the head?"
+    },
+    {
+      "scene": "INT. VENICE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "The Knights of the First Crusade laid siege to the city of Alexandretta for over a year. The entire city was destroyed."
+    },
+    {
+      "scene": "INT. VENICE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "The present city of Iskenderun is built on its ruins. Marcus you remember what the Grail Tablet said. \"Across the desert and through the mountain to the Canyon of the Crescent Moon.\" But where exactly?"
+    },
+    {
+      "scene": "INT. VENICE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Alexandretta. Now we know."
+    },
+    {
+      "scene": "INT. VENICE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Marcus, get hold of Sallah. Tell him to meet you in Iskenderun."
+    },
+    {
+      "scene": "INT. VENICE APARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm going after Dad."
+    },
+    {
+      "scene": "INT. HALLWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa?"
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa?"
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa?"
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa?"
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Mine, too."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "This."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Uh-huh."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I didn't know you."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "At least I let you tag along."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Knock it off. You're not mad."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "No. You like the way I do things."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look, what do you think is going on here? Since I've met you, I've nearly been incinerated, drowned, shot at, and chopped into fish bait. We're caught in the middle of something sinister here. My guess is Dad found out more than he was looking for. And until I'm sure, I'm going to continue to do things the way I think they should be done."
+    },
+    {
+      "scene": "INT. ELSA'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Leave me alone. I don't like fast women."
+    },
+    {
+      "scene": "INT. INDY'S BEDROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ahh, Venice."
+    },
+    {
+      "scene": "EXT. CASTLE IN THE AUSTRIAN MOUNTAINS - DAY",
+      "speech_type": "direct",
+      "dialogue": "What do you know about this place?"
+    },
+    {
+      "scene": "INT. MERCEDES-BENZ - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't know. Think of something."
+    },
+    {
+      "scene": "INT. CASTLE ENTRANCE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "And not before time! Did you intend to leave us standing on the doorstep all day? We're drenched!"
+    },
+    {
+      "scene": "INT. CASTLE ENTRANCE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now look! I've gone and caught a sniffle."
+    },
+    {
+      "scene": "INT. CASTLE ENTRANCE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't take that tone with me, my good man. Now buttle off and tell Baron Brunwald that Lord Clarence MacDonald and his lovely assistant are here to view the tapestries."
+    },
+    {
+      "scene": "INT. CASTLE ENTRANCE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dear me, the man is dense. This is a castle, isn't it? There are tapestries?"
+    },
+    {
+      "scene": "INT. CASTLE ENTRANCE HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "How dare he?!"
+    },
+    {
+      "scene": "INT. CASTLE HALLWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Nazis. I hate these guys."
+    },
+    {
+      "scene": "INT. CASTLE HALLWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "This one. I think he's in here."
+    },
+    {
+      "scene": "INT. CASTLE HALLWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Because it's wired."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't worry... this is kid's play. I'll be right back."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes, sirl"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "(an old familiar irritation) Don't call me that, please."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I came to get you! What do you think?"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "And the head. You hit me, Dad!"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "(surprised, misunderstanding) Don't worryI'm fine."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "No! Dad, get your stuff. We've got to get out of here."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad, they come in through the doors."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I got it and I used it. We found the entrance to the catacombs."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Right."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Found it."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, what was left of him."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Alexandretta."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, Dad. You did. Forty years."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "There were rats, Dad."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah. big ones. What do the Nazis want with you Dad?"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah?"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah. . ."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, uh..."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look, can we discuss this later?"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Will you take it easy....!"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I came here to save you."
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I told you--"
+    },
+    {
+      "scene": "INT. THE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "--don't call me Junior!"
+    },
+    {
+      "scene": "INT. CASTLE HALLWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa? Elsa?"
+    },
+    {
+      "scene": "INT. FIRST CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "What?!"
+    },
+    {
+      "scene": "INT. FIRST CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "No! Don't Shoot!"
+    },
+    {
+      "scene": "INT. FIRST CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Wait! Waitl"
+    },
+    {
+      "scene": "INT. FIRST CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, don't be."
+    },
+    {
+      "scene": "INT. BARONIAL ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "She ransacked her own room and I fell for it. How did you know she was a Nazi?"
+    },
+    {
+      "scene": "INT. BARONIAL ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "How did you she was a Nazi?"
+    },
+    {
+      "scene": "INT. BARONIAL ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Donovan"
+    },
+    {
+      "scene": "INT. BARONIAL ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "So it did."
+    },
+    {
+      "scene": "INT. BARONIAL ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "The hell you will. He's got a two-day head-start on you, which is more than he needs. Brody's got friends in every town and village from here to the Sudan. He speaks a dozen languages, knows every local custom. He'll blend in. Disappear. You'll never see him again. With any luck, he's got the Grail already."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm sorry you think so."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ooooh... I like the Austrian way better."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Let's try and get these ropes loose. We've got to get to Marcus before the Nazis do!"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Are you kidding?I made that up! You know Marcushe got lost once in his own museum!"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Can you try and reach into my left jacket pocket?"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "My lucky charm."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Try and burn through the ropes."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't get sentimental now Dad save it 'til we get out of here."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "What???"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "All right, movel Move! Rock your Chair. Do what I do."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Head for the fireplace!"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "I think I can get these ropes off."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Whoopsl"
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Listen Dad... I'm almost free."
+    },
+    {
+      "scene": "INT. CASTLE ROOM - DAWN",
+      "speech_type": "direct",
+      "dialogue": "I'm out, Dad!"
+    },
+    {
+      "scene": "INT. RADIO ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on Dad."
+    },
+    {
+      "scene": "INT. SECRET ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dead end."
+    },
+    {
+      "scene": "INT. SECRET ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "There's got to be a... a secret door around. A passageway or something."
+    },
+    {
+      "scene": "INT. SECRET ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. CAVERN/UNDERGROUND HARBOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Great. More boats."
+    },
+    {
+      "scene": "INT. CAVERN/UNDERGROUND HARBOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ooofl No! It's been better than most."
+    },
+    {
+      "scene": "INT. CAVERN/UNDERGROUND HARBOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on, Dad. Come onl"
+    },
+    {
+      "scene": "EXT. COUNTRY ROAD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ha!"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "(pointing towards Venedig) Brody's this way."
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You don't need the Diary, Dad. Marcus has the map."
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "All right Dadtell me."
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What final challenge?"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Booby traps?"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "But what are they? Can't you remember?"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Half the German Army's on our tail and you want me to go to Berlin? Into the lion's den?"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What about Marcus?"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Two selfless martyrs. Jesus Christl"
+    },
+    {
+      "scene": "EXT. ROAD BARRICADE - DAY",
+      "speech_type": "direct",
+      "dialogue": "This is an obsession Dad. I never understood it. Never. Neither did Mom."
+    },
+    {
+      "scene": "EXT. CITY SQUARE - BERLIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Fraulein Doctor. Where is it?"
+    },
+    {
+      "scene": "EXT. CITY SQUARE - BERLIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Where is it? I want it."
+    },
+    {
+      "scene": "EXT. CITY SQUARE - BERLIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "My father didn't want it incinerated."
+    },
+    {
+      "scene": "EXT. CITY SQUARE - BERLIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yet you stood up to be counted with the enemy of everything the Grail stands forwho gives a damn what you think?"
+    },
+    {
+      "scene": "EXT. CITY SQUARE - BERLIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "All I have to do is squeeze."
+    },
+    {
+      "scene": "EXT. CITY SQUARE - BERLIN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I've got it. Let's get the hell out of here."
+    },
+    {
+      "scene": "INT. TERMINAL BUILDING - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't know. The first available flight out of Germany."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, we made it."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Relax."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "sits back in his chair, looks to HENRY, now reading his newspaper."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "os",
+      "dialogue": "Fahrscheine, bitte."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Tickets please."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Fahrscheine meine Dame. Bitte."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Fahrscheine meine Herr."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "Tickets please."
+    },
+    {
+      "scene": "INT. THE ZEPPELIN - PASSENGER COMPARTMENT - DAY",
+      "speech_type": "direct",
+      "dialogue": "(in German; with a shrug) No ticket."
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's not all we shared. It's disgraceful. You're old enough to be her fa---er, her grandfather!"
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "I was the next man."
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Do you remember the last time we had a quiet drink? I had a milk shake."
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "We didn't talk. We never talked."
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "A regret. It was just the two of us, Dad. It was a lonely way to grow up. For you, too. If you had been an ordinary, average father like the other guys' dads, you'd have understood that."
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "When?"
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "What you taught me was that I was less important to you than people who had been dead for five hundred years in another country. And I learned it so well that we've hardly spoken for twenty years."
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad, how can you --?"
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well... I can't think of anything."
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "What does that mean?"
+    },
+    {
+      "scene": "INT. ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "They're turning around. They're taking us back to Germany."
+    },
+    {
+      "scene": "INT. FRAMEWORK OF ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, I thought it would take them a lot longer to figure out the radio was dead. Come on, Dad. Move!"
+    },
+    {
+      "scene": "INT. FRAMEWORK OF ZEPPELIN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on, Dad. Come on!"
+    },
+    {
+      "scene": "EXT. AIRPLANE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Fly--yes. Land--no."
+    },
+    {
+      "scene": "INT. THE BIPLANE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad, you're gonna have to use the machine gun. Get it ready."
+    },
+    {
+      "scene": "INT. THE BIPLANE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Eleven o'clock!"
+    },
+    {
+      "scene": "INT. THE BIPLANE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dadeleven o'clock!!"
+    },
+    {
+      "scene": "INT. THE BIPLANE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Twelveeleventen. Eleven o'clock. Fire!"
+    },
+    {
+      "scene": "INT. THE BIPLANE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad, are we hit?!"
+    },
+    {
+      "scene": "INT. THE BIPLANE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hang on, Dads We're going in!"
+    },
+    {
+      "scene": "EXT. A FIELD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Thanks."
+    },
+    {
+      "scene": "EXT. A FIELD - DAY",
+      "speech_type": "direct",
+      "dialogue": "I know, Dadl"
+    },
+    {
+      "scene": "EXT. A FIELD - DAY",
+      "speech_type": "direct",
+      "dialogue": "It happens to me all the time."
+    },
+    {
+      "scene": "INT. THE CAR - TRAVELING - DAY",
+      "speech_type": "direct",
+      "dialogue": "This could be close."
+    },
+    {
+      "scene": "EXT. ROAD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad, he's coming back."
+    },
+    {
+      "scene": "EXT. ROAD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Bullets kick up sand leading up to him... then"
+    },
+    {
+      "scene": "EXT. ISKENDERUN STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "What happened to Marcus, Sallah?"
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah, I see Brody. He seems okay. They've got a tank. Six-pound gun."
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad, we're well out of range."
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "(gesturing to the others) Come on--come on!"
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Who cares? As long as they're keeping Donovan busy. Dad, you stay here while Sallah and I organize some transportation."
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm going after those horses."
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't need camels."
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "No camels!"
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "leaps atop a TURKISH SOLDIER on horseback, pulling the man and the horse to the ground. A SECOND TURK comes to assist his comrade; INDY mounts the horse, knocking both Turks to the ground."
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sallah, I said no camels! That's five camels. Can't you Count?"
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where's my father?"
+    },
+    {
+      "scene": "EXT. DESERT VALLEY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad! Dad! Dad!"
+    },
+    {
+      "scene": "INT. TANK- DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "INT. TANK- DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad! Dadl Get it!"
+    },
+    {
+      "scene": "EXT. TANK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad?"
+    },
+    {
+      "scene": "EXT. TANK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Get out of there, Dad!"
+    },
+    {
+      "scene": "EXT. TANK- DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad!"
+    },
+    {
+      "scene": "EXT. TANK- DAY",
+      "speech_type": "direct",
+      "dialogue": "Hang on, Dad!"
+    },
+    {
+      "scene": "EXT. TANK- DAY",
+      "speech_type": "direct",
+      "dialogue": "Sallah! Get Dadl"
+    },
+    {
+      "scene": "EXT. TANK- DAY",
+      "speech_type": "direct",
+      "dialogue": "looks down at the fast-approaching cliff, his face filled with horror. We SEE his HAT BLOW OFF and sail over the cliff's edge."
+    },
+    {
+      "scene": "EXT. CLIFF EDGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I thought you had too, sir."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm like a bad penny. I always turn up."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "As what? A Nazi stooge like you?"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Shooting me won't get you anywhere."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad?!"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"The Breath of God... Only the penitent man will pass. Only the penitent man will pass. . . \""
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"The penitent man will pass. The penitent man...\""
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "The penitent man will pass. The penitent... the penitent. The penitent man..."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "The penitent man is humble before God."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "The penitent man is humble..."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "He kneels before God. Kneel!!"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm through!"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"The second challenge is the Word of God. Only in the footsteps of God will he proceed.\" The Word of God... The Word of..."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"Proceed in the footsteps of the Word.\""
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "The Name of God... Jehovahl"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "INDY takes a step and immediately a stone breaks away and INDY falls up to his hip -- his leg stuck through the hold where the stone once was."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "In Latin, \"Jehovah\" starts with an \"I.\" \"I\"..."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "INDY sighs with relief and steps forward to:"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "\"The path of flood. Only in the leap from the lion's head will he prove his worth.\""
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Impossiblel Nobody can jump this!"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's... a leap of faith. Oh, God."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Who are you?"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That was seven hundred years ago."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm not exactly...a knight. What do you mean?"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Listen, I don't have time to explain, but"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's the cup of a carpenter."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "There's only one way to find out."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad, come on. Get to your feet."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa! Elsa, don't movel"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa, don't cross the Seal. The Knight warned us not to take the Grail from here."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa. Elsa don't. Elsa. Elsa. Give me your other hand, honey. I can't hold you."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa! Give me your hand. Give me your other hand!"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elsa!!"
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I can get itI can almost reach it, Dad."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad. . ."
+    },
+    {
+      "scene": "INT. TEMPLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Please, Dad..."
+    },
+    {
+      "scene": "EXT. ENTRANCE TO MOUNTAIN TEMPLE - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "What did vou find, Dad?"
+    },
+    {
+      "scene": "EXT. ENTRANCE TO MOUNTAIN TEMPLE - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Junior?! Dad..."
+    },
+    {
+      "scene": "EXT. ENTRANCE TO MOUNTAIN TEMPLE - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "I like Indiana."
+    },
+    {
+      "scene": "EXT. ENTRANCE TO MOUNTAIN TEMPLE - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "I've got a lot of fond memories of that dog."
+    },
+    {
+      "scene": "EXT. ENTRANCE TO MOUNTAIN TEMPLE - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Ready?"
+    },
+    {
+      "scene": "EXT. ENTRANCE TO MOUNTAIN TEMPLE - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Uh-huh."
+    },
+    {
+      "scene": "EXT. ENTRANCE TO MOUNTAIN TEMPLE - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Yes, sir! Haaa!"
+    }
+  ]
+}

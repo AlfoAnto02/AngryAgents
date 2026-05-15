@@ -1,0 +1,386 @@
+{
+  "character": "YODA",
+  "films": [
+    "Star-Wars-The-Empire-Strikes-Back",
+    "Star-Wars-Return-of-the-Jedi",
+    "Star-Wars-Attack-of-the-Clones"
+  ],
+  "lines_count": 75,
+  "lines": [
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Hmmm. Much anger in him, like his father."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Hah. He is not ready."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Ready, are you? What know you of ready? For eight hundred years have I trained Jedi. My own counsel will I keep on who is to be trained! A Jedi must have the deepest commitment, the most serious mind. (to the invisible Ben, indicating Luke) This one a long time have I watched. All his life has he looked away... to the future, to the horizon. Never his mind on where he was. Hmm? What he was doing. Hmph. Adventure. Heh! Excitement. Heh! A Jedi craves not these things. You are reckless!"
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "He is too old. Yes, too old to begin the training."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Will he finished what he begins?"
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "(turns slowly toward him) Oh, you will be. You will be."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Run! Yes. A Jedi's strength flows from the Force. But beware of the dark side. Anger... fear... aggression. The dark side of the Force are they. Easily they flow, quick to join you in a fight. If once you start down the dark path, forever will it dominate your destiny, consume you it will, as it did Obi-Wan's apprentice."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "No... no... no. Quicker, easier, more seductive."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "You will know. When you are calm, at peace. Passive. A Jedi uses the Force for knowledge and defense, never for attack."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, no, there is no why. Nothing more will I teach you today. Clear your mind of questions. Mmm. Mmmmmmmm."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "That place... is strong with the dark side of the Force. A domain of evil it is. In you must go."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Only what you take with you."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Your weapons... you will not need them."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "Use the Force. Yes..."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now... the stone. Feel it."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "Concentrate!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "So certain are you. Always with you it cannot be done. Hear you nothing that I say?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "No! No different! Only different in your mind. You must unlearn what you have learned."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "No! Try not. Do. Or do not. There is no try."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "Size matters not. Look at me. Judge me by my size, do you? Hm? Mmmm."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "And well you should not. For my ally in the Force. And a powerful ally it is. Life creates it, makes it grow. Its energy surrounds us and binds us. Luminous beings are we... (Yoda pinches Luke's shoulder) ... not this crude matter. You must feel the Force around you. Here, between you... me... the tree... the rock... everywhere! Yes, even between this land and that ship!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "That is why you fail."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Concentrate... feel the Force flow. Yes. Good. Calm, yes. Through the Force, things you will see. Other places. The future... the past. Old friends long gone."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hmm. Control, control. You must learn control."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Mmm. Friends you have there."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "It is the future you see."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Difficult to see. Always in motion is the future."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Decide you must how to serve them best. If you leave now, help them you could. But you would destroy all for which they have fought and suffered."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Luke! You must complete the training."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "You must not go!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Yes, yes. To Obi-Wan you listen. The cave. Remember your failure at the cave!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Stopped they must be. On this all depends. Only a fully trained Jedi Knight with the Force as his ally will conquer Vader and his Emperor. If you end your training now, if you choose the quick and easy path, as Vader did, you will become an agent of evil."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "If you honor what they fight for ... yes!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Strong is Vader. Mind what you have learned. Save you it can."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Told you, I did. Reckless is he. Now matters are worse."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "No. There is another."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hmm. That face you make. Look I so old to young eyes?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Soon will I rest. Yes, forever sleep. Earned it, I have."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Strong am I with the Force... but not that strong! Twilight is upon me and soon night must fall. That is the way of things... the way of the Force."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No more training do you require. Already know you that which you need."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Mmm... rest I need. Yes... rest."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Your father he is."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Told you, did he?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Unexpected this is, and unfortunate..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Remember, a Jedi's strength flows from the Force. But beware. Anger, fear, aggression. The dark side are they. Once you start down the dark path, forever will it dominate your destiny."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Luke...Luke...Do not...Do not underestimate the powers of the Emperor, or suffer your father's fate, you will. Luke, when gone am I (cough), the last of the Jedi will you be. Luke, the Force runs strong in your family. Pass on what you have learned, Luke... There is...another...Sky...Sky...walker."
+    },
+    {
+      "scene": "INT. CHANCELLOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Worse than war, I fear... Much worse."
+    },
+    {
+      "scene": "INT. CHANCELLOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Impossible to see ... The Dark Side clouds everything. But this I am sure of - Do their duty the Jedi will."
+    },
+    {
+      "scene": "INT. CHANCELLOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "With you the force is strong... young Senator. To see you alive brings warm feeling to my heart."
+    },
+    {
+      "scene": "INT. CHANCELLOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "In dark times nothing is what it appears to be, but the fact remains Senator, in grave danger you are."
+    },
+    {
+      "scene": "INT. CHANCELLOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Too little about yourself you worry, Senator, and too much about politics. Be mindful of your danger, Padmé. Accept our help."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, CORRIDOR - EVENING",
+      "speech_type": "direct",
+      "dialogue": "Masking the future, is this disturbance in the Force."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, CORRIDOR - EVENING",
+      "speech_type": "direct",
+      "dialogue": "And only those who have turned to the Dark Side can sense the possibilities of the future. Only going through the Dark Side can we see."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, CORRIDOR - EVENING",
+      "speech_type": "direct",
+      "dialogue": "...Out there, they are. A certainty that is."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, CORRIDOR - EVENING",
+      "speech_type": "direct",
+      "dialogue": "Only if he chooses to follow his destiny."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, TRAINING VERANDA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't think... feel... be as one with the Force. Help you, it will. Younglings - enough! A visitor we have. Welcome him."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, TRAINING VERANDA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Master Obi-Wan Kenobi, meet the mighty Bear Clan."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, TRAINING VERANDA - DAY",
+      "speech_type": "direct",
+      "dialogue": "What help to you, can I be?"
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, TRAINING VERANDA - DAY",
+      "speech_type": "direct",
+      "dialogue": "An interesting puzzle. Gather round the map reader, younglings. Master Obi-Wan has lost a planet. Find it, we will try..."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, TRAINING VERANDA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Most interesting. Gravitys silhouette remains, but the star and all its planets have disappeared. How can this be?"
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, TRAINING VERANDA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Truly wonderful, the mind of a child is. Uncluttered. To the centre of the pull of gravity go, and find your planet you will."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, TRAINING VERANDA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Much harder to answer, that question is."
+    },
+    {
+      "scene": "EXT. CORUSCANT, LANDING PLATFORM - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "The Council is confident in this decision, Obi-Wan."
+    },
+    {
+      "scene": "EXT. JEDI TEMPLE, LIVINF QUARTERS - EARLY EVENING",
+      "speech_type": "direct",
+      "dialogue": "Who he is working for... discover that, you must."
+    },
+    {
+      "scene": "EXT. JEDI TEMPLE, LIVINF QUARTERS - EARLY EVENING",
+      "speech_type": "direct",
+      "dialogue": "Inform the chancellor of this, we must."
+    },
+    {
+      "scene": "INT. CORUSCANT, CHANCELLOR'S OFFICE",
+      "speech_type": "direct",
+      "dialogue": "With the forename Darth, a Sith he must be."
+    },
+    {
+      "scene": "INT. CORUSCANT, CHANCELLOR'S OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Perhaps too many pieces are missing from this puzzle, there are."
+    },
+    {
+      "scene": "INT. CORUSCANT, CHANCELLOR'S OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Two Hundred,... less or more."
+    },
+    {
+      "scene": "INT. CORUSCANT, JEDI TEMPLE, COUNCIL CHAMBER - DAY",
+      "speech_type": "direct",
+      "dialogue": "Agreed, Master Windu. Two hundred Jedi send. Enough, let's hope they are."
+    },
+    {
+      "scene": "EXT. GEONOSIS, EXECUTION ARENA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on - hurry! Hurry!"
+    },
+    {
+      "scene": "INT. GUNSHIP NUMBER ONE - DAY",
+      "speech_type": "direct",
+      "dialogue": "More battalions to the left. Encircle them we must, then divide."
+    },
+    {
+      "scene": "INT. GEONOSIS, SECRET HANGER TOWER - LATE DAY",
+      "speech_type": "direct",
+      "dialogue": "Count Dooku. No interest in contests, do I have."
+    },
+    {
+      "scene": "INT. GEONOSIS, SECRET HANGER TOWER - LATE DAY",
+      "speech_type": "direct",
+      "dialogue": "The end for you, Count, this is."
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, COUNCIL CHAMBER - SUNSET",
+      "speech_type": "direct",
+      "dialogue": "Victory? Victory, you say?"
+    },
+    {
+      "scene": "INT. JEDI TEMPLE, COUNCIL CHAMBER - SUNSET",
+      "speech_type": "direct",
+      "dialogue": "Not victory, a defeat, it was... Master Obi-Wan. Begun, the Clone War has!"
+    }
+  ]
+}

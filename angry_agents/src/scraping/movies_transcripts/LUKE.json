@@ -1,0 +1,2401 @@
+{
+  "character": "LUKE",
+  "films": [
+    "Star-Wars-A-New-Hope",
+    "Star-Wars-The-Empire-Strikes-Back",
+    "Star-Wars-Return-of-the-Jedi"
+  ],
+  "lines_count": 478,
+  "lines": [
+    {
+      "scene": "EXT. TATOOINE - DESERT WASTELAND - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hurry up! Come with me! What are you waiting for?! Get in gear!"
+    },
+    {
+      "scene": "INT. POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Shape it up you guys!... Biggs?"
+    },
+    {
+      "scene": "INT. POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "I didn't know you were back! When did you get in?"
+    },
+    {
+      "scene": "INT. POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "The Academy didn't change you much...but you're back so soon? Hey, what happened, didn't you get your commission?"
+    },
+    {
+      "scene": "INT. POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "I almost forgot. There's a battle going on! Right here in our system. Come and look!"
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD - SETTLEMENT - POWER STATION -",
+      "speech_type": "direct",
+      "dialogue": "There they are!"
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD - SETTLEMENT - POWER STATION -",
+      "speech_type": "direct",
+      "dialogue": "But there was a lot of firing earlier..."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD - SETTLEMENT - POWER STATION -",
+      "speech_type": "direct",
+      "dialogue": "Hey, easy with those..."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "...so I cut off my power, shut down the afterburners and came in low on Deak's trail. I was so close I thought I was going to fry my instruments. As it was I busted up the Skyhopper pretty bad. Uncle Owen was pretty upset. He grounded me for the rest of the season. You should have been there... it was fantastic."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look who's talking. Now that you've been around those giant starships you're beginning to sound like my uncle. You've gotten soft in the city..."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, things haven't been the same since you left, Biggs. It's been so... quiet."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "What are you talking about?"
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Join the Rebellion?! Are you kidding! How?"
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm sorry. I'm quiet. Listen how quiet I am. You can barely hear me..."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "You're crazy! You could wander around forever trying to find them."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "And I'm stuck here..."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Not likely! I had to cancel my application. There has been a lot of unrest among the Sandpeople since you left... they've even raided the outskirts of Anchorhead."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "I know, but he's got enough vaporators going to make the place pay off. He needs me for just one more season. I can't leave him now."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "It couldn't happen here. You said it yourself. The Empire won't bother with this rock."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "I wish I was going... Are you going to be around long?"
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Then I guess I won't see you."
+    },
+    {
+      "scene": "EXT. TATOOINE - ANCHORHEAD SETTLEMENT - POWER STATION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, I'll be at the Academy next season... after that who knows. I won't be drafted into the Imperial Starfleet that's for sure... Take care of yourself, you'll always be the best friend I've got."
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "It looks like we don't have much of a choice but I'll remind him."
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "But I was going into Toshi Station to pick up some power converters..."
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "All right, come on! And the red one, come on. Well, come on, Red, let's go."
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Uncle Owen..."
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "This R2 unit has a bad motivator. Look!"
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Uncle Owen..."
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "What about that one?"
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Yeah, take it away."
+    },
+    {
+      "scene": "EXT. TATOOINE - DESERT - LARS HOMESTEAD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Okay, let's go."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "It just isn't fair. Oh, Biggs is right. I'm never gonna get out of here!"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Well, not unless you can alter time, speed up the harvest, or teleport me off this rock!"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Well, if there's a bright center to the universe, you're on the planet that it's farthest from."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Uh, you can call me Luke."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Just Luke."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Hello."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "You got a lot of carbon scoring here. It looks like you boys have seen a lot of action."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "You know of the Rebellion against the Empire?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Have you been in many battles?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Well, my little friend, you've got something jammed in here real good. Were you on a cruiser or..."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "What's this?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Who is she? She's beautiful."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Is there more to this recording?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Obi-Wan Kenobi? I wonder if he means old Ben Kenobi?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Well, I don't know anyone named Obi- Wan, but old Ben lives out beyond the dune sea. He's kind of a strange old hermit."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "I wonder who she is. It sounds like she's in trouble. I'd better play back the whole thing."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "H'm? Oh, yeah, well, I guess you're too small to run away on me if I take this off! Okay."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "There you go."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Well, wait a minute. Where'd she go? Bring her back! Play back the entire message."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "All right, I'll be right there, Aunt Beru."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE AREA - LATE AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Well, see what you can do with him. I'll be right back."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "You know, I think that R2 unit we bought might have been stolen."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "Well, I stumbled across a recording while I was cleaning him. He says he belongs to someone called Obi-Wan Kenobi."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "I thought he might have meant old Ben. Do you know what he's talking about? Well, I wonder if he's related to Ben."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "But what if this Obi-Wan comes looking for him?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "He knew my father?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "Yes, sir. I think those new droids are going to work out fine. In fact, I, uh, was also thinking about our agreement about my staying on another season. And if these new droids do work out, I want to transmit my application to the Academy this year."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "Sure, there're more than enough droids."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "But it's a whole 'nother year."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "Yeah, that's what you said last year when Biggs and Tank left."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - DINING AREA",
+      "speech_type": "direct",
+      "dialogue": "It looks like I'm going nowhere. I have to finish cleaning those droids."
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE",
+      "speech_type": "direct",
+      "dialogue": "What are you doing hiding there?"
+    },
+    {
+      "scene": "INT. LARS HOMESTEAD - GARAGE",
+      "speech_type": "direct",
+      "dialogue": "Oh, no!"
+    },
+    {
+      "scene": "EXT. TATOOINE - LARS HOMESTEAD",
+      "speech_type": "direct",
+      "dialogue": "How could I be so stupid? He's nowhere in sight. Blast it!"
+    },
+    {
+      "scene": "EXT. TATOOINE - LARS HOMESTEAD",
+      "speech_type": "direct",
+      "dialogue": "It's too dangerous with all the Sandpeople around. We'll have to wait until morning."
+    },
+    {
+      "scene": "EXT. TATOOINE - LARS HOMESTEAD",
+      "speech_type": "direct",
+      "dialogue": "All right, I'll be there in a few minutes. Boy, am I gonna get it."
+    },
+    {
+      "scene": "EXT. TATOOINE - LARS HOMESTEAD",
+      "speech_type": "direct",
+      "dialogue": "You know that little droid is going to cause me a lot of trouble."
+    },
+    {
+      "scene": "INT./EXT. LUKE'S SPEEDER - DESERT WASTELAND - TRAVELING -",
+      "speech_type": "direct",
+      "dialogue": "How's that."
+    },
+    {
+      "scene": "INT./EXT. LUKE'S SPEEDER - DESERT WASTELAND - TRAVELING -",
+      "speech_type": "direct",
+      "dialogue": "Old Ben Kenobi lives out in this direction somewhere, but I don't see how that R2 unit could have come this far. We must have missed him. Uncle Owen isn't going to take this very well."
+    },
+    {
+      "scene": "INT./EXT. LUKE'S SPEEDER - DESERT WASTELAND - TRAVELING -",
+      "speech_type": "direct",
+      "dialogue": "Sure. He needs you. He'd probably only deactivate you for a day or so..."
+    },
+    {
+      "scene": "INT./EXT. LUKE'S SPEEDER - DESERT WASTELAND - TRAVELING -",
+      "speech_type": "direct",
+      "dialogue": "Wait, there's something dead ahead on the scanner. It looks like our droid... hit the accelerator."
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR",
+      "speech_type": "direct",
+      "dialogue": "Hey, whoa, just where do you think you're going?"
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR",
+      "speech_type": "direct",
+      "dialogue": "Well, come on. It's getting late. I only hope we can get back before Uncle Owen really blows up."
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR",
+      "speech_type": "direct",
+      "dialogue": "No, he's not going to try anything."
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR",
+      "speech_type": "direct",
+      "dialogue": "What's wrong with him now?"
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR",
+      "speech_type": "direct",
+      "dialogue": "Sandpeople! Or worst! Come on, let's have a look. Come on."
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - RIDGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "There are two Banthas down there but I don't see any... wait a second, they're Sandpeople all right. I can see one of them now."
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "What happened?"
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ben? Ben Kenobi! Boy, am I glad to see you!"
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, this little droid! I think he's searching for his former master... I've never seen such devotion in a droid before... there seems to be no stopping him. He claims to be the property of an Obi-Wan Kenobi. Is he a relative of yours? Do you know who he's talking about?"
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "I think my uncle knew him. He said he was dead."
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "You know him!"
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Then the droid does belong to you."
+    },
+    {
+      "scene": "EXT. TATOOINE - ROCK CANYON - FLOOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Threepio!"
+    },
+    {
+      "scene": "EXT. TATOOINE - SAND PIT - ROCK MESA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Can you stand? We've got to get out of here before the Sandpeople return."
+    },
+    {
+      "scene": "EXT. TATOOINE - SAND PIT - ROCK MESA - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, you're not. What kind of talk is that?"
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "No, my father didn't fight in the wars. He was a navigator on a spice freighter."
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "You fought in the Clone Wars?"
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "I wish I'd known him."
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "Sure, go ahead."
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "What is it?"
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "How did my father die?"
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "The Force?"
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "I saw part of the message he was..."
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "Alderaan? I'm not going to Alderaan. I've got to go home. It's late, I'm in for it as it is."
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "I can't get involved! I've got work to do! It's not that I like the Empire. I hate it! But there's nothing I can do about it right now. It's such a long way from here."
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "Oh, God, my uncle. How am I ever going to explain this?"
+    },
+    {
+      "scene": "INT. KENOBI'S DWELLING",
+      "speech_type": "direct",
+      "dialogue": "Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going."
+    },
+    {
+      "scene": "EXT. TATOOINE - WASTELAND",
+      "speech_type": "direct",
+      "dialogue": "It looks like Sandpeople did this, all right. Look, here are Gaffi sticks, Bantha tracks. It's just... I never heard of them hitting anything this big before."
+    },
+    {
+      "scene": "EXT. TATOOINE - WASTELAND",
+      "speech_type": "direct",
+      "dialogue": "These are the same Jawas that sold us Artoo and Threepio."
+    },
+    {
+      "scene": "EXT. TATOOINE - WASTELAND",
+      "speech_type": "direct",
+      "dialogue": "Why would Imperial troops want to slaughter Jawas?"
+    },
+    {
+      "scene": "EXT. TATOOINE - WASTELAND",
+      "speech_type": "direct",
+      "dialogue": "If they traced the robots here, they may have learned who they sold them to. And that would lead them home!"
+    },
+    {
+      "scene": "EXT. TATOOINE - LARS HOMESTEAD",
+      "speech_type": "direct",
+      "dialogue": "Uncle Owen! Aunt Beru! Uncle Owen!"
+    },
+    {
+      "scene": "EXT. TATOOINE - WASTELAND",
+      "speech_type": "direct",
+      "dialogue": "I want to come with you to Alderaan. There's nothing here for me now. I want to learn the ways of the Force and become a Jedi like my father."
+    },
+    {
+      "scene": "EXT. TATOOINE - MOS EISLEY - STREET",
+      "speech_type": "direct",
+      "dialogue": "About three or four seasons."
+    },
+    {
+      "scene": "EXT. TATOOINE - MOS EISLEY - STREET",
+      "speech_type": "direct",
+      "dialogue": "Go on, go on. I can't understand how we got by those troopers. I thought we were dead."
+    },
+    {
+      "scene": "EXT. TATOOINE - MOS EISLEY - STREET",
+      "speech_type": "direct",
+      "dialogue": "Do you really think we're going to find a pilot here that'll take us to Alderaan?"
+    },
+    {
+      "scene": "EXT. TATOOINE - MOS EISLEY - STREET",
+      "speech_type": "direct",
+      "dialogue": "I'm ready for anything."
+    },
+    {
+      "scene": "INT. TATOOINE - MOS EISLEY - CANTINA",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "INT. TATOOINE - MOS EISLEY - CANTINA",
+      "speech_type": "direct",
+      "dialogue": "Listen, why don't you wait out by the speeder. We don't want any trouble."
+    },
+    {
+      "scene": "INT. TATOOINE - MOS EISLEY - CANTINA",
+      "speech_type": "direct",
+      "dialogue": "I'm sorry."
+    },
+    {
+      "scene": "INT. TATOOINE - MOS EISLEY - CANTINA",
+      "speech_type": "direct",
+      "dialogue": "I'll be careful than."
+    },
+    {
+      "scene": "INT. TATOOINE - MOS EISLEY - CANTINA",
+      "speech_type": "direct",
+      "dialogue": "Ten thousand? We could almost buy our own ship for that!"
+    },
+    {
+      "scene": "INT. TATOOINE - MOS EISLEY - CANTINA",
+      "speech_type": "direct",
+      "dialogue": "You bet I could. I'm not such a bad pilot myself! We don't have to sit here and listen..."
+    },
+    {
+      "scene": "EXT. TATOOINE - MOS EISLEY - STREET",
+      "speech_type": "direct",
+      "dialogue": "That's okay. I'm never coming back to this planet again."
+    },
+    {
+      "scene": "EXT. TATOOINE - MOS EISLEY - STREET - ALLEYWAY - USED",
+      "speech_type": "direct",
+      "dialogue": "He says it's the best he can do. Since the XP-38 came out, they're just not in demand."
+    },
+    {
+      "scene": "INT. MOS EISLEY SPACEPORT - DOCKING BAY 94",
+      "speech_type": "direct",
+      "dialogue": "What a piece of junk."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Why don't you outrun them? I thought you said this thing was fast."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Are you kidding? At the rate they're gaining..."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "What's that flashing?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - CENTRAL HOLD AREA",
+      "speech_type": "direct",
+      "dialogue": "Are you all right? What's wrong?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - CENTRAL HOLD AREA",
+      "speech_type": "direct",
+      "dialogue": "You mean it controls your actions?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - CENTRAL HOLD AREA",
+      "speech_type": "direct",
+      "dialogue": "You don't believe in the Force, do you?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - CENTRAL HOLD AREA",
+      "speech_type": "direct",
+      "dialogue": "With the blast shield down, I can't even see. How am I supposed to fight?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - CENTRAL HOLD AREA",
+      "speech_type": "direct",
+      "dialogue": "You know, I did feel something. I could almost see the remote."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "What's going on?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "What do you mean? Where is it?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "What? How?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Maybe they know what happened."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "It followed us!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "It sure is leaving in a big hurry. If they identify us, we're in big trouble."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "It must have gotten lost, been part of a convoy or something."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Look at him. He's headed for that small moon."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "I have a very bad feeling about this."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Why are we still moving towards it?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "But there's gotta be something you can do!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "Boy, it's lucky you had these compartments."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "You know, between his howling and your blasting everything in sight, it's a wonder the whole station doesn't know we're here."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "I want to go with you."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "But he can..."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Ben is a great man."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "I didn't hear you give any ideas..."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Who do you think..."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "What is it?"
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Well, who... who has he found?"
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "The princess? She's here?"
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Oh, no! We've got to do something."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "The droid belongs to her. She's the one in the message... We've got to help her."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "But he didn't know she was here. Look, will you just find a way back into the detention block?"
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "They're going to execute her. Look, a few minutes ago you said you didn't want to just wait here to be captured. Now all you want to do is stay."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "But they're going to kill her!"
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "She's rich."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Yes. Rich, powerful! Listen, if you were to rescue her, the reward would be..."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Well more wealth that you can imagine."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "You'll get it!"
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "You will..."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "All right."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Uh... Threepio, hand me those binders there will you?"
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Okay. Now, I'm going to put these on you."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Okay. Han, you put these on."
+    },
+    {
+      "scene": "INT. DEATH STAR - FORWARD BAY - COMMAND OFFICE",
+      "speech_type": "direct",
+      "dialogue": "Lock the door!"
+    },
+    {
+      "scene": "INT. DEATH STAR - DETENTION AREA - ELEVATOR TUBE",
+      "speech_type": "direct",
+      "dialogue": "I can't see a thing in this helmet."
+    },
+    {
+      "scene": "INT. DEATH STAR - INTERIOR ELEVATOR - DETENTION SECURITY",
+      "speech_type": "direct",
+      "dialogue": "Why didn't you say so before?"
+    },
+    {
+      "scene": "INT. DETENTION AREA",
+      "speech_type": "direct",
+      "dialogue": "Prisoner transfer from Block one-one- three-eight."
+    },
+    {
+      "scene": "INT. DETENTION AREA",
+      "speech_type": "direct",
+      "dialogue": "He's going to pull us all apart."
+    },
+    {
+      "scene": "INT. DEATH STAR - CELL ROW",
+      "speech_type": "direct",
+      "dialogue": "What? Oh... the uniform. I'm Luke Skywalker. I'm here to rescue you."
+    },
+    {
+      "scene": "INT. DEATH STAR - CELL ROW",
+      "speech_type": "direct",
+      "dialogue": "I'm here to rescue you. I've got your R2 unit. I'm here with Ben Kenobi."
+    },
+    {
+      "scene": "INT. DEATH STAR - CELL ROW",
+      "speech_type": "direct",
+      "dialogue": "Come on!"
+    },
+    {
+      "scene": "INT. DEATH STAR - DETENTION AREA - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "See-Threepio! See-Threepio!"
+    },
+    {
+      "scene": "INT. DEATH STAR - DETENTION AREA - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "We've been cut off! Are there any other ways out of the cell bay?... What was that? I didn't copy!"
+    },
+    {
+      "scene": "INT. DEATH STAR - DETENTION CORRIDOR",
+      "speech_type": "direct",
+      "dialogue": "There isn't any other way out."
+    },
+    {
+      "scene": "INT. DEATH STAR - DETENTION CORRIDOR",
+      "speech_type": "direct",
+      "dialogue": "Well, I didn't..."
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "No! wait!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Will you forget it? I already tried it. It's magnetically sealed!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "There's something alive in here!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Something just moves past my leg! Look! Did you see that?"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Help!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Blast it, will you! My gun's jammed."
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Anywhere! Oh!!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "I don't know, it just let go of me and disappeared..."
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "The walls are moving!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Wait a minute!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Threepio! Come in Threepio! Threepio! Where could he be?"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Threepio! Come in, Threepio! Threepio!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Where could he be? Threepio! Threepio, will you come in?"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Threepio!"
+    },
+    {
+      "scene": "INT. DEATH STAR - MAIN FORWARD BAY - SERVICE PANEL",
+      "speech_type": "direct",
+      "dialogue": "Will you shut up and listen to me? Shut down all garbage mashers on the detention level, will you? Do you copy?"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Shut down all the garbage mashers on the detention level."
+    },
+    {
+      "scene": "INT. DEATH STAR - MAIN FORWARD BAY - SERVICE PANEL",
+      "speech_type": "direct",
+      "dialogue": "Shut down all the garbage mashers on the detention level."
+    },
+    {
+      "scene": "INT. DEATH STAR - MAIN FORWARD BAY - SERVICE PANEL",
+      "speech_type": "direct",
+      "dialogue": "Threepio, we're all right!"
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "We're all right. You did great."
+    },
+    {
+      "scene": "INT. DEATH STAR - GARBAGE ROOM",
+      "speech_type": "direct",
+      "dialogue": "Hey... hey, open the pressure maintenance hatch on unit number... where are we?"
+    },
+    {
+      "scene": "INT. DEATH STAR - UNUSED HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "Well, let's get moving!"
+    },
+    {
+      "scene": "INT. DEATH STAR - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "See-Threepio, do you copy?"
+    },
+    {
+      "scene": "INT. DEATH STAR - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "We're right above you. Stand by."
+    },
+    {
+      "scene": "INT. DEATH STAR - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "Where are you going? Come back!"
+    },
+    {
+      "scene": "INT. DEATH STAR - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "What good will it do us if he gets himself killed? Come on!"
+    },
+    {
+      "scene": "INT. DEATH STAR - CENTRAL CORE SHAFT",
+      "speech_type": "direct",
+      "dialogue": "I think we took a wrong turn."
+    },
+    {
+      "scene": "INT. DEATH STAR - CENTRAL CORE SHAFT",
+      "speech_type": "direct",
+      "dialogue": "That oughta hold it for a while."
+    },
+    {
+      "scene": "INT. DEATH STAR - CENTRAL CORE SHAFT",
+      "speech_type": "direct",
+      "dialogue": "Oh, I think I just blasted it."
+    },
+    {
+      "scene": "INT. DEATH STAR - CENTRAL CORE SHAFT",
+      "speech_type": "direct",
+      "dialogue": "Here, hold this."
+    },
+    {
+      "scene": "INT. DEATH STAR - MAIN FORWARD BAY",
+      "speech_type": "direct",
+      "dialogue": "Is the ship all right?"
+    },
+    {
+      "scene": "INT. DEATH STAR - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "Look!"
+    },
+    {
+      "scene": "INT. DEATH STAR - HALLWAY",
+      "speech_type": "direct",
+      "dialogue": "No!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - CENTRAL HOLD AREA",
+      "speech_type": "direct",
+      "dialogue": "I can't believe he's gone."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - GUNPORTS",
+      "speech_type": "direct",
+      "dialogue": "They're coming in too fast!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - GUNPORTS",
+      "speech_type": "direct",
+      "dialogue": "Got him! I got him!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - GUNPORT",
+      "speech_type": "direct",
+      "dialogue": "That's it! We did it!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "I care!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "So... what do you think of her, Han?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Good..."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "No!"
+    },
+    {
+      "scene": "INT. MASSASSI - WAR ROOM BRIEFING AREA",
+      "speech_type": "direct",
+      "dialogue": "It's not impossible. I used to bull's- eye womp rats in my T-sixteen back home. They're not much bigger than two meters."
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "So... you got your reward and you're just leaving then?"
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "Come on! Why don't you take a look around? You know what's about to happen, what they're up against. They could use a good pilot like you. You're turning your back on them."
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "All right. Well, take care of yourself, Han. I guess that's what you're best at, isn't it?"
+    },
+    {
+      "scene": "INT. MAIN HANGAR DECK - LUKE'S SHIP",
+      "speech_type": "direct",
+      "dialogue": "Oh, it's Han! I don't know, I really thought he'd change his mind."
+    },
+    {
+      "scene": "INT. MAIN HANGAR DECK - LUKE'S SHIP",
+      "speech_type": "direct",
+      "dialogue": "I only wish Ben were here."
+    },
+    {
+      "scene": "INT. MAIN HANGAR DECK - LUKE'S SHIP",
+      "speech_type": "direct",
+      "dialogue": "Biggs! Of course, I'll be up there with you! Listen, have I got some stories to tell..."
+    },
+    {
+      "scene": "INT. MAIN HANGAR DECK - LUKE'S SHIP",
+      "speech_type": "direct",
+      "dialogue": "Thank you, sir. I'll try."
+    },
+    {
+      "scene": "INT. MAIN HANGAR DECK - LUKE'S SHIP",
+      "speech_type": "direct",
+      "dialogue": "I told you I'd make it someday, Biggs."
+    },
+    {
+      "scene": "INT. MAIN HANGAR DECK - LUKE'S SHIP",
+      "speech_type": "direct",
+      "dialogue": "Not on your life! That little droid and I have been through a lot together. You okay, Artoo?"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Red Five standing by."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "This is Red Five; I'm going in!"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "I got a little cooked, but I'm okay."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING - COCKPIT - TRAVELING",
+      "speech_type": "direct",
+      "dialogue": "I'm on my way in now..."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING - COCKPIT - TRAVELING",
+      "speech_type": "direct",
+      "dialogue": "I'm on it."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING - COCKPIT - TRAVELING",
+      "speech_type": "direct",
+      "dialogue": "My scope's negative. I don't see anything."
+    },
+    {
+      "scene": "INT. X-WING FIGHTER - COCKPIT - TRAVELING",
+      "speech_type": "direct",
+      "dialogue": "Hang on, Biggs, I'm coming in."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT - TRAVELING",
+      "speech_type": "direct",
+      "dialogue": "Got him!"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "I'm hit, but not bad."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "I can't shake him!"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Blast it! Wedge where are you?"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Thanks, Wedge."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "No sign of any... wait!"
+    },
+    {
+      "scene": "INT. RED TEN'S COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Coming in point three five."
+    },
+    {
+      "scene": "INT. RED LEADER'S COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Red Leader, we're right above you. Turn to point..."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "...oh-five; we'll cover for you."
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - WAR ROOM",
+      "speech_type": "direct",
+      "dialogue": "Biggs, Wedge, let's close it up. We're going in. We're going in full throttle."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "It'll be just like Beggar's Canyon back home."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Watch yourself! Increase speed full throttle!"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "You worry about those fighters! I'll worry about the tower!"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Artoo... that, that stabilizer's broken loose again! See if you can't lock it down!"
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - WAR ROOM",
+      "speech_type": "direct",
+      "dialogue": "Get clear, Wedge."
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "You can't do any more good back there!"
+    },
+    {
+      "scene": "INT. LUKE'S X-WING FIGHTER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Artoo, try and increase the power!"
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - WAR ROOM",
+      "speech_type": "direct",
+      "dialogue": "Nothing. I'm all right."
+    },
+    {
+      "scene": "EXT. LUKE'S X-WING FIGHTER",
+      "speech_type": "direct",
+      "dialogue": "I've lost Artoo!"
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - MAIN HANGAR",
+      "speech_type": "direct",
+      "dialogue": "I knew you'd come back! I just knew it!"
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - MAIN HANGAR",
+      "speech_type": "direct",
+      "dialogue": "Oh, no!"
+    },
+    {
+      "scene": "INT. MASSASSI OUTPOST - MAIN HANGAR",
+      "speech_type": "direct",
+      "dialogue": "He'll be all right."
+    },
+    {
+      "scene": "EXT. PLAIN OF HOTH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Echo Three to Echo Seven. Han, old buddy, do you read me?"
+    },
+    {
+      "scene": "EXT. PLAIN OF HOTH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, I finished my circle. I don't pick up any life readings."
+    },
+    {
+      "scene": "EXT. PLAIN OF HOTH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Right. I'll see you shortly. There's a meteorite that hit the ground near here. I want to check it out. It won't take long."
+    },
+    {
+      "scene": "EXT. PLAIN OF HOTH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hey, steady girl. What's the matter? You smell something?"
+    },
+    {
+      "scene": "EXT. PLAIN OF HOTH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Aaargh!"
+    },
+    {
+      "scene": "EXT. HOTH - SNOW DRIFT - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Ben?"
+    },
+    {
+      "scene": "EXT. HOTH - SNOW DRIFT - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Dagobah system?"
+    },
+    {
+      "scene": "EXT. HOTH - SNOW DRIFT - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Ben... Ben."
+    },
+    {
+      "scene": "EXT. HOTH - SNOW DRIFT - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Ben... Ben..."
+    },
+    {
+      "scene": "EXT. HOTH - SNOW DRIFT - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Dagobah system..."
+    },
+    {
+      "scene": "EXT. HOTH - SNOW DRIFT - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Dagobah..."
+    },
+    {
+      "scene": "EXT. HOTH - SNOW DRIFT - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Yoda..."
+    },
+    {
+      "scene": "INT. REBEL BASE - MEDICAL CENTER - RECOVERY ROOM",
+      "speech_type": "direct",
+      "dialogue": "Thanks to you."
+    },
+    {
+      "scene": "INT. REBEL BASE - MEDICAL CENTER",
+      "speech_type": "direct",
+      "dialogue": "Well, forget the heavy equipment. There's plenty of time to get the smaller modules on the transports."
+    },
+    {
+      "scene": "INT. REBEL BASE - MEDICAL CENTER",
+      "speech_type": "direct",
+      "dialogue": "Thanks."
+    },
+    {
+      "scene": "INT. REBEL BASE - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "Chewie, take care of yourself, okay?"
+    },
+    {
+      "scene": "INT. REBEL BASE - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "Yeah."
+    },
+    {
+      "scene": "INT. REBEL BASE - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "You, too."
+    },
+    {
+      "scene": "INT. REBEL BASE - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "Just like new, Dack. How about you?"
+    },
+    {
+      "scene": "INT. REBEL BASE - MAIN HANGAR DECK",
+      "speech_type": "direct",
+      "dialogue": "(quietly, strapping in) I know what you mean."
+    },
+    {
+      "scene": "INT. LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Echo station Five-Seven. We're on our way."
+    },
+    {
+      "scene": "INT. LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "All right, boys, keep tight now."
+    },
+    {
+      "scene": "INT. LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Steady, Dack. Attack pattern delta. Go now!"
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "All right, I'm coming in."
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Hobbie, you still with me?"
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "That armor's too strong for blasters."
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Rogue Group, use your harpoons and tow cables. Go for the legs. It might be our only chance of stopping them. All right, stand by, Dack."
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Just hang on. Hang on, Dack. Get ready to fire that tow cable."
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Dack? Dack!"
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Rogue Three."
+    },
+    {
+      "scene": "INT. WEDGE'S SNOWSPEEDER, ROGUE THREE - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Wedge, I've lost my gunner. You'll have to make this shot. I'll cover for you. Set your harpoon. Follow me on the next pass."
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Steady, Rogue Two"
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "I see it, Wedge. Good work."
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Rogue Two, are you all right?"
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "We'll set harpoon. I'll cover for you."
+    },
+    {
+      "scene": "INT.  LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Watch that cross fire, boys."
+    },
+    {
+      "scene": "INT. ZEV'S SNOWSPEEDER, ROGUE TWO - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Stay tight and low."
+    },
+    {
+      "scene": "INT. LUKE'S SNOWSPEEDER, ROGUE LEADER - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Hobbie, I've been hit!"
+    },
+    {
+      "scene": "EXT. HOTH - ICE SLOPE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Artoo! Get her ready for takeoff."
+    },
+    {
+      "scene": "EXT. HOTH - ICE SLOPE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't worry, Artoo. We're going, we're going."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "There's nothing wrong, Artoo. I'm just setting a new course."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "We're not going to regroup with the others."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "We're going to the Dagobah system."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Yes, Artoo?"
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "That's all right. I'd like to keep it on manual control for a while."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Yes, that's it. Dagobah."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "No, I'm not going to change my mind about this. I'm not picking up any cities or technology. Massive life-form readings, though. There's something alive down there..."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Yes, I'm sure it's perfectly safe for droids."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "I know, I know! All the scopes are dead. I can't see a thing! Just hang on, I'm going to start the landing cycle..."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "No, Artoo, you stay put. I'll have a look around."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Artoo?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Artoo! Where are you?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Artoo! You be more careful."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Artoo - that way!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Artoo!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Oh, no! Are you all right? Come on. You're lucky you don't taste very good. Anything broken?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - DUSK",
+      "speech_type": "direct",
+      "dialogue": "If you're saying coming here was a bad idea, I'm beginning to agree with you. Oh, Artoo, what are we doing here? It's like... something out of a dream, or, I don't know. Maybe I'm just going crazy."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Ready for some power? Okay. Let's see now. Put that in there. There you go."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Now all I have to do is find this Yoda... if he even exists."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Still... there's something familiar about this place. I feel like... I don't know..."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "(looking at the creature) Like we're being watched!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I'm looking for someone."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "(Trying to keep from smiling) Right."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I don't think so. I'm looking for a great warrior."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Put that down. Hey! That's my dinner!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Listen, friend, we didn't mean to land in that puddle, and if we could get our ship out, we would, but we can't, so why don't you just..."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Hey, you could have broken this. Don't do that. Ohhh... you're making a mess. Hey, give me that!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I don't want your help. I want my lamp back. I'll need it to get out of this slimy mudhole."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Oh, Artoo, let him have it!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Artoo!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Now will you move along, little fella? We're got a lot of work to do."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I'm not looking for a friend. I'm looking for a Jedi Master."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "You know him?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG CLEARING - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Stay here and watch after the camp, Artoo."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Look, I'm sure it's delicious. I just don't understand why we can't see Yoda now."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "How far away is Yoda? Will it take us long to get there?"
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Mostly because of my father, I guess."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Oh, come on. How could you know my father? You don't even know who I am. Oh, I don't know what I'm doing here. We're wasting our time."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Yoda! I am ready. I... Ben! I can be a Jedi. Ben, tell him I'm ready."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "But I've learned so much."
+    },
+    {
+      "scene": "INT. CREATURE'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "I won't fail you - I'm not afraid."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Vader. Is the dark side stronger?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "But how am I to know the good side from the bad?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "But tell me why I can't..."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "There's something not right here."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "I feel cold, death."
+    },
+    {
+      "scene": "EXT. DAGOBAH - DAY",
+      "speech_type": "direct",
+      "dialogue": "What's in there?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, no. We'll never get it out now."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "Master, moving stones around is one thing. This is totally different."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "All right, I'll give it a try."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "I can't. It's too big."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "You want the impossible."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't... I don't believe it."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Han! Leia!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "I saw... I saw a city in the clouds."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "They were in pain."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Future? Will they die?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - CLEARING - DAY",
+      "speech_type": "direct",
+      "dialogue": "I've got to go to them."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I can't keep the vision out of my head. They're my friends. I've got to help them."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "But Han and Leia will die if I don't."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "But I can help them! I feel the Force!"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "But I've learned so much since then. Master Yoda, I promise to return and finish what I've begun. You have my word."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "And that is why I have to go."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "You won't."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "And sacrifice Han and Leia?"
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I understand. (he moves to his X-wing) Artoo, fire up the converters."
+    },
+    {
+      "scene": "EXT. DAGOBAH - BOG - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I will. And I'll return. I promise."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "No, Threepio's with them."
+    },
+    {
+      "scene": "INT.  LUKE'S X-WING - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Just hang on. We're almost there."
+    },
+    {
+      "scene": "INT. CLOUD CITY - CARBON-FREEZING CHAMBER",
+      "speech_type": "direct",
+      "dialogue": "You'll find I'm full of surprises."
+    },
+    {
+      "scene": "INT. CLOUD CITY - CARBON-FREEZING CHAMBER",
+      "speech_type": "direct",
+      "dialogue": "No!"
+    },
+    {
+      "scene": "INT. GANTRY - OUTSIDE CONTROL ROOM - REACTOR SHAFT",
+      "speech_type": "direct",
+      "dialogue": "I'll never join you!"
+    },
+    {
+      "scene": "INT. GANTRY - OUTSIDE CONTROL ROOM - REACTOR SHAFT",
+      "speech_type": "direct",
+      "dialogue": "He told me enough! It was you who killed him."
+    },
+    {
+      "scene": "INT. GANTRY - OUTSIDE CONTROL ROOM - REACTOR SHAFT",
+      "speech_type": "direct",
+      "dialogue": "No. No. That's not true! That's impossible!"
+    },
+    {
+      "scene": "INT. GANTRY - OUTSIDE CONTROL ROOM - REACTOR SHAFT",
+      "speech_type": "direct",
+      "dialogue": "No! No! No!"
+    },
+    {
+      "scene": "EXT. BOTTOM OF CLOUD CITY - WEATHER VANE - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Ben... Ben, please!"
+    },
+    {
+      "scene": "EXT. BOTTOM OF CLOUD CITY - WEATHER VANE - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Ben. Leia!"
+    },
+    {
+      "scene": "EXT. BOTTOM OF CLOUD CITY - WEATHER VANE - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Hear me! Leia!"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Oh, Leia."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - SLEEPING QUARTERS",
+      "speech_type": "direct",
+      "dialogue": "Father."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - SLEEPING QUARTERS",
+      "speech_type": "direct",
+      "dialogue": "Ben, why didn't you tell me?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "It's Vader."
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Ben, why didn't you tell me?"
+    },
+    {
+      "scene": "INT. MILLENNIUM FALCON - COCKPIT",
+      "speech_type": "direct",
+      "dialogue": "Good luck, Lando"
+    },
+    {
+      "scene": "INT. STAR CRUISER - MEDICAL CENTER",
+      "speech_type": "direct",
+      "dialogue": "I'll meet you at the rendezvous point on Tatooine."
+    },
+    {
+      "scene": "INT. STAR CRUISER - MEDICAL CENTER",
+      "speech_type": "direct",
+      "dialogue": "Chewie, I'll be waiting for your signal."
+    },
+    {
+      "scene": "INT. STAR CRUISER - MEDICAL CENTER",
+      "speech_type": "direct",
+      "dialogue": "Take care, you two. May the Force be with you."
+    },
+    {
+      "scene": "INT. STAR CRUISER - MEDICAL CENTER",
+      "speech_type": "direct",
+      "dialogue": "Ow!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Greetings, Exalted One. Allow me to introduce myself. I am Luke Skywalker, Jedi Knight and friend to Captain Solo. I know that you are powerful, mighty Jabba, and that your anger with Solo must be equally powerful. I seek an audience with Your Greatness to bargain for Solo's life. With your wisdom, I'm sure that we can work out an arrangement which will be mutually beneficial and enable us to avoid any unpleasant confrontation. As a token of my goodwill, I present to you a gift: these two droids."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I must speak with Jabba."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You will take me to Jabba now!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You serve your master well."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "And you will be rewarded."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I must be allowed to speak."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You will bring Captain Solo and the Wookiee to me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Nevertheless, I'm taking Captain Solo and his friends. You can either profit by this... or be destroyed! It's your choice. But I warn you not to underestimate my powers."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Han!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Are you all right?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Wouldn't miss it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "The same as always."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You should have bargained, Jabba. That's the last mistake you'll ever make."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There's nothing to see. I used to live here, you know."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Just stick close to Chewie and Lando. I've taken care of everything."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Jabba! This is your last chance. Free us or die."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Easy, Chewie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Point it at the deck!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come on!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Let's go! And don't forget the droids."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I have a promise I have to keep first... to an old friend."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I'll meet you back at the fleet."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I will."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That's right, Artoo. We're going to the Dagobah system. I have a promise to keep... to an old friend."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No... of course not."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master Yoda, you can't die."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "But I need your help. I've come back to complete the training."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Then I am a Jedi?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master Yoda... is Darth Vader my father?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yoda, I must know."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Unfortunate that I know the truth?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Well, I'm sorry."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I can't do it, Artoo. I can't go on alone."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Obi-Wan! Why didn't you tell me?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You told me Vader betrayed and murdered my father."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There's still good in him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I can't do it, Ben."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I tried to stop him once. I couldn't do it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "But I had to help my friends."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I can't kill my own father."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yoda spoke of another."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "But I have no sister."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Leia! Leia's my sister."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "But you can't let her get involved now, Ben. Vader will destroy her."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hi, Han... Chewie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yeah, she's comin' up."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "All set."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Vader's on that ship."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I'm endangering the mission. I shouldn't have come."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Quietly, there might be more of them out there."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I see them. Wait, Leia!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Move closer!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Get alongside that one!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Get him!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We got separated."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hey, we better go look for her."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come on, Artoo. We'll need your scanners."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There's two more wrecked speeders back there. And I found this."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Chewie, wa-wait! Don't!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Will you take it easy? Let's just figure out a way to get out of this thing. Han, can you reach my lightsaber?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Han, don't. It'll be all right."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Chewie, give 'em your crossbow."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Do you understand anything they're saying?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Threepio, tell them if they don't do as you wish, you'll become angry and use your magic."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Just tell them."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Thanks, Threepio."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Leia... do you remember your mother? Your real mother?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What do you remember?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Tell me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I have no memory of my mother. I never knew her."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Vader is here...now, on this moon."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I felt his presence. He's come for me. He can feel when I'm near. That's why I have to go. As long as I stay, I'm endangering the group and our mission here. I have to face him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He's my father."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There's more. It won't be easy for you to hear it, but you must. If I don't make it back, you're the only hope for the Alliance."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You're wrong, Leia. You have that power too. In time you'll learn to use it as I have. The Force is strong in my family. My father has it...I have it...and...my sister has it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes. It's you Leia."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Then you know why I have to face him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No, you don't. You've always been strong."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Because...there is good in him. I've felt it. He won't turn me over to the Emperor. I can save him. I can turn him back to the good side. I have to try."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I know, father."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It is the name of your true self. You've only forgotten. I know there is good in you. The Emperor hasn't driven it from you fully. That is why you couldn't destroy me. That's why you won't bring me to your Emperor now."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come with me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I will not turn...and you'll be forced to kill me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Search your feelings, father. You can't do this. I feel the conflict within you. Let go of your hate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Then my father is truly dead."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You're gravely mistaken. You won't convert me as you did my father."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You're wrong. Soon I'll be dead...and you with me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Your overconfidence is your weakness."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I will not fight you, father."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Your thoughts betray you, father. I feel the good in you...the conflict."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You couldn't bring yourself to kill me before, and I don't believe you'll destroy me now."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I will not fight you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Never-r-r!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Never! I'll never turn to the dark side. You've failed, Your Highness. I am a Jedi, like my father before me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No. You're coming with me. I can't leave you here. I've got to save you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Father...I won't leave you."
+    }
+  ]
+}
