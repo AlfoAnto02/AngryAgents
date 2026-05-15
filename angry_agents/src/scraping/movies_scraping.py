@@ -213,9 +213,7 @@ def save_character_to_json(character_name, films, lines, output_dir="personas"):
 if __name__ == "__main__":
     # Define movie titles (e.g., saga)
     movie_titles = [
-        "Indiana-Jones-and-the-Raiders-of-the-Lost-Ark",
-        # "Indiana-Jones-and-the-Temple-of-Doom",
-        # "Indiana-Jones-and-the-Last-Crusade",
+        "Kung-Fu-Panda",  # Example movie titles; replace with your own
     ]
 
     # Optional: specify characters to extract (if None, will show interactive selection)
