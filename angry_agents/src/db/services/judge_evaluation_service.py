@@ -4,7 +4,7 @@ import sqlite3
 from typing import Any
 
 from ..models.judge_evaluation import JudgeEvaluation
-from ..repositories import judge_evaluation as repo
+from ..repositories import judge_evaluation_repository as repo
 
 MAX_EVALUATIONS_PER_CHAT = 20
 

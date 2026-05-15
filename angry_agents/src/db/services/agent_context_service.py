@@ -4,7 +4,7 @@ import sqlite3
 from typing import Any
 
 from ..models.agent_context import AgentContext
-from ..repositories import agent_context as repo
+from ..repositories import agent_context_repository as repo
 
 
 class AgentContextService:

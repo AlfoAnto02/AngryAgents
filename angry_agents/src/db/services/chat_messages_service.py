@@ -6,7 +6,7 @@ import sqlite3
 from typing import Any
 
 from ..models.chat_messages import ChatMessage
-from ..repositories import chat_messages as repo
+from ..repositories import chat_messages_repository as repo
 
 # author = "{name} {surname} {digest}"
 # The digest lets judges distinguish sources without knowing the real agent identity.

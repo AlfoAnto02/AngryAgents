@@ -4,7 +4,7 @@ import sqlite3
 from typing import Any
 
 from ..models.group_chat import GroupChat
-from ..repositories import group_chat as repo
+from ..repositories import group_chat_repository as repo
 
 
 class GroupChatService:

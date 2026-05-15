@@ -5,7 +5,7 @@ import sqlite3
 from typing import Any
 
 from ..models.agents import Agent
-from ..repositories import agents as repo
+from ..repositories import agents_repository as repo
 
 
 def _make_slug(db: sqlite3.Connection, name: str, surname: str) -> str:

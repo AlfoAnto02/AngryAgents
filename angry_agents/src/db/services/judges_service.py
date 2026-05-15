@@ -5,7 +5,7 @@ from typing import Any
 
 from ..models.judges import Judge
 from ..models.roles import JudgeRole
-from ..repositories import judges as repo
+from ..repositories import judges_repository as repo
 
 
 class JudgeService:

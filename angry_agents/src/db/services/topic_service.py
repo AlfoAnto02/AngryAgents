@@ -4,7 +4,7 @@ import sqlite3
 from typing import Any
 
 from ..models.topic import Topic
-from ..repositories import topic as repo
+from ..repositories import topic_repository as repo
 
 
 class TopicService:
