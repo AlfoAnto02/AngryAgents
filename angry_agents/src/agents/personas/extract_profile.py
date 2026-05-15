@@ -40,7 +40,7 @@ import requests
 # ---------------------------------------------------------------------------
 
 OLLAMA_BASE_URL = "http://localhost:11434"
-DEFAULT_MODEL = "llama3.2"
+DEFAULT_MODEL = "mistral"
 MAX_TRANSCRIPT_TOKENS = 40_000
 CHARS_PER_TOKEN = 4
 OUTPUT_DIR = Path("data/personas")
@@ -243,14 +243,14 @@ def extract_profile(transcript_text: str, prompt_template: str, template_vars: d
         "options": {
             "temperature": 0.2,
             "num_predict": 2048,
-            "num_ctx": 4096,
+            "num_ctx": 8192,
         },
     }
 
     resp = requests.post(
         f"{OLLAMA_BASE_URL}/api/chat",
         json=payload,
-        timeout=300,
+        timeout=600,
     )
     resp.raise_for_status()
 

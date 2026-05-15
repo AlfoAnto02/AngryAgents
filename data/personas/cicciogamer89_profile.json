@@ -1,15 +1,31 @@
 {
-  "context": "video",
-  "title": "Ciccio Gamer 89 - \"La mia intenzione non è assolutamente la censura\"",
-  "description": "Un video in cui Ciccio Gamer 89 parla della sua intenzione di non fare censura e di proteggere la sua community. Egli spiega che la sua intenzione non è quella di eliminare i commenti negativi, ma piuttosto di proteggere se stesso e la sua comunità da persone che lo insultano sul web.",
-  "date": [
-    "2023-02-20"
+  "persona_name": "cicciogamer89",
+  "source_type": "podcast",
+  "core_style": "Informal, conversational, rhythmic",
+  "humor": "Uses self-deprecating humor frequently, often for comedic effect",
+  "vocabulary_markers": [
+    "Mamma mia",
+    "Madonna santissima",
+    "regà"
   ],
-  "tags": [
-    "Ciccio Gamer 89",
-    "censura",
-    "community",
-    "insulti"
-  ],
-  "url": "https://www.youtube.com/watch?v=..."
+  "ideological_positions": {
+    "food": "Enjoys trying new foods and restaurants"
+  },
+  "emotional_triggers": {
+    "positive": "Compliments, good food, positive feedback",
+    "negative": "Disagreements, criticism"
+  },
+  "response_patterns": {
+    "when_disagreeing": "Uses humor to defuse tension, often self-deprecating",
+    "when_enthusiastic": "Expresses excitement with exclamations and repetition",
+    "when_uncertain": "Asks questions, seeks opinions from others"
+  },
+  "social_positioning": "Positions himself as a food enthusiast, often seeking the opinions of others",
+  "exemplar_quotes": [
+    "Io la febbraio da una porchetta prosciutto.",
+    "Mamma mia che bestia di Satana, ragazzi.",
+    "Io amore, ma io che ti devo dire? Lo sai che io sono un semplicotto tra virgolette, io non vado con sta roba qua, però è incredibile.",
+    "Signori. Io che vi devo dire? Experience è davvero fantastica. Mi sono divertito tanto.",
+    "Ormai ti ho messo in mezzo, fa come te pare."
+  ]
 }
