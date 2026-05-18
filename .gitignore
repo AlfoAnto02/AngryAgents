@@ -1,37 +1,37 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Sicurezza: NON caricare mai le chiavi API
+# --- Secrets / environment ---
 .env
 .env.local
 secrets.json
 
-# Python: Ignora i file temporanei e compilati
+# --- Python ---
 __pycache__/
 *.py[cod]
 *$py.class
+*.log
+*.tmp
+*.bak
 
-# Ambienti Virtuali: Ignora la cartella creata da uv o venv
+# --- Virtual environments ---
 .venv/
 venv/
 env/
 
-# Sistema: File spazzatura di Windows e Mac
-Thumbs.db
-.DS_Store
+# --- SQLite database (created at runtime by the API) ---
+*.db
+*.db-shm
+*.db-wal
 
-# Editor: Impostazioni personali di VS Code
-.vscode/
-=======
+# --- Testing ---
+.pytest_cache/
+
+# --- Project-specific ---
 personas/
-__pycache__/
 scripts/
->>>>>>> 7a4af25 (Modified gitignore)
-=======
-__pycache__/
+
+# --- OS ---
 .DS_Store
-*.log
-*.tmp
-*.bak
-personas/
-scripts/
->>>>>>> 3c80e7e (Modified gitignore)
+Thumbs.db
+
+# --- IDE ---
+.vscode/
+.idea/
