@@ -25,8 +25,8 @@ env/
 .pytest_cache/
 
 # --- Project-specific ---
-personas/
 scripts/
+angry-agents/src/agents/scraping/personas/
 
 # --- OS ---
 .DS_Store
