@@ -1,9 +1,9 @@
 """
 simulate_transcript.py — generate group chat transcript via Ollama.
 
-Instantiates 8 persona-agents, each conditioned on a structured profile.
-Each turn: one agent is selected (weighted by Dirichlet distribution) and
-generates a message via Ollama using a persona-specific system prompt.
+Instantiates persona-agents (up to 8), each conditioned on a structured profile
+loaded from data/personas/*_profile.json. Each turn: one agent is selected via
+Dirichlet-weighted sampling and generates a message via Ollama.
 
 Output (default: data/eval/):
   transcript.jsonl       One JSON object per line, one per message turn.
@@ -11,12 +11,12 @@ Output (default: data/eval/):
   transcript_meta.json   Run params + speaker stats + Gini coefficient.
 
 Transcript line schema:
-  {"msg_id": "msg_0001", "turn": 1, "persona_id": "p_walter_white",
-   "persona_name": "Walter White", "message": "..."}
+  {"msg_id": "msg_0001", "turn": 1, "persona_id": "p_vader",
+   "persona_name": "VADER", "message": "..."}
 
 Usage:
   python -m angry_agents.src.eval.simulate_transcript
-  python -m angry_agents.src.eval.simulate_transcript --turns 60 --topic "AI ethics"
+  python -m angry_agents.src.eval.simulate_transcript --turns 60 --topic "power and control"
   python -m angry_agents.src.eval.simulate_transcript --personas data/personas/
   python -m angry_agents.src.eval.simulate_transcript --drift-at 40 --seed 42
   python -m angry_agents.src.eval.simulate_transcript --model mistral --speaker-alpha 0.5
@@ -28,123 +28,12 @@ import random
 import sys
 from pathlib import Path
 from typing import Any
+
 import numpy as np
 import requests
 
 OLLAMA_BASE_URL = "http://localhost:11434"
-
-
-# ---------------------------------------------------------------------------
-# Default personas (8, mix fiction + real-world)
-# Override with --personas path/to/dir/ containing *_profile.json files.
-# ---------------------------------------------------------------------------
-
-DEFAULT_PERSONAS: list[dict[str, Any]] = [
-    {
-        "persona_id": "p_walter_white",
-        "persona_name": "Walter White",
-        "source_type": "fiction",
-        "core_style": "precise, controlled diction that escalates to menace under pressure",
-        "vocabulary_markers": ["say my name", "I am the danger", "chemistry", "exactly", "clearly"],
-        "ideological_positions": {"authority": "rejects hierarchy, believes in self-made power"},
-        "emotional_triggers": {"positive": "recognition of intellect", "negative": "disrespect"},
-        "response_patterns": {
-            "when_disagreeing": "methodical dismantling with cold precision",
-            "when_enthusiastic": "rare, only for chemistry or control",
-        },
-    },
-    {
-        "persona_id": "p_tony_soprano",
-        "persona_name": "Tony Soprano",
-        "source_type": "fiction",
-        "core_style": "blunt, Jersey-inflected, mixes menace with unexpected vulnerability",
-        "vocabulary_markers": ["bada bing", "what, you think", "I'm just saying", "a'right", "capisce"],
-        "ideological_positions": {"loyalty": "paramount; betrayal is existential"},
-        "emotional_triggers": {"positive": "family unity", "negative": "disrespect or weakness"},
-        "response_patterns": {
-            "when_disagreeing": "explosive then withdraws into brooding",
-            "when_enthusiastic": "loud, physical, table-slapping",
-        },
-    },
-    {
-        "persona_id": "p_hermione_granger",
-        "persona_name": "Hermione Granger",
-        "source_type": "fiction",
-        "core_style": "precise, citation-heavy, corrects others instinctively",
-        "vocabulary_markers": ["actually", "as a matter of fact", "I've read that", "technically", "logic dictates"],
-        "ideological_positions": {"knowledge": "primary virtue; ignorance is inexcusable"},
-        "emotional_triggers": {"positive": "correct answers, fairness", "negative": "rule-breaking, inaccuracy"},
-        "response_patterns": {
-            "when_disagreeing": "cites sources, escalates to exasperation",
-            "when_enthusiastic": "raises hand, speaks rapidly",
-        },
-    },
-    {
-        "persona_id": "p_hannibal_lecter",
-        "persona_name": "Hannibal Lecter",
-        "source_type": "fiction",
-        "core_style": "baroque, deliberate, laced with aesthetic critique",
-        "vocabulary_markers": ["rudeness", "exquisite", "I find that", "curious", "do consider"],
-        "ideological_positions": {"aesthetics": "the highest morality; mediocrity is unforgivable"},
-        "emotional_triggers": {"positive": "refinement, originality", "negative": "rudeness, banality"},
-        "response_patterns": {
-            "when_disagreeing": "polite redirection hiding contempt",
-            "when_enthusiastic": "extended baroque metaphor",
-        },
-    },
-    {
-        "persona_id": "p_andrew_huberman",
-        "persona_name": "Andrew Huberman",
-        "source_type": "real_world",
-        "core_style": "evidence-dense, protocol-oriented, translates neuroscience to behavior",
-        "vocabulary_markers": ["the data suggest", "protocol", "dopamine", "circadian", "peer-reviewed"],
-        "ideological_positions": {"health": "behavioral optimization through science"},
-        "emotional_triggers": {"positive": "rigorous studies, behavior change", "negative": "pseudoscience"},
-        "response_patterns": {
-            "when_disagreeing": "requests citations, offers counter-study",
-            "when_enthusiastic": "goes deep into mechanism explanation",
-        },
-    },
-    {
-        "persona_id": "p_lex_fridman",
-        "persona_name": "Lex Fridman",
-        "source_type": "real_world",
-        "core_style": "earnest, slow-paced, gravitates toward existential framing",
-        "vocabulary_markers": ["beautiful", "profound", "what does it mean", "love", "I think"],
-        "ideological_positions": {"humanity": "fundamentally good; AI as existential opportunity"},
-        "emotional_triggers": {"positive": "deep questions, intellectual honesty", "negative": "cynicism"},
-        "response_patterns": {
-            "when_disagreeing": "softens disagreement into a question",
-            "when_enthusiastic": "long pause then 'that's beautiful'",
-        },
-    },
-    {
-        "persona_id": "p_joe_rogan",
-        "persona_name": "Joe Rogan",
-        "source_type": "real_world",
-        "core_style": "conversational, bro-inflected, pivots to hunting or UFC unexpectedly",
-        "vocabulary_markers": ["it's entirely possible", "100%", "dude", "bro", "think about it"],
-        "ideological_positions": {"freedom": "radical personal freedom, anti-censorship"},
-        "emotional_triggers": {"positive": "new experiences, honesty", "negative": "political correctness"},
-        "response_patterns": {
-            "when_disagreeing": "pushes back hard then immediately considers the other view",
-            "when_enthusiastic": "interrupts with 'dude wait—'",
-        },
-    },
-    {
-        "persona_id": "p_socrates",
-        "persona_name": "Socrates",
-        "source_type": "real_world",
-        "core_style": "elenctic, question-driven, feigns ignorance to expose contradiction",
-        "vocabulary_markers": ["but tell me", "what do you mean by", "is it not so", "consider", "perhaps"],
-        "ideological_positions": {"knowledge": "knowing that you know nothing is the beginning of wisdom"},
-        "emotional_triggers": {"positive": "honest inquiry", "negative": "unexamined assumptions"},
-        "response_patterns": {
-            "when_disagreeing": "asks a clarifying question that demolishes the position",
-            "when_enthusiastic": "launches into a long chain of questions",
-        },
-    },
-]
+DEFAULT_PERSONAS_DIR = Path("data/personas")
 
 # ---------------------------------------------------------------------------
 # Ollama
@@ -165,42 +54,76 @@ def check_ollama(model: str) -> None:
             f"Pull with: ollama pull {model}"
         )
 
+# ---------------------------------------------------------------------------
+# System prompt — uses all fields present in real profile JSONs
+# ---------------------------------------------------------------------------
 
 def build_system_prompt(persona: dict, topic: str, inject_drift: bool) -> str:
-    positions = "\n".join(
-        f"  - {k}: {v}"
-        for k, v in persona.get("ideological_positions", {}).items()
-    )
+    name = persona["persona_name"]
+
+    # Ideological positions
+    positions_raw = persona.get("ideological_positions", {})
+    positions = "\n".join(f"  - {k}: {v}" for k, v in positions_raw.items()) if positions_raw else "  - not defined"
+
+    # Humor (can be str or dict)
+    humor_raw = persona.get("humor")
+    if isinstance(humor_raw, dict):
+        humor = f"{humor_raw.get('type', '')} — frequency: {humor_raw.get('frequency', '')} — targets: {humor_raw.get('targets', '')}"
+    elif isinstance(humor_raw, str) and humor_raw:
+        humor = humor_raw
+    else:
+        humor = "not defined"
+
+    # Response patterns
     patterns = persona.get("response_patterns", {})
+    pattern_lines = "\n".join(f"  - {k}: {v}" for k, v in patterns.items()) if patterns else "  - not defined"
+
+    # Emotional triggers
     triggers = persona.get("emotional_triggers", {})
-    markers = ", ".join(f'"{m}"' for m in persona.get("vocabulary_markers", []))
+    trigger_lines = "\n".join(f"  - {k}: {v}" for k, v in triggers.items()) if triggers else "  - not defined"
+
+    # Vocabulary markers
+    markers_raw = persona.get("vocabulary_markers", [])
+    markers = ", ".join(f'"{m}"' for m in markers_raw) if markers_raw else "not defined"
+
+    # Social positioning
+    social = persona.get("social_positioning", "not defined")
+
+    # Exemplar quotes — most valuable for grounding style
+    quotes_raw = persona.get("exemplar_quotes", [])
+    if quotes_raw:
+        quotes = "\n".join(f'  "{q}"' for q in quotes_raw[:5])
+    else:
+        quotes = "  (none available)"
 
     drift_note = (
-        "\n\nNote: the conversation has been going on for a while. "
-        "The group is starting to converge toward consensus. "
-        "Stay true to your character — react authentically even if it means disagreeing or redirecting."
+        "\n\nNote: the conversation has been going on for a while and the group "
+        "is starting to converge toward consensus. Stay true to your character — "
+        "react authentically, even if it means disagreeing or redirecting."
         if inject_drift
         else ""
     )
 
     return (
-        f"You are {persona['persona_name']}. Stay fully in character at all times.\n\n"
-        f"## Your communication style\n{persona['core_style']}\n\n"
+        f"You are {name}. Stay fully in character at all times.\n\n"
+        f"## Communication style\n{persona.get('core_style', 'not defined')}\n\n"
+        f"## Humor\n{humor}\n\n"
         f"## Vocabulary you naturally use\n{markers}\n\n"
-        f"## Your ideological positions\n{positions}\n\n"
-        f"## How you respond\n"
-        f"  - When disagreeing: {patterns.get('when_disagreeing', 'push back directly')}\n"
-        f"  - When enthusiastic: {patterns.get('when_enthusiastic', 'express it clearly')}\n\n"
-        f"## What moves you\n"
-        f"  - Positively: {triggers.get('positive', 'authenticity')}\n"
-        f"  - Negatively: {triggers.get('negative', 'dishonesty')}\n\n"
+        f"## Ideological positions\n{positions}\n\n"
+        f"## Emotional triggers\n{trigger_lines}\n\n"
+        f"## How you respond\n{pattern_lines}\n\n"
+        f"## Social positioning\n{social}\n\n"
+        f"## Examples of how you actually speak\n{quotes}\n\n"
         f"## Conversation topic\n{topic}\n\n"
         f"Write ONE chat message (2–4 sentences). "
-        f"Sound like yourself — use your natural vocabulary and style. "
+        f"Sound exactly like yourself — use your natural vocabulary, rhythm, and style. "
         f"No quotation marks around your response. No meta-commentary."
         f"{drift_note}"
     )
 
+# ---------------------------------------------------------------------------
+# Message generation via Ollama
+# ---------------------------------------------------------------------------
 
 def generate_message(
     persona: dict,
@@ -245,17 +168,12 @@ def generate_message(
 
 def sample_speaker_weights(n: int, alpha: float, rng: random.Random) -> list[float]:
     """
-    Dirichlet(alpha) over n speakers.
     alpha=0.5 → one agent dominates (Gini ~0.6)
     alpha=2.0 → moderate inequality matching real group chats (Gini ~0.3)
     alpha=8.0 → near-equal turns (Gini ~0.05)
     """
-    if HAS_NUMPY:
-        np_rng = np.random.default_rng(rng.randint(0, 2**32 - 1))
-        return np_rng.dirichlet([alpha] * n).tolist()
-    gammas = [rng.gammavariate(alpha, 1.0) for _ in range(n)]
-    total = sum(gammas)
-    return [g / total for g in gammas]
+    np_rng = np.random.default_rng(rng.randint(0, 2**32 - 1))
+    return np_rng.dirichlet([alpha] * n).tolist()
 
 
 def gini(counts: list[int]) -> float:
@@ -315,20 +233,24 @@ def simulate(
 # Persona loading
 # ---------------------------------------------------------------------------
 
-def load_personas_from_dir(path: Path) -> list[dict]:
+def load_personas(path: Path) -> list[dict]:
     profiles = sorted(path.glob("*_profile.json"))
     if not profiles:
         raise FileNotFoundError(f"No *_profile.json files in {path}")
+
     personas = []
     for p in profiles[:8]:
         with open(p, encoding="utf-8") as f:
             data = json.load(f)
+        # derive persona_id from filename if missing
         if "persona_id" not in data:
-            slug = p.stem.replace("_profile", "").replace(" ", "_").lower()
+            slug = p.stem.replace("_profile", "").lower()
             data["persona_id"] = f"p_{slug}"
+        # persona_name fallback
         if "persona_name" not in data:
-            data["persona_name"] = data.get("persona_id", p.stem)
+            data["persona_name"] = data["persona_id"]
         personas.append(data)
+
     if len(personas) < 2:
         raise ValueError(f"Need at least 2 personas, found {len(personas)}")
     return personas
@@ -398,16 +320,16 @@ def main() -> None:
         description="Generate group chat transcript via Ollama persona-agents."
     )
     parser.add_argument(
-        "--personas", type=Path, default=None,
-        help="Dir with *_profile.json files. Default: 8 built-in personas.",
+        "--personas", type=Path, default=DEFAULT_PERSONAS_DIR,
+        help=f"Dir with *_profile.json files (default: {DEFAULT_PERSONAS_DIR}).",
     )
     parser.add_argument(
         "--turns", type=int, default=60,
         help="Number of chat turns (default: 60).",
     )
     parser.add_argument(
-        "--topic", type=str, default="the nature of authenticity",
-        help="Conversation topic (default: 'the nature of authenticity').",
+        "--topic", type=str, default="the nature of power and authenticity",
+        help="Conversation topic (default: 'the nature of power and authenticity').",
     )
     parser.add_argument(
         "--speaker-alpha", type=float, default=2.0,
@@ -435,17 +357,13 @@ def main() -> None:
 
     check_ollama(args.model)
 
-    if args.personas:
-        print(f"Loading personas from {args.personas}...")
-        personas = load_personas_from_dir(args.personas)
-    else:
-        print("Using 8 built-in default personas.")
-        personas = DEFAULT_PERSONAS
-
+    print(f"Loading personas from {args.personas}...")
+    personas = load_personas(args.personas)
     if len(personas) > 8:
         print(f"Warning: {len(personas)} profiles found, using first 8.")
         personas = personas[:8]
 
+    print(f"Loaded {len(personas)} personas: {[p['persona_name'] for p in personas]}")
     print(
         f"Model: {args.model} | Topic: '{args.topic}' | "
         f"Turns: {args.turns} | Alpha: {args.speaker_alpha} | Seed: {args.seed}"
@@ -472,6 +390,7 @@ def main() -> None:
         "drift_at": args.drift_at,
         "seed": args.seed,
         "n_personas": len(personas),
+        "personas_dir": str(args.personas),
     }
 
     save_outputs(transcript, ground_truth, speaker_counts, weights, personas, params, args.out)

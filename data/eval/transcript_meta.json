@@ -1,0 +1,89 @@
+{
+  "params": {
+    "model": "llama3.2",
+    "topic": "hamburger",
+    "turns": 30,
+    "speaker_alpha": 2.0,
+    "drift_at": null,
+    "seed": 42,
+    "n_personas": 7,
+    "personas_dir": "data/personas"
+  },
+  "n_personas": 7,
+  "n_turns": 30,
+  "personas": [
+    {
+      "id": "p_cicciogamer89",
+      "name": "cicciogamer89"
+    },
+    {
+      "id": "p_indy",
+      "name": "INDY"
+    },
+    {
+      "id": "p_jack",
+      "name": "JACK"
+    },
+    {
+      "id": "p_luke",
+      "name": "LUKE"
+    },
+    {
+      "id": "p_riggan",
+      "name": "RIGGAN"
+    },
+    {
+      "id": "p_vader",
+      "name": "VADER"
+    },
+    {
+      "id": "p_yoda",
+      "name": "YODA"
+    }
+  ],
+  "gini": 0.3714,
+  "speaker_stats": {
+    "p_cicciogamer89": {
+      "name": "cicciogamer89",
+      "turns": 7,
+      "share": 0.233,
+      "dirichlet_weight": 0.131
+    },
+    "p_indy": {
+      "name": "INDY",
+      "turns": 6,
+      "share": 0.2,
+      "dirichlet_weight": 0.15
+    },
+    "p_jack": {
+      "name": "JACK",
+      "turns": 0,
+      "share": 0.0,
+      "dirichlet_weight": 0.044
+    },
+    "p_luke": {
+      "name": "LUKE",
+      "turns": 3,
+      "share": 0.1,
+      "dirichlet_weight": 0.118
+    },
+    "p_riggan": {
+      "name": "RIGGAN",
+      "turns": 5,
+      "share": 0.167,
+      "dirichlet_weight": 0.226
+    },
+    "p_vader": {
+      "name": "VADER",
+      "turns": 8,
+      "share": 0.267,
+      "dirichlet_weight": 0.249
+    },
+    "p_yoda": {
+      "name": "YODA",
+      "turns": 1,
+      "share": 0.033,
+      "dirichlet_weight": 0.081
+    }
+  }
+}
