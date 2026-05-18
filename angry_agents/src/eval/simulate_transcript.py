@@ -5,14 +5,20 @@ Instantiates persona-agents (up to 8), each conditioned on a structured profile
 loaded from data/personas/*_profile.json. Each turn: one agent is selected via
 Dirichlet-weighted sampling and generates a message via Ollama.
 
-Output (default: data/eval/):
-  transcript.jsonl       One JSON object per line, one per message turn.
-  ground_truth.json      {msg_id: persona_id} — ground truth for persona ID eval.
-  transcript_meta.json   Run params + speaker stats + Gini coefficient.
+Anonymity model:
+  - Each persona gets an opaque label (Agent A … Agent G), shuffled per run.
+  - Author tag produced by chat_messages_service._make_author (HMAC-SHA256).
+  - Agents see history with opaque author tags — they don't know who spoke.
+  - transcript.jsonl (judge-facing): only {msg_id, turn, author, message, drifted}.
+    No persona_id, no persona_name.
 
-Transcript line schema:
-  {"msg_id": "msg_0001", "turn": 1, "persona_id": "p_vader",
-   "persona_name": "VADER", "message": "..."}
+Secret files (never shown to judges):
+  ground_truth.json   {msg_id: persona_id}
+  author_map.json     {author_tag: persona_id}  ← needed by compute_metrics.py
+
+Transcript line schema (judge sees):
+  {"msg_id": "msg_0001", "turn": 1, "author": "Agent A 4f3a2b1c9d8e",
+   "message": "...", "drifted": false}
 
 Usage:
   python -m angry_agents.src.eval.simulate_transcript
@@ -20,10 +26,12 @@ Usage:
   python -m angry_agents.src.eval.simulate_transcript --personas data/personas/
   python -m angry_agents.src.eval.simulate_transcript --drift-at 40 --seed 42
   python -m angry_agents.src.eval.simulate_transcript --model mistral --speaker-alpha 0.5
+  python -m angry_agents.src.eval.simulate_transcript --secret my-secret-key
 """
 
 import argparse
 import json
+import os
 import random
 import sys
 from pathlib import Path
@@ -32,8 +40,11 @@ from typing import Any
 import numpy as np
 import requests
 
+from angry_agents.src.db.services.chat_messages_service import _make_author
+
 OLLAMA_BASE_URL = "http://localhost:11434"
 DEFAULT_PERSONAS_DIR = Path("data/personas")
+DEFAULT_SECRET = os.getenv("AUTHOR_SECRET", "eval-dev-secret")
 
 # ---------------------------------------------------------------------------
 # Ollama
@@ -134,7 +145,8 @@ def generate_message(
 ) -> str:
     system_prompt = build_system_prompt(persona, topic, inject_drift)
 
-    # Sliding window: last 5 turns verbatim
+    # Sliding window: last 5 turns verbatim.
+    # Use opaque author tags — agents don't know who they're talking to.
     last_k = history[-5:]
     chat_messages: list[dict[str, str]] = [
         {"role": "system", "content": system_prompt}
@@ -142,7 +154,7 @@ def generate_message(
     for h in last_k:
         chat_messages.append({
             "role": "user",
-            "content": f"{h['persona_name']}: {h['message']}",
+            "content": f"{h['author']}: {h['message']}",
         })
     chat_messages.append({
         "role": "user",
@@ -197,7 +209,23 @@ def simulate(
     drift_at: int | None,
     model: str,
     rng: random.Random,
-) -> tuple[list[dict], dict[str, str], list[int], list[float]]:
+    secret: str,
+) -> tuple[list[dict], dict[str, str], dict[str, str], list[int], list[float]]:
+    # Opaque labels shuffled per run — neither agents nor judges see real names.
+    labels = [f"Agent {chr(65 + i)}" for i in range(len(personas))]
+    rng.shuffle(labels)
+    label_map = {p["persona_id"]: labels[i] for i, p in enumerate(personas)}
+    # author_tag = "{opaque_label} {hmac[:12]}" — stable per persona, keyed on persona_id
+    author_tag_map = {
+        p["persona_id"]: (
+            f"{label_map[p['persona_id']]} "
+            f"{_make_author(p['persona_id'], '', secret)[:12]}"
+        )
+        for p in personas
+    }
+    # Reverse map for metrics: author_tag → persona_id (secret file, never shown to judges)
+    author_map = {tag: pid for pid, tag in author_tag_map.items()}
+
     weights = sample_speaker_weights(len(personas), speaker_alpha, rng)
     speaker_counts = [0] * len(personas)
     transcript: list[dict] = []
@@ -216,18 +244,20 @@ def simulate(
         print(f"\r  {turn:3d}/{turns}  [{persona['persona_name']:<22}]{drift_flag}  {message[:70]}...")
 
         msg_id = f"msg_{turn:04d}"
+        author = author_tag_map[persona["persona_id"]]
+        # Internal entry keeps persona_id for ground_truth; author is opaque for history.
         entry: dict[str, Any] = {
             "msg_id": msg_id,
             "turn": turn,
-            "persona_id": persona["persona_id"],
-            "persona_name": persona["persona_name"],
+            "persona_id": persona["persona_id"],  # stripped before judge output
+            "author": author,
             "message": message,
             "drifted": inject_drift,
         }
         transcript.append(entry)
         ground_truth[msg_id] = persona["persona_id"]
 
-    return transcript, ground_truth, speaker_counts, weights
+    return transcript, ground_truth, author_map, speaker_counts, weights
 
 # ---------------------------------------------------------------------------
 # Persona loading
@@ -259,9 +289,13 @@ def load_personas(path: Path) -> list[dict]:
 # Output
 # ---------------------------------------------------------------------------
 
+_JUDGE_FIELDS = ("msg_id", "turn", "author", "message", "drifted")
+
+
 def save_outputs(
     transcript: list[dict],
     ground_truth: dict[str, str],
+    author_map: dict[str, str],
     speaker_counts: list[int],
     weights: list[float],
     personas: list[dict],
@@ -270,14 +304,21 @@ def save_outputs(
 ) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    # Judge-facing: only opaque fields — no persona_id, no persona_name.
     transcript_path = out_dir / "transcript.jsonl"
     with open(transcript_path, "w", encoding="utf-8") as f:
         for entry in transcript:
-            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            judge_entry = {k: entry[k] for k in _JUDGE_FIELDS}
+            f.write(json.dumps(judge_entry, ensure_ascii=False) + "\n")
 
+    # Secret files — never shown to judges.
     gt_path = out_dir / "ground_truth.json"
     with open(gt_path, "w", encoding="utf-8") as f:
         json.dump(ground_truth, f, indent=2, ensure_ascii=False)
+
+    am_path = out_dir / "author_map.json"
+    with open(am_path, "w", encoding="utf-8") as f:
+        json.dump(author_map, f, indent=2, ensure_ascii=False)
 
     n = len(transcript)
     meta = {
@@ -301,8 +342,9 @@ def save_outputs(
         json.dump(meta, f, indent=2, ensure_ascii=False)
 
     print("\n--- OUTPUT ---")
-    print(f"  transcript   → {transcript_path}  ({n} turns)")
-    print(f"  ground truth → {gt_path}")
+    print(f"  transcript   → {transcript_path}  ({n} turns)  [judge-safe]")
+    print(f"  ground truth → {gt_path}  [secret]")
+    print(f"  author map   → {am_path}  [secret]")
     print(f"  metadata     → {meta_path}")
     print("\n--- SPEAKER DISTRIBUTION ---")
     for i, p in enumerate(personas):
@@ -351,6 +393,10 @@ def main() -> None:
         "--seed", type=int, default=None,
         help="Random seed for reproducibility.",
     )
+    parser.add_argument(
+        "--secret", type=str, default=DEFAULT_SECRET,
+        help="HMAC secret for author tag generation (default: $AUTHOR_SECRET env var).",
+    )
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -372,7 +418,7 @@ def main() -> None:
         print(f"Drift injection starts at turn: {args.drift_at}")
     print()
 
-    transcript, ground_truth, speaker_counts, weights = simulate(
+    transcript, ground_truth, author_map, speaker_counts, weights = simulate(
         personas=personas,
         topic=args.topic,
         turns=args.turns,
@@ -380,6 +426,7 @@ def main() -> None:
         drift_at=args.drift_at,
         model=args.model,
         rng=rng,
+        secret=args.secret,
     )
 
     params = {
@@ -393,7 +440,7 @@ def main() -> None:
         "personas_dir": str(args.personas),
     }
 
-    save_outputs(transcript, ground_truth, speaker_counts, weights, personas, params, args.out)
+    save_outputs(transcript, ground_truth, author_map, speaker_counts, weights, personas, params, args.out)
 
 
 if __name__ == "__main__":
