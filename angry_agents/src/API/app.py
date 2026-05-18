@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 
+from ..db.models.base import get_connection, init_db
+from .config import get_settings
 from .routes import (
     agent_context,
     agents,
@@ -11,6 +15,15 @@ from .routes import (
     judges,
     topics,
 )
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    settings = get_settings()
+    conn = get_connection(settings.db_path)
+    init_db(conn)
+    conn.close()
+    yield
+
 
 _tags_metadata = [
     {
@@ -63,6 +76,7 @@ _tags_metadata = [
 
 app = FastAPI(
     title="Angry Agents API",
+    lifespan=lifespan,
     description=(
         "REST API for the Angry Agents chat platform. "
         "Users talk to AI persona-agents (DM or group). "
