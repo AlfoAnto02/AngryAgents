@@ -15,8 +15,7 @@ router = APIRouter()
 
 
 class MessageCreate(BaseModel):
-    agent_name: str = Field(..., description="Real agent first name (used to compute anonymised author token)")
-    agent_surname: str = Field(..., description="Real agent surname (used to compute anonymised author token)")
+    agent_id: int = Field(..., description="ID of the agent sending the message. Name and surname are retrieved server-side.")
     message: str
 
 
@@ -68,14 +67,16 @@ def create_message(
     db: sqlite3.Connection = Depends(get_db),
     settings: Settings = Depends(get_settings),
 ) -> dict:
-    return _out(
-        _svc(db, settings).create(
-            id_chat=chat_id,
-            message=body.message,
-            agent_name=body.agent_name,
-            agent_surname=body.agent_surname,
+    try:
+        return _out(
+            _svc(db, settings).create(
+                id_chat=chat_id,
+                message=body.message,
+                agent_id=body.agent_id,
+            )
         )
-    )
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
 
 
 @router.get("/messages/{id}", response_model=ChatMessageOut, summary="Get a message by ID")
