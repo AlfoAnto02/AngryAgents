@@ -167,6 +167,23 @@ def load_podcast_transcripts(input_path: Path, max_chars: int) -> str:
 
 def load_fiction_script(input_path: Path, character: str, max_chars: int) -> str:
     raw = input_path.read_text(encoding="utf-8")
+
+    if input_path.suffix.lower() == ".json":
+        data = json.loads(raw)
+        # structured format: {"character": ..., "lines": [{"scene": ..., "dialogue": ...}]}
+        lines = data.get("lines", [])
+        parts = []
+        total = 0
+        for entry in lines:
+            scene = entry.get("scene", "")
+            dialogue = entry.get("dialogue", "")
+            block = f"{scene}\n{character}: {dialogue}\n\n"
+            if total + len(block) > max_chars:
+                break
+            parts.append(block)
+            total += len(block)
+        return "".join(parts)
+
     return raw[:max_chars]
 
 
@@ -231,7 +248,7 @@ def extract_profile(transcript_text: str, prompt_template: str, template_vars: d
         transcript_text=transcript_text,
         **template_vars,
     )
-
+    
     payload = {
         "model": model,
         "stream": False,
@@ -243,7 +260,7 @@ def extract_profile(transcript_text: str, prompt_template: str, template_vars: d
         "options": {
             "temperature": 0.2,
             "num_predict": 2048,
-            "num_ctx": 8192,
+            "num_ctx": 32768,
         },
     }
 
