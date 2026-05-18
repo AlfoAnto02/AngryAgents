@@ -1,0 +1,97 @@
+from __future__ import annotations
+
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
+
+from ..db.models.base import get_connection, init_db
+from .config import get_settings
+from .routes import (
+    agent_context,
+    agents,
+    chat_messages,
+    group_chats,
+    judge_evaluations,
+    judges,
+    topics,
+)
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    settings = get_settings()
+    conn = get_connection(settings.db_path)
+    init_db(conn)
+    conn.close()
+    yield
+
+
+_tags_metadata = [
+    {
+        "name": "topics",
+        "description": "Conversation topics. Agents and group chats are scoped to a topic.",
+    },
+    {
+        "name": "agents",
+        "description": (
+            "Persona agents (fiction or real-world). "
+            "Each agent belongs to exactly one topic. "
+            "Slug is auto-generated from name+surname and is URL-safe."
+        ),
+    },
+    {
+        "name": "agent-context",
+        "description": (
+            "Source material context attached to an agent "
+            "(signature phrases, extracted from 10k–50k token corpora)."
+        ),
+    },
+    {
+        "name": "chats",
+        "description": "Group chat sessions. One topic → many chats.",
+    },
+    {
+        "name": "messages",
+        "description": (
+            "Chat messages inside a group chat. "
+            "The `author` field is an anonymised HMAC token — "
+            "judges see source diversity without knowing the real agent identity."
+        ),
+    },
+    {
+        "name": "judges",
+        "description": (
+            "Evaluation judges. Role must be one of: "
+            "`style` | `ideology` | `general` | `behavioral`."
+        ),
+    },
+    {
+        "name": "evaluations",
+        "description": (
+            "Judge evaluations on a group chat. "
+            "Composite key (id_judge, id_chat). "
+            "Max 20 evaluations per chat — enforced at service level."
+        ),
+    },
+]
+
+app = FastAPI(
+    title="Angry Agents API",
+    lifespan=lifespan,
+    description=(
+        "REST API for the Angry Agents chat platform. "
+        "Users talk to AI persona-agents (DM or group). "
+        "20 judge-agents evaluate conversations independently, "
+        "then enter structured deliberation on high-variance cases."
+    ),
+    version="0.1.0",
+    openapi_tags=_tags_metadata,
+    swagger_ui_parameters={"defaultModelsExpandDepth": 1, "docExpansion": "list"},
+)
+
+app.include_router(topics.router, prefix="/topics", tags=["topics"])
+app.include_router(agents.router, prefix="/agents", tags=["agents"])
+app.include_router(agent_context.router, prefix="/contexts", tags=["agent-context"])
+app.include_router(group_chats.router, prefix="/chats", tags=["chats"])
+app.include_router(chat_messages.router, tags=["messages"])
+app.include_router(judges.router, prefix="/judges", tags=["judges"])
+app.include_router(judge_evaluations.router, prefix="/evaluations", tags=["evaluations"])
