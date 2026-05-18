@@ -1,0 +1,2100 @@
+{
+  "character": "JACK",
+  "films": [
+    "Pirates-of-the-Caribbean",
+    "Pirates-of-the-Caribbean-Dead-Man's-Chest"
+  ],
+  "lines_count": 418,
+  "lines": [
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's remarkable how often those two traits coincide."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - DAY",
+      "speech_type": "direct",
+      "dialogue": "What do you say to three shillings, and we forget the name?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sorry, I didn't know."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Some sort of to-do up at the fort, eh? You two weren't invited?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "This must be some important boat."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ship."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's a fine goal, I'm sure ... But it seems to me a ship like that -- -- makes this one here just a wee superfluous."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "That so? I've heard of one, supposed to be fast, nigh uncatchable ... the Black Pearl?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm sorry. It's just such a pretty boat. Ship."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Smith."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "None? Very well. You've rumbled me. I confess: I intend to commandeer one of these ships, pick up a crew in Tortuga, and go out on the account, do a little honest pirating."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Unless, of course, he knew you wouldn't believe the truth if he told it to you."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCKS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Aren't you going to save her?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCKS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sailors."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCKS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Fine."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - NAVY DOCKS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't lose these."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Move."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Clearly, you've never been to Singapore."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where did you get this?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Captain Jack Sparrow. If you please."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah, but you have heard of me."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "But it seems to be enough to condemn him."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Finally."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Commodore Norrington ... my pistol and belt, please."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Commodore!"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Elizabeth -- it is Elizabeth?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Miss Swann, if you'll be so kind?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now, if you'll be very kind?"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "I saved your life; now you've saved mine. We're square."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - OCEAN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Gentleman. .. m' lady. .. you will always remember this as the day you almost caught Captain Jack Sparrow."
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You look familiar ... Have I ever threatened you before?"
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah. Then it would be a shame to put a black mark on your record. So if you'll excuse me ..."
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Do you think this is wise, boy? Crossing blades with a pirate?"
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Only a little."
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You know what you're doing, I'll give you that ... Excellent form ... But how's your footwork? If I step here -"
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Very good! And if I step again, you step again. . ."
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ta!"
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's a good trick. Except, once again, you are between me and the way out. (points his sword at the back door) And now you have no weapon."
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Who makes all these?"
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You need to find yourself a girl. Or maybe the reason you practice three hours a day is you've found one -- but can't get her?"
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Pirate."
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Move away."
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Move!"
+    },
+    {
+      "scene": "INT. BLACKSMITH'S FORGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You're lucky, boy -- this shot's not meant for you."
+    },
+    {
+      "scene": "INT. CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You can keep doing that forever, that dog's never going to move."
+    },
+    {
+      "scene": "INT. CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I know those guns!"
+    },
+    {
+      "scene": "INT. CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's the Black Pearl."
+    },
+    {
+      "scene": "INT. CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There are a lot of stories about the Black Pearl."
+    },
+    {
+      "scene": "INT. FORT CHARLES - CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's all right, doggie ... come here,"
+    },
+    {
+      "scene": "INT. FORT CHARLES - CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What's the matter, boy?"
+    },
+    {
+      "scene": "INT. FORT CHARLES - CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Worry about your own fortunes. The lowest circle of hell is reserved for betrayers ... and mutineers."
+    },
+    {
+      "scene": "INT. FORT CHARLES - CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You are cursed."
+    },
+    {
+      "scene": "INT. FORT CHARLES - CELL BLOCK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The stories are true."
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Somewhat."
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Surely you've heard the stories? The Black Pearl sails from the dreaded Isla de Mureta... an island that cannot be found -- except by those who already know where it is."
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Why ask me?"
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "And you want to turn pirate yourself?"
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "So it is that you found a girl. Well, if you're intending to brave all and hasten to her rescue and so win fair lady's heart, you'll have to do it alone. I see no profit in it for me."
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "How? The key's run off."
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Your name is Turner."
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Will Turner... I'll tell you what, Mr. Turner. I've changed my mind. You spring me from this cell, and on pain of death, I'll you to the Black Pearl. Do we have an accord?"
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Agreed!"
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Not without my effects."
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "My business, Will. As for your business -one question, or there's no use going. This girl -- what does she mean to you? How far are you willing to go to save her?"
+    },
+    {
+      "scene": "INT. FORT CHARLES - JAIL CELLS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Good."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - MORNING",
+      "speech_type": "os",
+      "dialogue": "Ah, now there's a lovely sight!"
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "I knew the Harbormaster wouldn't report her. Honest men are slaves to their conscience, and there's no predicting 'em. But you can always trust a dishonest man to stay that way..."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Come aboard."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "No worries there. She's far more likely to rot out from under us."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Besides, we are about to better our prospects considerably."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Commandeer. We're going to commandeer a ship. Nautical term."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - DOCKS - MORNING",
+      "speech_type": "direct",
+      "dialogue": "So's breaking a man out of jail. Face it, Will: you may say you'll never be a pirate, but you're off to a rip-roaring start. My advice -- smile and enjoy it."
+    },
+    {
+      "scene": "EXT. PORT ROYAL - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Remarkable how often those two traits coincide."
+    },
+    {
+      "scene": "EXT. H. M. S. DAUNTLESS - MAIN DECK - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Everybody stay calm. We're taking over the ship!"
+    },
+    {
+      "scene": "EXT. H. M. S. DAUNTLESS - MAIN DECK - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Dead serious."
+    },
+    {
+      "scene": "EXT. H. M. S. DAUNTLESS - MAIN DECK - MORNING",
+      "speech_type": "direct",
+      "dialogue": "We'll see about that."
+    },
+    {
+      "scene": "EXT. H. M. S. DAUNTLESS - MAIN DECK - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Fine by me. We brought you a nice little boat, so you can all get back to shore, safe and sound."
+    },
+    {
+      "scene": "EXT. H. M. S. DAUNTLESS - MAIN DECK - MORNING",
+      "speech_type": "direct",
+      "dialogue": "As likely as not. Will, short up the anchor, we've got ourselves a ship!"
+    },
+    {
+      "scene": "EXT. DAUNTLESS - STERN - MORNING",
+      "speech_type": "direct",
+      "dialogue": "A little help?"
+    },
+    {
+      "scene": "EXT. DAUNTLESS - FORECASTLE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Lookee there, mate! We're underway!"
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Can you swim? Can. You. Swim?"
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Good."
+    },
+    {
+      "scene": "EXT. H . M. S. DAUNTLESS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Thank you, Commodore, for getting our ship ready to make way! We'd've had a hard time of it by ourselves!"
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "For a man whose made an industry of avoiding boats, you're a quick study."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Is that so?"
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "I knew him. Probably one of the few who knew him as William Turner. Most everyone just called him Bill, or 'Bootstrap' Bill."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Good man. Good pirate. And clever -\"- I never met anyone with as clever a mind and hands as him. When you were puzzling out that cell door, it was like seeing his twin."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "I swear, you look just like him."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Figured you wouldn't want to hear it."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "You think your father is the only man who ever lived the Glasgow life, telling folk one thing, and then going off to do another? There's quite a few who come here, hoping to amass enough swag to ease the burdens of respectable"
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sure -- because he could always go pirating."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Put it away, Will. It's not worth getting beat again."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Then that's not much incentive for me to fight fair, is it?"
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "As long as you're just hanging there, pay attention. Must, Should, do, don't, shall, shall not -- those are just suggestions. There are only two absolute rules. (ticks them off on his fingers)"
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "What a man can do. And what a man can I t do."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "For instance: you can accept that your father was a pirate and still a good man... or you can't. Now me, I can sail this ship to Tortuga, by myself. . . But I can't just let you drown."
+    },
+    {
+      "scene": "EXT. INTERCEPTOR - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh -- did I forget to mention that?"
+    },
+    {
+      "scene": "EXT. TORTUGA - DAY",
+      "speech_type": "direct",
+      "dialogue": "We need a crew. We can manage the ship between islands, but the open sea, that's another matter -"
+    },
+    {
+      "scene": "EXT. TORTUGA - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't worry. I've already got my Quartermaster -- there!"
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "AnaMaria! Have you seen Gibbs? I need to put together -"
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Borrowed. Borrowed your boat. Without permission."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Safe! At Port Royal. With the Royal Navy."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You'll get it back. Or one better."
+    },
+    {
+      "scene": "EXT. THE FAITHFUL BRIDE - REAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, fortunately, I know how to counter it. The man who did the waking buys the man who was sleeping a drink, and the man who was sleeping it drinks it while listening to a proposition."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Just the one."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "First -- have you found me a crew?"
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now where, I wonder, would they have gotten that idea?"
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm going after the Black Pearl."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ilm going after the Black Pearl. I know where its going to be, and I'm going to take it."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Aye, and that's why I know where it's going to be, and that's why I know what Barbossa is up to. All I need is a crew."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Not if the fool has something Barbossa wants. Something he needs."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Back there, guarding the door is the son of old Bootstrap Bill Turner."
+    },
+    {
+      "scene": "INT. THE FAITHFUL BRIDE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That he is."
+    },
+    {
+      "scene": "EXT. TORTUGA - DOCK - LATER - DAY",
+      "speech_type": "direct",
+      "dialogue": "Mr. Cotton. Do you have the courage and fortitude to follow orders and stay true, in the face danger, and almost certain death?"
+    },
+    {
+      "scene": "EXT. TORTUGA - DOCK - LATER - DAY",
+      "speech_type": "direct",
+      "dialogue": "That goes for the rest of you! Danger and near certain death. For we are to sail for the Isla de Muerta, to rescue the daughter of Governor Swann. An equal share of the reward shall be -"
+    },
+    {
+      "scene": "EXT. TORTUGA - DOCK - LATER - DAY",
+      "speech_type": "direct",
+      "dialogue": "These are the only ones worth having. And we're going to need them-"
+    },
+    {
+      "scene": "EXT. H. M. S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "She can hold a bit longer."
+    },
+    {
+      "scene": "EXT. H. M. S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "We're catching up!"
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Bear three points starboard."
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Six points port!"
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "I didn't!"
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "My body's still there, rotting away, and I am but a ghost!"
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah, that's a dark and unpleasant tale, best left untold."
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "The pistol. When a pirate is marooned, Will, he's given a pistol with a single shot. No good for hunting, or surviving, really. But after three weeks of starvation and thirst -- the option of that pistol begins to look good."
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - DAY",
+      "speech_type": "direct",
+      "dialogue": "But I survived. And I still have that single shot. It's meant for one man. My mutinous first mate -"
+    },
+    {
+      "scene": "EXT. H.M.S. INTERCEPTOR - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "They'll be anchored on the lee side. Haul your wind, and keep to the weather of the island -"
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - LAGOON - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Depends."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - LAGOON - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "On whether the stories are all true. If they are, that's a waterfall that spills over at high tide, with a short drop to an underground lagoon. If not -"
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - LAGOON - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "-- well, too late."
+    },
+    {
+      "scene": "INT. CAVES - UNDERWATER LAGOON - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Chalk one up for the stories."
+    },
+    {
+      "scene": "INT. ISLA DE MUERTE - SMALL CAVERN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Me!"
+    },
+    {
+      "scene": "INT. ISLA DE MUERTE - SMALL CAVERN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, I'm -- rescuing you."
+    },
+    {
+      "scene": "INT. ISLA DE MUERTE - SMALL CAVERN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "This way!"
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The trick isn't getting here, it's getting away."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - CLEARING - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No. This won't work. I'll stay behind, and fight them. You go on."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - CLEARING - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'll lead them away."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - CLEARING - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Go to the opposite end of the island, and signal the ship. I'll keep 'em busy."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - CLEARING - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm sure. When you've led the kind of life I have, there are debts that must be paid. Maybe I can balance the scales a little."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - CLEARING - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I invoke the right of parlay, according to the Code of the Brethren, set down by the pirates Morgan and Bartholomew..."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The woman's blood didn't work, did it?"
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I know who's blood you need, to end the curse."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No you won't."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Simple. I have something you want more than anything. The way to free you from the curse of the treasure. You have something I want -- more than anything."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You give me the Pearl. Then I tell you who you need."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That's right."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm a man of my word."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You see, I've got this honest streak in me -- in its own way, a sort of curse. Oh, and there's the fact that you have no choice."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You left me on a desert island -- what worse can you do?"
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Wait as long as you like."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Let's say I tell you the wrong person. What would you do?"
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And if I tell you the truth, you become mortal, and you won't come near me because you know I'd kill you."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "See, that's where we're different. I trust you ... to do what it takes to get what you want."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What -- you don't have the medallion?"
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'll watch my back."
+    },
+    {
+      "scene": "INT. BLACK PEARL - BRIG - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't hit my ship! I mean, kill the lying scoundrel - I'm a little conflicted, here."
+    },
+    {
+      "scene": "EXT. BLACK PEARL - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Will -- don't do anything stupid! Don't say anything stupid -"
+    },
+    {
+      "scene": "EXT. BLACK PEARL - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's pure evil to make a Captain walk the plank of his own ship, twice in one lifetime. No good can come of it."
+    },
+    {
+      "scene": "EXT. BLACK PEARL - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Someone needs to cut these bonds, then."
+    },
+    {
+      "scene": "EXT. BLACK PEARL - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "The last time you did this, you left me a pistol, with one shot."
+    },
+    {
+      "scene": "EXT. BLACK PEARL - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "A gentleman might give us two pistols, seeing as there are two of us, this time."
+    },
+    {
+      "scene": "EXT. BLACK PEARL - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "You can go to your grave not knowing."
+    },
+    {
+      "scene": "EXT. CARIBBEAN SEA - DAY",
+      "speech_type": "direct",
+      "dialogue": "That's the second time I've had to watch that man sail away with my ship."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "os",
+      "dialogue": "Not all that big, is it?"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "The trees are taller."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Not yet. Ask me again in a few weeks."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't be thinking I'm not already working on it."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "It won't. It won't, and so we won't."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Last time, I was here a grand total of three days. Last time, the rumrunners who used this island as a cache came by, and I bartered passage off."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "But from the looks of this, they've long been'out of business, and so that won't be happening again. We probably have your friend Norrington to thank for that."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Welcome to the Caribbean, love."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "You should look at our contretemps this way: we've got shade trees, thank the Lord. We've got some food on the trees, thank the Lord again. And we've got rum, praise the Lord. We can stay alive a month, maybe more. Keep a weather eye open for passing ships, and our chances are fair."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "You're right. Here's luck to you, Will Turner."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't be thinking I'm happy about this, Elizabeth. But I see no use in wailing and gnashing my teeth over that which I can do nothing about."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Try it. It goes down rough, but it goes down - - and the second swig goes down easier."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "What? What was that? Something funny, Miss Swann? share. Please,"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "I know a lot of songs about pirates, but none I'd teach a child. Let's hear it."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now I must hear this song. An authentic pirate song. Have at it."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "More to drink!"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well?"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - LATER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I LOVE this song! Yo ho, yo ho, a pirate's life for me! We're beggars and blighters,"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - LATER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "When I get the Black Pearl back, I'm going to teach it to the whole crew, and we'll sing it all the time!"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - LATER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Not just the Spanish Main. The whole ocean. .. the whole world. Wherever we want to go, we go. That's what a ship is, you know. Not just a keel and a hull and a deck and sails. That's what a ship need_ ... but what a ship is -- what the Black Pearl really-is ... is freedom."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - LATER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Ah, well... the company is better than last time. And the scenery has definitely improved."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - LATER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We've got a few bottles left ... and we've yet to tap the kegs."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - LATER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "To the Black Pearl."
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - MORNING",
+      "speech_type": "direct",
+      "dialogue": "What are you doing? You've burned our food, the shade -- the rum!"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Why?"
+    },
+    {
+      "scene": "EXT. ISLET - BEACH - MORNING",
+      "speech_type": "direct",
+      "dialogue": "You -- you burned up the island, for a one-time chance at being spotted?"
+    },
+    {
+      "scene": "EXT. ISLET - LEEWARD SHORE - DAY",
+      "speech_type": "direct",
+      "dialogue": "They'll be no living with her after this."
+    },
+    {
+      "scene": "EXT. H.M.S. DAUNTLESS - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "We had time to get to know each other."
+    },
+    {
+      "scene": "EXT. H.M.S. DAUNTLESS - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Norrington, think about it ... the Black Pearl, its captain and crew... the last pirate threat in the Caribbean. How can you pass that up?"
+    },
+    {
+      "scene": "EXT. H.M.S. DAUNTLESS - MAIN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Congratulations, sir."
+    },
+    {
+      "scene": "EXT. H. M.. S.. DAUNTLESS - MAIN DECK - EVENING",
+      "speech_type": "direct",
+      "dialogue": "Nor did you, I noticed."
+    },
+    {
+      "scene": "EXT. H. M.. S.. DAUNTLESS - MAIN DECK - EVENING",
+      "speech_type": "direct",
+      "dialogue": "Exactly."
+    },
+    {
+      "scene": "EXT. H. M.. S.. DAUNTLESS - MAIN DECK - EVENING",
+      "speech_type": "direct",
+      "dialogue": "I have a plan. If it succeeds, then any battle will be decidedly brief ... and one-sided."
+    },
+    {
+      "scene": "EXT. H. M.. S.. DAUNTLESS - MAIN DECK - EVENING",
+      "speech_type": "direct",
+      "dialogue": "Funny, I was thinking along those lines. How about you let me go in alone, and while you're setting up an ambush, I'll trick the pirates out to you."
+    },
+    {
+      "scene": "EXT. H. M.. S.. DAUNTLESS - MAIN DECK - EVENING",
+      "speech_type": "direct",
+      "dialogue": "They left me stranded. Twice. What have you got to lose?"
+    },
+    {
+      "scene": "EXT. H. M.. S.. DAUNTLESS - MAIN DECK - EVENING",
+      "speech_type": "direct",
+      "dialogue": "I knew you'd listen to reason!"
+    },
+    {
+      "scene": "EXT. H.M.S. DAUNTLESS - MAIN DECK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That chart I drew up'11 get you past the reefs. If you're steersman's good enough, that is."
+    },
+    {
+      "scene": "EXT. H.M.S. DAUNTLESS - MAIN DECK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'll slip in, talk them into to come out, and you'll be free to blow holy high heaven the whole lot of them."
+    },
+    {
+      "scene": "INT. ISLA DEMUERTA - CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Do you have any idea where you're going?"
+    },
+    {
+      "scene": "INT. ISLA DEMUERTA - CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Don't talk. These caves magnify sound. Just follow me."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's the right way."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You don't want to be doing that."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "All right then."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Because, right about now, the H.M.S. Dauntless is lying in wait in the harbor."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "- - and its guns and crew will cut you and your men to pieces the moment you step outside these caves."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You've no hope of surviving Norrington's attack ... that is, if you're mortal."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Simple. Don't kill the boy yet. Wait for a more opportune moment."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "(drops the coins one-by- one back into the chest) Like after you've killed... Every... Last ... One ... of Norrington's men."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The situation has changed."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Aye. See, after you're done with the Royal Navy, you'll have a bit of a problem: the H.M.S. Dauntless. There you'll be, with two lovely ships on your hands, and what to do? Of course you'll decide you deserve the bigger one, and who's to argue? The Dauntless a first-rate ship-of-line, and with it, you can rule the seas."
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I sail for you as part of your fleet, I give you fifteen percent of my plunder, and you get to introduce yourself at tea parties and brothels as 'Commodore Barbossa.' Do we have an accord?"
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Now, you can take care of the Dauntless, right?"
+    },
+    {
+      "scene": "INT. CAVES - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There's ... another exit?"
+    },
+    {
+      "scene": "INT. ISLA DE MUERTA - MAIN CAVERN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh, please -- do I really seem that clever?"
+    },
+    {
+      "scene": "INT. ISLA DE MUERTA - MAIN CAVERN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Use it well."
+    },
+    {
+      "scene": "INT. CAVE - MAIN CHAMBER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Remarkable how often those two traits coincide."
+    },
+    {
+      "scene": "INT. CAVE - MAIN CHAMBER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well, isn't that interesting."
+    },
+    {
+      "scene": "INT. CAVE - MAIN CHAMBER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "They're so pretty, I just couldn't resist stealing one. It's a curse, I guess."
+    },
+    {
+      "scene": "INT. CAVE - MAIN CHAMBER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Or you could surrender."
+    },
+    {
+      "scene": "INT. ISLA DE MUERTE - CAVE - MAIN CAVERN - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The worst. On the other hand, maybe I'm a man who can't pass up a chance for revenge against the black-hearted bastard who stole my ship and left me to die in the middle of the ocean -- twice! -- and who knows how to get what he wants. Now that's a great pirate."
+    },
+    {
+      "scene": "EXT. ISLA DE MUERTA - BEACH - NIGHT - LATER",
+      "speech_type": "direct",
+      "dialogue": "Tough luck. I was rooting for you."
+    },
+    {
+      "scene": "EXT. BLACK PEARL - STERN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "AnaMaria, trim the mainsail!"
+    },
+    {
+      "scene": "EXT. BLACK PEARL - STERN DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Mr. Gibbs, organize a cleaning detail - you and Cotton. I want every inch of the Pearl spic-and-span and ship-shape!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sorry, mate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Mind if we make a little side trip? I didn't think so."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Complications arose, ensued, were overcome."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Mm-hmm!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Shiny?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Is that how you're all feeling, then? Perhaps dear old Jack is not serving your best interests as captain?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What did the bird say?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ohhh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It does me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No! Much more better. It is a *drawing* of a key."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gentlemen, what do keys do?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No! If we don't have the key, we can't open whatever it is we don't have that it unlocks. So what purpose would be served in finding whatever need be unlocked, which we don't have, without first having found the key what unlocks it?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You're not making any sense at all. Any more questions?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hah! A heading. Set sail in a... mmm... a general... in *that* way - direction."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come on, snap to and make sail, you know how this works. Come on, ?oy/?quick, ?oy/?quick, hey!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Why is the rum always gone?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh! *That's* why."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "As you were, gents."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ah!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Bootstrap. Bill Turner."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Is this a dream?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I thought not. If it were, there'd be rum."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I had some help retrieving the Pearl, by the way."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Your son."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "And to what do I owe the pleasure of your carbuncle?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Who?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ah. So it's you, then. He shanghaied you into service, eh?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It's funny what a man will do to forestall his final judgment -"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Technic -"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes, but the Flying Dutchman already *has* a captain, so there's re -"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Any idea when Jones might release said terrible beastie?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "On deck all hands! Make fast the bunt gasket! On deck! Scurry! ?Scurry-on/?Marty, I want movement!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "*I want movement!*"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "All on deck! Run! And keep running! Run as if the devil himself and itself is upon us!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ah! Ooh! Run! Land."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh! Euh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Didn't say port. I said land. Any land."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Agh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No no! Leave it! Run!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Shhh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Nothing."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "?: Wa-say kohn."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Kay-lay lam. Lam piki-piki. Lam eensy weensy. Lam say-say... eunuchy. Snip-snip."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Say-say lam shoop-shoop sha smalay-lama shoo-koo. Savvy? Ball licky-licky."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Save me!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Thank you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "?No/?Oup! No no! ?Oy!/?Wait! No no! More wood! Big fire! *Big* fire! I am chief! Want big fire! Come on!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "?Oy!/?Boy! Maboogie snickel-snickel. Tout de suite! Come on! More wood!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh bugger."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Little seasoning. Eh?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Well done."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Well, go on! Go get them! Hay ala!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No! No no! Oy! No no!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Not good."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Bugger."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hey!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Good doggie! ?Doggie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "*Alas*, my children! This is the day you shall always remember as the day that you almost -"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "...Captain Jack... Sparrow."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes to the first, yes to the second, but only insofar as we keep to the shallows as much as possible."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I have every faith in your reconciliatory navigational skills, Master Gibbs, now where is that monkey? I want to shoot *something*."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ah."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Have you considered keeping a more watchful eye on 'er? Maybe just lock her up somewhere."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There comes a time when one must take responsibility for one's mistakes."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Mister Gibbs!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We have a need to travel upriver."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No, a... resolute and unyielding need."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "William... I shall trade you the Compass, if you will help me... to find *this*."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No. *You* want you to find this. Because the finding this finds you incapacitorially finding and/or locating and your discovering the detecting of a way to save your ?dolly/?dotty belle ol'... what's-her-face. Savvy?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "How much do you know about Davy Jones?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yeah, it's gonna save Elizabeth."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No worries, mates. Tia Dalma and I go way back. Thick as thieves. Nigh inseparable we are. Were. Have been. Before."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It's me front I'm worried about. Mind the boat."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Tia Dalma!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There'll be no knowing here. We've come for help and we're not leaving without it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I thought *I* knew you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I brought payment."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Look!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "An undead monkey! Top that!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We're looking for this. And what it goes to."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Maybe. Why?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "A *woman*."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I did not. I didn't know where the key was. But now we do. So all that's left is to climb aboard the Flying Dutchman, grab the key, you go back to Port Royal and save your bonnie lass, hey!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "My eyesight's as good as ever, just so you know."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Dirt. This is a jar of dirt."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Is the... jar of dirt going to help?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Neither do you. Do *not* underestimate her."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "So what's your plan, then?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "And if there are crewmen?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I like it. Simple, easy to remember."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hey! If you *do* happen to get captured, just say Jack Sparrow sent you to settle his debt! Might save your life!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Douse the lamps."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Technically, I was only captain for two years, then I was viciously mutinied upon."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You have my payment. One soul to serve on your ship is already over there."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Aha! So we've established my proposal is sound in principle, now we're just haggling over price."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Just how many souls do you think my soul is worth?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You're a diamond, mate. Send me back the boy, I'll get started right off."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Have you not met Will Turner? He's noble, heroic, *terrific* soprano. Worth at least four... maybe three and a half. And did I happen to mention... he's in love. With a girl. Due to be married. Betrothed. Dividing him from her and her from him... would only be half as cruel as actually allowing them be joined in holy matrimony. Aye?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yep! I'm good with it. Should we seal it in blood? I mean... mm-mm - ink?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Uh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh, Mr. Gibbs."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Uh, I feel sullied and unusual."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Fortunately, he was mum as the condition in which these souls need be."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Tortuga."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I know what I want."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "How we going?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You're hired."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Time to go?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Thanks, mate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Carry on."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come to join me crew, lad? Welcome aboard."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I'm deeply flattered, son, but my first and only love is the sea."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Elizabeth. Hide the rum."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You know, these clothes do not flatter you at all. It should be a dress or nothing. I happen to have no dress in my cabin."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Darling, I am truly unhappy to have to tell you this but... through an unfortunate and *entirely* unforeseeable series of circumstances that have nothing whatsoever to do with me, poor William has been press-ganged into Davy Jones' crew."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You look bloody awful. What are you doing here?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You *smell* funny."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Are you certain? Is that what you really want most?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Because I would think, you'd want to find a way to *save* Will the most."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Well, there is a chest..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "A chest of unknown size and origin."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "And whoever possesses that chest possesses the leverage to command Jones to do whatever it is he or she wants, including... saving brave William from his grim fate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "With this. My Compass... is unique."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "True enough. This Compass does not point north."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It points to the thing you want most in this world."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Every word, love. And what you want most in this world is to find the chest of Davy Jones, is it not?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "By finding the chest of Davy Jones."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Mister Gibbs!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We have our heading."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Miss Swann."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Agh."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Agh."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Of course. He wants the chest."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "A truly discomforting notion, love."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Might I inquire how as to how you came by these?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Friendly?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Will strikes a deal for these and upholds it with honor. Yet you're the one standing here with the prize. Full pardon, commission as a privateer on behalf of England and the East India Trading Company. As if I could be bought for such a low price."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No. Persuade me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "As I said... Persuade me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "My tremendous intuitive sense of the female creature informs me that you are troubled."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You know... Lizzy... I *am*... captain of a ship. And *being* captain of a ship, I could in fact perform a... marriage. Right here. Right on this deck. Right... *now*!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Why not? We *are* very much alike, you and I. I and you. Us."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Trifles. You *will* come over to my side, I know it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "One word love: curiosity. You long for freedom. You long to do what you want to do because you want it. To act on selfish impulse. You want to see what it's like. One day, you won't be able to resist."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Uh my Compass works fine."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I *love* those moments. I like to wave at them as they pass by."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "All evidence to the contrary."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Do tell, dearie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I *do* want to know what it tastes like."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I want my jar of dirt."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Guard the boat, mind the tide... Don't touch my dirt."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes it *does*. You're sitting on it!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Move."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I do that quite a lot. Yet people are always surprised."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "How did you get here?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Not so easy, is it?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You do?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh! Well... you're welcome, then."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Pretty much. Time and tide, love."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oy! What're you doing?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Can't let you do that, William. 'Cause if Jones is dead, who's to call his terrible beastie off the hunt, eh? Now. If you please: The key."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I knew you'd warm up to me eventually."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ah. The dark side of ambition."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Let us examine that claim for a moment, former Commodore, shall we? Who was it, who at the very moment you had a notorious pirate safely behind bars, saw fit to *free* said pirate, and take your dearly beloved all to hisself, hey? So who's fault is it, *really*, that you've ended up a rum-pot deckhand what takes orders from pirates?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Still rooting for you, mate!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Wup!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Woah!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh, shut it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Jar of dirt!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Leave him lie! Unless you plan on using him to hit something with."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Uh, I say we respect his final wish."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He fell behind."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I'll handle this, mate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hey! Fishface! Lose something? Hey? Oup!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Got it!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come to negotiate, eh, have you, you slimy git? Look what I got. I got a jar of dirt! I got a jar of dirt! And guess what's inside it?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hard to starboard."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Why fight when you can negotiate? All one needs... is the proper leverage."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Where is it? Where is the thump-thump?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Abandon ship. Into the longboat."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "She's only a ship, mate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We're not free yet, love."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Pirate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Bugger, bugger, bugger, bugger, bugger, bugger...!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Come on... Come on..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Not so bad."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hello, beastie."
+    }
+  ]
+}

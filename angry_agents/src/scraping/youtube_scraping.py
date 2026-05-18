@@ -1,9 +1,35 @@
 """
 Scrape YouTube channel videos: metadata + transcripts via yt-dlp and youtube-transcript-api.
+Output: JSON file in data/youtube/ with video metadata and transcript text per video.
 
 Usage:
+    # Scrape entire channel (default: @JOk3R1, all videos, ≤50k tokens)
     python -m angry_agents.src.scraping.youtube_scraping
-    python -m angry_agents.src.scraping.youtube_scraping --max 50
+
+    # Limit number of videos from channel
+    python -m angry_agents.src.scraping.youtube_scraping --max 30
+
+    # Different channel
+    python -m angry_agents.src.scraping.youtube_scraping --channel https://www.youtube.com/@SomeChannel
+
+    # Specific video IDs (comma-separated, skips channel listing)
+    python -m angry_agents.src.scraping.youtube_scraping --video-ids dQw4w9WgXcQ,abc123xyz
+
+    # Cap transcript size (default 50000 tokens, ~200k chars)
+    python -m angry_agents.src.scraping.youtube_scraping --max-tokens 20000
+
+    # Custom output directory
+    python -m angry_agents.src.scraping.youtube_scraping --out data/my_channel
+
+Flags:
+    --channel       Channel URL (default: https://www.youtube.com/@JOk3R1)
+    --max           Max videos to fetch from channel listing
+    --max-tokens    Stop accumulating transcripts after ~N tokens (default: 50000)
+    --out           Output directory (default: data/youtube)
+    --video-ids     Comma-separated video IDs; output saved as cicciogamer89.json
+
+Output JSON shape per entry:
+    { video_id, title, upload_date, duration, url, transcript: str | null }
 """
 
 import argparse
@@ -114,7 +140,7 @@ def scrape(
         print(f"[{i:>4}/{len(videos)}] {video['title'][:50]:<50} {status}")
         time.sleep(REQUEST_DELAY)
 
-    out_file = output_dir / "cicciogamer89.json"
+    out_file = output_dir / "j0k3r.json"
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
