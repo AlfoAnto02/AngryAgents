@@ -3,48 +3,54 @@ from dataclasses import dataclass
 
 
 @dataclass
-class PersonaLikelihood:
-    persona: str
-    score: int   # 1–5: how likely this persona wrote the message
-    reason: str
+class AgentScore:
+    author: str   # anonymised DIGEST from Chat_messages
+    score: int    # 1–5
 
 
 @dataclass
-class Verdict:
-    likelihoods: list[PersonaLikelihood]
+class PersonaIdentificationResult:
+    scores: list[AgentScore]
 
     @property
     def predicted(self) -> str:
-        """Persona with the highest likelihood score."""
-        return max(self.likelihoods, key=lambda x: x.score).persona
+        """Author with the highest identification score."""
+        return max(self.scores, key=lambda x: x.score).author
 
 
 class BaseJudge(ABC):
     """
     Base for all 20 judges.
 
-    Each judge looks at a single message and scores every known persona on how
-    likely they are to have written it, through the lens of the judge's focus.
+    Each judge evaluates a full Group_chat across four dimensions.
+    The judge's focus (style, ideology, general, behavioral) narrows
+    the lens for every evaluation.
 
-    Example — aggressiveness judge scoring a rude message:
-        Trump      → 5  (matches his known aggressive style)
-        Winnie     → 1  (far too gentle)
-
-    Phase 1 — independent:   evaluate(message, personas)
-    Phase 2 — collaborative: deliberate(message, personas, other_verdicts)
+    Phase 1 — independent:   all four evaluate() methods
+    Phase 2 — collaborative: judges see each other's outputs and revise
     """
 
     name: str   # e.g. "aggressiveness", "style", "ideology"
     focus: str  # injected into the prompt to narrow the judge's lens
 
     @abstractmethod
-    def evaluate(self, message: str, personas: list[dict]) -> Verdict:
+    def persona_identification(self, chat: dict) -> PersonaIdentificationResult:
         """
-        Phase 1: score each persona's likelihood of having written this message.
-        personas — list of profile dicts (from *_profile.json), each with at
-                   least a 'persona_name' key.
+        Score each agent in the chat 1–5 on how identifiable their persona is,
+        then return the argmax's result(predicted author).
+
+        chat — the full Group_chat dict (keys: 'chat', 'messages').
+        Each message has 'author' (DIGEST) and 'message' fields.
         """
 
     @abstractmethod
-    def deliberate(self, message: str, personas: list[dict], other_verdicts: list[Verdict]) -> Verdict:
-        """Phase 2: revise or confirm after seeing the other judges' verdicts."""
+    def individual_fidelity(self, chat: dict) -> None:
+        """Evaluate how faithfully each agent's messages match its persona."""
+
+    @abstractmethod
+    def group_fidelity(self, chat: dict) -> None:
+        """Evaluate how well the agents behave as a coherent group."""
+
+    @abstractmethod
+    def behavioural_fidelity(self, chat: dict) -> None:
+        """Evaluate how human-like each agent's behaviour is in the chat."""
