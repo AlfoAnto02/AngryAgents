@@ -1,15 +1,18 @@
-from ..agent_config import DEFAULT_MODEL, format_messages, ollama_chat
+from ..agent_config import DEFAULT_MODEL, run_persona_identification
 from .base_judge import BaseJudge, PersonaIdentificationResult
 
-PERSONA_ID_PROMPT = """\
-You are identifying which agent most likely wrote each message in a group chat.
-Your only lens is ideology: political views, values, moral stances, and belief systems.
+_PROMPT = """\
+You are identifying which agent in a group chat is acting as a specific persona.
+Your only lens is IDEOLOGY: political views, values, moral stances, and belief systems.
+
+--- PERSONA PROFILE: {persona_name} ---
+{profile_block}
 
 --- MESSAGES BY AUTHOR ---
 {messages_block}
 
-Score each author 1–5 on how identifiable their ideological voice is:
-  1 = very unclear  5 = very distinctive
+Score each author 1–5 on how likely they are acting as {persona_name}, judged only on ideology fit:
+  1 = very unlikely  5 = very likely
 
 Reply with one line per author in this exact format:
 author_digest: score
@@ -25,13 +28,16 @@ class IdeologyJudge(BaseJudge):
     def __init__(self, model: str = DEFAULT_MODEL):
         self.model = model
 
-    def persona_identification(self, chat: dict) -> PersonaIdentificationResult:
-        messages_block, authors = format_messages(chat)
-        prompt = PERSONA_ID_PROMPT.format(
-            messages_block=messages_block,
-            author_list=", ".join(authors),
+    def persona_identification(self, chat: dict, personas: list[dict]) -> PersonaIdentificationResult:
+        return run_persona_identification(
+            lambda name, profile, messages, authors: _PROMPT.format(
+                persona_name=name,
+                profile_block=profile,
+                messages_block=messages,
+                author_list=authors,
+            ),
+            chat, personas, self.model,
         )
-        return ollama_chat(prompt, self.model, authors)
 
     def individual_fidelity(self, _chat: dict) -> None:
         pass
