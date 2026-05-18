@@ -4,25 +4,28 @@ import dataclasses
 import sqlite3
 
 from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ...db.services import JudgeService
 from ..deps import get_db
+from ..schemas import JudgeOut
 
 router = APIRouter()
 
-VALID_ROLES = ("style", "ideology", "general", "behavioral")
-
 
 class JudgeCreate(BaseModel):
-    role: str
-    temperature: float | None = None
-    guess: str | None = None
+    role: str = Field(
+        ...,
+        description="One of: style | ideology | general | behavioral",
+        examples=["style"],
+    )
+    temperature: float | None = Field(None, ge=0.0, le=2.0, description="LLM sampling temperature")
+    guess: str | None = Field(None, description="Initial persona guess")
 
 
 class JudgePatch(BaseModel):
-    role: str | None = None
-    temperature: float | None = None
+    role: str | None = Field(None, description="One of: style | ideology | general | behavioral")
+    temperature: float | None = Field(None, ge=0.0, le=2.0)
     guess: str | None = None
 
 
@@ -30,9 +33,9 @@ def _out(obj) -> dict:
     return dataclasses.asdict(obj)
 
 
-@router.get("")
+@router.get("", response_model=list[JudgeOut], summary="List judges")
 def list_judges(
-    role: str | None = None,
+    role: str | None = Query(None, description="Filter by role (style|ideology|general|behavioral)"),
     limit: int = Query(100, ge=1, le=1000),
     offset: int = Query(0, ge=0),
     db: sqlite3.Connection = Depends(get_db),
@@ -41,7 +44,13 @@ def list_judges(
     return [_out(j) for j in JudgeService(db).query(filters=filters, limit=limit, offset=offset)]
 
 
-@router.post("", status_code=201)
+@router.post(
+    "",
+    response_model=JudgeOut,
+    status_code=201,
+    summary="Create a judge",
+    description="Returns HTTP 422 if `role` is not one of the four valid values.",
+)
 def create_judge(body: JudgeCreate, db: sqlite3.Connection = Depends(get_db)) -> dict:
     try:
         return _out(
@@ -55,7 +64,7 @@ def create_judge(body: JudgeCreate, db: sqlite3.Connection = Depends(get_db)) ->
         raise HTTPException(status_code=422, detail=str(exc))
 
 
-@router.get("/{id}")
+@router.get("/{id}", response_model=JudgeOut, summary="Get a judge by ID")
 def get_judge(id: int, db: sqlite3.Connection = Depends(get_db)) -> dict:
     judge = JudgeService(db).get(id)
     if judge is None:
@@ -63,7 +72,7 @@ def get_judge(id: int, db: sqlite3.Connection = Depends(get_db)) -> dict:
     return _out(judge)
 
 
-@router.patch("/{id}")
+@router.patch("/{id}", response_model=JudgeOut, summary="Partially update a judge")
 def update_judge(id: int, body: JudgePatch, db: sqlite3.Connection = Depends(get_db)) -> dict:
     svc = JudgeService(db)
     if svc.get(id) is None:
@@ -74,10 +83,10 @@ def update_judge(id: int, body: JudgePatch, db: sqlite3.Connection = Depends(get
         raise HTTPException(status_code=422, detail=str(exc))
 
 
-@router.delete("/{id}", status_code=204)
+@router.delete("/{id}", status_code=204, summary="Soft-delete a judge (hard=true for permanent)")
 def delete_judge(
     id: int,
-    hard: bool = False,
+    hard: bool = Query(False, description="Set true for permanent deletion"),
     db: sqlite3.Connection = Depends(get_db),
 ) -> None:
     svc = JudgeService(db)

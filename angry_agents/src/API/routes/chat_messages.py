@@ -4,18 +4,19 @@ import dataclasses
 import sqlite3
 
 from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ...db.services import ChatMessageService
 from ..config import Settings, get_settings
 from ..deps import get_db
+from ..schemas import ChatMessageOut
 
 router = APIRouter()
 
 
 class MessageCreate(BaseModel):
-    agent_name: str
-    agent_surname: str
+    agent_name: str = Field(..., description="Real agent first name (used to compute anonymised author token)")
+    agent_surname: str = Field(..., description="Real agent surname (used to compute anonymised author token)")
     message: str
 
 
@@ -31,7 +32,11 @@ def _out(obj) -> dict:
     return dataclasses.asdict(obj)
 
 
-@router.get("/chats/{chat_id}/messages")
+@router.get(
+    "/chats/{chat_id}/messages",
+    response_model=list[ChatMessageOut],
+    summary="List messages in a chat",
+)
 def list_messages(
     chat_id: int,
     limit: int = Query(100, ge=1, le=1000),
@@ -47,7 +52,16 @@ def list_messages(
     ]
 
 
-@router.post("/chats/{chat_id}/messages", status_code=201)
+@router.post(
+    "/chats/{chat_id}/messages",
+    response_model=ChatMessageOut,
+    status_code=201,
+    summary="Post a message to a chat",
+    description=(
+        "The `author` field in the response is an anonymised HMAC token. "
+        "Judges see it for source-diversity tracking but cannot identify the real agent."
+    ),
+)
 def create_message(
     chat_id: int,
     body: MessageCreate,
@@ -64,7 +78,7 @@ def create_message(
     )
 
 
-@router.get("/messages/{id}")
+@router.get("/messages/{id}", response_model=ChatMessageOut, summary="Get a message by ID")
 def get_message(
     id: int,
     db: sqlite3.Connection = Depends(get_db),
@@ -76,7 +90,7 @@ def get_message(
     return _out(msg)
 
 
-@router.patch("/messages/{id}")
+@router.patch("/messages/{id}", response_model=ChatMessageOut, summary="Update message text")
 def update_message(
     id: int,
     body: MessagePatch,
@@ -89,10 +103,10 @@ def update_message(
     return _out(svc.update(id, body.model_dump(exclude_unset=True)))
 
 
-@router.delete("/messages/{id}", status_code=204)
+@router.delete("/messages/{id}", status_code=204, summary="Soft-delete a message (hard=true for permanent)")
 def delete_message(
     id: int,
-    hard: bool = False,
+    hard: bool = Query(False, description="Set true for permanent deletion"),
     db: sqlite3.Connection = Depends(get_db),
     settings: Settings = Depends(get_settings),
 ) -> None:
