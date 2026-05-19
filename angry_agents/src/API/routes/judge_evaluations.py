@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import dataclasses
 import sqlite3
+from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
@@ -13,14 +14,17 @@ from ..schemas import JudgeEvaluationOut
 router = APIRouter()
 
 
+_Score = Annotated[float, Field(ge=1.0, le=5.0)]
+
+
 class EvaluationCreate(BaseModel):
     id_judge: int = Field(..., description="FK to Judges")
     id_chat: int = Field(..., description="FK to Group_chat")
-    score: float | None = Field(None, ge=1.0, le=5.0, description="Fidelity score 1–5")
+    score: list[_Score] | None = Field(None, description="Fidelity scores 1–5")
 
 
 class EvaluationPatch(BaseModel):
-    score: float | None = Field(None, ge=1.0, le=5.0, description="Fidelity score 1–5")
+    score: list[_Score] | None = Field(None, description="Fidelity scores 1–5")
 
 
 def _out(obj) -> dict:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import sqlite3
 from typing import Any
 
@@ -11,10 +12,11 @@ _COLS = {"score": "Score"}
 
 
 def _row(row: sqlite3.Row) -> JudgeEvaluation:
+    raw = row["Score"]
     return JudgeEvaluation(
         id_judge=row["ID_judge"],
         id_chat=row["ID_chat"],
-        score=row["Score"],
+        score=json.loads(raw) if raw is not None else None,
         created_at=row["created_at"],
         updated_at=row["updated_at"],
         deleted_at=row["deleted_at"],
@@ -24,7 +26,7 @@ def _row(row: sqlite3.Row) -> JudgeEvaluation:
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> JudgeEvaluation:
     db.execute(
         "INSERT INTO Judge_evaluation (ID_judge, ID_chat, Score) VALUES (?, ?, ?)",
-        (data["id_judge"], data["id_chat"], data.get("score")),
+        (data["id_judge"], data["id_chat"], json.dumps(data["score"]) if data.get("score") is not None else None),
     )
     db.commit()
     return get(db, data["id_judge"], data["id_chat"])
@@ -44,7 +46,10 @@ def update(
     db: sqlite3.Connection, id_judge: int, id_chat: int, patch: dict[str, Any]
 ) -> JudgeEvaluation:
     sets = [f"{_COLS[k]} = ?" for k in patch if k in _COLS]
-    vals = [patch[k] for k in patch if k in _COLS]
+    vals = [
+        json.dumps(patch[k]) if k == "score" and patch[k] is not None else patch[k]
+        for k in patch if k in _COLS
+    ]
     if sets:
         db.execute(
             f"UPDATE Judge_evaluation SET {', '.join(sets)} WHERE ID_judge = ? AND ID_chat = ?",

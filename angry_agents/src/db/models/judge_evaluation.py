@@ -6,7 +6,7 @@ CREATE_TABLE = """
 CREATE TABLE IF NOT EXISTS Judge_evaluation (
     ID_judge    INTEGER NOT NULL REFERENCES Judges(ID),
     ID_chat     INTEGER NOT NULL REFERENCES Group_chat(ID),
-    Score       REAL,
+    Score       TEXT,
     created_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     updated_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     deleted_at  TEXT,
@@ -27,7 +27,7 @@ END;
 class JudgeEvaluation:
     id_judge: int
     id_chat: int
-    score: float | None = None
+    score: list[float] | None = None
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None
