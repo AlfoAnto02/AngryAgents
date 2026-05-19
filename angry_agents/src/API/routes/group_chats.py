@@ -15,6 +15,7 @@ router = APIRouter()
 
 class ChatCreate(BaseModel):
     id_topic: int = Field(..., description="Topic this chat belongs to")
+    created_by: int | None = Field(None, description="FK to User.ID")
 
 
 class ChatPatch(BaseModel):
@@ -38,7 +39,7 @@ def list_chats(
 
 @router.post("", response_model=GroupChatOut, status_code=201, summary="Create a group chat")
 def create_chat(body: ChatCreate, db: sqlite3.Connection = Depends(get_db)) -> dict:
-    return _out(GroupChatService(db).create(id_topic=body.id_topic))
+    return _out(GroupChatService(db).create(id_topic=body.id_topic, created_by=body.created_by))
 
 
 @router.get("/{id}", response_model=GroupChatOut, summary="Get a group chat by ID")

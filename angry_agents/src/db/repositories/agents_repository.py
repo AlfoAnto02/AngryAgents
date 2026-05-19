@@ -11,6 +11,7 @@ _COLS = {
     "slug": "Slug",
     "summary": "Summary",
     "id_topic": "ID_topic",
+    "created_by": "Created_by",
 }
 
 
@@ -18,6 +19,7 @@ def _row(row: sqlite3.Row) -> Agent:
     return Agent(
         id=row["ID"],
         id_topic=row["ID_topic"],
+        created_by=row["Created_by"],
         name=row["Name"],
         surname=row["Surname"],
         slug=row["Slug"],
@@ -31,11 +33,12 @@ def _row(row: sqlite3.Row) -> Agent:
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> Agent:
     cur = db.execute(
         """
-        INSERT INTO Agents (ID_topic, Name, Surname, Slug, Summary)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO Agents (ID_topic, Created_by, Name, Surname, Slug, Summary)
+        VALUES (?, ?, ?, ?, ?, ?)
         """,
         (
             data.get("id_topic"),
+            data.get("created_by"),
             data["name"],
             data["surname"],
             data["slug"],

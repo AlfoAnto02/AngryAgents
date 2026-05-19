@@ -27,11 +27,12 @@ class AgentService:
         surname: str,
         id_topic: int | None = None,
         summary: str | None = None,
+        created_by: int | None = None,
     ) -> Agent:
         slug = _make_slug(self.db, name, surname)
         return repo.create(
             self.db,
-            {"name": name, "surname": surname, "slug": slug, "id_topic": id_topic, "summary": summary},
+            {"name": name, "surname": surname, "slug": slug, "id_topic": id_topic, "summary": summary, "created_by": created_by},
         )
 
     def get(self, id: int) -> Agent | None:

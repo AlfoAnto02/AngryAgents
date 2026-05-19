@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS Topic (
     ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     Title       TEXT    NOT NULL UNIQUE,
     Description TEXT,
+    Created_by  INTEGER REFERENCES User(ID),
     created_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     updated_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     deleted_at  TEXT
@@ -27,6 +28,7 @@ class Topic:
     title: str
     id: int | None = None
     description: str | None = None
+    created_by: int | None = None
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None

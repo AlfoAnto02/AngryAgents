@@ -5,7 +5,7 @@ from typing import Any
 
 from ..models.topic import Topic
 
-_COLS = {"title": "Title", "description": "Description"}
+_COLS = {"title": "Title", "description": "Description", "created_by": "Created_by"}
 
 
 def _row(row: sqlite3.Row) -> Topic:
@@ -13,6 +13,7 @@ def _row(row: sqlite3.Row) -> Topic:
         id=row["ID"],
         title=row["Title"],
         description=row["Description"],
+        created_by=row["Created_by"],
         created_at=row["created_at"],
         updated_at=row["updated_at"],
         deleted_at=row["deleted_at"],
@@ -21,8 +22,8 @@ def _row(row: sqlite3.Row) -> Topic:
 
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> Topic:
     cur = db.execute(
-        "INSERT INTO Topic (Title, Description) VALUES (?, ?)",
-        (data["title"], data.get("description")),
+        "INSERT INTO Topic (Title, Description, Created_by) VALUES (?, ?, ?)",
+        (data["title"], data.get("description"), data.get("created_by")),
     )
     db.commit()
     return get(db, cur.lastrowid)

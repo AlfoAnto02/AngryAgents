@@ -1,4 +1,5 @@
 from . import (
+    user_repository,
     agent_context_repository,
     agents_repository,
     chat_messages_repository,
@@ -10,6 +11,7 @@ from . import (
 )
 
 __all__ = [
+    "user_repository",
     "topic_repository",
     "agents_repository",
     "agent_context_repository",

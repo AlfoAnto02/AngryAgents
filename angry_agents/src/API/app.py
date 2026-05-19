@@ -7,6 +7,8 @@ from fastapi import FastAPI
 from ..db.models.base import get_connection, init_db
 from .config import get_settings
 from .routes import (
+    auth,
+    users,
     agent_context,
     agents,
     chat_messages,
@@ -26,6 +28,14 @@ async def lifespan(app: FastAPI):
 
 
 _tags_metadata = [
+    {
+        "name": "auth",
+        "description": "Registration, login, and current-user lookup. Login returns a `slug` to send as `X-User-Slug` header.",
+    },
+    {
+        "name": "users",
+        "description": "User management (admin). Registration is at `/auth/register`.",
+    },
     {
         "name": "topics",
         "description": "Conversation topics. Agents and group chats are scoped to a topic.",
@@ -88,6 +98,8 @@ app = FastAPI(
     swagger_ui_parameters={"defaultModelsExpandDepth": 1, "docExpansion": "list"},
 )
 
+app.include_router(auth.router, prefix="/auth", tags=["auth"])
+app.include_router(users.router, prefix="/users", tags=["users"])
 app.include_router(topics.router, prefix="/topics", tags=["topics"])
 app.include_router(agents.router, prefix="/agents", tags=["agents"])
 app.include_router(agent_context.router, prefix="/contexts", tags=["agent-context"])

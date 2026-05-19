@@ -16,6 +16,7 @@ router = APIRouter()
 class TopicCreate(BaseModel):
     title: str = Field(..., description="Unique topic title")
     description: str | None = Field(None, description="Optional long-form description")
+    created_by: int | None = Field(None, description="FK to User.ID")
 
 
 class TopicPatch(BaseModel):
@@ -38,7 +39,7 @@ def list_topics(
 
 @router.post("", response_model=TopicOut, status_code=201, summary="Create a topic")
 def create_topic(body: TopicCreate, db: sqlite3.Connection = Depends(get_db)) -> dict:
-    return _out(TopicService(db).create(title=body.title, description=body.description))
+    return _out(TopicService(db).create(title=body.title, description=body.description, created_by=body.created_by))
 
 
 @router.get("/{id}", response_model=TopicOut, summary="Get a topic by ID")

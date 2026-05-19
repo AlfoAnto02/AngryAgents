@@ -11,8 +11,8 @@ class TopicService:
     def __init__(self, db: sqlite3.Connection) -> None:
         self.db = db
 
-    def create(self, title: str, description: str | None = None) -> Topic:
-        return repo.create(self.db, {"title": title, "description": description})
+    def create(self, title: str, description: str | None = None, created_by: int | None = None) -> Topic:
+        return repo.create(self.db, {"title": title, "description": description, "created_by": created_by})
 
     def get(self, id: int) -> Topic | None:
         return repo.get(self.db, id)
