@@ -3,10 +3,24 @@ from __future__ import annotations
 from pydantic import BaseModel, Field
 
 
+class UserOut(BaseModel):
+    id: int | None = Field(None, description="Auto-generated primary key")
+    username: str
+    name: str
+    surname: str
+    email: str
+    role: str = Field(..., description="One of: common | admin")
+    slug: str = Field(..., description="URL-safe unique identifier derived from name+surname")
+    created_at: str | None = None
+    updated_at: str | None = None
+    deleted_at: str | None = Field(None, description="Non-null means soft-deleted")
+
+
 class TopicOut(BaseModel):
     id: int | None = Field(None, description="Auto-generated primary key")
     title: str = Field(..., description="Unique topic title")
     description: str | None = Field(None, description="Optional long-form description")
+    created_by: int | None = Field(None, description="FK to User.ID")
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = Field(None, description="Non-null means soft-deleted")
@@ -15,6 +29,7 @@ class TopicOut(BaseModel):
 class AgentOut(BaseModel):
     id: int | None = Field(None, description="Auto-generated primary key")
     id_topic: int | None = Field(None, description="Parent topic")
+    created_by: int | None = Field(None, description="FK to User.ID")
     name: str
     surname: str
     slug: str = Field(..., description="URL-safe unique identifier derived from name+surname")
@@ -36,6 +51,7 @@ class AgentContextOut(BaseModel):
 class GroupChatOut(BaseModel):
     id: int | None = Field(None, description="Auto-generated primary key")
     id_topic: int = Field(..., description="Topic this chat belongs to")
+    created_by: int | None = Field(None, description="FK to User.ID")
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None
@@ -45,11 +61,12 @@ class ChatMessageOut(BaseModel):
     id: int | None = Field(None, description="Auto-generated primary key")
     id_chat: int = Field(..., description="Parent group chat")
     message: str
-    author: str = Field(
-        ...,
-        description="Anonymised author token: '{name} {surname} {hmac_digest[:12]}'. "
-                    "Judges see this but cannot reverse-engineer the real agent identity.",
+    author: str | None = Field(
+        None,
+        description="Anonymised agent token (name+surname+HMAC). "
+                    "NULL for user-posted messages.",
     )
+    created_by: int | None = Field(None, description="FK to User.ID — set for user-posted messages")
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None

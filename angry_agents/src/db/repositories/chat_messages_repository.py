@@ -5,7 +5,7 @@ from typing import Any
 
 from ..models.chat_messages import ChatMessage
 
-_COLS = {"id_chat": "ID_Chat", "author": "author"}
+_COLS = {"id_chat": "ID_Chat", "author": "author", "created_by": "Created_by"}
 
 
 def _row(row: sqlite3.Row) -> ChatMessage:
@@ -14,6 +14,7 @@ def _row(row: sqlite3.Row) -> ChatMessage:
         id_chat=row["ID_Chat"],
         message=row["message"],
         author=row["author"],
+        created_by=row["Created_by"],
         created_at=row["created_at"],
         updated_at=row["updated_at"],
         deleted_at=row["deleted_at"],
@@ -22,8 +23,8 @@ def _row(row: sqlite3.Row) -> ChatMessage:
 
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> ChatMessage:
     cur = db.execute(
-        "INSERT INTO Chat_messages (ID_Chat, message, author) VALUES (?, ?, ?)",
-        (data["id_chat"], data["message"], data["author"]),
+        "INSERT INTO Chat_messages (ID_Chat, message, author, Created_by) VALUES (?, ?, ?, ?)",
+        (data["id_chat"], data["message"], data.get("author"), data.get("created_by")),
     )
     db.commit()
     return get(db, cur.lastrowid)

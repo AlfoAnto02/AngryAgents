@@ -11,8 +11,8 @@ class GroupChatService:
     def __init__(self, db: sqlite3.Connection) -> None:
         self.db = db
 
-    def create(self, id_topic: int) -> GroupChat:
-        return repo.create(self.db, {"id_topic": id_topic})
+    def create(self, id_topic: int, created_by: int | None = None) -> GroupChat:
+        return repo.create(self.db, {"id_topic": id_topic, "created_by": created_by})
 
     def get(self, id: int) -> GroupChat | None:
         return repo.get(self.db, id)

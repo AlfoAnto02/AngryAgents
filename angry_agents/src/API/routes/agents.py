@@ -17,6 +17,7 @@ class AgentCreate(BaseModel):
     name: str
     surname: str
     id_topic: int | None = Field(None, description="Parent topic ID")
+    created_by: int | None = Field(None, description="FK to User.ID")
     summary: str | None = Field(None, description="JSON-encoded persona summary")
 
 
@@ -65,6 +66,7 @@ def create_agent(body: AgentCreate, db: sqlite3.Connection = Depends(get_db)) ->
             surname=body.surname,
             id_topic=body.id_topic,
             summary=body.summary,
+            created_by=body.created_by,
         )
     )
 

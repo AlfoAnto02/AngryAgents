@@ -31,15 +31,18 @@ class ChatMessageService:
         self,
         id_chat: int,
         message: str,
-        agent_id: int,
+        agent_id: int | None = None,
+        created_by: int | None = None,
     ) -> ChatMessage:
-        agent = agents_repo.get(self.db, agent_id)
-        if agent is None:
-            raise ValueError(f"Agent {agent_id} not found")
-        author = _make_author(agent.name, agent.surname, self._secret)
+        author: str | None = None
+        if agent_id is not None:
+            agent = agents_repo.get(self.db, agent_id)
+            if agent is None:
+                raise ValueError(f"Agent {agent_id} not found")
+            author = _make_author(agent.name, agent.surname, self._secret)
         return repo.create(
             self.db,
-            {"id_chat": id_chat, "message": message, "author": author},
+            {"id_chat": id_chat, "message": message, "author": author, "created_by": created_by},
         )
 
     def get(self, id: int) -> ChatMessage | None:

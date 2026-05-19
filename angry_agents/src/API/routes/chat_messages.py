@@ -15,8 +15,9 @@ router = APIRouter()
 
 
 class MessageCreate(BaseModel):
-    agent_id: int = Field(..., description="ID of the agent sending the message. Name and surname are retrieved server-side.")
     message: str
+    agent_id: int | None = Field(None, description="ID of the agent sending the message (agent turn). Mutually exclusive with created_by.")
+    created_by: int | None = Field(None, description="FK to User.ID (user turn). Mutually exclusive with agent_id.")
 
 
 class MessagePatch(BaseModel):
@@ -67,12 +68,17 @@ def create_message(
     db: sqlite3.Connection = Depends(get_db),
     settings: Settings = Depends(get_settings),
 ) -> dict:
+    if body.agent_id is None and body.created_by is None:
+        raise HTTPException(status_code=422, detail="Provide either agent_id or created_by")
+    if body.agent_id is not None and body.created_by is not None:
+        raise HTTPException(status_code=422, detail="agent_id and created_by are mutually exclusive")
     try:
         return _out(
             _svc(db, settings).create(
                 id_chat=chat_id,
                 message=body.message,
                 agent_id=body.agent_id,
+                created_by=body.created_by,
             )
         )
     except ValueError as exc:

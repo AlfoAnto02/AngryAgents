@@ -1,3 +1,4 @@
+from .user_service import UserService
 from .topic_service import TopicService
 from .agents_service import AgentService
 from .agent_context_service import AgentContextService
@@ -7,6 +8,7 @@ from .judges_service import JudgeService
 from .judge_evaluation_service import JudgeEvaluationService
 
 __all__ = [
+    "UserService",
     "TopicService",
     "AgentService",
     "AgentContextService",
