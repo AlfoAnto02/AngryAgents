@@ -9,7 +9,7 @@ Anonymity model:
   - Each persona gets an opaque label (Agent A … Agent G), shuffled per run.
   - Author tag produced by chat_messages_service._make_author (HMAC-SHA256).
   - Agents see history with opaque author tags — they don't know who spoke.
-  - transcript.jsonl (judge-facing): only {msg_id, turn, author, message, drifted}.
+  - transcript.jsonl (judge-facing): only {msg_id, turn, author, message, drifted, perturbed}.
     No persona_id, no persona_name.
 
 Secret files (never shown to judges):
@@ -18,7 +18,15 @@ Secret files (never shown to judges):
 
 Transcript line schema (judge sees):
   {"msg_id": "msg_0001", "turn": 1, "author": "Agent A 4f3a2b1c9d8e",
-   "message": "...", "drifted": false}
+   "message": "...", "drifted": false, "perturbed": false}
+
+Perturbation system:
+  Every N turns of a given agent (N randomised per-agent in [--perturb-min, --perturb-max]),
+  a [perturbation] block is appended to that agent's system prompt only. Not visible to other
+  agents or judges. Forces character-consistent reaction (may be agreement, silence, challenge).
+
+  Optional drift detection (--embed-model): pairwise cosine similarity across agents'
+  last-turn embeddings. If drift_score > --drift-threshold, perturbation fires early.
 
 Usage:
   python -m angry_agents.src.eval.simulate_transcript
@@ -27,6 +35,8 @@ Usage:
   python -m angry_agents.src.eval.simulate_transcript --drift-at 40 --seed 42
   python -m angry_agents.src.eval.simulate_transcript --model mistral --speaker-alpha 0.5
   python -m angry_agents.src.eval.simulate_transcript --secret my-secret-key
+  python -m angry_agents.src.eval.simulate_transcript --perturb-min 10 --perturb-max 15
+  python -m angry_agents.src.eval.simulate_transcript --embed-model nomic-embed-text --drift-threshold 0.85
 """
 
 import argparse
@@ -34,6 +44,7 @@ import json
 import os
 import random
 import sys
+from itertools import combinations
 from pathlib import Path
 from typing import Any
 
@@ -45,6 +56,14 @@ from angry_agents.src.db.services.chat_messages_service import _make_author
 OLLAMA_BASE_URL = "http://localhost:11434"
 DEFAULT_PERSONAS_DIR = Path("data/personas")
 DEFAULT_SECRET = os.getenv("AUTHOR_SECRET", "eval-dev-secret")
+
+PERTURBATION_SIGNAL = (
+    "\n\n[perturbation]\n"
+    "The conversation is moving toward consensus.\n"
+    "React to the last message in a way that reflects your genuine position,\n"
+    "even if it means disagreeing, redirecting, or introducing a new angle.\n"
+    "Stay fully in character."
+)
 
 # ---------------------------------------------------------------------------
 # Ollama
@@ -69,7 +88,7 @@ def check_ollama(model: str) -> None:
 # System prompt — uses all fields present in real profile JSONs
 # ---------------------------------------------------------------------------
 
-def build_system_prompt(persona: dict, topic: str, inject_drift: bool) -> str:
+def build_system_prompt(persona: dict, topic: str, inject_drift: bool, inject_perturbation: bool = False) -> str:
     name = persona["persona_name"]
 
     # Ideological positions
@@ -115,6 +134,8 @@ def build_system_prompt(persona: dict, topic: str, inject_drift: bool) -> str:
         else ""
     )
 
+    perturb_note = PERTURBATION_SIGNAL if inject_perturbation else ""
+
     return (
         f"You are {name}. Stay fully in character at all times.\n\n"
         f"## Communication style\n{persona.get('core_style', 'not defined')}\n\n"
@@ -130,6 +151,7 @@ def build_system_prompt(persona: dict, topic: str, inject_drift: bool) -> str:
         f"Sound exactly like yourself — use your natural vocabulary, rhythm, and style. "
         f"No quotation marks around your response. No meta-commentary."
         f"{drift_note}"
+        f"{perturb_note}"
     )
 
 # ---------------------------------------------------------------------------
@@ -142,8 +164,9 @@ def generate_message(
     topic: str,
     model: str,
     inject_drift: bool,
+    inject_perturbation: bool = False,
 ) -> str:
-    system_prompt = build_system_prompt(persona, topic, inject_drift)
+    system_prompt = build_system_prompt(persona, topic, inject_drift, inject_perturbation)
 
     # Sliding window: last 5 turns verbatim.
     # Use opaque author tags — agents don't know who they're talking to.
@@ -198,6 +221,33 @@ def gini(counts: list[int]) -> float:
     return (2 * index_sum) / (n * s) - (n + 1) / n
 
 # ---------------------------------------------------------------------------
+# Drift detection
+# ---------------------------------------------------------------------------
+
+def get_embedding(text: str, model: str) -> "np.ndarray | None":
+    try:
+        resp = requests.post(
+            f"{OLLAMA_BASE_URL}/api/embeddings",
+            json={"model": model, "prompt": text},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        return np.array(resp.json()["embedding"], dtype=float)
+    except Exception:
+        return None
+
+
+def _cosine_sim(a: "np.ndarray", b: "np.ndarray") -> float:
+    denom = float(np.linalg.norm(a) * np.linalg.norm(b))
+    return float(np.dot(a, b) / denom) if denom else 0.0
+
+
+def drift_score(agent_embeddings: "list[np.ndarray]") -> float:
+    """Pairwise cosine similarity across all agents' last-turn embeddings."""
+    sims = [_cosine_sim(a, b) for a, b in combinations(agent_embeddings, 2)]
+    return float(np.mean(sims)) if sims else 0.0
+
+# ---------------------------------------------------------------------------
 # Core simulation
 # ---------------------------------------------------------------------------
 
@@ -210,6 +260,9 @@ def simulate(
     model: str,
     rng: random.Random,
     secret: str,
+    perturb_interval: tuple[int, int] = (10, 15),
+    drift_threshold: float = 0.85,
+    embed_model: str | None = None,
 ) -> tuple[list[dict], dict[str, str], dict[str, str], list[int], list[float]]:
     # Opaque labels shuffled per run — neither agents nor judges see real names.
     labels = [f"Agent {chr(65 + i)}" for i in range(len(personas))]
@@ -231,31 +284,64 @@ def simulate(
     transcript: list[dict] = []
     ground_truth: dict[str, str] = {}
 
+    # Per-agent perturbation thresholds: randomised per agent, stable per run.
+    perturb_n = {
+        p["persona_id"]: rng.randint(perturb_interval[0], perturb_interval[1])
+        for p in personas
+    }
+    agent_turns: dict[str, int] = {p["persona_id"]: 0 for p in personas}
+    last_embeddings: dict[str, np.ndarray] = {}
+
     for turn in range(1, turns + 1):
         idx = rng.choices(range(len(personas)), weights=weights, k=1)[0]
         persona = personas[idx]
         speaker_counts[idx] += 1
+        pid = persona["persona_id"]
+        agent_turns[pid] += 1
 
         inject_drift = drift_at is not None and turn >= drift_at
 
-        print(f"  {turn:3d}/{turns}  [{persona['persona_name']:<22}]  generating...", end="", flush=True)
-        message = generate_message(persona, transcript, topic, model, inject_drift)
-        drift_flag = "  [DRIFT]" if inject_drift else ""
-        print(f"\r  {turn:3d}/{turns}  [{persona['persona_name']:<22}]{drift_flag}  {message[:70]}...")
+        # Fire perturbation every N-th turn for this specific agent.
+        inject_perturbation = agent_turns[pid] % perturb_n[pid] == 0
+
+        # Drift-based early trigger: if agents are converging, perturb regardless of N.
+        current_drift = 0.0
+        if embed_model and len(last_embeddings) >= 2:
+            current_drift = drift_score(list(last_embeddings.values()))
+            if current_drift > drift_threshold:
+                inject_perturbation = True
+
+        flags = ""
+        if inject_perturbation:
+            flags += "  [PERTURB]"
+        if inject_drift:
+            flags += "  [DRIFT]"
+        if current_drift > drift_threshold:
+            flags += f"  [drift={current_drift:.2f}]"
+
+        print(f"  {turn:3d}/{turns}  [{persona['persona_name']:<22}]{flags}  generating...", end="", flush=True)
+        message = generate_message(persona, transcript, topic, model, inject_drift, inject_perturbation)
+        print(f"\r  {turn:3d}/{turns}  [{persona['persona_name']:<22}]{flags}  {message[:60]}...")
+
+        if embed_model:
+            emb = get_embedding(message, embed_model)
+            if emb is not None:
+                last_embeddings[pid] = emb
 
         msg_id = f"msg_{turn:04d}"
-        author = author_tag_map[persona["persona_id"]]
-        # Internal entry keeps persona_id for ground_truth; author is opaque for history.
+        author = author_tag_map[pid]
         entry: dict[str, Any] = {
             "msg_id": msg_id,
             "turn": turn,
-            "persona_id": persona["persona_id"],  # stripped before judge output
+            "persona_id": pid,  # stripped before judge output
             "author": author,
             "message": message,
             "drifted": inject_drift,
+            "perturbed": inject_perturbation,
+            "drift_score": round(current_drift, 4) if embed_model else None,
         }
         transcript.append(entry)
-        ground_truth[msg_id] = persona["persona_id"]
+        ground_truth[msg_id] = pid
 
     return transcript, ground_truth, author_map, speaker_counts, weights
 
@@ -289,7 +375,7 @@ def load_personas(path: Path) -> list[dict]:
 # Output
 # ---------------------------------------------------------------------------
 
-_JUDGE_FIELDS = ("msg_id", "turn", "author", "message", "drifted")
+_JUDGE_FIELDS = ("msg_id", "turn", "author", "message", "drifted", "perturbed")
 
 
 def save_outputs(
@@ -321,12 +407,22 @@ def save_outputs(
         json.dump(author_map, f, indent=2, ensure_ascii=False)
 
     n = len(transcript)
+    perturbed_turns = sum(1 for e in transcript if e.get("perturbed"))
+    recorded_drift = [e["drift_score"] for e in transcript if e.get("drift_score") is not None]
     meta = {
         "params": params,
         "n_personas": len(personas),
         "n_turns": n,
         "personas": [{"id": p["persona_id"], "name": p["persona_name"]} for p in personas],
         "gini": round(gini(speaker_counts), 4),
+        "perturbation": {
+            "turns_perturbed": perturbed_turns,
+            "perturb_share": round(perturbed_turns / n, 3) if n else 0.0,
+            "drift_detection_enabled": params.get("embed_model") is not None,
+            "drift_threshold": params.get("drift_threshold"),
+            "max_drift_score": round(max(recorded_drift), 4) if recorded_drift else None,
+            "mean_drift_score": round(float(np.mean(recorded_drift)), 4) if recorded_drift else None,
+        },
         "speaker_stats": {
             personas[i]["persona_id"]: {
                 "name": personas[i]["persona_name"],
@@ -397,7 +493,26 @@ def main() -> None:
         "--secret", type=str, default=DEFAULT_SECRET,
         help="HMAC secret for author tag generation (default: $AUTHOR_SECRET env var).",
     )
+    parser.add_argument(
+        "--perturb-min", type=int, default=10,
+        help="Min agent-turns between perturbations (default: 10).",
+    )
+    parser.add_argument(
+        "--perturb-max", type=int, default=15,
+        help="Max agent-turns between perturbations (default: 15).",
+    )
+    parser.add_argument(
+        "--embed-model", type=str, default=None,
+        help="Ollama model for drift embeddings (e.g. 'nomic-embed-text'). Omit to disable drift detection.",
+    )
+    parser.add_argument(
+        "--drift-threshold", type=float, default=0.85,
+        help="Cosine similarity threshold to trigger early perturbation (default: 0.85).",
+    )
     args = parser.parse_args()
+
+    if args.perturb_min > args.perturb_max:
+        sys.exit(f"--perturb-min ({args.perturb_min}) must be ≤ --perturb-max ({args.perturb_max})")
 
     rng = random.Random(args.seed)
 
@@ -414,8 +529,11 @@ def main() -> None:
         f"Model: {args.model} | Topic: '{args.topic}' | "
         f"Turns: {args.turns} | Alpha: {args.speaker_alpha} | Seed: {args.seed}"
     )
+    print(f"Perturbation: every {args.perturb_min}–{args.perturb_max} agent-turns per persona")
+    if args.embed_model:
+        print(f"Drift detection: {args.embed_model} | threshold: {args.drift_threshold}")
     if args.drift_at:
-        print(f"Drift injection starts at turn: {args.drift_at}")
+        print(f"Global drift injection starts at turn: {args.drift_at}")
     print()
 
     transcript, ground_truth, author_map, speaker_counts, weights = simulate(
@@ -427,6 +545,9 @@ def main() -> None:
         model=args.model,
         rng=rng,
         secret=args.secret,
+        perturb_interval=(args.perturb_min, args.perturb_max),
+        drift_threshold=args.drift_threshold,
+        embed_model=args.embed_model,
     )
 
     params = {
@@ -438,6 +559,9 @@ def main() -> None:
         "seed": args.seed,
         "n_personas": len(personas),
         "personas_dir": str(args.personas),
+        "perturb_interval": [args.perturb_min, args.perturb_max],
+        "embed_model": args.embed_model,
+        "drift_threshold": args.drift_threshold,
     }
 
     save_outputs(transcript, ground_truth, author_map, speaker_counts, weights, personas, params, args.out)
