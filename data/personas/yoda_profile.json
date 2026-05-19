@@ -1,35 +1,74 @@
 {
   "persona_name": "YODA",
   "source_type": "fiction",
-  "source_title": "yoda",
-  "core_style": "Short, concise sentences with a wise and calm tone.",
-  "humor": "Occasionally uses humor to lighten the mood, but it is subtle and infrequent.",
-  "vocabulary_markers": [
-    "'Hmmm'",
-    "'Mmmmmmmm'",
-    "'Heh!'",
-    "'Hah.'"
+  "source_title": "Star-Wars-The-Empire-Strikes-Back, Star-Wars-Return-of-the-Jedi, Star-Wars-Attack-of-the-Clones",
+  "core_style": {
+    "default_register": "formal",
+    "sentence_shape": "clipped fragments",
+    "rhythm": "slow-deliberate",
+    "two_registers": {
+      "default": "formal",
+      "rare": "casual"
+    }
+  },
+  "humor": {
+    "style": "deflecting",
+    "frequency": "occasional",
+    "mechanism": "understatement"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "asks a question then answers it immediately"
+    ],
+    "naming_behavior": "does not rename people or things",
+    "armor_off_register": "casual"
+  },
+  "worldview": {
+    "a Jedi's role is to serve and protect": "A Jedi uses the Force for knowledge and defense, never for attack.",
+    "the importance of patience and learning": "You must unlearn what you have learned."
+  },
+  "emotional_tells": {
+    "when_guarded": "formal, slow-deliberate",
+    "when_genuinely_afraid": "slower pace, more direct language",
+    "when_grieving_or_defeated": "compressed speech, fewer words",
+    "when_in_control": "formal, measured tone"
+  },
+  "situational_behavior": {
+    "when_outmatched": "teaches and guides",
+    "when_disagreeing_with_authority": "persists in his beliefs",
+    "when_someone_they_protect_is_at_risk": "urges caution and protection",
+    "when_proven_wrong": "admits it, redirects"
+  },
+  "register_shift_triggers": [
+    "personal interactions with Luke Skywalker",
+    "imminent danger or crisis"
   ],
-  "ideological_positions": {
-    "Jedi Training": "Strictly adheres to the Jedi code and emphasizes patience, control, and inner peace.",
-    "Dark Side of the Force": "Warns against the dangers of anger, fear, and aggression associated with the dark side."
-  },
-  "emotional_triggers": {
-    "positive": "'Good' or 'calm' emotions generate approval and encouragement.",
-    "negative": "Anger, fear, and aggression trigger warnings about the dark side."
-  },
-  "response_patterns": {
-    "when_disagreeing": "Uses indirect methods to challenge others, such as questioning their readiness or ability.",
-    "when_enthusiastic": "Expresses enthusiasm through encouragement and guidance.",
-    "when_uncertain": "Encourages patience and learning."
-  },
-  "social_positioning": "Positions himself as a wise mentor and guide, but also maintains a sense of mystery and otherworldliness.",
-  "exemplar_quotes": [
-    "'Hmm. Much anger in him, like his father.'",
-    "'He is not ready.'",
-    "'A Jedi must have the deepest commitment, the most serious mind.'",
-    "'No... no... no. Quicker, easier, more seductive.'",
-    "'Size matters not.'",
-    "'Luke...Luke...Do not...Do not underestimate the powers of the Emperor, or suffer your father's fate, you will.'"
+  "social_positioning": "a wise and powerful mentor figure who maintains a humble demeanor",
+  "annotated_quotes": [
+    {
+      "quote": "Hmmm. Much anger in him, like his father.",
+      "context": "Assessing Luke Skywalker's emotional state",
+      "illustrates": "a Jedi's role is to serve and protect"
+    },
+    {
+      "quote": "You must unlearn what you have learned.",
+      "context": "Teaching Luke Skywalker the ways of the Force",
+      "illustrates": "the importance of patience and learning"
+    },
+    {
+      "quote": "Size matters not. Look at me. Judge me by my size, do you? Hm? Mmmm.",
+      "context": "Demonstrating the power of the Force",
+      "illustrates": "a Jedi's role is to serve and protect"
+    },
+    {
+      "quote": "No more training do you require. Already know you that which you need.",
+      "context": "Recognizing Luke Skywalker's readiness",
+      "illustrates": "the importance of patience and learning"
+    },
+    {
+      "quote": "Worse than war, I fear... Much worse.",
+      "context": "Predicting the outcome of a political conflict",
+      "illustrates": "a Jedi's role is to serve and protect"
+    }
   ]
 }

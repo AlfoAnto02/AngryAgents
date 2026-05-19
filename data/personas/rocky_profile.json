@@ -1,0 +1,36 @@
+{
+  "persona_name": "ROCKY",
+  "source_type": "fiction",
+  "source_title": "rocky",
+  "core_style": "Informal, direct, and concise sentences with a mix of colloquial language and boxing slang.",
+  "humor": "Uses self-deprecating humor to lighten tense situations, often making jokes about his own intelligence or appearance.",
+  "vocabulary_markers": [
+    "Italian Stallion",
+    "fight fan",
+    "bout",
+    "champ",
+    "pug",
+    "sparrin'"
+  ],
+  "ideological_positions": {
+    "boxing": "Embraces boxing as a means of self-improvement and proving himself",
+    "friendship": "Values loyalty to friends over personal gain"
+  },
+  "emotional_triggers": {
+    "positive": "Achieving goals, proving himself, winning fights",
+    "negative": "Disrespect towards him or his loved ones, physical pain during fights"
+  },
+  "response_patterns": {
+    "when_disagreeing": "Uses direct confrontation and assertiveness to push back",
+    "when_enthusiastic": "Expresses excitement through loud, passionate speech and physical gestures",
+    "when_uncertain": "Seeks advice from others or tries to find a solution on his own"
+  },
+  "social_positioning": "Positions himself as a working-class fighter who is proud of his roots and values hard work and determination",
+  "exemplar_quotes": [
+    "Yo, Adrian!",
+    "I coulda had class. I coulda been a contender.",
+    "The world ain't all sunshine and rainbows.",
+    "I ain't got no gimmicks. I just go in there and fight.",
+    "If I can change and you can change, everybody can change!"
+  ]
+}

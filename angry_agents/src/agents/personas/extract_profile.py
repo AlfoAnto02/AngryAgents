@@ -19,6 +19,12 @@ Usage:
         --type fiction \
         --character "VINCENT"
 
+    # JSON transcript — character auto-detected from file root
+    python -m angry_agents.src.agents.personas.extract_profile \
+        --input angry_agents/src/scraping/movies_transcripts/PO.json \
+        --name po \
+        --type fiction
+
     # use a different model
     python -m angry_agents.src.agents.personas.extract_profile \
         --input data/youtube/cicciogamer89.json \
@@ -97,10 +103,18 @@ Return this exact JSON structure (fill every field):
 """
 
 FICTION_USER_PROMPT = """\
-Below is a movie/TV script. Extract a behavioral profile for the character "{character}".
+Below is a movie/TV script. Extract a behavioral profile for the character "{character}" \
+precise enough to simulate how they speak and react in novel situations.
 
-Only use lines spoken by "{character}". Ignore stage directions and other characters
-unless they directly reveal {character}'s reactions.
+Rules before you start:
+- Only use lines actually spoken by "{character}" in the script below.
+- Do NOT infer from cultural knowledge or reputation. Every field must be grounded \
+in specific lines from this transcript.
+- For worldview: only assert a belief if "{character}" explicitly states it OR \
+demonstrates it across at least 3 distinct scenes. No reputation-based inference.
+- For annotated_quotes: pick only lines that ONLY "{character}" would say in this way. \
+Reject anything a generic protagonist could say. Maximum 5 quotes, each proving a \
+different dimension.
 
 Return this exact JSON structure (fill every field):
 
@@ -108,29 +122,70 @@ Return this exact JSON structure (fill every field):
   "persona_name": "{character}",
   "source_type": "fiction",
   "source_title": "{name}",
-  "core_style": "<1-2 sentences: sentence length, register, rhythm>",
-  "humor": "<how they use humor: type, frequency, targets>",
-  "vocabulary_markers": ["<word or phrase>", "..."],
-  "ideological_positions": {{
-    "<topic>": "<their consistent stance>",
-    "<topic>": "<their consistent stance>"
+  "core_style": {{
+    "default_register": "<the dominant register when performing or guarded: formal/casual/street/sardonic/etc — one word + one clause with a concrete example from the script>",
+    "sentence_shape": "<dominant pattern: clipped fragments / compound runs / self-interrupting pivots / etc — describe the shape, not just the length>",
+    "rhythm": "<fast-associative / slow-deliberate / staccato / etc — what drives the cadence>",
+    "two_registers": "<does this character have a second, rarer register they drop into? describe both ends and what separates them>"
   }},
-  "emotional_triggers": {{
-    "positive": "<what generates enthusiasm or approval>",
-    "negative": "<what generates irritation or rejection>"
+  "humor": {{
+    "style": "<dark/self-deprecating/absurdist/deadpan/deflecting/none>",
+    "frequency": "<rare/occasional/constant — and when it spikes or disappears entirely>",
+    "mechanism": "<the structural move that makes jokes land: setup-then-subvert, nickname-as-weapon, understatement, callback, irony — be specific, not generic>"
   }},
-  "response_patterns": {{
-    "when_disagreeing": "<how they push back>",
-    "when_enthusiastic": "<how they express excitement>",
-    "when_uncertain": "<how they handle not knowing>"
+  "speech_signature": {{
+    "structural_patterns": ["<a recurring syntactic construction, not a word: e.g. 'builds a list and corrupts the last entry', 'asks a question then answers it immediately', 'self-interrupts before an emotional pivot'>"],
+    "naming_behavior": "<does this character rename people or things? if so, what does that naming reveal about their relationship to power or control>",
+    "armor_off_register": "<what the speech looks like when the default register drops: shorter/longer/slower/specific word choices — give a concrete marker>"
   }},
-  "social_positioning": "<how they position themselves relative to others>",
-  "exemplar_quotes": [
-    "<direct quote from script, verbatim>",
-    "<direct quote>",
-    "<direct quote>",
-    "<direct quote>",
-    "<direct quote>"
+  "worldview": {{
+    "<belief or value grounded in the transcript>": "<how it concretely manifests in behavior or speech — cite the pattern, not the conclusion>",
+    "<belief or value grounded in the transcript>": "<how it concretely manifests in behavior or speech>"
+  }},
+  "emotional_tells": {{
+    "when_guarded": "<what speech looks like in default protective mode — the surface the world sees>",
+    "when_genuinely_afraid": "<what changes in speech when fear is real: pace, line length, register, specific markers>",
+    "when_grieving_or_defeated": "<what the speech compresses to when the armor comes off — word count, directness, what disappears>",
+    "when_in_control": "<what signals confidence and dominance in their speech>"
+  }},
+  "situational_behavior": {{
+    "when_outmatched": "<what is their first move — banter/stall/attack/flee — and what do they do if that fails>",
+    "when_disagreeing_with_authority": "<how they push back against people who outrank them>",
+    "when_someone_they_protect_is_at_risk": "<how behavior and speech change>",
+    "when_proven_wrong": "<do they admit it, redirect, double down, or go silent>"
+  }},
+  "register_shift_triggers": [
+    "<concrete situation or topic from the script that causes the default register to break — describe what happens to the speech>",
+    "<another trigger>",
+    "<another trigger>"
+  ],
+  "social_positioning": "<one sentence: how they position themselves relative to others, what it costs them, and what contradiction it creates>",
+  "annotated_quotes": [
+    {{
+      "quote": "<verbatim line — must be exact, must be a line only this character would say this way>",
+      "context": "<one clause: the situation or emotional state that produced it>",
+      "illustrates": "<which specific profile dimension this proves>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }}
   ]
 }}
 
@@ -165,26 +220,37 @@ def load_podcast_transcripts(input_path: Path, max_chars: int) -> str:
     return "".join(parts)
 
 
-def load_fiction_script(input_path: Path, character: str, max_chars: int) -> str:
+def load_fiction_script(
+    input_path: Path, max_chars: int, character: str | None = None
+) -> tuple[str, str, str]:
+    """Return (transcript_text, character_name, source_title)."""
     raw = input_path.read_text(encoding="utf-8")
 
     if input_path.suffix.lower() == ".json":
         data = json.loads(raw)
-        # structured format: {"character": ..., "lines": [{"scene": ..., "dialogue": ...}]}
+        char = character or data.get("character") or ""
+        if not char:
+            raise ValueError(
+                f"No character found in {input_path}. "
+                "Pass --character or add 'character' key to JSON root."
+            )
+        films = data.get("films", [])
+        source_title = ", ".join(films) if films else input_path.stem
+
         lines = data.get("lines", [])
-        parts = []
+        parts: list[str] = []
         total = 0
         for entry in lines:
             scene = entry.get("scene", "")
             dialogue = entry.get("dialogue", "")
-            block = f"{scene}\n{character}: {dialogue}\n\n"
+            block = f"{scene}\n{char}: {dialogue}\n\n"
             if total + len(block) > max_chars:
                 break
             parts.append(block)
             total += len(block)
-        return "".join(parts)
+        return "".join(parts), char, source_title
 
-    return raw[:max_chars]
+    return raw[:max_chars], character or input_path.stem, input_path.stem
 
 
 # ---------------------------------------------------------------------------
@@ -292,10 +358,12 @@ def main() -> None:
 
     check_ollama(args.model)
 
-    if args.type == "fiction" and not args.character:
-        sys.exit("Error: --character is required for fiction type.")
-
     input_path = Path(args.input)
+    is_json = input_path.suffix.lower() == ".json"
+
+    if args.type == "fiction" and not args.character and not is_json:
+        sys.exit("Error: --character required for non-JSON fiction input.")
+
     if not input_path.exists():
         sys.exit(f"Error: input file not found: {input_path}")
 
@@ -312,9 +380,12 @@ def main() -> None:
         prompt_template = PODCAST_USER_PROMPT
         template_vars = {"name": args.name}
     else:
-        transcript_text = load_fiction_script(input_path, args.character, max_chars)
+        transcript_text, character, source_title = load_fiction_script(
+            input_path, max_chars, character=args.character
+        )
+        print(f"Character: {character} | Source: {source_title}")
         prompt_template = FICTION_USER_PROMPT
-        template_vars = {"name": args.name, "character": args.character}
+        template_vars = {"name": source_title, "character": character}
 
     approx_tokens = len(transcript_text) // CHARS_PER_TOKEN
     print(f"Transcript loaded: ~{approx_tokens:,} tokens")

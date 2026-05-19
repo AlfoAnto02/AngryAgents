@@ -1,0 +1,1201 @@
+{
+  "character": "GANDALF",
+  "films": [
+    "Lord-of-the-Rings-Fellowship-of-the-Ring,-The",
+    "Lord-of-the-Rings-Return-of-the-King",
+    "Lord-of-the-Rings-The-Two-Towers"
+  ],
+  "lines_count": 238,
+  "lines": [
+    {
+      "scene": "EXT. SHIRE LANE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "A Wizard is never late, Frodo Baggins, nor is he early. He arrives precisely when he means to."
+    },
+    {
+      "scene": "EXT. SHIRE LANE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You didn't think I'd miss your Uncle Bilbo's birthday?"
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "What, everything? Far too eager and curious for a Hobbit. Most unnatural..."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "...for which I am very thankful."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah, the long expected party. So, how is the old rascal? I hear it's going to be a Party of Special Magnificence."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, well...that should please him."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Good gracious, me."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, really?"
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Indeed?"
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "If you're referring to the incident with the Dragon...I was barely involved...all I did was give your Uncle a little nudge out the door."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, really?"
+    },
+    {
+      "scene": "EXT. HOBBITON -- DAY",
+      "speech_type": "direct",
+      "dialogue": "So am I, dear boy...so am I"
+    },
+    {
+      "scene": "EXT. BAG END -- DAY",
+      "speech_type": "direct",
+      "dialogue": "And what about very old friends?"
+    },
+    {
+      "scene": "EXT. BAG END -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Bilbo Baggins!"
+    },
+    {
+      "scene": "EXT. BAG END -- DAY",
+      "speech_type": "direct",
+      "dialogue": "It's good to see you. One hundred and eleven years old, who would believe it!"
+    },
+    {
+      "scene": "EXT. BAG END -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You haven't aged a day! Gandalf and Bilbo laugh together and enter Bag End."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Just tea, thank you."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "No, not at all. Go ahead. A sudden loud knock on the front door."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "So, you mean to go through with your plan, then?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Frodo suspects something."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You will tell him, won't you?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "He's very fond of you."
+    },
+    {
+      "scene": "EXT. PARTY FIELD, HOBBITON -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Meridoc Brandybuck and Peregrin Took...I might have known!"
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I suppose you think that was terribly clever?"
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There are many magic rings in the world, Bilbo Baggins, and none of them should be used lightly."
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You will keep an eye on Frodo, won't you?"
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What about this ring of yours? Is that staying too?"
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I think you should leave the Ring behind, Bilbo. Is that so hard?"
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There's no need to get angry."
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Precious? It's been called that before, but not by you."
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I think you've had that ring quite long enough."
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bilbo Baggins do not take me for some conjurer of cheap tricks! Bilbo cowers from Gandalf, disarmed by his power...a frightened Hobbit. Gandalf's expression softens."
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I am not trying to rob you. I am trying to help you. Sobbing, Bilbo runs to Gandalf and hugs him."
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "All you long years we've been friends...trust me as you once did. Let it go!"
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bilbo?"
+    },
+    {
+      "scene": "INT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The ring is still in your pocket."
+    },
+    {
+      "scene": "EXT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm sure you will, my dear friend."
+    },
+    {
+      "scene": "EXT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Goodbye Bilbo."
+    },
+    {
+      "scene": "EXT. BAG END -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Until our next meeting."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Riddles in the dark."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "My precious...precious.."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "...my own."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bilbo's ring."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "He's gone to stay with the Elves. He's left you Bag End..."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "...along with all his possessions."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The ring is yours now. But it somewhere out of sight. Gandalf rises hurriedly and starts to gather his things."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I have some things I must see to."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Questions. Questions that need answering."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Neither do I. Keep it secret, keep it safe."
+    },
+    {
+      "scene": "INT. CITADEL CHAMBER, MINAS TIRITH -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The year 3434 of the Second Age...here follows the account of Isildur, High King of Gondor, and the finding of the ring of power."
+    },
+    {
+      "scene": "INT. CITADEL CHAMBER, MINAS TIRITH -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It has come to me...the ring of power!"
+    },
+    {
+      "scene": "INT. CITADEL CHAMBER, MINAS TIRITH -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It shall be an heirloom of my Kingdom...all those who follow in my bloodline shall be bound to its fate, for I will risk no hurt to the"
+    },
+    {
+      "scene": "INT. CITADEL CHAMBER, MINAS TIRITH -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "ring...it is precious to me, though I buy it with great pain..."
+    },
+    {
+      "scene": "INT. CITADEL CHAMBER, MINAS TIRITH -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The marking upon the band begin to fade...the writing which at first was as clear as red flame, has all but disappeared...a secret now that only fire can tell..."
+    },
+    {
+      "scene": "INT. BAG END HALLWAY -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Is it secret? Is it safe?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hold out your hand, Frodo...it is quite cool."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What can you see? Can you see anything?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "...these are markings."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There are few who can...the language is that of Mordor, which I will not utter here."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "In the common tongue it says, \"One ring to rule them all, One ring to find them, One ring to bring them all, and in the darkness bind them.\""
+    },
+    {
+      "scene": "INT. BAG END KITCHEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "This is the one ring forged by the dark lord, Sauron, in the fires of Mt Doom...taken by Isildur from the hand of Sauron himself."
+    },
+    {
+      "scene": "INT. BAG END KITCHEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "For sixty years the ring lay quiet in Bilbo's keeping, prolonging his life, delaying old age...but no longer, Frodo. Evil is stirring in Mordor. The ring has awoken. It has heard its master's call."
+    },
+    {
+      "scene": "INT. BAG END KITCHEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "of BLACK SPEECH"
+    },
+    {
+      "scene": "INT. BAG END KITCHEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, Frodo. The spirit of Sauron has endured. His life force is bound to the ring and the ring survived. Sauron has returned. His Orcs have multiplied...his fortress of Barad- dur is rebuilt in the land of Mordor. Sauron needs only this ring to cover all the lands in the second darkness. He is seeking it, seeking it, all his thought is bent on it. For the ring yearns, above all else, to return to the hand of its master: they are one, the ring and the dark lord. Frodo, he must never find out. SUDDENLY Frodo scoops up the Ring."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There is one other who knew that Bilbo had the Ring. I looked everywhere for the creature Gollum, but the enemy found him first."
+    },
+    {
+      "scene": "INT. BARAD-DUR -- NIGHT",
+      "speech_type": "vo",
+      "dialogue": "I don't know how long they tortured him...but amidst the endless screams and inane babble, they discerned two words."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, Frodo..."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You cannot offer me this ring."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Don't tempt me, Frodo. I dare not take it, not even to keep it safe."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Understand, Frodo...I would use this Ring from a desire to do good...but through me, it would wield a power too great and terrible to imagine."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, no it can't."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You must leave, and leave quickly. Get out of the Shire."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Make for the village of Bree."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I will, be waiting for you at the Inn of the Prancing Pony. Frodo packs his food into his knapsack."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I don't know, Frodo. I don't have any answers. I must see the Head of my Order. He is both wise and powerful. Trust me, Frodo. He'll know what to go."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You'll have to leave the name of Baggins behind you...for that name is not safe outside the Shire. GANDALF helps FRODO into his coat."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Travel only by day and stay off the road."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "My dear Frodo, Hobbits really are amazing creatures. You can learn all that there is to know about their ways in a month, and yet, after a hundred years, they can still surprise you."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Get down!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Confound it all! Samwise Gamgee, have you been eavesdropping?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's a little late for trimming the hedges, don't you think?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What did you hear? Speak!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Perhaps not. I've thought of a better use for you."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- PRE DAWN",
+      "speech_type": "vo",
+      "dialogue": "Come along, Samwise...keep up..."
+    },
+    {
+      "scene": "EXT. HOBBITON WOODS -- DAY",
+      "speech_type": "vo",
+      "dialogue": "Be careful, both of you. The Enemy has many spies in his service, many ways of hearing...birds, beasts..."
+    },
+    {
+      "scene": "EXT. HOBBITON WOODS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Is it safe?"
+    },
+    {
+      "scene": "EXT. HOBBITON WOODS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Never put it on, for then the agents of the Dark Lord will be drawn to its power...Always remember, Frodo, the ring is trying to get back to its master...it wants to be found. Gandalf wheels his horse and gallops away."
+    },
+    {
+      "scene": "EXT. ISENGARD VALLEY -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Saruman!"
+    },
+    {
+      "scene": "EXT. ISENGARD GARDENS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Beyond any doubt."
+    },
+    {
+      "scene": "EXT. ISENGARD GARDENS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "All these long years it was in the Shire, under my very nose."
+    },
+    {
+      "scene": "EXT. ISENGARD GARDENS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "We still have time...time enough to counter Sauron...if we act quickly."
+    },
+    {
+      "scene": "INT. ORTHANC ANTE-CHAMBER -- DAY",
+      "speech_type": "direct",
+      "dialogue": "The eye of Sauron."
+    },
+    {
+      "scene": "INT. ORTHANC ANTE-CHAMBER -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You know this? How?"
+    },
+    {
+      "scene": "INT. ORTHANC ANTE-CHAMBER -- DAY",
+      "speech_type": "direct",
+      "dialogue": "A palantir is a dangerous tool, Saruman."
+    },
+    {
+      "scene": "INT. ORTHANC ANTE-CHAMBER -- DAY",
+      "speech_type": "direct",
+      "dialogue": "They are not all accounted for, the lost seeing-stones...we do not know who else may be watching. Gandalf throws the cloth back over the Palantir."
+    },
+    {
+      "scene": "INT. ORTHANC ANTE-CHAMBER -- DAY",
+      "speech_type": "direct",
+      "dialogue": "The nine!"
+    },
+    {
+      "scene": "INT. ORTHANC ANTE-CHAMBER -- DAY",
+      "speech_type": "direct",
+      "dialogue": "They have reached the Shire? Saruman shrugs..."
+    },
+    {
+      "scene": "INT. ORTHANC ANTE-CHAMBER -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Tell me, friend, when did Saruman the wise abandon reason for madness?"
+    },
+    {
+      "scene": "INT. FRODO'S DELIRIUM -- DAY",
+      "speech_type": "os",
+      "dialogue": "You are in the House of Elrond, and it is ten o'clock in the morning on October the twenty-fourth, if you want to know."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes, I'm here and you're lucky to be here, too. A few more hours and you would have been beyond our aid. You have some strength in you, my dear Hobbit."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm sorry Frodo."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I was delayed."
+    },
+    {
+      "scene": "EXT. ORTHANC SUMMIT -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There is only one Lord of the Ring. Only one who can bend it to his will...and he does not share power."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM--RIVENDELL",
+      "speech_type": "direct",
+      "dialogue": "Nothing, Frodo..."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM--RIVENDELL",
+      "speech_type": "direct",
+      "dialogue": "Sam has hardly left your side."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM--RIVENDELL",
+      "speech_type": "direct",
+      "dialogue": "By the skills of Lord Elrond, you're beginning to mend. ELROND, LORD OF THE HIGH ELVES, steps up to Frodo's"
+    },
+    {
+      "scene": "EXT. ELROND'S CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "That wound will never fully heal. He will carry it the rest of his life."
+    },
+    {
+      "scene": "EXT. ELROND'S CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "It is a burden he should never have to had to bear. We can ask no more of Frodo."
+    },
+    {
+      "scene": "EXT. ELROND'S CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "His treachery runs deeper than you know. By foul craft, Saruman has crossed Orc with Goblin Men...he is breeding an army in the caverns of Isengard. An army that can move in Sunlight and cover great distance at speed. Saruman is coming for the Ring."
+    },
+    {
+      "scene": "EXT. ELROND'S CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "It is in Men that we must place our hope."
+    },
+    {
+      "scene": "INT. ENROND'S CHAMBER, RIVERDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "There is one who could unite them, one who could re claim the thrown of Gondor."
+    },
+    {
+      "scene": "INT. COUNCIL CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Aragorn is right...we cannot use it."
+    },
+    {
+      "scene": "INT. COUNCIL CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Do you not understand? While we bicker among ourselves, Sauron's power grows! No one will escape it. You will all be destroyed, your homes burnt and your families put to the sword!"
+    },
+    {
+      "scene": "INT. COUNCIL CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I will help you bear this burden, Frodo Baggins, as long as it is yours to bear."
+    },
+    {
+      "scene": "EXT. ROUGH COUNTRY, SOUTH OF RIVENDELL -- DAY",
+      "speech_type": "vo",
+      "dialogue": "We must hold to his course west of the misty Mountains for forty days. If our luck holds, the Gap of Rohan will still be open to us. From there, our road turns east, to Mordor."
+    },
+    {
+      "scene": "EXT. EREGION HILLS--DAWN",
+      "speech_type": "direct",
+      "dialogue": "No, Gimli. I would not take the road through Moria unless I had no other choice."
+    },
+    {
+      "scene": "EXT. EREGION HILLS--DAWN",
+      "speech_type": "direct",
+      "dialogue": "Spies of Saruman. The passage South is being watched."
+    },
+    {
+      "scene": "EXT. EREGION HILLS--DAWN",
+      "speech_type": "direct",
+      "dialogue": "We must take the pass of Caradhras!"
+    },
+    {
+      "scene": "EXT. PASS OF CARADHRAS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "It's Saruman."
+    },
+    {
+      "scene": "EXT. PASS OF CARADHRAS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "No!"
+    },
+    {
+      "scene": "EXT. PASS OF CARADHRAS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Losto Caradhras, sedho, hodo, nuitho I ruith. Sleep Caradhras, be still, lie still, hold your wrath."
+    },
+    {
+      "scene": "EXT. PASS OF CARADHRAS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Let the ringbearer decide."
+    },
+    {
+      "scene": "EXT. PASS OF CARADHRAS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Frodo?"
+    },
+    {
+      "scene": "EXT. PASS OF CARADHRAS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "So be it."
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Itidin...it mirrors only starlight and moonlight."
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It reads, \"The door of Durin, Lord of Moria. Speak, friend, and enter.\""
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's quite simple. If you are a friend, speak the password and the doors will open."
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Annon edhellen, edro hi ammen!"
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh...mellon."
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Into the mines!"
+    },
+    {
+      "scene": "INT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We now have but one choice...we must face the long dark of Moria. Be on your guard...there are older and fouler things than the Orcs in the deep places of the world."
+    },
+    {
+      "scene": "INT. NEW CHAMBER, MORIA -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Quietly, now. It's a four day journey to the other side. Let us hope that our presence will go unnoticed."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I have no memory of this place."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's Gollum."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "He's been following us for three days."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Escaped...or was set loose. And now the Ring has drawn him here...he will never be rid of his need for it. He hates and loves the ring, as he hates and loves himself. Smeagol's life is a sad story. Gandalf catches Frodo's look of surprise."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yes...Smeagol he was once called...Before the ring came to him, before it drove him mad."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Pity? It was pity that stayed Bilbo's hand. Many that live deserve death, and some that die deserve life. Can you give it to them, Frodo? Frodo frowns."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Do not be too eager to deal out death in judgment...even the very wise cannot see all ends. My heart tells me that Gollum has some part to play yet, for good or ill, before this is over. The pity of Bilbo may rule the fate of many."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "So do all who live to see such times, but that is not for them to decide. All we have to decide is what to do with the time that is given to us. There is a note of finality in Gandalf's voice."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There are other forces at work in this world, Frodo, besides the will of evil. Bilbo was meant to find the ring. In which case, you also were meant to have it...and that is an encouraging thought, Ah! That it's that way! Gandalf points at the right hand tunnel...the Fellowship scramble to their feet."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, but the air doesn't smell so foul down there. If in doubt, Meriadoc, always follow your nose! Ye s..."
+    },
+    {
+      "scene": "INT. DWAROWDELF CHAMBER, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Behold! The great realm and Dwarf city of Dwarrowdelf! Frodo gasps at the brief sight of a vast roof, far above"
+    },
+    {
+      "scene": "INT. DWAROWDELF CHAMBER, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Gimli!!"
+    },
+    {
+      "scene": "INT. BALIN'S TOMB, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "\"Here lies Balin, son of Fudin, Lord of Moria.\" He is dead, then. It's as I had feared."
+    },
+    {
+      "scene": "INT. BALIN'S TOMB, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "\"They have taken the Bridge and the second hall: we have barred the gates...but cannot hold them for long...the ground shakes...drums in the deep...we cannot get out. A shadow moves in the dark. Will no- one save us? They are coming.\""
+    },
+    {
+      "scene": "INT. MORIA CAVERNS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Fool of a Took! Throw yourself in next time and rid us of your stupidity!"
+    },
+    {
+      "scene": "INT. MORIA CAVERNS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I think there's more to this hobbit than meets the eye."
+    },
+    {
+      "scene": "INT. MORIA CAVERNS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "To the bridge of Khazad-dum!"
+    },
+    {
+      "scene": "INT. DWAROWDELF CHAMBER, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "This way!"
+    },
+    {
+      "scene": "INT. DWAROWDELF CHAMBER, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "A Balrog..a demon of the ancient world! This foe is beyond any of you! Run! Quickly!"
+    },
+    {
+      "scene": "INT. STAIRWAY OF KHASAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Lead them on, Aragorn. The bridge is near."
+    },
+    {
+      "scene": "INT. STAIRWAY OF KHASAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Do as I say; swords are no more use here."
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Over the bridge! Fly!"
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You cannot pass!"
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I am a servant of the Secret Fire, wielder of the flame of Anor. The dark fire will not avail you, flame of Udun."
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Go back to the shadow! The BALROG slashes at Gandalf with its Sword of"
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You shall not pass!! The Balrog places one foot onto the bridge. Aragorn and Boromir race forward, swords drawn."
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Fly, you fools!"
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "vo",
+      "dialogue": "So do all who lie to see such times...but that is not for them to decide. All we have to decide is what to do with the time that is given us."
+    },
+    {
+      "scene": "EXT. ISENGARED GATE - DAY",
+      "speech_type": "direct",
+      "dialogue": "ANGLE ON: GANDALF, ARAGORN, LEGOLAS and GIMLI stare at the SIGHT before them . . ."
+    },
+    {
+      "scene": "EXT. ISENGARED GATE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hobbits!"
+    },
+    {
+      "scene": "EXT. ISENGARED GATE - DAY",
+      "speech_type": "direct",
+      "dialogue": "And there Saruman must remain, under your guard, Treebeard."
+    },
+    {
+      "scene": "EXT. ISENGARED GATE - DAY",
+      "speech_type": "direct",
+      "dialogue": "No. He has no power any more."
+    },
+    {
+      "scene": "EXT. ISENGARED GATE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Peregrin Took! I'll take that, my lad!"
+    },
+    {
+      "scene": "INT. EDORAS, GOLDEN HALL - EVENING",
+      "speech_type": "direct",
+      "dialogue": "No word ..."
+    },
+    {
+      "scene": "INT. EDORAS, GOLDEN HALL - EVENING",
+      "speech_type": "direct",
+      "dialogue": "Do we know that?"
+    },
+    {
+      "scene": "INT. EDORAS, GOLDEN HALL - EVENING",
+      "speech_type": "direct",
+      "dialogue": "That Frodo is alive. Yes - yes, he is alive."
+    },
+    {
+      "scene": "INT. EDORAS, SLEEPING QUARTERS - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Fool of a Took!"
+    },
+    {
+      "scene": "INT. EDORAS, SLEEPING QUARTERS - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Minas Tirith??? Is that what you saw?"
+    },
+    {
+      "scene": "INT. EDORAS, SLEEPING QUARTERS - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And what did you tell him? Speak!"
+    },
+    {
+      "scene": "INT. EDORAS, SLEEPING QUARTERS - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What did you tell him about Frodo and the Ring?"
+    },
+    {
+      "scene": "INT. EDORAS, GOLDEN HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "There was no lie in Pippin's eyes; a fool, but an honest fool he remains. He told Sauron nothing of Frodo and the Ring."
+    },
+    {
+      "scene": "INT. EDORAS, GOLDEN HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "No!"
+    },
+    {
+      "scene": "INT. EDORAS, GOLDEN HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "They will be. You must come to Minas Tirith by another ra ... od Follow the river, look to the black ships. Understand this . . ."
+    },
+    {
+      "scene": "EXT. EDORAS STREETS - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Of all the inquisitive Hobbits, Peregrin, Took, you are the worst. Hurry, hurry!"
+    },
+    {
+      "scene": "INT. EDORAS STABLES - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Three days ride as the Nazgul flies and you'd better hope we don't have one of those on our tail."
+    },
+    {
+      "scene": "INT. EDORAS STABLES - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Run Shadowfax, show us the meaning of haste."
+    },
+    {
+      "scene": "EXT. FOOTHILLS OF WHITE MOUNTAINS - DAY",
+      "speech_type": "direct",
+      "dialogue": "We have just passed into the realm of Condor!"
+    },
+    {
+      "scene": "EXT. MINAS TIRITH - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Minas Tirith . . . City of the Kings."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH, COURT OF THE KINGS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes, the white tree of Gondor. The tree of the King."
+    },
+    {
+      "scene": "INT. MINAS TIRITH TOWER HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hail, Denethor, Son of Ecthelion, Lord and Steward of Gondor."
+    },
+    {
+      "scene": "INT. MINAS TIRITH TOWER HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Pippin!"
+    },
+    {
+      "scene": "INT. MINAS TIRITH TOWER HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Get up! My Lord, there will be a time to grieve for Boromir, but it is not now. War is coming ... the Enemy is on your doorstep. As Steward, you are charged with the defence of this city. Where are Condor's armies?"
+    },
+    {
+      "scene": "INT. MINAS TIRITH TOWER HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Authority is not given to you to deny the return of the King - Steward!"
+    },
+    {
+      "scene": "INT. MINAS TIRITH TOWER HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come."
+    },
+    {
+      "scene": "INT. MINAS TIRITH, PIPPIN'S QUARTERS - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You're in the service of the Steward now - you're going to have to do as you're told, Peregrin Took . . . Guard of the Citadel!"
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BALCONY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's the deep breath before the plunge."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BALCONY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There never was much hope."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BALCONY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "This will be the end of Gondor as we know it. Here the hammerstroke will fall hardest."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BALCONY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The Witchking of Angmar . . . (he looks down at a startled"
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BALCONY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We come to it at last ... the great battle of our time."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BALCONY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The board is set, the pieces are moving."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH SIXTH LEVEL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Peregrin Took, my lad, there is a task to be done. Another opportunity for one of the Shire-folk to prove their great worth!"
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BATTLEMENTS - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Amon Din ... come on . . ."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH BATTLEMENTS - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Hope is kindled."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH GATES - DAY",
+      "speech_type": "direct",
+      "dialogue": "Foreseen and done nothing!"
+    },
+    {
+      "scene": "EXT. MINAS TIRITH GATES - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where? When?"
+    },
+    {
+      "scene": "EXT. MINAS TIRITH GATES - DAY",
+      "speech_type": "direct",
+      "dialogue": ". . . And then the Pass of Cirith Ungol."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH GATES - DAY",
+      "speech_type": "direct",
+      "dialogue": "Faramir . . . Tell me everything."
+    },
+    {
+      "scene": "EXT. MINAS TIRITH STREETS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Faramir! Your father's will has turned to madness! Do not throw away your life so rashly!"
+    },
+    {
+      "scene": "EXT. MINAS TIRITH STREETS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Your father loves you, Faramir! And will remember it before the end."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You cannot pass!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I am a servant of the Secret Fire, wielder of the Flame of Anor!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Argh! Go back to the shadow. The Dark Fire will not avail you, Flame of Udûn! [Camera zooms in through the mountain and focuses on Gandalf and the Balrog on the bridge of Khazad-dûm. The Balrog strikes down on Gandalf with its flaming sword. Gandalf parries the blow with Glamdring, shattering the Balrogs sword.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Argh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Fly, you fools!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Through fire and water. [Flashback: Gandalf is battling the Balrog atop Dúrins Tower.] From the lowest dungeon to the highest peak, I fought with the Balrog of Morgoth."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Until at last, I threw down my enemy and smote his ruin upon the mountainside."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Darkness took me. And I strayed out of thought and time. [Camera zooms in Gandalfs eye and enters an amorphous realm of stars and galaxies, ending in a blinding white light] Stars wheeled overhead and everyday was as long as a life-age of the earth. But it was not the end. I felt life in me again."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I've been sent back until my task is done."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gandalf? Yes... That's what they used to call me. Gandalf the Grey. That was my name. [He smiles]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[With a twinkle in his eye] I am Gandalf the White. [Aragorn grins] And I come back to you now at the turn of the tide."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "One stage of your journey is over, another begins. War has come to Rohan. We must ride to Edoras with all speed."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Shadowfax. [Gimli bows in the background.] He's the lord of all horses and he's been my friend through many dangers."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Edoras and the Golden Hall of Meduseld. There dwells Théoden, King of Rohan, whose mind is overthrown. Sarumans hold over King Théoden is now very strong."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Be careful what you say. Do not look for welcome here."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[sees Háma] Ah."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hmm? [Glances at his staff.] Oh. You would not part an old man from his walking stick? [Looks at Háma innocently.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "The courtesy of your hall is somewhat lessened of late, Théoden King."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Be silent! Keep your forked tongue behind you teeth. I have not passed through fire and death to bandy crooked words with a witless worm! [Raises his staff against Gríma.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Théoden, son of Thengel, too long have you sat in the shadows."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hearken to me! I release you from the spell. [Gestures with his hand]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Points his staff towards Théoden.] I will draw you, Saruman, as poison is drawn from a wound."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You did not kill me, you will not kill him!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Be gone!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Breathe the free air again, my friend."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Your fingers would remember their old strength better... if they grasped your sword."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Théodreds death was not of your making."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He was strong in life. His spirit will find its way to the halls of your fathers. Westu hál. Ferðu, Théodred, Ferðu. (Be-thou well. Go-thou, Théodred, go-thou.)"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "This is but a taste of the terror that Saruman will unleash. All the more potent for he is driven now by fear of Sauron. Ride out and meet him head on. Draw him away from your women and children. [Leans forward and puts a hand on Théodens chair. Théoden looks at his hand warily.] You must fight."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Then what is the kings decision?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There is no way out of that ravine. Théoden is walking into a trap. He thinks hes leading them to safety. What they will get is a massacre. Théoden has a strong will but I fear for him. I fear for the survival of Rohan. He will need you before the end, Aragorn. The people of Rohan will need you. The defences HAVE to hold."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Turns to Shadowfax and strokes him] The Grey Pilgrim... thats what they used to call me. Three hundred lives of men Ive walked this earth and now I have no time. With luck, my search will not be in vain. Look to my coming at first light on the fifth day. At dawn, look to the East."
+    },
+    {
+      "scene": "",
+      "speech_type": "vo",
+      "dialogue": "Look to my coming at first light on the fifth day. At dawn, look to the east."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Théoden king stands alone."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Saurons wrath will be terrible, his retribution swift. The battle for Helms Deep is over. The battle for Middle-earth is about to begin. All our hopes now lie with two little hobbits. Somewhere in the wilderness."
+    }
+  ]
+}
