@@ -1,0 +1,491 @@
+{
+  "character": "GOLLUM",
+  "films": [
+    "Lord-of-the-Rings-Fellowship-of-the-Ring,-The",
+    "Lord-of-the-Rings-Return-of-the-King",
+    "Lord-of-the-Rings-The-Two-Towers"
+  ],
+  "lines_count": 96,
+  "lines": [
+    {
+      "scene": "EXT. PROLOGUE -- DAY",
+      "speech_type": "vo",
+      "dialogue": "My Precious..."
+    },
+    {
+      "scene": "EXT. PROLOGUE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "It came to me. My own. My love... My preciousness."
+    },
+    {
+      "scene": "EXT. PROLOGUE -- DAY",
+      "speech_type": "vo",
+      "dialogue": "Lost! Lost! My Precious is lost!!"
+    },
+    {
+      "scene": "EXT. BARAD-DUR -- NIGHT",
+      "speech_type": "os",
+      "dialogue": "Baggins! Shire!!"
+    },
+    {
+      "scene": "INT. BARAD-DUR -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "S...Shire! Baggins!"
+    },
+    {
+      "scene": "INT. MISTY MOUNTAINS CAVES - DAY",
+      "speech_type": "direct",
+      "dialogue": "It's mine! My own. It came to me."
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Wake up! Wake up! Wake up, sleepies! We must go, yes, we must go at once!"
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Come on, must go, no time ..."
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAWN",
+      "speech_type": "direct",
+      "dialogue": ". . . no time to lose, silly."
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come, Hobbitses. Very close now. Very close to Mordor! No safe places here. Hurry! Shhh."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Shhh! Quiet!"
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And we will . . ,- Smeagol did it once. . . . . . He can do it again."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Patience, patience, my love. First we must lead them to her."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yes, the stairs ... and then?"
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And when they go in, there's no coming out. She's always hungry, she always needs to feed. She must eat, all She gets is filthy Orcses."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No . . . not very nice at all, my love. She hungers for sweeter meats . . ."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "For us . . ."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The Precious will be ours once the Hobbitses are dead!"
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No! Not! Help! Master!"
+    },
+    {
+      "scene": "EXT. MINAS MORGUL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The Dead City, very nasty place, full of ..."
+    },
+    {
+      "scene": "EXT. MINAS MORGUL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Not that way!"
+    },
+    {
+      "scene": "EXT. MINAS MORGUL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hide! Hide!"
+    },
+    {
+      "scene": "EXT. MINAS MORGUL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Come, hobbits. We climb - we must climb!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL STAIRS - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Careful, Master - careful! Very far to fall. Very dangerous on the stairs."
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Come, Master."
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Why does he hates poor Smeagol? What has Smeagol ever done to him? Master?"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Smeagol? No, no, not poor Smeagol. Smeagol hates nasty Elf bread!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "What's this? Crumbs on his jacketses! He took it! He took it! I seen him, he's always stuffing himself when Master's not looking!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "See! See! He wants it for himself."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "The thieves! The thieves! The filthy little thieves! Where is it? Where isss it? They stole it from us. My preciousss. [Gollum creeps closer and closer.] Curse them! We hates them! Its ours, it is... and we wantssss it!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It burns! It burns us! It freezes! Nasty Elves twisted it. Take it off us!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No! That would kill us! Kill us!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Begging] We be nice to them if they be nice to us. Take it off us. We swears to do what you wants. We swears."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We swears to serve the master of the preciousss. We swears on... on the precious. *Gollum. Gollum."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes... on the preciousss. On the preciousss."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[nods warily] Yes..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[nods again] Yes..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "See, see, we have led you out! Hurry hobbitses hurry. Very lucky we find you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Nice hobbit. [Leaps after Frodo, putting a wide berth between him and Sam.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "A swamp, yes, yes. Come, master. We will take you on safe paths through the mist. Come, hobbits, come. We go quickly."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I found it, I did. The way through the marshes. Orcs don't use it. Orcs don't know it. They go round for miles and miles. Come quickly. Swift and quick as shadows we must be."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "All dead. All rotten. Elves and men and orcses. A great battle long ago. [Turns to face the hobbits.] The Dead Marshes. Yes, yes that is their name. This way. Dont follow the lights."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Careful now, or hobbits go down to join the dead ones and light little candles of their own."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Dont follow the lights! [Crawls away]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sooo bright. Sooo beautiful. [Frodo quickly puts the Ring back inside his shirt. He looks up to see Gollum crouching away from him, stroking the centre of his palm] our preciousss..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master should be resting. Master needs to keep up his strength."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Mustnt ask us. Not its business. *Gollum, Gollum*"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Cold be heart and hand and bone. Cold be travellers far from home."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "They do not see what lies ahead, when sun has failed and moon is dead."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Looks up slowly.] What did you call me?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "My name... My name... S... S...Sméagol"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Argh!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hide! Hide!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Quick! They will see us! They will see us!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Dead? No, you cannot kill them. No."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[cowering] Wraiths! Wraiths on wings! They are calling for it. They are calling for the preciousss."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hurry, hobbits. The Black Gate is very close."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "The Black Gate of Mordor."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master says to show him the way into Mordor, so good Sméagol does. Master says so."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No! No, no master! They catch you! They catch you! Dont take it to him! He wants the preciousss. Always hes looking for it! And the preciousss is wanting to go back to him. But we mustnt let him have it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No! [Pulls Frodo back again.] Theres another way. More secret. A dark way."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Because Master did not ask!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes. There is a path, and some stairs, and then a tunnel. [Frodo and Sam watch as the Black Gate closes. Gollum is stroking Frodos arm and burying his face in his cloak.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Good Sméagol always helps."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We wants it. We needs it. Must have the precioussss. They stole it from us. Sneaky little hobbitsesss. Wicked, trickssssy, falssse!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes, precious. False. They will cheat you, hurt you, lie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Tauntingly] You dont have any friends. Nobody likes YOU..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Youre a liar and a thief."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Mur derer !"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Go away! [Cackles] HAHAHAHA!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Fiercely] Where would you be without me? *Gollum, gollum*. I saved us. It was me. We survived because of me!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Startled] What did you say?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Growls and bares his teeth] Arrrgh!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Whats taters, preciousss? Whats taters uh?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Wicked men. Servants of Sauron. They are called to Mordor. The Dark One is gathering all armies to him. It wont be long now. He will soon be ready."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "To make his war. The last war that will cover all the world in shadow."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[singing] The rock and pool is nice and cool, so juicy sweet! I only wish [Whacks the fish on the rock] to catch a fish [whacks], so juicy sweet! [The fish almost wriggles out of his grasp and he whacks it some more.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We must go now?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[wails] Master!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No! No!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Cooing, his hand stroking his shoulder] Sméa gol... Why does it cry, Sméagol?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Of course he did. I told you he was tricksy. I told you he was false."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master betrayed us."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Hits his fist against the wall] Filthy little hobbitses. They stole it from us."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Turns to Faramir with a ferocious expression] Myyy PRECIOUSSS!! [He bares his teeth and growls] Aaaarrrggghhh!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master broke his promise."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Master betrayed us! Wicked, tricksy, false. We ought to wring his filthy little neck. [Twists the branch of a tree] Kill him! Kill him! Kill them both. And then we take the precious and we be the master."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Then we stabs them out. Put out his eyeses. And make HIM crawl."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Kill them both."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Softly and sinisterly] We could let HER do it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes, precious she could. And then we takes it once theyre dead."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Shh [He pops out from hiding in front of the hobbits.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Follow me."
+    }
+  ]
+}
