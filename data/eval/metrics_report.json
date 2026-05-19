@@ -1,0 +1,405 @@
+{
+  "persona_identification": {
+    "aggregate": {
+      "correct": 9,
+      "total": 21,
+      "accuracy": 0.4286,
+      "random_baseline": 0.125,
+      "ci_95": [
+        0.245,
+        1.0
+      ],
+      "p_value": 0.000529,
+      "significant": true
+    },
+    "per_judge": [
+      {
+        "judge_name": "style",
+        "correct": 3,
+        "total": 7,
+        "accuracy": 0.4286
+      },
+      {
+        "judge_name": "ideology",
+        "correct": 2,
+        "total": 7,
+        "accuracy": 0.2857
+      },
+      {
+        "judge_name": "general",
+        "correct": 4,
+        "total": 7,
+        "accuracy": 0.5714
+      }
+    ],
+    "confusion_matrix": {
+      "labels": [
+        "INDY",
+        "JACK",
+        "LUKE",
+        "RIGGAN",
+        "VADER",
+        "YODA",
+        "cicciogamer89"
+      ],
+      "matrix": [
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "chi2_p_value": 0.958282,
+      "non_uniform_errors": false
+    }
+  },
+  "individual_fidelity": {
+    "aggregate": {
+      "n": 15,
+      "median": 4.0,
+      "iqr": 1.5,
+      "variance": 1.1429,
+      "std": 1.069,
+      "ci_95": [
+        3.0,
+        5.0
+      ]
+    },
+    "per_persona": {
+      "cicciogamer89": {
+        "overall": {
+          "n": 3,
+          "median": 5.0,
+          "iqr": 0.0,
+          "variance": 0.0,
+          "std": 0.0,
+          "ci_95": [
+            5.0,
+            5.0
+          ]
+        },
+        "per_judge_type": {
+          "style": {
+            "n": 1,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology": {
+            "n": 1,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general": {
+            "n": 1,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          }
+        }
+      },
+      "INDY": {
+        "overall": {
+          "n": 3,
+          "median": 5.0,
+          "iqr": 0.0,
+          "variance": 0.0,
+          "std": 0.0,
+          "ci_95": [
+            5.0,
+            5.0
+          ]
+        },
+        "per_judge_type": {
+          "style": {
+            "n": 1,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology": {
+            "n": 1,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general": {
+            "n": 1,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          }
+        }
+      },
+      "JACK": {
+        "overall": {
+          "n": 3,
+          "median": 4.0,
+          "iqr": 0.0,
+          "variance": 0.0,
+          "std": 0.0,
+          "ci_95": [
+            4.0,
+            4.0
+          ]
+        },
+        "per_judge_type": {
+          "style": {
+            "n": 1,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology": {
+            "n": 1,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "general": {
+            "n": 1,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          }
+        }
+      },
+      "LUKE": {
+        "overall": {
+          "n": 3,
+          "median": 3.0,
+          "iqr": 0.5,
+          "variance": 0.3333,
+          "std": 0.5774,
+          "ci_95": [
+            2.0,
+            3.0
+          ]
+        },
+        "per_judge_type": {
+          "style": {
+            "n": 1,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "ideology": {
+            "n": 1,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "general": {
+            "n": 1,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          }
+        }
+      },
+      "RIGGAN": {
+        "overall": {
+          "n": 3,
+          "median": 4.0,
+          "iqr": 1.0,
+          "variance": 1.3333,
+          "std": 1.1547,
+          "ci_95": [
+            2.0,
+            4.0
+          ]
+        },
+        "per_judge_type": {
+          "style": {
+            "n": 1,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology": {
+            "n": 1,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "general": {
+            "n": 1,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          }
+        }
+      }
+    },
+    "judge_type_agreement": {
+      "judge_median_scores": {
+        "general": 4.0,
+        "ideology": 4.0,
+        "style": 4.0
+      },
+      "mad_between_types": {
+        "general_vs_ideology": 0.0,
+        "general_vs_style": 0.0,
+        "ideology_vs_style": 0.0
+      }
+    }
+  },
+  "group_fidelity": {
+    "gini": {
+      "gini": 0.3929,
+      "ci_95": [
+        0.1236,
+        0.5
+      ],
+      "reference_range": [
+        0.28,
+        0.42
+      ],
+      "within_reference_range": true,
+      "z_vs_reference": 1.257
+    },
+    "cosine_distance_matrix": {
+      "note": "embeddings not provided. Generate with: python -m angry_agents.src.eval.simulate_transcript --embed-model nomic-embed-text"
+    },
+    "spearman_vs_reference": {
+      "note": "requires embeddings"
+    }
+  },
+  "deliberation": {
+    "note": "no deliberation rounds provided — Phase 2 not evaluated"
+  }
+}
