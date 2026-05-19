@@ -1,0 +1,406 @@
+// components.jsx — shared UI primitives for the 8 Angry Agents prototype.
+
+const { useState, useEffect, useRef, useMemo, useCallback } = React;
+
+// ---- Avatar ------------------------------------------------------------
+function Avatar({ persona, size = "md", className = "", style = {} }) {
+  const initials = persona?.name
+    ? persona.name.split(/\s+/).slice(0, 2).map(w => w[0]).join("")
+    : "?";
+  return (
+    <div
+      className={`avatar avatar-${size} ${className}`}
+      style={{ background: persona?.color || "#5E5E68", ...style }}
+      title={persona?.name || ""}
+    >
+      {initials}
+    </div>
+  );
+}
+
+function AvatarStack({ personas, max = 4, size = "sm" }) {
+  const shown = personas.slice(0, max);
+  const rest = personas.length - shown.length;
+  return (
+    <div className="avatar-stack">
+      {shown.map(p => <Avatar key={p.id} persona={p} size={size} />)}
+      {rest > 0 && (
+        <div
+          className={`avatar avatar-${size}`}
+          style={{ background: "var(--bg-3)", color: "var(--fg-1)" }}
+        >
+          +{rest}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---- Tension meter -----------------------------------------------------
+function tensionColor(v) {
+  // green → amber → red gradient
+  if (v < 0.25) return "var(--tens-1)";
+  if (v < 0.45) return "var(--tens-2)";
+  if (v < 0.65) return "var(--tens-3)";
+  if (v < 0.82) return "var(--tens-4)";
+  return "var(--tens-5)";
+}
+function tensionLabel(v) {
+  if (v < 0.25) return "calm";
+  if (v < 0.45) return "cool";
+  if (v < 0.65) return "warm";
+  if (v < 0.82) return "hot";
+  return "molten";
+}
+function TensionMeter({ value, showLabel = true }) {
+  const color = tensionColor(value);
+  return (
+    <div className="tension">
+      <Icons.Flame size={12} sw={1.5} style={{ color }} />
+      <div className="tension-bar">
+        <div
+          className="tension-bar-fill"
+          style={{ width: `${Math.round(value * 100)}%`, background: color }}
+        />
+      </div>
+      {showLabel && (
+        <span className="tension-label" style={{ color }}>{tensionLabel(value)}</span>
+      )}
+    </div>
+  );
+}
+
+// ---- Buttons -----------------------------------------------------------
+function Btn({ children, variant = "outline", size = "", icon, block, onClick, type = "button", disabled, title }) {
+  const cls = [
+    "btn",
+    `btn-${variant}`,
+    size && `btn-${size}`,
+    block && "btn-block",
+  ].filter(Boolean).join(" ");
+  return (
+    <button type={type} className={cls} onClick={onClick} disabled={disabled} title={title}>
+      {icon}
+      {children}
+    </button>
+  );
+}
+function IconBtn({ icon, onClick, title, variant = "ghost", size = "" }) {
+  const cls = ["btn", `btn-${variant}`, "btn-icon", size === "sm" && "btn-icon-sm"].filter(Boolean).join(" ");
+  return (
+    <button className={cls} onClick={onClick} title={title}>
+      {icon}
+    </button>
+  );
+}
+
+// ---- Checkbox ----------------------------------------------------------
+function Checkbox({ checked, onChange }) {
+  return (
+    <span
+      className={`checkbox ${checked ? "checked" : ""}`}
+      onClick={(e) => { e.stopPropagation(); onChange?.(!checked); }}
+    >
+      <Icons.Check size={11} sw={2.5} />
+    </span>
+  );
+}
+
+// ---- Tag chip ----------------------------------------------------------
+function TagChip({ children, active, onClick, prefix = "#" }) {
+  return (
+    <button
+      className={`tag-chip ${active ? "active" : ""}`}
+      onClick={onClick}
+      type="button"
+    >
+      <span style={{ opacity: 0.6 }}>{prefix}</span>{children}
+    </button>
+  );
+}
+
+// ---- Brand logo --------------------------------------------------------
+function BrandMark({ size = 28 }) {
+  return (
+    <div className="topnav-logo" style={{ width: size, height: size }}>
+      <Icons.Bolt size={size * 0.55} sw={2.2} />
+    </div>
+  );
+}
+
+// ---- Empty state -------------------------------------------------------
+function Empty({ icon, title, sub, action }) {
+  return (
+    <div className="empty">
+      <div className="empty-icon">{icon || <Icons.Library size={20} />}</div>
+      <div className="empty-title">{title}</div>
+      {sub && <div style={{ fontSize: 12 }}>{sub}</div>}
+      {action && <div style={{ marginTop: 12 }}>{action}</div>}
+    </div>
+  );
+}
+
+// ---- Sparkline (admin) -------------------------------------------------
+function Sparkline({ data, color = "var(--admin)", height = 32 }) {
+  const w = 120, h = height;
+  if (!data?.length) return null;
+  const min = Math.min(...data), max = Math.max(...data);
+  const span = max - min || 1;
+  const pts = data.map((v, i) => [
+    (i / (data.length - 1)) * w,
+    h - 2 - ((v - min) / span) * (h - 4),
+  ]);
+  const path = pts.map((p, i) => `${i === 0 ? "M" : "L"}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" ");
+  return (
+    <svg width="100%" height={h} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" className="kpi-spark">
+      <path d={path} fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      <path d={`${path} L ${w} ${h} L 0 ${h} Z`} fill={color} opacity="0.08" />
+    </svg>
+  );
+}
+
+// ---- Bar / Line / Pie chart placeholders (admin) -----------------------
+function BarChartPlaceholder({ label }) {
+  // procedurally generate a few bars to make the placeholder feel alive
+  const bars = [0.32, 0.58, 0.41, 0.74, 0.52, 0.88, 0.61, 0.44, 0.71, 0.55, 0.93, 0.48];
+  return (
+    <div className="chart-placeholder" style={{ display: "flex", alignItems: "flex-end", padding: "16px 14px", gap: 6 }}>
+      {bars.map((h, i) => (
+        <div key={i} style={{ flex: 1, height: `${h * 100}%`, background: "var(--admin)", opacity: 0.18, borderRadius: 2, borderTop: "2px solid var(--admin)" }} />
+      ))}
+      <div style={chartLabelStyle}>{label}</div>
+    </div>
+  );
+}
+function LineChartPlaceholder({ label }) {
+  const pts = [0.4, 0.32, 0.55, 0.48, 0.62, 0.59, 0.7, 0.66, 0.82, 0.74, 0.85, 0.92];
+  const w = 600, h = 200;
+  const stepX = w / (pts.length - 1);
+  const d = pts.map((v, i) => `${i === 0 ? "M" : "L"}${i * stepX} ${(1 - v) * h}`).join(" ");
+  return (
+    <div className="chart-placeholder">
+      <svg viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" style={{ width: "100%", height: "100%", display: "block" }}>
+        {/* grid */}
+        {[0.25, 0.5, 0.75].map(g => (
+          <line key={g} x1="0" x2={w} y1={g * h} y2={g * h} stroke="var(--border-0)" strokeDasharray="3 4" />
+        ))}
+        <path d={`${d} L ${w} ${h} L 0 ${h} Z`} fill="var(--admin)" opacity="0.10" />
+        <path d={d} fill="none" stroke="var(--admin)" strokeWidth="2" />
+        {pts.map((v, i) => (
+          <circle key={i} cx={i * stepX} cy={(1 - v) * h} r="3" fill="var(--bg-0)" stroke="var(--admin)" strokeWidth="2" />
+        ))}
+      </svg>
+      <div style={chartLabelStyle}>{label}</div>
+    </div>
+  );
+}
+function PieChartPlaceholder({ label }) {
+  const segs = [
+    { v: 0.42, c: "var(--admin)" },
+    { v: 0.27, c: "#a16207" },
+    { v: 0.18, c: "#7c3aed" },
+    { v: 0.13, c: "#5e5e68" },
+  ];
+  let acc = 0;
+  const C = 60, R = 48;
+  return (
+    <div className="chart-placeholder" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20 }}>
+      <svg width="140" height="140" viewBox="0 0 120 120">
+        {segs.map((s, i) => {
+          const start = acc * 2 * Math.PI - Math.PI / 2;
+          acc += s.v;
+          const end = acc * 2 * Math.PI - Math.PI / 2;
+          const large = s.v > 0.5 ? 1 : 0;
+          const x1 = C + R * Math.cos(start), y1 = C + R * Math.sin(start);
+          const x2 = C + R * Math.cos(end), y2 = C + R * Math.sin(end);
+          return (
+            <path key={i}
+              d={`M ${C} ${C} L ${x1} ${y1} A ${R} ${R} 0 ${large} 1 ${x2} ${y2} Z`}
+              fill={s.c} opacity="0.7" stroke="var(--bg-2)" strokeWidth="1.5"
+            />
+          );
+        })}
+        <circle cx={C} cy={C} r="22" fill="var(--bg-2)" />
+      </svg>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6, fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-2)" }}>
+        {["style", "ideology", "general", "behavioral"].map((k, i) => (
+          <div key={k} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span style={{ width: 8, height: 8, background: segs[i].c, borderRadius: 2, opacity: 0.7 }} />
+            <span>{k}</span>
+            <span style={{ marginLeft: "auto", color: "var(--fg-1)" }}>{Math.round(segs[i].v * 100)}%</span>
+          </div>
+        ))}
+      </div>
+      <div style={chartLabelStyle}>{label}</div>
+    </div>
+  );
+}
+const chartLabelStyle = {
+  position: "absolute",
+  bottom: 8,
+  right: 12,
+  fontFamily: "var(--font-mono)",
+  fontSize: 10,
+  color: "var(--fg-3)",
+  letterSpacing: "0.06em",
+  textTransform: "uppercase",
+};
+
+// ---- Top nav -----------------------------------------------------------
+function TopNav({ role, userRole, onRoleChange, page, onNav, user, onLogout }) {
+  const isAdmin = role === "admin";
+  const canSwitchRole = userRole === "admin";
+  return (
+    <header className="topnav">
+      <button
+        className="topnav-brand"
+        onClick={() => onNav(role === "admin" ? "admin" : "home")}
+        style={{ background: "transparent", border: 0, color: "inherit", cursor: "pointer", padding: 0, font: "inherit" }}
+        title="Home"
+      >
+        <BrandMark />
+        <span>8 Angry Agents</span>
+      </button>
+
+      <nav className="topnav-nav">
+        {!isAdmin && (
+          <>
+            <button
+              className={`topnav-nav-item ${page === "home" ? "active" : ""}`}
+              onClick={() => onNav("home")}
+            >
+              <Icons.Sparkles size={14} /> Home
+            </button>
+            <button
+              className={`topnav-nav-item ${page === "library" ? "active" : ""}`}
+              onClick={() => onNav("library")}
+            >
+              <Icons.Library size={14} /> Agents
+            </button>
+            <button
+              className={`topnav-nav-item ${["chat", "newdm", "newgroup"].includes(page) ? "active" : ""}`}
+              onClick={() => onNav("chat")}
+            >
+              <Icons.MessageDots size={14} /> Chats
+            </button>
+            <button
+              className={`topnav-nav-item`}
+              onClick={() => onNav("newgroup")}
+              style={{ marginLeft: 8, color: "var(--accent)" }}
+            >
+              <Icons.Plus size={13} sw={2.5} /> New
+            </button>
+          </>
+        )}
+        {isAdmin && (
+          <button
+            className={`topnav-nav-item ${page === "admin" ? "active" : ""}`}
+            onClick={() => onNav("admin")}
+          >
+            <Icons.Shield size={14} /> Dashboard
+          </button>
+        )}
+      </nav>
+
+      <div className="topnav-spacer" />
+
+      {canSwitchRole ? (
+        <div className="role-switch" title="Switch role view">
+          <button
+            className={`role-switch-btn ${!isAdmin ? "active" : ""}`}
+            onClick={() => onRoleChange("user")}
+          >
+            <Icons.User size={12} /> User
+          </button>
+          <button
+            className={`role-switch-btn ${isAdmin ? "active" : ""}`}
+            onClick={() => onRoleChange("admin")}
+          >
+            <Icons.Shield size={12} /> Admin
+          </button>
+        </div>
+      ) : null}
+
+      <div style={{ display: "flex", alignItems: "center", gap: 10, paddingLeft: 6 }}>
+        <span className={`badge ${isAdmin ? "badge-admin" : "badge-accent"} badge-dot`}>
+          {isAdmin ? "Admin" : "User"}
+        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <Avatar
+            persona={{ name: user.name, color: isAdmin ? "var(--admin)" : "var(--accent)" }}
+            size="sm"
+          />
+          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
+            <span style={{ fontSize: 12, fontWeight: 500 }}>{user.name}</span>
+            <span style={{ fontSize: 10.5, color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>{user.handle}</span>
+          </div>
+        </div>
+        <IconBtn icon={<Icons.Logout size={14} />} onClick={onLogout} title="Sign out" />
+      </div>
+    </header>
+  );
+}
+
+// ---- Modal -------------------------------------------------------------
+function Modal({ open, onClose, title, children, footer, width }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && onClose?.();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+  if (!open) return null;
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal" style={width ? { width } : null} onClick={e => e.stopPropagation()}>
+        <div className="modal-head">
+          <div className="t-h3">{title}</div>
+          <IconBtn icon={<Icons.X size={14} />} onClick={onClose} />
+        </div>
+        <div className="modal-body">{children}</div>
+        {footer && <div className="modal-foot">{footer}</div>}
+      </div>
+    </div>
+  );
+}
+
+// ---- Form field -------------------------------------------------------
+function Field({ label, hint, error, ok, children }) {
+  return (
+    <div className="field">
+      {label && <label className="field-label">{label}</label>}
+      {children}
+      {error && <div className="field-error"><Icons.AlertCircle size={11} /> {error}</div>}
+      {ok && <div className="field-ok"><Icons.Check size={11} /> {ok}</div>}
+      {hint && !error && !ok && <div className="field-hint">{hint}</div>}
+    </div>
+  );
+}
+
+// ---- Password input ---------------------------------------------------
+function PasswordInput({ value, onChange, placeholder, name }) {
+  const [shown, setShown] = useState(false);
+  return (
+    <div className="input-wrap">
+      <input
+        className="input"
+        type={shown ? "text" : "password"}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        name={name}
+        autoComplete="new-password"
+      />
+      <button type="button" className="input-icon-btn" onClick={() => setShown(s => !s)} tabIndex={-1}>
+        {shown ? <Icons.EyeOff size={14} /> : <Icons.Eye size={14} />}
+      </button>
+    </div>
+  );
+}
+
+Object.assign(window, {
+  Avatar, AvatarStack, TensionMeter, tensionColor, tensionLabel,
+  Btn, IconBtn, Checkbox, TagChip, BrandMark, Empty, Sparkline,
+  BarChartPlaceholder, LineChartPlaceholder, PieChartPlaceholder,
+  TopNav, Modal, Field, PasswordInput,
+});
