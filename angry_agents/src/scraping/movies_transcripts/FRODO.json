@@ -1,0 +1,1091 @@
+{
+  "character": "FRODO",
+  "films": [
+    "Lord-of-the-Rings-Fellowship-of-the-Ring,-The",
+    "Lord-of-the-Rings-Return-of-the-King",
+    "Lord-of-the-Rings-The-Two-Towers"
+  ],
+  "lines_count": 216,
+  "lines": [
+    {
+      "scene": "EXT. SHIRE LANE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You're late."
+    },
+    {
+      "scene": "EXT. SHIRE LANE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "It's wonderful to see you, Gandalf!"
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "What news of the outside world? Tell me everything!"
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You know Bilbo...he's got he whole place in an uproar."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Half the Shire's been invited..."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "He's up to something."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Alright then..keep your secrets. Before you came along we Bagginses were very well thought of."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Never had any adventures or did anything unexpected."
+    },
+    {
+      "scene": "EXT. HOBBITON FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Whatever you did...you've been officially labelled as a Disturber of the Peace."
+    },
+    {
+      "scene": "EXT. HOBBITON -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Gandalf... I'm glad you're back. Frodo leaps expertly from the cart. Gandalf smiles."
+    },
+    {
+      "scene": "EXT. PARTY FIELD, HOBBITON -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Go on, Sam, ask Rosie for a dance."
+    },
+    {
+      "scene": "EXT. PARTY FIELD, HOBBITON -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh, no you don't. Go on."
+    },
+    {
+      "scene": "EXT. PARTY FIELD, HOBBITON -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bilbo! Watch out for the dragon!!"
+    },
+    {
+      "scene": "EXT. PARTY FIELD, HOBBITON -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Speech!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "os",
+      "dialogue": "Bilbo! Bilbo!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "He's gone, hasn't he? Frodo steps into the living room."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "He talked for so long about leaving...I didn't think he'd really do it."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Gandalf?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Where are you going?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What things?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You've only just arrived! I don't understand..."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What are you doing?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Nothing...there's nothing. Wait..."
+    },
+    {
+      "scene": "INT. BAG END KITCHEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bilbo found it...in Gollom's cave."
+    },
+    {
+      "scene": "INT. BAG END KITCHEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "But he was destroyed...Sauron was destroyed."
+    },
+    {
+      "scene": "INT. BAG END KITCHEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Alright!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We put it away, we keep it hidden! We never speak of it again. No one know it's here, do they? Gandalf shifts uncomfortably."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Do they, Gandalf?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Shire! Baggins! That will lead them here!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Take it! Take it!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You must take it."
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm giving it to you!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "But it cannot stay in the Shire!"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What must I do?"
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Where? Where shall I go?"
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bree? What about you?"
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And the ring will be safe there?"
+    },
+    {
+      "scene": "INT. BAG END LIVING ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I can cut across country easily enough."
+    },
+    {
+      "scene": "EXT. GREEN HILL COUNTRY -- AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "This is what?"
+    },
+    {
+      "scene": "EXT. GREEN HILL COUNTRY -- AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Come on, Sam."
+    },
+    {
+      "scene": "EXT. GREEN HILL COUNTRY -- AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Remember what Bilbo used to say...it's a dangerous business..."
+    },
+    {
+      "scene": "EXT. FARMER'S FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "What are you talking about?"
+    },
+    {
+      "scene": "EXT. FARMER'S FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "What did he say?"
+    },
+    {
+      "scene": "EXT. FARMER'S FIELDS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Sam...we're still in the Shire...what could possibly happen?"
+    },
+    {
+      "scene": "EXT. WOODED ROAD -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I think we should get off the road."
+    },
+    {
+      "scene": "EXT. WOODED ROAD -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Get off the road!"
+    },
+    {
+      "scene": "EXT. FERRY LANE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Nothing."
+    },
+    {
+      "scene": "EXT. FERRY LANE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I have to leave the Shire...Sam and I must get to Bree."
+    },
+    {
+      "scene": "EXT. BUCKLEBERRY FERRY -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "How far to the nearest crossing?"
+    },
+    {
+      "scene": "EXT. BREE GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Come on."
+    },
+    {
+      "scene": "EXT. BREE GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We're headed for the prancing pony."
+    },
+    {
+      "scene": "EXT. BREE GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We wish to stay at the inn...our business is our own. To Frodo's relief, the Gatekeeper unlocks the gate."
+    },
+    {
+      "scene": "INT. \"PRANCING PONY\" RECEPTION -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Excuse me."
+    },
+    {
+      "scene": "INT. \"PRANCING PONY\" RECEPTION -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Underhill...my name's Underbill."
+    },
+    {
+      "scene": "INT. \"PRANCING PONY\" RECEPTION -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We're friends of Gandalf the Grey...can you tell him we've arrived? BUTTERBUR frowns..."
+    },
+    {
+      "scene": "INT. PRANCING PONY INN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Sam, he'll be here. He'll come."
+    },
+    {
+      "scene": "INT. PRANCING PONY INN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Excuse me, that man in the corner, who is he?"
+    },
+    {
+      "scene": "INT. PRANCING PONY INN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Strider."
+    },
+    {
+      "scene": "INT. PRANCING PONY INN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Pippin!"
+    },
+    {
+      "scene": "INT. HOBBIT'S ROOM, PRANCING PONY -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What do you want?"
+    },
+    {
+      "scene": "INT. HOBBIT'S ROOM, PRANCING PONY -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I carry nothing."
+    },
+    {
+      "scene": "INT. HOBBIT'S ROOM, PRANCING PONY -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Who are you?"
+    },
+    {
+      "scene": "INT. HOBBIT'S ROOM, PRANCING PONY -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yes."
+    },
+    {
+      "scene": "INT. STRIDER'S ROOM -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Where are they?"
+    },
+    {
+      "scene": "EXT. CHETWOOD FOREST -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Where are you taking us?"
+    },
+    {
+      "scene": "EXT. CHETWOOD FOREST -- DAY",
+      "speech_type": "direct",
+      "dialogue": "We have no choice but to trust him."
+    },
+    {
+      "scene": "EXT. WEATHERTOP HOLLOW -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What are you doing?"
+    },
+    {
+      "scene": "EXT. WEATHERTOP HOLLOW -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Put it out, you fools! Put it out! Frodo desperately kicks dirt on the fire!"
+    },
+    {
+      "scene": "EXT. WEATHERTOP HOLLOW -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Go! !"
+    },
+    {
+      "scene": "EXT. WEATHERHILLS -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Gandalf...Gandalf?"
+    },
+    {
+      "scene": "INT. FRODO'S DELIRIUM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Where am I?"
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Gandalf!"
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM -- DAY",
+      "speech_type": "direct",
+      "dialogue": "What happened, Gandalf? Why didn't you meet us?"
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM--RIVENDELL",
+      "speech_type": "direct",
+      "dialogue": "Gandalf! What is it? Gandalf returns his attention to Frodo."
+    },
+    {
+      "scene": "EXT. RIVENDELL GARDENS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Bilbo!"
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Bilbo!"
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "\"There and back again: A Hobbit's tale\" by Bilbo Baggins."
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "This is wonderful."
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I miss the Shire...I spent all my childhood pretending I was off somewhere else...off with you, on one of your adventures... But my own adventure, turned out to be quite different...I'm not like you, Bilbo."
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- EVENING",
+      "speech_type": "direct",
+      "dialogue": "Packed already?"
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- EVENING",
+      "speech_type": "direct",
+      "dialogue": "I thought you wanted to see the Elves, Sam?"
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- EVENING",
+      "speech_type": "direct",
+      "dialogue": "More than anything."
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- EVENING",
+      "speech_type": "direct",
+      "dialogue": "You're right, Sam. Frodo looks at Sam..."
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- EVENING",
+      "speech_type": "direct",
+      "dialogue": "...we did what we set out to do. Frodo opens his hand, the Ring sits in his Palm."
+    },
+    {
+      "scene": "EXT. RIVENDELL TERRACE -- EVENING",
+      "speech_type": "direct",
+      "dialogue": "The ring will be safe in Rivendell. I am ready to go home."
+    },
+    {
+      "scene": "INT. COUNCIL CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I will take it...I will take it...I will take the Ring to Mordor."
+    },
+    {
+      "scene": "INT. COUNCIL CHAMBER, RIVENDELL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Though...I do not know the way. Gandalf rises to his feet."
+    },
+    {
+      "scene": "INT. FRODO'S BEDROOM, RIVERDELL---DAWN",
+      "speech_type": "direct",
+      "dialogue": "It's so light!"
+    },
+    {
+      "scene": "EXT. PASS OF CARADHRAS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "We will go through the mines. Gandalf slowly nods."
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's a riddle..."
+    },
+    {
+      "scene": "EXT. MORIA GATE -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Speak, friend, and enter. What's the Elvish for friend?"
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Gollum!"
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "He escaped the dungeons of Barad- dur?"
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It's a pity Bilbo didn't kill him when he had the chance."
+    },
+    {
+      "scene": "INT. MORIA TUNNEL FORK -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I wish the ring had never come to me...I wish none of this had happened."
+    },
+    {
+      "scene": "INT. MORIA CAVERNS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Aragorn! Aragorn!"
+    },
+    {
+      "scene": "INT. MORIA CAVERNS -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm alright. I'm not hurt."
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Gandalf!"
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Gandalf!"
+    },
+    {
+      "scene": "INT. BRIDGE OF KHAZAD-DUM, MORIA -- DAY",
+      "speech_type": "direct",
+      "dialogue": "No!"
+    },
+    {
+      "scene": "EXT. GALADRIELS GLADE, LORTHLORIEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What will I see?"
+    },
+    {
+      "scene": "EXT. GALADRIELS GLADE, LORTHLORIEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Gandalf!"
+    },
+    {
+      "scene": "EXT. GALADRIELS GLADE, LORTHLORIEN -- NIGHT",
+      "speech_type": "vo",
+      "dialogue": "If you ask it of me, I will give you the One Ring."
+    },
+    {
+      "scene": "EXT. GALADRIELS GLADE, LORTHLORIEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I cannot do this alone..."
+    },
+    {
+      "scene": "EXT. GALADRIELS GLADE, LORTHLORIEN -- NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Then I know what I must do. It's just...I'm afraid to do it. Galadriel kneels down to Frodo's height, staring at him intently."
+    },
+    {
+      "scene": "EXT. SLOPES OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I know what you would say, and it would seem like wisdom but for the warning of my heart."
+    },
+    {
+      "scene": "EXT. SLOPES OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "There is no other way."
+    },
+    {
+      "scene": "EXT. SLOPES OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "No. . ."
+    },
+    {
+      "scene": "EXT. SLOPES OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You are not yourself."
+    },
+    {
+      "scene": "EXT. SUMMIT OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "It has taken Boromir. ARAGORN moves towards Frodo..."
+    },
+    {
+      "scene": "EXT. SUMMIT OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Stay away!"
+    },
+    {
+      "scene": "EXT. SUMMIT OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Can you protect me from yourself?"
+    },
+    {
+      "scene": "EXT. SUMMIT OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Would you destroy it?"
+    },
+    {
+      "scene": "EXT. SUMMIT OF AMON HEN -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I know...Look after the others, especially Sam...he will not understand."
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "vo",
+      "dialogue": "I wish the ring had never come to me..I wish none of this had happened..."
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "No, Sam."
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Go back,Sam. I'm going to Mordor alone."
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "You can't swim."
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Sam!"
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, Sam!"
+    },
+    {
+      "scene": "EXT. SHORE OF NEN HITHOEL -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on then.."
+    },
+    {
+      "scene": "EXT. EMYN MUIL HILLTOP -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Mordor! I hope the others find a safer road."
+    },
+    {
+      "scene": "EXT. EMYN MUIL HILLTOP -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I don't suppose we'll ever see them again."
+    },
+    {
+      "scene": "EXT. EMYN MUIL HILLTOP -- DAY",
+      "speech_type": "direct",
+      "dialogue": "Sam?"
+    },
+    {
+      "scene": "EXT. EMYN MUIL HILLTOP -- DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm glad you're with me."
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAWN",
+      "speech_type": "direct",
+      "dialogue": "No . . . no it isn't. It isn't midday yet. The days are growing darker."
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAWN",
+      "speech_type": "direct",
+      "dialogue": "What about you?"
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Sam."
+    },
+    {
+      "scene": "EXT. CULVERT, VALE OF MORGUL - DAWN",
+      "speech_type": "direct",
+      "dialogue": "For what?"
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, Sam! Leave him alone!"
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Sm. . . a"
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Sam! If you scare him off, we're lost."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm not sending him away."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We can't do this by ourselves, Sam. Not without a guide. I need you on my side."
+    },
+    {
+      "scene": "EXT. MORGUL VALLEY - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I know, Sam, I know. You must trust me."
+    },
+    {
+      "scene": "EXT. MINAS MORGUL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "They're calling me!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "What? That's all we have left!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "He doesn't eat it . . . he can't have taken it."
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Sam! Stop it!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "No, Sam!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "I ' m alright."
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Get away!"
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "No, Sam . . . it's you."
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "You can't help me anymore."
+    },
+    {
+      "scene": "EXT. CIRITH UNGOL LEDGE - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Go home."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gandalf!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gandalf!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Noooooooooooooooo!!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Calls after Gandalf as he falls into the abyss] Gaaandaaaaalf!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gandalf!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Nothing. Just a dream. [Lies back down.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He didnt mean for a lot of things to happen, Sam... but they did."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Its getting heavier. [Clutches the Ring by his chest and sits down, still panting. He then fumbles for his water bottle and takes a sip.]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What food have we got left?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[smiles] Nothing ever dampens your spirits, does it Sam?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Exasperated] Its because weve been here before! Were going in circles."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes. I can smell it. [Drops to a whisper] Were not alone."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[menacingly] This is Sting. Youve seen it before, havent you... Gollum! Release him or Ill cut your throat!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Maybe he does deserve to die, but now that I see him, I do pity him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Theres no promise you can make that I can trust."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "The Ring is treacherous. It will hold you to your word."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sam!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You know the way to Mordor?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Youve been there before?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You will lead us to the Black Gate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Looks at Gollum in perplexed gratitude and disbelief.] Gollum..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What did you say?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Moves over and crouches in front of Gollum] Who are you?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gandalf told me you were one of the River Folk."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He said your life was a sad story."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You were not so very different from a hobbit once, were you... Sméagol?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That was your name once, wasnt it? A long time ago."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Argh!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Argh!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I did."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sam, no!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I do not ask you to come with me, Sam."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Now!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Are you saying theres another way into Mordor?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hes led us this far, Sam."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hes been true to his word."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Lead the way, Sméagol."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Why do you do that?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Call him names; run him down all the time."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Glaring at Sam] You have no idea what it did to him. What its still doing to him. [He walks past Sam and stops.] I want to help him, Sam..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Because I have to believe he can come back."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Snapping at Sam]What do you know about it? Nothing!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[With remorse] I'm sorry, Sam. I don't know why I said that."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Grows angry again] I know what I have to do Sam. The Ring was entrusted to me! It's my task! Mine! My own! [He walks away]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Weve got to get moving. Come on, Sam."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Looking around] Sméagol?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Weve lingered here too long. Come on, Sam!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We are hobbits of the Shire. Frodo Baggins is my name and this is Samwise Gamgee."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[The merest hesitation.] There was no other."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We set out from Rivendell with seven companions. One we lost in Mória. Two were my kin. A Dwarf there was also, and an Elf. And two men, Aragorn, son of Arathorn, and Boromir of Gondor."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes... for my part."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Shocked] Dead? How? When?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Wait! [Faramir stops] This creature is bound to me. And I to him. He is our guide. Please, let me go down to him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sméagol. [Gollum turns round at Frodos voice.] Master is here. Come, Sméagol. Trust master. Come!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sméagol, you must trust master. Follow me, come on. Come. Come, Sméagol. Nice Sméagol. Thats it. Come on."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Dont hurt him! Sméagol dont struggle! Sméagol listen to me!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I cant. You were right, Sam. You tried to tell me, but Im sorry. The Rings taking me Sam. If I put it on, hell find me. Hell see."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No!! [He runs away from Faramir]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[With tears in his eyes] The Ring will not save Gondor. It has only the power to destroy. Please, let me go."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Faramir, you must let me go!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Its calling to him, Sam. His eye is almost on me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[In a faraway voice] Theyre here. Theyve come."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Aaarrgghh!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[Slowly and with despair] I cant do this, Sam."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What are we holding on to, Sam?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Huh, you left out one of the chief characters  Samwise the Brave. I want to hear more about Sam."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Frodo wouldnt have got far without Sam."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "[smiling] So was I. [He turns to walk on]"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sméagol!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sméagol?"
+    }
+  ]
+}
