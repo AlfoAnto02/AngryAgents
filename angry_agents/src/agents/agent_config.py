@@ -1,19 +1,20 @@
+import json
 import os
-import re
 from collections import defaultdict
-from typing import Callable
 
 import requests
 from dotenv import load_dotenv
 
 from .judges.base_judge import AgentScore, PersonaIdentificationResult, PersonaMatch
+from .judges.templates import render_prompt
 
 load_dotenv()
 
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 DEFAULT_MODEL = os.getenv("OLLAMA_DEFAULT_MODEL", "mistral")
-
-_LINE_RE = re.compile(r"^(.+?):\s*([1-5])\s*$")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+LLM_BACKEND = os.getenv("LLM_BACKEND", "ollama")  # "ollama" | "openai"
 
 
 def format_messages(chat: dict) -> tuple[str, list[str]]:
@@ -50,45 +51,89 @@ def format_profile(profile: dict) -> str:
     return "\n".join(lines)
 
 
-def _parse_agent_scores(raw: str, authors: list[str]) -> list[AgentScore]:
-    scores: dict[str, int] = {}
-    for line in raw.splitlines():
-        m = _LINE_RE.match(line.strip())
-        if m:
-            scores[m.group(1).strip()] = int(m.group(2))
-    return [AgentScore(author=a, score=scores.get(a, 1)) for a in authors]
+def _parse_json_scores(raw: str, authors: list[str]) -> tuple[list[AgentScore], str]:
+    data = json.loads(raw)
+    motivation = data.get("motivation", "")
+    scores_raw = data.get("scores", {})
+    scores = [AgentScore(author=a, score=int(scores_raw.get(a, 1))) for a in authors]
+    return scores, motivation
 
 
-def _ollama_call(prompt: str, model: str) -> str:
+def _ollama_call(system: str, user: str, model: str) -> str:
     payload = {
         "model": model,
         "stream": False,
-        "messages": [{"role": "user", "content": prompt}],
-        "options": {"temperature": 0.1, "num_predict": 256},
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        "format": "json",
+        "options": {"temperature": 0, "num_predict": 512},
     }
-    resp = requests.post(f"{OLLAMA_BASE_URL}/api/chat", json=payload, timeout=120)
+    resp = requests.post(f"{OLLAMA_BASE_URL}/api/chat", json=payload, timeout=None)
     resp.raise_for_status()
     return resp.json()["message"]["content"].strip()
 
 
+def _openai_call(system: str, user: str, model: str) -> str:
+    if not OPENAI_API_KEY:
+        raise ValueError("OPENAI_API_KEY is not set")
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        "temperature": 0,
+        "max_tokens": 512,
+        "response_format": {"type": "json_object"},
+    }
+    headers = {"Authorization": f"Bearer {OPENAI_API_KEY}"}
+    resp = requests.post(
+        "https://api.openai.com/v1/chat/completions",
+        json=payload,
+        headers=headers,
+        timeout=None,
+    )
+    resp.raise_for_status()
+    return resp.json()["choices"][0]["message"]["content"].strip()
+
+
+def llm_call(system: str, user: str, model: str) -> str:
+    if LLM_BACKEND == "openai":
+        return _openai_call(system, user, OPENAI_MODEL)
+    return _ollama_call(system, user, model)
+
+
 def run_persona_identification(
-    build_prompt: Callable[[str, str, str, str], str],
+    template_name: str,
     chat: dict,
     personas: list[dict],
     model: str,
 ) -> PersonaIdentificationResult:
     """
-    For each persona, call the LLM to score every agent in the chat.
-    build_prompt(persona_name, profile_block, messages_block, author_list) → prompt str.
+    For each persona, render the given Jinja2 template and call the LLM to score
+    every agent in the chat. Returns one PersonaMatch per persona.
     """
     messages_block, authors = format_messages(chat)
+    if not authors:
+        raise ValueError(
+            "run_persona_identification: chat has no messages — "
+            "check that the chat dict contains a non-empty 'messages' list"
+        )
     author_list = ", ".join(authors)
     matches = []
     for persona in personas:
         name = persona["persona_name"]
         profile_block = format_profile(persona)
-        prompt = build_prompt(name, profile_block, messages_block, author_list)
-        raw = _ollama_call(prompt, model)
-        scores = _parse_agent_scores(raw, authors)
-        matches.append(PersonaMatch(persona_name=name, scores=scores))
+        system, user = render_prompt(
+            template_name,
+            persona_name=name,
+            profile_block=profile_block,
+            messages_block=messages_block,
+            author_list=author_list,
+        )
+        raw = llm_call(system, user, model)
+        scores, motivation = _parse_json_scores(raw, authors)
+        matches.append(PersonaMatch(persona_name=name, scores=scores, motivation=motivation))
     return PersonaIdentificationResult(matches=matches)

@@ -11,9 +11,9 @@ from .general_judge import GeneralJudge
 from .ideology_judge import IdeologyJudge
 from .style_judge import StyleJudge
 
-CHAT_FILE = Path(__file__).parents[4] / "data" / "eval" / "transcript.jsonl"
+CHAT_FILE = Path(__file__).parents[4] / "data" / "eval" / "test_chat.jsonl"
 PERSONAS_DIR = Path(__file__).parents[4] / "data" / "personas"
-EVAL_DIR = Path(__file__).parents[4] / "angry_agents" / "data" / "judge_eval"
+EVAL_DIR = Path(__file__).parents[2] / "judge_eval"
 
 JUDGES = [
     ("style",    StyleJudge()),
@@ -40,9 +40,9 @@ def _load_chat() -> dict:
 
 def _next_eval_path() -> Path:
     EVAL_DIR.mkdir(parents=True, exist_ok=True)
-    existing = sorted(EVAL_DIR.glob("eval_test_*.json"))
+    existing = sorted(EVAL_DIR.glob("eval_test_*.jsonl"))
     n = len(existing) + 1
-    return EVAL_DIR / f"eval_test_{n}.json"
+    return EVAL_DIR / f"eval_test_{n}.jsonl"
 
 
 def _build_record(judge_id: int, judge_name: str, chat_id: int, result) -> dict:
@@ -59,6 +59,7 @@ def _build_record(judge_id: int, judge_name: str, chat_id: int, result) -> dict:
             {
                 "persona_name": match.persona_name,
                 "predicted": match.predicted,
+                "motivation": match.motivation,
                 "scores": [
                     {"author": s.author, "score": s.score}
                     for s in match.scores
@@ -75,6 +76,8 @@ def _print_result(judge_name: str, result) -> None:
     print(f"{'=' * 60}")
     for match in result.matches:
         print(f"\n  Persona: {match.persona_name}")
+        if match.motivation:
+            print(f"  Motivation: {match.motivation}")
         for s in match.scores:
             print(f"    {s.author}  →  {s.score}/5")
         print(f"    >> Predicted agent: {match.predicted}")
@@ -89,6 +92,11 @@ def main() -> None:
     print(f"\nChat: {len(chat['messages'])} messages, {n_agents} agents")
     print(f"Personas to evaluate: {[p['persona_name'] for p in personas]}\n")
 
+    if not chat["messages"]:
+        raise ValueError(f"Chat file is empty: {CHAT_FILE}")
+    if not personas:
+        raise ValueError(f"No persona files found in: {PERSONAS_DIR}")
+
     records = []
     for judge_id, (judge_name, judge) in enumerate(JUDGES, start=1):
         result = judge.persona_identification(chat, personas)
@@ -96,7 +104,9 @@ def main() -> None:
         records.append(_build_record(judge_id, judge_name, chat_id, result))
 
     out_path = _next_eval_path()
-    out_path.write_text(json.dumps(records, indent=2), encoding="utf-8")
+    out_path.write_text(
+        "\n".join(json.dumps(r) for r in records), encoding="utf-8"
+    )
     print(f"\n{'=' * 60}")
     print(f"  Saved → {out_path}")
     print(f"{'=' * 60}\n")

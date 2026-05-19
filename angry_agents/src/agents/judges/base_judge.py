@@ -12,6 +12,7 @@ class AgentScore:
 class PersonaMatch:
     persona_name: str
     scores: list[AgentScore]  # one score per agent in the chat
+    motivation: str = ""      # judge's written reasoning
 
     @property
     def predicted(self) -> str:
