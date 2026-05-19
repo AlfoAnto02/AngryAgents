@@ -5,7 +5,7 @@ from collections import defaultdict
 import requests
 from dotenv import load_dotenv
 
-from .judges.base_judge import AgentScore, PersonaIdentificationResult, PersonaMatch
+from .judges.base_judge import AgentScore, AuthorMatch, PersonaIdentificationResult, PersonaScore
 from .judges.templates import render_prompt
 
 load_dotenv()
@@ -85,7 +85,7 @@ def _openai_call(system: str, user: str, model: str) -> str:
             {"role": "user", "content": user},
         ],
         "temperature": 0,
-        "max_tokens": 512,
+        "max_tokens": None,
         "response_format": {"type": "json_object"},
     }
     headers = {"Authorization": f"Bearer {OPENAI_API_KEY}"}
@@ -112,8 +112,8 @@ def run_persona_identification(
     model: str,
 ) -> PersonaIdentificationResult:
     """
-    For each persona, render the given Jinja2 template and call the LLM to score
-    every agent in the chat. Returns one PersonaMatch per persona.
+    For each persona, call the LLM to score every author in the chat 1-5.
+    Then transpose: for each author, return the persona with the highest score.
     """
     messages_block, authors = format_messages(chat)
     if not authors:
@@ -122,7 +122,10 @@ def run_persona_identification(
             "check that the chat dict contains a non-empty 'messages' list"
         )
     author_list = ", ".join(authors)
-    matches = []
+
+    # author -> list of PersonaScore, one entry per persona
+    author_persona_scores: dict[str, list[PersonaScore]] = {a: [] for a in authors}
+
     for persona in personas:
         name = persona["persona_name"]
         profile_block = format_profile(persona)
@@ -134,6 +137,14 @@ def run_persona_identification(
             author_list=author_list,
         )
         raw = llm_call(system, user, model)
-        scores, motivation = _parse_json_scores(raw, authors)
-        matches.append(PersonaMatch(persona_name=name, scores=scores, motivation=motivation))
+        agent_scores, _ = _parse_json_scores(raw, authors)
+        for agent_score in agent_scores:
+            author_persona_scores[agent_score.author].append(
+                PersonaScore(persona_name=name, score=agent_score.score)
+            )
+
+    matches = [
+        AuthorMatch(author=a, scores=author_persona_scores[a])
+        for a in authors
+    ]
     return PersonaIdentificationResult(matches=matches)
