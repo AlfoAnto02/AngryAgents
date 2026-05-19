@@ -11,7 +11,7 @@ from .general_judge import GeneralJudge
 from .ideology_judge import IdeologyJudge
 from .style_judge import StyleJudge
 
-CHAT_FILE = Path(__file__).parents[4] / "data" / "eval" / "test_chat.jsonl"
+CHAT_FILE = Path(__file__).parents[4] / "data" / "eval" / "chat_simulation_with_embedding" / "transcript.jsonl"
 PERSONAS_DIR = Path(__file__).parents[4] / "data" / "personas"
 EVAL_DIR = Path(__file__).parents[2] / "judge_eval"
 
@@ -57,11 +57,10 @@ def _build_record(judge_id: int, judge_name: str, chat_id: int, result) -> dict:
         "judge_name": judge_name,
         "persona_identification": [
             {
-                "persona_name": match.persona_name,
-                "predicted": match.predicted,
-                "motivation": match.motivation,
+                "author": match.author,
+                "predicted_persona": match.predicted,
                 "scores": [
-                    {"author": s.author, "score": s.score}
+                    {"persona_name": s.persona_name, "score": s.score}
                     for s in match.scores
                 ],
             }
@@ -75,12 +74,10 @@ def _print_result(judge_name: str, result) -> None:
     print(f"  {judge_name.upper()}")
     print(f"{'=' * 60}")
     for match in result.matches:
-        print(f"\n  Persona: {match.persona_name}")
-        if match.motivation:
-            print(f"  Motivation: {match.motivation}")
+        print(f"\n  Author: {match.author}")
         for s in match.scores:
-            print(f"    {s.author}  →  {s.score}/5")
-        print(f"    >> Predicted agent: {match.predicted}")
+            print(f"    {s.persona_name}  →  {s.score}/5")
+        print(f"    >> Predicted persona: {match.predicted}")
 
 
 def main() -> None:

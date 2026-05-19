@@ -9,20 +9,25 @@ class AgentScore:
 
 
 @dataclass
-class PersonaMatch:
+class PersonaScore:
     persona_name: str
-    scores: list[AgentScore]  # one score per agent in the chat
-    motivation: str = ""      # judge's written reasoning
+    score: int    # 1–5
+
+
+@dataclass
+class AuthorMatch:
+    author: str               # anonymised DIGEST from Chat_messages
+    scores: list[PersonaScore]  # one score per persona profile
 
     @property
     def predicted(self) -> str:
-        """Agent DIGEST most likely acting as this persona."""
-        return max(self.scores, key=lambda x: x.score).author
+        """Persona profile most likely being acted by this author."""
+        return max(self.scores, key=lambda x: x.score).persona_name
 
 
 @dataclass
 class PersonaIdentificationResult:
-    matches: list[PersonaMatch]  # one per persona profile
+    matches: list[AuthorMatch]  # one per author present in the chat
 
 
 class BaseJudge(ABC):
@@ -43,9 +48,9 @@ class BaseJudge(ABC):
     @abstractmethod
     def persona_identification(self, chat: dict, personas: list[dict]) -> PersonaIdentificationResult:
         """
-        For each persona profile, score every agent in the chat 1–5 on how
-        likely they are acting as that persona (through the judge's focus lens).
-        Returns the argmax per persona across all agents.
+        For each author in the chat, score every persona profile 1–5 on how
+        likely that author is acting as that persona (through the judge's focus lens).
+        Returns one AuthorMatch per author, with predicted = argmax across personas.
 
         chat    — full Group_chat dict (keys: 'chat', 'messages').
         personas — list of profile dicts from data/personas/.
