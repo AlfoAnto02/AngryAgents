@@ -1,0 +1,89 @@
+{
+  "params": {
+    "model": "llama3.2",
+    "topic": "AI e etica",
+    "turns": 40,
+    "speaker_alpha": 2.0,
+    "drift_at": null,
+    "seed": null,
+    "n_personas": 7,
+    "personas_dir": "data/personas"
+  },
+  "n_personas": 7,
+  "n_turns": 40,
+  "personas": [
+    {
+      "id": "p_cicciogamer89",
+      "name": "cicciogamer89"
+    },
+    {
+      "id": "p_indy",
+      "name": "INDY"
+    },
+    {
+      "id": "p_jack",
+      "name": "JACK"
+    },
+    {
+      "id": "p_luke",
+      "name": "LUKE"
+    },
+    {
+      "id": "p_riggan",
+      "name": "RIGGAN"
+    },
+    {
+      "id": "p_vader",
+      "name": "VADER"
+    },
+    {
+      "id": "p_yoda",
+      "name": "YODA"
+    }
+  ],
+  "gini": 0.3929,
+  "speaker_stats": {
+    "p_cicciogamer89": {
+      "name": "cicciogamer89",
+      "turns": 1,
+      "share": 0.025,
+      "dirichlet_weight": 0.043
+    },
+    "p_indy": {
+      "name": "INDY",
+      "turns": 7,
+      "share": 0.175,
+      "dirichlet_weight": 0.145
+    },
+    "p_jack": {
+      "name": "JACK",
+      "turns": 5,
+      "share": 0.125,
+      "dirichlet_weight": 0.246
+    },
+    "p_luke": {
+      "name": "LUKE",
+      "turns": 3,
+      "share": 0.075,
+      "dirichlet_weight": 0.065
+    },
+    "p_riggan": {
+      "name": "RIGGAN",
+      "turns": 5,
+      "share": 0.125,
+      "dirichlet_weight": 0.137
+    },
+    "p_vader": {
+      "name": "VADER",
+      "turns": 16,
+      "share": 0.4,
+      "dirichlet_weight": 0.338
+    },
+    "p_yoda": {
+      "name": "YODA",
+      "turns": 3,
+      "share": 0.075,
+      "dirichlet_weight": 0.027
+    }
+  }
+}
