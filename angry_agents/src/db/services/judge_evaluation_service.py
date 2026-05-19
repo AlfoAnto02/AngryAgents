@@ -17,7 +17,7 @@ class JudgeEvaluationService:
         self,
         id_judge: int,
         id_chat: int,
-        score: float | None = None,
+        score: list[float] | None = None,
     ) -> JudgeEvaluation:
         count = self.db.execute(
             "SELECT COUNT(*) FROM Judge_evaluation WHERE ID_chat = ? AND deleted_at IS NULL",

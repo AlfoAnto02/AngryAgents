@@ -68,7 +68,7 @@ class JudgeOut(BaseModel):
 class JudgeEvaluationOut(BaseModel):
     id_judge: int = Field(..., description="FK to Judges")
     id_chat: int = Field(..., description="FK to Group_chat")
-    score: float | None = Field(None, description="Fidelity score 1–5")
+    score: list[float] | None = Field(None, description="Fidelity scores 1–5")
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None
