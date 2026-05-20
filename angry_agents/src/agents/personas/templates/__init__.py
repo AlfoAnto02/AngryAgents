@@ -22,4 +22,8 @@ def render_prompt(template_name: str, **kwargs) -> tuple[str, str]:
             system = rendered
         elif name == "user":
             user = rendered
+    if not system or not user:
+        raise ValueError(
+            f"{template_name} must define both {{% block system %}} and {{% block user %}}"
+        )
     return system, user

@@ -3,12 +3,6 @@ from dataclasses import dataclass
 
 
 @dataclass
-class AgentScore:
-    author: str   # anonymised DIGEST from Chat_messages
-    score: int    # 1–5
-
-
-@dataclass
 class PersonaScore:
     persona_name: str
     score: int    # 1–5

@@ -7,10 +7,10 @@ from angry_agents.src.db.repositories import judge_evaluation_repository as repo
 
 class TestCreate:
     def test_returns_evaluation(self, db, judge, chat):
-        ev = repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": 3.5})
+        ev = repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": [3.5]})
         assert ev.id_judge == judge.id
         assert ev.id_chat == chat.id
-        assert ev.score == 3.5
+        assert ev.score == [3.5]
 
     def test_score_optional(self, db, judge, chat):
         ev = repo.create(db, {"id_judge": judge.id, "id_chat": chat.id})
@@ -29,9 +29,9 @@ class TestCreate:
 
 class TestGet:
     def test_returns_correct_evaluation(self, db, judge, chat):
-        repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": 4.0})
+        repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": [4.0]})
         ev = repo.get(db, judge.id, chat.id)
-        assert ev.score == 4.0
+        assert ev.score == [4.0]
 
     def test_missing_returns_none(self, db):
         assert repo.get(db, 9999, 9999) is None
@@ -39,14 +39,14 @@ class TestGet:
 
 class TestUpdate:
     def test_updates_score(self, db, judge, chat):
-        repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": 2.0})
-        updated = repo.update(db, judge.id, chat.id, {"score": 5.0})
-        assert updated.score == 5.0
+        repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": [2.0]})
+        updated = repo.update(db, judge.id, chat.id, {"score": [5.0]})
+        assert updated.score == [5.0]
 
     def test_empty_patch_is_noop(self, db, judge, chat):
-        repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": 3.0})
+        repo.create(db, {"id_judge": judge.id, "id_chat": chat.id, "score": [3.0]})
         updated = repo.update(db, judge.id, chat.id, {})
-        assert updated.score == 3.0
+        assert updated.score == [3.0]
 
 
 class TestDelete:

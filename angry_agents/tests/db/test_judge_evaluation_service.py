@@ -8,10 +8,10 @@ from angry_agents.src.db.services import JudgeEvaluationService
 
 class TestCreate:
     def test_creates_evaluation(self, db, judge, chat):
-        ev = JudgeEvaluationService(db).create(judge.id, chat.id, score=4.0)
+        ev = JudgeEvaluationService(db).create(judge.id, chat.id, score=[4.0])
         assert ev.id_judge == judge.id
         assert ev.id_chat == chat.id
-        assert ev.score == 4.0
+        assert ev.score == [4.0]
 
     def test_score_optional(self, db, judge, chat):
         ev = JudgeEvaluationService(db).create(judge.id, chat.id)
@@ -55,9 +55,9 @@ class TestCreate:
 class TestGet:
     def test_returns_evaluation(self, db, judge, chat):
         svc = JudgeEvaluationService(db)
-        svc.create(judge.id, chat.id, score=3.0)
+        svc.create(judge.id, chat.id, score=[3.0])
         ev = svc.get(judge.id, chat.id)
-        assert ev.score == 3.0
+        assert ev.score == [3.0]
 
     def test_missing_returns_none(self, db):
         assert JudgeEvaluationService(db).get(9999, 9999) is None
@@ -66,9 +66,9 @@ class TestGet:
 class TestUpdate:
     def test_updates_score(self, db, judge, chat):
         svc = JudgeEvaluationService(db)
-        svc.create(judge.id, chat.id, score=1.0)
-        updated = svc.update(judge.id, chat.id, {"score": 5.0})
-        assert updated.score == 5.0
+        svc.create(judge.id, chat.id, score=[1.0])
+        updated = svc.update(judge.id, chat.id, {"score": [5.0]})
+        assert updated.score == [5.0]
 
 
 class TestDelete:

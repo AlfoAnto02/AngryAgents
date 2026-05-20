@@ -1,12 +1,15 @@
 import json
+import logging
 import os
 from collections import defaultdict
 
 import requests
 from dotenv import load_dotenv
 
-from .judges.base_judge import AgentScore, AuthorMatch, PersonaIdentificationResult, PersonaScore
+from .judges.base_judge import AuthorMatch, PersonaIdentificationResult, PersonaScore
 from .judges.templates import render_prompt
+
+log = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -20,6 +23,9 @@ LLM_BACKEND = os.getenv("LLM_BACKEND", "ollama")  # "ollama" | "openai"
 def format_messages(chat: dict) -> tuple[str, list[str]]:
     grouped: dict[str, list[str]] = defaultdict(list)
     for msg in chat["messages"]:
+        if not msg.get("author"):
+            log.warning("format_messages: skipping message with no author (user-posted)")
+            continue
         grouped[msg["author"]].append(msg["message"])
     authors = list(grouped.keys())
     block = "\n\n".join(
@@ -51,12 +57,11 @@ def format_profile(profile: dict) -> str:
     return "\n".join(lines)
 
 
-def _parse_json_scores(raw: str, authors: list[str]) -> tuple[list[AgentScore], str]:
+def _parse_json_scores(raw: str, authors: list[str]) -> dict[str, int]:
+    """Parse LLM JSON output → {author_digest: score} for every author."""
     data = json.loads(raw)
-    motivation = data.get("motivation", "")
     scores_raw = data.get("scores", {})
-    scores = [AgentScore(author=a, score=int(scores_raw.get(a, 1))) for a in authors]
-    return scores, motivation
+    return {a: int(scores_raw.get(a, 1)) for a in authors}
 
 
 def _ollama_call(system: str, user: str, model: str) -> str:
@@ -137,11 +142,9 @@ def run_persona_identification(
             author_list=author_list,
         )
         raw = llm_call(system, user, model)
-        agent_scores, _ = _parse_json_scores(raw, authors)
-        for agent_score in agent_scores:
-            author_persona_scores[agent_score.author].append(
-                PersonaScore(persona_name=name, score=agent_score.score)
-            )
+        author_scores = _parse_json_scores(raw, authors)
+        for author, score in author_scores.items():
+            author_persona_scores[author].append(PersonaScore(persona_name=name, score=score))
 
     matches = [
         AuthorMatch(author=a, scores=author_persona_scores[a])
