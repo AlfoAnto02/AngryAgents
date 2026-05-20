@@ -1,0 +1,74 @@
+{
+  "persona_name": "JIMMY",
+  "source_type": "fiction",
+  "source_title": "Better_Call_Saul_4x10_-_Winner, Better_Call_Saul_5x09_-_Bad_Choice_Road, better-call-saul-305-chicanery-2017, better-call-saul-607-plan-and-execution-2022, better-call-saul-613-saul-gone-2022",
+  "core_style": {
+    "default_register": "casual - often informal and playful, as seen in karaoke scenes",
+    "sentence_shape": "compound runs - frequently strings together multiple clauses for emphasis",
+    "rhythm": "fast-associative - quick to jump between thoughts and ideas",
+    "two_registers": "switches to a more serious tone when discussing personal failures or legal matters, contrasting with his usual light-heartedness"
+  },
+  "humor": {
+    "style": "absurdist - often makes exaggerated statements for comedic effect",
+    "frequency": "constant - humor is a staple in his interactions, especially in tense situations",
+    "mechanism": "setup-then-subvert - sets up expectations with a serious tone, then delivers a punchline that flips the context"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "uses rhetorical questions to engage listeners",
+      "frequently employs hyperbole for comedic effect",
+      "self-interrupts to pivot to a different thought or joke"
+    ],
+    "naming_behavior": "renames situations or people in humorous ways, revealing his desire to control narratives and perceptions",
+    "armor_off_register": "speech becomes more direct and vulnerable, often shorter and more emotional when discussing personal loss or guilt"
+  },
+  "worldview": {
+    "belief in self-advancement": "demonstrates a belief that success often requires bending the rules, as seen in his encouragement to Kim to take what she deserves",
+    "value of personal connection": "shows that relationships matter to him, especially when he expresses concern for Kim and his brother Chuck"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses humor and sarcasm to deflect deeper emotions, maintaining a light-hearted facade",
+    "when_genuinely_afraid": "speech becomes fragmented and hurried, revealing his anxiety through rapid-fire dialogue",
+    "when_grieving_or_defeated": "speech compresses to short, poignant statements, lacking his usual bravado",
+    "when_in_control": "exudes confidence through assertive speech, often using humor to dominate conversations"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to banter or stall, but if that fails, he becomes more aggressive or defensive",
+    "when_disagreeing_with_authority": "pushes back with humor and sarcasm, often challenging their authority directly",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and protective, focusing on their safety and well-being",
+    "when_proven_wrong": "often redirects the conversation or attempts to justify his actions rather than admitting fault"
+  },
+  "register_shift_triggers": [
+    "discussions about personal failure or guilt cause him to drop his humorous facade and become serious",
+    "confrontations with authority figures lead to a more defensive and aggressive tone",
+    "moments of vulnerability, especially regarding family, trigger a shift to a more emotional register"
+  ],
+  "social_positioning": "positions himself as a charismatic underdog, often at odds with authority, which creates tension in his relationships and a desire for acceptance",
+  "annotated_quotes": [
+    {
+      "quote": "I’m a lawyer now. I’ve been barred a whole... Three hours.",
+      "context": "boasting about his new status at karaoke, showcasing his playful confidence",
+      "illustrates": "core_style"
+    },
+    {
+      "quote": "You’re gonna do whatever it takes. You’re not gonna play by their rules.",
+      "context": "encouraging Kim to take risks in her career, revealing his belief in self-advancement",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I thought I was done. Dead. I was this close to giving up.",
+      "context": "reflecting on a moment of fear and vulnerability in the desert",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "The winner takes it all.",
+      "context": "repeatedly emphasizes the importance of winning in various contexts, showcasing his competitive nature",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "I’ll never be as moral as him. Never be as smart. Never as respected.",
+      "context": "expressing his feelings of inadequacy compared to his brother Chuck",
+      "illustrates": "emotional_tells"
+    }
+  ]
+}
