@@ -95,6 +95,7 @@ class TokenOut(BaseModel):
     access_token: str = Field(..., description="Short-lived JWT — send as 'Authorization: Bearer <token>'")
     token_type: str = Field("bearer", description="Always 'bearer'")
     user: UserOut = Field(..., description="Authenticated user info")
+    refresh_token: str | None = Field(None, description="Long-lived refresh token — store securely")
 
 
 class AccessTokenOut(BaseModel):

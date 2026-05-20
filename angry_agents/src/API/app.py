@@ -3,6 +3,7 @@ from __future__ import annotations
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from ..db.models.base import get_connection, init_db
 from .config import get_settings
@@ -16,6 +17,7 @@ from .routes import (
     judge_evaluations,
     judges,
     topics,
+    ui_routes,
 )
 
 @asynccontextmanager
@@ -98,6 +100,14 @@ app = FastAPI(
     swagger_ui_parameters={"defaultModelsExpandDepth": 1, "docExpansion": "list"},
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(users.router, prefix="/users", tags=["users"])
 app.include_router(topics.router, prefix="/topics", tags=["topics"])
@@ -107,3 +117,4 @@ app.include_router(group_chats.router, prefix="/chats", tags=["chats"])
 app.include_router(chat_messages.router, tags=["messages"])
 app.include_router(judges.router, prefix="/judges", tags=["judges"])
 app.include_router(judge_evaluations.router, prefix="/evaluations", tags=["evaluations"])
+app.include_router(ui_routes.router, tags=["ui"])
