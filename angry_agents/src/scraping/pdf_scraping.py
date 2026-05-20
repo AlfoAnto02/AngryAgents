@@ -1,12 +1,29 @@
 """
-PDF screenplay parser using pdfplumber.
+PDF screenplay parser.
 
-Uses X-coordinate position of words (not indentation of plain text) to
-classify lines as scene headings, character cues, dialogue, or action.
-Auto-detects thresholds per PDF so it works across different sources.
+Uses X-coordinate position of words to classify lines as scene headings,
+character cues, dialogue, or action. Auto-calibrates thresholds per PDF
+so it works across Final Draft, Celtx, and most professional exports.
 
-Output format is identical to movies_scraping.py:
-    [{"scene": str, "speech_type": str, "dialogue": str}]
+For scanned PDFs (no text layer), falls back to OCR via
+pdf2image + pytesseract (install separately if needed).
+
+Output format matches movies_scraping.py:
+    {"character": str, "films": [str], "lines_count": int,
+     "lines": [{"scene": str, "speech_type": str, "dialogue": str}]}
+
+Usage:
+    # list characters interactively
+    python -m angry_agents.src.scraping.pdf_scraping --pdf script.pdf
+
+    # extract specific characters across multiple PDFs
+    python -m angry_agents.src.scraping.pdf_scraping \\
+        --pdf s1.pdf s2.pdf --characters WALTER JESSE
+
+    # merge name variants into one canonical character
+    python -m angry_agents.src.scraping.pdf_scraping \\
+        --pdf script.pdf \\
+        --aliases "WALTER=Walter,Walt,Walter White" "JESSE=Jesse,Pinkman"
 """
 
 import pdfplumber
@@ -14,15 +31,19 @@ import re
 import json
 import os
 import sys
+import argparse
 from collections import Counter, defaultdict
+from pathlib import Path
 
+
+# ---------------------------------------------------------------------------
+# Regexes & constants
+# ---------------------------------------------------------------------------
 
 _SCENE_RE = re.compile(r'^(INT\.|EXT\.)', re.IGNORECASE)
 _CHAR_RE = re.compile(r'^([A-Z][A-Z\s\-\']+?)(?:\s*\([^)]*\))?$')
 _SPEECH_TYPE_RE = re.compile(r'\((V\.O\.(?:\s+CONT\'D)?|O\.S\.|O\.C\.|CONT\'D)\)', re.IGNORECASE)
 
-# Hollywood screenplay revision watermarks embedded in PDF text layer.
-# Patterns: "4.07.05 TAN REVISION 11." or "WHITE REVISION 7-4-07 26."
 _REVISION_COLORS = r'(?:DOUBLE\s+)?(?:WHITE|BLUE|PINK|YELLOW|GREEN|GOLDENROD|BUFF|SALMON|CHERRY|TAN|GRAY)'
 _REVISION_RE = re.compile(
     r'\s*(?:'
@@ -33,9 +54,6 @@ _REVISION_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Inline character continuation cues that leak into dialogue when PDF column
-# layout places them at dialogue X position instead of character-cue X.
-# e.g. "JACK (CONT'D)" or "NORRINGTON (V.O.)" appearing mid-dialogue string.
 _INLINE_CHAR_CUE_RE = re.compile(
     r'\s+[A-Z][A-Z\s]{1,24}\s*\((?:CONT\'D|V\.O\.[^)]*|O\.S\.|O\.C\.)\)\s*',
 )
@@ -43,26 +61,40 @@ _INLINE_CHAR_CUE_RE = re.compile(
 _NON_CHAR_WORDS = {
     'INT', 'EXT', 'CUT', 'FADE', 'DISSOLVE', 'SCENE',
     'THE', 'A', 'AND', 'OR', 'BUT', 'BACK', 'TO',
+    'END', 'OMITTED', 'CONTINUED', 'CONT',
 }
 
-# Threshold: if we accumulate this many dialogue lines without a break,
-# something went wrong (e.g. merged columns), so stop.
 _MAX_DIALOGUE_LINES = 20
-
-# Words whose top coordinate falls within this many points = same line.
 _LINE_Y_TOLERANCE = 2
+_MIN_CHARS_PER_PAGE = 150  # below this → assume scanned
 
 
-def _group_words_into_lines(words):
+# ---------------------------------------------------------------------------
+# Text layer detection
+# ---------------------------------------------------------------------------
+
+def has_text_layer(pdf_path: str | Path, sample_pages: int = 5) -> bool:
+    """Return True if the PDF has a usable embedded text layer."""
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        pages_to_check = min(sample_pages, len(pdf.pages))
+        total_chars = sum(
+            len(pdf.pages[i].extract_text() or '') for i in range(pages_to_check)
+        )
+    return (total_chars / max(pages_to_check, 1)) >= _MIN_CHARS_PER_PAGE
+
+
+# ---------------------------------------------------------------------------
+# Native extraction (pdfplumber — text layer present)
+# ---------------------------------------------------------------------------
+
+def _group_words_into_lines(words: list[dict]) -> list[dict]:
     """Group pdfplumber word dicts by vertical position into text lines."""
     if not words:
         return []
-
-    buckets = defaultdict(list)
+    buckets: dict[int, list] = defaultdict(list)
     for word in words:
         key = round(word['top'] / _LINE_Y_TOLERANCE) * _LINE_Y_TOLERANCE
         buckets[key].append(word)
-
     lines = []
     for y_key in sorted(buckets):
         line_words = sorted(buckets[y_key], key=lambda w: w['x0'])
@@ -73,14 +105,9 @@ def _group_words_into_lines(words):
     return lines
 
 
-def extract_lines_from_pdf(pdf_path):
-    """
-    Extract all text lines from a screenplay PDF with their X position.
-
-    Returns list of dicts: [{'text': str, 'x0': float, 'page': int}]
-    """
-    all_lines = []
-    with pdfplumber.open(pdf_path) as pdf:
+def _extract_lines_native(pdf_path: str | Path) -> list[dict]:
+    all_lines: list[dict] = []
+    with pdfplumber.open(str(pdf_path)) as pdf:
         for page in pdf.pages:
             words = page.extract_words()
             for line in _group_words_into_lines(words):
@@ -89,57 +116,119 @@ def extract_lines_from_pdf(pdf_path):
     return all_lines
 
 
-def _detect_thresholds_pdf(lines):
+# ---------------------------------------------------------------------------
+# OCR extraction (scanned PDFs — no text layer)
+# ---------------------------------------------------------------------------
+
+def _extract_lines_ocr(pdf_path: str | Path, dpi: int = 300) -> list[dict]:
+    """
+    Extract lines from a scanned PDF via OCR.
+
+    Requires: pip install pdf2image pytesseract
+              brew install poppler tesseract  (or apt equivalent)
+    """
+    try:
+        from pdf2image import convert_from_path
+        import pytesseract
+    except ImportError:
+        raise ImportError(
+            "OCR requires extra dependencies:\n"
+            "  pip install pdf2image pytesseract\n"
+            "  brew install poppler tesseract"
+        )
+
+    images = convert_from_path(str(pdf_path), dpi=dpi)
+    all_lines: list[dict] = []
+
+    for page_num, image in enumerate(images, start=1):
+        data = pytesseract.image_to_data(
+            image, output_type=pytesseract.Output.DICT, config='--psm 6'
+        )
+        line_buckets: dict[tuple, list] = defaultdict(list)
+        for i, word_text in enumerate(data['text']):
+            if not word_text.strip():
+                continue
+            if int(data['conf'][i]) < 30:  # skip low-confidence noise
+                continue
+            key = (data['block_num'][i], data['par_num'][i], data['line_num'][i])
+            line_buckets[key].append({'text': word_text, 'x0': float(data['left'][i])})
+
+        for key in sorted(line_buckets):
+            words = sorted(line_buckets[key], key=lambda w: w['x0'])
+            all_lines.append({
+                'text': ' '.join(w['text'] for w in words),
+                'x0': words[0]['x0'],
+                'page': page_num,
+            })
+
+    return all_lines
+
+
+# ---------------------------------------------------------------------------
+# Auto-dispatch
+# ---------------------------------------------------------------------------
+
+def extract_lines_from_pdf(pdf_path: str | Path, force_ocr: bool = False) -> list[dict]:
+    """
+    Extract (text, x0, page) lines from a PDF.
+
+    Auto-detects text layer; falls back to OCR for scanned PDFs.
+    """
+    pdf_path = Path(pdf_path)
+    if not force_ocr and has_text_layer(pdf_path):
+        return _extract_lines_native(pdf_path)
+    print(f"  No text layer in {pdf_path.name} — using OCR (this may take a while)...")
+    return _extract_lines_ocr(pdf_path)
+
+
+# ---------------------------------------------------------------------------
+# Threshold calibration & line classification
+# ---------------------------------------------------------------------------
+
+def _detect_thresholds(lines: list[dict]) -> tuple[float, float]:
     """
     Auto-detect character-cue and dialogue X thresholds for this PDF.
 
-    Samples ALL-CAPS candidate lines and uses the mode of their x0 as the
-    character cue threshold.  Dialogue threshold is ~55% of that, which
-    holds across Final Draft, Celtx, and most professional PDF exports.
-
+    Samples ALL-CAPS candidate lines to find character cue x0 mode.
     Falls back to standard Final Draft values (220, 108) if not enough data.
     """
-    char_x0s = []
+    char_x0s: list[int] = []
     for line in lines:
         content = line['text'].strip()
         if not content or len(content) > 50:
             continue
         if _CHAR_RE.match(content) and content.upper() not in _NON_CHAR_WORDS:
-            char_x0s.append(int(line['x0']))  # floor avoids x0=185.9 → thresh=186 miss
+            char_x0s.append(int(line['x0']))
 
     if len(char_x0s) < 10:
-        return 220, 108
+        return 220.0, 108.0
 
-    char_x0 = Counter(char_x0s).most_common(1)[0][0]
-    dialogue_x0 = max(50, int(char_x0 * 0.55))
+    char_x0 = float(Counter(char_x0s).most_common(1)[0][0])
+    dialogue_x0 = max(50.0, char_x0 * 0.55)
     return char_x0, dialogue_x0
 
 
-def _classify_pdf_line(line, char_x0_thresh, dialogue_x0_thresh):
+def _classify_line(line: dict, char_x0: float, dialogue_x0: float) -> tuple[str, str]:
     """
-    Classify a PDF line dict by X position and content.
+    Classify a line dict by X position and content.
 
-    Returns (kind, content) where kind is one of:
-        'scene', 'character', 'dialogue', 'parenthetical', 'action', 'empty'
+    Returns (kind, content) — kind: scene|character|dialogue|parenthetical|action|empty
     """
     content = line['text'].strip()
     if not content:
         return 'empty', ''
-
     x0 = line['x0']
-
     if _SCENE_RE.match(content):
         return 'scene', content
-    if x0 >= char_x0_thresh and _CHAR_RE.match(content):
+    if x0 >= char_x0 and _CHAR_RE.match(content) and content.upper() not in _NON_CHAR_WORDS:
         return 'character', content
-    if x0 >= dialogue_x0_thresh:
+    if x0 >= dialogue_x0:
         return ('parenthetical', content) if content.startswith('(') else ('dialogue', content)
     return 'action', content
 
 
-def _extract_speech_type(char_cue_content):
-    """Returns 'vo', 'os', 'oc', or 'direct'."""
-    m = _SPEECH_TYPE_RE.search(char_cue_content)
+def _extract_speech_type(char_cue: str) -> str:
+    m = _SPEECH_TYPE_RE.search(char_cue)
     if not m:
         return 'direct'
     tag = m.group(1).upper().replace(' ', '').replace("'", '')
@@ -152,64 +241,92 @@ def _extract_speech_type(char_cue_content):
     return 'direct'
 
 
-def extract_personas_pdf(pdf_path):
-    """
-    Extract all character names from a screenplay PDF.
+def _base_name(cue: str) -> str:
+    """Strip parenthetical from character cue: 'WALTER (V.O.)' → 'WALTER'."""
+    return re.sub(r'\s*\([^)]*\).*$', '', cue).strip()
 
-    Returns list of (name, count) sorted by frequency.
-    """
-    lines = extract_lines_from_pdf(pdf_path)
-    char_x0, dialogue_x0 = _detect_thresholds_pdf(lines)
 
-    personas = []
+def _clean_dialogue(text: str) -> str:
+    text = _REVISION_RE.sub(' ', text)
+    text = _INLINE_CHAR_CUE_RE.sub(' ', text)
+    text = re.sub(r'(?<!\w)\*(?!\w)', '', text)
+    text = re.sub(r'\s+\d{1,3}\s*$', '', text)
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
+
+# ---------------------------------------------------------------------------
+# Character discovery
+# ---------------------------------------------------------------------------
+
+def extract_personas(pdf_path: str | Path, force_ocr: bool = False) -> list[tuple[str, int]]:
+    """Return (name, line_count) pairs sorted by frequency."""
+    lines = extract_lines_from_pdf(pdf_path, force_ocr=force_ocr)
+    char_x0, dialogue_x0 = _detect_thresholds(lines)
+    counts: Counter = Counter()
     for line in lines:
-        kind, content = _classify_pdf_line(line, char_x0, dialogue_x0)
+        kind, content = _classify_line(line, char_x0, dialogue_x0)
         if kind != 'character':
             continue
-        char_name = re.sub(r'\s*\([^)]*\).*$', '', content).strip()
-        if char_name and len(char_name) > 1 and char_name.upper() not in _NON_CHAR_WORDS:
-            personas.append(char_name)
+        name = _base_name(content)
+        if name and len(name) > 1 and name.upper() not in _NON_CHAR_WORDS:
+            counts[name] += 1
+    return counts.most_common()
 
-    return Counter(personas).most_common()
 
+# ---------------------------------------------------------------------------
+# Dialogue extraction
+# ---------------------------------------------------------------------------
 
-def extract_character_lines_pdf(pdf_path, character_name):
+def extract_character_lines(
+    pdf_path: str | Path,
+    character_name: str,
+    aliases: list[str] | None = None,
+    force_ocr: bool = False,
+) -> list[dict]:
     """
-    Extract dialogue lines for a character from a screenplay PDF.
+    Extract dialogue lines for a character from a single PDF.
 
-    Returns list of dicts: [{"scene": str, "speech_type": str, "dialogue": str}]
+    aliases: additional name variants that map to this character
+             e.g. ['Walter', 'Walt'] all resolve to WALTER
+
+    Returns [{"scene": str, "speech_type": str, "dialogue": str}]
     """
-    lines = extract_lines_from_pdf(pdf_path)
-    char_x0, dialogue_x0 = _detect_thresholds_pdf(lines)
+    target_names = {character_name.upper()}
+    if aliases:
+        target_names.update(a.upper() for a in aliases)
 
-    result = []
+    lines = extract_lines_from_pdf(pdf_path, force_ocr=force_ocr)
+    char_x0, dialogue_x0 = _detect_thresholds(lines)
+
+    result: list[dict] = []
     current_scene = ''
     i = 0
 
     while i < len(lines):
-        kind, content = _classify_pdf_line(lines[i], char_x0, dialogue_x0)
+        kind, content = _classify_line(lines[i], char_x0, dialogue_x0)
 
         if kind == 'scene':
             current_scene = content
+
         elif kind == 'character':
-            base_name = re.sub(r'\s*\([^)]*\).*$', '', content).strip()
-            if base_name.upper() == character_name.upper():
+            if _base_name(content).upper() in target_names:
                 speech_type = _extract_speech_type(content)
                 i += 1
-                dialogue_parts = []
+                dialogue_parts: list[str] = []
+
                 while i < len(lines):
-                    kind2, content2 = _classify_pdf_line(lines[i], char_x0, dialogue_x0)
+                    kind2, content2 = _classify_line(lines[i], char_x0, dialogue_x0)
                     if kind2 in ('scene', 'character'):
                         break
                     if kind2 == 'dialogue':
-                        cleaned = _REVISION_RE.sub(' ', content2)
-                        cleaned = _INLINE_CHAR_CUE_RE.sub(' ', cleaned).strip()
+                        cleaned = _clean_dialogue(content2)
                         if cleaned:
                             dialogue_parts.append(cleaned)
                         if len(dialogue_parts) >= _MAX_DIALOGUE_LINES:
                             break
-                    # action and parenthetical lines intentionally skipped
                     i += 1
+
                 if dialogue_parts:
                     result.append({
                         'scene': current_scene,
@@ -223,96 +340,299 @@ def extract_character_lines_pdf(pdf_path, character_name):
     return result
 
 
-def extract_character_lines_from_pdfs(pdf_paths, character_name):
+# ---------------------------------------------------------------------------
+# Alias parsing
+# ---------------------------------------------------------------------------
+
+def parse_aliases(alias_strings: list[str]) -> dict[str, list[str]]:
     """
-    Extract and merge dialogue lines for a character across multiple PDFs.
+    Parse alias strings into canonical → variants mapping.
 
-    Each line dict includes a 'film' field with the source PDF basename so
-    callers can filter or weight by film.
+    Input:  ["WALTER=Walter,Walt,Walter White", "JESSE=Jesse,Pinkman"]
+    Output: {"WALTER": ["Walter", "Walt", "Walter White"], "JESSE": [...]}
 
-    Returns list of dicts: [{"film": str, "scene": str, "speech_type": str, "dialogue": str}]
+    Raises ValueError for tokens that are missing '=' so callers can warn the user.
     """
-    all_lines = []
-    for pdf_path in pdf_paths:
-        film = os.path.splitext(os.path.basename(pdf_path))[0]
-        lines = extract_character_lines_pdf(pdf_path, character_name)
-        for line in lines:
-            line['film'] = film
-        all_lines.extend(lines)
-    return all_lines
+    result: dict[str, list[str]] = {}
+    for s in alias_strings:
+        s = s.strip()
+        if not s:
+            continue
+        if '=' not in s:
+            raise ValueError(
+                f"Invalid alias '{s}' — must be CANONICAL=Name1,Name2\n"
+                f"  Example: JIMMY=SAUL  (merge SAUL lines into JIMMY)"
+            )
+        canonical, rest = s.split('=', 1)
+        variants = [v.strip() for v in rest.split(',') if v.strip()]
+        result[canonical.strip().upper()] = variants
+    return result
 
 
-def save_character_to_json(character_name, film_name, lines, output_dir="personas"):
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+# ---------------------------------------------------------------------------
+# Output
+# ---------------------------------------------------------------------------
+
+def save_character_to_json(
+    character_name: str,
+    films: str | list[str],
+    lines: list[dict],
+    output_dir: str | Path = 'personas',
+) -> str:
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     data = {
-        "character": character_name,
-        "film": film_name,
-        "lines_count": len(lines),
-        "lines": lines,
+        'character': character_name,
+        'films': films if isinstance(films, list) else [films],
+        'lines_count': len(lines),
+        'lines': lines,
     }
 
     safe_name = re.sub(r'[^a-zA-Z0-9_\-]', '_', character_name)
-    filename = os.path.join(output_dir, f"{safe_name}.json")
-
-    with open(filename, 'w', encoding='utf-8') as f:
+    out_file = output_dir / f'{safe_name}.json'
+    with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+    return str(out_file)
 
-    return filename
+
+def merge_character_jsons(
+    paths: list[str | Path],
+    canonical_name: str,
+    output_dir: str | Path,
+) -> str:
+    """
+    Merge two or more existing character JSON files into one.
+
+    Lines are concatenated in the order files are given.
+    Films lists are merged and deduplicated preserving order.
+    """
+    merged_lines: list[dict] = []
+    merged_films: list[str] = []
+    seen_films: set[str] = set()
+
+    for p in paths:
+        p = Path(p)
+        if not p.exists():
+            raise FileNotFoundError(f'Not found: {p}')
+        with open(p, encoding='utf-8') as f:
+            data = json.load(f)
+        merged_lines.extend(data.get('lines', []))
+        for film in data.get('films', [data.get('film', p.stem)]):
+            if film not in seen_films:
+                seen_films.add(film)
+                merged_films.append(film)
+
+    return save_character_to_json(canonical_name, merged_films, merged_lines, output_dir)
 
 
-if __name__ == "__main__":
-    # Usage:
-    #   single PDF, list personas:        python pdf_scraping.py script.pdf
-    #   single PDF, extract character:    python pdf_scraping.py script.pdf CHARACTER
-    #   multiple PDFs, extract character: python pdf_scraping.py CHARACTER script1.pdf script2.pdf ...
-    if len(sys.argv) < 2:
-        print("Usage:")
-        print("  python pdf_scraping.py <script.pdf> [CHARACTER]")
-        print("  python pdf_scraping.py <CHARACTER> <script1.pdf> <script2.pdf> ...")
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def _collect_pdfs(pdf_args: list[str] | None, dir_args: list[str] | None) -> list[Path]:
+    """Resolve --pdf files and --dir folders into a deduplicated list of PDF paths."""
+    seen: set[Path] = set()
+    result: list[Path] = []
+
+    for p in pdf_args or []:
+        path = Path(p).resolve()
+        if not path.exists():
+            print(f'  ✗ Not found: {path}')
+            continue
+        if path not in seen:
+            seen.add(path)
+            result.append(path)
+
+    for d in dir_args or []:
+        folder = Path(d).resolve()
+        if not folder.is_dir():
+            print(f'  ✗ Not a directory: {folder}')
+            continue
+        pdfs = sorted(folder.glob('*.pdf')) + sorted(folder.glob('*.PDF'))
+        for path in pdfs:
+            if path not in seen:
+                seen.add(path)
+                result.append(path)
+
+    return result
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description='Extract character dialogue from screenplay PDFs.',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            'Examples:\n'
+            '  # extract from folder\n'
+            '  %(prog)s --dir data/scripts/\n\n'
+            '  # collapse two script names into one character during extraction\n'
+            '  %(prog)s --pdf script.pdf --characters WALTER --aliases "WALTER=Walter,Walt"\n\n'
+            '  # merge two already-extracted JSON files\n'
+            '  %(prog)s --merge WALTER.json WALT.json --as WALTER\n'
+        ),
+    )
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument('--pdf', nargs='+', metavar='FILE',
+                        help='One or more screenplay PDF paths.')
+    source.add_argument('--dir', nargs='+', metavar='FOLDER',
+                        help='One or more folders — all *.pdf files inside are used.')
+    source.add_argument('--merge', nargs='+', metavar='FILE',
+                        help='Merge two or more existing character JSON files into one.')
+    parser.add_argument('--as', dest='canonical', metavar='NAME',
+                        help='Canonical character name for --merge output.')
+    parser.add_argument('--characters', nargs='*', metavar='NAME',
+                        help='Character name(s) to extract (ALL CAPS). Omit for interactive.')
+    parser.add_argument('--aliases', nargs='*', metavar='ALIAS',
+                        help=(
+                            'Collapse name variants into one character during extraction. '
+                            'Format: CANONICAL=Variant1,Variant2  '
+                            'Works for any name seen in the script, e.g. '
+                            '"WALTER=Walter,Walt,Walter White"'
+                        ))
+    parser.add_argument('--out-dir', default=None,
+                        help='Output directory (default: <script_dir>/movies_transcripts)')
+    parser.add_argument('--force-ocr', action='store_true',
+                        help='Force OCR even when PDF has a text layer.')
+    args = parser.parse_args()
+
+    # ── Merge mode ────────────────────────────────────────────────────────
+    if args.merge:
+        if not args.canonical:
+            parser.error('--merge requires --as CANONICAL_NAME')
+        output_dir = (
+            Path(args.out_dir)
+            if args.out_dir
+            else Path(__file__).parent / 'movies_transcripts'
+        )
+        out_file = merge_character_jsons(args.merge, args.canonical.upper(), output_dir)
+        total = sum(
+            len(json.load(open(p, encoding='utf-8')).get('lines', []))
+            for p in args.merge
+        )
+        print(f'Merged {len(args.merge)} files ({total} lines) → {out_file}')
+        return
+
+    try:
+        alias_map = parse_aliases(args.aliases or [])
+    except ValueError as e:
+        parser.error(str(e))
+    selected_characters: list[str] | None = args.characters or None
+
+    # ── Resolve PDF list ───────────────────────────────────────────────────
+    pdf_inputs = _collect_pdfs(args.pdf, args.dir)
+    if not pdf_inputs:
+        print('No PDF files found.')
         sys.exit(1)
 
-    # Detect mode: first arg is PDF → single-file mode; first arg is not a PDF → multi-file mode
-    if sys.argv[1].endswith('.pdf'):
-        pdf_paths = [sys.argv[1]]
-        target = sys.argv[2].upper() if len(sys.argv) > 2 else None
-    else:
-        target = sys.argv[1].upper()
-        pdf_paths = sys.argv[2:]
-        if not pdf_paths:
-            print("Error: provide at least one PDF path after the character name.")
-            sys.exit(1)
+    # ── Scan all PDFs ──────────────────────────────────────────────────────
+    all_personas: Counter = Counter()
+    valid_pdfs: list[Path] = []
 
-    # Always show personas for the first PDF
-    print(f"Scanning: {pdf_paths[0]}")
-    lines_data = extract_lines_from_pdf(pdf_paths[0])
-    char_x0, dialogue_x0 = _detect_thresholds_pdf(lines_data)
-    print(f"Detected thresholds — character x0 ≥ {char_x0}, dialogue x0 ≥ {dialogue_x0}")
+    print(f'Scanning {len(pdf_inputs)} PDF(s)...')
+    print('-' * 60)
 
-    personas = extract_personas_pdf(pdf_paths[0])
-    if not personas:
-        print("No personas found.")
+    for pdf_path in pdf_inputs:
+        native = has_text_layer(pdf_path)
+        mode = 'native' if (native and not args.force_ocr) else 'OCR'
+        print(f'  {pdf_path.name}  [{mode}]')
+        personas = extract_personas(pdf_path, force_ocr=args.force_ocr or not native)
+        for name, count in personas:
+            all_personas[name] += count
+        valid_pdfs.append(pdf_path)
+        char_x0, dialogue_x0 = _detect_thresholds(
+            extract_lines_from_pdf(pdf_path, force_ocr=args.force_ocr or not native)
+        )
+        print(f'    ✓ {len(personas)} characters  |  thresholds: char x0≥{char_x0:.0f}, dialogue x0≥{dialogue_x0:.0f}')
+
+    if not valid_pdfs:
+        print('No valid PDFs found.')
         sys.exit(1)
 
-    print("\nTop 10 personas:")
-    print("-" * 40)
-    for idx, (name, count) in enumerate(personas[:10], 1):
-        print(f"{idx:2d}. {name:<25} ({count:3d} lines)")
+    # ── Display character list ─────────────────────────────────────────────
+    print(f'\n{"=" * 60}')
+    print(f'Characters found: {len(all_personas)} unique')
+    print('=' * 60)
+    for i, (name, count) in enumerate(all_personas.most_common(), 1):
+        print(f'  {i:3d}. {name:<30} ({count:3d} lines)')
 
-    if target is None:
-        sys.exit(0)
+    # ── Interactive character selection ────────────────────────────────────
+    if selected_characters is None:
+        print(f'\n{"=" * 60}')
+        print("SELECT CHARACTERS  (names, 'top N', or 'all' — blank = top 5)")
+        print('=' * 60)
+        user_input = input('Selection: ').strip()
 
-    output_dir = os.path.join(os.path.dirname(__file__), "personas")
+        if not user_input:
+            selected_characters = [n for n, _ in all_personas.most_common(5)]
+        elif user_input.lower() == 'all':
+            selected_characters = list(all_personas.keys())
+        elif user_input.lower().startswith('top'):
+            try:
+                k = int(user_input.split()[1])
+                selected_characters = [n for n, _ in all_personas.most_common(k)]
+            except (IndexError, ValueError):
+                selected_characters = [n for n, _ in all_personas.most_common(5)]
+        else:
+            selected_characters = [c.strip() for c in user_input.split(',') if c.strip()]
 
-    if len(pdf_paths) == 1:
-        film_name = os.path.splitext(os.path.basename(pdf_paths[0]))[0]
-        print(f"\nExtracting lines for: {target}")
-        char_lines = extract_character_lines_pdf(pdf_paths[0], target)
-    else:
-        film_name = [os.path.splitext(os.path.basename(p))[0] for p in pdf_paths]
-        print(f"\nExtracting lines for: {target} across {len(pdf_paths)} PDFs")
-        char_lines = extract_character_lines_from_pdfs(pdf_paths, target)
+    # ── Interactive alias merging (if not supplied via --aliases) ──────────
+    if not alias_map:
+        print(f'\n{"=" * 60}')
+        print('COLLAPSE CHARACTERS  (optional — press Enter to skip)')
+        print('  Merge name variants OR two different script names into one output.')
+        print('  Format: CANONICAL=Name1,Name2,...')
+        print('  Examples:')
+        print('    WALTER=Walter,Walt,Walter White   ← case/suffix variants')
+        print('    WALTER=WALT                       ← two separate script names')
+        print('=' * 60)
+        raw = input('Groups (space-separated, e.g. JIMMY=SAUL WALTER=Walt): ').strip()
+        if raw:
+            for token in re.split(r'\s+(?=[A-Z]+=)', raw):
+                token = token.strip()
+                if not token:
+                    continue
+                try:
+                    alias_map.update(parse_aliases([token]))
+                except ValueError as e:
+                    print(f'  Warning: {e}')
+                    print(f'  Skipped — re-run with correct format or use --aliases flag.')
 
-    filename = save_character_to_json(target, film_name, char_lines, output_dir)
-    print(f"Saved {len(char_lines)} lines → {filename}")
+    # ── Extract ────────────────────────────────────────────────────────────
+    output_dir = (
+        Path(args.out_dir)
+        if args.out_dir
+        else Path(__file__).parent / 'movies_transcripts'
+    )
+
+    print(f'\nExtracting {len(selected_characters)} character(s)...')
+    print('-' * 60)
+
+    for char in selected_characters:
+        canon = char.upper()
+        aliases = alias_map.get(canon, [])
+        all_lines: list[dict] = []
+        films_with_char: list[str] = []
+
+        for pdf_path in valid_pdfs:
+            native = has_text_layer(pdf_path)
+            lines = extract_character_lines(
+                pdf_path, canon,
+                aliases=aliases,
+                force_ocr=args.force_ocr or not native,
+            )
+            if lines:
+                all_lines.extend(lines)
+                films_with_char.append(pdf_path.stem)
+
+        if all_lines:
+            out_file = save_character_to_json(canon, films_with_char, all_lines, output_dir)
+            print(f'  ✓ {canon:<30} {len(all_lines):4d} lines → {out_file}')
+        else:
+            print(f'  ✗ {canon:<30} (no lines found)')
+
+    print('\nDone.')
+
+
+if __name__ == '__main__':
+    main()
