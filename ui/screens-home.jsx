@@ -1,8 +1,9 @@
 // screens-home.jsx — Landing / home screen
 
 function HomeScreen({ user, chats, onGoAgents, onGoChats, onOpenChat, onNewDM, onNewGroup }) {
+  const { agents, byId } = window.useAgents();
   const recentChats = chats.slice(0, 4);
-  const featuredAgents = window.PERSONAS.slice(0, 5);
+  const featuredAgents = agents.slice(0, 5);
 
   return (
     <div style={{ flex: 1, overflowY: "auto", background: "var(--bg-0)" }} data-screen-label="home">
@@ -66,7 +67,7 @@ function HomeScreen({ user, chats, onGoAgents, onGoChats, onOpenChat, onNewDM, o
               <div className="t-eyebrow">01 — Browse</div>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 22, fontWeight: 600, marginTop: 4 }}>Agents</div>
               <div className="t-meta" style={{ marginTop: 6, fontSize: 13 }}>
-                {window.PERSONAS.length} personas in your library · search, filter, and add to a session.
+                {agents.length} personas in your library · search, filter, and add to a session.
               </div>
             </div>
             <div style={{ marginTop: "auto" }}>
@@ -164,7 +165,7 @@ function HomeScreen({ user, chats, onGoAgents, onGoChats, onOpenChat, onNewDM, o
             </div>
             <div className="col" style={{ gap: 6 }}>
               {recentChats.map(c => {
-                const personas = c.participants.map(window.findPersona);
+                const personas = c.participants.map(id => byId(id)).filter(Boolean);
                 return (
                   <div
                     key={c.id}
