@@ -57,12 +57,21 @@ function StatusPill({ status }) {
 }
 
 function OverviewSection() {
-  const kpis = [
-    { label: "Sessions today", value: "127", delta: "+18%", up: true, spark: [12,18,14,22,28,24,32,30,38,42,40,46,52,50] },
-    { label: "Active users", value: "344", delta: "+6%", up: true, spark: [200,210,205,220,230,228,240,260,270,280,288,295,310,344] },
-    { label: "Avg. session", value: "18:42", delta: "−2%", up: false, spark: [22,21,20,20,19,19,18,18,19,18,18,17,18,18] },
-    { label: "Judge confidence", value: "0.71", delta: "+0.04", up: true, spark: [0.6,0.62,0.61,0.65,0.66,0.68,0.67,0.69,0.7,0.69,0.71,0.7,0.72,0.71] },
-  ];
+  const [kpis, setKpis] = React.useState(null);
+  React.useEffect(() => {
+    window.api.get("/admin/overview")
+      .then(data => {
+        setKpis([
+          { label: "Sessions today", value: String(data.sessions_today.value), delta: `${data.sessions_today.delta_pct >= 0 ? "+" : ""}${data.sessions_today.delta_pct}%`, up: data.sessions_today.delta_pct >= 0, spark: data.sessions_today.spark },
+          { label: "Active users", value: String(data.active_users.value), delta: `${data.active_users.delta_pct >= 0 ? "+" : ""}${data.active_users.delta_pct}%`, up: data.active_users.delta_pct >= 0, spark: data.active_users.spark },
+          { label: "Avg. session", value: String(data.avg_session.value), delta: `${data.avg_session.delta_pct >= 0 ? "+" : ""}${data.avg_session.delta_pct}%`, up: data.avg_session.delta_pct >= 0, spark: data.avg_session.spark },
+          { label: "Judge confidence", value: String(data.judge_confidence.value), delta: `${data.judge_confidence.delta_abs >= 0 ? "+" : ""}${data.judge_confidence.delta_abs}`, up: data.judge_confidence.delta_abs >= 0, spark: data.judge_confidence.spark },
+        ]);
+      })
+      .catch(() => setKpis([]));
+  }, []);
+
+  if (!kpis) return <div style={{ padding: 24, color: "var(--fg-2)" }}>Loading…</div>;
 
   return (
     <>
@@ -116,6 +125,14 @@ function OverviewSection() {
 }
 
 function RecentSessionsTable() {
+  const { byId } = window.useAgents();
+  const [sessions, setSessions] = React.useState([]);
+  React.useEffect(() => {
+    window.api.get("/admin/sessions?limit=24")
+      .then(data => setSessions(data))
+      .catch(() => setSessions([]));
+  }, []);
+
   return (
     <div className="card" style={{ overflow: "hidden" }}>
       <div className="chart-card-head" style={{ padding: 14 }}>
@@ -128,101 +145,119 @@ function RecentSessionsTable() {
           <Btn variant="outline" size="sm" icon={<Icons.Download size={12} />}>Export CSV</Btn>
         </div>
       </div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Session ID</th>
-            <th>Participants</th>
-            <th>Topic</th>
-            <th style={{ width: 110 }}>Duration</th>
-            <th style={{ width: 150 }}>Date</th>
-            <th style={{ width: 130 }}>Status</th>
-            <th style={{ width: 40 }}></th>
-          </tr>
-        </thead>
-        <tbody>
-          {window.RECENT_SESSIONS.map(s => (
-            <tr key={s.id}>
-              <td className="col-mono">{s.id}</td>
-              <td>
-                <div className="row" style={{ gap: 8 }}>
-                  <AvatarStack personas={s.participants.map(window.findPersona)} size="xs" max={4} />
-                  <span className="t-meta">{s.participants.length}</span>
-                </div>
-              </td>
-              <td style={{ maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={s.topic}>
-                {s.topic}
-              </td>
-              <td className="col-mono">{s.duration}</td>
-              <td className="t-meta col-mono">{s.date}</td>
-              <td><StatusPill status={s.status} /></td>
-              <td>
-                <IconBtn size="sm" icon={<Icons.ChevronRight size={13} />} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function AgentPerformanceSection() {
-  return (
-    <>
-      <div className="t-eyebrow">Per-agent fidelity</div>
-      <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 16 }}>Agent performance</h2>
-      <div className="card" style={{ overflow: "hidden" }}>
+      {sessions.length === 0 ? (
+        <Empty title="No sessions yet" sub="Sessions appear here once users start chatting." icon={<Icons.Database size={20} />} />
+      ) : (
         <table className="table">
           <thead>
             <tr>
-              <th>Agent</th>
-              <th>Source</th>
-              <th style={{ width: 120 }}>Sessions</th>
-              <th style={{ width: 160 }}>Individual fidelity</th>
-              <th style={{ width: 140 }}>Group fidelity</th>
-              <th style={{ width: 90 }}>Flagged</th>
+              <th>Session ID</th>
+              <th>Participants</th>
+              <th>Topic</th>
+              <th style={{ width: 110 }}>Duration</th>
+              <th style={{ width: 150 }}>Date</th>
+              <th style={{ width: 130 }}>Status</th>
+              <th style={{ width: 40 }}></th>
             </tr>
           </thead>
           <tbody>
-            {window.PERSONAS.map(p => {
-              const fidelity = 3 + (1 - p.tension) * 1.6 + (Math.random() * 0.4 - 0.2);
-              const group = 2.8 + Math.random() * 1.8;
-              const flagged = Math.floor(Math.random() * 8);
+            {sessions.map(s => {
+              const personas = s.participants.map(id => byId(id)).filter(Boolean);
               return (
-                <tr key={p.id}>
+                <tr key={s.id}>
+                  <td className="col-mono">{s.id}</td>
                   <td>
-                    <div className="row" style={{ gap: 10 }}>
-                      <Avatar persona={p} size="sm" />
-                      <div>
-                        <div className="mono" style={{ fontSize: 12, fontWeight: 600 }}>{p.name}</div>
-                        <div className="t-meta" style={{ fontSize: 10.5 }}>{p.id.toUpperCase()}</div>
-                      </div>
+                    <div className="row" style={{ gap: 8 }}>
+                      <AvatarStack personas={personas} size="xs" max={4} />
+                      <span className="t-meta">{s.participants.length}</span>
                     </div>
                   </td>
-                  <td>
-                    <span className="badge">{p.source_type === "fiction" ? "Fiction" : "Real-world"}</span>
+                  <td style={{ maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={s.topic}>
+                    {s.topic}
                   </td>
-                  <td className="col-mono">{Math.floor(40 + Math.random() * 200)}</td>
+                  <td className="col-mono">{s.duration}</td>
+                  <td className="t-meta col-mono">{s.date}</td>
+                  <td><StatusPill status={s.status} /></td>
                   <td>
-                    <FidelityBar value={fidelity / 5} label={fidelity.toFixed(2)} />
-                  </td>
-                  <td>
-                    <FidelityBar value={group / 5} label={group.toFixed(2)} color="#7c3aed" />
-                  </td>
-                  <td>
-                    {flagged > 4 ? (
-                      <span className="badge badge-danger">{flagged}</span>
-                    ) : (
-                      <span className="badge">{flagged}</span>
-                    )}
+                    <IconBtn size="sm" icon={<Icons.ChevronRight size={13} />} />
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-      </div>
+      )}
+    </div>
+  );
+}
+
+function AgentPerformanceSection() {
+  const { byId } = window.useAgents();
+  const [perf, setPerf] = React.useState([]);
+  React.useEffect(() => {
+    window.api.get("/admin/agent-performance")
+      .then(data => setPerf(data))
+      .catch(() => setPerf([]));
+  }, []);
+
+  const rows = perf.map(entry => {
+    const p = byId(entry.agent_id);
+    if (!p) return null;
+    return (
+      <tr key={entry.agent_id}>
+        <td>
+          <div className="row" style={{ gap: 10 }}>
+            <Avatar persona={p} size="sm" />
+            <div>
+              <div className="mono" style={{ fontSize: 12, fontWeight: 600 }}>{p.name}</div>
+              <div className="t-meta" style={{ fontSize: 10.5 }}>{String(entry.agent_id)}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span className="badge">{p.source_type === "fiction" ? "Fiction" : "Real-world"}</span>
+        </td>
+        <td className="col-mono">{entry.sessions}</td>
+        <td>
+          <FidelityBar value={entry.individual_fidelity / 5} label={Number(entry.individual_fidelity).toFixed(2)} />
+        </td>
+        <td>
+          <FidelityBar value={entry.group_fidelity / 5} label={Number(entry.group_fidelity).toFixed(2)} color="#7c3aed" />
+        </td>
+        <td>
+          {entry.flagged > 4 ? (
+            <span className="badge badge-danger">{entry.flagged}</span>
+          ) : (
+            <span className="badge">{entry.flagged}</span>
+          )}
+        </td>
+      </tr>
+    );
+  }).filter(Boolean);
+
+  return (
+    <>
+      <div className="t-eyebrow">Per-agent fidelity</div>
+      <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 16 }}>Agent performance</h2>
+      {rows.length === 0 ? (
+        <Empty title="No data yet" sub="Performance stats appear after agents participate in chats." icon={<Icons.Brain size={20} />} />
+      ) : (
+        <div className="card" style={{ overflow: "hidden" }}>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Agent</th>
+                <th>Source</th>
+                <th style={{ width: 120 }}>Sessions</th>
+                <th style={{ width: 160 }}>Individual fidelity</th>
+                <th style={{ width: 140 }}>Group fidelity</th>
+                <th style={{ width: 90 }}>Flagged</th>
+              </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 }

@@ -25,7 +25,7 @@ class GroupChatFactory:
 
         chat = GroupChatService(db).get(chat_id)
         topic = TopicService(db).get(chat.id_topic)
-        agents = AgentFactory.for_chat(db, chat_id, model)
+        agents = AgentFactory.from_chat_participants(db, chat_id, model)
 
         scheduler = TurnScheduler(agents, scheduler_strategy)
         context_window = ContextWindow(window_strategy, max_messages)
