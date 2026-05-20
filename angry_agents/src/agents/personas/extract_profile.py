@@ -1,11 +1,11 @@
 """
-Offline persona profile extractor.
+Persona profile extractor using OpenAI API.
 
-Reads raw transcript data (YouTube or movie script) and calls a local Ollama
-model to produce a structured JSON profile saved to data/personas/.
+Reads raw transcript data (YouTube or movie script) and calls OpenAI's API
+to produce a structured JSON profile saved to data/personas/.
 
-Requires Ollama running locally: https://ollama.com
-Default model: llama3.2 — change with --model or OLLAMA_MODEL env var.
+Requires OPENAI_API_KEY environment variable to be set.
+Default model: gpt-4o-mini — change with --model.
 
 Usage:
     python -m angry_agents.src.agents.personas.extract_profile \
@@ -30,23 +30,29 @@ Usage:
         --input data/youtube/cicciogamer89.json \
         --name cicciogamer89 \
         --type podcast \
-        --model mistral
+        --model gpt-4-turbo
 """
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
 import requests
+from dotenv import load_dotenv
+from openai import OpenAI
+
+# Load .env file
+load_dotenv()
 
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
 
-OLLAMA_BASE_URL = "http://localhost:11434"
-DEFAULT_MODEL = "mistral"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+DEFAULT_MODEL = "gpt-4o-mini"
 MAX_TRANSCRIPT_TOKENS = 40_000
 CHARS_PER_TOKEN = 4
 OUTPUT_DIR = Path("data/personas")
@@ -254,22 +260,79 @@ def load_fiction_script(
 
 
 # ---------------------------------------------------------------------------
-# API call
+# Logging
 # ---------------------------------------------------------------------------
 
-def check_ollama(model: str) -> None:
-    try:
-        resp = requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=5)
-        resp.raise_for_status()
-    except requests.ConnectionError:
-        sys.exit("Error: Ollama not running. Start it with: ollama serve")
+class TokenUsageLogger:
+    """Tracks and logs token usage from OpenAI API calls."""
+    
+    def __init__(self):
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
+        self.total_cost = 0.0
+    
+    @staticmethod
+    def get_cost_per_token(model: str) -> tuple[float, float]:
+        """Return (input_cost_per_1M, output_cost_per_1M) for a model."""
+        pricing = {
+            "gpt-4o-mini": (0.15 / 1_000_000, 0.60 / 1_000_000),
+            "gpt-4-turbo": (10.0 / 1_000_000, 30.0 / 1_000_000),
+            "gpt-4o": (5.0 / 1_000_000, 15.0 / 1_000_000),
+            "gpt-5.2": (1.75 / 1_000_000, 14.0 / 1_000_000),
+            "gpt-5.2-pro": (21.0 / 1_000_000, 168.0 / 1_000_000),
+            "gpt-5.1": (1.25 / 1_000_000, 10.0 / 1_000_000),
+            "gpt-5": (1.25 / 1_000_000, 10.0 / 1_000_000),
+            "gpt-5-mini": (0.25 / 1_000_000, 2.0 / 1_000_000),
+            "gpt-5-nano": (0.05 / 1_000_000, 0.40 / 1_000_000),
+            "gpt-5-pro": (15.0 / 1_000_000, 120.0 / 1_000_000),
+            "gpt-4.1": (2.0 / 1_000_000, 8.0 / 1_000_000),
+            "gpt-4.1-mini": (0.40 / 1_000_000, 1.60 / 1_000_000),
+            "gpt-4.1-nano": (0.10 / 1_000_000, 0.40 / 1_000_000),
+            "gpt-4o": (2.50 / 1_000_000, 10.0 / 1_000_000),
+            "gpt-4o-mini": (0.15 / 1_000_000, 0.60 / 1_000_000),
+            "o4-mini": (1.10 / 1_000_000, 4.40 / 1_000_000),
+            "o3": (2.0 / 1_000_000, 8.0 / 1_000_000),
+            "o3-mini": (1.10 / 1_000_000, 4.40 / 1_000_000),
+        }
+        return pricing.get(model, (0, 0))
+    
+    def log_usage(self, usage, model: str) -> None:
+        """Log token usage from an OpenAI API response."""
+        input_tokens = usage.prompt_tokens
+        output_tokens = usage.completion_tokens
+        
+        self.total_input_tokens += input_tokens
+        self.total_output_tokens += output_tokens
+        
+        input_cost, output_cost = self.get_cost_per_token(model)
+        call_cost = (input_tokens * input_cost) + (output_tokens * output_cost)
+        self.total_cost += call_cost
+    
+    def report(self) -> str:
+        """Return a formatted token usage report."""
+        total_tokens = self.total_input_tokens + self.total_output_tokens
+        return (
+            f"\n{'='*60}\n"
+            f"TOKEN USAGE REPORT\n"
+            f"{'='*60}\n"
+            f"Input tokens:  {self.total_input_tokens:,}\n"
+            f"Output tokens: {self.total_output_tokens:,}\n"
+            f"Total tokens:  {total_tokens:,}\n"
+            f"Estimated cost: ${self.total_cost:.4f}\n"
+            f"{'='*60}\n"
+        )
 
-    available = [m["name"].split(":")[0] for m in resp.json().get("models", [])]
-    if model not in available and model.split(":")[0] not in available:
+
+# ---------------------------------------------------------------------------
+# API validation
+# ---------------------------------------------------------------------------
+
+def check_openai_api_key() -> None:
+    """Validate that OpenAI API key is set."""
+    if not OPENAI_API_KEY:
         sys.exit(
-            f"Error: model '{model}' not found in Ollama.\n"
-            f"Available: {available}\n"
-            f"Pull it with: ollama pull {model}"
+            "Error: OPENAI_API_KEY environment variable not set.\n"
+            "Set it with: export OPENAI_API_KEY='sk-...'"
         )
 
 
@@ -309,35 +372,36 @@ def _parse_json_from_response(raw: str) -> dict:
     )
 
 
-def extract_profile(transcript_text: str, prompt_template: str, template_vars: dict, model: str) -> dict:
+def extract_profile(
+    transcript_text: str,
+    prompt_template: str,
+    template_vars: dict,
+    model: str,
+    usage_logger: TokenUsageLogger
+) -> dict:
+    """Call OpenAI API to extract persona profile."""
     user_content = prompt_template.format(
         transcript_text=transcript_text,
         **template_vars,
     )
     
-    payload = {
-        "model": model,
-        "stream": False,
-        "format": "json",  # Ollama native JSON mode — forces valid JSON output
-        "messages": [
+    client = OpenAI(api_key=OPENAI_API_KEY)
+    
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_content},
         ],
-        "options": {
-            "temperature": 0.2,
-            "num_predict": 2048,
-            "num_ctx": 32768,
-        },
-    }
-
-    resp = requests.post(
-        f"{OLLAMA_BASE_URL}/api/chat",
-        json=payload,
-        timeout=600,
+        temperature=0.2,
+        max_tokens=2048,
+        response_format={"type": "json_object"},
     )
-    resp.raise_for_status()
-
-    raw = resp.json()["message"]["content"]
+    
+    # Log token usage
+    usage_logger.log_usage(response.usage, model)
+    
+    raw = response.choices[0].message.content
     return _parse_json_from_response(raw)
 
 
@@ -346,17 +410,18 @@ def extract_profile(transcript_text: str, prompt_template: str, template_vars: d
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Extract structured persona profile from transcript.")
+    parser = argparse.ArgumentParser(description="Extract structured persona profile from transcript using OpenAI API.")
     parser.add_argument("--input", required=True, help="Path to transcript file (JSON for podcast, .txt for fiction)")
     parser.add_argument("--name", required=True, help="Persona or source title (used for output filename)")
     parser.add_argument("--type", required=True, choices=["podcast", "fiction"], help="Source type")
     parser.add_argument("--character", default=None, help="Character name in script (fiction only, ALL CAPS)")
-    parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Ollama model to use (default: {DEFAULT_MODEL})")
+    parser.add_argument("--model", default=DEFAULT_MODEL, help=f"OpenAI model to use (default: {DEFAULT_MODEL})")
     parser.add_argument("--max-tokens", type=int, default=MAX_TRANSCRIPT_TOKENS, help="Max transcript tokens to send")
     parser.add_argument("--out-dir", default=str(OUTPUT_DIR), help="Output directory")
     args = parser.parse_args()
 
-    check_ollama(args.model)
+    # Check API key
+    check_openai_api_key()
 
     input_path = Path(args.input)
     is_json = input_path.suffix.lower() == ".json"
@@ -389,15 +454,21 @@ def main() -> None:
 
     approx_tokens = len(transcript_text) // CHARS_PER_TOKEN
     print(f"Transcript loaded: ~{approx_tokens:,} tokens")
-    print(f"Calling Ollama ({args.model})... this may take a few minutes.")
+    print(f"Calling OpenAI ({args.model})... this may take a few minutes.")
 
-    profile = extract_profile(transcript_text, prompt_template, template_vars, args.model)
+    # Initialize token usage logger
+    usage_logger = TokenUsageLogger()
+    
+    profile = extract_profile(transcript_text, prompt_template, template_vars, args.model, usage_logger)
 
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(profile, f, ensure_ascii=False, indent=2)
 
     print(f"\nProfile saved → {out_file}")
     print(json.dumps(profile, ensure_ascii=False, indent=2))
+    
+    # Print token usage report
+    print(usage_logger.report())
 
 
 if __name__ == "__main__":
