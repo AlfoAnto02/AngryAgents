@@ -28,7 +28,7 @@ We are building a chat application in which users interact with AI persona-agent
 
 | Workstream | Owner(s) | In Scope | Out of Scope |
 |------------|----------|----------|--------------|
-| Database layer + REST API | Alfonso Antognozzi, Marco Massa (co-author) | SQLite schema, CRUD repositories, service layer, FastAPI endpoints, Pydantic schemas, Swagger UI, test suite | Production deployment, cloud DB, authentication beyond `AUTH_DISABLED` dev header |
+| Database layer + REST API | Alfonso Antognozzi, Marco Massa (co-author) | SQLite schema, CRUD repositories, service layer, FastAPI endpoints, Pydantic schemas, Swagger UI, test suite, JWT authentication | Production deployment, cloud DB |
 | Persona scraping & extraction | Kevin Shimaj, Gabriele Fronzoni | YouTube/podcast transcript scraping, movie script + PDF scraping, LLM-based persona profile extraction | Model fine-tuning, web crawling beyond identified sources |
 | Judge implementation | Davide Cabitza | Abstract `Judge` base class, 3 role specializations implemented (`style`, `ideology`, `general`), `persona_identification` running against real transcript, Phase 1 independent evaluation | `behavioral` judge (stub), Phase 2 deliberation, external omniscient agent |
 | Chat simulation | Kevin Shimaj | Ollama-based simulation loop, persona integration, author identity hashing | RAG retrieval, context management mechanisms, UI polish |
@@ -38,7 +38,7 @@ We are building a chat application in which users interact with AI persona-agent
 ### Key Contributions
 
 - **End-to-end author anonymization pipeline:** client sends `agent_id` → service does DB lookup → SHA-256 HMAC computed server-side → stored as 64-char opaque hex. Name/surname never leave the server. Enforced at schema level (no FK from `Chat_messages` → `Agents`).
-- **170-test suite** covering all 7 repositories and 5 services with in-memory SQLite fixtures. Includes boundary tests for soft-delete, hard-delete, composite PKs, and the 20-evaluation cap per chat.
+- **291-test suite** covering all 8 repositories and 8 services with in-memory SQLite fixtures. Includes boundary tests for soft-delete, hard-delete, composite PKs, the 20-evaluation cap per chat, password hashing / HMAC constant-time comparison, JWT token lifecycle (issue → refresh → revoke), and slug collision across `User` and `Agent` entities.
 - **First working chat simulation** with Ollama using extracted real-world personas, with persona identity hashed in the simulation output.
 - **Judge class hierarchy** with 3 concrete specializations (`StyleJudge`, `IdeologyJudge`, `GeneralJudge`) running `persona_identification` against a real 40-message transcript with 7 personas, merged to main.
 - **PDF-based fictional persona scraping** producing the first batch of extracted movie personas.
@@ -53,8 +53,8 @@ We are building a chat application in which users interact with AI persona-agent
 
 | Dimension | Status | Notes |
 |-----------|--------|-------|
-| Overall | 🟡 On track | Core infrastructure complete; UI prototype landed; pipeline wiring is next |
-| Data / Infrastructure | 🟢 Ahead | DB schema, full CRUD API, 170 tests, Swagger, multi-score evaluation — all merged to main |
+| Overall | 🟡 On track | Core infrastructure complete; JWT auth live; UI prototype landed; pipeline wiring is next |
+| Data / Infrastructure | 🟢 Ahead | DB schema, full CRUD API, 291 tests, JWT auth, Swagger, multi-score evaluation — all merged to main |
 | Modeling / Core work | 🟡 On track | Chat simulation with drift detection working; judge template system in place; UI prototype functional |
 | Evaluation | 🟡 On track | Judge prompt templates done; `persona_id` running; other 3 dimensions still stubs |
 | Writeup / Communication | 🟢 Ahead | SOTA, problem statement, context management, judge system guide, UI wiring guide — all documented |
@@ -63,20 +63,31 @@ We are building a chat application in which users interact with AI persona-agent
 
 ## 4. Progress This Week
 
-### Alfonso Antognozzi — Database layer, REST API, testing
+### Alfonso Antognozzi — Database layer, REST API, JWT authentication, testing
 
 - **Done:**
-  - **Entity models:** Python dataclasses + DDL for all 7 entities: `Topic`, `Agent`, `AgentContext`, `GroupChat`, `ChatMessage`, `Judge`, `JudgeEvaluation`. All share the same schema contract (`id`, `slug`, `created_at`, `updated_at`, `deleted_at`, `details`). Soft-delete enforced via `deleted_at IS NULL` in all queries; `updated_at` maintained by SQL trigger; `slug` unique only among non-deleted rows.
-  - **Repositories:** raw-SQL CRUD for every entity — `create`, `get`, `get_by_slug`, `update`, `delete(hard=False)`, `query(filters, limit, offset)`. Plus `rels.py` for the shared relationship table (agent↔topic, judge↔chat associations). No ORM.
-  - **Service layer:** business logic sitting on top of repositories — `ChatMessageService` (server-side author token: `agent_id` → DB name lookup → SHA-256 HMAC hexdigest, 64 chars, fully opaque; name never passed by client); `JudgeEvaluationService` (judge role validation, cap of 20 evaluations per chat enforced at write time).
-  - **FastAPI + Swagger:** `app.py` with `lifespan` hook calling `init_db()` on startup. `config.py` loading env vars via `python-dotenv`. `deps.py` with per-request DB connection and cached settings via `Depends()`. 7 route files with full CRUD, query param constraints (`ge=`/`le=`), soft/hard delete flag, and composite-PK routes for `JudgeEvaluation`. `schemas.py` with 7 Pydantic `Out` models (`Field(description=...)` on every field). `response_model=` on all endpoints. Swagger UI browsable at `/docs`.
-  - **Test suite:** `conftest.py` with shared in-memory SQLite fixtures. 170 tests across 13 files covering all repository methods and service edge cases — HMAC determinism and opacity, different-agent/different-secret token divergence, role validation rejection, 20-evaluation cap enforcement, soft-delete visibility, hard-delete removal, composite PK operations.
-  - AI agent tools manifest (`tools_managementv1.md`): 12 tools across 2 tiers with confirmation rules and workflow sequences.
-  - **`Judge_evaluation.score` → `list[float]`:** changed the score field from a single `REAL` to a JSON-serialised `TEXT` array across all layers: DDL (`Score TEXT`), `JudgeEvaluation` dataclass, repository (`json.dumps`/`json.loads` on write/read), `JudgeEvaluationService`, `EvaluationCreate`/`EvaluationPatch` Pydantic models (per-item `ge=1.0, le=5.0` via `Annotated`), and `JudgeEvaluationOut` schema. Unblocks multi-dimension scoring (individual/group/behavioral fidelity as separate entries in the same row).
-  - **First official prototype UI (`f74609a`):** 10 React/JSX files covering all screens — `app.jsx` (routing + auth state), `screens-auth.jsx` (login + register), `screens-home.jsx`, `screens-library.jsx` (agent gallery), `screens-newchat.jsx` (DM + group wizard), `screens-chat.jsx` (active conversation), `screens-admin.jsx` (dashboard with KPIs + agent performance table), `components.jsx` (shared primitives), `icons.jsx`, `tweaks-panel.jsx`. Currently wired to static mock data in `data.js`; API integration documented in `CLAUDE_CODE_WIRING.md`.
-  - **`CLAUDE_CODE_WIRING.md`:** step-by-step guide (6 milestones) for wiring the UI to the FastAPI backend — API client setup, auth routes, agent context, chat list, messages/live updates, admin dashboard, and mock data cleanup checklist.
+  - **Entity models:** Python dataclasses + DDL for all 8 entities: `Topic`, `Agent`, `AgentContext`, `GroupChat`, `ChatMessage`, `Judge`, `JudgeEvaluation`, `User`. All share the same schema contract (`id`, `slug`, `created_at`, `updated_at`, `deleted_at`). Soft-delete enforced via `deleted_at IS NULL` in all queries; `updated_at` maintained by SQL trigger; `slug` unique only among non-deleted rows.
+  - **Repositories:** raw-SQL CRUD for every entity — `create`, `get`, `get_by_slug`, `update`, `delete(hard=False)`, `query(filters, limit, offset)`. Plus `rels.py` for the shared relationship table. `user_repository` adds `get_by_email` and `get_by_username` lookups. `refresh_token_repository` adds `create`, `get_by_hash`, `revoke`, `revoke_all_for_user`. No ORM.
+  - **Service layer:** `ChatMessageService` (server-side HMAC author token); `JudgeEvaluationService` (20-evaluation cap per chat); `UserService` (PBKDF2-HMAC-SHA256 password hashing with 260 000 iterations + random 16-byte salt, `authenticate()` using `hmac.compare_digest` to prevent timing leaks, auto-slug generation with collision-suffix increment, role validation).
+  - **FastAPI + Swagger:** `app.py` with `lifespan` hook calling `init_db()` on startup. 9 route files. `schemas.py` with 9 Pydantic `Out` models plus `TokenOut` and `AccessTokenOut` for JWT responses. Swagger UI browsable at `/docs`.
+  - **JWT authentication system** (`7a011e8`, `63d13d2`):
+    - `RefreshToken` table: stores SHA-256 hash of refresh token (never plaintext), `User_ID` FK, `Expires_At`, `Revoked_At`. Added to `ALL_DDL` so it is created on startup.
+    - `jwt_utils.py`: `create_access_token` (HS256, 15-min expiry, payload: `sub`, `slug`, `role`), `create_refresh_token` (returns `(plaintext, sha256_hex)` pair — only hash persisted), `decode_access_token` (returns `None` on expiry or invalid signature; specific `ExpiredSignatureError` / `InvalidTokenError` catches only).
+    - `config.py` extended: `JWT_SECRET_KEY` (required env var), `ACCESS_TOKEN_EXPIRE_MINUTES` (default 15), `REFRESH_TOKEN_EXPIRE_DAYS` (default 7), `COOKIE_SECURE` (default 0 for dev, set 1 for HTTPS prod).
+    - `deps.py` extended: `get_current_user` FastAPI dependency (validates `Authorization: Bearer <token>`, decodes JWT, fetches live user from DB); `require_admin` dependency (enforces `role == "admin"`).
+    - `POST /auth/login` — verifies credentials, returns `TokenOut` (access token + user), sets httpOnly `refresh_token` cookie (path `/auth`, `SameSite=lax`).
+    - `GET /auth/me` — `Authorization: Bearer <token>` → authenticated user info.
+    - `POST /auth/refresh` — accepts refresh token via cookie or JSON body field; verifies hash against DB, checks revocation + expiry, returns new access token.
+    - `POST /auth/logout` — revokes refresh token hash in DB, clears cookie. Returns 204.
+    - `AUTH_DISABLED=1` dev mode preserved: login skips password check but still issues JWT tokens.
+  - **Test suite expanded to 291 tests** (`367b243`): 6 new test files covering all previously untested code — `test_user_repository.py` (31 tests: all lookups, update, delete, query+filter), `test_user_service.py` (29 tests: slug gen, collision increment, password hashing opacity, `authenticate` timing safety, rehash on update, role validation), `test_refresh_token_repository.py` (16 tests: create, get_by_hash, revoke idempotency, `revoke_all_for_user` user-scoping), `test_topic_service.py` (16), `test_agent_context_service.py` (13), `test_group_chat_service.py` (14). All 291 pass under both `pytest` and `STRICT_MODE=1 pytest`.
+  - **`requirements.txt` created** (`6538c88`): lists `fastapi`, `uvicorn[standard]`, `pydantic[email]`, `python-dotenv`, `PyJWT`.
+  - **`.gitignore` updated** (`6538c88`): added `.ruff_cache/`, `.mypy_cache/`, `dist/`, `build/`, `*.egg-info/`, `.coverage`, `htmlcov/`, `cookies.txt`.
+  - **`Judge_evaluation.score` → `list[float]`:** changed the score field from a single `REAL` to a JSON-serialised `TEXT` array across all layers. Unblocks multi-dimension scoring.
+  - **First official prototype UI (`f74609a`):** 10 React/JSX files. Currently wired to static mock data in `data.js`; API integration documented in `CLAUDE_CODE_WIRING.md`.
+  - **`CLAUDE_CODE_WIRING.md`:** step-by-step guide (6 milestones) for wiring the UI to the FastAPI backend.
 - **In progress:** API integration of the UI (replacing `data.js` mock data with live `GET/POST` calls per `CLAUDE_CODE_WIRING.md`)
-- **Blockers:** Auth routes (`POST /auth/login`, `POST /auth/register`, `GET /auth/me`) do not yet exist in the backend — needed for Milestone 1 of the wiring guide
+- **Blockers:** None — auth endpoints (`/auth/register`, `/auth/login`, `/auth/me`, `/auth/refresh`, `/auth/logout`) are now live and JWT-protected
 
 ### Kevin Shimaj — Scraping, chat simulation, UI, context management
 
@@ -90,7 +101,14 @@ We are building a chat application in which users interact with AI persona-agent
   - Context management architecture (`CONTEXT_MANAGEMENT.MD`): structured profile + RAG + sliding window + compression + reflection + perturbation, with token budget (~2,550 tok/turn vs 30,000 raw).
   - Detailed documentation of YouTube scraping script internals.
   - **Embedding-based drift detection (`98d2da1`):** sentence embeddings now computed per message during simulation; cosine distance between the agent's current output embedding and its persona centroid is tracked at each turn. When the distance exceeds a configurable threshold, the simulation inserts a persona-redirect signal before the next LLM call, reducing behavioral drift without full context reset.
-- **In progress:** Evaluation pipeline (`eval` branch active)
+  - **Statistical evaluation module `src/eval/` (`e112d0c`):** new package (1 561 lines across 6 files) implementing all four metric families from the experimental protocol:
+    - `bootstrap.py`: bootstrap CI helper (percentile method, configurable `n_resamples`).
+    - `metrics_persona_id.py`: persona identification accuracy — per-judge and aggregate accuracy vs. 12.5% random baseline, binomial exact 95% CI via `scipy.stats.binomtest`, p-value against H₀, 8×8 confusion matrix, chi-square test for non-uniform error distribution.
+    - `metrics_fidelity.py`: individual fidelity — median, IQR, variance, std, and bootstrap 95% CI on the median; within-type vs. cross-type judge agreement (mean absolute deviation). Keyed by `author_map` to extract the true-persona score from each judge's output.
+    - `metrics_group.py`: group fidelity — Gini coefficient with bootstrap CI and significance test against real-chat reference range [0.28, 0.42]; pairwise 8×8 cosine distance matrix from per-agent embeddings; Spearman rank-correlation between simulated and reference distance matrix with bootstrap CI on ρ. Gracefully skips embedding-based metrics when no embedding file is provided.
+    - `metrics_deliberation.py`: Phase 2 — variance per round (F-test between round 0 and final round per case), convergence rate with binomial CI, confidence calibration (Pearson correlation of Δconfidence vs. Δaccuracy across judge × case pairs, plus accuracy-at-confidence calibration curve when ground truth is available).
+    - `report.py`: aggregates all modules into a single `metrics_report.json`; sample report committed at `data/eval/metrics_report.json`.
+- **In progress:** Wiring `src/eval/` outputs to the live judge pipeline; aligning simulation author-token scheme with the REST API
 - **Blockers:** Simulation currently uses Ollama locally — needs to be aligned with the REST API's author-token scheme before end-to-end evaluation can run
 
 ### Gabriele Fronzoni — Fictional persona scraping, problem definition
@@ -118,7 +136,8 @@ We are building a chat application in which users interact with AI persona-agent
   - **Judge architecture revision (`b4629b8`):** `PersonaMatch` dataclass extended with `motivation: str` field — judges now return written reasoning alongside numeric scores. `BaseJudge.focus` and `BaseJudge.name` added as class-level attributes injected into every prompt.
   - **Jinja2 template system:** prompts extracted from inline Python f-strings into 4 Jinja2 `.j2` files under `src/agents/judges/templates/` — one per judge role (`persona_id_style.j2`, `persona_id_ideology.j2`, `persona_id_general.j2`, `persona_id_behavioral.j2`). Each template enforces: (1) motivation-before-rating, (2) explicit 1–5 rubric with descriptors, (3) JSON response format. Templates are versionable and diffable independently of Python code. `render_prompt(template_name, **kwargs)` loader added to `agent_config.py`.
   - **`judge_system_guide.md`:** comprehensive reference covering DB structure, file layout, data classes, LLM dispatch, current prompt format, persona profile fields, test runner usage, the two-phase pipeline, all 4 evaluation dimensions, and the full architecture roadmap (Jinja2 templates, batch calls, Phase 2 deliberation, DB write-back). Intended as onboarding doc for new contributors and as a spec for completing the pipeline.
-- **In progress:** Designing the aggregate `Score` metric; `individual_fidelity`, `group_fidelity`, `behavioural_fidelity` remain empty stubs. `behavioral` judge class not yet created.
+  - **Persona identification inversion refactor (`aa21218`):** corrected the fundamental direction of the matching algorithm. The previous design looped over personas and returned a `PersonaMatch` (one per persona, with per-agent scores) — meaning multiple agents could be assigned the same persona and no agent was guaranteed an assignment. The new design loops over authors: for each anonymised author tag, `run_persona_identification` now collects a `PersonaScore` per persona profile and returns an `AuthorMatch` (one per author) whose `predicted` property gives the argmax persona for that author. Renamed `PersonaMatch` → `AuthorMatch`, added `PersonaScore` dataclass, updated `agent_config.py` to transpose the accumulation loop. Also removed the `max_tokens=512` hard cap from the OpenAI call path (now `None`), unblocking longer judge motivations. `d604635`: renamed `eval_test_1.json` → `first_eval_test.json` for clarity.
+- **In progress:** Implementing `individual_fidelity`, `group_fidelity`, `behavioural_fidelity` methods in concrete judge classes; `behavioral` judge class not yet created.
 - **Blockers:**
   - Inference timeout: 40 messages × 7 personas exceeds 120 s with mistral locally — needs prompt chunking or a lighter model before the pipeline can scale
   - DB write-back not yet implemented: test runner writes local `.jsonl` only; `JudgeEvaluationService` not yet called from judge code
