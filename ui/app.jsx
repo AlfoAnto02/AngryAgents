@@ -1,5 +1,22 @@
 // app.jsx — root component, routing, tweaks
 
+class ErrorBoundary extends React.Component {
+  constructor(props) { super(props); this.state = { err: null }; }
+  static getDerivedStateFromError(err) { return { err }; }
+  render() {
+    if (this.state.err) {
+      return (
+        <div style={{ padding: 32, fontFamily: "monospace", color: "#ef4444", background: "#0a0a0a", minHeight: "100vh" }}>
+          <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 8 }}>React crash — open DevTools for full stack trace</div>
+          <pre style={{ whiteSpace: "pre-wrap", fontSize: 13 }}>{String(this.state.err)}</pre>
+          <button onClick={() => this.setState({ err: null })} style={{ marginTop: 16, padding: "6px 12px", cursor: "pointer" }}>Retry</button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "userAccent": "#7C3AED",
   "adminAccent": "#F59E0B",
@@ -12,31 +29,68 @@ const ACCENT_OPTIONS = ["#7C3AED", "#EF4444", "#3B82F6", "#22C55E"];
 const ADMIN_OPTIONS = ["#F59E0B", "#EC4899", "#06B6D4", "#A78BFA"];
 
 function App() {
+  const { byId, refresh: refreshAgents } = window.useAgents();
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
 
   // ─── auth / role
-  const [authState, setAuthState] = React.useState({ screen: "login" }); // login | register | app
-  const [userRole, setUserRole] = React.useState("user"); // user | admin -- account's permission
-  const [role, setRole] = React.useState("user"); // user | admin -- current view (admins can switch)
+  const [authState, setAuthState] = React.useState({ screen: "login" });
+  const [userRole, setUserRole] = React.useState("user");
+  const [role, setRole] = React.useState("user");
   const [user, setUser] = React.useState({ name: "Ada Lovelace", handle: "ada-lovelace" });
 
   // ─── app navigation
-  const [page, setPage] = React.useState("home"); // home | library | newdm | newgroup | chat | admin
+  const [page, setPage] = React.useState("home");
   const [adminSection, setAdminSection] = React.useState("overview");
 
   // ─── chat session state
-  const [chats, setChats] = React.useState(window.SAMPLE_CHATS);
-  const [activeChatId, setActiveChatId] = React.useState("c-001");
-  const [sessionDraft, setSessionDraft] = React.useState([]); // agent ids currently selected for a NEW group
+  const [chats, setChats] = React.useState([]);
+  const [activeChatId, setActiveChatId] = React.useState(null);
+  const [sessionDraft, setSessionDraft] = React.useState([]);
 
-  // when role flips to admin, jump to admin page
+  // Session-expired event (fired by api.js when refresh fails)
   React.useEffect(() => {
-    if (role === "admin" && authState.screen === "app") {
-      setPage("admin");
-    } else if (role === "user" && page === "admin") {
-      setPage("home");
+    const handler = () => {
+      setChats([]);
+      setActiveChatId(null);
+      setAuthState({ screen: "login" });
+    };
+    window.addEventListener("aa:session-expired", handler);
+    return () => window.removeEventListener("aa:session-expired", handler);
+  }, []);
+
+  // Session restore on mount
+  React.useEffect(() => {
+    if (!window.api.token) return;
+    window.api.get("/auth/me")
+      .then(me => {
+        setUser({ name: `${me.name} ${me.surname}`, handle: me.slug });
+        const r = me.role === "admin" ? "admin" : "user";
+        setUserRole(r);
+        setRole(r);
+        if (r === "admin") setPage("admin");
+        setAuthState({ screen: "app" });
+      })
+      .catch(() => window.api.clear());
+  }, []);
+
+  // Load chats when entering app
+  const reloadChats = React.useCallback(async () => {
+    if (!window.api.token) return;
+    try {
+      const list = await window.api.get("/ui/chats");
+      setChats(list);
+    } catch (e) {
+      setChats([]);
     }
-  }, [role]);
+  }, []);
+
+  React.useEffect(() => {
+    if (authState.screen === "app") {
+      reloadChats();
+      refreshAgents();
+    }
+  }, [authState.screen, reloadChats, refreshAgents]);
+
 
   // Inject accent CSS overrides
   React.useEffect(() => {
@@ -61,43 +115,30 @@ function App() {
   const handleNewDM = () => setPage("newdm");
   const handleNewGroup = () => setPage("newgroup");
 
-  const handleLaunchGroup = ({ participants, topics, tone }) => {
-    const id = `c-${Date.now().toString().slice(-4)}`;
-    const personas = participants.map(window.findPersona);
-    const newChat = {
-      id, type: "group",
-      title: topics[0] || "Untitled session",
-      topics, tone,
-      participants,
-      unread: 0,
-      last: "Session started",
-      lastTime: "now",
-      started: "now",
-    };
-    setChats([newChat, ...chats]);
-    setActiveChatId(id);
-    setSessionDraft([]);
-    setPage("chat");
+  const handleLaunchGroup = async ({ participants, topics, tone }) => {
+    try {
+      const chat = await window.api.post("/ui/chats", { type: "group", participants, topics, tone });
+      setChats(cs => [chat, ...cs]);
+      setActiveChatId(chat.id);
+      setSessionDraft([]);
+      setPage("chat");
+    } catch (err) {
+      alert("Failed to create group chat: " + err.message);
+    }
   };
 
-  const handleLaunchDM = ({ persona, opener }) => {
-    const id = `c-${Date.now().toString().slice(-4)}`;
-    const newChat = {
-      id, type: "dm",
-      title: persona.name,
-      participants: [persona.id],
-      unread: 0,
-      last: opener || "Session started",
-      lastTime: "now",
-      started: "now",
-    };
-    setChats([newChat, ...chats]);
-    setActiveChatId(id);
-    setPage("chat");
+  const handleLaunchDM = async ({ persona, opener }) => {
+    try {
+      const chat = await window.api.post("/ui/chats", { type: "dm", participants: [persona.id], opener });
+      setChats(cs => [chat, ...cs]);
+      setActiveChatId(chat.id);
+      setPage("chat");
+    } catch (err) {
+      alert("Failed to create DM: " + err.message);
+    }
   };
 
   const handleOpenAgent = (persona) => {
-    // single-click on an agent card → start DM flow with that agent preselected
     handleLaunchDM({ persona, opener: "" });
   };
 
@@ -107,7 +148,21 @@ function App() {
       <>
         <AuthShell>
           <LoginScreen
-            onSubmit={() => setAuthState({ screen: "app" })}
+            onSubmit={async ({ email, password }) => {
+              try {
+                const data = await window.api.post("/auth/login", { email, password });
+                window.api.setToken(data.access_token, data.refresh_token);
+                const me = data.user;
+                setUser({ name: `${me.name} ${me.surname}`, handle: me.slug });
+                const r = me.role === "admin" ? "admin" : "user";
+                setUserRole(r);
+                setRole(r);
+                if (r === "admin") setPage("admin");
+                setAuthState({ screen: "app" });
+              } catch (err) {
+                alert("Login failed. Check email and password.");
+              }
+            }}
             onSwitch={() => setAuthState({ screen: "register" })}
           />
         </AuthShell>
@@ -120,12 +175,27 @@ function App() {
       <>
         <AuthShell>
           <RegisterScreen
-            onSubmit={(form) => {
-              setUser({ name: `${form.firstName} ${form.lastName}`, handle: `${form.firstName}-${form.lastName}`.toLowerCase() });
-              // new registrations are always common users
-              setUserRole("user");
-              setRole("user");
-              setAuthState({ screen: "app" });
+            onSubmit={async (form) => {
+              try {
+                const username = (form.firstName + form.lastName).toLowerCase().replace(/[^a-z0-9]/g, "") + Date.now().toString().slice(-4);
+                await window.api.post("/auth/register", {
+                  username,
+                  name: form.firstName,
+                  surname: form.lastName,
+                  email: form.email,
+                  password: form.password,
+                  role: "common",
+                });
+                const data = await window.api.post("/auth/login", { email: form.email, password: form.password });
+                window.api.setToken(data.access_token, data.refresh_token);
+                const me = data.user;
+                setUser({ name: `${me.name} ${me.surname}`, handle: me.slug });
+                setUserRole("user");
+                setRole("user");
+                setAuthState({ screen: "app" });
+              } catch (err) {
+                alert("Registration failed: " + err.message);
+              }
             }}
             onSwitch={() => setAuthState({ screen: "login" })}
           />
@@ -141,11 +211,21 @@ function App() {
       <TopNav
         role={role}
         userRole={userRole}
-        onRoleChange={(r) => { if (userRole === "admin") setRole(r); }}
+        onRoleChange={(r) => {
+          if (userRole !== "admin") return;
+          setRole(r);
+          if (r === "user") setPage("home");
+          if (r === "admin") setPage("admin");
+        }}
         page={page}
         onNav={setPage}
         user={user}
-        onLogout={() => setAuthState({ screen: "login" })}
+        onLogout={() => {
+          window.api.clear();
+          setChats([]);
+          setActiveChatId(null);
+          setAuthState({ screen: "login" });
+        }}
       />
       <div className="app-body">
         {role === "admin" && page === "admin" && (
@@ -211,7 +291,7 @@ function App() {
           gap: 12,
           boxShadow: "0 12px 32px rgba(0,0,0,0.5)",
         }}>
-          <AvatarStack personas={sessionDraft.map(window.findPersona)} size="sm" max={5} />
+          <AvatarStack personas={sessionDraft.map(id => byId(id)).filter(Boolean)} size="sm" max={5} />
           <div style={{ fontSize: 12.5 }}>
             <strong>{sessionDraft.length}</strong> agent{sessionDraft.length === 1 ? "" : "s"} in your session
           </div>
@@ -265,4 +345,4 @@ function renderTweaksPanel(t, setTweak) {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<ErrorBoundary><AgentsProvider><App /></AgentsProvider></ErrorBoundary>);

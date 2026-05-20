@@ -59,9 +59,13 @@ def _issue_tokens(response: Response, user, db: sqlite3.Connection) -> TokenOut:
     settings = get_settings()
     access_token = create_access_token(user.id, user.slug, user.role)
     plain_refresh, hash_refresh = create_refresh_token()
-    expires_at = (
-        datetime.now(timezone.utc) + timedelta(days=settings.refresh_token_expire_days)
-    ).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    if settings.refresh_token_expire_minutes > 0:
+        refresh_delta = timedelta(minutes=settings.refresh_token_expire_minutes)
+        cookie_max_age = settings.refresh_token_expire_minutes * 60
+    else:
+        refresh_delta = timedelta(days=settings.refresh_token_expire_days)
+        cookie_max_age = settings.refresh_token_expire_days * 86_400
+    expires_at = (datetime.now(timezone.utc) + refresh_delta).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
     rt_repo.create(db, user.id, hash_refresh, expires_at)
 
@@ -71,10 +75,10 @@ def _issue_tokens(response: Response, user, db: sqlite3.Connection) -> TokenOut:
         httponly=True,
         secure=settings.cookie_secure,
         samesite="lax",
-        max_age=settings.refresh_token_expire_days * 86_400,
+        max_age=cookie_max_age,
         path="/auth",
     )
-    return TokenOut(access_token=access_token, token_type="bearer", user=_user_out(user))
+    return TokenOut(access_token=access_token, token_type="bearer", user=_user_out(user), refresh_token=plain_refresh)
 
 
 # ---------------------------------------------------------------------------
