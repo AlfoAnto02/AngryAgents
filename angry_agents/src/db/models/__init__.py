@@ -7,9 +7,11 @@ from .group_chat import GroupChat, CREATE_TABLE as _GROUP_CHAT_DDL
 from .chat_messages import ChatMessage, CREATE_TABLE as _CHAT_MESSAGES_DDL
 from .judges import Judge, CREATE_TABLE as _JUDGES_DDL
 from .judge_evaluation import JudgeEvaluation, CREATE_TABLE as _JUDGE_EVAL_DDL
+from .refresh_token import RefreshToken, CREATE_TABLE as _REFRESH_TOKEN_DDL
 
 # Ordered by FK dependency so init_db() runs cleanly.
 # User must be first — Topic, Agents, Group_chat, Chat_messages all FK to it.
+# RefreshToken references User so it goes after.
 ALL_DDL = [
     _USER_DDL,
     _TOPIC_DDL,
@@ -19,6 +21,7 @@ ALL_DDL = [
     _CHAT_MESSAGES_DDL,
     _JUDGES_DDL,
     _JUDGE_EVAL_DDL,
+    _REFRESH_TOKEN_DDL,
 ]
 
 __all__ = [
@@ -32,4 +35,5 @@ __all__ = [
     "ChatMessage",
     "Judge",
     "JudgeEvaluation",
+    "RefreshToken",
 ]

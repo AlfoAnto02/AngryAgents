@@ -89,3 +89,14 @@ class JudgeEvaluationOut(BaseModel):
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None
+
+
+class TokenOut(BaseModel):
+    access_token: str = Field(..., description="Short-lived JWT — send as 'Authorization: Bearer <token>'")
+    token_type: str = Field("bearer", description="Always 'bearer'")
+    user: UserOut = Field(..., description="Authenticated user info")
+
+
+class AccessTokenOut(BaseModel):
+    access_token: str = Field(..., description="Refreshed short-lived JWT")
+    token_type: str = Field("bearer", description="Always 'bearer'")
