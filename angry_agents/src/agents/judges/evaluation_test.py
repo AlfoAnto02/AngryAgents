@@ -13,7 +13,7 @@ from .style_judge import StyleJudge
 
 CHAT_FILE = Path(__file__).parents[4] / "data" / "eval" / "chat_simulation_with_embedding" / "transcript.jsonl"
 PERSONAS_DIR = Path(__file__).parents[4] / "data" / "personas"
-EVAL_DIR = Path(__file__).parents[2] / "judge_eval"
+EVAL_DIR = Path(__file__).parents[2] / "src" / "agents" / "judges" / "judge_eval"
 
 JUDGES = [
     ("style",    StyleJudge()),
