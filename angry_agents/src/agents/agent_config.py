@@ -64,35 +64,36 @@ def _parse_json_scores(raw: str, authors: list[str]) -> dict[str, int]:
     return {a: int(scores_raw.get(a, 1)) for a in authors}
 
 
-def _ollama_call(system: str, user: str, model: str) -> str:
-    payload = {
+def _ollama_call(system: str, user: str, model: str, *, json_mode: bool = False, temperature: float = 0.85) -> str:
+    payload: dict = {
         "model": model,
         "stream": False,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
-        "format": "json",
-        "options": {"temperature": 0, "num_predict": 512},
+        "options": {"temperature": temperature, "num_predict": 512},
     }
+    if json_mode:
+        payload["format"] = "json"
     resp = requests.post(f"{OLLAMA_BASE_URL}/api/chat", json=payload, timeout=None)
     resp.raise_for_status()
     return resp.json()["message"]["content"].strip()
 
 
-def _openai_call(system: str, user: str, model: str) -> str:
+def _openai_call(system: str, user: str, model: str, *, json_mode: bool = False, temperature: float = 0.85) -> str:
     if not OPENAI_API_KEY:
         raise ValueError("OPENAI_API_KEY is not set")
-    payload = {
+    payload: dict = {
         "model": model,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
-        "temperature": 0,
-        "max_tokens": None,
-        "response_format": {"type": "json_object"},
+        "temperature": temperature,
     }
+    if json_mode:
+        payload["response_format"] = {"type": "json_object"}
     headers = {"Authorization": f"Bearer {OPENAI_API_KEY}"}
     resp = requests.post(
         "https://api.openai.com/v1/chat/completions",
@@ -104,10 +105,10 @@ def _openai_call(system: str, user: str, model: str) -> str:
     return resp.json()["choices"][0]["message"]["content"].strip()
 
 
-def llm_call(system: str, user: str, model: str) -> str:
+def llm_call(system: str, user: str, model: str, *, json_mode: bool = False, temperature: float = 0.85) -> str:
     if LLM_BACKEND == "openai":
-        return _openai_call(system, user, OPENAI_MODEL)
-    return _ollama_call(system, user, model)
+        return _openai_call(system, user, OPENAI_MODEL, json_mode=json_mode, temperature=temperature)
+    return _ollama_call(system, user, model, json_mode=json_mode, temperature=temperature)
 
 
 def run_persona_identification(
@@ -141,7 +142,7 @@ def run_persona_identification(
             messages_block=messages_block,
             author_list=author_list,
         )
-        raw = llm_call(system, user, model)
+        raw = llm_call(system, user, model, json_mode=True, temperature=0)
         author_scores = _parse_json_scores(raw, authors)
         for author, score in author_scores.items():
             author_persona_scores[author].append(PersonaScore(persona_name=name, score=score))
