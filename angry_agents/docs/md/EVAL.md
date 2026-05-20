@@ -1,0 +1,267 @@
+# How Angry Agents Evaluation Works
+
+## The Big Picture
+
+The system runs group chats where 8 AI agents each pretend to be a different fictional or real-world persona (Darth Vader, a podcaster, etc.). After the chat, 20 judge-agents read the transcript and try to figure out who was who, and how well each agent stayed in character. The evaluation code measures how good the judges — and the agents — actually are.
+
+---
+
+## Step 0 — Generating the Transcript (`simulate_transcript.py`)
+
+Before any evaluation happens, the system simulates the group chat.
+
+### Who speaks when? — Dirichlet Sampling
+
+The 8 agents don't take turns equally. Their speaking probabilities are drawn from a **Dirichlet distribution**:
+
+```
+weights ~ Dirichlet([α, α, α, ..., α])   (8 values, one per agent)
+```
+
+The parameter `α` controls fairness:
+- `α = 0.5` → one agent dominates (very unequal)
+- `α = 2.0` → moderate inequality (like real group chats)
+- `α = 8.0` → near-equal turns
+
+At each turn, one agent is randomly chosen using these weights. The result is a chat that naturally has some agents talking more than others — which is realistic.
+
+### Perturbation — Preventing Groupthink
+
+Every N turns for a given agent (N is randomized between 10 and 15 per agent), the system injects a **perturbation** into that agent's system prompt only. The other agents don't see it. It looks like:
+
+> "The conversation is moving toward consensus. React in a way that reflects your genuine position, even if it means disagreeing..."
+
+This forces character-consistent friction and prevents all agents from converging into generic agreement.
+
+### Drift Detection (optional)
+
+If an embedding model is enabled, after each turn the system computes the pairwise **cosine similarity** across all agents' last-turn message embeddings:
+
+```
+drift_score = mean of cosine_sim(agent_i_last_msg, agent_j_last_msg) for all pairs i ≠ j
+```
+
+If `drift_score > threshold` (default 0.85), agents are sounding too similar — a perturbation fires early regardless of the N-turn schedule.
+
+---
+
+## Step 1 — Persona Identification (`metrics_persona_id.py`)
+
+**Question:** Can judges correctly guess which anonymous author tag corresponds to which persona?
+
+There are 8 personas and 8 author tags. Random guessing would be right 1/8 = **12.5%** of the time. That's the baseline.
+
+### Accuracy
+
+For each judge, for each persona, we check: did the judge's predicted author tag match the true author tag?
+
+```
+accuracy = number of correct guesses / total guesses
+```
+
+This is computed per judge and also aggregated across all judges.
+
+### Binomial Exact Confidence Interval
+
+We use a **binomial exact test** (Clopper-Pearson method) to build a 95% confidence interval around the aggregate accuracy.
+
+If judges got `k` correct out of `n` total guesses, the CI is computed via `scipy.stats.binomtest`:
+
+```
+H₀: true accuracy = 1/8 = 0.125
+alternative: true accuracy > 0.125 (one-sided)
+```
+
+If `p-value < 0.05`, we reject H₀ and conclude judges are doing better than random.
+
+### Confusion Matrix
+
+We build an 8×8 matrix where entry `[i][j]` = how many times the true persona was `i` but the judge predicted `j`. The diagonal = correct guesses, off-diagonal = mistakes.
+
+Then we run a **chi-square test** to check whether the mistakes are random or systematic:
+
+```
+Expected mistakes per off-diagonal cell = total_errors / (8 × 7)
+```
+
+If `chi2_p < 0.05`, some personas are being confused with specific others more than chance — there's a pattern in the errors.
+
+---
+
+## Step 2 — Individual Fidelity (`metrics_fidelity.py`)
+
+**Question:** For each persona, how convincingly did the agent portray that character? Judges give scores from 1 to 5.
+
+The "true fidelity" score for a persona is the score a judge assigned to the **real author** of that persona (not the author the judge guessed — the actual one, resolved via `author_map`).
+
+### Statistics per Persona
+
+For each persona, across all judges and judge types, we compute:
+
+```
+median(scores)
+IQR = Q3 - Q1 = 75th percentile - 25th percentile
+variance = sum((x - mean)²) / (n - 1)   [sample variance, ddof=1]
+std = sqrt(variance)
+```
+
+The **median** is preferred over the mean because fidelity scores are ordinal (1–5) and the distribution may be skewed. The **IQR** tells us how much judges disagreed.
+
+### Bootstrap 95% CI on the Median
+
+Because the median doesn't have a simple formula for confidence intervals, we use **non-parametric bootstrapping**:
+
+1. Resample the scores with replacement 10,000 times
+2. Compute the median of each resample
+3. The 2.5th and 97.5th percentiles of those 10,000 medians = the 95% CI
+
+```
+CI = [percentile(bootstrap_medians, 2.5%), percentile(bootstrap_medians, 97.5%)]
+```
+
+This works even with small sample sizes and makes no assumption about the distribution shape.
+
+### Judge Type Agreement
+
+There are 4 judge types: `style`, `ideology`, `general`, `behavioral`. We check whether different judge types agree with each other using **Mean Absolute Deviation (MAD)** between their median scores:
+
+```
+MAD(style, ideology) = |median_score_style - median_score_ideology|
+```
+
+Lower MAD = more agreement between those two judge types. This is computed for every pair of judge types.
+
+---
+
+## Step 3 — Group Fidelity (`metrics_group.py`)
+
+**Question:** Does the group chat look like a real group chat, in terms of turn distribution and topic diversity?
+
+### Gini Coefficient
+
+The Gini coefficient measures inequality in how many turns each agent took. It comes from economics (income inequality) but works perfectly here:
+
+```
+Gini = (2 × Σ(i × turn_count_i)) / (n × total_turns) - (n + 1) / n
+```
+
+Where the turn counts are sorted in ascending order and `i` goes from 1 to n.
+
+- `Gini = 0` → all agents spoke equally
+- `Gini = 1` → one agent spoke all turns
+- Real group chats target range: **0.28–0.42** (from reference data)
+
+The system checks whether the simulated Gini is within this range and computes a **z-score** vs the reference distribution (mean 0.33, std 0.05):
+
+```
+z = (gini - 0.33) / 0.05
+```
+
+Bootstrap CI on Gini is also computed (same 10,000-resample method as above).
+
+### Cosine Distance Matrix (optional)
+
+If message embeddings are available (one embedding vector per agent, averaged over all their messages), we build an **8×8 pairwise cosine distance matrix**:
+
+```
+cosine_distance(agent_i, agent_j) = 1 - cosine_similarity(v_i, v_j)
+                                  = 1 - (v_i · v_j) / (||v_i|| × ||v_j||)
+```
+
+Distance = 0 means two agents talked about exactly the same things in exactly the same way. Distance close to 1 means their messages were very different.
+
+This tells us: are agents staying in their own character lane, or are they sounding like each other?
+
+### Spearman Correlation vs Reference (optional)
+
+If a reference distance matrix from real conversations is provided, we compare our simulated matrix to it using **Spearman rank correlation**:
+
+1. Flatten the upper triangle of both matrices into two vectors (28 values each for 8×8)
+2. Rank-correlate them: `rho, p = spearmanr(sim_flat, ref_flat)`
+
+```
+rho ∈ [-1, 1]
+rho = 1 → simulated chat has same inter-agent distance structure as real chat
+rho = 0 → no relationship
+```
+
+Bootstrap CI on rho uses the same 10,000-resample method.
+
+---
+
+## Step 4 — Deliberation (`metrics_deliberation.py`)
+
+**Question:** When judges discuss disagreements together (Phase 2), do they converge on correct answers? Do judges who become more confident actually become more accurate?
+
+### Variance Reduction (Convergence)
+
+For each contested case, judges submit ratings across multiple rounds (round 0 = initial, round 1–3+ = after deliberation). We compute variance of ratings at each round:
+
+```
+variance_round_r = Σ(rating_i - mean_rating)² / (n - 1)
+```
+
+A case **converged** if `variance_final_round < variance_round_0`. This is a simple but direct test: did the judges agree more after talking?
+
+We also run an **F-test** between round 0 and the final round ratings to check whether the variance reduction is statistically significant:
+
+```
+F-test: H₀ = variance_round_0 == variance_final_round
+p-value < 0.05 → significant variance reduction
+```
+
+### Convergence Rate with Binomial CI
+
+```
+convergence_rate = n_converged_cases / n_total_cases
+```
+
+We wrap this in a **two-sided binomial CI** (same exact method as persona identification) to give a range around the convergence rate.
+
+### Confidence Calibration
+
+Judges also report self-rated **confidence** (1–5) per round. We track how confidence changes from round 0 to the final round: `Δconfidence = final_confidence - initial_confidence`.
+
+**a. Δconfidence vs Δaccuracy — Pearson correlation**
+
+If ground truth ratings are available (the "real" correct answer per case), we compute:
+
+```
+Δaccuracy = (1 if final_rating == ground_truth else 0) - (1 if initial_rating == ground_truth else 0)
+```
+
+Then: `r, p = pearsonr(Δconfidence_list, Δaccuracy_list)`
+
+- `r > 0` → judges who become more confident actually get more accurate (good calibration)
+- `r < 0` → judges who become more confident are getting *less* accurate (overconfidence — a flag)
+
+Bootstrap CI on r is computed with 5,000 resamples.
+
+**b. Calibration Curve**
+
+At the final round, for each confidence level 1–5, we compute: among all (judge, case) pairs where the judge reported that confidence level, what fraction got the correct answer?
+
+```
+accuracy_at_confidence_level_c = correct_at_c / total_at_c
+```
+
+A well-calibrated judge at confidence=5 should have high accuracy. If accuracy at confidence=5 is similar to accuracy at confidence=1, the judge's confidence is meaningless.
+
+---
+
+## The Bootstrap Engine (`bootstrap.py`)
+
+Nearly every module calls `bootstrap_ci()`. It's general-purpose: you pass it any array and any statistic function, and it returns a CI without assuming any particular distribution.
+
+```python
+for i in range(10_000):
+    sample = resample(data, with_replacement=True)
+    stats[i] = stat_fn(sample)
+
+lo = percentile(stats, 2.5%)
+hi = percentile(stats, 97.5%)
+```
+
+This is used for: median CI on fidelity scores, Gini CI, Spearman rho CI, Pearson r CI on calibration. All non-parametric, all safe for small samples.
+
+---
