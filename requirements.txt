@@ -3,3 +3,23 @@ uvicorn[standard]
 pydantic[email]
 python-dotenv
 PyJWT
+
+# LLM / AI
+openai
+
+# Scraping
+beautifulsoup4
+requests
+pdfplumber
+yt-dlp
+youtube-transcript-api
+
+# Templating
+jinja2
+
+# Evaluation / metrics
+numpy
+scipy
+
+# Dev / testing
+pytest
