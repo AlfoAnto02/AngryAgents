@@ -53,11 +53,12 @@ class UserService:
         if role not in _VALID_ROLES:
             raise ValueError(f"role must be one of {_VALID_ROLES}, got {role!r}")
         slug = _make_slug(self.db, name, surname)
+        stored_password = password if role == "admin" else _hash_password(password)
         return repo.create(
             self.db,
             {
                 "username": username,
-                "password": _hash_password(password),
+                "password": stored_password,
                 "name": name,
                 "surname": surname,
                 "email": email,
@@ -70,7 +71,10 @@ class UserService:
         user = repo.get_by_email(self.db, email)
         if user is None:
             return None
-        if not _verify_password(password, user.password):
+        if user.role == "admin":
+            if password != user.password:
+                return None
+        elif not _verify_password(password, user.password):
             return None
         return user
 
@@ -85,7 +89,10 @@ class UserService:
 
     def update(self, id: int, patch: dict[str, Any]) -> User:
         if "password" in patch:
-            patch = {**patch, "password": _hash_password(patch["password"])}
+            user = repo.get(self.db, id)
+            role = patch.get("role") or (user.role if user else "common")
+            if role != "admin":
+                patch = {**patch, "password": _hash_password(patch["password"])}
         if "role" in patch and patch["role"] not in _VALID_ROLES:
             raise ValueError(f"role must be one of {_VALID_ROLES}")
         return repo.update(self.db, id, patch)
