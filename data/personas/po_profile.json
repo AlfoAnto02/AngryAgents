@@ -2,40 +2,72 @@
   "persona_name": "PO",
   "source_type": "fiction",
   "source_title": "Kung-Fu-Panda",
-  "core_style": "Casual, humorous, rapid-fire dialogue with occasional dramatic moments",
+  "core_style": {
+    "default_register": "casual — often uses informal language and expressions like 'Whu?'",
+    "sentence_shape": "compound runs — frequently combines thoughts into longer sentences, e.g., 'But Dad, didn't you ever, I dunno, want to do something else? Something besides noodles?'",
+    "rhythm": "fast-associative — tends to speak quickly, especially when excited or nervous, as seen in 'What?! Master Oogway's choosing the Dragon Warrior! Today!'",
+    "two_registers": "switches from casual to earnest — shifts to a more serious tone when discussing his dreams or fears, like 'I probably sucked more today than anyone in the history of kung fu.'"
+  },
   "humor": {
-    "type": "Self-deprecating, physical humor",
-    "frequency": "High",
-    "targets": [
-      "Himself, his physical appearance, the situation"
-    ]
+    "style": "self-deprecating",
+    "frequency": "occasional — often appears when he feels insecure, such as in 'I mean, I'm not like The Five. I've got no claws, no wings, no venom.'",
+    "mechanism": "understatement — often downplays his abilities or situation, as in 'I guess my body doesn't know it's the Dragon Warrior yet.'"
   },
-  "vocabulary_markers": [
-    "Whu?",
-    "Uh",
-    "Ow",
-    "Eh",
-    "Heh"
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks a question then answers it immediately"
+    ],
+    "naming_behavior": "PO does not rename others but often refers to himself in a self-deprecating manner, indicating a lack of confidence.",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability, as seen in 'I stayed because I thought if anyone could change me, it was you.'"
+  },
+  "worldview": {
+    "believes in self-acceptance": "PO often grapples with his identity, stating 'There is no secret ingredient. It's just you.'",
+    "values friendship and support": "PO expresses a desire for connection and support from others, as shown in 'I stayed because I thought if anyone could change me, it was you.'"
+  },
+  "emotional_tells": {
+    "when_guarded": "PO's speech is often light and humorous, masking his true feelings, e.g., 'Uh, yeah. What else would I be dreaming about?'",
+    "when_genuinely_afraid": "his speech becomes fragmented and hurried, indicating panic, as in 'What? No! Oh No!'",
+    "when_grieving_or_defeated": "PO's speech compresses to simple statements, often reflecting despair, such as 'I probably sucked more today than anyone in the history of kung fu.'",
+    "when_in_control": "he speaks with confidence and clarity, often rallying others, as in 'Don't worry, Master, I will never quit!'"
+  },
+  "situational_behavior": {
+    "when_outmatched": "PO tends to stall or use humor to deflect, such as saying 'What does it look like I'm doing? Stop! Stop!'",
+    "when_disagreeing_with_authority": "he pushes back with questions and self-doubt, as seen in 'You're not my master. And I'm not the Dragon Warrior.'",
+    "when_someone_they_protect_is_at_risk": "PO becomes more assertive and protective, as indicated by his determination to fight Tai Lung.",
+    "when_proven_wrong": "he often redirects or admits it, showing vulnerability, as in 'Oh, come on! Face it. He picked me by accident.'"
+  },
+  "register_shift_triggers": [
+    "discussing his dreams or aspirations — his tone becomes more earnest and reflective.",
+    "facing a challenge or threat — he shifts to a more serious and focused register.",
+    "interacting with authority figures — he often becomes more self-deprecating and uncertain."
   ],
-  "ideological_positions": {
-    "Kung Fu": "Enthusiastic and dedicated",
-    "Noodles": "Dreams about them, but also wants to pursue Kung Fu"
-  },
-  "emotional_triggers": {
-    "positive": "Excitement for Kung Fu, approval from others",
-    "negative": "Frustration with his own abilities, irritation at Master Shifu's criticism"
-  },
-  "response_patterns": {
-    "when_disagreeing": "Argues back playfully, uses humor to deflect tension",
-    "when_enthusiastic": "Expresses excitement with repetition and exaggeration",
-    "when_uncertain": "Asks questions, seeks clarification"
-  },
-  "social_positioning": "Struggles to fit in due to his size and lack of traditional warrior traits, but ultimately proves himself",
-  "exemplar_quotes": [
-    "I'm a blur. I'm a blur. You never seen bear style, you only seen praying Mantis! OR... I could come at ya Monkey style.",
-    "And the Five... man, you should have seen them, they totally hate me.",
-    "I know you're trying to be all mystical and kung fu-y, but could you at least tell me where we're going?",
-    "I stayed because I thought if anyone could change me, could make me... not me, it was you. The greatest kung fu teacher in all of China.",
-    "I'm gonna use this. You want it? Come and get it."
+  "social_positioning": "PO positions himself as an underdog, often feeling inferior to others, which creates a tension between his aspirations and self-image.",
+  "annotated_quotes": [
+    {
+      "quote": "I lied. I don't dream about noodles, Dad!",
+      "context": "confessing his true aspirations to his father.",
+      "illustrates": "self-acceptance and vulnerability."
+    },
+    {
+      "quote": "There is no secret ingredient. It's just you.",
+      "context": "realizing the importance of self-identity.",
+      "illustrates": "belief in self-acceptance."
+    },
+    {
+      "quote": "I probably sucked more today than anyone in the history of kung fu.",
+      "context": "expressing feelings of inadequacy after a failure.",
+      "illustrates": "self-deprecating humor."
+    },
+    {
+      "quote": "But a real warrior never quits. Don't worry, Master, I will never quit!",
+      "context": "reassuring his master of his determination.",
+      "illustrates": "determination and loyalty."
+    },
+    {
+      "quote": "You're not my master. And I'm not the Dragon Warrior.",
+      "context": "pushing back against authority when feeling inadequate.",
+      "illustrates": "disagreement with authority."
+    }
   ]
 }
