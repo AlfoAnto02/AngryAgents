@@ -577,6 +577,175 @@
         <div class="slide-number">03</div>
     </section>
 
+    
+    <!-- Incolla questo blocco dopo la sezione slide 04, prima della slide 05 -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal">How Many Tags Should Judges See?</h2>
+            <p class="reveal">
+                The persona identification task depends critically on the <span class="highlight">candidate set</span> shown to judges.
+                Three design choices exist, each with different statistical and practical implications.
+            </p>
+
+            <div class="three-col reveal">
+                <div class="three-col-item">
+                    <h4 style="color: var(--accent-pink);">Option A — Closed Set</h4>
+                    <p>
+                        Judges receive exactly the <strong style="color: var(--text-primary);">8 tags present in the chat</strong>.
+                        It's a forced-choice assignment: every tag must be used exactly once.
+                    </p>
+                    <div class="formula-box" style="margin-top: var(--element-gap); font-size: var(--small-size);">
+    Random baseline = 1/8 ≈ 12.5%
+    <br/>All 8 tags guaranteed used
+    <br/>No "none of the above" option
+                    </div>
+                    <p style="margin-top: var(--element-gap); color: var(--accent-warm);">
+                        ✓ Cleanest statistic<br/>✗ Artificially constrains the task
+                    </p>
+                </div>
+
+                <div class="three-col-item">
+                    <h4 style="color: var(--accent-gold);">Option B — Expanded Set</h4>
+                    <p>
+                        Judges receive <strong style="color: var(--text-primary);">K &gt; 8 tags</strong> (e.g., 12 o 16), including decoys not present in the chat.
+                        They must identify which 8 belong.
+                    </p>
+                    <div class="formula-box" style="margin-top: var(--element-gap); font-size: var(--small-size);">
+    Random baseline = 1/K per tag
+    <br/>= 1/12 ≈ 8.3% (K=12)
+    <br/>Lower floor → harder task
+                    </div>
+                    <p style="margin-top: var(--element-gap); color: var(--accent-warm);">
+                        ✓ More realistic<br/>✗ Harder to aggregate stats
+                    </p>
+                </div>
+
+                <div class="three-col-item">
+                    <h4 style="color: var(--accent-warm);">Option C — Full Database</h4>
+                    <p>
+                        Judges choose from the <strong style="color: var(--text-primary);">entire agent database</strong> (N agents).
+                        No pre-selection: the judge must identify all 8 personas from scratch.
+                    </p>
+                    <div class="formula-box" style="margin-top: var(--element-gap); font-size: var(--small-size);">
+    Random baseline ≈ 8 / N
+    <br/>C(N,8) possible assignments
+    <br/>Near-zero random baseline
+                    </div>
+                    <p style="margin-top: var(--element-gap); color: var(--accent-warm);">
+                        ✓ Most ecologically valid<br/>✗ Cognitive overload on judges
+                    </p>
+                </div>
+            </div>
+
+            <div class="accent-divider reveal"></div>
+
+            <div class="problem-solution reveal" style="margin-top: 0;">
+                <div class="problem-box">
+                    <h4>Statistical Impact</h4>
+                    <p>
+                        The random baseline changes with the candidate set size. Option A gives the highest baseline (12.5%), making it easier to show significance.
+                        Options B and C lower the baseline, so a given accuracy looks <em>more</em> impressive — but the task itself is harder, meaning raw accuracy will also drop.
+                        The binomial CI and chi-square test still apply in all cases; only the H₀ value changes.
+                    </p>
+                </div>
+                <div class="solution-box">
+                    <h4>Recommendation</h4>
+                    <p>
+                        A pragmatic middle ground: use <strong>Option B with a fixed K</strong> (e.g., K = 16, so 8 correct + 8 decoys drawn randomly from the DB).
+                        This keeps the task tractable for judges, keeps the random baseline stable and well-defined (1/16 per tag = 6.25%), and better reflects real-world disambiguation conditions than a closed forced-choice.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">04</div>  <!-- aggiusta il numero -->
+    </section>
+
+    <!-- =================================================================
+     SLIDE X: HOW SHOULD JUDGES SUBMIT THEIR GUESS?
+     ================================================================= -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal">How Should Judges Submit Their Guess?</h2>
+            <p class="reveal">
+                Once a judge has read the conversation, how should the identification response be structured?
+                A <span class="highlight">point guess</span> is simple but lossy — a <span class="highlight">scored ranking</span> preserves richer signal at higher cost.
+            </p>
+
+            <div class="problem-solution reveal">
+                <div class="problem-box">
+                    <h4>Option A — Hard Guess</h4>
+                    <p>
+                        The judge assigns each anonymous tag to exactly one persona name.
+                        One answer per tag, no probability or confidence expressed.
+                    </p>
+                    <div class="formula-box" style="margin-top: var(--element-gap); font-size: var(--small-size);">
+    Input: tag_i → persona_j  (1-to-1 mapping)
+    <br/>Output: correct / wrong  (binary per tag)
+    <br/>Metric: accuracy = k correct / n total
+                    </div>
+                    <p style="margin-top: var(--element-gap);">
+                        <span style="color: var(--accent-gold);">✓ Minimal tokens — fast, cheap<br/>
+                        ✓ Simple metric (binomial CI applies directly)<br/>
+                        ✗ No signal when wrong — all errors look equal<br/>
+                        ✗ "Almost right" guesses indistinguishable from random</span>
+                    </p>
+                </div>
+                <div class="solution-box">
+                    <h4>Option B — Fidelity-Scored Ranking</h4>
+                    <p>
+                        For each tag, the judge scores <em>every candidate persona</em> on fidelity (1–5).
+                        The persona with the highest total score becomes the hard guess; the full ranking is also recorded.
+                    </p>
+                    <div class="formula-box" style="margin-top: var(--element-gap); font-size: var(--small-size);">
+    For each tag_i: score(persona_j) ∀ j ∈ K
+    <br/>guess = argmax_j score(tag_i, persona_j)
+    <br/>Output: ranked list + hard guess
+                    </div>
+                    <p style="margin-top: var(--element-gap);">
+                        <span style="color: var(--accent-warm);">✓ Richer signal even when wrong<br/>
+                        ✓ Ranking enables Spearman / NDCG metrics<br/>
+                        ✓ Naturally integrates with fidelity scoring<br/>
+                        ✗ K × 8 scoring calls → token cost scales with K<br/>
+                        ✗ Judge prompt complexity grows significantly</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="accent-divider reveal"></div>
+
+            <div class="three-col reveal">
+                <div class="three-col-item">
+                    <h4>Token Cost Scaling</h4>
+                    <p>
+                        Option A costs <strong style="color: var(--text-primary);">O(1)</strong> per tag.
+                        Option B costs <strong style="color: var(--text-primary);">O(K)</strong> per tag —
+                        with K = 16 candidates and 8 tags, each judge produces
+                        128 individual fidelity scores per conversation.
+                        Multiplied across 20 judges, this is a significant token budget increase.
+                    </p>
+                </div>
+                <div class="three-col-item">
+                    <h4>Interaction with Candidate Set</h4>
+                    <p>
+                        Option B's cost is directly coupled to the candidate set size K chosen in the previous design decision.
+                        Closed set (K = 8) → 64 scores/judge.
+                        Expanded set (K = 16) → 128 scores/judge.
+                        Full DB (K = N) → prohibitive. Option B only makes sense with a bounded K.
+                    </p>
+                </div>
+                <div class="three-col-item">
+                    <h4>Recommended Approach</h4>
+                    <p>
+                        Use <span class="highlight">Option A</span> for the identification task (hard guess only) and keep
+                        fidelity scoring in the dedicated Pool 2. Mixing scoring into the identification task
+                        inflates complexity without proportional gain — the ranking signal is already
+                        captured more cleanly by Pool 2's targeted fidelity prompts.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">0X</div>
+    </section>
     <!-- =================================================================
          SLIDE 4: PERSONA IDENTIFICATION & FIDELITY
          ================================================================= -->
@@ -614,11 +783,12 @@ H₀: true accuracy = 0.125
                 ✓ If judges pass: personas are distinguishable and evaluation can proceed reliably
             </p>
         </div>
-        <div class="slide-number">04</div>
+        <div class="slide-number">05</div>
     </section>
 
+
     <!-- =================================================================
-         SLIDE 5: FIDELITY & AGGREGATION UNCERTAINTY
+         SLIDE 6: FIDELITY & AGGREGATION UNCERTAINTY
          ================================================================= -->
     <section class="slide">
         <div class="slide-content">
@@ -652,11 +822,11 @@ Resample scores 10,000× with replacement
                 Non-parametric, works with small samples, no distributional assumptions needed.
             </p>
         </div>
-        <div class="slide-number">05</div>
+        <div class="slide-number">06</div>
     </section>
 
     <!-- =================================================================
-         SLIDE 6: GROUP DYNAMICS & DELIBERATION
+         SLIDE 7: GROUP DYNAMICS & DELIBERATION
          ================================================================= -->
     <section class="slide">
         <div class="slide-content">
@@ -700,11 +870,11 @@ dist = 1 − (v<sub>i</sub>·v<sub>j</sub>)
                 </div>
             </div>
         </div>
-        <div class="slide-number">06</div>
+        <div class="slide-number">07</div>
     </section>
 
     <!-- =================================================================
-         SLIDE 7: CONFIDENCE CALIBRATION & TAKEAWAYS
+         SLIDE 8: CONFIDENCE CALIBRATION & TAKEAWAYS
          ================================================================= -->
     <section class="slide">
         <div class="slide-content">
@@ -738,9 +908,92 @@ dist = 1 − (v<sub>i</sub>·v<sub>j</sub>)
                 <li><span class="highlight">Systematic evaluation frameworks</span> enable reliable assessment of multi-agent conversational AI at scale</li>
             </ul>
         </div>
-        <div class="slide-number">07</div>
+        <div class="slide-number">08</div>
     </section>
 
+    <!-- =================================================================
+     SLIDE X: HOW TO MEASURE INDIVIDUAL FIDELITY — OPEN QUESTION
+     ================================================================= -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal">How Should Individual Fidelity Be Measured?</h2>
+            <p class="reveal">
+                Two competing designs exist for collecting fidelity scores (1–5).
+                The choice affects <span class="highlight">prompt specificity</span>, <span class="highlight">cognitive load</span>, and <span class="highlight">evaluation cost</span>.
+            </p>
+
+            <div class="problem-solution reveal">
+                <div class="problem-box">
+                    <h4>Option A — Sequential (Same Judges)</h4>
+                    <p>
+                        The same 20 judges first perform the blind persona-identification guess.
+                        Then they are shown the correct author map and <em>retrospectively</em> score each agent on fidelity (1–5).
+                    </p>
+                    <div class="formula-box" style="margin-top: var(--element-gap); font-size: var(--small-size);">
+    Phase 1 → blind guess (identification)
+    <br/>Phase 2 → reveal correct map
+    <br/>Phase 3 → fidelity score per agent
+                    </div>
+                    <p style="margin-top: var(--element-gap);">
+                        <span style="color: var(--accent-gold);">✓ Lower cost — one judge pool<br/>
+                        ✓ Same judge sees both tasks → richer signal<br/>
+                        ✗ Anchoring bias: knowing the answer may inflate scores<br/>
+                        ✗ Prompt must serve two goals → less focused</span>
+                    </p>
+                </div>
+                <div class="solution-box">
+                    <h4>Option B — Parallel (Dedicated Judge Pools)</h4>
+                    <p>
+                        Two separate judge pools with distinct prompts.
+                        Pool 1 (20 judges): blind identification only.
+                        Pool 2 (N judges): shown persona descriptions upfront, score fidelity directly.
+                    </p>
+                    <div class="formula-box" style="margin-top: var(--element-gap); font-size: var(--small-size);">
+    Pool 1 → identification task only
+    <br/>Pool 2 → fidelity task only
+    <br/>(persona info given from the start)
+                    </div>
+                    <p style="margin-top: var(--element-gap);">
+                        <span style="color: var(--accent-warm);">✓ Each prompt is laser-focused → better signal<br/>
+                        ✓ No anchoring between tasks<br/>
+                        ✓ Pool 2 can use fewer judges (4 types × N)<br/>
+                        ✗ Higher total cost — two separate runs</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="accent-divider reveal"></div>
+
+            <div class="three-col reveal">
+                <div class="three-col-item">
+                    <h4>Anchoring Risk</h4>
+                    <p>
+                        In Option A, after seeing the correct answer a judge's fidelity score may reflect
+                        <em>"I should have guessed this"</em> rather than genuine character consistency.
+                        This inflates scores and correlates them with identification accuracy — conflating two separate signals.
+                    </p>
+                </div>
+                <div class="three-col-item">
+                    <h4>Prompt Contamination</h4>
+                    <p>
+                        A single judge receiving both tasks needs a prompt that covers identification logic
+                        <em>and</em> fidelity rubrics. This makes the prompt longer, noisier, and harder to validate.
+                        Option B allows each prompt to be minimal and purpose-built.
+                    </p>
+                </div>
+                <div class="three-col-item">
+                    <h4>Recommended Approach</h4>
+                    <p>
+                        Prefer <span class="highlight">Option B</span> if budget allows.
+                        For Pool 2, 4 judge types × 3–5 judges each (12–20 total) is sufficient for
+                        stable median + bootstrap CI. The extra cost is modest relative to the gain in
+                        signal cleanliness and construct validity.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">0X</div>
+    </section>
     <!-- =================================================================
          JAVASCRIPT: PRESENTATION CONTROLLER
          ================================================================= -->
