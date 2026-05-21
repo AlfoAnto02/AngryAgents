@@ -176,7 +176,7 @@ convergence_rate = n_converged_cases / n_total_cases
 
 We wrap this in a **two-sided binomial CI** (same exact method as persona identification) to give a range around the convergence rate.
 
-### Confidence Calibration
+### Confidence Calibration (To consider if it is worthy or not)
 
 Judges also report self-rated **confidence** (1–5) per round. We track how confidence changes from round 0 to the final round: `Δconfidence = final_confidence - initial_confidence`.
 

@@ -28,10 +28,10 @@
             --font-body: 'IBM Plex Sans', sans-serif;
             --title-size: clamp(1.5rem, 5vw, 4rem);
             --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
-            --h3-size: clamp(1rem, 2.5vw, 1.75rem);
-            --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
-            --small-size: clamp(0.65rem, 1vw, 0.875rem);
-            --code-size: clamp(0.65rem, 1.2vw, 0.95rem);
+            --h3-size: clamp(1.15rem, 2.8vw, 2rem);
+            --body-size: clamp(0.9rem, 1.8vw, 1.3rem);
+            --small-size: clamp(0.8rem, 1.3vw, 1.05rem);
+            --code-size: clamp(0.8rem, 1.4vw, 1.1rem);
 
             /* Spacing */
             --slide-padding: clamp(1.5rem, 4vw, 4rem);
@@ -854,7 +854,6 @@ Gini = (2Σ<sub>i</sub> i·count<sub>i</sub>)/(n·total)
 dist = 1 − (v<sub>i</sub>·v<sub>j</sub>)
 <br/>/ (‖v<sub>i</sub>‖ × ‖v<sub>j</sub>‖)
                     </div>
-                    <p style="margin-top: var(--element-gap);">Compare simulated to reference via Spearman ρ.</p>
                 </div>
 
                 <div class="three-col-item">
@@ -897,16 +896,6 @@ dist = 1 − (v<sub>i</sub>·v<sub>j</sub>)
                 </span>
             </div>
 
-            <div class="accent-divider reveal"></div>
-
-            <h3 class="reveal" style="color: var(--accent-gold); margin-top: var(--content-gap);">Key Takeaways</h3>
-            <ul class="bullet-list reveal">
-                <li><span class="highlight">Perturbations + drift detection</span> maintain persona diversity and prevent collapse to consensus</li>
-                <li><span class="highlight">Statistical rigor</span> (binomial CIs, bootstrap, Spearman rank) avoids overconfident conclusions from small samples</li>
-                <li><span class="highlight">Aggregation strategy is still open:</span> median vs. mean trade-offs warrant transparency and sensitivity analysis</li>
-                <li><span class="highlight">Multi-faceted evaluation</span> (identification, fidelity, group dynamics, deliberation, calibration) captures conversation quality comprehensively</li>
-                <li><span class="highlight">Systematic evaluation frameworks</span> enable reliable assessment of multi-agent conversational AI at scale</li>
-            </ul>
         </div>
         <div class="slide-number">08</div>
     </section>
