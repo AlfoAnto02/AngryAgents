@@ -118,9 +118,17 @@ Rules before you start:
 in specific lines from this transcript.
 - For worldview: only assert a belief if "{character}" explicitly states it OR \
 demonstrates it across at least 3 distinct scenes. No reputation-based inference.
+- For vocabulary_fingerprint: only include words/phrases that recur across at least \
+3 different scenes — not one-off lines.
+- For relationship_matrix: only include characters who actually appear in this transcript. \
+Do not invent relationships.
+- For backstory_anchors: only include events explicitly referenced in dialogue — \
+not implied by plot.
 - For annotated_quotes: pick only lines that ONLY "{character}" would say in this way. \
 Reject anything a generic protagonist could say. Maximum 5 quotes, each proving a \
 different dimension.
+- For do_not_say: write plausible-sounding lines this character would NEVER produce — \
+they must contradict a specific, named profile dimension (state which one).
 
 Return this exact JSON structure (fill every field):
 
@@ -137,16 +145,27 @@ Return this exact JSON structure (fill every field):
   "humor": {{
     "style": "<dark/self-deprecating/absurdist/deadpan/deflecting/none>",
     "frequency": "<rare/occasional/constant — and when it spikes or disappears entirely>",
-    "mechanism": "<the structural move that makes jokes land: setup-then-subvert, nickname-as-weapon, understatement, callback, irony — be specific, not generic>"
+    "mechanism": "<the structural move that makes jokes land: setup-then-subvert, nickname-as-weapon, understatement, callback, contemptuous irony — be specific, not generic>"
   }},
   "speech_signature": {{
     "structural_patterns": ["<a recurring syntactic construction, not a word: e.g. 'builds a list and corrupts the last entry', 'asks a question then answers it immediately', 'self-interrupts before an emotional pivot'>"],
     "naming_behavior": "<does this character rename people or things? if so, what does that naming reveal about their relationship to power or control>",
     "armor_off_register": "<what the speech looks like when the default register drops: shorter/longer/slower/specific word choices — give a concrete marker>"
   }},
+  "vocabulary_fingerprint": {{
+    "favored_words": ["<word or phrase that recurs across 3+ scenes>", "<another>", "<another>"],
+    "domain_jargon": "<specialized vocabulary domain this character draws from and why — e.g. legal/chemistry/military — or 'none'>",
+    "avoided_words": ["<word class or specific word this character never uses — e.g. 'apology language', 'please', 'maybe'>"],
+    "filler_patterns": "<habitual filler or pause behavior: ellipsis use, sentence restarts, silence — or 'none'>"
+  }},
   "worldview": {{
     "<belief or value grounded in the transcript>": "<how it concretely manifests in behavior or speech — cite the pattern, not the conclusion>",
     "<belief or value grounded in the transcript>": "<how it concretely manifests in behavior or speech>"
+  }},
+  "self_image_vs_reality": {{
+    "self_image": "<one clause: how this character narrates their own identity and motives>",
+    "reality": "<one clause: what the transcript reveals their actual driver to be — cite a behavioral pattern>",
+    "gap_behavior": "<what they say or do when the gap between self-image and reality is exposed>"
   }},
   "emotional_tells": {{
     "when_guarded": "<what speech looks like in default protective mode — the surface the world sees>",
@@ -160,12 +179,26 @@ Return this exact JSON structure (fill every field):
     "when_someone_they_protect_is_at_risk": "<how behavior and speech change>",
     "when_proven_wrong": "<do they admit it, redirect, double down, or go silent>"
   }},
-  "register_shift_triggers": [
-    "<concrete situation or topic from the script that causes the default register to break — describe what happens to the speech>",
-    "<another trigger>",
-    "<another trigger>"
+  "escalation_pattern": "<the sequence of moves this character makes when not getting what they want — describe each stage and what triggers the next>",
+  "conversation_goals": [
+    "<what this character is typically trying to achieve in an interaction — e.g. 'establish dominance', 'extract information without revealing intent'>",
+    "<another recurring goal>",
+    "<another recurring goal>"
   ],
-  "social_positioning": "<one sentence: how they position themselves relative to others, what it costs them, and what contradiction it creates>",
+  "relationship_matrix": {{
+    "<character name from this transcript>": "<one clause: the dynamic — power direction, emotional tone, what this character wants from them>",
+    "<character name from this transcript>": "<one clause>"
+  }},
+  "knowledge_domains": {{
+    "expert": ["<domain where this character speaks with authority and detail>"],
+    "surface": ["<domain they reference but don't command>"],
+    "ignorant": ["<domain where they are blind or wrong — important for authentic failure modes>"]
+  }},
+  "social_positioning": {{
+    "desired_position": "<how this character wants to be seen by others>",
+    "actual_dynamic": "<what the transcript shows others actually think of them or how power actually flows>",
+    "contradiction": "<the gap between desired and actual, and what it costs them>"
+  }},
   "annotated_quotes": [
     {{
       "quote": "<verbatim line — must be exact, must be a line only this character would say this way>",
@@ -192,7 +225,7 @@ Return this exact JSON structure (fill every field):
       "context": "<one clause>",
       "illustrates": "<specific dimension>"
     }}
-  ]
+  ],
 }}
 
 --- SCRIPT ---
@@ -394,7 +427,7 @@ def extract_profile(
             {"role": "user", "content": user_content},
         ],
         temperature=0.2,
-        max_tokens=2048,
+        max_tokens=4096,
         response_format={"type": "json_object"},
     )
     
