@@ -64,11 +64,11 @@ python -c "
 import sqlite3, hashlib, os
 from dotenv import load_dotenv
 load_dotenv()
-db = sqlite3.connect(os.getenv('ANGRY_DB_PATH', 'angry_agents.db'))
-db.execute('''INSERT OR IGNORE INTO Users (Username, Name, Surname, Email, Password_hash, Role, Slug)
+db = sqlite3.connect(os.getenv('ANGRY_DB_PATH', 'angry_agents.db'))        
+db.execute('''INSERT OR IGNORE INTO User (Username, Name, Surname, Email, Password, Role, Slug)
               VALUES (?,?,?,?,?,?,?)''',
            ('admin', 'Admin', 'User', 'admin@example.com',
-            hashlib.pbkdf2_hmac('sha256', b'password123', b'salt', 260000).hex(),
+            'password123',               
             'admin', 'admin-user'))
 db.commit(); db.close()
 print('Admin created')
