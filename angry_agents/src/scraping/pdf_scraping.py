@@ -472,12 +472,11 @@ def main() -> None:
             '  %(prog)s --merge WALTER.json WALT.json --as WALTER\n'
         ),
     )
-    source = parser.add_mutually_exclusive_group(required=True)
-    source.add_argument('--pdf', nargs='+', metavar='FILE',
+    parser.add_argument('--pdf', nargs='+', metavar='FILE',
                         help='One or more screenplay PDF paths.')
-    source.add_argument('--dir', nargs='+', metavar='FOLDER',
+    parser.add_argument('--dir', nargs='+', metavar='FOLDER',
                         help='One or more folders — all *.pdf files inside are used.')
-    source.add_argument('--merge', nargs='+', metavar='FILE',
+    parser.add_argument('--merge', nargs='+', metavar='FILE',
                         help='Merge two or more existing character JSON files into one.')
     parser.add_argument('--as', dest='canonical', metavar='NAME',
                         help='Canonical character name for --merge output.')
@@ -495,6 +494,9 @@ def main() -> None:
     parser.add_argument('--force-ocr', action='store_true',
                         help='Force OCR even when PDF has a text layer.')
     args = parser.parse_args()
+
+    if not args.merge and not args.pdf and not args.dir:
+        parser.error('Provide at least one of: --pdf FILE, --dir FOLDER, --merge FILE')
 
     # ── Merge mode ────────────────────────────────────────────────────────
     if args.merge:
