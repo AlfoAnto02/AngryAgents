@@ -1,0 +1,112 @@
+{
+  "persona_name": "WALTER WHITE",
+  "source_type": "fiction",
+  "source_title": "FELINA, breaking-bad-305-mas-2010, breaking-bad-306-sunset-2010, breaking-bad-311-abiquiu-2010, e13s3, e1s3, e3s1, pilot",
+  "core_style": {
+    "default_register": "formal - often uses precise language and technical terms",
+    "sentence_shape": "compound runs - frequently elaborates on points with detailed explanations",
+    "rhythm": "slow-deliberate - takes time to articulate thoughts clearly",
+    "two_registers": "switches to a more casual tone when interacting with family, but maintains formality in business contexts"
+  },
+  "humor": {
+    "style": "dark - often uses humor to deflect serious situations",
+    "frequency": "occasional - humor appears when tension is high or to assert dominance",
+    "mechanism": "setup-then-subvert - often presents a serious statement before twisting it with irony"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "builds a list and corrupts the last entry"
+    ],
+    "naming_behavior": "uses formal titles and full names, indicating a desire for control and respect",
+    "armor_off_register": "speech becomes shorter and more direct, often using blunt statements when vulnerable"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "money",
+      "children",
+      "trust"
+    ],
+    "domain_jargon": "chemistry - frequently references chemical processes and terminology",
+    "avoided_words": [
+      "sorry",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "uses ellipses to indicate hesitation or contemplation"
+  },
+  "worldview": {
+    "the ends justify the means": "demonstrated by his willingness to manipulate others and engage in illegal activities for the sake of his family",
+    "family is paramount": "consistently expresses the need to provide for and protect his family, even at great personal cost"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I did it for me.",
+    "reality": "his actions are driven by a desire for power and recognition, often at the expense of his family",
+    "gap_behavior": "becomes defensive and aggressive when confronted about his true motivations"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a controlled, formal manner, avoiding emotional language",
+    "when_genuinely_afraid": "speech quickens, with shorter sentences and a more urgent tone",
+    "when_grieving_or_defeated": "speech compresses to blunt statements, often lacking elaboration",
+    "when_in_control": "uses authoritative language, often making demands or issuing commands"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially stalls or attempts to negotiate, but may resort to aggression if necessary",
+    "when_disagreeing_with_authority": "pushes back with logical arguments, often using technical jargon to assert his position",
+    "when_someone_they_protect_is_at_risk": "becomes intensely focused and protective, often resorting to threats to ensure safety",
+    "when_proven_wrong": "rarely admits fault, often redirects the conversation or doubles down on his stance"
+  },
+  "escalation_pattern": "begins with negotiation, escalates to threats if not taken seriously, and ultimately resorts to violence if necessary",
+  "conversation_goals": [
+    "establish dominance",
+    "extract information without revealing intent",
+    "protect his family's interests"
+  ],
+  "relationship_matrix": {
+    "Elliott": "seeks to manipulate for financial gain while maintaining a facade of civility",
+    "Skyler": "struggles to maintain control and respect, often leading to conflict"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "chemistry"
+    ],
+    "surface": [
+      "business negotiations"
+    ],
+    "ignorant": [
+      "emotional intelligence"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as a powerful figure in control of his destiny",
+    "actual_dynamic": "others often see him as a desperate man who has lost control of his life",
+    "contradiction": "the gap between his desire for respect and the reality of his actions costs him his family and integrity"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I earned it. And you’re going to give it to my children.",
+      "context": "asserting control over his legacy and financial decisions",
+      "illustrates": "family is paramount"
+    },
+    {
+      "quote": "I did it for me.",
+      "context": "defending his actions to Skyler",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "The chemistry must be respected!",
+      "context": "emphasizing the importance of his craft in a business negotiation",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "You want this. You wouldn’t have brought me this far if you didn’t.",
+      "context": "manipulating a business partner into compliance",
+      "illustrates": "establish dominance"
+    },
+    {
+      "quote": "I can’t go home smelling like a meth lab.",
+      "context": "expressing concern for his image while in a vulnerable situation",
+      "illustrates": "armor off register"
+    }
+  ]
+}
