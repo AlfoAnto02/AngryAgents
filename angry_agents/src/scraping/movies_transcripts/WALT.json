@@ -1,13 +1,16 @@
 {
-  "character": "WALT",
+  "character": "WALTER WHITE",
   "films": [
     "FELINA",
+    "breaking-bad-305-mas-2010",
+    "breaking-bad-306-sunset-2010",
+    "breaking-bad-311-abiquiu-2010",
     "e13s3",
     "e1s3",
     "e3s1",
     "pilot"
   ],
-  "lines_count": 420,
+  "lines_count": 570,
   "lines": [
     {
       "scene": "INT. OLD VOLVO SEDAN - NIGHT",
@@ -383,6 +386,756 @@
       "scene": "EXT. JACK’S COMPOUND - MAIN GATE - CONTINUOUS",
       "speech_type": "direct",
       "dialogue": "Goodbye, Lydia."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I am... awake."
+    },
+    {
+      "scene": "EXT. MESA CREDIT UNION - PARKING LOT - DAY (FLASHBACK)",
+      "speech_type": "direct",
+      "dialogue": "This is all the money I have in the world. You are a drug dealer. Negotiate."
+    },
+    {
+      "scene": "EXT. MESA CREDIT UNION - PARKING LOT - DAY (FLASHBACK)",
+      "speech_type": "direct",
+      "dialogue": "Buy the RV. We start tomorrow."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - NURSERY - EVENING - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah? WALTER, JR. (O.S.) Mom’s asking, wanna come to dinner?"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - NURSERY - EVENING - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, I-I’ll be right there!"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - NURSERY - CLOSET - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You’re not listening to me. I don’t know. INTERCUT WITH:"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - SAME",
+      "speech_type": "direct",
+      "dialogue": "What did I just say?"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - SAME",
+      "speech_type": "direct",
+      "dialogue": "Correct. I did not. I was sitting at a stop light, minding my own business, when the man... the-the kid threw a bag of money through my window!"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - SAME",
+      "speech_type": "direct",
+      "dialogue": "I owe you -- I owe you nothing. And I WILL get to the bottom of this, trust me."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - SAME",
+      "speech_type": "direct",
+      "dialogue": "You wanna talk about trust, Jesse? Let’s talk about trust? I told you NOT to cook my formula and you went ahead and did it anyway!"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - SAME",
+      "speech_type": "direct",
+      "dialogue": "You did not have my permission --"
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What exactly is this?"
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’ll tell you what I think it is. A ploy. A ploy to get me cooking again. And an obvious one, at that."
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "As if I would seriously believe you would hire an addict. Jesse Pinkman? Recovering or not --"
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "No-no-no, let me be clear. Let me be perfectly clear."
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Jesse was capable of working under my supervision. Trusting him with a... solo venture? Now that’s quite another matter. How he could possibly produce anything other than a mediocre product? At best?"
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "“MORE or LESS?” “More or less,” really... wow, that is... talk about setting the bar low. Except you don’t do that. Set the bar low. Therefore, what conclusion am I left to draw?"
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That you believe I have some proprietary kind of... selfishness about my own formula. Hmm? Some sort of... overweening pride, I suppose, that you think simply overwhelms me. Clouds my judgement."
+    },
+    {
+      "scene": "INT. LOS POLLOS HERMANOS - GUS’ OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Absolutely not! I simply respect the chemistry! The chemistry must be respected!"
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What is this?"
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "My God... Thorium oxide... for a catalyst bed?! Look at the size of this reaction vessel? It’s gotta be 1200 liters. Wow."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Where-where..? How did you know how to put this all together?"
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I would... say so."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Sorry. The answer is still no."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I have made a series of very bad decisions, and I cannot make another one."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "For the good of my family."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "This COST me my family."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Really."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Take it. It belongs to you."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Enjoy it. Spend it in good health. That is the last money you’ll ever earn in this business."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, I hate to break it to you, Jesse, but our -- -- “mutual associate” was only using you to get to me."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "See, he needs someone with expertise. Someone who knows what he’s doing. In other words, he needs me."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah. Let’s see... how shall I put this? I’m in. You’re out."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s, uh, three million for three months of my time."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Five percent."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Five."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Five."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Five."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Cook whatever you like -- as long as it’s that ridiculous “Chili P” or some other drek. But don’t even think about using my formula."
+    },
+    {
+      "scene": "INT. WELL-APPOINTED CONDO - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, well, you know best, right? Anything else?"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "He’s still my son. I mean, he will remain --"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well... I, uh, I think he gets it, don’t you? I mean, I... I think he saw it coming. He sees your unhappiness, and..."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look, as you said. For the best."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "That’s right. All of it."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Skyler, you wanted me out, I’m out. But I will provide for my family."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Skyler, how do you think we’ve been paying our bills these last six months?"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "I have to go."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, no this one’s fine. I’ll take it."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, I like it. I like... Everything about it. I’ll-I’ll take it as-is."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Name one thing in this world that is not negotiable."
+    },
+    {
+      "scene": "INT. WALT’S AZTEK - DRIVING - MORNING",
+      "speech_type": "direct",
+      "dialogue": "You want to talk about it..? WALTER, JR. Why? It’s not like I get a vote."
+    },
+    {
+      "scene": "INT. WALT’S AZTEK - DRIVING - MORNING",
+      "speech_type": "direct",
+      "dialogue": "You know... ironically, I think you’re gonna see much more of me from now on. For sure. Well, just as much of me, at least. I’m taking you to school, to and from, every day -- WALTER, JR. -- What, I don’t get a vote with that, either?! I gotta stop going with Louis just because you’re feeling guilty?"
+    },
+    {
+      "scene": "INT. WALT’S AZTEK - DRIVING - MORNING",
+      "speech_type": "direct",
+      "dialogue": "I do feel guilty. I am the man that I am, son. And... there is plenty that I would change about that, but... here we are, and this is just what it is."
+    },
+    {
+      "scene": "INT. WALT’S AZTEK - DRIVING - MORNING",
+      "speech_type": "direct",
+      "dialogue": "You know what? Call me crazy. But I-I’m actually feeling very good about the future."
+    },
+    {
+      "scene": "INT. SUPERLAB - MORNING - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh,yes, hi. I-I’m sorry, I’ll uh... I’ll be right down."
+    },
+    {
+      "scene": "INT. SUPERLAB - MORNING - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Hi. You’re my new lab assistant, I take it."
+    },
+    {
+      "scene": "INT. SUPERLAB - MORNING - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "“X-ray crystallography...” Really?"
+    },
+    {
+      "scene": "INT. SUPERLAB - MORNING - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "I could talk about that for hours."
+    },
+    {
+      "scene": "INT. SUPERLAB - MORNING - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "But first, I’m curious about this..."
+    },
+    {
+      "scene": "INT. SUPERLAB - MORNING - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh my god. My god. That is the best coffee I’ve ever tasted."
+    },
+    {
+      "scene": "INT. SUPERLAB - MORNING - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Walt. Please call me Walt. Why the hell are we making meth? --"
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Hey..."
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Well... my thinking is, by tapering the phenyl you get a oilier aqueous layer, and hence..."
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Exactly. But actually, I prefer ether."
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Gale. I’m wondering. How you..?"
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Actually, I’m still wondering how I ended up here, but... yes. I mean, I can’t imagine we strike each other as criminals."
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "It is, it is magic. It still is."
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "I don’t know it."
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Well, can you recite it?"
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Alright, well... No, no... come on. Come on."
+    },
+    {
+      "scene": "INT. SUPERLAB - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Bravo!"
+    },
+    {
+      "scene": "INT. WELL-APPOINTED CONDO - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Hello."
+    },
+    {
+      "scene": "INT. WELL-APPOINTED CONDO - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Oh, hey, Hank. What’s up? INTERCUT WITH:"
+    },
+    {
+      "scene": "INT. HANK’S JEEP COMMANDER - HANK",
+      "speech_type": "direct",
+      "dialogue": "Shoot."
+    },
+    {
+      "scene": "INT. HANK’S JEEP COMMANDER - HANK",
+      "speech_type": "direct",
+      "dialogue": "Hank, you could just... cut to the chase."
+    },
+    {
+      "scene": "INT. HANK’S JEEP COMMANDER - HANK",
+      "speech_type": "direct",
+      "dialogue": "Hank..."
+    },
+    {
+      "scene": "INT. HANK’S JEEP COMMANDER - HANK",
+      "speech_type": "direct",
+      "dialogue": "Uh... why?"
+    },
+    {
+      "scene": "INT. JESSE’S HOUSE - LIVING ROOM - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Is this a secure line?? INTERCUT WITH:"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "Listen, we’ve got a problem. A DEA problem!"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "It’s my brother-in-law -- he knows about the RV!"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "Our RV. The one which contains a meth lab? Which is covered with my fingerprints?! Ring a bell?"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "No. He knows it exists and he’s trying to find it! He has linked it to Jesse and it’s only a matter of time before he tracks it down! So --"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "No. Listen... My brother-in-law, he is surveilling Jesse’s house, you understand?"
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "So he might have tapped the phones, or-or bugged his house..."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "And do what, exactly?! I mean, what? The thing -- the thing is... is the size of a-a... it-it’s RV- size! I mean, where do I go to make an RV disappear. I’m not David Copperfield."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "No."
+    },
+    {
+      "scene": "INT. SAUL GOODMAN’S OFFICE - SAUL",
+      "speech_type": "direct",
+      "dialogue": "Okay... Shut up."
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Are you out of your minds? Why is this out in the open?!"
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Is this driveable? Does it run?? --"
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Well, finish it. Quickly. We’ll wipe it clean and take it out to the desert. Come on, help me."
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "The DEA -- the Drug Enforcement Administration -- you’ve heard of them, haven’t you? I know you have! They know all about this RV. And they’re trying to find it, right now!"
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "No, no, no, no, no. We have got to destroy the evidence! We gotta rig it to burn, wdo you understand?"
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Now listen to me. I need your help, okay?! If I go down, we all go down. Do you understand?"
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "Call him."
+    },
+    {
+      "scene": "EXT. TOW YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "What about him? --"
+    },
+    {
+      "scene": "EXT. CRUSHER YARD - AFTERNOON",
+      "speech_type": "direct",
+      "dialogue": "... Ninety-six, ninety-seven, ninety-eight..."
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "... Ninety-nine, one hundred. Beyond recovery. Right? “Beyond recovery” means --"
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "Obliterated. No evidence."
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "Listen, can you do me a favor? I’m obviously gonna need a ride. Could you call a cab?"
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "Thank you. I’ll be right behind you. I just need to..."
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "Me?"
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "Oh God. Oh God."
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "He’s here."
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - WALT",
+      "speech_type": "direct",
+      "dialogue": "Oh, God. You led him right to us."
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - OUR BOYS",
+      "speech_type": "direct",
+      "dialogue": "“How could you have known that they were there before you took off the tape?”"
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - OUR BOYS",
+      "speech_type": "direct",
+      "dialogue": "“How could you have known that they were THERE before you took off the tape?” Say it! Say it!"
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - OUR BOYS",
+      "speech_type": "direct",
+      "dialogue": "“I’m in my own private domicile and I won’t be harassed!”"
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "Yeah. I got something."
+    },
+    {
+      "scene": "INT. RV - AFTERNOON - LATER",
+      "speech_type": "direct",
+      "dialogue": "It’s me. We need your help."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "I’ll do that."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I’m “comforting.” I’m a comforting presence. WALTER, JR. Hey, so check it out. See what this means? Check out the date. Next Thursday is officially six months that I’ve had my learner’s. Which means... ... I can get my provisional and start driving by myself."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Since when? You don’t turn sixteen for two more months. WALTER, JR. Doesn’t matter -- it’s a provisional. Look it up! They changed the law like, ten years ago."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well, I didn’t vote for that. WALTER, JR. Doesn’t matter if you voted for it. It’s the law. So both of you start thinking about what kinda car you wanna buy me."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "How about something with playing cards in the spokes? Makes a nice motor-y sound. WALTER, JR. Ha, ha dad. You’re not going to get off that easy."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I’ll write that down so we don’t forget. A darn. No pencil. TIME CUT TO:"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It’s a loan-out. It’s fine."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It’s fine. Really. I have a guy."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yes. My guy is a TOP guy..."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And it is. It will be."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Jesus, Skyler. You really want to know? I mean, d’you you really want to know?! Really? CUT TO:"
+    },
+    {
+      "scene": "INT. SAUL’S OFFICE - DAY - LATER",
+      "speech_type": "direct",
+      "dialogue": "Uh, Saul..."
+    },
+    {
+      "scene": "INT. SAUL’S OFFICE - DAY - LATER",
+      "speech_type": "direct",
+      "dialogue": "Um, actually that was Skyler’s idea."
+    },
+    {
+      "scene": "INT. SKYLER’S JEEP - DRIVING - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’ll admit he comes across like a circus clown... but he actually knows what he’d doing. And “safe and cautious” is you not being involved in this at all."
+    },
+    {
+      "scene": "INT. SKYLER’S JEEP - DRIVING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Skyler, this isn’t just about what happened before. My involvement in this is... ongoing. Understand?"
+    },
+    {
+      "scene": "INT. SKYLER’S JEEP - DRIVING - DAY",
+      "speech_type": "direct",
+      "dialogue": "I can’t just quit. I have a... something of a contract. It’s all very safe and professional. Structured. But I can’t simply quit."
+    },
+    {
+      "scene": "INT. SKYLER’S JEEP - DRIVING - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where you going?"
+    },
+    {
+      "scene": "EXT. CAR WASH - DAY",
+      "speech_type": "direct",
+      "dialogue": "People will believe it, at least. I worked here four years."
+    },
+    {
+      "scene": "EXT. CAR WASH - DAY",
+      "speech_type": "direct",
+      "dialogue": "It makes a better story than your Laser Tag..."
+    },
+    {
+      "scene": "EXT. CAR WASH - DAY",
+      "speech_type": "direct",
+      "dialogue": "She has a point. It makes more sense that I invest right here."
+    },
+    {
+      "scene": "EXT. CAR WASH - DAY",
+      "speech_type": "direct",
+      "dialogue": "What in god’s name is a Danny?"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Danny’s an accomplice. Someone who’s in on the scheme, who knows about the laundering. Who’s paid to look the other way."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And, while I agree with you that Laser Tag is a hard sell, without a Danny, the car wash isn’t really an option."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Easier said than done. If we’re looking for someone trustworthy..?"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What about you?"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, no, no. Skyler! That is not a good idea --"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "A legal business! Not this!"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No."
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You are not in this! You are NOT... IN this!"
+    },
+    {
+      "scene": "INT. WHITE HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We are not married, Skyler, we’re divorced! Right..?"
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Jesse... Jesse."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Your respirator."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "... yes?"
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Uh... yes. Okay... okay. I’ll be there."
+    },
+    {
+      "scene": "INT. SUPERLAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "An invitation."
+    },
+    {
+      "scene": "INT. SUBURBAN HOUSE - KITCHEN - NIGHT - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Sure."
+    },
+    {
+      "scene": "INT. SUBURBAN HOUSE - KITCHEN - NIGHT - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Why did you invite me here?"
+    },
+    {
+      "scene": "INT. SUBURBAN HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Basically it all takes place in the hippocampus. Neural connections are formed. The senses make the neurons express signals that go right back to the same part of the brain as before. Where memory is stored. It’s, um, something called relational memory... Don’t quote me on that. I-I’m rusty on my biology."
+    },
+    {
+      "scene": "INT. SUBURBAN HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Help me how?"
+    },
+    {
+      "scene": "INT. SUBURBAN HOUSE - DINING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What advice do you have for me?"
     },
     {
       "scene": "INT. WHITE HOUSE - LIVING ROOM - DAY",
