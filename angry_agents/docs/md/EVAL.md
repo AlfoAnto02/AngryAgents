@@ -1,30 +1,5 @@
 # How Angry Agents Evaluation Works
 
-## The Big Picture
-
-The system runs group chats where 8 AI agents each pretend to be a different fictional or real-world persona (Darth Vader, a podcaster, etc.). After the chat, 20 judge-agents read the transcript and try to figure out who was who, and how well each agent stayed in character. The evaluation code measures how good the judges — and the agents — actually are.
-
----
-
-## Step 0 — Generating the Transcript (`simulate_transcript.py`)
-
-Before any evaluation happens, the system simulates the group chat.
-
-### Who speaks when? — Dirichlet Sampling
-
-The 8 agents don't take turns equally. Their speaking probabilities are drawn from a **Dirichlet distribution**:
-
-```
-weights ~ Dirichlet([α, α, α, ..., α])   (8 values, one per agent)
-```
-
-The parameter `α` controls fairness:
-- `α = 0.5` → one agent dominates (very unequal)
-- `α = 2.0` → moderate inequality (like real group chats)
-- `α = 8.0` → near-equal turns
-
-At each turn, one agent is randomly chosen using these weights. The result is a chat that naturally has some agents talking more than others — which is realistic.
-
 ### Perturbation — Preventing Groupthink
 
 Every N turns for a given agent (N is randomized between 10 and 15 per agent), the system injects a **perturbation** into that agent's system prompt only. The other agents don't see it. It looks like:
