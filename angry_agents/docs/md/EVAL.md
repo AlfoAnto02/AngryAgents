@@ -134,7 +134,7 @@ z = (gini - 0.33) / 0.05
 
 Bootstrap CI on Gini is also computed (same 10,000-resample method as above).
 
-### Cosine Distance Matrix (optional)
+### Cosine Distance Matrix (optional) (TO CONSIDER IF IT IS WORTHY OR NOT)
 
 If message embeddings are available (one embedding vector per agent, averaged over all their messages), we build an **8×8 pairwise cosine distance matrix**:
 
@@ -146,23 +146,6 @@ cosine_distance(agent_i, agent_j) = 1 - cosine_similarity(v_i, v_j)
 Distance = 0 means two agents talked about exactly the same things in exactly the same way. Distance close to 1 means their messages were very different.
 
 This tells us: are agents staying in their own character lane, or are they sounding like each other?
-
-### Spearman Correlation vs Reference (optional)
-
-If a reference distance matrix from real conversations is provided, we compare our simulated matrix to it using **Spearman rank correlation**:
-
-1. Flatten the upper triangle of both matrices into two vectors (28 values each for 8×8)
-2. Rank-correlate them: `rho, p = spearmanr(sim_flat, ref_flat)`
-
-```
-rho ∈ [-1, 1]
-rho = 1 → simulated chat has same inter-agent distance structure as real chat
-rho = 0 → no relationship
-```
-
-Bootstrap CI on rho uses the same 10,000-resample method.
-
----
 
 ## Step 4 — Deliberation (`metrics_deliberation.py`)
 
