@@ -156,5 +156,8 @@ We are building a chat application in which users interact with AI persona-agent
     - **`Judge_evaluation` composite PK made explicit:** `(ID_judge, ID_chat)` now formally declared as the primary key, aligning the doc with the implementation.
     - **`Chat_messages.author` changed to NULLABLE:** accommodates user-authored messages where no agent digest applies.
     - **Relationships table expanded:** cardinality notation standardised to `1:n` / `n:1`; 4 new entries (rows 7–10) documenting all `User` → entity ownership links (`Group_chat`, `Topic`, `Agents`, `Chat_messages`).
-- **In progress:** Nothing explicitly tracked this week
-- **Blockers:** None
+- **In progress:** Evaluation design: candidate set size for persona identification (closed 8-tag vs. expanded K-tag vs. full DB), fidelity measurement protocol (sequential same-judge pool vs. parallel dedicated pools), and identification response format (hard guess vs. fidelity-scored ranking).
+- **Blockers:** Three open design questions pending: 
+— (1) optimal candidate set size for persona identification: closed 8-tag set vs. expanded K-tag set with decoys vs. full agent database; 
+— (2) fidelity measurement protocol: sequential same-judge pool (guess first, score after reveal) vs. parallel dedicated pools (identification-only vs. fidelity-only); 
+— (3) identification response format: hard point guess per tag vs. fidelity-scored ranking over all candidates with argmax as final prediction.
