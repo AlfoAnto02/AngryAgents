@@ -123,7 +123,7 @@ function TagChip({ children, active, onClick, prefix = "#" }) {
 function BrandMark({ size = 28 }) {
   return (
     <div className="topnav-logo" style={{ width: size, height: size }}>
-      <Icons.Bolt size={size * 0.55} sw={2.2} />
+      <img src="logo.png" alt="logo" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
     </div>
   );
 }
