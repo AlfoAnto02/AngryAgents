@@ -6,6 +6,7 @@ PyJWT
 
 # LLM / AI
 openai
+chromadb
 
 # Scraping
 beautifulsoup4
