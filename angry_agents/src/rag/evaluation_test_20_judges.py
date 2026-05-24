@@ -23,7 +23,7 @@ from .retriever import retrieve_candidates
 
 CHAT_FILE = Path(__file__).parents[3] / "data" / "eval" / "chat_simulation_with_embedding" / "transcript.jsonl"
 PERSONAS_DIR = Path(__file__).parents[3] / "data" / "personas"
-EVAL_DIR = Path(__file__).parents[2] / "src" / "rag" / "judge_eval"
+EVAL_DIR = Path(__file__).parents[2] / "src" / "agents" / "judge_eval"
 
 _EXCLUDED_PROFILES = {"jimmy_profile_old.json"}
 

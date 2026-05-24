@@ -122,7 +122,10 @@ def run(
     """
     Full individual fidelity metrics.
     """
-    pid_to_name = {p["persona_id"]: p["persona_name"] for p in personas}
+    pid_to_name = {
+        "p_" + p["persona_name"].lower().replace(" ", "_"): p["persona_name"]
+        for p in personas
+    }
     name_to_author = {pid_to_name[pid]: tag for tag, pid in author_map.items() if pid in pid_to_name}
 
     raw = _fidelity_scores_for_persona(judge_evals, name_to_author)
@@ -181,6 +184,11 @@ def _cli() -> None:
 
     result = run(judge_evals, author_map, personas)
     pprint.pprint(result)
+
+    stem = args.judge_evals.stem.replace("eval_", "")
+    out_path = args.judge_evals.parent / f"report_fidelity_{stem}.json"
+    out_path.write_text(json.dumps(result, indent=2, default=str), encoding="utf-8")
+    print(f"\nSaved → {out_path}")
 
 
 if __name__ == "__main__":
