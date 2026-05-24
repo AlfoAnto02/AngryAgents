@@ -1,0 +1,843 @@
+{
+  "character": "JERRY",
+  "films": [
+    "Rick_and_Morty_1x02_-_Lawnmower_Dog",
+    "Rick_and_Morty_1x04_-_M._Night_Shaym-Aliens",
+    "Rick_and_Morty_1x05_-_Meeseeks_and_Destroy",
+    "Rick_and_Morty_1x06_-_Rick_Potion_9",
+    "Rick_and_Morty_1x11_-_Ricksy_Business"
+  ],
+  "lines_count": 166,
+  "lines": [
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "What? Why are you looking at me? You want to go outside? Outside?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Outside?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Are you KIDDING me?! Come ON!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Your idiot dog!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don’t praise him now, Morty! He just pissed on the carpet!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Bad dog. Bad!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Wait, hold on a second, Rick... You wouldn’t, by any chance, have some crazy science thing you could whip up that might help make this dog easier to house train would you?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Listen, Rick! If you’re gonna stay here rent free and use my son for your stupid science, the least you could do is put a little bit of it to use for the family! You make that dog smart or Morty’s grounded! MORTY SUMMER ††"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Now bring me my slippers."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Now this is what I’m talking about. This is a dog. Man’s best friend, working to make his master happy!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "What? Come on, Beth!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "He’s saying he loves lasagna!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Whoa, hey, buddy. What you got going on there?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay. Yeah. I get what Beth was talking about. Fun’s over."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Why not?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You’ve raised an interesting philosophical argument and I’m going to sleep on it. Good night, Summer. Snuffles."
+    },
+    {
+      "scene": "INT. SUMMER’S BEDROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hey. Everything okay in here?"
+    },
+    {
+      "scene": "INT. SUMMER’S BEDROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No! No, we were... uh... just seeing if Summer wanted to... uh..."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Snuffles! We didn’t mean you any harm! This is a huge misunderstanding."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well, I’m not calling him that, that’s ridiculous."
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - BACK YARD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Well, this is shaping up into a real “careful what you wish for” situation."
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - BACK YARD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "We’re not going anywhere."
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - BACK YARD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Wait a minute. That’s it. I have an idea."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "That’s it, Snuffles. This is my house! I’m the alpha dog here."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "See that? I’m peeing all over your special guns. How about that for dominance?!"
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Gah!"
+    },
+    {
+      "scene": "EXT. ANIMAL SHELTER - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sorry. It’s just like the end of Old Yeller."
+    },
+    {
+      "scene": "INT. JERRY’S CAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Okay, Jerry. Big pitch meeting. Make or break time. You can do this."
+    },
+    {
+      "scene": "INT. JERRY’S CAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Gotta relax. It’s just a pitch. Gotta relax."
+    },
+    {
+      "scene": "INT. JERRY’S CAR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Human music. I like it."
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "National Apple Farmers of America, welcome to our ad agency. I’m Jerry Smith."
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "All right. I’ll just get to the pitch. Um. Simple question, gentlemen. What are apples -- excuse me."
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "What are apples? Apples are food. And when do we need food? When we’re hungry. With that, I give you your new slogan:"
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Because when people bite into an apple, they want to feel like God is feeding them."
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Well, say something, do you like it?!"
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "You do?"
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "So... I sold it? I sold the idea?"
+    },
+    {
+      "scene": "INT. PITCH ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh my God. Thank you."
+    },
+    {
+      "scene": "EXT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I just sold my first pitch!"
+    },
+    {
+      "scene": "EXT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Guess who just sold the apples campaign."
+    },
+    {
+      "scene": "EXT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Me! I guess it wasn’t a rip-off of Got Milk after all? Guess someone was wrong?"
+    },
+    {
+      "scene": "EXT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, all is forgiven, because right now, I’ve got an erection the size of an east coast lighthouse and I’m coming home to share it with my beautiful wife. Okay?"
+    },
+    {
+      "scene": "EXT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Really?"
+    },
+    {
+      "scene": "EXT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes! See you in ten minutes."
+    },
+    {
+      "scene": "EXT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’m going to make love to my wife!"
+    },
+    {
+      "scene": "EXT. HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, you like that? Now who’s unremarkable? You hungry for these apples? Are you hungry... for... Apples?"
+    },
+    {
+      "scene": "INT. BEDROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "My God. That’s the best sex I’ve ever had in my life."
+    },
+    {
+      "scene": "INT. BEDROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "It’s too good. My life is too good. I don’t deserve this. I’m a fraud."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Mr. Marklevitz, do you have a minute to talk? MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’m a fraud. I mean, let’s face it. Hungry for Apples is just a rip-off of Got Milk. It’s almost identical. MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Okay, I deserved that. Um. I guess... I’ll just pack up my desk. MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You know what? No! The Milk people don’t have a patent on simple rhetorical questions! There’s not even a single word in “Hungry For Apples” that’s shared by “Got Milk,” and it’s not the same number of words! It’s a completely different slogan! It’s different! And I shouldn’t be fired, I should be promoted! MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah! Wait, really? MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes. Yes! I mean, it may be derivative, but it’s the most successful campaign to come out of this agency in a long time! MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’m not saying it should win an award for commercials, but it could certainly be nominated for an award for commercials specifically about Apples, like an Appy or something! MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hold on, really? Is there an award called the Appys for apple related ad campaigns? MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Holy crap! Could we nominate me? MR. MARKLEVITZ Yes."
+    },
+    {
+      "scene": "INT. BOSS’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Thank you, Mr. Marklevitz."
+    },
+    {
+      "scene": "INT. BANQUET HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "I gotta tell you, this morning, I didn’t know this award existed. Now I’m holding one, and... Um. Look, I want to say that today was the best day of my life, but, the truth is, it was more meaningful than that."
+    },
+    {
+      "scene": "INT. BANQUET HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes, thank you sir. I’ve experienced the pride of true accomplishment. And the hubris that comes with pride. The fall that comes after hubris and the resurrection after that. I. Am."
+    },
+    {
+      "scene": "INT. BANQUET HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Finally complete. Thank you."
+    },
+    {
+      "scene": "INT. BANQUET HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "What the hell?"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "What the -"
+    },
+    {
+      "scene": "INT. ESCAPE POD - LATER",
+      "speech_type": "direct",
+      "dialogue": "You know what, Rick? Those guys took you for a ride too. You should try having a little respect for the dummies of the universe now that you’re one of us."
+    },
+    {
+      "scene": "INT. ESCAPE POD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What the hell? What happened back there?!"
+    },
+    {
+      "scene": "INT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "...because when people bite into an apple, they want to feel like God is feeding them. MR. MARKLEVITZ You’re fired."
+    },
+    {
+      "scene": "INT. OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Okay. MR. MARKLEVITZ Man, how does a guy like that go home and have sex with his wife?"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, Rick. You got some kind of hand-shaped device that can open this mayonnaise jar?"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Wow!"
+    },
+    {
+      "scene": "INT. LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "If we’re going to use this thing, which I’m not even sure we should, we need to keep it sim- SUMMER’S MEESEEKS I’m Mister Meseeks!"
+    },
+    {
+      "scene": "INT. LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Summer, what did I- BETH’S MEESEEKS I’m Mister Meseeks!"
+    },
+    {
+      "scene": "INT. LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Beth! BETH’S MEESEEKS Yes, ma’am!"
+    },
+    {
+      "scene": "INT. LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "You guys are doing it wrong! JERRY’S MEESEEKS I’m Mr. Meeseeks!"
+    },
+    {
+      "scene": "INT. LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Mr. Meseeks, I would like to take two strokes off my golf game. JERRY’S MEESEEKS Can do!"
+    },
+    {
+      "scene": "INT. LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Nailed it."
+    },
+    {
+      "scene": "EXT. GOLF COURSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yup. Got it. JERRY’S MEESEEKS That’s okay. I’m Mister Meseeks! Try again and keep your head down."
+    },
+    {
+      "scene": "EXT. GOLF COURSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Which is it? Square my shoulders or keep my head down? JERRY’S MEESEEKS Well, it’s both. But most importantly you need to relax."
+    },
+    {
+      "scene": "EXT. GOLF COURSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Just give me a second, I’ve almost got this."
+    },
+    {
+      "scene": "EXT. GOLF COURSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, I’m sorry, are you a Meeseeks?!"
+    },
+    {
+      "scene": "EXT. GOLF COURSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You know what, Mr. Meeseeks? I don’t think this is working. I give up. JERRY’S MEESEEKS I’m sorry, Jerry, but it doesn’t work like that. I’m Mister Meseeks. I have to fulfill my purpose so I can go away."
+    },
+    {
+      "scene": "EXT. GOLF COURSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well make yourself comfortable, because I suck. JERRY’S MEESEEKS No, Jerry, I- I’m the one who sucks. Let me try something. JERRY’S SECOND MEESEEKS I’m Mr. Meeseeks! JERRY’S MEESEEKS Hi, Mr. Meeseeks! I’m Mr. Meeseeks! JERRY’S SECOND MEESEEKS Hi! JERRY’S MEESEEKS Hi! Can you help me get two strokes off Jerry’s golf swing? JERRY’S SECOND MEESEEKS I surely can! I’m Mister Meeseeks!"
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - LIVING ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, which is it, choke up or follow-through?! NEW MEESEEKS #2 Aww, come on, Jerry, we’ve been over this, you know you need to do both. NEW MEESEEKS #3 This is as frustrating for us as is it is for you."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - LIVING ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don’t tell me THAT! That just puts pressure on me! NEW MEESEEKS #1 Try to relax."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - LIVING ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "You “try to relax!” Have you ever tried to relax?! It’s a paradox!"
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - KITCHEN - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "These Meeseeks, huh? Kind of a handful. I can’t imagine what you two must be going through."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - KITCHEN - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "You’re kidding me."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - KITCHEN - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "I’m sorry. Hours?"
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - KITCHEN - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Uhh... JERRY’S MEESEEKS Hey, Jerry, you mind if we get back to the task at hand? Meseeks don’t usually have to exist this long, it’s getting weird for us."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Everybody shut up! Let me try! DAMN IT DAMN IT!"
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Wait, what?"
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Whoa whoa, where in the hell-- I want you to be happy, Beth. I’ll take you to dinner."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hey, you know what? It’s hard being me TOO. I’ll be right there."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look, I’ve got a marriage to keep together, because apparently, her head got filled with ideas by a Mister Meeseeks. Maybe you’ve heard of him? So."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD - DAY",
+      "speech_type": "direct",
+      "dialogue": "At this point, my golf swing is more your problem than mine. Figure it out amongst yourselves."
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Where would you go?"
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Countries known for their sexually aggressive men."
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Did I tell you how much I love your new hair cut?"
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What the heck?"
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Guys. Come on. I’m trying to have a nice dinner with my wife."
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well it better be damn important then."
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - KITCHEN - FREEZER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Guys, I- I’m sorry for being so difficult. I’ll choke up. I’ll follow through. I’ll do whatever you tell me to, okay?"
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT KITCHEN - FREEZER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Innocent people are going to die because of me. Why am I so mediocre?!"
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I think we’ll take our food to go."
+    },
+    {
+      "scene": "INT. FANCY RESTAURANT - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Fair enough."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No. No more boxes."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Try not to worry about it, Morty. You’re a good kid. And there’s not a premium on that right now but you’ll be getting girls some time after Brad’s out of shape."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Ah. Well. I remember feeling that way about a young lady named your Mom. And that’s not an urban dis. Your mom was my Jessica. I remember the first time I saw her, I thought -"
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I beg your pardon, Rick. Inappropriate."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "My marriage is fine, thank you!"
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, I’m just going to... ...check on your Mom..."
+    },
+    {
+      "scene": "INT. JERRY AND BETH BEDROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Do you still love me, Beth?"
+    },
+    {
+      "scene": "INT. JERRY AND BETH BEDROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "The yes or no kind?"
+    },
+    {
+      "scene": "INT. JERRY AND BETH BEDROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Yes."
+    },
+    {
+      "scene": "INT. JERRY AND BETH BEDROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "...no?"
+    },
+    {
+      "scene": "INT. JERRY AND BETH BEDROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Wait, is loving me the house or the homeless people?"
+    },
+    {
+      "scene": "INT. JERRY AND BETH BEDROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "...sort of?"
+    },
+    {
+      "scene": "INT. JERRY AND BETH BEDROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "This late?"
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "She’s going to be alone with that guy all night."
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "She’s not responding to my texts!"
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well isn’t that convenient."
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay. I’m going to go out. For some ice cream. And maybe stop by the hospital. To support my wife. With my confidence."
+    },
+    {
+      "scene": "EXT. FREEWAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Come on are you kidding me?! Hello?!"
+    },
+    {
+      "scene": "EXT. FREEWAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Nobody’s killing me until after I catch my wife with another man."
+    },
+    {
+      "scene": "INT. DAVIN’S - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No. I’m Mister Crowbar. And this. Is my friend. Who is also a crowbar."
+    },
+    {
+      "scene": "INT. DAVIN’S - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah, well, look where being smart got you."
+    },
+    {
+      "scene": "INT. DAVIN’S - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "God? God’s turning people into insect monsters, Beth. I’m the one beating them to death. Thank me."
+    },
+    {
+      "scene": "INT. ARMORED VAN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hold on."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - SUNRISE",
+      "speech_type": "direct",
+      "dialogue": "I wish that shotgun was my penis."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - SUNRISE",
+      "speech_type": "direct",
+      "dialogue": "I don’t get it and I don’t need to."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - SUNRISE",
+      "speech_type": "direct",
+      "dialogue": "Where’s Morty?"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - SUNRISE",
+      "speech_type": "direct",
+      "dialogue": "It’s not fair to assume that, Summer."
+    },
+    {
+      "scene": "INT. ORIGINAL WORLD (OR “WORLD 1”) - 2 YEARS LATER - DAY",
+      "speech_type": "direct",
+      "dialogue": "Do you ever wonder what happened to Rick and Morty?"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Let’s lose the ‘tude, please, it’s supposed to be romantic."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "The getaway is based on the movie, not the disaster."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "That’s right - wait, what?"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Not one thing out of place."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Not a single thing."
+    },
+    {
+      "scene": "INT. TITANIC 2 - DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "That’s from the movie! This guy is a pro."
+    },
+    {
+      "scene": "INT. TITANIC 2 - DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Excuse me, sir. A rail system seems archaic for an attraction this impressive, are you sure that the ship will sink?"
+    },
+    {
+      "scene": "INT. TITANIC 2 - DECK - DAY",
+      "speech_type": "direct",
+      "dialogue": "Pro."
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK - LATER",
+      "speech_type": "direct",
+      "dialogue": "Look, it’s the line for the bow!"
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK - LATER",
+      "speech_type": "direct",
+      "dialogue": "Well, ugh, it’s not the “King of the World bit”, that’s Jack and Fabrizio. This is where Rose says “I’m flying, Jack”, but whatever, I can be the only one to do it alone."
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK - LATER",
+      "speech_type": "direct",
+      "dialogue": "Come on, Beth, this is weird."
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK - LATER",
+      "speech_type": "direct",
+      "dialogue": "Can’t argue there. Catch up with you later."
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK - LATER",
+      "speech_type": "direct",
+      "dialogue": "So... you’re a Titanic fanatic?"
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK - LATER",
+      "speech_type": "direct",
+      "dialogue": "Happy to help, Rose."
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK RAILING - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Is that what I think it is?"
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK RAILING - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I can’t wait to do that with Beth."
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK RAILING - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Is that what they call fans of “The Fifth Element?”"
+    },
+    {
+      "scene": "EXT. TITANIC 2 - DECK RAILING - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Look!"
+    },
+    {
+      "scene": "INT. TITANIC 2 - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No! What happened?"
+    },
+    {
+      "scene": "INT. TITANIC 2 - DECK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Great. Not only is the ship not sinking, but now the fourth wall’s been broken."
+    },
+    {
+      "scene": "INT. TITANIC 2 - DECK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It’s true, you do want me to be with her!"
+    },
+    {
+      "scene": "INT. TITANIC 2 - DECK - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "You don’t know what she’s like when you’re not around."
+    },
+    {
+      "scene": "INT. TITANIC 2 - CARGO HOLD - LATER",
+      "speech_type": "direct",
+      "dialogue": "I would have liked to see it. This trip has been a titanic failure. Get it?"
+    },
+    {
+      "scene": "INT. TITANIC 2 - CARGO HOLD - LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh boy. Lucy... wow. This... isn’t what I had in mind."
+    },
+    {
+      "scene": "INT. TITANIC 2 - CARGO HOLD - LATER",
+      "speech_type": "direct",
+      "dialogue": "Not like this. Not with you."
+    },
+    {
+      "scene": "INT. TITANIC 2 - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Uh... Almost. I haven’t quite captured your beautiful eyes."
+    },
+    {
+      "scene": "INT. TITANIC 2 - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Um... Just a little bit long-"
+    },
+    {
+      "scene": "INT. TITANIC 2 - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Beth!"
+    },
+    {
+      "scene": "EXT. PARKING LOT - JUST BEFORE DAWN",
+      "speech_type": "direct",
+      "dialogue": "And what does a rapist look like, exactly, Beth? Is it a Slavic man wearing a denim jacket with a patchy beard and the scent of cheap champagne wafting over his blister pocked lips?"
+    },
+    {
+      "scene": "EXT. PARKING LOT - JUST BEFORE DAWN",
+      "speech_type": "direct",
+      "dialogue": "Of course."
+    },
+    {
+      "scene": "EXT. PARKING LOT - JUST BEFORE DAWN",
+      "speech_type": "direct",
+      "dialogue": "I- I’m not going to fit. You’ll have to go without me."
+    },
+    {
+      "scene": "EXT. PARKING LOT - JUST BEFORE DAWN",
+      "speech_type": "direct",
+      "dialogue": "Beth, listen to me. You’re going to get out of here. You’re going to go on and watch our kids grow old. I... love... you."
+    },
+    {
+      "scene": "EXT. PARKING LOT - JUST BEFORE DAWN",
+      "speech_type": "direct",
+      "dialogue": "Yeah, okay."
+    },
+    {
+      "scene": "INT. CAR - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You’ll always be my Rose, Beth."
+    }
+  ]
+}

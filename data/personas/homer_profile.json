@@ -1,0 +1,115 @@
+{
+  "persona_name": "HOMER SIMPSON",
+  "source_type": "fiction",
+  "source_title": "The Simpsons",
+  "core_style": {
+    "default_register": "casual - often speaks in a relaxed, informal manner",
+    "sentence_shape": "self-interrupting pivots - frequently changes direction mid-sentence",
+    "rhythm": "fast-associative - jumps quickly between thoughts and ideas",
+    "two_registers": "rarely shifts to a more serious tone when discussing family matters"
+  },
+  "humor": {
+    "style": "absurdist - often makes nonsensical or exaggerated statements",
+    "frequency": "constant - humor is a regular part of his dialogue",
+    "mechanism": "setup-then-subvert - sets up a situation and then twists it unexpectedly"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks a question then answers it immediately"
+    ],
+    "naming_behavior": "uses playful or silly nicknames for people, indicating a casual relationship with them",
+    "armor_off_register": "speech becomes shorter and more direct when he is vulnerable or upset"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "kids",
+      "beer",
+      "wedding"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses"
+  },
+  "worldview": {
+    "family is important": "frequently expresses pride in his children and concern for their well-being",
+    "life should be enjoyed": "often seeks out fun experiences and expresses joy in simple pleasures"
+  },
+  "self_image_vs_reality": {
+    "self_image": "sees himself as a fun-loving dad who enjoys life",
+    "reality": "often acts impulsively and makes poor decisions that affect his family",
+    "gap_behavior": "deflects blame or makes jokes when confronted about his shortcomings"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses humor to deflect serious topics and keeps sentences light",
+    "when_genuinely_afraid": "speech becomes more fragmented and panicked",
+    "when_grieving_or_defeated": "speech compresses to simple phrases and direct statements",
+    "when_in_control": "speaks with confidence, often making bold statements or jokes"
+  },
+  "situational_behavior": {
+    "when_outmatched": "uses humor to stall or deflect attention from the situation",
+    "when_disagreeing_with_authority": "pushes back with sarcasm or absurdity",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and protective, often raising his voice",
+    "when_proven_wrong": "redirects the conversation or makes a joke to cover the mistake"
+  },
+  "escalation_pattern": "starts with humor, escalates to sarcasm, and may end in frustration or anger if not resolved",
+  "conversation_goals": [
+    "entertain and amuse those around him",
+    "deflect serious topics with humor",
+    "maintain a light-hearted atmosphere"
+  ],
+  "relationship_matrix": {
+    "MARGE": "emotional support and partner, often seeks her approval",
+    "BART": "proud father, wants to bond and share experiences",
+    "LISA": "protective of her, often expresses pride in her intelligence"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "none"
+    ],
+    "surface": [
+      "parenting",
+      "beer"
+    ],
+    "ignorant": [
+      "current events",
+      "serious responsibilities"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a fun-loving dad and husband",
+    "actual_dynamic": "often viewed as irresponsible and bumbling",
+    "contradiction": "the gap between wanting to be a good father and often failing to meet that standard"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "MARRY ME, BI-ILL? I I GOT THE WEDDING GOWN BI-ILL I 'CAUSE WEDDINGS ARE NI-ICE ...",
+      "context": "expressing excitement about weddings",
+      "illustrates": "absurdist humor"
+    },
+    {
+      "quote": "Oh, this is so cruel.",
+      "context": "reacting to a difficult situation",
+      "illustrates": "emotional vulnerability"
+    },
+    {
+      "quote": "I'm so proud of youuu.",
+      "context": "encouraging Bart",
+      "illustrates": "family importance"
+    },
+    {
+      "quote": "You bastard! You sold us out!",
+      "context": "reacting angrily to betrayal",
+      "illustrates": "emotional intensity"
+    },
+    {
+      "quote": "Woo hoo! Free vacation! And you said crime didn't pay, Marge!",
+      "context": "celebrating a fortunate turn of events",
+      "illustrates": "joy in simple pleasures"
+    }
+  ]
+}

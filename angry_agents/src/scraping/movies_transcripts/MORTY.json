@@ -1,0 +1,1253 @@
+{
+  "character": "MORTY",
+  "films": [
+    "Rick_and_Morty_1x02_-_Lawnmower_Dog",
+    "Rick_and_Morty_1x04_-_M._Night_Shaym-Aliens",
+    "Rick_and_Morty_1x05_-_Meeseeks_and_Destroy",
+    "Rick_and_Morty_1x06_-_Rick_Potion_9",
+    "Rick_and_Morty_1x11_-_Ricksy_Business"
+  ],
+  "lines_count": 248,
+  "lines": [
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "What’s wrong?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, he didn’t mean it! Did you Snuffles? You didn’t mean it, you’re a good boy! Good dog!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Snuffles."
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "That was fantastic, Rick!"
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What is it?"
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Inception?"
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Inception made sense..."
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Geez, Rick, in the time it took you to make this, couldn’t you have just helped me with my homework?"
+    },
+    {
+      "scene": "INT. GOLDENFOLD’S LIVING ROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I can’t believe I’m in Mr. Goldenfold’s house. This is so weird."
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What?! Aww, man!"
+    },
+    {
+      "scene": "EXT. SKY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Ooooooohhhhhh!!! Rick, what are we going to do!?"
+    },
+    {
+      "scene": "EXT. SKY (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ahhh!! Nooooo!!"
+    },
+    {
+      "scene": "EXT. SKY (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Rick, look!"
+    },
+    {
+      "scene": "EXT. SKY (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh no, Rick! Look! Goldenfold landed the plane and now he’s creating a massive lava pit for us to fall into, but it looks like he has a mechanical claw arm he plans to use to save Jada Pinket! But he definitely won’t save us, Rick! What are we going to do?!"
+    },
+    {
+      "scene": "EXT. MAGICAL CASTLE - TWO DREAMS DEEP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ohh... This is just like my favorite fantasy series “Age of Andurius!”"
+    },
+    {
+      "scene": "EXT. MAGICAL CASTLE - TWO DREAMS DEEP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Let me field this, Rick."
+    },
+    {
+      "scene": "EXT. MAGICAL CASTLE - TWO DREAMS DEEP - DAY",
+      "speech_type": "direct",
+      "dialogue": "We are humble travelers seeking audience with her majesty. CENTAUR #2 Of course. Follow us."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "This is kinda weird, Rick..."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Rick..."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Ohh... Oh boy... No thank you..."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Summer!"
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Aaaahh!!!"
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "It’s Suh-Suh-Summer!"
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Why is she here?!"
+    },
+    {
+      "scene": "INT. BOILER ROOM - CENTAUR’S DREAM - THREE DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "What is this place, Rick?"
+    },
+    {
+      "scene": "INT. BOILER ROOM - CENTAUR’S DREAM - THREE DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "Holy crap! Who the hell is that, Rick?"
+    },
+    {
+      "scene": "EXT. BOILER ROOM - GIRL’S DREAM - FOUR DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "Aaahhhh!!"
+    },
+    {
+      "scene": "EXT. RUN DOWN NEIGHBORHOOD - FOUR DREAMS DEEP - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Man, he sure says ‘bitch’ a lot!"
+    },
+    {
+      "scene": "EXT. RUN DOWN NEIGHBORHOOD - FOUR DREAMS DEEP - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "But he keeps saying-"
+    },
+    {
+      "scene": "EXT. RUN DOWN NEIGHBORHOOD - FOUR DREAMS DEEP - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah, this whole time we’ve been doing what he says we can do, and not trying to do the thing he says we can’t do. And it’s not like the guy’s here to help us, right? I think it’s a good idea, Rick."
+    },
+    {
+      "scene": "INT. ABANDONED HOUSE - LATER",
+      "speech_type": "direct",
+      "dialogue": "I guess we actually could hide all along. That was some good thinking."
+    },
+    {
+      "scene": "INT. ABANDONED HOUSE - LATER",
+      "speech_type": "direct",
+      "dialogue": "Yeah, right, you’d love that, wouldn’t you."
+    },
+    {
+      "scene": "INT. SCARY TERRY’S HOUSE - BEDROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh boy... I can only imagine what horrible things must scare Scary Terry."
+    },
+    {
+      "scene": "INT. SCARY CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Leave him alone!"
+    },
+    {
+      "scene": "INT. SCARY CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yo, Scary-T. Don’t even trip about your pants, dog. Here’s a pair on us."
+    },
+    {
+      "scene": "INT. SCARY CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You don’t need to say anything. We got you, dog."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What the hell?"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What’s going on?"
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - BACK YARD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You’re welcome..."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Th-thanks, Snuffles."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Thank you, Fido."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Rick! I thought you were dead!"
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "But it’s been like a year!"
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Aw, man. I liked this life. Well, at least I didn’t really shit my pants."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh boy, oh geez, Rick."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Are we gonna escape into another dream?"
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What?!"
+    },
+    {
+      "scene": "EXT. ANIMAL SHELTER - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’m going to miss you, Snowball."
+    },
+    {
+      "scene": "EXT. ANIMAL SHELTER - DAY",
+      "speech_type": "direct",
+      "dialogue": "Wow. A world populated by intelligent dogs. I wonder what it will be like, Rick."
+    },
+    {
+      "scene": "EXT. ANIMAL SHELTER - DAY",
+      "speech_type": "direct",
+      "dialogue": "That’s a comforting idea, Rick."
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hey, Rick, is it me, or this an especially beautiful day?"
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, there’s something about the air, and the sunshine, it’s got me in a real mood, like anything’s possible."
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Convincing?"
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Um. Okay."
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "What’s with Mom?"
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Okay, you’re acting weird, too. I’ll see you after school."
+    },
+    {
+      "scene": "INT. CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hm?"
+    },
+    {
+      "scene": "INT. CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Um. You know, it’s, uh. It’s. It’s at least forty, so --"
+    },
+    {
+      "scene": "INT. CLASSROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "You do?"
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Teach you what? STUDENT #1 Oo! How do you make concentrated dark matter?"
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Concentrated huh?"
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Um..."
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh. Yeah, but Rick doesn’t really like me talking about his science with anyone -"
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You will?"
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Uh, well, first you, I think he might have used... something... positronic... or plutonic... or... proto --"
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Aw, man!"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Rick! I have to go back! I think I was about to get married!"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "I’m gonna get an F in class, Rick!"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Monitor us? Who?"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Aww, come on, Rick! If everyone’s going to be insane today, at least let me be with insane Jessica!"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Rick! What the hell, man! Give me!"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Rick!"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’ve seen people do that before at school."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Mrs. Spencer does that all the time!"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "OK, you got me on that one."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, no. I haven’t. I mean, why would a pop tart want to live inside a toaster? That would be the scariest place for them."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "So... why are they doing this? What do they want?"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Concentrated dark matter. They were asking about that in class."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "What are we gonna do, Rick?"
+    },
+    {
+      "scene": "INT. BACKSTAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don’t know about this plan, Rick. Crowds make me nervous."
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You got that right, Rick!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I guess they’re just not ready for a rap about concentrated dark matter, Rick!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "A chicken in a peanut and a house with a raisin / run around together in a tiny little station... (Justin will adlib more at the recording here.)"
+    },
+    {
+      "scene": "EXT. STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "Rick, where are we running?"
+    },
+    {
+      "scene": "EXT. STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "Holy crap!"
+    },
+    {
+      "scene": "INT. MOTHERSHIP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Why do these aliens keep coming after you, Rick, if you’re so much smarter than them?"
+    },
+    {
+      "scene": "INT. CENTRAL PROCESSING ROOM - SOON",
+      "speech_type": "direct",
+      "dialogue": "I’ve got so many I can barely hold them all! I might accidentally drop a few, actually..."
+    },
+    {
+      "scene": "INT. ESCAPE POD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Well whatya know, ha. That was easy."
+    },
+    {
+      "scene": "INT. ESCAPE POD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, I guess so. Just kinda hard to believe."
+    },
+    {
+      "scene": "INT. BANQUET HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dad?"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Crap, they’re gaining on us fast, Rick!"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "But you know how to make it, too, right, Rick?"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Well, I should at least look right? What are they?"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "It’s all here Rick!"
+    },
+    {
+      "scene": "INT. EVENT HORIZON STYLE SPACE STATION - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I can’t do it, Rick! They’re my parents and sister!"
+    },
+    {
+      "scene": "INT. EVENT HORIZON STYLE SPACE STATION - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh geez..."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I just killed my family! I don’t care what they were."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You know what, Rick?! That’s it! I’m done with these insane adventures! That was really traumatizing! I quit! I’m out!"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "No, Rick! You’re the one that’s crazy and chaotic! I don’t even understand what- what we even accomplished. Adventures are supposed to be simple and fun."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What are you talking about, Rick?"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Really? I get to call the shots?"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Alright! But if my adventure’s good, you have to let me be in charge of every third adventure!"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Fine. Deal. Well let’s go. Now."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Bawk. Bawk. Bawk."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Alright! Get lost! Everybody out! Move it or lose it! I have a bet to win over here!"
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Rick, this is a fantasy type world with creatures and all kinds of fantasy things. We’re going on a quest. We just need to find someone who needs help with something."
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Umm..."
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Excuse me! Is anyone in need of aid?! We are two heroes in search of adventure!"
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I accept your call to adventure, good sir!"
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on, Rick. There are giants in the clouds!"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Relax Rick. We just gotta find the treasure room. Nice and simple. I’m sorry everything’s going so smoothly and adventurously. Looks like you’re going to lose the bet."
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hurry. Behind this cookie jar!"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "No way, Rick. This is all part of it. Adventures have conflict. Deal with it."
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh my God, Rick! Oh geez, oh boy!"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, uh, wait! Just give me a sec!"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh no, Rick. What do we do?"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "No! It was an accident! We didn’t do it!"
+    },
+    {
+      "scene": "INT. GIANT INTERROGATION ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Y- yeah. That’s what happened."
+    },
+    {
+      "scene": "INT. GIANT INTERROGATION ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "But that’s not how it went down!"
+    },
+    {
+      "scene": "INT. GIANT COURT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "No way Rick! We’re innocent. I have faith in the giant legal system."
+    },
+    {
+      "scene": "EXT. GIANT COURTROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "See, Rick. I was right! Everything turned out fine. Now let’s get back to it."
+    },
+    {
+      "scene": "EXT. GIANT COURTROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Getting treasure for the village. Come on."
+    },
+    {
+      "scene": "EXT. GIANT COURTROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Whoa. Usually, walking down the courthouse steps is the easy part of the adventure."
+    },
+    {
+      "scene": "EXT. GIANT COURTROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh yeah, you’d love that wouldn’t you? Well, no way, buddy. I didn’t come this far to let stairs get in my way. The bet is still on. Now help me out, sidekick."
+    },
+    {
+      "scene": "EXT. COURTHOUSE STAIRS - DAY",
+      "speech_type": "direct",
+      "dialogue": "If this were a story, this part wouldn’t be included, dummy."
+    },
+    {
+      "scene": "EXT. COURTHOUSE STAIRS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Holy crap look! It’s like some kind of tavern or something! Built right into the side of the stairs!"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Smells like adventure."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Easy, Rick."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Don’t be rude, Rick. We’ll have two Bloogies."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Alright, Rick, I’ll be right back. I gotta go to the bathroom."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You gotta give me credit for one thing, Rick, my adventures are full of some pretty delightful characters..."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - BATHROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, how’s it going? MR. JELLY BEAN You seem like a happy fellah!"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - BATHROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, you know what? I am. MR. JELLY BEAN Well that’s just great! I like your energy."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - BATHROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh, yeah, thanks! I, uh, like yours too. MR. JELLY BEAN I wonder what would happen if we were to, I don’t know, mix our energies together? MR. JELLY BEAN (CONT’D) Oh, you feel really nice."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - BATHROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh, um, no thanks! MR. JELLY BEAN Stop fighting me. Just let this happen. The more you fight, the more it will hurt."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - BATHROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Get off me! No! Help!"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - BATHROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "No! No! Stop! Please! MR. JELLY BEAN Stop being such a fucking tease, you sweet little twat."
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Let’s just go. I- I’m calling it. The adventure is over."
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Look, I want to leave now. You win the bet alright? Just give me the portal gun and let’s go, please."
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don’t want to talk about it."
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Please, Rick, I just want to go home."
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Really?"
+    },
+    {
+      "scene": "EXT. VILLAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Here you go, sir. For your village."
+    },
+    {
+      "scene": "EXT. VILLAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Thanks, Rick, but I don’t know if I should. You were right about the universe. It’s chaotic and complex by nature."
+    },
+    {
+      "scene": "EXT. VILLAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Uh, no, it’s cool. Portal. Hurry."
+    },
+    {
+      "scene": "INT. SCHOOL - DAY",
+      "speech_type": "direct",
+      "dialogue": "H-hey Jessica, um..."
+    },
+    {
+      "scene": "INT. SCHOOL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well -"
+    },
+    {
+      "scene": "INT. SCHOOL - DAY",
+      "speech_type": "direct",
+      "dialogue": "I was... thinking about it..."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You’re missing the point, Dad. I don’t want girls. I want Jessica."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, Rick! Don’t talk about my parents like that!"
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Well. I’m going to get dressed for the dance."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Listen, Rick. You know how you said love is a chemical reaction and all that? Well I was thinking... could you do some science to make that reaction happen inside Jessica? So she falls in love with me? Like a love potion?"
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "No! I won’t hand you that screwdriver! I won’t hand you any screwdriver ever again, Rick! I’m always helping you with what you want, what about what I want, huh?!"
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, well, okay..."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah! Thanks, Grandpa Rick!"
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "There’s no danger, right, no side effects?"
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hey, Jessica... whoops!"
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Thanks!"
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Whoa! I- I love you too, Jessica!"
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh. Well... No problem, Brad..."
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hey! Take it easy!"
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Uh, sure, I mean... of course not. What do you think that was all about?"
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Please just let this work out."
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Uh... can we maybe go somewhere more private?"
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh crap..."
+    },
+    {
+      "scene": "INT. SCHOOL HALLWAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yes."
+    },
+    {
+      "scene": "EXT. SCHOOL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What’s happening?"
+    },
+    {
+      "scene": "EXT. SCHOOL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh, crap!"
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh man! What do we do, Rick?"
+    },
+    {
+      "scene": "EXT. DESERT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The whole world is infected, Rick!"
+    },
+    {
+      "scene": "EXT. DESERT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Outdone yourself? This isn’t okay, Rick! Not only do they all want to have sex with me, now they all want to eat me afterwords!"
+    },
+    {
+      "scene": "EXT. DESERT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What?! How does that add up to normal humanity?!"
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Just do it already!"
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Something’s not right..."
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "No! Look, you idiot!"
+    },
+    {
+      "scene": "EXT. ROOF TOP - MORNING",
+      "speech_type": "direct",
+      "dialogue": "It’s a living nightmare! How could you be so irresponsible, Rick?"
+    },
+    {
+      "scene": "EXT. ROOF TOP - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Alright fine. I should have listened when you refused to make that serum. I’m willing to accept my part of the blame for this."
+    },
+    {
+      "scene": "EXT. ROOF TOP - MORNING",
+      "speech_type": "direct",
+      "dialogue": "But you need to accept yours! And you need to get off your ass and figure out some way to fix this mess, Rick! I’m serious!"
+    },
+    {
+      "scene": "EXT. ROOF TOP - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Here, put this on while I do a little scouting. CUT TO:"
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Wow. We’re pretty lucky you finally figured out the exact combination of DNA that returned everyone back to normal."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Sure thing Rick. Here’s a screwdriver."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh my god, is that us?! We’re torn to pieces! What is going on, Rick? I’m freaking out!"
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "No way oh my god. Oh nooo. This is too much. Oh my god. Oh nooo. Oh my god."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh nooo this can’t be real! Oh nooo! Oh my god!"
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "This is insane."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Rick! What about the universe we left behind?!"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Drive carefully!"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Holy crap, if Mom’s saying it, it must be serious this time."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Summer, you can’t throw a party! Remember what Mom said?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Tell Summer she can’t have a party!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "What?! Rick, you can’t!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "I think the three of us could just have a nice time bonding and getting to know each other."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "How many people did you invite, Rick?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "Oh, okay. That’s not so bad."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - SOON",
+      "speech_type": "direct",
+      "dialogue": "Oh man!!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - JERRY & BETH’S BEDROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Not in my parent’s bed!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - JERRY & BETH’S BEDROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh. Okay."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Stop! She’s not that hot!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Rick! You gotta st-"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Hey."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Um, not at all."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Not again, Rick. That guy droned on for twenty minutes and meanwhile, the house is being destroyed!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Okay, Rick, what exactly is “squanching?”"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Is it going to result in another mess for me to clean up?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "If I relax, there might not be any more adventures."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "That’s easy for you to say, you like not caring about stuff, what’s in this for me?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Jessica..."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I can’t believe she’s here."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, Jessica!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You know what, Jessica? Don’t even worry about it. Someone’ll deal with it later. Lets go have some fun!"
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Rick!"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Sorry about all that. Rick has some pretty strange friends."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Jessica, can I show you something?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - GARAGE - SOON",
+      "speech_type": "direct",
+      "dialogue": "Yeah, it’s where my grandfather and I do all our science stuff. Check this out."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - GARAGE - SOON",
+      "speech_type": "direct",
+      "dialogue": "You know, Jessica, there’s something I’ve always wanted to tell you."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - GARAGE - SOON",
+      "speech_type": "direct",
+      "dialogue": "I think that you’re the most-"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - GARAGE - SOON",
+      "speech_type": "direct",
+      "dialogue": "Oh!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - GARAGE - SOON",
+      "speech_type": "direct",
+      "dialogue": "Whoa!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Rick! We’ve been transported to another dimension! When mom and dad come home, we’re gonna be so screwed!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "But what about the house, Rick?! Where are we?! What are we going to do?!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay. Let’s go, Rick. Let’s go get those crystals."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay. I’ll do it."
+    },
+    {
+      "scene": "EXT. ALTERNATE DIMENSION - STRANGE PLANET - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The crystals should be close."
+    },
+    {
+      "scene": "EXT. ALTERNATE DIMENSION - STRANGE PLANET - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Lincoler, come on, let’s get out of here."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "Rick... I got them... I got the crystals..."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "Rick, wait. There’s something you need to know. emotional score rises) I couldn’t have done it without Lincoler. He said that he was sorry and that he loves you like a father. He only wanted you to accept him and he hopes that his final act would redeem him in your eyes. He sacrificed himself to save all of us, Rick. He died."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "What... the... hell... was that?! I thought those crystals were supposed to help us get home or something!!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "That’s what I think of your crystals Rick!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "This party is officially over! Rick, take us home. Now."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Uh, sure, thanks."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Rick’s stupid nonsense catchphrase."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Well I got news for you, he’s saying it ironically."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Come on, um..."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Come on, Birdperson, Rick’s not that complicated. He’s just an asshole."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAWN",
+      "speech_type": "direct",
+      "dialogue": "You’re right. I shouldn’t care. This is probably the best thing that could happen to me. I’m sick of having adventures with Rick."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Rick! Rick! Wake up!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Rick, you gotta do something quick. My parents are home."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "They’re walking up the driveway!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What thing?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Rick, that describes everything in your garage."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What did you do?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "For how long?"
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Hey, Rick, you know, I haven’t heard you say that “Wubba lubba dub dub” thing you say this whole time."
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "What’s that, Rick?"
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Awww..."
+    }
+  ]
+}

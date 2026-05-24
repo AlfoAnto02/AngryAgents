@@ -1,0 +1,693 @@
+{
+  "character": "BART",
+  "films": [
+    "The_Simpsons_13x02_-_The_Parent_Rap",
+    "The_Simpsons_17x13_-_Seeming_Neverending_Story_(Missing_pp15-16)",
+    "The_Simpsons_17x21_-_The_Monkey_Suit",
+    "the-simpsons-616-bart-vs-australia-1995",
+    "the-simpsons-924-lost-our-lisa-1998"
+  ],
+  "lines_count": 136,
+  "lines": [
+    {
+      "scene": "INT. SIMPSON CAR - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Only two blocks to school, Milhouse."
+    },
+    {
+      "scene": "INT. SIMPSON CAR - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "thing you were wearing gym socks."
+    },
+    {
+      "scene": "EXT. DONUT SHOP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, check it out. Wiggum's cruiser."
+    },
+    {
+      "scene": "EXT. DONUT SHOP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Wow, tear gas, riot club, police hat ..."
+    },
+    {
+      "scene": "EXT. DONUT SHOP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "your head dry."
+    },
+    {
+      "scene": "EXT. DONUT SHOP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Not in the front."
+    },
+    {
+      "scene": "INT. WIGGUM' S CAR - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Check this out! BART (CONT'D) (OVER P.A.) hands up."
+    },
+    {
+      "scene": "INT. WIGGUM' S CAR - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Now, drop your pants."
+    },
+    {
+      "scene": "INT. WIGGUM' S CAR - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Hula out of them."
+    },
+    {
+      "scene": "INT. POLICE CAR - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "No! Get away!"
+    },
+    {
+      "scene": "EXT. STREET - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Look out! BART/MILHOUSE Sooouuup! COACH young athletes are so promising. Now, who'd like to buy a trophy? BART/MILHOUSE (O.S.) CABF22 FINAL 1 11/17/00 Page 8."
+    },
+    {
+      "scene": "INT. COURT - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, they have gelato! Can we get some?"
+    },
+    {
+      "scene": "INT. COURTROOM - CONTINUOUS SCENE 3",
+      "speech_type": "direct",
+      "dialogue": "Snyder. BAILIFF Next case, Bartholomew J. Simpson. LISA JUDGE SNYDER those new shoes? BART Yes they are, Roy. HOMER young? JUDGE SNYDER Oh, sorry. CABF22 FINAL 1 11/17/00 Page 11."
+    },
+    {
+      "scene": "INT. COURTROOM - CONTINUOUS SCENE 3",
+      "speech_type": "direct",
+      "dialogue": "Yes, sir."
+    },
+    {
+      "scene": "INT. COURTROOM - CONTINUOUS SCENE 3",
+      "speech_type": "direct",
+      "dialogue": "JUDGE HARM Don't spit on my cupcake and tell me it's frosting. (CHECKS FILE) Your father was driving you to school? Then where was he when you stole the police car? HOMER the KBBL Party Penguin Prize Patrol. JUDGE HARM So you abandoned your son to w~n concert tickets? HOMER Actually, it was a Blue Oyster Cult medallion. JUDGE HARM And that was more important than keeping your son out of trouble? CABF22 11/17/00 FINAL 1 Page 13."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - FOYER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Can that judge do this to us?"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - FOYER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You're on, Rope-a-dope!"
+    },
+    {
+      "scene": "INT. MRS. KRABAPPEL' S CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Night terrors, ma'am."
+    },
+    {
+      "scene": "EXT. SPRINGFIELD ELEMENTARY - PLAYGROUND - LATER",
+      "speech_type": "direct",
+      "dialogue": "Hurry up, Dad!"
+    },
+    {
+      "scene": "EXT. SPRINGFIELD ELEMENTARY - PLAYGROUND - LATER",
+      "speech_type": "direct",
+      "dialogue": "Wow, my first horne run."
+    },
+    {
+      "scene": "EXT. SPRINGFIELD ELEMENTARY - PLAYGROUND - LATER",
+      "speech_type": "direct",
+      "dialogue": "CABF22 FINAL l 11/17/00 Page 19."
+    },
+    {
+      "scene": "EXT. NUCLEAR POWER PLANT - NIGHT - ESTABLISHING SCENE 5",
+      "speech_type": "direct",
+      "dialogue": "There's something I've always wondered, Dad. Why does a nuclear plant need cooling towers? HOMER Well, I certainly know the answer to that. Y'see ... certain things need to be cooled ... in a toweristic fashion. Lenny's house? BART I don't think Lenny's house has a steeple. CABF22 FINAL 1 11/17/00 Page 20."
+    },
+    {
+      "scene": "EXT. STREET - THE NEXT DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, this tether has some pluses. HOMER/BART"
+    },
+    {
+      "scene": "EXT. MOE'S - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm cold and scared."
+    },
+    {
+      "scene": "INT. MOE'S - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "C'mon, Dad. Let's go. TUG"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "the bathroom."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "CABF22 FINAL 1 11/17/00 Page 24. HOMER No!"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Mo-om! MARGE his bottle!"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - MASTER BEDROOM - NIGHT SCENE 6",
+      "speech_type": "direct",
+      "dialogue": "Would you mind? I'm trying to do my homework. HOMER chilly. Maybe you should wrap a blanket around your head. MARGE Oh, Homie, no. We can't. HOMER What's the big deal? He sees a thousand times worse on that animal show. CABF22 11/17/00 25. FINAL 1 Page"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - MASTER BEDROOM - NIGHT SCENE 6",
+      "speech_type": "direct",
+      "dialogue": "The lady said no."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - MASTER BEDROOM - NIGHT SCENE 6",
+      "speech_type": "direct",
+      "dialogue": "You shut up."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - MASTER BEDROOM - NIGHT SCENE 6",
+      "speech_type": "direct",
+      "dialogue": "SLAPS. HOMER Because I ... (GETS SLAPPED) Ow! You--! BART CABF22 FINAL 1 11/17/00 Page 26."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - MASTER BEDROOM - NIGHT SCENE 6",
+      "speech_type": "direct",
+      "dialogue": "Who said that? MARGE JUDGE HARM That's right. It's me, Judge Harm, via fiber optics. HOMER Ha, ha. JUDGE HARM Quiet, Tubsy. You violated my order. HOMER But, Constance, it only happened because ... CABF22 FINAL 1 11/17/00 Page 28."
+    },
+    {
+      "scene": "INT. TV ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, yeah. Makes you wonder."
+    },
+    {
+      "scene": "INT. TV ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "C'mon! Get to the smackdown!"
+    },
+    {
+      "scene": "INT. TV ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "CABF22 11/17/00 33. FINAL 1 Page"
+    },
+    {
+      "scene": "INT. TV ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I know you are, but what am I?"
+    },
+    {
+      "scene": "EXT. HOUSEBOAT - A MINUTE LATER SCENE 9",
+      "speech_type": "direct",
+      "dialogue": "everyone blaming me for things I've done."
+    },
+    {
+      "scene": "EXT. HOUSEBOAT - A MINUTE LATER SCENE 9",
+      "speech_type": "direct",
+      "dialogue": "Your Honor! May I say something? CABF22 1 11/17/00 FINAL Page 44."
+    },
+    {
+      "scene": "EXT. HOUSEBOAT - A MINUTE LATER SCENE 9",
+      "speech_type": "direct",
+      "dialogue": "It's not easy being my parents. I'm always getting in trouble, and wising off to teachers. But I'd be a lot worse if it weren't for my Mom and Dad. Everyone else might give up on me, but my parents never will."
+    },
+    {
+      "scene": "EXT. HOUSEBOAT - A MINUTE LATER SCENE 9",
+      "speech_type": "direct",
+      "dialogue": "So, your honor, if you're going to punish anyone in this courtroom today, I ask that you punish me. CABF22 FINAL 1 11/17/00 Page 45."
+    },
+    {
+      "scene": "EXT. HOUSEBOAT - A MINUTE LATER SCENE 9",
+      "speech_type": "direct",
+      "dialogue": "If you'd like to learn more about our juvenile court system, please forget everything you've just seen. Thank you and dress warmly. FADE OUT:"
+    },
+    {
+      "scene": "EXT. CAVERNS - DAY",
+      "speech_type": "direct",
+      "dialogue": "I~"
+    },
+    {
+      "scene": "EXT. CAVERNS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Wow!!! WOW!!! (GIDDY LAUGH) MARGE 11"
+    },
+    {
+      "scene": "INT. UNDERGROUND CHAMBER - (ALSO WELL-LIT) CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "1 LISA They stop struggling, and LISA (CONT' D) MARGE HOMER HABF06 AS BROADCAST 03/12/2006 Page 5."
+    },
+    {
+      "scene": "INT. CHAMBER OF CAVE - DAY",
+      "speech_type": "direct",
+      "dialogue": "But on the upside, I found some cave paintings and made them awesome."
+    },
+    {
+      "scene": "INT. CLASSROOM- DAY (KRABAPPEL'S STORY)",
+      "speech_type": "direct",
+      "dialogue": "MRS. KRABAPPEL"
+    },
+    {
+      "scene": "INT. CLASSROOM- DAY (KRABAPPEL'S STORY)",
+      "speech_type": "direct",
+      "dialogue": "~ , -- ~..:..:.......::. .... HABF06 AS BROADCAST 03/12/2006 Page 31. MRS. KRABAPPEL BART MRS. KRABAPPEL MARGE (V .0.} I"
+    },
+    {
+      "scene": "EXT. CAVE MOUTH - LATER {STILL HOMER'S STORY)",
+      "speech_type": "direct",
+      "dialogue": "need an operation?"
+    },
+    {
+      "scene": "INT. SKINNER'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "And that's why I didn't have time to study for my geography test."
+    },
+    {
+      "scene": "EXT.",
+      "speech_type": "direct",
+      "dialogue": "you're rny protect 1'.,' to from things like supposed me this ! quickly looks around to sure no sees, then: ^/"
+    },
+    {
+      "scene": "EXT.",
+      "speech_type": "direct",
+      "dialogue": "j-n play Milhouse. you C'mon, Do wanna ,i the or NBA not?"
+    },
+    {
+      "scene": "EXT.",
+      "speech_type": "direct",
+      "dialogue": "it's That working. means j-n. / aga . / Lisa, other Springfielders Marge, Maggie and many joins extribit. Bart is two feet taller. (Most of the height /2005 HABFl Page L2. BECORD 8/08 MILHOUSE SCENE WhassuP? i./ with big floppy steps."
+    },
+    {
+      "scene": "INT. - -",
+      "speech_type": "direct",
+      "dialogue": "creationisml re were no cavemen."
+    },
+    {
+      "scene": "EXT. I'AY - SEENE 10",
+      "speech_type": "direct",
+      "dialogue": "Lisa.. the like enters room dressed size again' )"
+    },
+    {
+      "scene": "EXT. I'AY - SEENE 10",
+      "speech_type": "direct",
+      "dialogue": "will the time for you serve Milhouse r';' to Mexico' Your new while you flee Seflorita name: Ug1Y. with Lisa's passport has a crude fake he made \\/ with ar,a \"SnfrORffe UGLY\" PICKER\". 42' /2OO5 Page HABF14 RECORD 8/08 scENE 1-1 (CONT',D) MARGE"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Go, toothpaste! Go! Move your pasty white butt!"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KIDS' BATHROOM - MORNING",
+      "speech_type": "direct",
+      "dialogue": "No! One more race! Your two-bit shampoo got lucky, but this toothpaste has real talent. He holds up the tube, which says \"Krusty Brand Tooth Product. Must Be Sold as Candy in MA,IL,VT,AZ,CA.\" Lisa groans and climbs back up."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KIDS' BATHROOM - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Okay. On you mark... Get set... Squeeze! They both squeeze their tubes frantically, sending long strands drooping into the running sink. Then ; they bend down to watch the race Lisa's green strand gets the inside track, swirls around, and heads into the drain first."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KIDS' BATHROOM - MORNING",
+      "speech_type": "direct",
+      "dialogue": "No fair! You only won cause you had the inside track! If the water was spinning the other way--"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KIDS' BATHROOM - MORNING",
+      "speech_type": "direct",
+      "dialogue": "No way. Water doesn't obey your \"rules\". It goes where it wants. Like me, babe."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KIDS' BATHROOM - MORNING",
+      "speech_type": "direct",
+      "dialogue": "I know I've seen it go the other way. (LOOKING AROUND) Ah, faithful toilet. You'll prove me right. Bart starts flushing the toilet, but it also swirls counter-clockwise. Frustrated, he sticks his arm in and tries futilely to push the water in the other direction. He flushes again and again with no luck."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - BART'S ROOM - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Why won't you believe I'm right?"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - BART'S ROOM - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Southern Hemisphere?"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - BART'S ROOM - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Hmm, so down there in, say, Argentina or Rand-McNally all their water runs backwards?"
+    },
+    {
+      "scene": "EXT. REMOTE SOUTH PACIFIC VILLAGE - THAT MINUTE",
+      "speech_type": "direct",
+      "dialogue": "Hello, Southern Hemisphere? Which way does the water go in your toilet?"
+    },
+    {
+      "scene": "INT. BANANA REPUBLIC - DICTATOR'S PALACE - A MINUTE",
+      "speech_type": "direct",
+      "dialogue": "Which way does the water turn in your toilet? The translator looks alarmed and speaks to the dictator."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Why won't this hemisphere give me a straight answer?! He dials another number."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Well, is there anyone on \"Pit-cairn\" Island who might have a toilet? (GROANS, HANGS UP)"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Hello, operator? I'd like to make a collect call to... Bart spins the globe and stops it with his finger, selecting a random place in the Southern Hemisphere."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Australia."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Er, the International Drainage Commission."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "It's an emergency, dude!"
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "This is Dr. Bart Simpson of the International Drainage Commission. We understand some drains in your area have been malfunctioning, sucking in people and what- not."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Indeed. We need you to check your sinks and toilets and tell us which way the water is going. And, please -- stand clear! The boy runs off and we hear toilets flushing and sinks running. He returns, panting."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "right. Stupid Lisa Science Queen."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "No, no, you're fine. But you should check your neighbor's drains. I'll hold."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KITCHEN - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "Cool! He runs out, leaving the phone off the hook. ESTABLISHING SHOT - SIMPSON HOUSE - LATE THAT NIGHT"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KITCHEN - THEN",
+      "speech_type": "direct",
+      "dialogue": "Huh? Yeah, this is Sir."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - KITCHEN - THEN",
+      "speech_type": "direct",
+      "dialogue": "Draining? (REMEMBERS) Oh, I don't care about that anymore. But thanks. Bye."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "please."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Stanton speaking."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Simpson's office."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "please. (HUMS FAKE MUZAK FOR A FEW SECONDS)"
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "This is Bart Simpson. Can I help you, Ma'am?"
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "No. You owe me nine hundred dollars."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "\"Monster?\" (FAKE INDIGNANT) I am not going to sit here while you pollute my phone lines with your foul language! Good day! Bart starts to hang up."
+    },
+    {
+      "scene": "INT. AUSTRALIAN HOUSE - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "so. You're all the way in Australia. Bart hangs up."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - BART'S BEDROOM - A FEW DAYS",
+      "speech_type": "direct",
+      "dialogue": "blah blah... misrepresentation over telephone... yadda yadda... please remit $900 Australian, $656 American... bling blang... Sincerely... Some Australian jerk. Bart crumples up the letter and throws it in his trash can. We TIME DISSOLVE AS Bart's hand tosses in letter after unopened letter from Australia. Some are rubber-stamped \"PAST DUE,\" \"MATE: PAYMENT REQUIRED,\" and \"BLOODY URGENT.\" The TIME DISSOLVES continue as his hand tosses in certified letters, telegrams, and large legal envelopes. Finally, he crushes all the garbage down with his foot and tosses in a saxophone."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - BART'S BEDROOM - A FEW DAYS",
+      "speech_type": "direct",
+      "dialogue": "Sorry. It was making such an awful sound, I thought it was dying."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - BART'S BEDROOM - A FEW DAYS",
+      "speech_type": "direct",
+      "dialogue": "Nothing. Some stupid country thinks I owe them money. Lisa tears open a sealed legal envelope, pulls out a thick document, and peruses it. Bart looks over her shoulder."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - TV ROOM - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Hey, guys, it's no big deal... but I'm being indicted for fraud in Australia."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - TV ROOM - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "So they claim I tricked this Australian kid into accepting a $900 collect call. Things got worse when I insulted his father and threw away all their government's letters."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - LIVING ROOM - A FEW MINUTES",
+      "speech_type": "direct",
+      "dialogue": "So I caused a diplomatic rift? Cooool."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - LIVING ROOM - HOURS LATER",
+      "speech_type": "direct",
+      "dialogue": "I can handle that. I'm an expert at phony apologies."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - LIVING ROOM - HOURS LATER",
+      "speech_type": "direct",
+      "dialogue": "sorry."
+    },
+    {
+      "scene": "INT. AUSTRALIAN AIRPORT - CUSTOMS - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "What does that sign say? I thought they spoke English in this country!"
+    },
+    {
+      "scene": "INT. AUSTRALIAN AIRPORT - CUSTOMS - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh. Bart opens his suitcase and takes out a shoebox with holes punched in it."
+    },
+    {
+      "scene": "INT. AUSTRALIAN AIRPORT - CUSTOMS - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "don't want to get in any more trouble down here. He tosses the box in the trash and walks off. A second later, the box's lid falls off and a bullfrog peers out."
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "You must be the old coot who runs this dump."
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "Yeah. Do the toilets go backwards in here?"
+    },
+    {
+      "scene": "EXT. EMBASSY - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "your sign's broken. We're already in Australia."
+    },
+    {
+      "scene": "EXT. EMBASSY - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "I get it, Dad."
+    },
+    {
+      "scene": "EXT. DOWNTOWN STREET - LATER",
+      "speech_type": "direct",
+      "dialogue": "Come on. Just pick someplace and see. Homer and Bart enter one of the establishments, where a large neon sign says \"Brothel.\" A second later, they come back out, with Homer covering Bart's eyes."
+    },
+    {
+      "scene": "INT. PUB - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "A-men, brother. At the end of the bar, we see a small boy holding up an empty mug. He looks like an eight year-old Barney Gumble."
+    },
+    {
+      "scene": "EXT. PARLIAMENT HOUSE - FRONT STEPS - 3:00 P.M.",
+      "speech_type": "direct",
+      "dialogue": "Hey, Mr. Conover! I've been practicing my apologies. Listen! (SAD & SNIFFLY) I'm sorry. (DUMB VOICE) Duh, I'm sor-ry. (DONALD DUCK VOICE) I'm sorry. (AD LIBS MORE)"
+    },
+    {
+      "scene": "INT. PARLIAMENT HOUSE - MAIN CHAMBER - A MINUTE",
+      "speech_type": "direct",
+      "dialogue": "is the sucker that got us our free vacation."
+    },
+    {
+      "scene": "INT. PARLIAMENT HOUSE - MAIN CHAMBER - A MINUTE",
+      "speech_type": "direct",
+      "dialogue": "did to your country."
+    },
+    {
+      "scene": "INT. PARLIAMENT HOUSE - MAIN CHAMBER - A MINUTE",
+      "speech_type": "direct",
+      "dialogue": "Punishment?! Nobody told me about any punishment!"
+    },
+    {
+      "scene": "INT. PARLIAMENT HOUSE - MAIN CHAMBER - A MINUTE",
+      "speech_type": "direct",
+      "dialogue": "W-what's he gonna do to me? GUARD#1 kick you in the bum. GUARD#2 gonna do it again. Fourteen times."
+    },
+    {
+      "scene": "INT. PARLIAMENT HOUSE - MAIN CHAMBER - A MINUTE",
+      "speech_type": "direct",
+      "dialogue": "GUARD#1 Don't worry. He's a professional. The martial artist walks towards Bart with an ominous thimp-THUMP, thimp-THUMP. FADE OUT:"
+    },
+    {
+      "scene": "INT. PARLIAMENT HOUSE - MAIN CHAMBER - A SECOND",
+      "speech_type": "direct",
+      "dialogue": "Hellllp! Homer! Homer manages to wriggle his arm free from the guard and punches him in the nose. The burly guard does not react. Homer thinks for a second, then punches Evan Conover in the nose. Conover crumples to the ground."
+    },
+    {
+      "scene": "EXT. DOWNTOWN STREET - FIVE MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "Hey! Just what we need for a quick getaway! Bart runs up to one of the kangaroos and starts getting into its pouch. We hear a horrible squishy sound. He takes his leg out, and it's dripping with mucusy goo."
+    },
+    {
+      "scene": "EXT. DOWNTOWN STREET - FIVE MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "Forget this."
+    },
+    {
+      "scene": "INT. GIFT SHOP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "A split-second later, Homer follows."
+    },
+    {
+      "scene": "EXT. STREET - TEN SECONDS LATER",
+      "speech_type": "direct",
+      "dialogue": "Not great. How was the sightseeing?"
+    },
+    {
+      "scene": "EXT. EMBASSY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You're violating our civil rights, man!"
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - THAT NIGHT",
+      "speech_type": "direct",
+      "dialogue": "This has been very upsetting for me. I might be severely traumatized if anyone ever tried to punish me again. Ever."
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - THAT NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No. (FAKE COUGH) But I think I'm coming down with the Stockholm Syndrome."
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "Yeah. That's when the government wants something for nothing."
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "me to do?"
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "With a regular-sized shoe?"
+    },
+    {
+      "scene": "INT. EMBASSY - VISITORS QUARTERS - MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "Dad has those. They don't hurt at all. (BEAT) Okay. I'll do it."
+    },
+    {
+      "scene": "EXT. EMBASSY - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "And this is for the United States of America. Bart drops his pants, bends over, and moons the Prime Minister. On his naked butt is written \"DON'T TREAD ON ME.\""
+    },
+    {
+      "scene": "EXT. EMBASSY - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "BANNER\")"
+    },
+    {
+      "scene": "EXT. EMBASSY - ROOFTOP - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Thanks. I practice a lot in school. Two embassy Marines solemnly lower the American flag, carefully fold it up, and toss it into a nearby garbage can. Then, in a shot reminiscent of the fall of Saigon, the Simpsons and embassy staff climb up the steps and board the helicopter. It takes off."
+    },
+    {
+      "scene": "INT. HELICOPTER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I think Australia might have the same problem."
+    },
+    {
+      "scene": "INT. BUS - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I believe we'll get off here, my good man."
+    },
+    {
+      "scene": "EXT. SIDEWALK - A MINUTE LATER",
+      "speech_type": "direct",
+      "dialogue": "Milhouse, I'm not gonna take dog doo that's been on the ground and put on it my face. I have a better idea."
+    },
+    {
+      "scene": "INT. POWER PLANT - HOMER'S WORKSTATION - A LITTLE LATER",
+      "speech_type": "direct",
+      "dialogue": "Hey Dad, wake up."
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "'::'a-da l"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Notice anything new? 8 MARGE Bart! What have I told you about throwing money away at that joke shop? BART To try and cut back a little? MARGE Take those silly things off. BA..~T won't come off. MARGE"
+    },
+    {
+      "scene": "INT. SIMPSON HOUSE - LIVING ROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "Ow! 9 MA.'lGE BART Ow! MARGE BART LISA Bart, did you glue those on? BART Oh, don't be ridiculous. t--'lARGE ingestion, consult a mortician.\" Bl>.RT {OFFENDED} Mom, I didn't eat any of I'm not stupid. it. MA...~GE We've got to get you to a doctor right away."
+    },
+    {
+      "scene": "EXT. SIMPSON HOUSE - DRIVEWAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Maybe you should have thought of that before I glued all this stuff to my face."
+    },
+    {
+      "scene": "INT. WAITING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "MARGE faucet I want for your bathroom."
+    },
+    {
+      "scene": "INT. HOSPITAL - DR. HIBBERT'S EXAMINING ROOM - SIMULTANEOUS",
+      "speech_type": "direct",
+      "dialogue": "MA...~GE What happened? You didn't do anything. DR. HIBBERT Nothing Oh, didn't I? (MILD CHUCKLEi dissolves glue be~ter than human sweat. I kr1ew Bart would panic and start perspiring at the sight of this button applicator. (MILD CHUCKLE)"
+    }
+  ]
+}
