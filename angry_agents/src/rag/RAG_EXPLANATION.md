@@ -604,3 +604,94 @@ written motivations, and a functioning Phase 2 deliberation.
 
 4. **Cost** — only 11% above Approach A. At 1 000 evaluations the difference
    is $8 ($80 vs $72). Negligible relative to the quality improvement.
+
+---
+
+## Implementation optimizations
+
+After the initial Approach C+ implementation, two optimizations were applied
+that substantially reduced both cost and latency without changing the design.
+
+---
+
+### Optimization 1 — Batch scoring (1 call per judge, not per candidate)
+
+The original loop called `_openai_tool_loop` once per candidate persona, passing
+the full `candidates_block` every time:
+
+```
+for persona in candidates:          # 17 iterations
+    call LLM(system, user)          # candidates_block sent 17 times
+```
+
+This was wasteful: the same 17 profiles were re-sent on every call. The fix is
+to ask the model to score **all** (author × persona) pairs in a single call and
+return a nested JSON:
+
+```json
+{
+  "motivation": "...",
+  "scores": {
+    "<author_digest>": {"VADER": 2, "LUKE": 4, ...},
+    ...
+  }
+}
+```
+
+One call per judge, all profiles sent once. A new template
+`persona_id_rag_batch.j2` describes the expected output shape.
+
+**Impact:**
+
+| | Before (loop) | After (batch) |
+|---|---|---|
+| LLM calls (4 judges) | 68 | 4 |
+| LLM calls (20 judges) | 340 | 20 |
+| Cost — 4 judges | ~$0.071 | ~$0.006 |
+| Cost — 20 judges | ~$0.355 | **~$0.029** |
+| Wall-clock time | ~9 min (sequential) | ~30 sec (parallel) |
+
+20 judges with the batch approach costs **less than 4 judges with the old loop**.
+
+---
+
+### Optimization 2 — Thread-safe ChromaDB singleton
+
+Running judges in parallel with `ThreadPoolExecutor` caused a crash because
+`chromadb.PersistentClient` opens the SQLite file each time it is called — and
+SQLite cannot handle concurrent writers from multiple threads.
+
+The fix is a module-level singleton in `_chroma.py` with a `threading.Lock()`:
+
+```python
+_lock = threading.Lock()
+_collection: chromadb.Collection | None = None
+
+def _get_collection() -> chromadb.Collection:
+    global _collection
+    if _collection is not None:
+        return _collection
+    with _lock:
+        if _collection is None:          # double-checked locking
+            client = chromadb.PersistentClient(path=str(_CHROMA_DIR))
+            _collection = client.get_or_create_collection(...)
+    return _collection
+```
+
+Both `retriever.py` and `tool.py` import `_get_collection` from `_chroma.py`.
+Only one `PersistentClient` is ever opened per process — all threads share it.
+ChromaDB's query interface is read-only during evaluation and is thread-safe.
+
+---
+
+### Updated cost table — all approaches + optimizations
+
+| | No RAG | Approach A | Approach B | C+ original | **C+ optimized** |
+|---|---|---|---|---|---|
+| LLM calls (20 judges) | 2 000 | 60 | 0 | 300 | **20** |
+| Cost per evaluation | $0.885 | $0.071 | $0.0001 | $0.073 | **$0.029** |
+| vs No RAG | baseline | −92% | −99.99% | −92% | **−97%** |
+| Wall-clock time | ~33 min | ~1 min | ~5 sec | ~3 min | **~30 sec** |
+
+The optimized implementation outperforms the original Approach A even with
+5× more judges (20 vs the original 4).
