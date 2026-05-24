@@ -1,11 +1,12 @@
 """
-Evaluation test — RAG pre-filter + LLM tool-use judges.
+Evaluation test — 20 RAG-assisted judges (5 per role × 4 roles).
 
-Each judge role runs its own retrieval against the chunk subset most relevant
-to its focus, then uses the LLM with ChromaDB tool access during reasoning.
+Each role is instantiated 5 times independently. Instances of the same role
+share the same retrieval fields and focus, but run as separate LLM calls,
+producing variance that drives Phase 2 deliberation.
 
 Run from the repo root:
-    python -m angry_agents.src.rag.evaluation_test_with_rag
+    python -m angry_agents.src.rag.evaluation_test_20_judges
 
 Requires the ChromaDB index to be built first:
     python -m angry_agents.src.rag.build_index
@@ -22,38 +23,44 @@ from .retriever import retrieve_candidates
 
 CHAT_FILE = Path(__file__).parents[3] / "data" / "eval" / "chat_simulation_with_embedding" / "transcript.jsonl"
 PERSONAS_DIR = Path(__file__).parents[3] / "data" / "personas"
-EVAL_DIR = Path(__file__).parents[2] / "agents" / "judges" / "judge_eval"
+EVAL_DIR = Path(__file__).parents[2] / "src" / "rag" / "judge_eval"
 
 _EXCLUDED_PROFILES = {"jimmy_profile_old.json"}
 
-# Each judge role retrieves candidates from its own relevant chunk subset.
-# This preserves diversity: a style judge and an ideology judge may receive
-# different shortlists because they search on different signals.
-JUDGES: list[dict] = [
+JUDGES_PER_ROLE = 5
+
+_ROLE_CONFIGS: list[dict] = [
     {
-        "name": "style",
+        "role": "style",
         "focus": "vocabulary, sentence structure, tone, and rhetorical habits",
         "rag_fields": ["style", "voice"],
         "top_k": 20,
     },
     {
-        "name": "ideology",
+        "role": "ideology",
         "focus": "values, political views, moral stances, and belief systems",
         "rag_fields": ["worldview"],
         "top_k": 20,
     },
     {
-        "name": "general",
+        "role": "general",
         "focus": "all observable traits combined: style, ideology, and behaviour",
-        "rag_fields": None,   # None = search all chunk types
+        "rag_fields": None,
         "top_k": 20,
     },
     {
-        "name": "behavioral",
+        "role": "behavioral",
         "focus": "situational reactions, escalation patterns, and conversation goals",
         "rag_fields": ["behavior"],
         "top_k": 20,
     },
+]
+
+# 20 judge instances: style_1…style_5, ideology_1…ideology_5, etc.
+JUDGES: list[dict] = [
+    {**cfg, "name": f"{cfg['role']}_{i}"}
+    for cfg in _ROLE_CONFIGS
+    for i in range(1, JUDGES_PER_ROLE + 1)
 ]
 
 
@@ -86,14 +93,14 @@ def _messages_by_digest(chat: dict) -> dict[str, list[str]]:
 
 def _next_eval_path() -> Path:
     EVAL_DIR.mkdir(parents=True, exist_ok=True)
-    existing = sorted(EVAL_DIR.glob("eval_rag_*.jsonl"))
+    existing = sorted(EVAL_DIR.glob("eval_20j_*.jsonl"))
     n = len(existing) + 1
-    return EVAL_DIR / f"eval_rag_{n}.jsonl"
+    return EVAL_DIR / f"eval_20j_{n}.jsonl"
 
 
 def _build_record(
     judge_id: int,
-    judge_name: str,
+    judge: dict,
     chat_id: int,
     result,
     candidate_names: list[str],
@@ -106,7 +113,8 @@ def _build_record(
         "Created_at": now,
         "Updated_at": now,
         "Deleted_at": None,
-        "judge_name": judge_name,
+        "judge_name": judge["name"],
+        "judge_role": judge["role"],
         "rag_candidates": candidate_names,
         "persona_identification": [
             {
@@ -122,9 +130,9 @@ def _build_record(
     }
 
 
-def _print_result(judge_name: str, focus: str, result, candidate_names: list[str]) -> None:
+def _print_result(judge: dict, result, candidate_names: list[str]) -> None:
     print(f"\n{'=' * 60}")
-    print(f"  {judge_name.upper()}  —  {focus}")
+    print(f"  [{judge['name']}]  —  {judge['focus']}")
     print(f"  Candidates ({len(candidate_names)}): {candidate_names}")
     print(f"{'=' * 60}")
     for match in result.matches:
@@ -141,7 +149,8 @@ def main() -> None:
     chat_id = 1
 
     print(f"\nChat: {len(chat['messages'])} messages, {len(messages_by_digest)} agents")
-    print(f"Full DB: {len(all_profiles)} personas\n")
+    print(f"Full DB: {len(all_profiles)} personas")
+    print(f"Judges: {len(JUDGES)} ({JUDGES_PER_ROLE} per role × {len(_ROLE_CONFIGS)} roles)\n")
 
     if not chat["messages"]:
         raise ValueError(f"Chat file is empty: {CHAT_FILE}")
@@ -149,7 +158,7 @@ def main() -> None:
         raise ValueError(f"No persona files found in: {PERSONAS_DIR}")
 
     def _run_judge(judge_id: int, judge: dict) -> dict:
-        print(f"[{judge['name']}] Retrieving candidates (fields={judge['rag_fields']})...")
+        print(f"[{judge['name']}] starting (fields={judge['rag_fields']})...")
         candidates = retrieve_candidates(
             messages_by_digest=messages_by_digest,
             profiles_by_name=all_profiles,
@@ -163,10 +172,10 @@ def main() -> None:
             chat=chat,
             candidates=candidates,
         )
-        _print_result(judge["name"], judge["focus"], result, candidate_names)
-        return _build_record(judge_id, judge["name"], chat_id, result, candidate_names)
+        _print_result(judge, result, candidate_names)
+        return _build_record(judge_id, judge, chat_id, result, candidate_names)
 
-    futures_map = {}
+    futures_map: dict = {}
     with ThreadPoolExecutor(max_workers=len(JUDGES)) as pool:
         for judge_id, judge in enumerate(JUDGES, start=1):
             futures_map[pool.submit(_run_judge, judge_id, judge)] = judge_id

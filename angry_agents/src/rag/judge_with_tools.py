@@ -3,11 +3,12 @@ RAG-assisted judge that combines pre-filtering with LLM tool use.
 
 Flow:
   1. retrieve_candidates() narrows the database to top-K profiles (per judge role).
-  2. The judge LLM receives those candidates as starting context.
+  2. The judge LLM receives ALL candidates as context in a single call.
   3. During reasoning the judge can call search_persona_profiles() to query
      ChromaDB on demand for deeper investigation.
   4. Final output: PersonaIdentificationResult (same interface as base judges).
 
+One LLM call per judge (not per candidate) — 17x cheaper than the per-candidate loop.
 Only works with LLM_BACKEND=openai. Falls back to standard run_persona_identification
 when Ollama is configured (Ollama tool-calling support varies by model).
 """
@@ -15,7 +16,6 @@ when Ollama is configured (Ollama tool-calling support varies by model).
 import json
 import logging
 import os
-from collections import defaultdict
 
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -26,7 +26,6 @@ from ..agents.agent_config import (
     format_messages,
     format_profile,
     run_persona_identification,
-    _parse_json_scores,
 )
 from ..agents.judges.base_judge import AuthorMatch, PersonaIdentificationResult, PersonaScore
 from ..agents.judges.templates import render_prompt
@@ -35,8 +34,7 @@ from .tool import SEARCH_TOOL, execute as execute_rag_tool
 load_dotenv()
 log = logging.getLogger(__name__)
 
-# Maximum tool calls allowed per LLM turn before forcing a final answer.
-_MAX_TOOL_CALLS = 3
+_MAX_TOOL_CALLS = 5
 
 
 def _openai_tool_loop(system: str, user: str, model: str) -> str:
@@ -56,14 +54,17 @@ def _openai_tool_loop(system: str, user: str, model: str) -> str:
             messages=messages,
             tools=[SEARCH_TOOL],
             tool_choice="auto",
+            response_format={"type": "json_object"},
             temperature=0,
         )
         choice = response.choices[0]
 
         if choice.finish_reason != "tool_calls":
-            return choice.message.content
+            content = choice.message.content or ""
+            if content.strip():
+                return content
+            break
 
-        # Execute every tool call the model requested
         messages.append(choice.message)
         for tc in choice.message.tool_calls:
             args = json.loads(tc.function.arguments)
@@ -78,7 +79,6 @@ def _openai_tool_loop(system: str, user: str, model: str) -> str:
                 "content": result,
             })
 
-    # Max tool calls reached — force a final answer without tools
     messages.append({"role": "user", "content": "Provide your final JSON answer now."})
     final = client.chat.completions.create(
         model=model,
@@ -89,6 +89,39 @@ def _openai_tool_loop(system: str, user: str, model: str) -> str:
     return final.choices[0].message.content
 
 
+def _parse_batch_scores(
+    raw: str,
+    authors: list[str],
+    candidates: list[dict],
+) -> dict[str, list[PersonaScore]]:
+    """
+    Parse batch JSON output:
+      {"scores": {"<author_digest>": {"<PERSONA_NAME>": <1-5>, ...}, ...}}
+
+    Missing authors or personas default to score 1.
+    """
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        log.warning("batch parse: invalid JSON, defaulting all scores to 1")
+        data = {}
+
+    scores_map: dict = data.get("scores", {})
+    result: dict[str, list[PersonaScore]] = {}
+
+    for author in authors:
+        author_scores = scores_map.get(author, {})
+        result[author] = [
+            PersonaScore(
+                persona_name=p["persona_name"],
+                score=int(author_scores.get(p["persona_name"], 1)),
+            )
+            for p in candidates
+        ]
+
+    return result
+
+
 def run_persona_identification_with_tools(
     focus: str,
     chat: dict,
@@ -96,7 +129,7 @@ def run_persona_identification_with_tools(
     model: str = OPENAI_MODEL,
 ) -> PersonaIdentificationResult:
     """
-    Identify personas using RAG-assisted tool-use judges.
+    Identify personas using a single RAG-assisted LLM call per judge.
 
     candidates  — pre-filtered profiles from retrieve_candidates().
     focus       — the judge's lens, e.g. "vocabulary, sentence structure, tone".
@@ -117,28 +150,24 @@ def run_persona_identification_with_tools(
         )
 
     author_list = ", ".join(authors)
+    persona_names = ", ".join(p["persona_name"] for p in candidates)
     candidates_block = "\n\n".join(
         f"--- {p['persona_name']} ---\n{format_profile(p)}"
         for p in candidates
     )
 
-    author_persona_scores: dict[str, list[PersonaScore]] = {a: [] for a in authors}
+    system, user = render_prompt(
+        "persona_id_rag_batch.j2",
+        focus=focus,
+        n_candidates=len(candidates),
+        candidates_block=candidates_block,
+        messages_block=messages_block,
+        author_list=author_list,
+        persona_names=persona_names,
+    )
 
-    for persona in candidates:
-        name = persona["persona_name"]
-        system, user = render_prompt(
-            "persona_id_rag.j2",
-            focus=focus,
-            persona_name=name,
-            n_candidates=len(candidates),
-            candidates_block=candidates_block,
-            messages_block=messages_block,
-            author_list=author_list,
-        )
-        raw = _openai_tool_loop(system, user, model)
-        author_scores = _parse_json_scores(raw, authors)
-        for author, score in author_scores.items():
-            author_persona_scores[author].append(PersonaScore(persona_name=name, score=score))
+    raw = _openai_tool_loop(system, user, model)
+    author_persona_scores = _parse_batch_scores(raw, authors, candidates)
 
     matches = [
         AuthorMatch(author=a, scores=author_persona_scores[a])

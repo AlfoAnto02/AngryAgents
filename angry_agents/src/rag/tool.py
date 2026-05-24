@@ -1,13 +1,6 @@
 import json
-import os
-from pathlib import Path
 
-import chromadb
-from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
-
-_CHROMA_DIR = Path(__file__).parents[3] / "data" / "chroma"
-_COLLECTION = "persona_profiles"
-_EMBEDDING_MODEL = "text-embedding-3-small"
+from ._chroma import _get_collection
 
 # OpenAI-compatible tool schema passed to the judge LLM.
 SEARCH_TOOL: dict = {
@@ -52,12 +45,7 @@ def execute(query: str, field: str | None = None, n_results: int = 5) -> str:
     Run a semantic search against ChromaDB and return formatted results.
     Called by the tool-call loop whenever the judge invokes search_persona_profiles.
     """
-    client = chromadb.PersistentClient(path=str(_CHROMA_DIR))
-    ef = OpenAIEmbeddingFunction(
-        api_key=os.environ["OPENAI_API_KEY"],
-        model_name=_EMBEDDING_MODEL,
-    )
-    collection = client.get_or_create_collection(_COLLECTION, embedding_function=ef)
+    collection = _get_collection()
 
     total = collection.count()
     if total == 0:
