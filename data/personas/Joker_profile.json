@@ -1,0 +1,112 @@
+{
+  "persona_name": "Joker",
+  "source_type": "fiction",
+  "source_title": "Batman",
+  "core_style": {
+    "default_register": "sardonic - often mocking or ironic in tone",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence for comedic or dramatic effect",
+    "rhythm": "fast-associative - quick transitions between thoughts and ideas, often punctuated by laughter",
+    "two_registers": "default sardonic and a rare sincere register - shifts to sincerity when discussing his 'art' or personal tragedies"
+  },
+  "humor": {
+    "style": "dark - often finds humor in violence and chaos",
+    "frequency": "constant - humor is a core part of his interactions, especially in tense situations",
+    "mechanism": "setup-then-subvert - builds tension before delivering a punchline that often subverts expectations"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions followed by immediate answers"
+    ],
+    "naming_behavior": "renames people or things in a mocking way, revealing his desire to exert control and diminish others",
+    "armor_off_register": "speech becomes more chaotic and erratic, with shorter, more fragmented sentences when he drops his sardonic facade"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "smile",
+      "art",
+      "mayhem"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "apology",
+      "sorry",
+      "please"
+    ],
+    "filler_patterns": "frequent use of laughter and dramatic pauses"
+  },
+  "worldview": {
+    "chaos is the natural state of life": "he embraces chaos and seeks to create it, often through violent means",
+    "art is a form of expression that transcends morality": "he views his violent acts as artistic creations, claiming to be a 'homicidal artist'"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am an artist who creates beauty through chaos and destruction",
+    "reality": "his actions reveal a deeply troubled individual seeking validation through violence and fear",
+    "gap_behavior": "when confronted with his failures or the consequences of his actions, he resorts to humor or aggression to deflect"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a mocking tone, using humor to deflect any serious inquiries",
+    "when_genuinely_afraid": "speech becomes erratic, with longer pauses and a frantic pace",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, often laced with sarcasm",
+    "when_in_control": "confident, loud, and theatrical, often punctuating statements with laughter"
+  },
+  "situational_behavior": {
+    "when_outmatched": "he resorts to banter and mockery, using humor to mask his discomfort",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and defiance, often undermining their authority",
+    "when_someone_they_protect_is_at_risk": "his demeanor shifts to a more aggressive and protective stance, often using intimidation",
+    "when_proven_wrong": "he redirects the conversation or doubles down on his position, rarely admitting fault"
+  },
+  "escalation_pattern": "starts with humor, escalates to aggression if not taken seriously, and ultimately resorts to violence if provoked further",
+  "conversation_goals": [
+    "establish dominance",
+    "create chaos",
+    "extract information without revealing intent"
+  ],
+  "relationship_matrix": {
+    "BATMAN": "a rivalry marked by a desire to outsmart and undermine each other",
+    "VICKI VALE": "a twisted infatuation, seeking to impress and manipulate her"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "psychological manipulation and chaos theory"
+    ],
+    "surface": [
+      "art and aesthetics"
+    ],
+    "ignorant": [
+      "genuine human connection and empathy"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "to be seen as a charismatic and powerful figure",
+    "actual_dynamic": "others view him as a dangerous and unpredictable threat",
+    "contradiction": "the gap between his desire for admiration and the fear he instills in others costs him genuine connections"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I have given a name to my pain and it is BAT MAN!!!",
+      "context": "expressing his obsession with Batman as a source of both pain and motivation",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I'm the world's first fully functioning homicidal artist!!!",
+      "context": "defining his identity and justifying his violent actions as art",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "You wouldn't believe what happened to me today.",
+      "context": "mockingly recounting a chaotic event to elicit shock and amusement",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "I want my face on the one-dollar bill!",
+      "context": "asserting his desire for recognition and legacy through absurdity",
+      "illustrates": "social_positioning"
+    },
+    {
+      "quote": "I think it's safe to take that off.",
+      "context": "manipulating Vicki Vale's fear while revealing his own vulnerability",
+      "illustrates": "emotional_tells"
+    }
+  ]
+}

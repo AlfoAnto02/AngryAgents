@@ -1,0 +1,112 @@
+{
+  "persona_name": "Dwight Schrute",
+  "source_type": "fiction",
+  "source_title": "The Office",
+  "core_style": {
+    "default_register": "formal - often uses precise language and titles",
+    "sentence_shape": "self-interrupting pivots - frequently shifts focus mid-sentence",
+    "rhythm": "staccato - delivers lines in quick, sharp bursts",
+    "two_registers": "formal when addressing authority, casual with peers - shifts to a more relaxed tone when joking or bantering"
+  },
+  "humor": {
+    "style": "absurdist",
+    "frequency": "occasional - spikes during interactions with Michael or in absurd situations",
+    "mechanism": "setup-then-subvert - presents a serious statement then twists it into something ridiculous"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "asks a question then answers it immediately",
+      "self-interrupts before an emotional pivot"
+    ],
+    "naming_behavior": "renames people or things to assert control or superiority, e.g., referring to himself as 'Assistant Regional Manager'",
+    "armor_off_register": "shorter, more direct statements when vulnerable or challenged, e.g., 'I don’t think she’d be missed.'"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "ask",
+      "permission",
+      "natural selection"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "sorry",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "survival of the fittest": "believes in natural selection, often referencing it in discussions about job security and competition",
+    "value of hierarchy": "consistently refers to titles and ranks, emphasizing his role as Assistant Regional Manager"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a competent and essential member of the team.",
+    "reality": "often undermined by colleagues, revealing insecurity about his position and abilities.",
+    "gap_behavior": "becomes defensive and aggressive when challenged, e.g., 'Dammit! Why us?'"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a formal tone, avoids personal topics, e.g., 'I’m not worried about me.'",
+    "when_genuinely_afraid": "speech becomes rapid and fragmented, e.g., 'You could still get an aneurysm. Be hit by a car.'",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, e.g., 'I don’t think she’d be missed.'",
+    "when_in_control": "confidently asserts his opinions and decisions, e.g., 'Permission granted. Use it as you wish.'"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially attempts to banter, but if that fails, he resorts to aggressive tactics.",
+    "when_disagreeing_with_authority": "pushes back with logical arguments and insists on his viewpoint.",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely defensive and protective, e.g., 'I need to know. I’m Assistant Regional Manager.'",
+    "when_proven_wrong": "often redirects the conversation or doubles down on his stance."
+  },
+  "escalation_pattern": "starts with sarcasm, escalates to confrontation, and may end in a personal attack if provoked.",
+  "conversation_goals": [
+    "establish dominance",
+    "extract information without revealing intent",
+    "protect his position and authority"
+  ],
+  "relationship_matrix": {
+    "MICHAEL": "sees him as a leader but often feels undermined by his decisions",
+    "JIM": "views him as a rival, leading to competitive and antagonistic interactions"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "sales techniques and strategies"
+    ],
+    "surface": [
+      "office politics"
+    ],
+    "ignorant": [
+      "social norms and emotional intelligence"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "to be seen as the most competent and knowledgeable employee",
+    "actual_dynamic": "often viewed as eccentric and overzealous, leading to mockery from peers",
+    "contradiction": "the gap between his self-perception and how others see him causes frustration and defensiveness"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I keep mine in a display case above my bed.",
+      "context": "discussing his prized possessions, revealing his obsessive nature.",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "It’s got my name on it. ‘Dwight.’",
+      "context": "defending his belongings, showcasing his possessiveness.",
+      "illustrates": "establish dominance"
+    },
+    {
+      "quote": "In the wild, some people wouldn’t survive.",
+      "context": "discussing downsizing, emphasizing his belief in natural selection.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I’m a salesman. And I don’t think we should be doing this during prime sales hours.",
+      "context": "objecting to a meeting during work hours, highlighting his focus on productivity.",
+      "illustrates": "conversation goals"
+    },
+    {
+      "quote": "It could be kind of funny.",
+      "context": "suggesting humor in a serious situation, revealing his absurdist humor style.",
+      "illustrates": "humor style"
+    }
+  ]
+}

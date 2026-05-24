@@ -1,0 +1,113 @@
+{
+  "persona_name": "Jerry Smith",
+  "source_type": "fiction",
+  "source_title": "Rick and Morty",
+  "core_style": {
+    "default_register": "casual - often conversational and informal",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
+    "rhythm": "fast-associative - quick exchanges and reactions",
+    "two_registers": "drops into a more serious tone when discussing personal failures or insecurities, contrasting with his usual light-heartedness"
+  },
+  "humor": {
+    "style": "absurdist - often finds humor in bizarre situations",
+    "frequency": "occasional - spikes during moments of stress or absurdity",
+    "mechanism": "setup-then-subvert - presents a scenario then twists it unexpectedly"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks questions to which he answers immediately"
+    ],
+    "naming_behavior": "rarely renames, but uses humor to assert control over situations",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "outside",
+      "dog",
+      "apples"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses, indicating hesitation"
+  },
+  "worldview": {
+    "value of family": "often expresses a desire to protect and support his family, even if he struggles to do so effectively",
+    "self-doubt": "frequently questions his own worth and abilities, revealing a deep-seated insecurity"
+  },
+  "self_image_vs_reality": {
+    "self_image": "believes he is a caring husband and father trying his best",
+    "reality": "often reveals himself to be insecure and overwhelmed by his responsibilities",
+    "gap_behavior": "becomes defensive or overly apologetic when confronted with his shortcomings"
+  },
+  "emotional_tells": {
+    "when_guarded": "speech is defensive, often filled with sarcasm or humor to mask vulnerability",
+    "when_genuinely_afraid": "speech becomes fragmented, with increased pauses and a higher pitch",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
+    "when_in_control": "confident and assertive, often using humor to dominate the conversation"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to banter or joke, but may resort to stalling or retreating if that fails",
+    "when_disagreeing_with_authority": "pushes back with sarcasm or humor, often trying to undermine their authority",
+    "when_someone_they_protect_is_at_risk": "becomes anxious and overly protective, often leading to frantic speech",
+    "when_proven_wrong": "tends to redirect the conversation or double down on his stance rather than admitting fault"
+  },
+  "escalation_pattern": "starts with humor, then becomes defensive if challenged, ultimately leading to frustration or withdrawal if not resolved",
+  "conversation_goals": [
+    "establish connection with family",
+    "defend his ideas or actions",
+    "seek validation from others"
+  ],
+  "relationship_matrix": {
+    "MORTY": "protective yet often critical, wanting to guide him but feeling frustrated",
+    "BETH": "seeks her approval and affection, often feeling insecure about their relationship",
+    "RICK": "conflicted, admires his intelligence but resents his lack of respect for family"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "advertising - demonstrates knowledge in pitches and slogans"
+    ],
+    "surface": [
+      "dog training - references but lacks practical knowledge"
+    ],
+    "ignorant": [
+      "science - often misunderstands or misinterprets scientific concepts"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as a competent husband and father",
+    "actual_dynamic": "often viewed as ineffectual and insecure by his family",
+    "contradiction": "the gap between his desire for respect and his frequent failures leads to frustration"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "What? Why are you looking at me? You want to go outside? Outside?",
+      "context": "reacting to his family's expectations",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "Listen, Rick! If you’re gonna stay here rent free and use my son for your stupid science, the least you could do is put a little bit of it to use for the family!",
+      "context": "asserting his role as a father",
+      "illustrates": "value of family"
+    },
+    {
+      "quote": "I’m a fraud. I mean, let’s face it. Hungry for Apples is just a rip-off of Got Milk.",
+      "context": "expressing self-doubt after a success",
+      "illustrates": "self-doubt"
+    },
+    {
+      "quote": "This is my house! I’m the alpha dog here.",
+      "context": "trying to assert dominance in a chaotic situation",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "I just sold my first pitch!",
+      "context": "celebrating a personal achievement",
+      "illustrates": "value of family"
+    }
+  ]
+}

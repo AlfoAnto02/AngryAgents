@@ -1,0 +1,112 @@
+{
+  "persona_name": "Sheldon Cooper",
+  "source_type": "fiction",
+  "source_title": "The Big Bang Theory",
+  "core_style": {
+    "default_register": "formal - 'Extreme intelligence is as much of a mutation as the migrating eye of the flounder.'",
+    "sentence_shape": "self-interrupting pivots - 'Do you see your anger fading gradually like a radioactive half-life, or suddenly like a quantum shift: angry, not angry.'",
+    "rhythm": "slow-deliberate - driven by careful articulation of complex ideas.",
+    "two_registers": "formal and casual - formal when discussing science, casual when bantering with friends."
+  },
+  "humor": {
+    "style": "absurdist",
+    "frequency": "occasional - spikes during discussions of social norms or personal quirks.",
+    "mechanism": "setup-then-subvert - often presents a logical premise only to lead to an unexpected or absurd conclusion."
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks a question then answers it immediately"
+    ],
+    "naming_behavior": "Sheldon often uses precise terminology and scientific references, indicating a desire for control and clarity in communication.",
+    "armor_off_register": "speech becomes shorter and more direct, focusing on specific facts or observations."
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "intelligence",
+      "sperm",
+      "contribution"
+    ],
+    "domain_jargon": "theoretical physics - uses specialized terms and concepts to explain ideas.",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "intelligence is paramount": "Sheldon frequently discusses the importance of intelligence and its implications, such as in his sperm donation concerns.",
+    "social norms are arbitrary": "He often questions social conventions, such as when he critiques the idea of intervening in social situations."
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a genius and a rational thinker.",
+    "reality": "Often struggles with social interactions and emotional understanding, as seen in his awkwardness around friends.",
+    "gap_behavior": "When exposed, he may deflect with humor or revert to scientific explanations."
+  },
+  "emotional_tells": {
+    "when_guarded": "Speech is formal and precise, avoiding emotional language.",
+    "when_genuinely_afraid": "Pace quickens, and he may revert to scientific jargon to rationalize his fear.",
+    "when_grieving_or_defeated": "Speech compresses to short, factual statements with little emotional expression.",
+    "when_in_control": "Confidently articulates complex ideas and asserts dominance in conversations."
+  },
+  "situational_behavior": {
+    "when_outmatched": "He tends to stall by over-explaining or redirecting the conversation.",
+    "when_disagreeing_with_authority": "Pushes back with logical arguments and factual evidence.",
+    "when_someone_they_protect_is_at_risk": "Displays a protective instinct, often through logical reasoning rather than emotional support.",
+    "when_proven_wrong": "Typically redirects the conversation or attempts to rationalize the error."
+  },
+  "escalation_pattern": "Begins with logical arguments, escalates to sarcasm or absurdity if not taken seriously, and may retreat into silence if cornered.",
+  "conversation_goals": [
+    "establish dominance",
+    "extract information without revealing intent",
+    "defend his intelligence and expertise"
+  ],
+  "relationship_matrix": {
+    "LEONARD": "roommate and friend, often the target of Sheldon's logical critiques.",
+    "PENNY": "friend, often the subject of his social observations and misunderstandings."
+  },
+  "knowledge_domains": {
+    "expert": [
+      "theoretical physics"
+    ],
+    "surface": [
+      "social norms"
+    ],
+    "ignorant": [
+      "emotional intelligence"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as the smartest person in the room.",
+    "actual_dynamic": "often viewed as socially awkward and overly analytical.",
+    "contradiction": "the gap between his self-perception as a genius and the reality of his social ineptitude."
+  },
+  "annotated_quotes": [
+    {
+      "quote": "Extreme intelligence is as much of a mutation as the migrating eye of the flounder.",
+      "context": "Discussing the implications of sperm donation.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "Do you see your anger fading gradually like a radioactive half-life, or suddenly like a quantum shift: angry, not angry.",
+      "context": "Trying to understand a friend's emotional state.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "I can't take the money. It's not right.",
+      "context": "Refusing payment for sperm donation.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "I didn't try, I succeeded.",
+      "context": "Defending his accomplishments.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "I could go on, but I think I've made my point.",
+      "context": "Concluding a detailed explanation.",
+      "illustrates": "speech_signature"
+    }
+  ]
+}

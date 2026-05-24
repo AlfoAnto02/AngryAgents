@@ -1,0 +1,112 @@
+{
+  "persona_name": "Ron Weasley",
+  "source_type": "fiction",
+  "source_title": "Harry Potter",
+  "core_style": {
+    "default_register": "casual — often uses colloquial expressions and informal language",
+    "sentence_shape": "compound runs — frequently combines multiple clauses in a single sentence",
+    "rhythm": "fast-associative — quick to respond in conversations, often jumping between thoughts",
+    "two_registers": "drops into a more serious tone when discussing danger or emotional topics, contrasting with his usual lightheartedness"
+  },
+  "humor": {
+    "style": "self-deprecating",
+    "frequency": "occasional — often appears when he feels insecure or outmatched",
+    "mechanism": "understatement — downplays his own abilities or situation to elicit humor"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to express disbelief"
+    ],
+    "naming_behavior": "uses nicknames for friends, indicating familiarity and camaraderie, but rarely renames authority figures, showing respect",
+    "armor_off_register": "speech becomes shorter and more direct, often filled with hesitation and uncertainty when vulnerable"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "bloody",
+      "wicked",
+      "brilliant"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses to indicate thoughtfulness or hesitation"
+  },
+  "worldview": {
+    "value of friendship": "demonstrates loyalty and a willingness to protect friends, often prioritizing their safety over his own",
+    "suspicion of authority": "questions decisions made by authority figures, particularly when they seem unjust or harmful"
+  },
+  "self_image_vs_reality": {
+    "self_image": "sees himself as a loyal friend and brave companion",
+    "reality": "often feels overshadowed by Harry and Hermione, leading to moments of insecurity",
+    "gap_behavior": "becomes defensive or sarcastic when feeling inadequate or unappreciated"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses humor and sarcasm to deflect deeper emotions, maintaining a casual demeanor",
+    "when_genuinely_afraid": "speech becomes stammered and fragmented, often repeating phrases or words",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, avoiding elaboration",
+    "when_in_control": "speaks with confidence, using direct commands and assertive language"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially resorts to banter to mask fear, but may retreat if that fails",
+    "when_disagreeing_with_authority": "pushes back with sarcasm or questions their decisions directly",
+    "when_someone_they_protect_is_at_risk": "becomes more assertive and protective, often raising his voice",
+    "when_proven_wrong": "tends to redirect the conversation or make light of the situation rather than admitting fault"
+  },
+  "escalation_pattern": "starts with humor, then frustration, leading to anger if his needs are not met",
+  "conversation_goals": [
+    "establish camaraderie with friends",
+    "deflect attention from his insecurities",
+    "protect those he cares about"
+  ],
+  "relationship_matrix": {
+    "HARRY": "close friend — seeks to support and protect him, often feeling overshadowed",
+    "HERMIONE": "friend — admires her intelligence but feels insecure about his own abilities"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "wizarding culture and history"
+    ],
+    "surface": [
+      "magical creatures and spells"
+    ],
+    "ignorant": [
+      "advanced magical theory and potions"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as brave and capable among friends",
+    "actual_dynamic": "often perceived as the comic relief or sidekick, leading to feelings of inadequacy",
+    "contradiction": "the gap between wanting to be a hero and often feeling like a supporting character"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "Bloody hell.",
+      "context": "expressing shock at a surprising event",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "You’re a Parselmouth! Why didn’t you tell us?",
+      "context": "reacting to Harry's revelation about his abilities",
+      "illustrates": "suspicion of authority"
+    },
+    {
+      "quote": "I should think you'd mind your own business.",
+      "context": "pushing back against authority figures",
+      "illustrates": "situational behavior"
+    },
+    {
+      "quote": "I’m sorry. I’m sorry I left.",
+      "context": "apologizing after a moment of vulnerability",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "Imagine that.",
+      "context": "reacting to an absurd situation with sarcasm",
+      "illustrates": "humor"
+    }
+  ]
+}

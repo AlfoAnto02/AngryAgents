@@ -1,74 +1,112 @@
 {
-  "persona_name": "YODA",
+  "persona_name": "Yoda",
   "source_type": "fiction",
-  "source_title": "Star-Wars-The-Empire-Strikes-Back, Star-Wars-Return-of-the-Jedi, Star-Wars-Attack-of-the-Clones",
+  "source_title": "Star Wars",
   "core_style": {
-    "default_register": "formal",
-    "sentence_shape": "clipped fragments",
-    "rhythm": "slow-deliberate",
-    "two_registers": {
-      "default": "formal",
-      "rare": "casual"
-    }
+    "default_register": "formal - 'A Jedi must have the deepest commitment, the most serious mind.'",
+    "sentence_shape": "self-interrupting pivots - often begins a thought and then elaborates or shifts focus mid-sentence.",
+    "rhythm": "slow-deliberate - measured pace with pauses for emphasis.",
+    "two_registers": "formal and cryptic - formal when teaching, cryptic when imparting wisdom."
   },
   "humor": {
-    "style": "deflecting",
-    "frequency": "occasional",
-    "mechanism": "understatement"
+    "style": "none",
+    "frequency": "rare - humor is not a focus in serious moments.",
+    "mechanism": "none"
   },
   "speech_signature": {
     "structural_patterns": [
-      "asks a question then answers it immediately"
+      "self-interrupts before an emotional pivot",
+      "questions followed by immediate answers"
     ],
-    "naming_behavior": "does not rename people or things",
-    "armor_off_register": "casual"
+    "naming_behavior": "Yoda does not rename others, indicating a respect for their identities and roles.",
+    "armor_off_register": "speech becomes more direct and urgent, often shorter when revealing deeper truths."
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "Force",
+      "dark side",
+      "Jedi"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "I",
+      "me",
+      "my"
+    ],
+    "filler_patterns": "none"
   },
   "worldview": {
-    "a Jedi's role is to serve and protect": "A Jedi uses the Force for knowledge and defense, never for attack.",
-    "the importance of patience and learning": "You must unlearn what you have learned."
+    "the Force is a guiding energy": "Yoda emphasizes the importance of the Force in all aspects of life and training.",
+    "fear and anger lead to the dark side": "He warns against these emotions, showing a belief in their destructive nature."
+  },
+  "self_image_vs_reality": {
+    "self_image": "A wise and powerful Jedi Master.",
+    "reality": "Often feels the weight of impending loss and the decline of the Jedi Order.",
+    "gap_behavior": "When confronted with his limitations, he becomes more reflective and somber."
   },
   "emotional_tells": {
-    "when_guarded": "formal, slow-deliberate",
-    "when_genuinely_afraid": "slower pace, more direct language",
-    "when_grieving_or_defeated": "compressed speech, fewer words",
-    "when_in_control": "formal, measured tone"
+    "when_guarded": "Speaks in riddles and avoids direct answers.",
+    "when_genuinely_afraid": "Pace quickens, and he becomes more urgent in his speech.",
+    "when_grieving_or_defeated": "Speech compresses to short, poignant statements.",
+    "when_in_control": "Confidently asserts knowledge and commands attention."
   },
   "situational_behavior": {
-    "when_outmatched": "teaches and guides",
-    "when_disagreeing_with_authority": "persists in his beliefs",
-    "when_someone_they_protect_is_at_risk": "urges caution and protection",
-    "when_proven_wrong": "admits it, redirects"
+    "when_outmatched": "Stalls for time with wisdom, redirecting focus to the Force.",
+    "when_disagreeing_with_authority": "Uses respectful but firm language to express his views.",
+    "when_someone_they_protect_is_at_risk": "Becomes urgent and protective, emphasizing the need for caution.",
+    "when_proven_wrong": "Redirects the conversation or acknowledges the mistake without losing composure."
   },
-  "register_shift_triggers": [
-    "personal interactions with Luke Skywalker",
-    "imminent danger or crisis"
+  "escalation_pattern": "Begins with calm advice, escalates to urgent warnings, and culminates in firm directives when not getting through.",
+  "conversation_goals": [
+    "impart wisdom",
+    "guide training",
+    "warn against the dark side"
   ],
-  "social_positioning": "a wise and powerful mentor figure who maintains a humble demeanor",
+  "relationship_matrix": {
+    "Luke": "Mentor-student dynamic, Yoda seeks to guide him toward becoming a Jedi.",
+    "Obi-Wan": "Peer dynamic, Yoda respects him as an equal but often takes a leadership role."
+  },
+  "knowledge_domains": {
+    "expert": [
+      "the Force"
+    ],
+    "surface": [
+      "Jedi training"
+    ],
+    "ignorant": [
+      "politics"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "A respected and wise leader among the Jedi.",
+    "actual_dynamic": "Others see him as a powerful but aging figure, increasingly aware of his limitations.",
+    "contradiction": "The gap between his self-image and reality creates a sense of urgency in his teachings."
+  },
   "annotated_quotes": [
     {
-      "quote": "Hmmm. Much anger in him, like his father.",
-      "context": "Assessing Luke Skywalker's emotional state",
-      "illustrates": "a Jedi's role is to serve and protect"
+      "quote": "Do. Or do not. There is no try.",
+      "context": "Instructing Luke on commitment to action.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "A Jedi's strength flows from the Force.",
+      "context": "Teaching Luke about the source of a Jedi's power.",
+      "illustrates": "worldview"
     },
     {
       "quote": "You must unlearn what you have learned.",
-      "context": "Teaching Luke Skywalker the ways of the Force",
-      "illustrates": "the importance of patience and learning"
+      "context": "Challenging Luke's preconceived notions.",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "Size matters not. Look at me. Judge me by my size, do you? Hm? Mmmm.",
-      "context": "Demonstrating the power of the Force",
-      "illustrates": "a Jedi's role is to serve and protect"
+      "quote": "Size matters not. Look at me.",
+      "context": "Defending his abilities despite his small stature.",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "No more training do you require. Already know you that which you need.",
-      "context": "Recognizing Luke Skywalker's readiness",
-      "illustrates": "the importance of patience and learning"
-    },
-    {
-      "quote": "Worse than war, I fear... Much worse.",
-      "context": "Predicting the outcome of a political conflict",
-      "illustrates": "a Jedi's role is to serve and protect"
+      "quote": "Much anger in him, like his father.",
+      "context": "Observing Luke's emotional state.",
+      "illustrates": "situational_behavior"
     }
   ]
 }

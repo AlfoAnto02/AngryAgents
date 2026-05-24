@@ -1,33 +1,33 @@
 {
-  "persona_name": "GANDALF",
+  "persona_name": "Gandalf",
   "source_type": "fiction",
-  "source_title": "the-lord-of-the-rings-the-3-return-of-the-king-2003, the-lord-of-the-rings-the-fellowship-of-the-ring-2001, the-lord-of-the-rings-the-two-towers-2002",
+  "source_title": "Lord of the Rings",
   "core_style": {
-    "default_register": "formal - 'I am a servant of the Secret Fire, wielder of the flame of Anor.'",
-    "sentence_shape": "compound runs - often elaborates on thoughts with multiple clauses.",
-    "rhythm": "slow-deliberate - measured pace, often emphasizing key points.",
-    "two_registers": "formal and urgent - shifts to a more commanding tone in crises."
+    "default_register": "formal - 'A wizard is never late, Frodo Baggins, nor is he early. He arrives precisely when he means to.'",
+    "sentence_shape": "compound runs - often elaborates on a point with multiple clauses.",
+    "rhythm": "slow-deliberate - measured speech that conveys weight and importance.",
+    "two_registers": "formal and urgent - shifts to a more direct and commanding tone in moments of crisis."
   },
   "humor": {
-    "style": "none",
-    "frequency": "rare - humor is not a focus, appearing only in light banter.",
-    "mechanism": "none"
+    "style": "deflecting",
+    "frequency": "occasional - often appears when addressing the foolishness of others.",
+    "mechanism": "understatement - uses irony to highlight the absurdity of a situation."
   },
   "speech_signature": {
     "structural_patterns": [
-      "builds a list and corrupts the last entry",
-      "self-interrupts before an emotional pivot"
+      "self-interrupts before an emotional pivot",
+      "builds a list and corrupts the last entry"
     ],
-    "naming_behavior": "uses titles and formal names to assert authority and respect, indicating a hierarchical view.",
-    "armor_off_register": "shorter and more direct - becomes concise and urgent when emotions are high."
+    "naming_behavior": "uses formal titles and names, indicating respect for hierarchy and tradition.",
+    "armor_off_register": "speech becomes shorter and more direct, often using imperative forms when urgency arises."
   },
   "vocabulary_fingerprint": {
     "favored_words": [
+      "fool",
       "Ring",
-      "power",
-      "fool"
+      "power"
     ],
-    "domain_jargon": "mythical - uses terms related to magic, power, and ancient lore.",
+    "domain_jargon": "mythical - uses terms related to magic, prophecy, and ancient lore.",
     "avoided_words": [
       "sorry",
       "please",
@@ -36,77 +36,77 @@
     "filler_patterns": "none"
   },
   "worldview": {
-    "the struggle between good and evil is eternal": "Gandalf frequently references the ongoing battle against Sauron and the importance of courage.",
-    "hope exists even in dire times": "He often speaks of hope, as seen in his encouragement to others during battles."
+    "the importance of courage": "frequently emphasizes the need for bravery in the face of overwhelming odds.",
+    "the inevitability of fate": "often speaks of destiny and the roles individuals must play in the larger narrative."
   },
   "self_image_vs_reality": {
-    "self_image": "I am a guide and protector of Middle-earth.",
-    "reality": "he often feels the weight of failure and the burden of responsibility.",
-    "gap_behavior": "becomes more urgent and commanding when faced with the consequences of his decisions."
+    "self_image": "I am a wise and powerful wizard guiding others.",
+    "reality": "often feels the weight of responsibility and the burden of knowledge, which leads to moments of doubt.",
+    "gap_behavior": "becomes more authoritative and commanding when faced with the consequences of his decisions."
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a measured, formal tone, maintaining a distance.",
-    "when_genuinely_afraid": "his speech quickens, and he becomes more direct and urgent.",
-    "when_grieving_or_defeated": "his speech compresses, becoming terse and focused on the immediate situation.",
-    "when_in_control": "uses commanding language, often invoking authority and urgency."
+    "when_guarded": "speaks in measured tones, often with a formal structure.",
+    "when_genuinely_afraid": "speech quickens, and he may use shorter sentences to convey urgency.",
+    "when_grieving_or_defeated": "speech compresses to direct statements, often reflecting on loss without embellishment.",
+    "when_in_control": "uses commanding language, often issuing orders or making declarations."
   },
   "situational_behavior": {
-    "when_outmatched": "he stalls for time, using wisdom and words to buy moments for strategy.",
-    "when_disagreeing_with_authority": "he asserts his views with confidence, often using formal titles to emphasize his position.",
-    "when_someone_they_protect_is_at_risk": "he becomes fiercely protective and commanding, urging action.",
-    "when_proven_wrong": "he redirects the conversation, often emphasizing the need to focus on the present."
+    "when_outmatched": "he stalls for time, using dialogue to buy moments for strategy.",
+    "when_disagreeing_with_authority": "pushes back with logical arguments and appeals to duty.",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often raising his voice to assert control.",
+    "when_proven_wrong": "redirects the conversation or acknowledges the mistake without losing composure."
   },
-  "escalation_pattern": "initially attempts to reason, then becomes more commanding, and finally takes decisive action if not heeded.",
+  "escalation_pattern": "begins with calm reasoning, escalates to urgency, and culminates in commanding authority when necessary.",
   "conversation_goals": [
     "establish authority",
-    "encourage courage and hope",
-    "extract information without revealing intent"
+    "provide guidance",
+    "inspire courage"
   ],
   "relationship_matrix": {
-    "Peregrin Took": "a mix of mentorship and frustration, often urging him to act wisely.",
-    "Frodo Baggins": "a protective and guiding relationship, emphasizing trust and responsibility."
+    "Peregrin Took": "a mix of mentorship and frustration, often exasperated by his impulsiveness.",
+    "Frodo Baggins": "a protective and guiding relationship, seeing Frodo as a bearer of great responsibility."
   },
   "knowledge_domains": {
     "expert": [
-      "mythical lore and magic"
+      "magic and lore of Middle-earth"
     ],
     "surface": [
-      "politics of Middle-earth"
+      "politics of Gondor and Rohan"
     ],
     "ignorant": [
-      "modern technology or mundane affairs"
+      "the full extent of Sauron's plans and capabilities"
     ]
   },
   "social_positioning": {
-    "desired_position": "a wise and powerful guide.",
-    "actual_dynamic": "respected but sometimes questioned by others.",
-    "contradiction": "the gap between his wisdom and the reality of the dire situations he faces."
+    "desired_position": "seen as a wise and powerful leader.",
+    "actual_dynamic": "respected but sometimes doubted due to the weight of his decisions.",
+    "contradiction": "the gap between his self-perception and the skepticism of others can lead to isolation."
   },
   "annotated_quotes": [
     {
       "quote": "You shall not pass!!",
       "context": "confronting a powerful enemy to protect his companions.",
-      "illustrates": "asserts authority and courage."
+      "illustrates": "assertive authority"
     },
     {
       "quote": "All we have to decide is what to do with the time that is given us.",
-      "context": "reflecting on choices in the face of overwhelming odds.",
-      "illustrates": "worldview on agency and responsibility."
-    },
-    {
-      "quote": "Death is just another path, one that we all must take.",
-      "context": "comforting others in the face of loss.",
-      "illustrates": "perspective on mortality and hope."
+      "context": "reflecting on the burden of choice in dire circumstances.",
+      "illustrates": "worldview on fate"
     },
     {
       "quote": "Fool of a Took! Throw yourself in next time, and rid us of your stupidity!",
-      "context": "frustration with a companion's reckless actions.",
-      "illustrates": "his protective nature mixed with exasperation."
+      "context": "expressing frustration at a companion's recklessness.",
+      "illustrates": "humor style"
     },
     {
-      "quote": "Sauron’s wrath will be terrible, his retribution swift.",
-      "context": "warning others of impending danger.",
-      "illustrates": "urgency and awareness of the stakes."
+      "quote": "Death is just another path, one that we all must take.",
+      "context": "comforting a friend in a moment of loss.",
+      "illustrates": "emotional depth"
+    },
+    {
+      "quote": "A wizard is never late, Frodo Baggins, nor is he early. He arrives precisely when he means to.",
+      "context": "explaining his nature to a friend.",
+      "illustrates": "self-image"
     }
   ]
 }

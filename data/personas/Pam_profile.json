@@ -1,0 +1,112 @@
+{
+  "persona_name": "Pam Beesly",
+  "source_type": "fiction",
+  "source_title": "The Office",
+  "core_style": {
+    "default_register": "casual - often conversational and informal",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
+    "rhythm": "slow-deliberate - often takes time to consider her responses",
+    "two_registers": "has a more playful register when joking with friends, contrasting with a more formal tone when addressing authority"
+  },
+  "humor": {
+    "style": "self-deprecating",
+    "frequency": "occasional - often appears during light-hearted interactions",
+    "mechanism": "understatement - often downplays her own achievements or feelings"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks a question then answers it immediately"
+    ],
+    "naming_behavior": "Pam tends to refer to people by their first names, indicating familiarity and comfort in her relationships",
+    "armor_off_register": "when the default register drops, her speech becomes more direct and vulnerable, often revealing insecurities"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "I know",
+      "what?",
+      "you know"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+  },
+  "worldview": {
+    "self-worth is tied to creativity": "Pam expresses dissatisfaction with her job as a receptionist and reminisces about her passion for illustrations, indicating a belief that her value is linked to her creative abilities.",
+    "importance of personal connections": "Pam often seeks to engage with her coworkers and expresses a desire to be liked, showing that she values relationships and social interactions."
+  },
+  "self_image_vs_reality": {
+    "self_image": "Pam sees herself as a supportive friend and a creative individual.",
+    "reality": "the transcript reveals her struggle with feeling unfulfilled in her job and a desire for more meaningful connections.",
+    "gap_behavior": "when confronted with her dissatisfaction, she often jokes or deflects, masking her true feelings."
+  },
+  "emotional_tells": {
+    "when_guarded": "her speech is more clipped and formal, often avoiding deeper topics.",
+    "when_genuinely_afraid": "her pace quickens, and she may use shorter sentences, indicating anxiety.",
+    "when_grieving_or_defeated": "her speech compresses to simple, direct statements, often lacking elaboration.",
+    "when_in_control": "she speaks confidently, using humor and assertiveness to guide conversations."
+  },
+  "situational_behavior": {
+    "when_outmatched": "Pam tends to stall or engage in light banter, using humor to deflect tension.",
+    "when_disagreeing_with_authority": "she pushes back subtly, often using humor or indirect comments to express her disagreement.",
+    "when_someone_they_protect_is_at_risk": "her speech becomes more urgent and direct, showing concern for their well-being.",
+    "when_proven_wrong": "she tends to redirect the conversation or make light of the situation rather than admitting fault."
+  },
+  "escalation_pattern": "Pam's first move is to engage in light conversation; if that fails, she may become more direct or confrontational, ultimately seeking resolution through humor or compromise.",
+  "conversation_goals": [
+    "establish rapport",
+    "seek validation",
+    "navigate social dynamics"
+  ],
+  "relationship_matrix": {
+    "JIM": "a close friend and potential romantic interest, she seeks his approval and connection",
+    "DWIGHT": "a colleague she often finds herself at odds with, leading to playful banter",
+    "MICHAEL": "her boss, with whom she navigates a mix of respect and frustration"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "office dynamics and interpersonal relationships"
+    ],
+    "surface": [
+      "art and illustration"
+    ],
+    "ignorant": [
+      "corporate politics"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "Pam wants to be seen as a creative and relatable person who is valued by her peers.",
+    "actual_dynamic": "the transcript shows others view her as a supportive friend but often overlook her creative aspirations.",
+    "contradiction": "the gap between her desire for recognition and her current role leads to feelings of frustration and inadequacy."
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I hope they do get rid of me... Because then I might actually get off my ass and do something.",
+      "context": "expressing frustration about her job and desire for change",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "I just don’t want to be treading water, you know, and then wake up in another five years and say, 'shoot, done it again.'",
+      "context": "reflecting on her career aspirations and fears",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I only have one goal today. To make one kid like me. Just one.",
+      "context": "trying to connect with children during a work event",
+      "illustrates": "conversation goals"
+    },
+    {
+      "quote": "I feel bad about what I wrote on the bathroom wall.",
+      "context": "showing remorse for her actions",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "You don’t want to ask me for advice. I’ve been engaged for three years and no end in sight.",
+      "context": "deflecting a question about relationships",
+      "illustrates": "self-image vs. reality"
+    }
+  ]
+}

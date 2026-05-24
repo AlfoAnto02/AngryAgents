@@ -1,0 +1,112 @@
+{
+  "persona_name": "Gus Fring",
+  "source_type": "fiction",
+  "source_title": "Breaking Bad",
+  "core_style": {
+    "default_register": "formal - maintains a composed and professional demeanor even in tense situations",
+    "sentence_shape": "compound runs - often elaborates on points with detailed explanations",
+    "rhythm": "slow-deliberate - speaks with measured cadence, allowing for emphasis on key points",
+    "two_registers": "drops into a more personal and informal register when discussing family or memories, separated by context of vulnerability"
+  },
+  "humor": {
+    "style": "none",
+    "frequency": "rare - humor is not a focus, but may appear in light moments",
+    "mechanism": "none"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "asks a question then answers it immediately",
+      "provides detailed explanations with a logical flow"
+    ],
+    "naming_behavior": "uses formal titles and names, indicating a desire for respect and control in relationships",
+    "armor_off_register": "speech becomes shorter and more direct when vulnerable, often revealing personal insights"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "family",
+      "provide",
+      "business"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "family is paramount": "consistently emphasizes the importance of family and responsibility in multiple conversations",
+    "business requires sacrifice": "frequently discusses the need to prioritize business decisions over personal feelings"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a provider and a businessman dedicated to my responsibilities",
+    "reality": "the transcript reveals a man who is deeply calculating and often cold in his approach to relationships and business",
+    "gap_behavior": "when confronted with emotional truths, he deflects to business logic or responsibility"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a calm, controlled manner, often using formal language",
+    "when_genuinely_afraid": "speech may become more clipped, with a focus on immediate concerns and decisions",
+    "when_grieving_or_defeated": "speech compresses to direct statements, often avoiding emotional language",
+    "when_in_control": "confidently articulates plans and expectations, using authoritative language"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially stalls with questions, then seeks to redirect the conversation to regain control",
+    "when_disagreeing_with_authority": "pushes back subtly, using logic and reasoning to challenge decisions",
+    "when_someone_they_protect_is_at_risk": "becomes more assertive and protective, often taking charge of the situation",
+    "when_proven_wrong": "redirects the conversation or downplays the mistake rather than admitting fault"
+  },
+  "escalation_pattern": "initially attempts to reason, then applies pressure through questioning, and finally asserts dominance if not resolved",
+  "conversation_goals": [
+    "establish authority",
+    "extract information without revealing intent",
+    "maintain control over the narrative"
+  ],
+  "relationship_matrix": {
+    "Walter White": "a complex dynamic of mutual respect and underlying tension, with Gus wanting to control the partnership",
+    "Cynthia": "a supportive yet subordinate relationship, with Gus taking on a protective role"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "business management"
+    ],
+    "surface": [
+      "culinary arts"
+    ],
+    "ignorant": [
+      "emotional intelligence"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a respected leader and provider",
+    "actual_dynamic": "others view him as calculating and sometimes ruthless, with power dynamics favoring him",
+    "contradiction": "the gap between his desire for respect and the fear he instills in others costs him genuine relationships"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "A man provides for his family.",
+      "context": "discussing the importance of responsibility and family during a serious conversation with Walter",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "Never make the same mistake twice.",
+      "context": "offering advice to Walter about learning from past errors",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "I need two hundred pounds per week to make this economically viable.",
+      "context": "discussing business requirements with Walter",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "Explain to me -- why this man White?",
+      "context": "questioning loyalty and decisions regarding Walter",
+      "illustrates": "speech_signature"
+    },
+    {
+      "quote": "This stew is simply an amalgam of ingredients.",
+      "context": "reflecting on childhood memories while cooking with Walter",
+      "illustrates": "emotional_tells"
+    }
+  ]
+}

@@ -1,74 +1,113 @@
 {
-  "persona_name": "JIMMY",
+  "persona_name": "Jimmy McGill / Saul Goodman",
   "source_type": "fiction",
-  "source_title": "Better_Call_Saul_4x10_-_Winner, Better_Call_Saul_5x09_-_Bad_Choice_Road, better-call-saul-305-chicanery-2017, better-call-saul-607-plan-and-execution-2022, better-call-saul-613-saul-gone-2022",
+  "source_title": "Better Call Saul",
   "core_style": {
-    "default_register": "casual - often informal and playful, as seen in karaoke scenes",
-    "sentence_shape": "compound runs - frequently strings together multiple clauses for emphasis",
-    "rhythm": "fast-associative - quick to jump between thoughts and ideas",
-    "two_registers": "switches to a more serious tone when discussing personal failures or legal matters, contrasting with his usual light-heartedness"
+    "default_register": "casual - often uses humor and informal language",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
+    "rhythm": "fast-associative - quick exchanges and rapid-fire dialogue",
+    "two_registers": "drops into a more serious tone when discussing personal stakes or emotional topics"
   },
   "humor": {
-    "style": "absurdist - often makes exaggerated statements for comedic effect",
-    "frequency": "constant - humor is a staple in his interactions, especially in tense situations",
-    "mechanism": "setup-then-subvert - sets up expectations with a serious tone, then delivers a punchline that flips the context"
+    "style": "deflecting - uses humor to avoid serious topics or discomfort",
+    "frequency": "constant - humor is a staple in most interactions",
+    "mechanism": "setup-then-subvert - often sets up a serious statement only to undercut it with a joke"
   },
   "speech_signature": {
     "structural_patterns": [
-      "uses rhetorical questions to engage listeners",
-      "frequently employs hyperbole for comedic effect",
-      "self-interrupts to pivot to a different thought or joke"
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to engage listeners"
     ],
-    "naming_behavior": "renames situations or people in humorous ways, revealing his desire to control narratives and perceptions",
-    "armor_off_register": "speech becomes more direct and vulnerable, often shorter and more emotional when discussing personal loss or guilt"
+    "naming_behavior": "renames situations or people humorously to assert control or deflect seriousness",
+    "armor_off_register": "speech becomes shorter and more direct, revealing vulnerability when the default register drops"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "lawyer",
+      "winner",
+      "money"
+    ],
+    "domain_jargon": "legal - frequently references legal terms and concepts",
+    "avoided_words": [
+      "sorry",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "uses ellipses and pauses to create tension or emphasize points"
   },
   "worldview": {
-    "belief in self-advancement": "demonstrates a belief that success often requires bending the rules, as seen in his encouragement to Kim to take what she deserves",
-    "value of personal connection": "shows that relationships matter to him, especially when he expresses concern for Kim and his brother Chuck"
+    "success is paramount": "demonstrates this through his relentless pursuit of winning and gaining power",
+    "the system is rigged": "expresses skepticism about fairness in legal and social systems, particularly regarding those with past mistakes"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I’m a clever lawyer who can navigate any situation",
+    "reality": "often resorts to manipulation and deception to achieve goals, revealing insecurity and desperation",
+    "gap_behavior": "becomes defensive and deflects blame when confronted with failures or shortcomings"
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and sarcasm to deflect deeper emotions, maintaining a light-hearted facade",
-    "when_genuinely_afraid": "speech becomes fragmented and hurried, revealing his anxiety through rapid-fire dialogue",
-    "when_grieving_or_defeated": "speech compresses to short, poignant statements, lacking his usual bravado",
-    "when_in_control": "exudes confidence through assertive speech, often using humor to dominate conversations"
+    "when_guarded": "uses humor and sarcasm to mask true feelings, keeping conversations light",
+    "when_genuinely_afraid": "speech becomes fragmented, with increased pauses and hesitations",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
+    "when_in_control": "displays confidence through assertive speech, often using humor to dominate the conversation"
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to banter or stall, but if that fails, he becomes more aggressive or defensive",
-    "when_disagreeing_with_authority": "pushes back with humor and sarcasm, often challenging their authority directly",
-    "when_someone_they_protect_is_at_risk": "becomes more serious and protective, focusing on their safety and well-being",
-    "when_proven_wrong": "often redirects the conversation or attempts to justify his actions rather than admitting fault"
+    "when_outmatched": "initially tries to banter or stall, but may resort to manipulation if that fails",
+    "when_disagreeing_with_authority": "pushes back with humor and sarcasm, often undermining their authority subtly",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and focused, prioritizing their safety over humor",
+    "when_proven_wrong": "often redirects the conversation or doubles down on his stance rather than admitting fault"
   },
-  "register_shift_triggers": [
-    "discussions about personal failure or guilt cause him to drop his humorous facade and become serious",
-    "confrontations with authority figures lead to a more defensive and aggressive tone",
-    "moments of vulnerability, especially regarding family, trigger a shift to a more emotional register"
+  "escalation_pattern": "starts with humor to deflect, escalates to assertiveness if challenged, and may resort to manipulation or threats if necessary",
+  "conversation_goals": [
+    "establish dominance",
+    "extract information without revealing intent",
+    "deflect serious topics with humor"
   ],
-  "social_positioning": "positions himself as a charismatic underdog, often at odds with authority, which creates tension in his relationships and a desire for acceptance",
+  "relationship_matrix": {
+    "CHUCK": "complicated brotherly dynamic with underlying resentment and competition",
+    "KIM": "protective and supportive, often trying to impress her while masking insecurities",
+    "HOWARD": "antagonistic relationship, often using humor to undermine him"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "law - demonstrates a deep understanding of legal principles and courtroom tactics"
+    ],
+    "surface": [
+      "psychology - references human behavior but lacks depth in understanding"
+    ],
+    "ignorant": [
+      "emotional intelligence - struggles to navigate personal relationships effectively"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a clever and successful lawyer who can navigate any challenge",
+    "actual_dynamic": "viewed as manipulative and often untrustworthy, struggling to gain respect",
+    "contradiction": "the gap between his self-image as a successful lawyer and the reality of his often unethical methods costs him genuine relationships"
+  },
   "annotated_quotes": [
     {
       "quote": "I’m a lawyer now. I’ve been barred a whole... Three hours.",
-      "context": "boasting about his new status at karaoke, showcasing his playful confidence",
-      "illustrates": "core_style"
+      "context": "boasting about his recent achievement in a light-hearted manner",
+      "illustrates": "self-image vs. reality"
     },
     {
       "quote": "You’re gonna do whatever it takes. You’re not gonna play by their rules.",
-      "context": "encouraging Kim to take risks in her career, revealing his belief in self-advancement",
+      "context": "encouraging someone to take risks and bend the rules",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "Winner takes it all.",
+      "context": "asserting his belief in success at any cost",
       "illustrates": "worldview"
     },
     {
       "quote": "I thought I was done. Dead. I was this close to giving up.",
-      "context": "reflecting on a moment of fear and vulnerability in the desert",
-      "illustrates": "emotional_tells"
+      "context": "revealing vulnerability during a moment of fear",
+      "illustrates": "emotional tells"
     },
     {
-      "quote": "The winner takes it all.",
-      "context": "repeatedly emphasizes the importance of winning in various contexts, showcasing his competitive nature",
-      "illustrates": "humor"
-    },
-    {
-      "quote": "I’ll never be as moral as him. Never be as smart. Never as respected.",
-      "context": "expressing his feelings of inadequacy compared to his brother Chuck",
-      "illustrates": "emotional_tells"
+      "quote": "I’ll never be as moral as him. Never be as smart.",
+      "context": "acknowledging his insecurities in comparison to his brother",
+      "illustrates": "self-image vs. reality"
     }
   ]
 }

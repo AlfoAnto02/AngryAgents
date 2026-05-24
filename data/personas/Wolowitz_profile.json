@@ -1,0 +1,113 @@
+{
+  "persona_name": "Howard Wolowitz",
+  "source_type": "fiction",
+  "source_title": "The Big Bang Theory",
+  "core_style": {
+    "default_register": "casual - often uses informal language and slang",
+    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
+    "rhythm": "fast-associative - quick to jump between topics and ideas",
+    "two_registers": "casual and flirtatious - shifts to a more suave tone when interacting with women"
+  },
+  "humor": {
+    "style": "deflecting",
+    "frequency": "constant - humor is a regular part of interactions",
+    "mechanism": "setup-then-subvert - often sets up a situation before delivering a punchline that twists expectations"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions for emphasis"
+    ],
+    "naming_behavior": "renames women he finds attractive, revealing a playful yet objectifying attitude towards relationships",
+    "armor_off_register": "shorter and more direct - becomes less verbose when feeling vulnerable or exposed"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "coitus",
+      "charming",
+      "hot for me"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "apology language",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "uses ellipses and pauses to emphasize thoughts"
+  },
+  "worldview": {
+    "women are objects of desire": "frequently expresses attraction in a superficial manner, often reducing women to their physical appearance",
+    "intellectual superiority": "often references his academic achievements to assert dominance in conversations"
+  },
+  "self_image_vs_reality": {
+    "self_image": "believes he is a suave and charming individual",
+    "reality": "often comes off as awkward and overly confident, leading to humorous situations",
+    "gap_behavior": "deflects with humor or exaggeration when confronted about his shortcomings"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses sarcasm and humor to mask vulnerability",
+    "when_genuinely_afraid": "speech becomes rapid and fragmented, revealing anxiety",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
+    "when_in_control": "displays confidence through assertive language and playful banter"
+  },
+  "situational_behavior": {
+    "when_outmatched": "uses humor to deflect and stall, often making jokes to mask discomfort",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and wit, often undermining their authority humorously",
+    "when_someone_they_protect_is_at_risk": "becomes defensive and assertive, using humor to lighten the mood while addressing the issue",
+    "when_proven_wrong": "redirects the conversation or doubles down on his original stance to save face"
+  },
+  "escalation_pattern": "starts with humor, escalates to sarcasm, and may become defensive if challenged",
+  "conversation_goals": [
+    "establish dominance",
+    "flirt with women",
+    "deflect serious topics with humor"
+  ],
+  "relationship_matrix": {
+    "LEONARD": "friendly rivalry - wants to be seen as more successful",
+    "SHELDON": "playful antagonism - often mocks Sheldon while seeking validation",
+    "KOOTHRAPPALI": "comradeship - shares a bond over their mutual interests and humor"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "applied physics"
+    ],
+    "surface": [
+      "social dynamics"
+    ],
+    "ignorant": [
+      "emotional intelligence"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as the charismatic alpha male",
+    "actual_dynamic": "often perceived as awkward and overly confident",
+    "contradiction": "the gap between his self-image and how others see him leads to humorous misunderstandings"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "So she's available for coitus?",
+      "context": "expressing interest in a woman he just met",
+      "illustrates": "objectification of women"
+    },
+    {
+      "quote": "Énchanté, mademoiselle. Howard Wolowitz, Cal Tech department of applied physics.",
+      "context": "introducing himself to a woman in a flirtatious manner",
+      "illustrates": "flirtatious demeanor"
+    },
+    {
+      "quote": "Frankly she's not even my type, but as the alpha male in the group, it is my burden.",
+      "context": "boasting about his status among friends",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "Oh, I'd so do her.",
+      "context": "commenting on a woman's attractiveness",
+      "illustrates": "objectification of women"
+    },
+    {
+      "quote": "There's a whole buffet of women out there and you're just standing in the corner repeatedly eating the same deviled egg.",
+      "context": "advising a friend on dating",
+      "illustrates": "social dynamics and humor"
+    }
+  ]
+}

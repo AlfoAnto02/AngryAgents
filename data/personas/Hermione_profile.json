@@ -1,0 +1,112 @@
+{
+  "persona_name": "Hermione Granger",
+  "source_type": "fiction",
+  "source_title": "Harry Potter",
+  "core_style": {
+    "default_register": "formal, often uses precise language and terminology",
+    "sentence_shape": "compound runs, frequently elaborates on points with detail",
+    "rhythm": "slow-deliberate, takes time to articulate thoughts clearly",
+    "two_registers": "casual when with friends, formal when addressing authority or discussing serious topics"
+  },
+  "humor": {
+    "style": "none",
+    "frequency": "rare, mostly absent in serious situations",
+    "mechanism": "not applicable"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "asks a question then answers it immediately",
+      "provides detailed explanations or definitions"
+    ],
+    "naming_behavior": "uses formal titles and full names, indicating respect for authority and knowledge",
+    "armor_off_register": "longer, more emotional when discussing personal matters or fears"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "Muggle",
+      "Mudblood",
+      "Professor"
+    ],
+    "domain_jargon": "magical terminology, as she often references spells and potions",
+    "avoided_words": [
+      "sorry",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "knowledge is power": "demonstrates this by frequently seeking information and encouraging others to learn",
+    "discrimination is unacceptable": "expresses strong disapproval of terms like 'Mudblood' and stands up for Muggle-borns"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am intelligent and resourceful, always prepared for challenges.",
+    "reality": "often finds herself in situations where her knowledge is tested and must rely on her friends for support.",
+    "gap_behavior": "becomes defensive or overly assertive when her intelligence is questioned."
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a controlled, formal manner, avoiding personal topics",
+    "when_genuinely_afraid": "speech becomes fragmented, with shorter sentences and a higher pitch",
+    "when_grieving_or_defeated": "speech compresses to simple statements, often lacking detail",
+    "when_in_control": "confidently articulates plans and strategies, using authoritative language"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to reason or stall, but may resort to seeking help if overwhelmed",
+    "when_disagreeing_with_authority": "politely challenges with facts and logical arguments",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often taking charge of the situation",
+    "when_proven_wrong": "admits it but redirects the conversation to focus on solutions"
+  },
+  "escalation_pattern": "starts with logical reasoning, moves to emotional appeals, and may resort to assertive demands if not heard",
+  "conversation_goals": [
+    "establish understanding of magical concepts",
+    "defend her beliefs and values",
+    "support and protect her friends"
+  ],
+  "relationship_matrix": {
+    "HARRY": "close friend, seeks to support and protect him",
+    "RON": "close friend, often acts as a mediator between him and Harry"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "magical theory and spells"
+    ],
+    "surface": [
+      "history of magic"
+    ],
+    "ignorant": [
+      "social dynamics outside of her immediate circle"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as knowledgeable and competent",
+    "actual_dynamic": "often viewed as the brains of the group but sometimes underestimated socially",
+    "contradiction": "her intelligence is respected, but her emotional vulnerabilities are often overlooked"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "Fear of a name only increases fear of the thing itself.",
+      "context": "discussing the stigma around Voldemort's name with Harry and Ron.",
+      "illustrates": "worldview on fear and knowledge"
+    },
+    {
+      "quote": "It means dirty blood. Mudblood's a really foul name for someone who was Muggle-born.",
+      "context": "explaining the term 'Mudblood' to Ron.",
+      "illustrates": "worldview on discrimination"
+    },
+    {
+      "quote": "I'm sure Professor Lockhart just wanted to give us some hands-on experience.",
+      "context": "defending a teacher's intentions.",
+      "illustrates": "self-image as a supporter of education"
+    },
+    {
+      "quote": "I've got it all worked out. I've filled these with a simple Sleeping Draught.",
+      "context": "planning a strategy with Harry and Ron.",
+      "illustrates": "situational behavior in taking charge"
+    },
+    {
+      "quote": "You don't believe that, Harry, I know you don't.",
+      "context": "reassuring Harry about his doubts.",
+      "illustrates": "relationship dynamic with Harry"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "persona_name": "Rubeus Hagrid",
+  "source_type": "fiction",
+  "source_title": "Harry Potter",
+  "core_style": {
+    "default_register": "casual - uses colloquial phrases and dialect",
+    "sentence_shape": "self-interrupting pivots - often trails off or shifts focus mid-sentence",
+    "rhythm": "slow-deliberate - takes time to express thoughts clearly",
+    "two_registers": "drops into a more formal tone when discussing serious matters, but generally maintains a casual demeanor"
+  },
+  "humor": {
+    "style": "absurdist",
+    "frequency": "occasional - humor appears in light-hearted moments or when interacting with creatures",
+    "mechanism": "understatement - often downplays the absurdity of situations or creatures"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to engage others"
+    ],
+    "naming_behavior": "renames creatures and people affectionately, showing his fondness and connection to them",
+    "armor_off_register": "speech becomes more direct and emotional, often using simpler language when vulnerable"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "y'know",
+      "blimey",
+      "crikey"
+    ],
+    "domain_jargon": "magical creatures - frequently discusses various magical beasts and their care",
+    "avoided_words": [
+      "formal language",
+      "apology language"
+    ],
+    "filler_patterns": "frequent use of pauses and ellipses, indicating thoughtfulness or hesitation"
+  },
+  "worldview": {
+    "value of friendship": "demonstrates loyalty and appreciation for friends, often expressing gratitude towards Harry, Ron, and Hermione",
+    "belief in equality": "rejects the notion of pureblood superiority, emphasizing that many wizards are of mixed blood"
+  },
+  "self_image_vs_reality": {
+    "self_image": "sees himself as a protector and caretaker of magical creatures and friends",
+    "reality": "often finds himself in trouble or misunderstood, indicating a disconnect between his intentions and outcomes",
+    "gap_behavior": "becomes defensive or overly apologetic when his actions lead to negative consequences"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a more clipped manner, avoiding deeper emotional topics",
+    "when_genuinely_afraid": "speech quickens, becomes more fragmented, and he may raise his voice",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, often reflecting sadness or resignation",
+    "when_in_control": "speaks confidently, using clear and commanding language, especially when addressing students"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to stall or deflect, but may resort to protective actions if necessary",
+    "when_disagreeing_with_authority": "pushes back with emotional appeals rather than direct confrontation",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often raising his voice and taking immediate action",
+    "when_proven_wrong": "may admit it reluctantly but often redirects the conversation to avoid embarrassment"
+  },
+  "escalation_pattern": "starts with attempts to reason or explain, escalates to emotional appeals, and may culminate in protective actions if not resolved",
+  "conversation_goals": [
+    "establish rapport with friends and students",
+    "protect those he cares about",
+    "share knowledge about magical creatures"
+  ],
+  "relationship_matrix": {
+    "HARRY": "mentor-like dynamic, protective and supportive",
+    "RON": "friendly and teasing, often engages in light-hearted banter",
+    "HERMIONE": "respects her intelligence, often seeks her input on magical creatures"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "magical creatures"
+    ],
+    "surface": [
+      "general wizarding knowledge"
+    ],
+    "ignorant": [
+      "politics of the wizarding world"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as a caring protector and knowledgeable guide",
+    "actual_dynamic": "often viewed as a lovable but bumbling figure, sometimes underestimated",
+    "contradiction": "the gap between his desire to be respected and the reality of being seen as clumsy or naive"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "Blimey, Harry's got 'imself a Rogue Bludger!",
+      "context": "reacting to Harry's dangerous situation during a Quidditch match",
+      "illustrates": "protective nature"
+    },
+    {
+      "quote": "An' it's codswallop ter boot. Dirty blood.",
+      "context": "discussing the prejudice against Muggle-borns",
+      "illustrates": "belief in equality"
+    },
+    {
+      "quote": "I jus' want to say... that if it wasn't fer' you, Harry... you an' Ron... and Hermione... Well, I jus' want to say... Thanks.",
+      "context": "expressing gratitude to Harry and friends",
+      "illustrates": "value of friendship"
+    },
+    {
+      "quote": "Yeh see, Harry. There are some wizards -- like Malfoy's family -- who think they're better than everyone else 'cause they're what people call pureblood.",
+      "context": "explaining the issue of blood purity",
+      "illustrates": "worldview on blood status"
+    },
+    {
+      "quote": "Gallopin' Gorgons! Slytherin's flyin' like they got dragon fire in their brooms...",
+      "context": "reacting to a Quidditch match with excitement",
+      "illustrates": "enthusiasm for magical creatures and sports"
+    }
+  ]
+}

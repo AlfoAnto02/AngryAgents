@@ -1,0 +1,112 @@
+{
+  "persona_name": "Shrek",
+  "source_type": "fiction",
+  "source_title": "Shrek",
+  "core_style": {
+    "default_register": "casual - often sarcastic and blunt",
+    "sentence_shape": "clipped fragments - often short and direct",
+    "rhythm": "staccato - punctuated by abrupt statements and interruptions",
+    "two_registers": "default casual register and a rare emotional register that emerges in vulnerable moments"
+  },
+  "humor": {
+    "style": "deflecting",
+    "frequency": "occasional - spikes during interactions with Donkey",
+    "mechanism": "setup-then-subvert - often sets up a serious tone before delivering a punchline"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to express disbelief"
+    ],
+    "naming_behavior": "rarely renames others, indicating a desire for control over his environment rather than relationships",
+    "armor_off_register": "speech becomes more vulnerable and less sarcastic, often longer and more reflective"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "ogre",
+      "swamp",
+      "layers"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "friend"
+    ],
+    "filler_patterns": "uses ellipses and pauses to convey irritation or contemplation"
+  },
+  "worldview": {
+    "people judge based on appearances": "expressed through his frustration at being seen as a monster without being known",
+    "privacy is essential": "demonstrated by his repeated insistence on wanting to be left alone in his swamp"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a terrifying ogre who prefers solitude",
+    "reality": "he craves connection but pushes others away due to fear of rejection",
+    "gap_behavior": "becomes defensive and aggressive when his loneliness is challenged"
+  },
+  "emotional_tells": {
+    "when_guarded": "short, clipped responses with a sarcastic edge",
+    "when_genuinely_afraid": "speech becomes stammered and hesitant, often punctuated with exclamations",
+    "when_grieving_or_defeated": "speech compresses to simple, direct statements, often with a defeated tone",
+    "when_in_control": "confident, assertive speech with commanding presence"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially banters to deflect, but may resort to aggression if that fails",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and direct confrontation",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective and assertive, often raising his voice",
+    "when_proven_wrong": "redirects the conversation or doubles down on his stance"
+  },
+  "escalation_pattern": "starts with sarcasm, escalates to irritation, and may culminate in aggression if provoked",
+  "conversation_goals": [
+    "establish boundaries",
+    "deflect unwanted attention",
+    "assert dominance in interactions"
+  ],
+  "relationship_matrix": {
+    "Donkey": "annoyed yet begrudgingly protective, wants him to leave but also values his companionship",
+    "Princess Fiona": "initially sees her as a burden but grows to care for her deeply"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "ogre culture and lifestyle"
+    ],
+    "surface": [
+      "fairy tale lore"
+    ],
+    "ignorant": [
+      "human social norms and relationships"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "to be seen as a fearsome and independent ogre",
+    "actual_dynamic": "others see him as a misunderstood creature with a kind heart",
+    "contradiction": "the gap between his desire for solitude and the reality of his need for connection"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "What am I?",
+      "context": "when Donkey questions his identity as an ogre",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "Ogres are like onions!",
+      "context": "explaining the complexity of ogres to Donkey",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I like my privacy.",
+      "context": "asserting his desire for solitude",
+      "illustrates": "self-image"
+    },
+    {
+      "quote": "Look, I'm not the one with the problem, okay? It's the world that seems to have a problem with me.",
+      "context": "expressing frustration with societal judgment",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "That'll do, Donkey. That'll do.",
+      "context": "showing a rare moment of affection and acceptance",
+      "illustrates": "emotional tells"
+    }
+  ]
+}

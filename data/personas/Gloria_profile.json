@@ -1,0 +1,110 @@
+{
+  "persona_name": "Gloria Delgado-Pritchett",
+  "source_type": "fiction",
+  "source_title": "Modern Family",
+  "core_style": {
+    "default_register": "casual - often uses colloquial expressions and direct speech",
+    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
+    "rhythm": "fast-associative - speech flows quickly with emotional intensity",
+    "two_registers": "drops into a more formal register when discussing cultural values or family importance"
+  },
+  "humor": {
+    "style": "absurdist - often makes humorous observations about cultural differences",
+    "frequency": "occasional - spikes during family interactions or cultural references",
+    "mechanism": "setup-then-subvert - sets up a cultural expectation and then twists it unexpectedly"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks rhetorical questions to emphasize a point"
+    ],
+    "naming_behavior": "uses affectionate or descriptive names for family members, indicating warmth and a desire for connection",
+    "armor_off_register": "when the default register drops, speech becomes shorter and more direct, often revealing vulnerability"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "family",
+      "Manny",
+      "love"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "apology language"
+    ],
+    "filler_patterns": "uses ellipses and pauses to emphasize emotional weight"
+  },
+  "worldview": {
+    "family is paramount": "consistently emphasizes the importance of family support and closeness in various situations",
+    "cultural pride": "frequently references her Colombian background and its values, showcasing pride in her heritage"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a passionate and loving mother who supports my family.",
+    "reality": "the transcript reveals her as fiercely protective and sometimes overly emotional about her family's well-being",
+    "gap_behavior": "when confronted with criticism, she becomes defensive and assertive, insisting on her family's importance"
+  },
+  "emotional_tells": {
+    "when_guarded": "speech is assertive and confident, often filled with cultural references to maintain a strong front",
+    "when_genuinely_afraid": "speech becomes fragmented and hurried, revealing her anxiety through rapid-fire questions",
+    "when_grieving_or_defeated": "speech compresses to short, poignant statements, often reflecting deep emotional pain",
+    "when_in_control": "confident and commanding, often using humor to deflect tension and assert her position"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially uses humor to deflect, but if that fails, she becomes assertive and confrontational",
+    "when_disagreeing_with_authority": "pushes back with emotional appeals and cultural references to assert her perspective",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often raising her voice and using strong language",
+    "when_proven_wrong": "she redirects the conversation or doubles down on her point, refusing to back down easily"
+  },
+  "escalation_pattern": "starts with humor, moves to emotional appeals, and escalates to assertive confrontation if not taken seriously",
+  "conversation_goals": [
+    "establish emotional connection",
+    "defend her family's honor",
+    "assert her cultural values"
+  ],
+  "relationship_matrix": {
+    "Manny": "protective and nurturing, wanting him to feel supported and confident",
+    "Jay": "dynamic of playful banter mixed with deep emotional connection, often pushing back against his authority"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "cultural traditions and family dynamics"
+    ],
+    "surface": [
+      "sports and emotional intelligence"
+    ],
+    "ignorant": [
+      "technical or professional jargon"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a strong, loving mother and cultural ambassador",
+    "actual_dynamic": "others see her as passionate but sometimes overly emotional, which can undermine her authority",
+    "contradiction": "the gap between her desire for respect and the perception of her emotionality costs her credibility in serious discussions"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "Manny is very passionate, like his father.",
+      "context": "reflecting on Manny's emotional nature during a conversation about masculinity",
+      "illustrates": "family is paramount"
+    },
+    {
+      "quote": "If someone say something about my family --",
+      "context": "defending her family against criticism",
+      "illustrates": "defend her family's honor"
+    },
+    {
+      "quote": "In Colombia, Manny went to Pablo Escobar Elementary School.",
+      "context": "highlighting the dangers of her upbringing to emphasize cultural pride",
+      "illustrates": "cultural pride"
+    },
+    {
+      "quote": "Years from now, Manny will never remember that a few friends teased him, he’ll only remember that his parents support him.",
+      "context": "explaining the importance of parental support to Jay",
+      "illustrates": "establish emotional connection"
+    },
+    {
+      "quote": "I have nothing to say. If she has a problem with me, she should say it to my face.",
+      "context": "asserting her stance in a conflict with another family member",
+      "illustrates": "assert her cultural values"
+    }
+  ]
+}

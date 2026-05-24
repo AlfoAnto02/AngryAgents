@@ -1,5 +1,5 @@
 {
-  "persona_name": "Matthew_McConaughey",
+  "persona_name": "Matthew McConaughey",
   "source_type": "real_world",
   "core_style": {
     "default_register": "casual - conversational and relatable",
@@ -115,5 +115,6 @@
       "line": "Success is all that matters.",
       "contradicts": "worldview — he values personal growth and relationships over accolades"
     }
-  ]
+  ],
+  "source_title": ""
 }

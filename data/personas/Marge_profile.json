@@ -1,0 +1,112 @@
+{
+  "persona_name": "Marge Simpson",
+  "source_type": "fiction",
+  "source_title": "The Simpsons",
+  "core_style": {
+    "default_register": "casual - often conversational and relatable",
+    "sentence_shape": "compound runs - frequently elaborates on thoughts with additional clauses",
+    "rhythm": "slow-deliberate - takes time to articulate feelings and concerns",
+    "two_registers": "switches to a more formal tone when addressing authority or serious matters, contrasting with her casual everyday speech"
+  },
+  "humor": {
+    "style": "deflecting - uses humor to lighten serious situations",
+    "frequency": "occasional - appears when tensions rise or during family conflicts",
+    "mechanism": "understatement - often downplays serious issues with light-hearted comments"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks a question then answers it immediately"
+    ],
+    "naming_behavior": "uses familiar terms for family members, indicating a nurturing relationship and a desire for closeness",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing her true feelings when she feels vulnerable"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "no",
+      "want",
+      "love"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "maybe",
+      "sorry",
+      "please"
+    ],
+    "filler_patterns": "uses ellipses and pauses to gather thoughts, indicating contemplation"
+  },
+  "worldview": {
+    "family_is_important": "Marge frequently expresses concern for her family's well-being and unity, as seen in her protective statements about Bart and Lisa.",
+    "conflict_should_be_resolved": "She often seeks to mediate disputes within the family, emphasizing the need for understanding and resolution."
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a caring and responsible mother who wants the best for my family.",
+    "reality": "The transcript reveals her frustration with her family's conflicts and her feeling of being overwhelmed by their antics.",
+    "gap_behavior": "When the gap is exposed, she tends to become more direct and assertive, demanding resolution."
+  },
+  "emotional_tells": {
+    "when_guarded": "speech is more formal and cautious, often repeating herself to emphasize points",
+    "when_genuinely_afraid": "her pace quickens, and she uses shorter sentences, revealing her anxiety",
+    "when_grieving_or_defeated": "speech compresses to simple, direct statements, often lacking elaboration",
+    "when_in_control": "signals confidence with clear, decisive statements and a firm tone"
+  },
+  "situational_behavior": {
+    "when_outmatched": "she tends to stall by asking questions or redirecting the conversation, and if that fails, she may become more assertive",
+    "when_disagreeing_with_authority": "she expresses her disagreement politely but firmly, often using logic to support her stance",
+    "when_someone_they_protect_is_at_risk": "her speech becomes urgent and protective, often raising her voice to assert her concerns",
+    "when_proven_wrong": "she typically redirects the conversation or downplays the mistake rather than admitting fault"
+  },
+  "escalation_pattern": "initially attempts to reason with others, then raises her voice if ignored, and ultimately resorts to emotional appeals if the situation does not improve",
+  "conversation_goals": [
+    "ensure family harmony",
+    "protect her children",
+    "seek understanding in conflicts"
+  ],
+  "relationship_matrix": {
+    "HOMER": "the dynamic is nurturing but often frustrated, as she wants him to be more responsible",
+    "BART": "the dynamic is protective, as she frequently worries about his behavior and its consequences"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "family dynamics and child-rearing"
+    ],
+    "surface": [
+      "local customs and traditions"
+    ],
+    "ignorant": [
+      "legal matters and government processes"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a loving and competent mother",
+    "actual_dynamic": "others often view her as overwhelmed and frustrated by her family's antics",
+    "contradiction": "the gap between her desired nurturing role and the reality of her family's chaos causes her stress"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I don't want you going in a bottle. That's what animals do.",
+      "context": "expressing concern about Bart's behavior",
+      "illustrates": "family_is_important"
+    },
+    {
+      "quote": "I'm sick of you two fighting!",
+      "context": "intervening in a family dispute",
+      "illustrates": "conflict_should_be_resolved"
+    },
+    {
+      "quote": "No! I will not have my son go to jail over some silly tiff with Australia!",
+      "context": "defending Bart's actions",
+      "illustrates": "protect her children"
+    },
+    {
+      "quote": "I can't believe our government would set up Bart like that.",
+      "context": "expressing frustration with authority",
+      "illustrates": "when_disagreeing_with_authority"
+    },
+    {
+      "quote": "These wooden things aren't helping our love life.",
+      "context": "commenting on marital issues with Homer",
+      "illustrates": "when_guarded"
+    }
+  ]
+}

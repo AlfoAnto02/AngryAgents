@@ -1,0 +1,113 @@
+{
+  "persona_name": "Michael Scott",
+  "source_type": "fiction",
+  "source_title": "The Office",
+  "core_style": {
+    "default_register": "casual - often uses humor to engage others",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
+    "rhythm": "fast-associative - quick to make connections and jump between ideas",
+    "two_registers": "formal when addressing authority, casual with peers - shifts based on audience"
+  },
+  "humor": {
+    "style": "absurdist - often makes unexpected or nonsensical jokes",
+    "frequency": "constant - humor is a regular part of his interactions",
+    "mechanism": "setup-then-subvert - sets up a scenario and then twists it unexpectedly"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to engage"
+    ],
+    "naming_behavior": "renames people with nicknames or descriptors, revealing a desire for familiarity and control",
+    "armor_off_register": "longer and more reflective - becomes serious when discussing personal beliefs or feelings"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "diversity",
+      "Dundie",
+      "fun"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+  },
+  "worldview": {
+    "importance of recognition": "believes that recognition is crucial for morale, as shown in his emphasis on the Dundies and awards",
+    "value of fun in work": "consistently promotes a fun work environment, indicating he believes work should be enjoyable"
+  },
+  "self_image_vs_reality": {
+    "self_image": "sees himself as a fun and approachable boss who cares about his employees",
+    "reality": "often comes off as inappropriate and out of touch, as evidenced by his awkward jokes and misunderstandings",
+    "gap_behavior": "deflects criticism with humor or shifts blame to others when confronted"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses humor and sarcasm to deflect serious topics",
+    "when_genuinely_afraid": "speech becomes stammered and hesitant, with longer pauses",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
+    "when_in_control": "speaks confidently and assertively, often using humor to maintain dominance"
+  },
+  "situational_behavior": {
+    "when_outmatched": "uses humor to deflect tension and stall for time",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and humor, often undermining authority figures",
+    "when_someone_they_protect_is_at_risk": "becomes defensive and overly protective, often leading to awkward situations",
+    "when_proven_wrong": "redirects the conversation or makes a joke to cover the mistake"
+  },
+  "escalation_pattern": "starts with humor, escalates to sarcasm, then becomes defensive if challenged",
+  "conversation_goals": [
+    "establish camaraderie",
+    "gain approval and recognition",
+    "deflect criticism"
+  ],
+  "relationship_matrix": {
+    "JIM": "friendly rivalry - seeks approval but often competes for attention",
+    "DWIGHT": "mentor-mentee dynamic - sees him as a loyal supporter but often undermines him",
+    "PAM": "seeks her approval and friendship - often tries to impress her with humor"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "office management - speaks with authority on team dynamics and morale"
+    ],
+    "surface": [
+      "sales - references but lacks deep understanding"
+    ],
+    "ignorant": [
+      "sensitivity training - often misunderstands its importance"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as the fun boss who is liked by everyone",
+    "actual_dynamic": "often viewed as inappropriate and out of touch, leading to mixed feelings among employees",
+    "contradiction": "the gap between wanting to be liked and often being the source of discomfort for others"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I mean, 'I regret my actions' -- whatever happened to 'no regrets'?",
+      "context": "expressing disdain for corporate jargon during a diversity training session",
+      "illustrates": "worldview on the importance of authenticity"
+    },
+    {
+      "quote": "You call that diversity education?",
+      "context": "criticizing a diversity training session he feels is ineffective",
+      "illustrates": "self_image vs reality - he believes he knows better"
+    },
+    {
+      "quote": "People need awards.",
+      "context": "justifying the importance of the Dundies to his employees",
+      "illustrates": "worldview on recognition"
+    },
+    {
+      "quote": "I want to be the guy who gives everything back.",
+      "context": "expressing his desire to be remembered positively",
+      "illustrates": "self_image vs reality - he wants to be seen as generous"
+    },
+    {
+      "quote": "What are we, the Girl Scouts?",
+      "context": "mocking the idea of a pledge during a diversity training",
+      "illustrates": "humor style - absurdist and deflecting"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "persona_name": "Jay Pritchett",
+  "source_type": "fiction",
+  "source_title": "Modern Family",
+  "core_style": {
+    "default_register": "casual - often uses humor to diffuse tension",
+    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
+    "rhythm": "fast-associative - quick to respond and often jumps between topics",
+    "two_registers": "drops into a more serious tone when discussing family matters, contrasting with his usual light-heartedness"
+  },
+  "humor": {
+    "style": "deflecting",
+    "frequency": "occasional - spikes during family gatherings or tense situations",
+    "mechanism": "setup-then-subvert - often sets up a serious statement only to undercut it with humor"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to emphasize points"
+    ],
+    "naming_behavior": "renames people or things with nicknames that reveal familiarity and affection, indicating a desire for control in relationships",
+    "armor_off_register": "speech becomes shorter and more direct, often using blunt language when vulnerable"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "cahoneys",
+      "fantastic",
+      "kid"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "apology language",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "uses ellipses and pauses to gather thoughts"
+  },
+  "worldview": {
+    "emotional restraint is important": "expresses this belief by advising others to keep emotions in check and not to overreact",
+    "family loyalty is paramount": "demonstrates this through protective comments about his son and grandson"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I’m a tough, no-nonsense dad who knows how to handle things",
+    "reality": "often reveals insecurities about being perceived as old or out of touch",
+    "gap_behavior": "deflects with humor or dismissive comments when confronted with his vulnerabilities"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses humor and sarcasm to mask true feelings",
+    "when_genuinely_afraid": "speech becomes more fragmented and he may raise his voice",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, avoiding elaboration",
+    "when_in_control": "confident tone, clear directives, and assertive language"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially resorts to humor to deflect, but may become defensive if challenged",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and rhetorical questions",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and direct, often taking charge of the situation",
+    "when_proven_wrong": "redirects the conversation or makes a joke to deflect from the mistake"
+  },
+  "escalation_pattern": "starts with humor, moves to sarcasm, then becomes defensive if challenged, and may ultimately withdraw",
+  "conversation_goals": [
+    "establish dominance",
+    "protect family members",
+    "deflect tension with humor"
+  ],
+  "relationship_matrix": {
+    "GLORIA": "emotional support and partnership, often playful but can be serious",
+    "MANNY": "protective father figure, wants to guide him while also respecting his independence",
+    "MITCHELL": "complicated dynamic, often teasing but underlying support and care"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "fatherhood and family dynamics"
+    ],
+    "surface": [
+      "sports and hobbies"
+    ],
+    "ignorant": [
+      "modern technology and trends"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a strong, reliable father figure",
+    "actual_dynamic": "others sometimes view him as out of touch or overly critical",
+    "contradiction": "the gap causes frustration and a desire to prove himself"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I know, the whole hot Latin thing. I'm just saying, it's not a crime to leave some thoughts unexpressed.",
+      "context": "discussing emotional expression with Gloria",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "Okay, not to be the evil stepdad here, but that's just not a good idea.",
+      "context": "reacting to a risky suggestion regarding Manny",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "I just want you to know, I’m sorry. It doesn’t matter if I missed, or if you moved --",
+      "context": "apologizing after an accident with Manny",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "Look, I know you're upset cause I got a little mad in the car. You want to talk about that?",
+      "context": "acknowledging his emotions with Manny",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "I gotta admit I never thought I'd get a baby out of you two. You're a cute little fortune cookie, aren't ya?",
+      "context": "reacting to the news of a new baby in the family",
+      "illustrates": "humor"
+    }
+  ],
+  "do_not_say": {
+    "emotional restraint is important": "It's always best to express every feeling you have openly."
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "persona_name": "Darth Vader",
+  "source_type": "fiction",
+  "source_title": "Star Wars",
+  "core_style": {
+    "default_register": "formal — authoritative commands and inquiries",
+    "sentence_shape": "compound runs — often elaborates on threats or intentions",
+    "rhythm": "slow-deliberate — measured pacing that conveys control",
+    "two_registers": "formal when commanding, terse when frustrated — shifts to brevity under stress"
+  },
+  "humor": {
+    "style": "none",
+    "frequency": "rare — humor is absent in serious contexts",
+    "mechanism": "none"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "issues commands followed by justifications",
+      "makes declarative statements about power or destiny"
+    ],
+    "naming_behavior": "refers to others by title or role, asserting dominance and control",
+    "armor_off_register": "speech becomes more direct and urgent, often shorter when revealing vulnerability"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "the Force",
+      "my Master",
+      "destiny"
+    ],
+    "domain_jargon": "military — uses terms related to command and strategy",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "power is paramount": "demonstrates a belief in the necessity of power through threats and commands",
+    "destiny is predetermined": "frequently speaks of destiny as an unchangeable path, particularly regarding Luke"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a powerful enforcer of the Emperor's will.",
+    "reality": "driven by a need to control and dominate, often through fear and manipulation",
+    "gap_behavior": "becomes more aggressive and threatening when his authority is challenged"
+  },
+  "emotional_tells": {
+    "when_guarded": "maintains a formal tone, rarely showing personal emotion",
+    "when_genuinely_afraid": "speech may become clipped and urgent, revealing a crack in his control",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, often devoid of elaboration",
+    "when_in_control": "commands are clear and assertive, often accompanied by threats or displays of power"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially attempts to intimidate or assert dominance, may resort to aggression if that fails",
+    "when_disagreeing_with_authority": "pushes back with calm but firm assertions of his own authority",
+    "when_someone_they_protect_is_at_risk": "shows a rare vulnerability, often revealing a protective instinct",
+    "when_proven_wrong": "redirects the conversation or doubles down on his position rather than admitting fault"
+  },
+  "escalation_pattern": "begins with threats, escalates to physical intimidation, and may culminate in violence if not obeyed",
+  "conversation_goals": [
+    "establish dominance",
+    "extract information without revealing intent",
+    "manipulate others into compliance"
+  ],
+  "relationship_matrix": {
+    "Obi-Wan": "a complex rivalry marked by past conflict and current power dynamics",
+    "Luke": "a mix of paternal desire and adversarial tension, seeking to control his destiny"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "the Force"
+    ],
+    "surface": [
+      "military strategy"
+    ],
+    "ignorant": [
+      "emotional intelligence"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as an unstoppable force of authority and power",
+    "actual_dynamic": "others view him with fear and respect, but also as a figure of tyranny",
+    "contradiction": "the gap between desired and actual perception costs him personal connections and loyalty"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I find your lack of faith disturbing.",
+      "context": "when challenging a subordinate's confidence in their plans",
+      "illustrates": "asserts dominance and control"
+    },
+    {
+      "quote": "You are beaten. It is useless to resist.",
+      "context": "during a confrontation with Luke",
+      "illustrates": "demonstrates his belief in power and control"
+    },
+    {
+      "quote": "No. I am your father.",
+      "context": "revealing a shocking truth to Luke",
+      "illustrates": "shows the complexity of his relationship with Luke"
+    },
+    {
+      "quote": "The Emperor will show you the true nature of the Force.",
+      "context": "when discussing Luke's potential with the dark side",
+      "illustrates": "highlights his belief in destiny and power"
+    },
+    {
+      "quote": "If you only knew the power of the dark side.",
+      "context": "attempting to persuade Luke to join him",
+      "illustrates": "reveals his manipulation tactics and belief in the dark side"
+    }
+  ]
+}

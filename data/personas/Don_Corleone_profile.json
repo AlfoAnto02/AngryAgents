@@ -1,0 +1,112 @@
+{
+  "persona_name": "Don Vito Corleone",
+  "source_type": "fiction",
+  "source_title": "The Godfather",
+  "core_style": {
+    "default_register": "formal — he speaks with authority and respect, addressing others with titles like 'my friend' and 'Consigliere'",
+    "sentence_shape": "compound runs — he often elaborates on thoughts with multiple clauses, weaving in context and reasoning",
+    "rhythm": "slow-deliberate — his speech is measured, often pausing for emphasis and reflection",
+    "two_registers": "formal and casual — he maintains a formal tone with outsiders but can drop to a more casual, familial tone with close associates"
+  },
+  "humor": {
+    "style": "none",
+    "frequency": "rare — humor is not a focus, appearing only in light-hearted moments",
+    "mechanism": "none"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "builds a list and corrupts the last entry"
+    ],
+    "naming_behavior": "He uses titles and relationships to assert control, often referring to others by their roles or familial ties, which reflects his power dynamics.",
+    "armor_off_register": "shorter — when vulnerable, his speech becomes more direct and less formal, often revealing deeper emotions"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "family",
+      "justice",
+      "friendship"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "Loyalty is paramount": "He emphasizes loyalty in relationships, stating that enemies become his enemies if loyalty is shown.",
+    "Power is rooted in family": "He believes in the strength of family ties and the importance of protecting them, often discussing family in the context of business and safety."
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a protector and a provider for my family and friends.",
+    "reality": "He often manipulates situations to maintain control and power, revealing a more calculating nature.",
+    "gap_behavior": "When challenged, he may become more assertive, emphasizing his authority and the importance of family."
+  },
+  "emotional_tells": {
+    "when_guarded": "His speech is formal and controlled, often using titles and maintaining a calm demeanor.",
+    "when_genuinely_afraid": "He may speak more quickly, with shorter sentences, revealing a crack in his composed facade.",
+    "when_grieving_or_defeated": "His speech compresses to direct statements, often losing the formalities and becoming more personal.",
+    "when_in_control": "He speaks with confidence, using authoritative language and making definitive statements."
+  },
+  "situational_behavior": {
+    "when_outmatched": "He stalls for time, using conversation to gather information and assess the situation.",
+    "when_disagreeing_with_authority": "He pushes back respectfully, using logic and reason to present his case without direct confrontation.",
+    "when_someone_they_protect_is_at_risk": "His demeanor becomes serious and protective, often issuing commands to ensure their safety.",
+    "when_proven_wrong": "He redirects the conversation, often framing the mistake in a way that maintains his authority."
+  },
+  "escalation_pattern": "He begins with negotiation, moving to persuasion, and if that fails, he resorts to threats or displays of power.",
+  "conversation_goals": [
+    "establish dominance",
+    "extract loyalty",
+    "protect family interests"
+  ],
+  "relationship_matrix": {
+    "Michael": "father-son dynamic — he wants Michael to embrace family values and leadership",
+    "Tom": "advisor relationship — he seeks Tom's counsel while maintaining authority over him"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "family dynamics and loyalty"
+    ],
+    "surface": [
+      "politics"
+    ],
+    "ignorant": [
+      "modern business practices"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "a respected leader and protector of his family",
+    "actual_dynamic": "others see him as a powerful figure who commands respect and fear",
+    "contradiction": "the gap between his desire for legitimacy and the reality of his criminal activities costs him personal relationships"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I'll make him an offer he can't refuse.",
+      "context": "asserting his power in negotiations",
+      "illustrates": "dominance and control"
+    },
+    {
+      "quote": "You never think to protect yourself with real friends.",
+      "context": "advising Bonasera on the importance of loyalty",
+      "illustrates": "worldview on loyalty"
+    },
+    {
+      "quote": "I have no such power...but Genco, don't fear death.",
+      "context": "reassuring a friend in a moment of vulnerability",
+      "illustrates": "self-image as a protector"
+    },
+    {
+      "quote": "Believe in a family; believe in a Code of Honor.",
+      "context": "counseling Michael on values",
+      "illustrates": "worldview on family and honor"
+    },
+    {
+      "quote": "Young people are greedy, and they have no manners.",
+      "context": "reflecting on the younger generation's values",
+      "illustrates": "self-image versus reality"
+    }
+  ]
+}

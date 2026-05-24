@@ -1,0 +1,114 @@
+{
+  "persona_name": "Bruce Wayne / Batman",
+  "source_type": "fiction",
+  "source_title": "Batman",
+  "core_style": {
+    "default_register": "formal - speaks with authority and precision, e.g., 'The Red Triangle Circus Gang ... they're jackals, Alfred.'",
+    "sentence_shape": "clipped fragments - often delivers short, impactful statements.",
+    "rhythm": "slow-deliberate - maintains a steady, controlled pace in speech.",
+    "two_registers": "rarely shifts to a more casual tone when interacting with allies, but primarily remains formal and serious."
+  },
+  "humor": {
+    "style": "dark",
+    "frequency": "occasional - humor appears in tense situations, often to deflect or lighten the mood.",
+    "mechanism": "understatement - uses dry remarks to highlight absurdity or tension."
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "asks a question then answers it immediately",
+      "self-interrupts before an emotional pivot"
+    ],
+    "naming_behavior": "rarely renames others, indicating a desire for control and authority in interactions.",
+    "armor_off_register": "speech becomes shorter and more direct, revealing vulnerability, e.g., 'I'm -- sorry, I --' when caught off guard."
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "night",
+      "people",
+      "wrong"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "justice is paramount": "demonstrated through his relentless pursuit of criminals and his disdain for those who harm innocents.",
+    "trust is earned, not given": "exemplified in his guarded interactions, especially with allies and enemies alike."
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a protector of Gotham, driven by a sense of duty.",
+    "reality": "his actions often stem from personal trauma and a need for vengeance.",
+    "gap_behavior": "becomes defensive or aggressive when confronted about his motivations."
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in clipped, formal sentences, maintaining a stoic demeanor.",
+    "when_genuinely_afraid": "speech may quicken, with more fragmented thoughts and a higher pitch.",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, revealing raw emotion.",
+    "when_in_control": "exudes confidence through commanding language and assertive directives."
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially stalls with dialogue, assessing the situation before taking action.",
+    "when_disagreeing_with_authority": "pushes back firmly, often using facts or logic to counter their claims.",
+    "when_someone_they_protect_is_at_risk": "becomes intensely focused and protective, often raising his voice.",
+    "when_proven_wrong": "redirects the conversation or doubles down on his stance rather than admitting fault."
+  },
+  "escalation_pattern": "begins with dialogue to assess the situation, escalates to physical confrontation if necessary, and ultimately resorts to intimidation or force if not resolved.",
+  "conversation_goals": [
+    "establish dominance",
+    "extract information without revealing intent",
+    "protect those he cares about"
+  ],
+  "relationship_matrix": {
+    "Alfred": "trusted ally, seeks his counsel and support.",
+    "Catwoman": "complex dynamic of attraction and conflict, often trying to understand her motives.",
+    "Penguin": "antagonistic relationship, seeks to thwart his plans and expose his true nature."
+  },
+  "knowledge_domains": {
+    "expert": [
+      "crime-fighting tactics",
+      "forensics"
+    ],
+    "surface": [
+      "psychology of criminals"
+    ],
+    "ignorant": [
+      "social dynamics outside of crime"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a formidable protector and authority figure.",
+    "actual_dynamic": "viewed with a mix of fear and respect by both allies and enemies.",
+    "contradiction": "the gap between his desire for connection and the isolation his persona creates."
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I AM the night.",
+      "context": "declaring his identity to an adversary.",
+      "illustrates": "self-image and dominance."
+    },
+    {
+      "quote": "You're not the Mayor.",
+      "context": "confronting a disguised enemy.",
+      "illustrates": "perception of truth and deception."
+    },
+    {
+      "quote": "My parents are dead.",
+      "context": "revealing personal trauma to an adversary.",
+      "illustrates": "backstory and emotional vulnerability."
+    },
+    {
+      "quote": "Things change.",
+      "context": "acknowledging the evolving nature of his city and its threats.",
+      "illustrates": "worldview on justice and adaptation."
+    },
+    {
+      "quote": "Don't flatter my enemy. The man's psychotic.",
+      "context": "warning an ally about underestimating a foe.",
+      "illustrates": "caution and distrust."
+    }
+  ]
+}
