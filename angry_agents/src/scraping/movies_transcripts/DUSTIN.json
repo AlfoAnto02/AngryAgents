@@ -1,0 +1,817 @@
+{
+  "character": "DUSTIN",
+  "films": [
+    "Stranger_Things_1x01_-_Pilot",
+    "Stranger_Things_2x09_-_The_Gate",
+    "Stranger_Things_4x07_-_The_Massacre_at_Hawkins_Lab",
+    "Stranger_Things_4x09_-_The_Piggyback"
+  ],
+  "lines_count": 161,
+  "lines": [
+    {
+      "scene": "INT. WHEELER HOUSE - MIKE’S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The Demogorgon?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - MIKE’S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Troglodytes?! 4."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - MIKE’S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Easy."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - MIKE’S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Too risky. Cast a protection spell--"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - MIKE’S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Protection spell -- !"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - MIKE’S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Cast protection!"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - MIKE’S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Is it a thirteen?"
+    },
+    {
+      "scene": "EXT./INT THE WHEELERS GARAGE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "She’s got a boyfriend now --"
+    },
+    {
+      "scene": "EXT./INT THE WHEELERS GARAGE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Does too --"
+    },
+    {
+      "scene": "EXT./INT THE WHEELERS GARAGE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "She’s cool. You lost your chance. Should’ve gone for her when she had braces and no boobs."
+    },
+    {
+      "scene": "EXT./INT THE WHEELERS GARAGE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oh, yeah, I’m sure a growth spurt will really do it for you, Lucas... 9."
+    },
+    {
+      "scene": "EXT. MONTAUK NEIGHBORHOOD - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Kiss your mom ‘night for me."
+    },
+    {
+      "scene": "EXT. MONTAUK NEIGHBORHOOD - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Race to my place? Loser gets a comic?"
+    },
+    {
+      "scene": "EXT. MONTAUK NEIGHBORHOOD - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah --"
+    },
+    {
+      "scene": "EXT. MONTAUK NEIGHBORHOOD - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Shit!"
+    },
+    {
+      "scene": "EXT. MONTAUK NEIGHBORHOOD - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "...Man. 10."
+    },
+    {
+      "scene": "INT. PRINCIPAL’S OFFICE - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "It was me and him, actually --"
+    },
+    {
+      "scene": "INT. PRINCIPAL’S OFFICE - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "We were racing on a bet and --"
+    },
+    {
+      "scene": "INT. PRINCIPAL’S OFFICE - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "The Hobbit --"
+    },
+    {
+      "scene": "INT. PRINCIPAL’S OFFICE - A FEW MINUTES LATER",
+      "speech_type": "direct",
+      "dialogue": "He asked -- !"
+    },
+    {
+      "scene": "EXT. FOREST ROAD - END OF NEIGHBORHOOD - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Same."
+    },
+    {
+      "scene": "EXT. MIRKWOOD - LATER",
+      "speech_type": "direct",
+      "dialogue": "I’ve got your Uncanny! 269!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Holy. Shit."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yeah. We talked about you like -- pretty much every day."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Huh?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh! Yeah! You like my \"pearls\" huh?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "GRRRRRR!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Super powers..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Demo-dogs."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Demo-dogs. Demogorgon dogs. Demo-dogs --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Somewhere far away."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Okay, he should fit now..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "This is a significant scientific discovery -- you can't just bury it like some common mammal --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Demo-dogs!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Well... that's not entirely true."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I mean... the Demo-dogs have a hive mind. They ran from the bus because they were called away --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Well, that's one point of view --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "The Mind Flayer would call away his army --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Shit! Did he see us???"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "KICK HIS ASS STEVE!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "STEVE -- !"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Shhhh, stay still, it's gonna be okay, shhhh..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Don't worry, she's driven before --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "They wanted to leave you behind --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "But I promised them you'd be cool --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Steve please don't freak out -- !"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Whoa."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Listen -- Steve. I get you're upset, okay? But the bottom line is a party member requires our assistance. And it's our duty to provide that assistance. DUSTIN (CONT'D) But I know you promised Nancy you'd keep us safe -- so..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Keep us safe."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ohmygodohmygod -- MAX/LUCAS Dustin?!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I think some got in my mouth!! I THINK SOME GOT IN MY MOUTH -- !!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... I'm okay."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Light 'er up."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Dart. MIKE/MAX/LUCAS/STEVE Dustin! Get back!! DUSTIN!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Hey Dart... hey. It's me... It's... Dustin. Your friend? Remember?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Will you... let us pass?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... You hungry?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Nougat... your favorite."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That's a good boy. Good boy..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Bye, buddy. KALI (FLASHBACK) ... I want you to find something from your past -- something that angers you... channel it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sonofabitch -- sonofabitch!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Where I put it -- right here --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Got it --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Pretend like I don't care."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Like a lion --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yeah -- right. Okay. MR. CLARKE Looking very snazzy tonight, sir."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Thank you, my Lord. MIDDLE SCHOOL BOY #1 What's in this...?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Wish me luck, Mike. I'm going in."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hey -- uh -- Stacey? Stacey?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Shall we?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Huh -- ?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Really?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... You really think so?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "To the lake. We wanted to take a swim -- a night swim --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah we realized that like, right when we got there --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "She was, then she -- left. At some point. It was very confusing --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That psycho freak killer??? Oh god no no no -- absolutely not --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No -- I -- I would never lie to an authority figure -- !!"
+    },
+    {
+      "scene": "EXT. WOODS - NIGHT (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "Steve, do you copy? Nancy? Robin?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - DOWNSTAIRS BATHROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It’s Dustin! Where are you?! We’ve been collared by the law. I repeat, we’ve been COLLARED by the law -- do you copy?! 2255.."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Nothing."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Through Watergate? Without us? Without a plan? Without weapons? They wouldn’t be that stupid. They must just be staying low because they know the law got us --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What’d she find under your bed???"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Is it gross, how gross would you say, scale of one to ten --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No she doesn't, YET she brings up an essential question. How did Watergate open? Two Gates have opened so far as we know -- one by El, one by the Commies -- and we know it's not the Commies or El this time so -- Holy shit, wait wait wait --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There’s one thing we’ve never understood -- which is why is Vecna killing people? What’s his motive? Killing teens? It’s always seemed too random, too prosaic. On top of that -- how does the Mind Flayer figure into all this? Maybe this is it, THIS is the answer --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay, so just -- hear me out. How did El open the Mother Gate -- ??"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Psychic contact -- just like --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Exactly. So what if -- with every kill -- he’s not simply killing -- he’s making a powerful psychic connection with his victims -- a connection so powerful it’s tearing a hole in the fabric in time and space --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bingo. And why?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "And who do we know who wants to take over the world -- ?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "If the Demogorgon is a foot soldier -- Vecna is his five-star general. A five-star general with the power to open two Gates. 2299.."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Holy shit."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - STAIRCASE (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "And this finally brings us to the question you first raised."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - FOYER - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "How and why is there a new gate in Lover’s Lake?? Now, let’s analyze -- what do Vecna and Eleven have in common -- ? 3322.. NANCY/ROBIN/EDDIE DUSTIN???! DUSTIN! HELLOO??! HELLOO! DUSTIN!???!"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hey -- are you even listening to me?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah, why -- ?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "S.... O.... S.... Hey so -- you remember when I said they wouldn’t be stupid enough to go through Watergate?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "I overestimated them."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - TV ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Sorry, emergency, we need to borrow this --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NANCY'S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "OKAY -- ARE YOU GUYS SEEING THIS???"
+    },
+    {
+      "scene": "INT. NANCY'S ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay, okay -- I'm not moving it, but we're going to unplug it, okay?? Stand by!"
+    },
+    {
+      "scene": "INT. NANCY'S ROOM (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "Okay, try it now -- DUSTIN/LUCAS/ERICA Hi."
+    },
+    {
+      "scene": "INT. NANCY'S ROOM (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "Okay okay -- um -- that worked!!!"
+    },
+    {
+      "scene": "INT. NANCY'S ROOM (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "You can’t get back through Watergate -- ?"
+    },
+    {
+      "scene": "INT. NANCY'S ROOM (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "\"Guarded.\" Watergate is -- guarded. Okay, okay -- um -- well -- We have a theory that maybe could help with that. We think Watergate isn't the only gate -- that there's a gate at every murder site --"
+    },
+    {
+      "scene": "INT. NANCY'S ROOM (UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "Okay. Seriously -- how many times do I have to be right on the money before you JUST TRUST ME --"
+    },
+    {
+      "scene": "EXT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Do it -- !"
+    },
+    {
+      "scene": "INT. EDDIE'S TRAILER (THE UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "Okay... not quite sure how these physics are gonna work but, uh -- here goes nothing."
+    },
+    {
+      "scene": "INT. EDDIE'S TRAILER (THE UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "But if my theory is correct..."
+    },
+    {
+      "scene": "INT. EDDIE'S TRAILER (THE UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "Abra cadabra."
+    },
+    {
+      "scene": "INT. EDDIE'S TRAILER (THE UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "Pull on it -- see if it holds!"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay -- so -- you remember the Gate under the lab -- ?"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Okay, but you seem to think it was made by the Commies, which -- it wasn’t --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yes and no. That was the gate Eleven opened -- the Mother gate. Eleven re-closed it two years ago, around Halloween, and though she succeeded, the barrier between our worlds remained thin -- which allowed the Commies to pry it back open with their tech --"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah I'm getting there. The government was teaching Eleven remote viewing -- which is basically psychic spying, right? END APPENDIX #3 APPENDIX #4"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - FOYER (THE UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "... When Eleven made this psychic contact with the Demogorgon, she somehow created a kind of... rip in time and space. A powerful force just -- ripped a hole between our two dimensions. And that became what I’m calling “the Mother Gate.” END APPENDIX #4 APPENDIX #5 NANCY/ROBIN/EDDIE DUSTIN???! DUSTIN! HELLOO??! HELLOO! DUSTIN!???! 8844.."
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - FOYER (THE UPSIDE DOWN)",
+      "speech_type": "direct",
+      "dialogue": "They can BOTH make connections over long distances using their psionic powers -- psionic powers which allow them to cross dimensions. I mean -- when Vecna attacked Max, he was INSIDE her mind -- that is one helluva psychic connection, right? So what if -- when Vecna kills -- that connection is powerful enough to open up a tear, in time and space, just like with the Mother Gate. Now -- not as powerful, mind you, hence the small, snack-size nature of these new gates -- END APPENDIX #5 APPENDIX #6"
+    },
+    {
+      "scene": "INT. WHEELER HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "So our working theory is he’s conducting these remote attacks from the attic -- though not sure why -- seems like he could do it from anywhere but -- END APPENDIX #6 APPENDICES #7-8 OMMITTED APPENDIX #9"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Me and Eddie draw the bats away."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Decoys. Don't worry -- you can be the hero, Steve."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Not bad at all."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That a rhetorical question?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Copy that. Initiating Phase Three."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "EDDIE THEY’RE COMING! WE GOTTA LOCK DOWN IN T-MINUS THIRTY SECONDS!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "T-MINUS TWENTY SECONDS!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "T-MINUS TEN -- !!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "FIVE -- !!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "ONE -- !!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Dude..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Most. Metal. Ever."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hey DIPSHITS -- you give up that easy??? HUH?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "They can’t get in there can th -- ?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "GET BACK YOU BASTAAAAARD!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Nice --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Are there other vents -- ??"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That's not gonna hold -- !!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "EDDIE, COME ON!! COME ON!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "EDDIE -- what are you doing?? Come on!! EDDIE!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "WHAT ARE YOU DOING?!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "EDDIE!!! NO!! EDDIE!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "EDDDIE!!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh god -- Eddie --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No no... we just, we need to get you some help -- get you to a hospital. You’re going to be fine -- okay??"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You think -- you can move? If I help?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No... you didn’t run..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No. No. You can save them yourself. You can save them yourself."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Pizza??"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He’s... still at the hospital."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No, no, he’s..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh. God. You don’t know..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Water anyone? H2O? Vital for all forms of life."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... Mister Munson?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I -- I’m Dustin Henderson -- can we... talk?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I was with him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I was with Eddie. When the earthquake hit."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’m sorry. I’m so... sorry."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I wish everyone had gotten to know him... I mean -- really know him. Because they would’ve loved him, Mister Munson. They would've loved him. Even in the end -- he... he never stopped being Eddie. DDUUSSTTIINN ((CCOONNTT''DD)) Despite everything -- I never even saw him get mad."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He could’ve run... he could’ve saved himself. But... he fought... he fought and died to protect this town -- this town that hated him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He’s not just innocent, Mister Munson. He’s a hero."
+    }
+  ]
+}
