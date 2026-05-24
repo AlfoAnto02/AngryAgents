@@ -44,22 +44,24 @@ class GroupChatSession:
 
         svc = ChatMessageService(db, self.author_secret)
         agent = self.scheduler.next()
-        self._turn_count += 1
 
-        history: list[ChatMessage] = svc.query(filters={"id_chat": self.chat_id})
-        trimmed = self.context_window.trim(history, agent)
+        last_msg: ChatMessage | None = None
+        for _ in range(agent.burst_size):
+            self._turn_count += 1
 
-        content = agent.respond(trimmed, turn_count=self._turn_count)
-        msg = self._write_message(svc, agent, content)
+            history: list[ChatMessage] = svc.query(filters={"id_chat": self.chat_id})
+            trimmed = self.context_window.trim(history, agent)
+
+            content = agent.respond(trimmed, turn_count=self._turn_count)
+            last_msg = self._write_message(svc, agent, content)
+
+            if self._turn_count % _SUMMARY_UPDATE_EVERY == 0:
+                current_summary = json.loads(agent.agent.summary or "{}")
+                new_summary = agent.update_summary(self.chat_id, content, current_summary)
+                AgentService(db).update(agent.agent.id, {"summary": json.dumps(new_summary)})
 
         self.scheduler.mark_spoke(agent)
-
-        if self._turn_count % _SUMMARY_UPDATE_EVERY == 0:
-            current_summary = json.loads(agent.agent.summary or "{}")
-            new_summary = agent.update_summary(self.chat_id, content, current_summary)
-            AgentService(db).update(agent.agent.id, {"summary": json.dumps(new_summary)})
-
-        return msg
+        return last_msg  # type: ignore[return-value]  # burst_size >= 1 always
 
     def _write_message(self, svc: ChatMessageService, agent: PersonaAgent, content: str) -> ChatMessage:
         return svc.create(

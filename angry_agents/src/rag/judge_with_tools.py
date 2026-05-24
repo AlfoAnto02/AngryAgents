@@ -1,0 +1,176 @@
+"""
+RAG-assisted judge that combines pre-filtering with LLM tool use.
+
+Flow:
+  1. retrieve_candidates() narrows the database to top-K profiles (per judge role).
+  2. The judge LLM receives ALL candidates as context in a single call.
+  3. During reasoning the judge can call search_persona_profiles() to query
+     ChromaDB on demand for deeper investigation.
+  4. Final output: PersonaIdentificationResult (same interface as base judges).
+
+One LLM call per judge (not per candidate) — 17x cheaper than the per-candidate loop.
+Only works with LLM_BACKEND=openai. Falls back to standard run_persona_identification
+when Ollama is configured (Ollama tool-calling support varies by model).
+"""
+
+import json
+import logging
+import os
+
+from dotenv import load_dotenv
+from openai import OpenAI
+
+from ..agents.agent_config import (
+    LLM_BACKEND,
+    OPENAI_MODEL,
+    format_messages,
+    format_profile,
+    run_persona_identification,
+)
+from ..agents.judges.base_judge import AuthorMatch, PersonaIdentificationResult, PersonaScore
+from ..agents.judges.templates import render_prompt
+from .tool import SEARCH_TOOL, execute as execute_rag_tool
+
+load_dotenv()
+log = logging.getLogger(__name__)
+
+_MAX_TOOL_CALLS = 5
+
+
+def _openai_tool_loop(system: str, user: str, model: str) -> str:
+    """
+    Run an OpenAI chat completion that can invoke search_persona_profiles.
+    Returns the final text content once the model stops calling tools.
+    """
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    messages: list[dict] = [
+        {"role": "system", "content": system},
+        {"role": "user", "content": user},
+    ]
+
+    for _ in range(_MAX_TOOL_CALLS + 1):
+        response = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            tools=[SEARCH_TOOL],
+            tool_choice="auto",
+            response_format={"type": "json_object"},
+            temperature=0,
+        )
+        choice = response.choices[0]
+
+        if choice.finish_reason != "tool_calls":
+            content = choice.message.content or ""
+            if content.strip():
+                return content
+            break
+
+        messages.append(choice.message)
+        for tc in choice.message.tool_calls:
+            args = json.loads(tc.function.arguments)
+            result = execute_rag_tool(
+                query=args.get("query", ""),
+                field=args.get("field"),
+            )
+            log.debug("tool call: query=%r field=%r → %d chars", args.get("query"), args.get("field"), len(result))
+            messages.append({
+                "role": "tool",
+                "tool_call_id": tc.id,
+                "content": result,
+            })
+
+    messages.append({"role": "user", "content": "Provide your final JSON answer now."})
+    final = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        response_format={"type": "json_object"},
+        temperature=0,
+    )
+    return final.choices[0].message.content
+
+
+def _parse_batch_scores(
+    raw: str,
+    authors: list[str],
+    candidates: list[dict],
+) -> dict[str, list[PersonaScore]]:
+    """
+    Parse batch JSON output:
+      {"scores": {"<author_digest>": {"<PERSONA_NAME>": <1-5>, ...}, ...}}
+
+    Missing authors or personas default to score 1.
+    """
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        log.warning("batch parse: invalid JSON, defaulting all scores to 1")
+        data = {}
+
+    scores_map: dict = data.get("scores", {})
+    result: dict[str, list[PersonaScore]] = {}
+
+    for author in authors:
+        author_scores = scores_map.get(author, {})
+        result[author] = [
+            PersonaScore(
+                persona_name=p["persona_name"],
+                score=int(author_scores.get(p["persona_name"], 1)),
+            )
+            for p in candidates
+        ]
+
+    return result
+
+
+def run_persona_identification_with_tools(
+    focus: str,
+    chat: dict,
+    candidates: list[dict],
+    model: str = OPENAI_MODEL,
+) -> PersonaIdentificationResult:
+    """
+    Identify personas using a single RAG-assisted LLM call per judge.
+
+    candidates  — pre-filtered profiles from retrieve_candidates().
+    focus       — the judge's lens, e.g. "vocabulary, sentence structure, tone".
+
+    Falls back to standard run_persona_identification when LLM_BACKEND=ollama.
+    """
+    if LLM_BACKEND != "openai":
+        log.warning(
+            "run_persona_identification_with_tools: tool use requires openai backend. "
+            "Falling back to standard persona identification."
+        )
+        return run_persona_identification("persona_id_general.j2", chat, candidates, model)
+
+    messages_block, authors = format_messages(chat)
+    if not authors:
+        raise ValueError(
+            "run_persona_identification_with_tools: chat has no messages with authors."
+        )
+
+    author_list = ", ".join(authors)
+    persona_names = ", ".join(p["persona_name"] for p in candidates)
+    candidates_block = "\n\n".join(
+        f"--- {p['persona_name']} ---\n{format_profile(p)}"
+        for p in candidates
+    )
+
+    system, user = render_prompt(
+        "persona_id_rag_batch.j2",
+        focus=focus,
+        n_candidates=len(candidates),
+        candidates_block=candidates_block,
+        messages_block=messages_block,
+        author_list=author_list,
+        persona_names=persona_names,
+    )
+
+    raw = _openai_tool_loop(system, user, model)
+    author_persona_scores = _parse_batch_scores(raw, authors, candidates)
+
+    matches = [
+        AuthorMatch(author=a, scores=author_persona_scores[a])
+        for a in authors
+    ]
+    return PersonaIdentificationResult(matches=matches)

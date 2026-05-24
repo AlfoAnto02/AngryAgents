@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS Group_chat (
     ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     ID_topic    INTEGER NOT NULL REFERENCES Topic(ID),
     Created_by  INTEGER REFERENCES User(ID),
+    status      TEXT    NOT NULL DEFAULT 'pending',
     created_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     updated_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     deleted_at  TEXT
@@ -19,6 +20,7 @@ BEGIN
        SET updated_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
      WHERE ID = NEW.ID;
 END;
+
 """
 
 
@@ -27,6 +29,7 @@ class GroupChat:
     id_topic: int
     id: int | None = None
     created_by: int | None = None
+    status: str = "pending"
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None

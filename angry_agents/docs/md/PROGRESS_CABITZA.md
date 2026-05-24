@@ -1,4 +1,4 @@
-# Progress Log — Cabitza Session (2026-05-18 → 2026-05-20)
+# Progress Log — Cabitza Session (2026-05-18 → 2026-05-24)
 
 ## 1. `base_judge.py` — redesigned abstract class
 
@@ -139,9 +139,121 @@ Resolved all coherence issues found between the judge agent code and the DB/API 
 - **`Score` type fixed in tests** — all test fixtures and assertions for `Judge_evaluation.score` corrected from scalar `float` to `list[float]`, matching the dataclass declaration and DB_v3 schema.
 - **Removed `persona_id_behavioral.j2`** — orphaned template with no corresponding judge class.
 
-## Updated open points
+## Updated open points (2026-05-20)
 
 - `individual_fidelity`, `group_fidelity`, `behavioural_fidelity` still empty stubs — design pending.
 - `BehavioralJudge` class not created; `behavioral` role remains valid in the DB enum for future use.
 - `Score` in `Judge_evaluation` is always `null` until fidelity methods are implemented.
 - Timeout hit during LLM evaluation: 40-message transcript × 7 personas still too slow for mistral within 120 s.
+
+---
+
+## 10. `logging_setup.py` — `deviation()` and fail-loudly fix (2026-05-24)
+
+New shared module `src/logging_setup.py` implementing the `deviation()` convention from CLAUDE.md:
+
+- `UnexpectedDeviation(RuntimeError)` — raised when `STRICT_MODE=1`.
+- `deviation(msg, **kwargs)` — calls `log.warning` in normal mode, raises `UnexpectedDeviation` in strict mode.
+
+Fixed `_run_agent_turns` in `ui_routes.py` (now `_dm_run_agent_turn` / `_bg_run_conversation`):
+- Removed the outer `except Exception` that swallowed all errors silently.
+- Moved broad-catch **inside** the per-turn loop so one failing agent does not abort the others.
+- Replaced `log.warning(...)` with `deviation(...)` so CI under `STRICT_MODE=1 pytest` surfaces failures as hard errors.
+
+---
+
+## 11. `PersonaAgent` — profile-driven scheduling behaviour (2026-05-24)
+
+Extended `PersonaAgent` with two new behavioural attributes derived from `signature_phrases` at `bind_to_chat()` time:
+
+| Attribute | Source field | Semantics |
+|---|---|---|
+| `cooldown_turns` | `core_style.rhythm` | Turns before this agent's weight recovers after speaking. `fast`/`staccato` → 1, `slow`/`deliberate` → 6, default 3 |
+| `burst_size` | `core_style.sentence_shape` | Consecutive messages per scheduled turn. `clipped`/`fragment` → 3, `compound`/`rhetorical` → 1, default 2 |
+
+Fixed `_extract_dominance_weight`: fiction profiles store `social_positioning` as a nested dict (keys `desired_position`, `actual_dynamic`, `contradiction`), not a plain string. The function now flattens the dict values before keyword matching; all fiction agents previously fell through to the 0.5 default.
+
+Added `_template_name` field (default `"group_persona_chat.j2"`), set by `bind_to_chat()` and used by `respond()` to select the correct Jinja2 template.
+
+---
+
+## 12. `TurnScheduler` — real `mark_spoke()` and cooldown (2026-05-24)
+
+`TurnScheduler` rewritten to make `mark_spoke()` functional:
+
+- `_last_spoke: dict[int, int]` — maps `agent.id` → turn number of last speech.
+- `_effective_weight(agent)` — returns `dominance_weight * 0.1` if agent is within its `cooldown_turns` window, else full weight.
+- `next()` now uses `_effective_weight` for `weighted_random` selection.
+- `mark_spoke(agent)` records the current turn in `_last_spoke`.
+
+`GroupChatSession.run_turn()` updated to loop `burst_size` times per chosen agent, fetching fresh history from DB before each burst message so agents see their own previous burst messages in context.
+
+---
+
+## 13. Group chat → autonomous agent conversation (2026-05-24)
+
+Redesigned the group chat flow from a user-triggered per-message model to a fully autonomous agent-to-agent conversation:
+
+**DB: `Group_chat.status` column**
+- Added `status TEXT NOT NULL DEFAULT 'pending'` to `Group_chat`.
+- Safe migration via `base.py:_MIGRATIONS` list (try/except `OperationalError` so existing DBs are updated without breaking).
+- Values: `pending` → `running` → `done` | `error`.
+- `GroupChatService.set_status(id, status)` added.
+
+**New templates**
+- `persona_chat.j2` revised: now correctly scoped to **DM** (one-on-one with a human user).
+- `group_persona_chat.j2` new: autonomous peer conversation between agents, no external user, cold-open rule added for the first message.
+
+**New endpoints in `ui_routes.py`**
+
+| Endpoint | Method | Behaviour |
+|---|---|---|
+| `/ui/chats/{chat_id}/start` | POST | Validates status, launches `_bg_run_conversation` as a FastAPI `BackgroundTask`, returns 202 |
+| `/ui/chats/{chat_id}/stream` | GET (SSE) | Polls DB every 0.5 s for new messages since `?after=<id>`, streams each as `data: {...}`, sends `event: done` when `status ∈ {done, error}` and no new rows remain |
+
+**`ui_create_message`** — agent turns now only triggered for **DM** chats (`agent_count == 1`). Group chats are autonomous after `/start`; user messages are saved to DB but do not trigger agents.
+
+**`_bg_run_conversation`** creates its own DB connection (request connection closes before task runs), sets status to `running`, calls `GroupChatSession.run(conn, n_turns)`, sets status to `done` on completion or `error` on unhandled exception.
+
+---
+
+## 14. `dm_chat/` — `DMSession` and `DMFactory` (2026-05-24)
+
+New module `src/dm_chat/` separating DM logic from the group chat path:
+
+**`DMSession`** (`session.py`) — dataclass with `chat_id`, `topic`, `agent`, `context_window`, `author_secret`:
+- `respond(db)` — loads history, trims via `ContextWindow`, calls `agent.respond()`, writes message via `ChatMessageService`. No scheduler, no burst, no background task.
+
+**`DMFactory`** (`factory.py`) — `build_session(db, chat_id, model, author_secret, ...)`:
+- Loads the single agent from `Chat_agent` join.
+- Calls `agent.bind_to_chat(chat_id, topic, template_name="persona_chat.j2")` explicitly.
+- Default `window_strategy="rolling"` (DM history is linear, no need for selective anchoring).
+
+`_dm_run_agent_turn` in `ui_routes.py` now delegates to `DMFactory` + `DMSession.respond()`.
+`GroupChatFactory` simplified: DM template selection removed, always uses `group_persona_chat.j2`.
+
+---
+
+## 15. `.env.example` (2026-05-24)
+
+Added `.env.example` to the repository root covering all environment variables found in the codebase:
+
+- **Database**: `ANGRY_DB_PATH`
+- **Security**: `ANGRY_AUTHOR_SECRET`, `JWT_SECRET_KEY`, token expiry settings, `COOKIE_SECURE`
+- **Auth (dev)**: `AUTH_DISABLED`
+- **LLM backend**: `LLM_BACKEND`, `OLLAMA_BASE_URL`, `OLLAMA_DEFAULT_MODEL`, `OPENAI_API_KEY`, `OPENAI_MODEL`
+- **MCP client**: `ANGRY_API_BASE_URL`
+- **Dev/CI**: `STRICT_MODE`
+
+`.env` remains in `.gitignore`.
+
+---
+
+## Open points (2026-05-24)
+
+- `individual_fidelity`, `group_fidelity`, `behavioural_fidelity` still empty stubs — design pending.
+- `BehavioralJudge` class not yet created.
+- `Score` in `Judge_evaluation` always `null` until fidelity methods are implemented.
+- LLM evaluation timeout: 40-message transcript × 7 personas still too slow for mistral in 120 s.
+- `GroupChatSession.run()` n_turns default (30) not yet exposed as a user-facing setting in the UI.
+- No frontend changes to drive `/start` and consume `/stream` — UI integration pending.

@@ -5,7 +5,7 @@ from typing import Any
 
 from ..models.group_chat import GroupChat
 
-_COLS = {"id_topic": "ID_topic", "created_by": "Created_by"}
+_COLS = {"id_topic": "ID_topic", "created_by": "Created_by", "status": "status"}
 
 
 def _row(row: sqlite3.Row) -> GroupChat:
@@ -13,6 +13,7 @@ def _row(row: sqlite3.Row) -> GroupChat:
         id=row["ID"],
         id_topic=row["ID_topic"],
         created_by=row["Created_by"],
+        status=row["status"] if "status" in row.keys() else "pending",
         created_at=row["created_at"],
         updated_at=row["updated_at"],
         deleted_at=row["deleted_at"],
@@ -21,8 +22,8 @@ def _row(row: sqlite3.Row) -> GroupChat:
 
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> GroupChat:
     cur = db.execute(
-        "INSERT INTO Group_chat (ID_topic, Created_by) VALUES (?, ?)",
-        (data["id_topic"], data.get("created_by")),
+        "INSERT INTO Group_chat (ID_topic, Created_by, status) VALUES (?, ?, ?)",
+        (data["id_topic"], data.get("created_by"), data.get("status", "pending")),
     )
     db.commit()
     return get(db, cur.lastrowid)

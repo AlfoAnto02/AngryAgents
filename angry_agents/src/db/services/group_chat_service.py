@@ -17,6 +17,9 @@ class GroupChatService:
     def get(self, id: int) -> GroupChat | None:
         return repo.get(self.db, id)
 
+    def set_status(self, id: int, status: str) -> GroupChat:
+        return repo.update(self.db, id, {"status": status})
+
     def update(self, id: int, patch: dict[str, Any]) -> GroupChat:
         return repo.update(self.db, id, patch)
 

@@ -53,7 +53,7 @@ RANDOM_BASELINE = 1 / 8  # 8 personas
 
 def load_judge_evals(path: Path) -> list[dict]:
     with open(path, encoding="utf-8") as f:
-        return json.load(f)
+        return [json.loads(line) for line in f if line.strip()]
 
 
 def load_json(path: Path) -> dict:
@@ -72,7 +72,10 @@ def load_json(path: Path) -> dict:
 
 def build_name_to_author(author_map: dict[str, str], personas: list[dict]) -> dict[str, str]:
     """Map persona_name → author_tag using the secret author_map."""
-    pid_to_name = {p["persona_id"]: p["persona_name"] for p in personas}
+    pid_to_name = {
+        "p_" + p["persona_name"].lower().replace(" ", "_"): p["persona_name"]
+        for p in personas
+    }
     return {pid_to_name[pid]: tag for tag, pid in author_map.items() if pid in pid_to_name}
 
 
@@ -93,13 +96,14 @@ def _judge_accuracy(
     pairs: list[tuple[str, str]] = []
     for match in judge["persona_identification"]:
         true_name: str = match["persona_name"]
+        if true_name not in name_to_author:
+            continue  # persona was not played in this chat — skip
         predicted_tag: str = match["predicted"]
         predicted_name = author_to_name.get(predicted_tag, "<unknown>")
-        hit = predicted_name == true_name
-        if hit:
+        if predicted_name == true_name:
             correct += 1
         pairs.append((true_name, predicted_name))
-    return correct, len(judge["persona_identification"]), pairs
+    return correct, len(pairs), pairs
 
 
 def compute_accuracy(
@@ -229,7 +233,7 @@ def _cli() -> None:
     import argparse, pprint
 
     parser = argparse.ArgumentParser(description="Persona identification accuracy metrics.")
-    parser.add_argument("--judge-evals", type=Path, required=True, help="Path to judge eval JSON (eval_test_1.json).")
+    parser.add_argument("--judge-evals", type=Path, required=True, help="Path to judge eval JSON (eval_20j_1.jsonl).")
     parser.add_argument("--author-map", type=Path, required=True, help="Path to author_map.json (secret file).")
     parser.add_argument("--personas-dir", type=Path, required=True, help="Dir with *_profile.json persona files.")
     args = parser.parse_args()
@@ -243,6 +247,11 @@ def _cli() -> None:
 
     result = run(judge_evals, author_map, personas)
     pprint.pprint(result)
+
+    stem = args.judge_evals.stem.replace("eval_", "")
+    out_path = args.judge_evals.parent / f"report_persona_id_{stem}.json"
+    out_path.write_text(json.dumps(result, indent=2, default=str), encoding="utf-8")
+    print(f"\nSaved → {out_path}")
 
 
 if __name__ == "__main__":

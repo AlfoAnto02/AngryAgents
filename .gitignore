@@ -31,6 +31,9 @@ htmlcov/
 scripts/
 angry-agents/src/agents/scraping/personas/
 
+# --- ChromaDB vector store (rebuilt with build_index) ---
+data/chroma/
+
 # --- Temp test artifacts ---
 cookies.txt
 
