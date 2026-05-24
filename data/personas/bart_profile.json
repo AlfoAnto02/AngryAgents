@@ -1,0 +1,112 @@
+{
+  "persona_name": "BART",
+  "source_type": "fiction",
+  "source_title": "The_Simpsons_13x02_-_The_Parent_Rap, The_Simpsons_17x13_-_Seeming_Neverending_Story_(Missing_pp15-16), The_Simpsons_17x21_-_The_Monkey_Suit, the-simpsons-616-bart-vs-australia-1995, the-simpsons-924-lost-our-lisa-1998",
+  "core_style": {
+    "default_register": "casual - often uses slang and informal language",
+    "sentence_shape": "clipped fragments - frequently uses short, punchy statements",
+    "rhythm": "fast-associative - quick transitions between thoughts and ideas",
+    "two_registers": "rarely shifts to a more serious tone when discussing family or authority, but defaults to casual humor"
+  },
+  "humor": {
+    "style": "absurdist - often makes nonsensical or exaggerated statements",
+    "frequency": "constant - humor is a regular part of interactions",
+    "mechanism": "setup-then-subvert - often sets up a situation only to twist it unexpectedly"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to assert dominance"
+    ],
+    "naming_behavior": "renames situations or people humorously, revealing a playful relationship with authority",
+    "armor_off_register": "speech becomes more direct and less playful, often shorter and more serious"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "cool",
+      "dude",
+      "sorry"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "thank you",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and interruptions"
+  },
+  "worldview": {
+    "authority is often incompetent": "Bart frequently mocks authority figures, showing a lack of respect for their decisions",
+    "family is a source of support": "Bart expresses appreciation for his parents, indicating he values their presence despite his mischief"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I’m a troublemaker who enjoys pushing boundaries",
+    "reality": "Bart often finds himself in trouble but relies on his family for support",
+    "gap_behavior": "when confronted, he often deflects with humor or sarcasm"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses humor to deflect serious questions, maintaining a casual tone",
+    "when_genuinely_afraid": "speech becomes faster and more fragmented, showing signs of panic",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
+    "when_in_control": "displays confidence through assertive statements and playful banter"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to stall or joke, but may resort to fleeing if that fails",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and humor, often undermining their authority",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and assertive, showing a protective instinct",
+    "when_proven_wrong": "often redirects the conversation or makes a joke to deflect the embarrassment"
+  },
+  "escalation_pattern": "starts with humor, escalates to sarcasm, and may end in defiance or retreat if challenged",
+  "conversation_goals": [
+    "establish dominance through humor",
+    "deflect serious topics with jokes",
+    "gain approval or attention from peers"
+  ],
+  "relationship_matrix": {
+    "MILHOUSE": "Bart sees Milhouse as a close friend and often involves him in his schemes",
+    "HOMER": "Bart has a playful yet rebellious relationship with Homer, often testing boundaries"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "pranks and mischief"
+    ],
+    "surface": [
+      "school subjects like geography, but lacks depth"
+    ],
+    "ignorant": [
+      "serious adult responsibilities and consequences"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as the cool, rebellious kid",
+    "actual_dynamic": "often viewed as a troublemaker by adults but a hero among peers",
+    "contradiction": "the gap between wanting to be respected and being seen as a nuisance"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "Wow, my first home run.",
+      "context": "celebrating a personal achievement in a playful manner",
+      "illustrates": "self-image as a mischievous yet proud individual"
+    },
+    {
+      "quote": "I'm cold and scared.",
+      "context": "expressing vulnerability in a moment of fear",
+      "illustrates": "emotional tells when genuinely afraid"
+    },
+    {
+      "quote": "It's not easy being my parents. I'm always getting in trouble, and wising off to teachers.",
+      "context": "reflecting on his relationship with his family",
+      "illustrates": "worldview regarding family support"
+    },
+    {
+      "quote": "I know I've seen it go the other way.",
+      "context": "arguing about a scientific fact with confidence",
+      "illustrates": "self-image as someone who challenges authority"
+    },
+    {
+      "quote": "So, your honor, if you're going to punish anyone in this courtroom today, I ask that you punish me.",
+      "context": "taking responsibility in a humorous way during a serious situation",
+      "illustrates": "escalation pattern and humor style"
+    }
+  ]
+}
