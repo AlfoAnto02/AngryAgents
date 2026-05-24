@@ -7,6 +7,10 @@ PyJWT
 # LLM / AI
 openai
 
+# MCP server
+mcp[cli]
+httpx
+
 # Scraping
 beautifulsoup4
 requests
