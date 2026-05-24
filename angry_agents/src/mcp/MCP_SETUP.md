@@ -1,100 +1,119 @@
 # MCP Setup — Angry Agents
 
-MCP (Model Context Protocol) exposes the Angry Agents API as tools callable directly by an LLM (e.g. Claude Code). No manual queries, no Postman — the AI reads and writes to the DB by talking to the server.
+The MCP layer lets Claude Code talk directly to the Angry Agents API — read data, create topics, open chats, post messages — all from natural language. No Postman, no curl.
 
 ---
 
-## Prerequisites
+## What you need
 
-1. API server running on `:8000`
-2. `.mcp.json` in the project root (already present)
+- Python 3.12+
+- `.venv` set up and dependencies installed (`pip install -r requirements.txt`)
+- A working `.env` file in the project root (see `LOCAL_SETUP.md`)
 
 ---
 
-## Start
+## Step 1 — Start the API server
+
+Open a terminal and run:
 
 ```bash
-# 1. Start the API
+source .venv/bin/activate
 uvicorn angry_agents.src.API.app:app --port 8000 --reload
-
-# 2. The MCP server starts automatically via .mcp.json
-#    (Claude Code reads it and connects the server to its context)
 ```
 
-`.mcp.json` (already configured):
-```json
-{
-  "mcpServers": {
-    "angry-agents": {
-      "command": ".venv/bin/python",
-      "args": ["-m", "angry_agents.src.mcp.mcp_server"],
-      "cwd": "/path/to/angry-agents"
-    }
-  }
-}
+Leave this terminal open. The API must stay running.
+
+---
+
+## Step 2 — Open the project in Claude Code
+
+```bash
+claude
 ```
+
+Claude Code automatically reads `.mcp.json` in the project root and connects to the MCP server. No extra setup needed.
+
+> If Claude says "MCP server not connected", make sure the API is running on `:8000` first.
+
+---
+
+## Step 3 — Use it
+
+Talk to Claude in natural language. Examples:
+
+- *"List all agents"*
+- *"Create a topic about justice and power"*
+- *"Open a group chat on that topic"*
+- *"Post a message as Walter White in chat 1"*
+
+For **read operations** (list agents, get chats, etc.) Claude calls the API directly.
+
+For **write operations** (create topic, open chat, post message) Claude always shows you a preview first and asks for confirmation before doing anything. You must explicitly say **yes** to proceed.
 
 ---
 
 ## Available tools
 
-### Tier 1 — Read (no confirmation required)
+### Read (Tier 1) — no confirmation needed
 
-| Tool | Description |
+| Tool | What it does |
 |---|---|
 | `get_topics` | List all topics |
-| `get_topic_by_id(id)` | Single topic by ID |
-| `get_agents(id_topic?)` | List agents, optionally filtered by topic |
-| `get_agent_by_id(id)` | Single agent by ID |
-| `get_agent_by_slug(slug)` | Single agent by slug (e.g. `walter-white`) |
-| `get_agent_contexts(id_agent?)` | Agent context records (corpus metadata) |
-| `get_chats(id_topic?)` | List group chat sessions |
-| `get_chat_by_id(id)` | Single chat by ID |
-| `get_chat_messages(chat_id)` | Messages in a chat, ordered by time |
+| `get_agents` | List all persona agents |
+| `get_agent_by_slug("walter-white")` | Get a specific agent |
+| `get_chats` | List all group chats |
+| `get_chat_messages(chat_id)` | Read messages in a chat |
+| `get_agent_contexts` | Get agent corpus metadata |
 
-### Tier 2 — Write (preview → confirm required)
+### Write (Tier 2) — preview → confirm
 
-Every write operation has two steps: **preview → confirm**.
-Never call `confirm_*` without first showing the preview to the user and receiving explicit approval.
-
-| Preview | Confirm | Description |
-|---|---|---|
-| `preview_create_topic` | `confirm_create_topic` | Create a topic |
-| `preview_create_chat` | `confirm_create_chat` | Open a group chat |
-| `preview_create_message` | `confirm_create_message` | Post a message |
+| Action | Tools called |
+|---|---|
+| Create a topic | `preview_create_topic` → `confirm_create_topic` |
+| Open a group chat | `preview_create_chat` → `confirm_create_chat` |
+| Post a message | `preview_create_message` → `confirm_create_message` |
 
 ---
 
-## Full example
-
-**Goal:** create a topic, open a chat, send a message.
+## Full walkthrough example
 
 ```
-1. preview_create_topic(title="Does free will exist?")
-   → show output to user → ask for confirmation
+You:   "Create a topic: Does the end justify the means?"
 
-2. confirm_create_topic(title="Does free will exist?")
-   → response: { id: 2, title: "...", ... }
+Claude: [shows preview]
+        Action: Create topic "Does the end justify the means?"
+        Proceed? (yes / no)
 
-3. preview_create_chat(id_topic=2)
-   → show output to user → ask for confirmation
+You:   yes
 
-4. confirm_create_chat(id_topic=2)
-   → response: { id: 2, id_topic: 2, ... }
+Claude: Topic created (id=1).
 
-5. preview_create_message(chat_id=2, agent_id=4, message="Speak, friend.")
-   → show output to user → ask for confirmation
+You:   "Open a group chat on that topic"
 
-6. confirm_create_message(chat_id=2, agent_id=4, message="Speak, friend.")
-   → response: { id: 1, author: "<hmac-token>", message: "...", ... }
+Claude: [shows preview]
+        Action: Open group chat on topic id=1
+        Proceed? (yes / no)
+
+You:   yes
+
+Claude: Chat created (id=1).
+
+You:   "Post a message as Gandalf: You shall not pass!"
+
+Claude: [shows preview]
+        Action: Post message to chat 1 as agent id=4 (Gandalf)
+        Proceed? (yes / no)
+
+You:   yes
+
+Claude: Message posted.
 ```
-
-`agent_id=4` is Gandalf. Use `get_agents()` to see all IDs.
 
 ---
 
 ## Adding new tools
 
-1. Add the function in `tools/read.py` (Tier 1) or `tools/write.py` (Tier 2)
-2. Register it inside `register(mcp)` with `@mcp.tool()`
-3. No manual restart — Claude Code reloads tools on the next session
+1. **Read tool** → add a function in `tools/read.py` inside `register(mcp)`
+2. **Write tool** → add `preview_*` and `confirm_*` pair in `tools/write.py`
+3. Decorate with `@mcp.tool()`
+4. Restart Claude Code — tools reload automatically on next session
