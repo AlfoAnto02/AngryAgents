@@ -31,11 +31,10 @@ Flags:
     --accounts-db   Path to twscrape accounts DB (default: data/twitter/accounts.db)
     --add-account   Interactive: add a Twitter account to the auth pool
 
-Output JSON shape (list of batches, compatible with extract_profile.py --type podcast):
+Output JSON shape (list of batches, use extract_profile.py --type twitter):
     [
       {
         "title": "@handle tweets 1-100 (2024-01-01 to 2024-03-15)",
-        "transcript": "tweet text\\ntweet text\\n...",
         "tweet_count": 100,
         "tweets": [
           {"tweet_id": "...", "text": "...", "date": "...",
@@ -164,27 +163,14 @@ async def _scrape(
 # ---------------------------------------------------------------------------
 
 def _batch_tweets(tweets: list[dict], batch_size: int, handle: str) -> list[dict]:
-    """
-    Group tweets into fixed-size batches.
-
-    Each batch becomes one "episode" compatible with load_podcast_transcripts:
-    transcript = newline-separated tweet texts.
-    """
+    """Group tweets into fixed-size batches."""
     episodes = []
     for i in range(0, len(tweets), batch_size):
         batch = tweets[i : i + batch_size]
         dates = [t["date"] for t in batch]
         date_range = f"{min(dates)} to {max(dates)}" if dates else ""
-        # Strip URLs from transcript — they pollute vocabulary extraction.
-        # Raw text with URLs is preserved in the tweets array.
-        transcript_lines = [
-            _URL_RE.sub("", t["text"]).strip()
-            for t in batch
-        ]
-        transcript_lines = [l for l in transcript_lines if l]  # drop URL-only tweets
         episodes.append({
             "title": f"@{handle} tweets {i + 1}–{i + len(batch)} ({date_range})",
-            "transcript": "\n".join(transcript_lines),
             "tweet_count": len(batch),
             "tweets": batch,
         })
@@ -249,13 +235,13 @@ def main() -> None:
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(episodes, f, ensure_ascii=False, indent=2)
 
-    total_tok = sum(len(e["transcript"]) for e in episodes) // 4
+    total_tok = sum(len(t["text"]) for e in episodes for t in e["tweets"]) // 4
     print(f"\nDone: {len(tweets)} tweets | {len(episodes)} batches | ~{total_tok:,} tokens → {out_file}")
     print(f"\nExtract profile:")
     print(f"  python -m angry_agents.src.agents.personas.extract_profile \\")
     print(f"      --input {out_file} \\")
     print(f"      --name {name} \\")
-    print(f"      --type podcast")
+    print(f"      --type twitter")
 
 
 if __name__ == "__main__":

@@ -31,6 +31,18 @@ Usage:
         --name cicciogamer89 \
         --type podcast \
         --model gpt-4-turbo
+
+    # batch: process multiple personas from a JSON config file
+    python -m angry_agents.src.agents.personas.extract_profile \
+        --batch data/batch_personas.json \
+        --model gpt-4o-mini
+
+    Batch config format (array of objects, same fields as CLI args):
+    [
+      {"input": "data/youtube/cicciogamer89.json", "name": "cicciogamer89", "type": "podcast"},
+      {"input": "angry_agents/src/scraping/movies_transcripts/PO.json", "name": "po", "type": "fiction"},
+      {"input": "data/movies/pulp_fiction.txt", "name": "vincent_vega", "type": "fiction", "character": "VINCENT"}
+    ]
 """
 
 import argparse
@@ -39,6 +51,8 @@ import os
 import re
 import sys
 from pathlib import Path
+
+_URL_RE = re.compile(r"https?://\S+")
 
 import requests
 from dotenv import load_dotenv
@@ -357,6 +371,29 @@ def load_podcast_transcripts(input_path: Path, max_chars: int) -> str:
     return "".join(parts)
 
 
+def load_twitter_tweets(input_path: Path, max_chars: int) -> str:
+    with open(input_path, encoding="utf-8") as f:
+        batches = json.load(f)
+
+    parts = []
+    total = 0
+    for batch in batches:
+        for tweet in batch.get("tweets", []):
+            text = tweet.get("text", "")
+            if text.startswith("RT @"):
+                continue
+            clean = _URL_RE.sub("", text).strip()
+            if not clean:
+                continue
+            line = clean + "\n"
+            if total + len(line) > max_chars:
+                return "".join(parts)
+            parts.append(line)
+            total += len(line)
+
+    return "".join(parts)
+
+
 def load_fiction_script(
     input_path: Path, max_chars: int, character: str | None = None
 ) -> tuple[str, str, str]:
@@ -537,68 +574,134 @@ def extract_profile(
 
 
 # ---------------------------------------------------------------------------
+# Single-persona processing
+# ---------------------------------------------------------------------------
+
+def process_one(
+    *,
+    input: str,
+    name: str,
+    type: str,
+    character: str | None = None,
+    model: str = DEFAULT_MODEL,
+    max_tokens: int = MAX_TRANSCRIPT_TOKENS,
+    out_dir: Path,
+    usage_logger: TokenUsageLogger,
+) -> Path:
+    """Process one persona spec and return the output file path."""
+    input_path = Path(input)
+    is_json = input_path.suffix.lower() == ".json"
+
+    if type == "fiction" and not character and not is_json:
+        raise ValueError(f"--character required for non-JSON fiction input: {input_path}")
+
+    if not input_path.exists():
+        raise FileNotFoundError(f"Input file not found: {input_path}")
+
+    out_file = out_dir / f"{name}_profile.json"
+    max_chars = max_tokens * CHARS_PER_TOKEN
+
+    print(f"\n[{name}] Loading {type} source: {input_path}")
+
+    if type in ("podcast", "twitter"):
+        if type == "twitter":
+            transcript_text = load_twitter_tweets(input_path, max_chars)
+        else:
+            transcript_text = load_podcast_transcripts(input_path, max_chars)
+        prompt_template = PODCAST_USER_PROMPT
+        template_vars = {"name": name}
+    else:
+        transcript_text, char, source_title = load_fiction_script(
+            input_path, max_chars, character=character
+        )
+        print(f"[{name}] Character: {char} | Source: {source_title}")
+        prompt_template = FICTION_USER_PROMPT
+        template_vars = {"name": source_title, "character": char}
+
+    approx_tokens = len(transcript_text) // CHARS_PER_TOKEN
+    print(f"[{name}] Transcript loaded: ~{approx_tokens:,} tokens")
+    print(f"[{name}] Calling OpenAI ({model})...")
+
+    profile = extract_profile(transcript_text, prompt_template, template_vars, model, usage_logger)
+
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(profile, f, ensure_ascii=False, indent=2)
+
+    print(f"[{name}] Profile saved → {out_file}")
+    return out_file
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Extract structured persona profile from transcript using OpenAI API.")
-    parser.add_argument("--input", required=True, help="Path to transcript file (JSON for podcast, .txt for fiction)")
-    parser.add_argument("--name", required=True, help="Persona or source title (used for output filename)")
-    parser.add_argument("--type", required=True, choices=["podcast", "fiction"], help="Source type")
+    parser.add_argument("--input", help="Path to transcript file (JSON for podcast, .txt for fiction)")
+    parser.add_argument("--name", help="Persona or source title (used for output filename)")
+    parser.add_argument("--type", choices=["podcast", "fiction", "twitter"], help="Source type")
     parser.add_argument("--character", default=None, help="Character name in script (fiction only, ALL CAPS)")
+    parser.add_argument("--batch", help="Path to JSON batch config file (array of persona specs)")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"OpenAI model to use (default: {DEFAULT_MODEL})")
     parser.add_argument("--max-tokens", type=int, default=MAX_TRANSCRIPT_TOKENS, help="Max transcript tokens to send")
     parser.add_argument("--out-dir", default=str(OUTPUT_DIR), help="Output directory")
     args = parser.parse_args()
 
-    # Check API key
     check_openai_api_key()
-
-    input_path = Path(args.input)
-    is_json = input_path.suffix.lower() == ".json"
-
-    if args.type == "fiction" and not args.character and not is_json:
-        sys.exit("Error: --character required for non-JSON fiction input.")
-
-    if not input_path.exists():
-        sys.exit(f"Error: input file not found: {input_path}")
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_file = out_dir / f"{args.name}_profile.json"
-
-    max_chars = args.max_tokens * CHARS_PER_TOKEN
-
-    print(f"Loading {args.type} source: {input_path}")
-
-    if args.type == "podcast":
-        transcript_text = load_podcast_transcripts(input_path, max_chars)
-        prompt_template = PODCAST_USER_PROMPT
-        template_vars = {"name": args.name}
-    else:
-        transcript_text, character, source_title = load_fiction_script(
-            input_path, max_chars, character=args.character
-        )
-        print(f"Character: {character} | Source: {source_title}")
-        prompt_template = FICTION_USER_PROMPT
-        template_vars = {"name": source_title, "character": character}
-
-    approx_tokens = len(transcript_text) // CHARS_PER_TOKEN
-    print(f"Transcript loaded: ~{approx_tokens:,} tokens")
-    print(f"Calling OpenAI ({args.model})... this may take a few minutes.")
-
-    # Initialize token usage logger
     usage_logger = TokenUsageLogger()
-    
-    profile = extract_profile(transcript_text, prompt_template, template_vars, args.model, usage_logger)
 
-    with open(out_file, "w", encoding="utf-8") as f:
-        json.dump(profile, f, ensure_ascii=False, indent=2)
+    if args.batch:
+        batch_path = Path(args.batch)
+        if not batch_path.exists():
+            sys.exit(f"Error: batch file not found: {batch_path}")
+        with open(batch_path, encoding="utf-8") as f:
+            specs = json.load(f)
+        if not isinstance(specs, list):
+            sys.exit("Error: batch file must be a JSON array of persona specs.")
 
-    print(f"\nProfile saved → {out_file}")
-    print(json.dumps(profile, ensure_ascii=False, indent=2))
-    
-    # Print token usage report
+        print(f"Batch mode: {len(specs)} persona(s) to process.")
+        saved = []
+        for i, spec in enumerate(specs, 1):
+            print(f"\n--- [{i}/{len(specs)}] ---")
+            try:
+                out_file = process_one(
+                    input=spec["input"],
+                    name=spec["name"],
+                    type=spec["type"],
+                    character=spec.get("character"),
+                    model=args.model,
+                    max_tokens=args.max_tokens,
+                    out_dir=out_dir,
+                    usage_logger=usage_logger,
+                )
+                saved.append(out_file)
+            except (FileNotFoundError, ValueError) as e:
+                sys.exit(f"Error processing spec {i}: {e}")
+
+        print(f"\nDone. {len(saved)} profile(s) saved:")
+        for p in saved:
+            print(f"  {p}")
+
+    else:
+        if not args.input or not args.name or not args.type:
+            sys.exit("Error: --input, --name, and --type are required (or use --batch).")
+
+        out_file = process_one(
+            input=args.input,
+            name=args.name,
+            type=args.type,
+            character=args.character,
+            model=args.model,
+            max_tokens=args.max_tokens,
+            out_dir=out_dir,
+            usage_logger=usage_logger,
+        )
+        with open(out_file, encoding="utf-8") as f:
+            print(json.dumps(json.load(f), ensure_ascii=False, indent=2))
+
     print(usage_logger.report())
 
 
