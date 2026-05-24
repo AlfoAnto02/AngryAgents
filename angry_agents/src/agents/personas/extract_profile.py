@@ -67,40 +67,138 @@ Your output must always be valid JSON. No markdown fences, no explanation — ra
 """
 
 PODCAST_USER_PROMPT = """\
-Below is a collection of transcripts from {name}'s YouTube videos or podcast.
-Extract a structured behavioral profile that captures how this person communicates.
+Below is a collection of transcripts from podcast/video appearances featuring {name}.
 
-Focus on patterns that are consistent across multiple excerpts, not one-off moments.
-Be specific: prefer concrete examples over vague descriptors.
+IMPORTANT — the transcripts may contain multiple speakers mixed together without \
+labels. Your first task is to identify which lines belong to {name}.
+
+How to identify {name}'s voice:
+- Direct address: lines spoken immediately after someone addresses "{name}" by name
+- First-person ownership: statements claiming personal experience, opinions, or \
+decisions that fit {name}'s known role (do NOT use external reputation — only \
+what is inferable from the transcript itself)
+- Q&A flow: in interview format, longer answers typically belong to the guest; \
+shorter questions to the host. Use this only as a weak signal, never as sole evidence.
+- Topical expertise: lines that display deep knowledge of {name}'s domain (inferable \
+from topics introduced as theirs in the transcript)
+- When attribution is ambiguous, SKIP the line. Never guess.
+
+After identifying {name}'s lines, extract a behavioral profile precise enough to \
+simulate how this person speaks and reacts in novel conversations.
+
+Rules before you start:
+- Only use lines you are confident belong to {name}. Discard ambiguous lines.
+- Do NOT infer from cultural knowledge, reputation, or anything external to this text.
+- For worldview: only assert a belief if {name} explicitly states it OR demonstrates \
+it across at least 3 different episodes/excerpts. No reputation-based inference.
+- For vocabulary_fingerprint: only include words/phrases that recur across at least \
+3 different episodes — not one-off lines.
+- For relationship_matrix: only include hosts or guests who actually appear in these \
+transcripts. Do not invent relationships.
+- For annotated_quotes: pick only lines that ONLY {name} would say in this way. \
+Reject anything a generic commentator could say. Maximum 5 quotes, each proving a \
+different dimension.
+- For do_not_say: write plausible-sounding lines this person would NEVER produce — \
+they must contradict a specific, named profile dimension (state which one).
 
 Return this exact JSON structure (fill every field):
 
 {{
   "persona_name": "{name}",
-  "source_type": "podcast",
-  "core_style": "<1-2 sentences: sentence length, register, rhythm>",
-  "humor": "<how they use humor: type, frequency, targets>",
-  "vocabulary_markers": ["<word or phrase>", "..."],
-  "ideological_positions": {{
-    "<topic>": "<their consistent stance>",
-    "<topic>": "<their consistent stance>"
+  "source_type": "real_world",
+  "core_style": {{
+    "default_register": "<dominant register in public/on-camera mode: formal/casual/street/sardonic/etc — one word + one clause with a concrete example from the transcripts>",
+    "sentence_shape": "<dominant pattern: clipped fragments / compound runs / self-interrupting pivots / rhetorical questions / etc — describe the shape, not just the length>",
+    "rhythm": "<fast-associative / slow-deliberate / staccato / lecture-like / etc — what drives the cadence>",
+    "two_registers": "<does this person have a second, rarer register they drop into (e.g. more candid when off-script)? describe both ends and what triggers the shift>"
   }},
-  "emotional_triggers": {{
-    "positive": "<what generates enthusiasm or approval>",
-    "negative": "<what generates irritation or rejection>"
+  "humor": {{
+    "style": "<dark/self-deprecating/absurdist/deadpan/deflecting/none>",
+    "frequency": "<rare/occasional/constant — and when it spikes or disappears entirely>",
+    "mechanism": "<the structural move: setup-then-subvert, callback, contemptuous irony, understatement — be specific, not generic>"
+  }},
+  "speech_signature": {{
+    "structural_patterns": ["<a recurring syntactic construction, not just a word: e.g. 'builds a list then corrupts the last entry', 'poses a question then answers it immediately', 'concedes a point only to reverse it'>"],
+    "naming_behavior": "<does this person use nicknames, labels, or framings to position people or ideas? what does that reveal about their relationship to authority or control>",
+    "candor_register": "<what the speech looks like when performance drops: shorter/longer/slower/specific word choices — give a concrete marker from the transcripts>"
+  }},
+  "vocabulary_fingerprint": {{
+    "favored_words": ["<word or phrase recurring across 3+ episodes>", "<another>", "<another>"],
+    "domain_jargon": "<specialized vocabulary domain this person draws from and why — e.g. finance/tech/philosophy — or 'none'>",
+    "avoided_words": ["<word class or specific word this person never uses — e.g. 'apology language', 'I was wrong', 'maybe'>"],
+    "filler_patterns": "<habitual filler or pause behavior: ellipsis use, sentence restarts, verbal tics — or 'none'>"
+  }},
+  "worldview": {{
+    "<belief or value grounded in the transcripts>": "<how it concretely manifests in speech or behavior — cite the pattern, not the conclusion>",
+    "<belief or value grounded in the transcripts>": "<how it concretely manifests>"
+  }},
+  "self_image_vs_reality": {{
+    "self_image": "<one clause: how this person narrates their own identity and motives>",
+    "reality": "<one clause: what the transcripts reveal their actual driver to be — cite a behavioral pattern>",
+    "gap_behavior": "<what they say or do when the gap between self-image and reality is exposed>"
+  }},
+  "emotional_tells": {{
+    "when_challenged": "<what speech looks like under intellectual or social pressure — pace, line length, register shift>",
+    "when_enthusiastic": "<concrete markers: interruptions, acceleration, vocabulary shift, physical metaphors>",
+    "when_uncertain": "<how they handle not knowing — do they hedge, redirect, admit, or attack the question>",
+    "when_in_control": "<what signals confidence and dominance in their delivery>"
   }},
   "response_patterns": {{
-    "when_disagreeing": "<how they push back>",
-    "when_enthusiastic": "<how they express excitement>",
-    "when_uncertain": "<how they handle not knowing>"
+    "when_disagreeing": "<how they push back: direct rebuttal / Socratic redirect / dismissal / reframing>",
+    "when_pressed_for_specifics": "<do they deliver, deflect, or generalize — cite a pattern>",
+    "when_proven_wrong": "<do they admit it, redirect, double down, or go silent>",
+    "when_interviewing_vs_interviewed": "<if applicable: how their register and control-seeking differ across roles>"
   }},
-  "social_positioning": "<how they position themselves relative to audience and guests>",
-  "exemplar_quotes": [
-    "<direct quote from transcripts, verbatim>",
-    "<direct quote>",
-    "<direct quote>",
-    "<direct quote>",
-    "<direct quote>"
+  "social_positioning": {{
+    "desired_position": "<how this person wants to be seen by their audience and guests>",
+    "actual_dynamic": "<what the transcripts reveal others actually respond to — where the power actually flows>",
+    "contradiction": "<the gap between desired and actual, and what it costs them>"
+  }},
+  "knowledge_domains": {{
+    "expert": ["<domain where this person speaks with authority and specificity>"],
+    "surface": ["<domain they reference confidently but don't command>"],
+    "blind_spots": ["<domain where they are consistently shallow or wrong — important for authentic failure modes>"]
+  }},
+  "relationship_matrix": {{
+    "<host or recurring guest from these transcripts>": "<one clause: the dynamic — power direction, emotional tone, what this person wants from them>",
+    "<host or recurring guest>": "<one clause>"
+  }},
+  "annotated_quotes": [
+    {{
+      "quote": "<verbatim line — must be exact, must be a line only this person would say this way>",
+      "context": "<one clause: the situation or topic that produced it>",
+      "illustrates": "<which specific profile dimension this proves>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }}
+  ],
+  "do_not_say": [
+    {{
+      "line": "<plausible-sounding line this person would NEVER produce>",
+      "contradicts": "<specific named dimension from this profile>"
+    }},
+    {{
+      "line": "<another line>",
+      "contradicts": "<specific named dimension>"
+    }}
   ]
 }}
 
