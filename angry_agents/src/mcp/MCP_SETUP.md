@@ -1,27 +1,27 @@
 # MCP Setup — Angry Agents
 
-MCP (Model Context Protocol) espone le API di Angry Agents come tool chiamabili direttamente da un LLM (es. Claude Code). Nessuna query manuale, nessun Postman — l'AI legge e scrive sul DB parlando con il server.
+MCP (Model Context Protocol) exposes the Angry Agents API as tools callable directly by an LLM (e.g. Claude Code). No manual queries, no Postman — the AI reads and writes to the DB by talking to the server.
 
 ---
 
-## Prerequisiti
+## Prerequisites
 
-1. API server attivo su `:8000`
-2. `.mcp.json` nella root del progetto (già presente)
+1. API server running on `:8000`
+2. `.mcp.json` in the project root (already present)
 
 ---
 
-## Avvio
+## Start
 
 ```bash
-# 1. Avvia l'API
+# 1. Start the API
 uvicorn angry_agents.src.API.app:app --port 8000 --reload
 
-# 2. Il server MCP parte automaticamente tramite .mcp.json
-#    (Claude Code lo legge e connette il server al proprio contesto)
+# 2. The MCP server starts automatically via .mcp.json
+#    (Claude Code reads it and connects the server to its context)
 ```
 
-`.mcp.json` (già configurato):
+`.mcp.json` (already configured):
 ```json
 {
   "mcpServers": {
@@ -36,65 +36,65 @@ uvicorn angry_agents.src.API.app:app --port 8000 --reload
 
 ---
 
-## Tool disponibili
+## Available tools
 
-### Tier 1 — Lettura libera
+### Tier 1 — Read (no confirmation required)
 
-| Tool | Descrizione |
+| Tool | Description |
 |---|---|
-| `get_topics` | Lista tutti i topic |
-| `get_topic_by_id(id)` | Singolo topic per ID |
-| `get_agents(id_topic?)` | Lista agenti, opzionalmente filtrati per topic |
-| `get_agent_by_id(id)` | Singolo agente per ID |
-| `get_agent_by_slug(slug)` | Singolo agente per slug (es. `walter-white`) |
-| `get_agent_contexts(id_agent?)` | Contesti/corpus degli agenti |
-| `get_chats(id_topic?)` | Lista chat di gruppo |
-| `get_chat_by_id(id)` | Singola chat per ID |
-| `get_chat_messages(chat_id)` | Messaggi di una chat |
+| `get_topics` | List all topics |
+| `get_topic_by_id(id)` | Single topic by ID |
+| `get_agents(id_topic?)` | List agents, optionally filtered by topic |
+| `get_agent_by_id(id)` | Single agent by ID |
+| `get_agent_by_slug(slug)` | Single agent by slug (e.g. `walter-white`) |
+| `get_agent_contexts(id_agent?)` | Agent context records (corpus metadata) |
+| `get_chats(id_topic?)` | List group chat sessions |
+| `get_chat_by_id(id)` | Single chat by ID |
+| `get_chat_messages(chat_id)` | Messages in a chat, ordered by time |
 
-### Tier 2 — Scrittura con conferma obbligatoria
+### Tier 2 — Write (preview → confirm required)
 
-Ogni operazione di scrittura ha due fasi: **preview → confirm**.
-Non chiamare mai `confirm_*` senza aver mostrato il preview all'utente.
+Every write operation has two steps: **preview → confirm**.
+Never call `confirm_*` without first showing the preview to the user and receiving explicit approval.
 
-| Preview | Confirm | Descrizione |
+| Preview | Confirm | Description |
 |---|---|---|
-| `preview_create_topic` | `confirm_create_topic` | Crea un topic |
-| `preview_create_chat` | `confirm_create_chat` | Apre una group chat |
-| `preview_create_message` | `confirm_create_message` | Posta un messaggio |
+| `preview_create_topic` | `confirm_create_topic` | Create a topic |
+| `preview_create_chat` | `confirm_create_chat` | Open a group chat |
+| `preview_create_message` | `confirm_create_message` | Post a message |
 
 ---
 
-## Esempio completo
+## Full example
 
-**Obiettivo:** creare un topic, aprire una chat, mandare un messaggio.
+**Goal:** create a topic, open a chat, send a message.
 
 ```
-1. preview_create_topic(title="Il libero arbitrio esiste?")
-   → mostrare output all'utente → chiedere conferma
+1. preview_create_topic(title="Does free will exist?")
+   → show output to user → ask for confirmation
 
-2. confirm_create_topic(title="Il libero arbitrio esiste?")
-   → risposta: { id: 2, title: "...", ... }
+2. confirm_create_topic(title="Does free will exist?")
+   → response: { id: 2, title: "...", ... }
 
 3. preview_create_chat(id_topic=2)
-   → mostrare output all'utente → chiedere conferma
+   → show output to user → ask for confirmation
 
 4. confirm_create_chat(id_topic=2)
-   → risposta: { id: 2, id_topic: 2, ... }
+   → response: { id: 2, id_topic: 2, ... }
 
 5. preview_create_message(chat_id=2, agent_id=4, message="Speak, friend.")
-   → mostrare output all'utente → chiedere conferma
+   → show output to user → ask for confirmation
 
 6. confirm_create_message(chat_id=2, agent_id=4, message="Speak, friend.")
-   → risposta: { id: 1, author: "<hmac-token>", message: "...", ... }
+   → response: { id: 1, author: "<hmac-token>", message: "...", ... }
 ```
 
-`agent_id=4` è Gandalf. Usare `get_agents()` per vedere tutti gli ID.
+`agent_id=4` is Gandalf. Use `get_agents()` to see all IDs.
 
 ---
 
-## Aggiungere nuovi tool
+## Adding new tools
 
-1. Aggiungere la funzione in `tools/read.py` (Tier 1) o `tools/write.py` (Tier 2)
-2. La funzione deve essere registrata dentro `register(mcp)` con `@mcp.tool()`
-3. Nessun restart manuale — Claude Code ricarica i tool alla prossima sessione
+1. Add the function in `tools/read.py` (Tier 1) or `tools/write.py` (Tier 2)
+2. Register it inside `register(mcp)` with `@mcp.tool()`
+3. No manual restart — Claude Code reloads tools on the next session
