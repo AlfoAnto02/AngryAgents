@@ -53,7 +53,7 @@ RANDOM_BASELINE = 1 / 8  # 8 personas
 
 def load_judge_evals(path: Path) -> list[dict]:
     with open(path, encoding="utf-8") as f:
-        return json.load(f)
+        return [json.loads(line) for line in f if line.strip()]
 
 
 def load_json(path: Path) -> dict:

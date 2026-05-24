@@ -171,7 +171,7 @@ def _cli() -> None:
     args = parser.parse_args()
 
     with open(args.judge_evals, encoding="utf-8") as f:
-        judge_evals = json.load(f)
+        judge_evals = [json.loads(line) for line in f if line.strip()]
     with open(args.author_map, encoding="utf-8") as f:
         author_map = json.load(f)
     personas = [

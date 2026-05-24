@@ -106,6 +106,23 @@ def _build_record(
     candidate_names: list[str],
 ) -> dict:
     now = datetime.now(timezone.utc).isoformat()
+
+    # Persona-centric format expected by src/eval/metrics_persona_id.py:
+    # for each persona, which author did the judge predict played it + all author scores.
+    persona_names = [s.persona_name for s in result.matches[0].scores] if result.matches else []
+    persona_identification = []
+    for pname in persona_names:
+        author_scores = [
+            {"author": m.author, "score": next((s.score for s in m.scores if s.persona_name == pname), 1)}
+            for m in result.matches
+        ]
+        predicted = max(author_scores, key=lambda x: x["score"])["author"]
+        persona_identification.append({
+            "persona_name": pname,
+            "predicted": predicted,
+            "scores": author_scores,
+        })
+
     return {
         "ID_judge": judge_id,
         "ID_chat": chat_id,
@@ -116,17 +133,7 @@ def _build_record(
         "judge_name": judge["name"],
         "judge_role": judge["role"],
         "rag_candidates": candidate_names,
-        "persona_identification": [
-            {
-                "author": match.author,
-                "predicted_persona": match.predicted,
-                "scores": [
-                    {"persona_name": s.persona_name, "score": s.score}
-                    for s in match.scores
-                ],
-            }
-            for match in result.matches
-        ],
+        "persona_identification": persona_identification,
     }
 
 
