@@ -12,8 +12,18 @@ def get_connection(db_path: str | Path) -> sqlite3.Connection:
     return conn
 
 
+_MIGRATIONS = [
+    "ALTER TABLE Group_chat ADD COLUMN status TEXT NOT NULL DEFAULT 'pending'",
+]
+
+
 def init_db(conn: sqlite3.Connection) -> None:
     from . import ALL_DDL
     for ddl in ALL_DDL:
         conn.executescript(ddl)
+    for sql in _MIGRATIONS:
+        try:
+            conn.execute(sql)
+        except sqlite3.OperationalError:
+            pass  # column already exists
     conn.commit()

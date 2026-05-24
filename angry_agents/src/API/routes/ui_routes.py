@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import os
@@ -7,10 +8,14 @@ import sqlite3
 import time as _time
 from datetime import datetime, timezone
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
+from ...db.models.base import get_connection
 from ...db.services.chat_messages_service import ChatMessageService
+from ...db.services.group_chat_service import GroupChatService
+from ...logging_setup import deviation
 from ..config import Settings, get_settings
 from ..deps import get_current_user, get_db
 
@@ -27,21 +32,50 @@ def _to_str(v) -> str:
     return str(v) if v else ""
 
 
-def _run_agent_turns(db: sqlite3.Connection, chat_id: int, settings: Settings) -> None:
-    """Generate agent replies for the given chat using GroupChatSession."""
-    from ...group_chat.group_chat_factory import GroupChatFactory
+_DEFAULT_TURNS = 30
+
+
+def _dm_run_agent_turn(db: sqlite3.Connection, chat_id: int, settings: Settings) -> None:
+    """Single agent reply for DM chats (synchronous, in-request)."""
+    from ...dm_chat.factory import DMFactory
 
     model = os.getenv("OLLAMA_DEFAULT_MODEL", "mistral")
+    session = DMFactory.build_session(db, chat_id, model, settings.author_secret)
     try:
-        session = GroupChatFactory.build_session(
-            db, chat_id, model, settings.author_secret
-        )
-        if not session.agents:
-            return
-        for _ in session.agents:
-            session.run_turn(db)
+        session.respond(db)
     except Exception as exc:
-        log.warning("Agent turn generation failed for chat %s: %s", chat_id, exc)
+        deviation("dm agent turn failed", chat_id=chat_id, exc=str(exc))
+
+
+def _bg_run_conversation(
+    chat_id: int, db_path: str, author_secret: str, n_turns: int
+) -> None:
+    """Background task: runs the autonomous group chat for n_turns."""
+    from ...group_chat.group_chat_factory import GroupChatFactory
+
+    conn = get_connection(db_path)
+    try:
+        svc = GroupChatService(conn)
+        svc.set_status(chat_id, "running")
+        model = os.getenv("OLLAMA_DEFAULT_MODEL", "mistral")
+        session = GroupChatFactory.build_session(conn, chat_id, model, author_secret)
+        if not session.agents:
+            svc.set_status(chat_id, "done")
+            return
+        for _ in range(n_turns):
+            try:
+                session.run_turn(conn)
+            except Exception as exc:
+                deviation("group turn failed", chat_id=chat_id, exc=str(exc))
+        svc.set_status(chat_id, "done")
+    except Exception as exc:
+        deviation("group conversation failed", chat_id=chat_id, exc=str(exc))
+        try:
+            GroupChatService(conn).set_status(chat_id, "error")
+        except Exception:
+            pass
+    finally:
+        conn.close()
 
 
 def _relative_time(ts: str | None) -> str:
@@ -294,6 +328,87 @@ def ui_create_chat(
 
 
 # ---------------------------------------------------------------------------
+# Group chat: start + SSE stream
+# ---------------------------------------------------------------------------
+
+@router.post("/ui/chats/{chat_id}/start", status_code=202)
+def ui_start_chat(
+    chat_id: int,
+    background_tasks: BackgroundTasks,
+    n_turns: int = _DEFAULT_TURNS,
+    current_user=Depends(get_current_user),
+    db: sqlite3.Connection = Depends(get_db),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    chat = GroupChatService(db).get(chat_id)
+    if chat is None:
+        raise HTTPException(status_code=404, detail="Chat not found")
+    if chat.status in ("running", "done"):
+        raise HTTPException(status_code=409, detail=f"Chat already {chat.status}")
+
+    background_tasks.add_task(
+        _bg_run_conversation, chat_id, settings.db_path, settings.author_secret, n_turns
+    )
+    return {"chat_id": chat_id, "status": "running", "n_turns": n_turns}
+
+
+@router.get("/ui/chats/{chat_id}/stream")
+async def ui_stream_chat(
+    chat_id: int,
+    after: int = 0,
+    settings: Settings = Depends(get_settings),
+):
+    async def generate():
+        conn = get_connection(settings.db_path)
+        try:
+            last_id = after
+            idle_ticks = 0
+            max_idle = 1200  # 10 minutes at 0.5s intervals
+
+            while idle_ticks < max_idle:
+                rows = conn.execute(
+                    """SELECT ID, message, author, Created_by, created_at
+                       FROM Chat_messages
+                       WHERE ID_Chat = ? AND ID > ? AND deleted_at IS NULL
+                       ORDER BY ID ASC LIMIT 20""",
+                    (chat_id, last_id),
+                ).fetchall()
+
+                for row in rows:
+                    last_id = row["ID"]
+                    idle_ticks = 0
+                    kind = "agent" if row["author"] else ("user" if row["Created_by"] else "system")
+                    payload = json.dumps({
+                        "id": row["ID"],
+                        "kind": kind,
+                        "text": row["message"],
+                        "author": row["author"],
+                        "ts": row["created_at"],
+                        "time": _short_time(row["created_at"]),
+                    })
+                    yield f"data: {payload}\n\n"
+
+                if not rows:
+                    chat_row = conn.execute(
+                        "SELECT status FROM Group_chat WHERE ID = ?", (chat_id,)
+                    ).fetchone()
+                    if chat_row and chat_row["status"] in ("done", "error"):
+                        yield f"event: done\ndata: {{}}\n\n"
+                        break
+                    idle_ticks += 1
+
+                await asyncio.sleep(0.5)
+        finally:
+            conn.close()
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
+
+
+# ---------------------------------------------------------------------------
 # Messages
 # ---------------------------------------------------------------------------
 
@@ -377,7 +492,11 @@ def ui_create_message(
         message=body.text,
         created_by=current_user.id,
     )
-    _run_agent_turns(db, chat_id, settings)
+    agent_count = db.execute(
+        "SELECT COUNT(*) AS n FROM Chat_agent WHERE id_chat = ?", (chat_id,)
+    ).fetchone()["n"]
+    if agent_count == 1:
+        _dm_run_agent_turn(db, chat_id, settings)
     return {
         "kind": "user",
         "text": msg.message,
