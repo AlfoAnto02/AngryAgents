@@ -1,0 +1,1620 @@
+{
+  "character": "RICK",
+  "films": [
+    "Rick_and_Morty_1x02_-_Lawnmower_Dog",
+    "Rick_and_Morty_1x04_-_M._Night_Shaym-Aliens",
+    "Rick_and_Morty_1x05_-_Meeseeks_and_Destroy",
+    "Rick_and_Morty_1x06_-_Rick_Potion_9",
+    "Rick_and_Morty_1x08_-_Rixty_Minutes",
+    "Rick_and_Morty_1x11_-_Ricksy_Business",
+    "Rick_and_Morty_2x02_-_Mortynight_Run"
+  ],
+  "lines_count": 321,
+  "lines": [
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Morty, come on. I need your help tonight."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "I thought the whole point of having a dog was to feel superior, Jerry. If I were you, I wouldn’t pull that thread. Come on, Morty."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "You’ve really got me up against a wall here, Jerry."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ruffles -- What’s his name?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Snuffles. Shake."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Roll over."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Go to the bathroom. JERRY SUMMER †"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, you’re at the top of your game, now, Jerry. Have fun. Come on, Morty."
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "If you like that, Morty, you’re gonna love this."
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "It’s a device that will allow us to enter people’s dreams, Morty. Just like in that movie you never shut the fuck up about."
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "That’s right. This is gonna be like that except it’s gonna make sense."
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You don’t have to try to impress me, Morty. Tonight we’re going to the home of your math teacher, Mister Goldenfold, and we’re going to use this bad boy to enter his dreams and convince him to give you less homework. That way, you’ll have more time to help me with my science."
+    },
+    {
+      "scene": "INT. GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Are you listening, Morty? Homework is stupid, the whole point is to get less of it. Not very bright, are you? No wonder you’re doing bad in school. Now let’s get over to your teacher’s house and make with some incepting."
+    },
+    {
+      "scene": "INT. GOLDENFOLD’S LIVING ROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Uh oh. Spoilers!"
+    },
+    {
+      "scene": "INT. GOLDENFOLD’S LIVING ROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I’m a full season behind on Jada Pinkett’s You Don’t Know Me."
+    },
+    {
+      "scene": "INT. GOLDENFOLD’S LIVING ROOM - DUSK",
+      "speech_type": "direct",
+      "dialogue": "It’s about to get a whole lot weirder, Morty."
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Alright, Morty, time to make our move."
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Wrap this around your head. We’re about to take Goldenfold’s subconscious hostage."
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Allah (buuurrrrp) Akbar! We’re taking control of this plane! We’re gonna 9/11 it unless Morty Smith gets better grades in math."
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I said nobody move, buddy!"
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Take cover, Morty!"
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Bit of a snag, Morty. Goldenfold’s got more control here than I anticipated."
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I mean, the guy teaches high school math, I didn’t take him for an active dreamer. We gotta take him out so he wakes up. But we can’t get killed, Morty, if you get killed in someone else’s dream, you die for real."
+    },
+    {
+      "scene": "INT. AIRPLANE (GOLDENFOLD’S DREAM) - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Don’t be a baby! You avoid getting shot in real life all the time, just do the same thing here and you’ll be fine!"
+    },
+    {
+      "scene": "EXT. AIRPLANE (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Goldenfold! We’re coming out, we just want to talk!"
+    },
+    {
+      "scene": "EXT. AIRPLANE (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Because we’re both rational adults who don’t want any thing bad to happen."
+    },
+    {
+      "scene": "EXT. AIRPLANE (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "And because I have a human shield."
+    },
+    {
+      "scene": "EXT. AIRPLANE (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Uh oh! His subconscious is panicking!"
+    },
+    {
+      "scene": "EXT. SKY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Be quiet, Morty! Every second I’m answering your questions is a second I’m not coming up with a plan --"
+    },
+    {
+      "scene": "EXT. SKY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Whoa. Look at this, Morty. A wi- fi controlled hot dog cooker. Pretty interesting."
+    },
+    {
+      "scene": "EXT. SKY (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Relax! Look Morty! Jada Pinkett has a parachute! Come on!"
+    },
+    {
+      "scene": "EXT. SKY (GOLDENFOLD’S DREAM) - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, boy. Looks like we’ve merely prolonged the inevitable. That’s it! Prolong the inevitable! Listen, Morty, if we can go into Jada Pinkett’s dream, everything will go a hundred times slower. We’ll have plenty of time to incept Jada into leveraging Goldenfold to our benefit."
+    },
+    {
+      "scene": "EXT. MAGICAL CASTLE - TWO DREAMS DEEP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Nerd alert."
+    },
+    {
+      "scene": "EXT. MAGICAL CASTLE - TWO DREAMS DEEP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Be my guest. CENTAUR #1 What business do you have at Queen Jada Pinkett’s Palace?"
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Don’t judge, Morty."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "If we’re going to incept Jada, we have to blend, Morty. Let’s talk after lunch!"
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What’s the matter, Morty? You’re kinda killing the vibe in here."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh geez. Okay. Even for me this is a deal breaker."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Obviously Goldenfold has some predilections he prefers to bury in the dreams of the people in his dreams, including a shameful attraction to your underage sister."
+    },
+    {
+      "scene": "INT. PALACE - PLEASURE CHAMBER - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Time to go another dream deep, Morty!"
+    },
+    {
+      "scene": "INT. BOILER ROOM - CENTAUR’S DREAM - THREE DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "No idea, Morty, but I don’t like it. Seems like a nightmare type setting."
+    },
+    {
+      "scene": "INT. BOILER ROOM - CENTAUR’S DREAM - THREE DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "Yeah, that cinches it."
+    },
+    {
+      "scene": "INT. BOILER ROOM - CENTAUR’S DREAM - THREE DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "I don’t know, Morty. Looks like some sort of legally safe knock-off of an 80’s horror character with miniature swords for fingers instead of knives."
+    },
+    {
+      "scene": "INT. BOILER ROOM - CENTAUR’S DREAM - THREE DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "We have to escape into someone else’s dream, Morty!"
+    },
+    {
+      "scene": "INT. BOILER ROOM - CENTAUR’S DREAM - THREE DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "The little girl!"
+    },
+    {
+      "scene": "EXT. BOILER ROOM - GIRL’S DREAM - FOUR DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "This again? It looks like we’ve hit dream bedrock here, Morty."
+    },
+    {
+      "scene": "EXT. BOILER ROOM - GIRL’S DREAM - FOUR DREAMS DEEP",
+      "speech_type": "direct",
+      "dialogue": "He can travel through dreams, Morty! He can travel through dreams, we’re so screwed!"
+    },
+    {
+      "scene": "EXT. RUN DOWN NEIGHBORHOOD - FOUR DREAMS DEEP - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hold on, you know what, Morty? I say we try hiding."
+    },
+    {
+      "scene": "EXT. RUN DOWN NEIGHBORHOOD - FOUR DREAMS DEEP - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Exactly. He's chasing us and he keeps saying we can run. But the running isn't working out so great. He also keeps saying we can't hide. But if we could hide, do you think he'd tell us we could? I say we hide."
+    },
+    {
+      "scene": "EXT. RUN DOWN NEIGHBORHOOD - FOUR DREAMS DEEP - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Worst case scenario: we’re back to running."
+    },
+    {
+      "scene": "INT. ABANDONED HOUSE - LATER",
+      "speech_type": "direct",
+      "dialogue": "Thanks, Morty. Nice to be on the same page every once in a while."
+    },
+    {
+      "scene": "INT. ABANDONED HOUSE - LATER",
+      "speech_type": "direct",
+      "dialogue": "Nice advice, dumb ass."
+    },
+    {
+      "scene": "INT. ABANDONED HOUSE - LATER",
+      "speech_type": "direct",
+      "dialogue": "Oh, this is perfect, Morty. Look at that. He’s getting sleepy. Just a little bit longer before he calls it a day. That’s when we make our move."
+    },
+    {
+      "scene": "EXT. SCARY TERRY’S HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh, perfect. After a little Scary coitus, they should be fast asleep and we’ll incept him."
+    },
+    {
+      "scene": "INT. SCARY TERRY’S HOUSE - BEDROOM - LATER",
+      "speech_type": "direct",
+      "dialogue": "It looks like Scary Terry’s having a nightmare."
+    },
+    {
+      "scene": "INT. SCARY CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah! This is a bunch of bull crap. You don’t need to make a stupid pun every time you kill someone. If anything, it makes you less scary!"
+    },
+    {
+      "scene": "INT. SCARY CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You put yourself under too much pressure, Scary Terry. You’re scary enough as it is."
+    },
+    {
+      "scene": "INT. SCARY CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You’re our boy, dog. Don’t even trip. CUT TO:"
+    },
+    {
+      "scene": "INT. KITCHEN - MORNING",
+      "speech_type": "direct",
+      "dialogue": "As a matter of fact, Terry, there is something you could help us with."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Out of the frying pan, dot dot dot, eh, Morty?"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It’s possible your dog became self aware, made modifications on the cognition amplifier, turned on Jerry, Beth, and Summer after learning of humanity’s cruel subjugation of his species, and then created an army of cybernetically enhanced canines to dominate the planet and supplant the human race. But your guess is as good as mine."
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - BACK YARD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Beth. Jerry. Summer. JERRY BETH"
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - BACK YARD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Alright, let’s get out of here. If we hurry, we can set up camp in a sewer tunnel before the dogs completely take over."
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - BACK YARD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "It’s all over, Jerry. Dogs are on the path to total world domination. But hey, good thing they know not to piss on your carpet, huh?"
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Great plan, Jerry. Not humiliating at all."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I was just playing dead. Good news though, Morty. This will all be over pretty soon."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s a dream, Morty. We’re in your dog’s dream. The night the dogs captured us, after you cried and shit your pants and we all went to sleep, I used my dream inceptor to put the two of us inside Snuffles’ dream."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s been six hours. Dreams move one one-hundreth the speed of reality and dog time is one seventh human time, so every day here is a minute. It’s like Inception, Morty, so if it’s confusing and stupid, then so is everyone’s favorite movie."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, that happened before you went to sleep, Morty. You’re sleeping in your shit right now. Out of all the things that’ve happened to you, the only real thing is that you shat your pants. It’s really a mess in there. I got some of it on my hands and the dream inceptor..."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don’t worry about it, Morty. Here, take these."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Close. Your kidneys are going to shut down."
+    },
+    {
+      "scene": "INT. EMPEROR SNOWBALL’S PALACE - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s necessary for the plan. Don’t even trip, dog."
+    },
+    {
+      "scene": "INT. DOCTOR’S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s pretty bad, Emperor Snowball. We’re going to need to do another operation."
+    },
+    {
+      "scene": "EXT. ANIMAL SHELTER - DAY",
+      "speech_type": "direct",
+      "dialogue": "I think it’ll be great, Morty. I think it could be developed, into a very satisfying project for people of all ages. I mean, I’d watch it. For at least 11 minutes a pop. Maybe do it board driven."
+    },
+    {
+      "scene": "EXT. ANIMAL SHELTER - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ahh, what do you know, Morty. What do you know."
+    },
+    {
+      "scene": "INT. CLASSROOM - FOUR DREAMS DEEP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, no wrong answers, baby. No wrong answers."
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, this is just sloppy craftsmanship."
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ohhh yes, Morty. Almost unbelievable, isn’t it?"
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sure, buddy, sure. Brilliant. Very convincing."
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, responsive, too, in real time, I love it."
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, “what’s with Mom?” So, you’re saying that she’s acting weird. How sophisticated -- Careful, guys, you’re going to burn out the CPU with this one!"
+    },
+    {
+      "scene": "INT. LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sure thing, quote unquote “Morty.”"
+    },
+    {
+      "scene": "EXT. CLASSROOM WINDOW - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Interesting."
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Morty! There’s a family emergency!"
+    },
+    {
+      "scene": "INT. CLASSROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "He doesn’t care!"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Take a shower with me, Morty."
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Listen to me, Morty! Get your clothes off and get in here, NOW. TRUST ME."
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "That’s not class, Morty. That wasn’t your teacher, this isn’t your school, this entire world is not the world. We’re inside a huge simulation chamber on an alien spaceship."
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "It’s all fake, Morty, all of it. Nanobotic renderings. I couldn’t say so until we got in the shower, they won’t monitor us in here."
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Zigerion Scammers, Morty. The galaxy’s most ambitious, least successful con artists. Lucky for us, they’re also very uncomfortable with nudity."
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "I can’t let you do that, Morty!"
+    },
+    {
+      "scene": "INT. HIGH SCHOOL SHOWER - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "No, you!"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ah ah, Morty! Keep your hands off your ding-dong, it’s the only way we can speak freely. Look around you, Morty. Do you really think this world is real? You’d have to be an idiot not to notice all the sloppy details."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "That guy is putting a bun between two hot dogs."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well look at that old lady. She’s walking a cat on a leash."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "I don’t want to hear about Mrs. Spencer, Morty. She’s an idiot. There, what about that?"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh, really, Morty? Are you sure you haven’t seen that somewhere before?"
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "You’re missing the point, Morty. Why would he drive a smaller toaster with wheels? Does your car look like a smaller version of your house? No."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "That would be obvious to you, Morty, if you’d been paying attention."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s a special fuel I invented to travel through space faster than anybody. These Zigerions are always trying to scam me out of my secrets. But they made a big mistake this time, Morty. They tried to get to me through you. They dragged you into this. Now they’re gonna pay."
+    },
+    {
+      "scene": "EXT. NEIGHBORHOOD - DAY",
+      "speech_type": "direct",
+      "dialogue": "We’re going to scam the scammers, Morty. And we’re gonna take them for everything they’ve got."
+    },
+    {
+      "scene": "INT. BACKSTAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Morty, it’s a bunch of ones and zeros out there, you’ll be fine. Just follow my lead. Drop the beat!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Uh oh, Morty. This crowd looks too small for one of our famous rap concerts. I don’t think we can perform our new song, “The Recipe for Concentrated Dark Matter” for a crowd this tiny."
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I guess we should just cancel the concert, then."
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "That’s more like it. Morty, here we go!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Let me hear everybody say “hoooo”!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "All the ladies say “yeah”!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Everybody over thirty do this with your hand! Everybody with a red shirt jump up and down! Yo, Morty, I don’t think they understand. I don’t see the ladies in red shirts over thirty saying “yeah” while doing this gesture and jumping!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Everyone whose first name begins with L who isn’t Hispanic, walk in a circle the same number of times as the square root of your age times ten!"
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Morty, quick. Rap some nonsense. Make them process your rhymes."
+    },
+    {
+      "scene": "EXT. STAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Run, Morty! Before the system reboots!"
+    },
+    {
+      "scene": "EXT. STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "Out of the simulation, Morty! Normally, the chamber operates like a treadmill, with the virtual world disappearing behind us and being rendered in front of us as we move through it. But while it’s frozen, we can get to -"
+    },
+    {
+      "scene": "EXT. STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "The edge. Here we go."
+    },
+    {
+      "scene": "EXT. STREET - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on, Morty!"
+    },
+    {
+      "scene": "INT. MOTHERSHIP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Keep your eyes peeled for the central processing room, Morty. That’s how we’re going to scam these idiots."
+    },
+    {
+      "scene": "INT. MOTHERSHIP - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s an obsession for them at this point. The Zigerions have been trying to outsmart me for years, and every time they do, I’m one step ahead of them. Some people just can’t make the heroic leap of accepting my superiority. It’s a common crime in this galaxy."
+    },
+    {
+      "scene": "INT. MOTHERSHIP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Aha! Here we go."
+    },
+    {
+      "scene": "INT. CENTRAL PROCESSING ROOM - SOON",
+      "speech_type": "direct",
+      "dialogue": "Grab as many processors as you can carry, Morty. These guys aren’t good at much, but they’re great at making these chips."
+    },
+    {
+      "scene": "INT. CENTRAL PROCESSING ROOM - SOON",
+      "speech_type": "direct",
+      "dialogue": "That’s fine, Morty. Come on. Let’s get out of here."
+    },
+    {
+      "scene": "INT. ESCAPE POD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, listen, sometimes stuff is easy."
+    },
+    {
+      "scene": "INT. ESCAPE POD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Believe it, Morty. Once again, I’m flying away with everything I can carry and the Zigerions got nothing of mine."
+    },
+    {
+      "scene": "INT. GARAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "We did it, Morty. I’m going to use these processors to make some real important science stuff."
+    },
+    {
+      "scene": "INT. GARAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Huh. I thought I entered the code right."
+    },
+    {
+      "scene": "INT. GARAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What the hell? Why?"
+    },
+    {
+      "scene": "INT. GARAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Uh, yeah, until I get home before you and change the combination, you bunch of idiots."
+    },
+    {
+      "scene": "INT. GARAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Run, Morty!"
+    },
+    {
+      "scene": "INT. GARAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s a dead end, Morty. We’re going to have to go through this thing to get out of here."
+    },
+    {
+      "scene": "INT. BANQUET HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Jerry?! What are you doing here? Why are you dressed like a waiter?"
+    },
+    {
+      "scene": "INT. BANQUET HALL - DAY",
+      "speech_type": "direct",
+      "dialogue": "Screw it, we don’t have time. C’mon."
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Man up, Jerry, I may need you to work the lasers."
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "I guess they really do have concentrated dark matter. We don’t stand a chance."
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Sure, but there’s no way all the ingredients would be on this tiny ship."
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Okay, fine, try the engine room, Morty. We just need caesium, protonic quarks, and bottled water."
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Wow, lucky break. Grab that bucket."
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Two parts protonic quarks, one part caesium. And just shake it."
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Now empty the water bottle into the bucket and pour it all into the fuel tank so we can get the hell out of here!"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "What are you doing, Morty? There’s no time!"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "No. NO!"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "You simulated my grandson reacting to simulations of simulations, you diabolical sons of bitches!"
+    },
+    {
+      "scene": "INT. COCKPIT - SPACE",
+      "speech_type": "direct",
+      "dialogue": "Yeah, yeah. Great. You win. Can we go home now?"
+    },
+    {
+      "scene": "INT. ESCAPE POD - LATER",
+      "speech_type": "direct",
+      "dialogue": "Hey, Jerry, don’t worry about it. So what if the most meaningful day of your life was a simulation operating at minimum capacity. How could you have known, right?"
+    },
+    {
+      "scene": "INT. ESCAPE POD - LATER",
+      "speech_type": "direct",
+      "dialogue": "Maybe you’re right, Jerry. Maybe you’re right."
+    },
+    {
+      "scene": "INT. ESCAPE POD - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Why don’t you ask the smartest people in the universe Jerry? Oh yeah, you can’t. They blew up."
+    },
+    {
+      "scene": "INT. EVENT HORIZON STYLE SPACE STATION - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Morty! Do it! Hit the button now!!!"
+    },
+    {
+      "scene": "INT. EVENT HORIZON STYLE SPACE STATION - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Morty, I already told you, it’s not your family! They’re clones from an alternate reality, possessed by demonic alien spirits from another dimension’s future! Do you need a mnemonic device or something? Just hit the button, already!"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Good work, Morty. These demonic alien spirits are really valuable."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You okay, Morty? I told you not to trust that tuna."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Some people pay top dollar for that kind of breakthrough, Morty."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Whoa, whoa! Come on, Morty, don’t be like that. The universe is a crazy, chaotic place."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Is that what you think? Well why don’t you show me then."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You lead the next adventure. It’ll be all yours. I’ll be your sidekick."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah. But let’s make it interesting."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "If your adventure sucks, you lose the right to complain about all future adventures. Plus, you have to do my laundry for a month."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Every tenth."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You’re on, LeBron."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Washing dishes?"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, don’t do it."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Wow. Hat trick. Okay, Morty, let’s put a pin in this, I gotta help your pathetic family."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh, Morty. Now you done did it. It’s on. I can’t wait to watch your adventure lay a fart. As for you ding dongs..."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "This is a Meeseeks Box. Let me show you how it works. You press this --"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "You make a request -- Mr. Meeseeks, open Jerry’s stupid mayonnaise jar."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "The Meeseeks fulfills the request -"
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Then it stops existing."
+    },
+    {
+      "scene": "INT. GARAGE - DAY - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Trust me, they’re fine with it. Knock yourself out. Just keep your requests simple. They’re not gods."
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Geez, Morty. What a boring start to an adventure. We could have just gone to Kentucky."
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Can’t wait."
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Oh my god, so embarrassing."
+    },
+    {
+      "scene": "EXT. MEDIEVAL VILLAGE - TOWN SQUARE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Beginner’s luck."
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Alright, Morty. We’re in the giant’s castle. What next?"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Uh oh, Morty. It’s gettin’ hairy. What should we do, boss?"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "It’s only a matter of time before he sniffs us out Morty. Ground bones, baked bread... Just say the word and I’ll take us back home."
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yikes. He’s messed up pretty bad, Morty. Should we bail?"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "I’m just gonna put this out there: run?"
+    },
+    {
+      "scene": "INT. GIANT’S CASTLE - KITCHEN - DAY",
+      "speech_type": "direct",
+      "dialogue": "Amateur."
+    },
+    {
+      "scene": "INT. GIANT COURT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Come on Morty. This trial could drag out for weeks and I don’t think I need to tell you how it’s gonna end. Look at that jury."
+    },
+    {
+      "scene": "INT. GIANT COURT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Time to let go of your pride and call this thing."
+    },
+    {
+      "scene": "INT. GIANT COURT ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Boy, you really want to win this bet, don’t you?"
+    },
+    {
+      "scene": "EXT. GIANT COURTROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Get back to it? What are you talking about?"
+    },
+    {
+      "scene": "EXT. GIANT COURTROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Morty, for God’s sake, cut your losses."
+    },
+    {
+      "scene": "EXT. GIANT COURTROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Alright, whatever you say, Morty."
+    },
+    {
+      "scene": "EXT. COURTHOUSE STAIRS - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, this is the part of the adventure everyone loves. Scaling down the six hundred fifty thousand oversized steps."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Smells like trouble."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Well, then adventure smells like bleach and armpits."
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Why you dogging me, fool?"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Ugh, one sixteenth?"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, yeah, how about some scotch whiskey? Do you have any of that around here? Or just the nonsense words?"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, Rosie, is there anyway to get a ride down these stairs?"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Twenty five shmeckels? Is that a lot? A little? Is it something gross that’s gonna hurt us?"
+    },
+    {
+      "scene": "INT. THE THIRSTY STEP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Like a Rhinestone Cowboy!"
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Morty! Hey! I’m sorry I was giving you so much crap. This adventure’s pretty awesome after all."
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sorry, fellas!"
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "We can’t leave now, Morty. I’m on fire!"
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hey, hey, buddy, what’s wrong? What just happened? You were so gung ho about the bet earlier..."
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "jelly bean) Okay. Listen, Morty. I just won a bunch of Shmeckles. Why don’t we use 25 of them to pay Slippery Stair here for a ride back to the village, and then give the rest of them to the villagers? Huh?"
+    },
+    {
+      "scene": "INT. THIRSTY STAIR - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sure, Morty. A good adventure needs a good ending."
+    },
+    {
+      "scene": "EXT. VILLAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Good job, Morty. You win the bet."
+    },
+    {
+      "scene": "EXT. VILLAGE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, maybe that’s why it could use a little cleaning up now and then. This one’s wrapped up neat and clean, because we did it Morty style."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What the hell happened to this place?"
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Hey, it’s not my fault that Jerry is an idiot."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well, I do have a Fleeseeks box..."
+    },
+    {
+      "scene": "INT. SMITH HOUSEHOLD LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What? It just has a mop and some floor wax in it. Whoob Whoob Whoob! That’s my new thing! I’m kind of like what’s his name, Arsenio! Whoob Whoob Whoob! See you next week."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "“I should get her pregnant, then she’ll have to marry me.”"
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Sorry, please proceed with your story about banging my daughter in high school. I’m just not sure you want to take romantic advice from this guy. His marriage is hanging from a thread."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Jerry, it’s your house, whatever you say is how it is, but I think a blind man could see Beth is looking for the door. I barely have a reason to care and even I noticed."
+    },
+    {
+      "scene": "INT. KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Listen, Morty. I hate to break it to you, but what people call “love” is just a chemical reaction that compels animals to breed. It hits hard, then slowly fades, leaving you stranded in a failing marriage. I did it. Your parents are doing it. Break the cycle, Morty. Rise above it. Focus on science."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hand me that screwdriver, Morty. I’m almost finished making my ionic defribulizer. It’s going to be great."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Morty. That’s such a poor use of my time. It’s beneath me, hand me that screwdriver."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "You’re growing up fast, Morty. You’re becoming a real big thorn, growing straight up my ass."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Alright. This is called OXYTOCIN. I extracted it from a vole, you know what a vole is, Morty? It’s a species of rodent that mates for life. This is the chemical released in a mammal’s brain when it falls in love."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "I need a little bit of your DNA."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "A hair, Morty, I need one of your hairs, it’s not a gentlemen’s club."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Alright. Whoever you smear this stuff on will fall in love with you, and only you... forever. Happy now, Morty?"
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "What am I, a hack? Go nuts, Morty, it’s foolproof."
+    },
+    {
+      "scene": "INT. RICK’S LAB - DAY",
+      "speech_type": "direct",
+      "dialogue": "Unless she has the flu."
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well, Summer, -"
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "There’s always the possibility she made the work thing up. Maybe Davin’s digging around in her insides. Listen, Summer, I’m almost done with my ionic defribulizer and I could really use someone to hand me screwdrivers -"
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Well, she’s my daughter, I outrank you. Or, family means nothing. In which case don’t play that card."
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Not for the men they cheat on, no."
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I’m sorry, Summer, your opinion means very little to me. How come you’re not at this dance everyone loves so much?"
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "It is?"
+    },
+    {
+      "scene": "INT. HOME LIVING ROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Oopsie."
+    },
+    {
+      "scene": "INT. SCHOOL GYMNASIUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Morty! Come on, we gotta get you out of here! I made a rare mistake!"
+    },
+    {
+      "scene": "EXT. SCHOOL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I didn’t realize when I gave you that serum that Jessica had the flu. That’s something you might have mentioned, Morty."
+    },
+    {
+      "scene": "EXT. SCHOOL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What’s it look like, Morty? The serum is piggybacking on the virus, it’s gone airborne, Morty. Being hot for you has gone airborne."
+    },
+    {
+      "scene": "EXT. SCHOOL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Relax. I just need to formulate a cure before this thing reaches a major city."
+    },
+    {
+      "scene": "EXT. SCHOOL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Uh oh."
+    },
+    {
+      "scene": "EXT. SCHOOL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "This might be an all nighter."
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "We should be fine. I’ve whipped up an antidote. It’s based on praying mantis DNA."
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "See, romantically, praying mantises are the opposite of voles. They mate once and then decapitate the male. It’s a real Wham-bam-thank- you-mantis kind of thing, not that wordplay is my wheelhouse. Mantis DNA mixed with a more contagious flu virus should neutralize the effects of the original serum."
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "By the way, don’t worry: I don’t want to fuck you. These serums don’t work on anyone related to you genetically."
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Okay. Well. Sometimes science is more art than science, Morty, a lot of people don’t get that."
+    },
+    {
+      "scene": "EXT. DESERT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Pretty wild how fast that spread. I’ve really outdone myself."
+    },
+    {
+      "scene": "EXT. DESERT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah, I don’t know what I was thinking. Mantises are the opposite of voles? Obviously DNA is a little more complicated than that."
+    },
+    {
+      "scene": "EXT. DESERT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "This will do the trick, though. It’s koala mixed with rattlesnake, chimpanzee, cactus, shark, golden retriever and a smidge of dinosaur. Should add up to normal humanity."
+    },
+    {
+      "scene": "EXT. DESERT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What, you want me to show you my math? I’m sorry, Morty, are you the scientist or the kid that wanted to get laid?"
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Take a good look down there, Morty, and soak it in, because as soon as I pull this lever, it’s all going to change back to normal."
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Well, technically, there’s no rush, I mean, once it’s fixed, it’s fixed --"
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Well what do we have here? Looks like I was right and you doubted me. I bet you feel pretty stupid right now, don’t you, Morty? I bet you feel like the world’s smallest man."
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, you. You’re not right. Ever."
+    },
+    {
+      "scene": "INT. RICK’S SHIP",
+      "speech_type": "direct",
+      "dialogue": "I bet you’re loving this, Morty. This must be the best day of your life. You get to be the mayor of “I-told-you-town.” You’re welcome."
+    },
+    {
+      "scene": "EXT. ROOF TOP - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Man, I really Cronenberged the world up, didn’t I? We got a planet full of Cronenbergs walking around down there, Morty. At least they’re not in love with you anymore. That’s a huge step in the right direction."
+    },
+    {
+      "scene": "EXT. ROOF TOP - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Me irresponsible? All I wanted to do was make an ionic defribulizer. Irresponsible is abandoning science because you want to do it with girls. That’s the behavior that overpopulated this world. This is just chickens coming home to roost."
+    },
+    {
+      "scene": "EXT. ROOF TOP - MORNING",
+      "speech_type": "direct",
+      "dialogue": "We’re in a pretty deep hole with this one, but I do have one emergency solution that could put everything back to normal. Relatively speaking."
+    },
+    {
+      "scene": "EXT. MORTY’S HOUSE - MORNING",
+      "speech_type": "direct",
+      "dialogue": "Luck had nothing to do with it, Morty. I’m just that smart."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Now will you help me finish my ionic defribulizer?"
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Allllmost done, aaaaand --"
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Here we are, Morty."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Calm down, Morty. Look at me. Calm down."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Calm down, Morty! You just have to calm down and listen to me! Morty, calm down!"
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Shut up and listen to me! It’s fine! Everything is fine! There’s an infinite number of universes, Morty. And in a few dozen of those, I got lucky and turned everyone back to normal. I just had to find one of those universes in which we also happened to both die around this time."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Now we can just slip into the place of our dead selves in this universe and everything’ll be fine. We’re not skipping a beat, Morty. Help me with these bodies."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Look, I’ll grab myself, you grab yourself, OK? That seems fair to me. That’s a fair way to do it."
+    },
+    {
+      "scene": "INT. RICK’S GARAGE - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "What about the universe where Hitler cured cancer, Morty? The answer is don’t think about it. It’s not like we can do this every week. We get three or four more of these, tops. Now pick your dead self up. Come on. Haste makes waste. I don’t suppose you’ve considered this detail, but obviously, if I hadn’t screwed up as much as I did, we’d be these guys right now. So, once again, you’re welcome."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - DAY",
+      "speech_type": "direct",
+      "dialogue": "We’re just gonna go there so you idiots can ask your stupid questions all day. JERRY Oo, family vacation! CUT TO:"
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Have fun, you two."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "I know, can we wrap this up? Morty and I have synthetic laser eels oxidizing in the garage."
+    },
+    {
+      "scene": "EXT. MORTY’S HOME - DRIVEWAY - DAY",
+      "speech_type": "direct",
+      "dialogue": "Listen, you have my word as a caregiver, everything will be fine. And if not, like you say, no more adventures or whatever."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Summer, you can’t have a party."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Because I’m having a party."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "“Glip glop?!” Man, you’re lucky a Trakflorian doesn’t hear you say that."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "It’s like the N word and the C word had a baby and it was raised by all the bad words for Jews."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "That’s why you party? Boy you really are seventeen."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "To get- Wriggedy wriggedy WRECKED, son!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - KITCHEN - LATER",
+      "speech_type": "direct",
+      "dialogue": "Yeah, and you keep your awesome friends away from my canapes."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "Birdperson!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "Everything’s cool, BP. I’m just having a party."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "Oh there’s an emergency alright. A pussy emergency. When was the last time you got laid, ‘Pers?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "Then it’s time to get your beak wet tonight, playa. Go have some fun."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "People? Six."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - THAT EVENING",
+      "speech_type": "direct",
+      "dialogue": "What up, my glip glops!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Yeah. No. Totally."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Morty! Have you met Gearhead?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - MOMENTS LATER",
+      "speech_type": "direct",
+      "dialogue": "Morty would love to hear all about the Gear Wars."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hey, Morty, have you met Scorpius?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "This guy’s entire planet was destroyed. Have some perspective."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Come on, Squanchy, you know any place is a good place for you to squanch."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Don’t worry about it, Morty. You wouldn’t understand."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Morty, we’ve had a lot of cool adventures the last few months, but it’s time to relax."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Jesus, Morty, you’re bumming me out. Can’t we just pretend like everything is fine for a few hours, enjoy ourselves, and then worry about it later?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Knock it off, Lord Chronos!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Yeah, like there’s anyone left that hasn’t heard."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Well what are you doing standing here, Morty? Go talk to her."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Have some fun. Tonight, the only adventure you’re on is your cusping manhood."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Not cool, Summer. It’s a party, everyone should be welcome."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Oh no... I can’t believe he showed up."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "It’s not the same, Summer. Abrodolph Lincoler is a crazed maniac. A misguided effort of mine to create a morally neutral super leader by combining the DNA of Adolph Hitler and Abraham Lincoln. Turns out it adds up to a lame wack job."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Don’t look at me, dude."
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Kick his ass, Brad!"
+    },
+    {
+      "scene": "INT. MORTY’S HOUSE - KITCHEN - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "I just did you a favor, Morty. You can thank me later."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Hmm, big star in the sky. Oxygen-rich atmosphere. Giant testicle monsters."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "We’ll be fine, let’s party!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Uh, did anyone like that guy?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Shake that ass, bitch, and let me see what you got!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Pull it together, Morty! Stop trying to pretend there’s stakes!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Relax, Morty. Reeelaaaax. It’s going to be fine. All we have to do is go out and find us some Kalaxian crystals. We get some of those and everything’ll be juuuust fine."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I can’t go with you, Morty. This is your time to show everyone that you’re not just some stupid, whiny, annoying little turd. You’ve got to show them that you’re a hero."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Good. Take Lincoler with you."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Shut up, Lincoler. It’s the least you can do for wrecking the kitchen."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "Alright! You did it, Morty!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "Huh. Well I have to hand it to him..."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "That’s the first cool thing he ever did. Wubba lubba dub dub! Kick it!"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "You put your right foot forward and left foot back/ Then slide around like on a Nordic track/etc."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "What? No, I can get us home whenever I want to. But listen, speaking of those crystals... can I get the rest of them? I’m starting to come down, Morty. Crystal Kalaxian is a strong but fleeting high."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "Noooo! Morty you idiot!! Does anyone else have any more K- Lax? Bird Person? Squanchy?"
+    },
+    {
+      "scene": "INT. MORTY’S HOME - SOON",
+      "speech_type": "direct",
+      "dialogue": "Alright, Captain Buzzkill of the Starship Party Pooper."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Alright. Hold on."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Um. So good."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Bring me the thing..."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "The thing, the thing. It’s got the buttons and the lights. It beeps. Come on, Morty, you know what I’m talking about. The thing."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Summer with the win."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "That should do it."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "See for yourself."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "Everything is frozen in time. The whole world."
+    },
+    {
+      "scene": "INT. MORTY’S HOME - LIVING ROOM - CONTINUOUS",
+      "speech_type": "direct",
+      "dialogue": "How long do you want? A week? A month?"
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Yeah, I have to say, it’s pretty nice hanging out with my grand kids."
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Don’t need to. I have a new catch phrase."
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "I love my grand kids."
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "Just kidding. You’re both gay."
+    },
+    {
+      "scene": "EXT. HILLTOP OVERLOOKING TOWN - DAWN",
+      "speech_type": "direct",
+      "dialogue": "You told my grandson about “Wubba lubba dub dubs?!” You son of a bitch!"
+    },
+    {
+      "scene": "INT. BLIPS & CHITZ - LATER",
+      "speech_type": "direct",
+      "dialogue": "If Krombopulos Michael wants someone dead, there’s not a lot anyone can do to stop him, that’s why he does it for a living. Now excuse me, it’s time to thrash your Roy score. MORTY You know, you could stop this killing from happening, Rick. You know, y-you did a bad thing selling that gun but you could undo it if you wanted. RICK Uh huh. Yeah that’s the difference between you and me, Morty. I never go back to the carpet store. RANDOM ALIEN Holy shit, this guy’s taking Roy off the grid! This guy doesn’t have a social"
+    },
+    {
+      "scene": "INT. RICK’S SHIP - CONTINUOUS *",
+      "speech_type": "direct",
+      "dialogue": "While you were gone, I found a new wormhole, with millions of beings just like him on the other side, and they’re all coming to visit! MORTY What?! Rick, no, you can’t! RICK It’s too late, Morty. The hole’s opening. MORTY 243AA No no, Rick, you don’t understand! RICK There’s- there’s a lot more where that came from, too."
+    }
+  ]
+}
