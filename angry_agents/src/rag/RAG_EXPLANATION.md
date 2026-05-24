@@ -9,7 +9,7 @@ linearly with the database size. At 100 personas and 20 judges this becomes
 unsustainable, both in cost and latency.
 
 The RAG layer solves this by pre-filtering the database **before** any judge sees
-the chat. Instead of 100 profiles, each judge receives the 15 most relevant
+the chat. Instead of 100 profiles, each judge receives the 20 most relevant
 candidates retrieved via semantic similarity. The judges themselves do not change
 — they still receive `personas: list[dict]`, just a shorter one.
 
@@ -43,9 +43,9 @@ QUERY TIME (every evaluation)
    retriever.py        embeds each author's messages (last 5)
         │               queries ChromaDB for nearest chunks
         │               aggregates scores across all authors
-        │               returns top-15 distinct persona profiles
+        │               returns top-20 distinct persona profiles
         ▼
- candidates: list[dict]   (15 profiles instead of 100)
+ candidates: list[dict]   (20 profiles instead of 100)
         │
         ▼
    judges (style / ideology / general / behavioral)
@@ -115,7 +115,7 @@ list passed to the judges.
 - **LLM model**: `gpt-4o-mini` — $0.150 / 1M input tokens, $0.600 / 1M output tokens.
 - **Embedding model**: `text-embedding-3-small` — $0.020 / 1M tokens.
 - **Batch size** (where batching applies): 5 profiles per call.
-- **RAG top-K**: 15 candidates.
+- **RAG top-K**: 20 candidates.
 
 ---
 
@@ -137,7 +137,7 @@ Output = 750 tokens
 Total  = 5 300 tokens / call   (but 5× fewer calls)
 ```
 
-**With RAG + batching — 15 candidates, 3 batches per judge:**
+**With RAG + batching — 20 candidates, 3 batches per judge:**
 
 ```
 RAG query  = 8 authors × ~100 tokens (5 messages × 20 tokens) = 800 tokens
@@ -156,9 +156,9 @@ Total      = 5 300 tokens / call   (97% fewer calls)
 |---|---|---|---|---|
 | No RAG, no batching | 2 000 | 4 700 000 | 300 000 | **$0.885** |
 | Batching only (5/call) | 400 | 1 820 000 | 300 000 | **$0.453** |
-| RAG (top-15) + batching | 60 | 273 000 | 45 000 | **$0.068** |
+| RAG (top-20) + batching | 80 | 364 000 | 60 000 | **$0.091** |
 
-> RAG + batching vs no RAG: **−97% calls, −94% tokens, −92% cost per evaluation.**
+> RAG + batching vs no RAG: **−96% calls, −92% tokens, −90% cost per evaluation.**
 
 The one-time index build cost is:
 
@@ -202,14 +202,14 @@ With async dispatch the numbers improve further, but the relative ratio holds.
 ## Important caveat — retrieval recall
 
 The RAG pre-filter introduces a risk: if the correct persona for a given author
-is **not** among the top-15 candidates, no judge can identify them correctly.
+is **not** among the top-20 candidates, no judge can identify them correctly.
 This is a **recall miss** at the retrieval layer, invisible in the judge scores.
 
 To monitor this, `evaluation_test_with_rag.py` saves `rag_candidates` in every
 output record. When ground truth is available, compare the actual personas in the
-chat against `rag_candidates` to measure recall@15.
+chat against `rag_candidates` to measure recall@20.
 
-A recall@15 above 95% means the RAG is working correctly. If recall drops, the
+A recall@20 above 95% means the RAG is working correctly. If recall drops, the
 first step is to increase `TOP_K` before investigating the embedding quality.
 
 ---
@@ -222,11 +222,11 @@ Two fundamentally different ways to use RAG in this pipeline.
 
 ### Approach A — RAG as pre-filter (implemented above)
 
-RAG runs upstream of the judges. It narrows the database from 100 profiles to 15
-candidates. The LLM judge then scores those 15 using natural language reasoning.
+RAG runs upstream of the judges. It narrows the database from 100 profiles to 20
+candidates. The LLM judge then scores those 20 using natural language reasoning.
 
 ```
-author messages → RAG → top-15 profiles → LLM judge → scores
+author messages → RAG → top-20 profiles → LLM judge → scores
 ```
 
 The judge never sees the other 85 profiles. Its reasoning is confined to the
@@ -270,7 +270,7 @@ what each persona's profile predicts.
 The fundamental objection to Approach A is that pre-filtering is a form of
 **assisted judgment**. The judge is handed a shortlist by a system that has
 already done part of the reasoning. If the correct persona is not in the
-top-15, the judge cannot find it — and the failure is silent.
+top-20, the judge cannot find it — and the failure is silent.
 
 Approach B removes this assistance entirely. The judge works against the full
 database with no prior knowledge of which profiles are "likely". The score it
@@ -295,13 +295,13 @@ the full score distribution — not hidden by a pre-filter.
 
 | | Approach A (pre-filter + LLM) | Approach B (RAG as judge) |
 |---|---|---|
-| LLM calls | 60 (15 profiles × 20 judges, batched 5) | 0 |
+| LLM calls | 80 (20 profiles × 20 judges, 4 batches of 5) | 0 |
 | Embedding calls | 8 (one per author digest) | 8 (same) |
 | Tokens embedded | ~800 (query) | ~800 (query) |
-| LLM input tokens | 273 000 | 0 |
-| LLM output tokens | 45 000 | 0 |
+| LLM input tokens | 364 000 | 0 |
+| LLM output tokens | 60 000 | 0 |
 | Embedding tokens | 800 | 800 |
-| **Cost** | **$0.068** | **$0.000016** |
+| **Cost** | **$0.091** | **$0.000016** |
 
 Approach B is effectively free for persona identification. ChromaDB scores all
 100 profiles locally — no API call per profile, only the single embedding of the
@@ -345,11 +345,11 @@ approaches — no API cost. The qualitative dimension:
 
 | | No RAG | Approach A (pre-filter) | Approach B (RAG as judge) |
 |---|---|---|---|
-| LLM calls | 2 000 | 69 | 0 |
+| LLM calls | 2 000 | 89 | 0 |
 | Embedding calls | 0 | 16 | 176 |
-| Total tokens | 4 700 000 | ~320 000 | ~5 200 (embeddings only) |
-| **Total cost** | **$0.885** | **$0.071** | **$0.0001** |
-| **vs no RAG** | baseline | −92% | −99.99% |
+| Total tokens | 4 700 000 | ~411 000 | ~5 200 (embeddings only) |
+| **Total cost** | **$0.885** | **$0.099** | **$0.0001** |
+| **vs no RAG** | baseline | −89% | −99.99% |
 | **vs Approach A** | — | baseline | −99.9% |
 
 ---
@@ -358,11 +358,11 @@ approaches — no API cost. The qualitative dimension:
 
 | Evaluations | No RAG | Approach A | Approach B |
 |---|---|---|---|
-| 1 | $0.885 | $0.072 | $0.001 |
-| 10 | $8.85 | $0.72 | $0.001 |
-| 100 | $88.50 | $7.20 | $0.010 |
-| 1 000 | $885.00 | $72.00 | $0.10 |
-| 10 000 | $8 850.00 | $720.00 | $1.00 |
+| 1 | $0.885 | $0.100 | $0.001 |
+| 10 | $8.85 | $0.99 | $0.001 |
+| 100 | $88.50 | $9.90 | $0.010 |
+| 1 000 | $885.00 | $99.00 | $0.10 |
+| 10 000 | $8 850.00 | $990.00 | $1.00 |
 
 ---
 
@@ -405,7 +405,7 @@ The practical recommendation is a **hybrid**:
 
 Approach A gives the judge a pre-filtered shortlist — but the judge is
 **passive**: it receives whatever RAG prepared and cannot go beyond it. If the
-right persona is just outside the top-15, the judge is stuck.
+right persona is just outside the top-20, the judge is stuck.
 
 Approach B removes LLM reasoning entirely — the judges become identical
 mathematical functions. Phase 2 deliberation, written motivation, and the
@@ -434,10 +434,10 @@ QUERY TIME (every evaluation)
         ▼
  messages grouped by digest → {digest: [msg1, msg2, ...]}
         │
-        ├── Style judge    → retriever (fields: style, voice)    → 15 candidates
-        ├── Ideology judge → retriever (fields: worldview)       → 15 candidates
-        ├── Behavioral j.  → retriever (fields: behavior)        → 15 candidates
-        └── General judge  → retriever (all fields)              → 15 candidates
+        ├── Style judge    → retriever (fields: style, voice)    → 20 candidates
+        ├── Ideology judge → retriever (fields: worldview)       → 20 candidates
+        ├── Behavioral j.  → retriever (fields: behavior)        → 20 candidates
+        └── General judge  → retriever (all fields)              → 20 candidates
                 │
                 ▼  (each judge gets its own shortlist — diversity preserved)
         LLM judge + tool access
@@ -497,8 +497,8 @@ pattern does not clearly match any pre-filtered candidate.
 - **Tool calls**: average 1.5 per LLM turn (judge does not always need extra lookup).
 - **Tool result size**: ~300 tokens (5 profile chunks, ~60 tokens each).
 - **Tool query embedding**: ~30 tokens per call.
-- **Approach C calls**: 1 per persona per judge = 15 × 20 = 300 calls.
-- **Approach C+** (batching 5 profiles per call): 3 × 20 = 60 calls.
+- **Approach C calls**: 1 per persona per judge = 20 × 20 = 400 calls.
+- **Approach C+** (batching 5 profiles per call): 4 × 20 = 80 calls.
 
 ---
 
@@ -529,14 +529,14 @@ Output         = ~750 tokens
 | | Approach A | Approach B | Approach C | Approach C+ |
 |---|---|---|---|---|
 | Description | pre-filter + batching | RAG as judge | pre-filter + tool (1/call) | pre-filter + batching + tool |
-| LLM calls | 60 | 0 | 300 | 60 |
-| LLM input tokens | 273 000 | 0 | 840 000 | 300 000 |
-| LLM output tokens | 45 000 | 0 | 60 000 | 45 000 |
+| LLM calls | 80 | 0 | 400 | 80 |
+| LLM input tokens | 364 000 | 0 | 1 120 000 | 400 000 |
+| LLM output tokens | 60 000 | 0 | 80 000 | 60 000 |
 | Embed tokens (retrieval) | 800 | 800 | 3 200 | 3 200 |
-| Embed tokens (tool queries) | 0 | 0 | 13 500 | 3 600 |
-| **Total cost** | **$0.068** | **$0.000016** | **$0.162** | **$0.073** |
+| Embed tokens (tool queries) | 0 | 0 | 18 000 | 4 800 |
+| **Total cost** | **$0.091** | **$0.000016** | **$0.216** | **$0.096** |
 
-Approach C+ (batching + tool use) costs only ~7% more than Approach A while
+Approach C+ (batching + tool use) costs only ~5% more than Approach A while
 adding full tool-use reasoning to every judge call.
 
 ---
@@ -545,16 +545,16 @@ adding full tool-use reasoning to every judge call.
 
 | | No RAG | Approach A | Approach B | Approach C+ |
 |---|---|---|---|---|
-| LLM calls | 2 000 | 69 | 0 | 69 |
+| LLM calls | 2 000 | 89 | 0 | 89 |
 | Embedding calls | 0 | 16 | 176 | 180 |
-| LLM input tokens | 4 700 000 | 320 000 | 0 | 351 000 |
-| LLM output tokens | 300 000 | 47 400 | 0 | 47 400 |
-| Embedding tokens | 0 | ~4 000 | ~5 200 | ~22 000 |
-| **Total cost** | **$0.885** | **$0.071** | **$0.0001** | **$0.079** |
-| vs no RAG | baseline | −92% | −99.99% | −91% |
-| vs Approach A | — | baseline | −99.9% | +11% |
+| LLM input tokens | 4 700 000 | 411 000 | 0 | 452 000 |
+| LLM output tokens | 300 000 | 61 600 | 0 | 61 600 |
+| Embedding tokens | 0 | ~4 000 | ~5 200 | ~26 000 |
+| **Total cost** | **$0.885** | **$0.099** | **$0.0001** | **$0.105** |
+| vs no RAG | baseline | −89% | −99.99% | −88% |
+| vs Approach A | — | baseline | −99.9% | +6% |
 
-Approach C+ costs only 11% more than Approach A for the full pipeline — a
+Approach C+ costs only ~6% more than Approach A for the full pipeline — a
 negligible premium that buys tool-use reasoning, per-role diverse shortlists,
 written motivations, and a functioning Phase 2 deliberation.
 
@@ -564,11 +564,11 @@ written motivations, and a functioning Phase 2 deliberation.
 
 | Evaluations | No RAG | Approach A | Approach B | Approach C+ |
 |---|---|---|---|---|
-| 1 | $0.885 | $0.072 | $0.001 | $0.080 |
-| 10 | $8.85 | $0.72 | $0.001 | $0.80 |
-| 100 | $88.50 | $7.20 | $0.010 | $8.00 |
-| 1 000 | $885.00 | $72.00 | $0.10 | $80.00 |
-| 10 000 | $8 850.00 | $720.00 | $1.00 | $800.00 |
+| 1 | $0.885 | $0.100 | $0.001 | $0.106 |
+| 10 | $8.85 | $0.99 | $0.001 | $1.05 |
+| 100 | $88.50 | $9.90 | $0.010 | $10.50 |
+| 1 000 | $885.00 | $99.00 | $0.10 | $105.00 |
+| 10 000 | $8 850.00 | $990.00 | $1.00 | $1 050.00 |
 
 ---
 
@@ -585,7 +585,7 @@ written motivations, and a functioning Phase 2 deliberation.
 | **Phase 2 deliberation** | Works | Works | Broken | Works best |
 | **External omniscient agent** | Works | Works | Broken | Works best |
 | **Determinism** | Low | Low | High | Low |
-| **Scalability** | Linear | Linear (capped at 15) | Flat | Linear (capped at 15) |
+| **Scalability** | Linear | Linear (capped at 20) | Flat | Linear (capped at 20) |
 
 ---
 
@@ -602,8 +602,8 @@ written motivations, and a functioning Phase 2 deliberation.
    ideology judge start from different evidence. Their Phase 2 disagreements
    are genuine, not artifacts of identical input.
 
-4. **Cost** — only 11% above Approach A. At 1 000 evaluations the difference
-   is $8 ($80 vs $72). Negligible relative to the quality improvement.
+4. **Cost** — only ~6% above Approach A. At 1 000 evaluations the difference
+   is $6 ($105 vs $99). Negligible relative to the quality improvement.
 
 ---
 
@@ -688,9 +688,9 @@ ChromaDB's query interface is read-only during evaluation and is thread-safe.
 
 | | No RAG | Approach A | Approach B | C+ original | **C+ optimized** |
 |---|---|---|---|---|---|
-| LLM calls (20 judges) | 2 000 | 60 | 0 | 300 | **20** |
-| Cost per evaluation | $0.885 | $0.071 | $0.0001 | $0.073 | **$0.029** |
-| vs No RAG | baseline | −92% | −99.99% | −92% | **−97%** |
+| LLM calls (20 judges) | 2 000 | 80 | 0 | 400 | **20** |
+| Cost per evaluation | $0.885 | $0.091 | $0.0001 | ~$0.420 | **$0.029** |
+| vs No RAG | baseline | −90% | −99.99% | −53% | **−97%** |
 | Wall-clock time | ~33 min | ~1 min | ~5 sec | ~3 min | **~30 sec** |
 
 The optimized implementation outperforms the original Approach A even with

@@ -8,26 +8,12 @@ Usage:
 """
 
 import argparse
-import os
-from pathlib import Path
 
-import chromadb
-from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 from dotenv import load_dotenv
 
 load_dotenv()
 
-_CHROMA_DIR = Path(__file__).parents[3] / "data" / "chroma"
-_COLLECTION = "persona_profiles"
-
-
-def _get_collection() -> chromadb.Collection:
-    client = chromadb.PersistentClient(path=str(_CHROMA_DIR))
-    ef = OpenAIEmbeddingFunction(
-        api_key=os.environ["OPENAI_API_KEY"],
-        model_name="text-embedding-3-small",
-    )
-    return client.get_or_create_collection(_COLLECTION, embedding_function=ef)
+from ._chroma import _get_collection
 
 
 def inspect_all(show_vectors: bool = False) -> None:

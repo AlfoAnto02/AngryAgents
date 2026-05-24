@@ -1,23 +1,5 @@
-import os
-from pathlib import Path
-
-import chromadb
-from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
-
+from ._chroma import _get_collection
 from .builder import build_chunks
-
-_CHROMA_DIR = Path(__file__).parents[3] / "data" / "chroma"
-_COLLECTION = "persona_profiles"
-_EMBEDDING_MODEL = "text-embedding-3-small"
-
-
-def _get_collection() -> chromadb.Collection:
-    client = chromadb.PersistentClient(path=str(_CHROMA_DIR))
-    ef = OpenAIEmbeddingFunction(
-        api_key=os.environ["OPENAI_API_KEY"],
-        model_name=_EMBEDDING_MODEL,
-    )
-    return client.get_or_create_collection(_COLLECTION, embedding_function=ef)
 
 
 def index_profile(profile: dict) -> None:
