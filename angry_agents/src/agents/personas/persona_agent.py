@@ -96,9 +96,20 @@ class PersonaAgent:
     ) -> None:
         self._persona_name = f"{self.agent.name} {self.agent.surname}"
         self._profile_block = _build_profile_block(self.contexts)
-        self._topic_block = topic.title
+
+        # topic.title carries a unique "__<timestamp>" suffix; topic.description
+        # holds a JSON blob {"title": <clean>, "topics": [...], "tone": "..."}.
+        # Prefer the clean title from the JSON so agents receive a readable prompt.
+        topic_title = topic.title
         if topic.description:
-            self._topic_block += f": {topic.description}"
+            try:
+                meta = json.loads(topic.description)
+                if isinstance(meta, dict) and meta.get("title"):
+                    topic_title = meta["title"]
+            except (json.JSONDecodeError, TypeError):
+                pass
+        self._topic_block = topic_title
+
         self._template_name = template_name
         self.dominance_weight = _extract_dominance_weight(self.contexts)
         self.cooldown_turns = _extract_cooldown_turns(self.contexts)

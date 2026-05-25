@@ -166,7 +166,7 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
             const judged = !!reports?.[s.id];
             return (
               <tr key={s.id}>
-                <td className="col-mono">{s.id}</td>
+                <td className="col-mono">{s.display_id}</td>
                 <td>
                   <div className="row" style={{ gap: 8 }}>
                     <AvatarStack personas={s.participants.map(id => byId(id)).filter(Boolean)} size="xs" max={4} />
@@ -370,7 +370,7 @@ function JudgingSection({ onJudge, reports, onOpenChat }) {
       .catch(() => setAllSessions([]));
   }, []);
   const sessions = allSessions.filter(s =>
-    !q || s.id.toLowerCase().includes(q.toLowerCase()) || s.topic.toLowerCase().includes(q.toLowerCase())
+    !q || (s.display_id || String(s.id)).toLowerCase().includes(q.toLowerCase()) || s.topic.toLowerCase().includes(q.toLowerCase())
   );
   return (
     <>
@@ -401,7 +401,7 @@ function JudgingSection({ onJudge, reports, onOpenChat }) {
             const judged = !!reports?.[s.id];
             return (
               <div key={s.id} className="judge-launcher-row">
-                <div className="col-mono" style={{ width: 80, color: "var(--fg-1)" }}>{s.id}</div>
+                <div className="col-mono" style={{ width: 80, color: "var(--fg-1)" }}>{s.display_id}</div>
                 <AvatarStack personas={s.participants.map(id => byId(id)).filter(Boolean)} size="xs" max={4} />
                 <div style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{s.topic}</div>
                 <div className="t-meta col-mono" style={{ width: 90 }}>{s.duration}</div>
@@ -524,7 +524,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
     setProgress(0);
     setTab("persona_id");
 
-    const baseSeed = session.id.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
+    const baseSeed = String(session.id).split("").reduce((a, c) => a + c.charCodeAt(0), 0);
     let s = (baseSeed + runKey * 1009) || 1;
     const rng = () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
 
@@ -611,7 +611,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
               <div className="t-eyebrow">Judging report</div>
               <div className="t-h2" style={{ marginTop: 2 }}>{session.topic}</div>
               <div className="row t-meta" style={{ marginTop: 6, gap: 10 }}>
-                <span className="mono">{session.id}</span>
+                <span className="mono">{session.display_id || session.id}</span>
                 <span className="dot-sep" />
                 <AvatarStack personas={personas} size="xs" max={6} />
                 <span className="mono">{personas.length} agents</span>

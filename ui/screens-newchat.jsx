@@ -181,6 +181,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
                 <div className="col" style={{ gap: 8 }}>
                   {selected.slice(0, 6).map(id => {
                     const p = byId(id);
+                    if (!p) return null;
                     return (
                       <div key={id} className="row" style={{ gap: 8 }}>
                         <Avatar persona={p} size="sm" />
@@ -220,6 +221,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
             <div className="col" style={{ gap: 6 }}>
               {selected.map(id => {
                 const p = byId(id);
+                if (!p) return null;
                 return (
                   <div key={id} className="card" style={{ padding: 8, display: "flex", alignItems: "center", gap: 8 }}>
                     <Avatar persona={p} size="sm" />

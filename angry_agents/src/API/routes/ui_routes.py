@@ -243,6 +243,7 @@ def ui_list_chats(
 @router.post("/ui/chats", status_code=201)
 def ui_create_chat(
     body: UIChatCreate,
+    background_tasks: BackgroundTasks,
     current_user=Depends(get_current_user),
     db: sqlite3.Connection = Depends(get_db),
     settings: Settings = Depends(get_settings),
@@ -312,6 +313,9 @@ def ui_create_chat(
         title = f"{agents[0]['Name']} {agents[0]['Surname']}".strip().upper()
     else:
         title = display_title
+        background_tasks.add_task(
+            _bg_run_conversation, chat_id, settings.db_path, settings.author_secret, _DEFAULT_TURNS
+        )
 
     return {
         "id": chat_id,
@@ -330,6 +334,88 @@ def ui_create_chat(
 # ---------------------------------------------------------------------------
 # Group chat: start + SSE stream
 # ---------------------------------------------------------------------------
+
+@router.get("/ui/chats/{chat_id}")
+def ui_get_chat(
+    chat_id: int,
+    current_user=Depends(get_current_user),
+    db: sqlite3.Connection = Depends(get_db),
+) -> dict:
+    chat = db.execute(
+        """
+        SELECT gc.ID, gc.created_at,
+               t.Title  AS topic_title,
+               t.Description AS topic_desc
+        FROM Group_chat gc
+        JOIN Topic t ON gc.ID_topic = t.ID
+        WHERE gc.ID = ? AND gc.deleted_at IS NULL
+        """,
+        (chat_id,),
+    ).fetchone()
+    if chat is None:
+        raise HTTPException(status_code=404, detail="Chat not found")
+
+    agents = db.execute(
+        """
+        SELECT a.ID, a.Name, a.Surname
+        FROM Chat_agent ca
+        JOIN Agents a ON ca.id_agent = a.ID
+        WHERE ca.id_chat = ? AND a.deleted_at IS NULL
+        """,
+        (chat_id,),
+    ).fetchall()
+
+    last_msg = db.execute(
+        """
+        SELECT message, author, Created_by, created_at
+        FROM Chat_messages
+        WHERE ID_Chat = ? AND deleted_at IS NULL
+        ORDER BY created_at DESC
+        LIMIT 1
+        """,
+        (chat_id,),
+    ).fetchone()
+
+    meta: dict = {}
+    try:
+        meta = json.loads(chat["topic_desc"] or "{}")
+    except Exception:
+        pass
+
+    chat_type = "dm" if len(agents) == 1 else "group"
+    participant_ids = [a["ID"] for a in agents]
+
+    if chat_type == "dm" and agents:
+        title = f"{agents[0]['Name']} {agents[0]['Surname']}".strip().upper()
+    else:
+        title = meta.get("title") or chat["topic_title"]
+
+    last = ""
+    last_time = ""
+    if last_msg:
+        preview = (last_msg["message"] or "")[:60]
+        if last_msg["author"]:
+            label = last_msg["author"].split("::")[0] + ": "
+        elif last_msg["Created_by"]:
+            label = "You: "
+        else:
+            label = ""
+        last = f'{label}"{preview}"'
+        last_time = _relative_time(last_msg["created_at"])
+
+    return {
+        "id": chat["ID"],
+        "type": chat_type,
+        "title": title,
+        "topics": meta.get("topics", [chat["topic_title"]]),
+        "tone": meta.get("tone", "Debate"),
+        "participants": participant_ids,
+        "unread": 0,
+        "last": last,
+        "lastTime": last_time,
+        "started": _relative_time(chat["created_at"]),
+    }
+
 
 @router.post("/ui/chats/{chat_id}/start", status_code=202)
 def ui_start_chat(
@@ -393,7 +479,7 @@ async def ui_stream_chat(
                         "SELECT status FROM Group_chat WHERE ID = ?", (chat_id,)
                     ).fetchone()
                     if chat_row and chat_row["status"] in ("done", "error"):
-                        yield f"event: done\ndata: {{}}\n\n"
+                        yield "event: done\ndata: {}\n\n"
                         break
                     idle_ticks += 1
 
@@ -565,7 +651,8 @@ def admin_sessions(
         ).fetchall()
 
         result.append({
-            "id": f"S-{c['ID']:04d}",
+            "id": c["ID"],
+            "display_id": f"S-{c['ID']:04d}",
             "participants": [a["ID"] for a in agents],
             "topic": meta.get("title") or c["topic_title"],
             "duration": "00:00:00",
