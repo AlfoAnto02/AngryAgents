@@ -15,6 +15,7 @@ function Stepper({ step }) {
 
 // ─── New Group Chat ──────────────────────────────────────────
 function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
+  const { agents, byId } = window.useAgents();
   const [step, setStep] = React.useState(1);
   const [selected, setSelected] = React.useState(initialSelection);
   const [topics, setTopics] = React.useState([]);
@@ -22,7 +23,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
   const [tone, setTone] = React.useState("Debate");
   const [search, setSearch] = React.useState("");
 
-  const personas = window.PERSONAS;
+  const personas = agents;
   const filtered = personas.filter(p =>
     !search || p.name.toLowerCase().includes(search.toLowerCase()) || p.desc.toLowerCase().includes(search.toLowerCase())
   );
@@ -179,7 +180,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
                 <hr className="divider" style={{ margin: "12px 0" }} />
                 <div className="col" style={{ gap: 8 }}>
                   {selected.slice(0, 6).map(id => {
-                    const p = window.findPersona(id);
+                    const p = byId(id);
                     return (
                       <div key={id} className="row" style={{ gap: 8 }}>
                         <Avatar persona={p} size="sm" />
@@ -218,7 +219,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
           ) : (
             <div className="col" style={{ gap: 6 }}>
               {selected.map(id => {
-                const p = window.findPersona(id);
+                const p = byId(id);
                 return (
                   <div key={id} className="card" style={{ padding: 8, display: "flex", alignItems: "center", gap: 8 }}>
                     <Avatar persona={p} size="sm" />
@@ -278,13 +279,14 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
 
 // ─── New DM ──────────────────────────────────────────────────
 function NewDMScreen({ onCancel, onLaunch }) {
+  const { agents, byId } = window.useAgents();
   const [pickerOpen, setPickerOpen] = React.useState(true);
   const [selectedId, setSelectedId] = React.useState(null);
   const [opener, setOpener] = React.useState("");
   const [q, setQ] = React.useState("");
 
-  const persona = selectedId ? window.findPersona(selectedId) : null;
-  const filtered = window.PERSONAS.filter(p =>
+  const persona = selectedId ? byId(selectedId) : null;
+  const filtered = agents.filter(p =>
     !q || p.name.toLowerCase().includes(q.toLowerCase()) || p.desc.toLowerCase().includes(q.toLowerCase())
   );
 

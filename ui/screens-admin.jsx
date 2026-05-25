@@ -64,11 +64,17 @@ function StatusPill({ status }) {
 
 // ─── Overview ────────────────────────────────────────────────
 function OverviewSection() {
-  // Change 2: removed "Avg. session" and "Judge confidence" cards.
-  const kpis = [
-    { label: "Sessions today", value: "127", delta: "+18%", up: true, spark: [12,18,14,22,28,24,32,30,38,42,40,46,52,50] },
-    { label: "Active users",   value: "344", delta: "+6%",  up: true, spark: [200,210,205,220,230,228,240,260,270,280,288,295,310,344] },
-  ];
+  const [kpis, setKpis] = React.useState(null);
+  React.useEffect(() => {
+    window.api.get("/admin/overview")
+      .then(data => setKpis([
+        { label: "Sessions today", value: String(data.sessions_today.value), delta: `${data.sessions_today.delta_pct >= 0 ? "+" : ""}${data.sessions_today.delta_pct}%`, up: data.sessions_today.delta_pct >= 0, spark: data.sessions_today.spark },
+        { label: "Active users",   value: String(data.active_users.value),   delta: `${data.active_users.delta_pct >= 0 ? "+" : ""}${data.active_users.delta_pct}%`,   up: data.active_users.delta_pct >= 0,   spark: data.active_users.spark },
+      ]))
+      .catch(() => setKpis([]));
+  }, []);
+
+  if (!kpis) return <div style={{ padding: 24, color: "var(--fg-2)" }}>Loading…</div>;
 
   return (
     <>
@@ -120,6 +126,14 @@ function OverviewSection() {
 
 // ─── Sessions table (with optional per-row Judge / View report action) ─────
 function RecentSessionsTable({ onJudge, reports }) {
+  const { byId } = window.useAgents();
+  const [sessions, setSessions] = React.useState([]);
+  React.useEffect(() => {
+    window.api.get("/admin/sessions?limit=24")
+      .then(data => setSessions(data))
+      .catch(() => setSessions([]));
+  }, []);
+
   return (
     <div className="card" style={{ overflow: "hidden" }}>
       <div className="chart-card-head" style={{ padding: 14 }}>
@@ -132,6 +146,9 @@ function RecentSessionsTable({ onJudge, reports }) {
           <Btn variant="outline" size="sm" icon={<Icons.Download size={12} />}>Export CSV</Btn>
         </div>
       </div>
+      {sessions.length === 0 ? (
+        <Empty title="No sessions yet" sub="Sessions appear here once users start chatting." icon={<Icons.Database size={20} />} />
+      ) : (
       <table className="table">
         <thead>
           <tr>
@@ -145,14 +162,14 @@ function RecentSessionsTable({ onJudge, reports }) {
           </tr>
         </thead>
         <tbody>
-          {window.RECENT_SESSIONS.map(s => {
+          {sessions.map(s => {
             const judged = !!reports?.[s.id];
             return (
               <tr key={s.id}>
                 <td className="col-mono">{s.id}</td>
                 <td>
                   <div className="row" style={{ gap: 8 }}>
-                    <AvatarStack personas={s.participants.map(window.findPersona)} size="xs" max={4} />
+                    <AvatarStack personas={s.participants.map(id => byId(id)).filter(Boolean)} size="xs" max={4} />
                     <span className="t-meta">{s.participants.length}</span>
                   </div>
                 </td>
@@ -193,69 +210,78 @@ function RecentSessionsTable({ onJudge, reports }) {
           })}
         </tbody>
       </table>
+      )}
     </div>
   );
 }
 
 function AgentPerformanceSection() {
+  const { byId } = window.useAgents();
+  const [perf, setPerf] = React.useState([]);
+  React.useEffect(() => {
+    window.api.get("/admin/agent-performance")
+      .then(data => setPerf(data))
+      .catch(() => setPerf([]));
+  }, []);
+
+  const rows = perf.map(entry => {
+    const p = byId(entry.agent_id);
+    if (!p) return null;
+    return (
+      <tr key={entry.agent_id}>
+        <td>
+          <div className="row" style={{ gap: 10 }}>
+            <Avatar persona={p} size="sm" />
+            <div>
+              <div className="mono" style={{ fontSize: 12, fontWeight: 600 }}>{p.name}</div>
+              <div className="t-meta" style={{ fontSize: 10.5 }}>{String(entry.agent_id)}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span className="badge">{p.source_type === "fiction" ? "Fiction" : "Real-world"}</span>
+        </td>
+        <td className="col-mono">{entry.sessions}</td>
+        <td>
+          <FidelityBar value={entry.individual_fidelity / 5} label={Number(entry.individual_fidelity).toFixed(2)} />
+        </td>
+        <td>
+          <FidelityBar value={entry.group_fidelity / 5} label={Number(entry.group_fidelity).toFixed(2)} color="var(--accent)" />
+        </td>
+        <td>
+          {entry.flagged > 4 ? (
+            <span className="badge badge-danger">{entry.flagged}</span>
+          ) : (
+            <span className="badge">{entry.flagged}</span>
+          )}
+        </td>
+      </tr>
+    );
+  }).filter(Boolean);
+
   return (
     <>
       <div className="t-eyebrow">Per-agent fidelity</div>
       <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 16 }}>Agent performance</h2>
-      <div className="card" style={{ overflow: "hidden" }}>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Agent</th>
-              <th>Source</th>
-              <th style={{ width: 120 }}>Sessions</th>
-              <th style={{ width: 160 }}>Individual fidelity</th>
-              <th style={{ width: 140 }}>Group fidelity</th>
-              <th style={{ width: 90 }}>Flagged</th>
-            </tr>
-          </thead>
-          <tbody>
-            {window.PERSONAS.map(p => {
-              // Stable pseudo-random values seeded by persona id so re-renders don't jitter.
-              const seed = p.id.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
-              const r = (n) => ((seed * 9301 + n * 49297) % 233280) / 233280;
-              const fidelity = 3 + (1 - p.tension) * 1.6 + (r(1) * 0.4 - 0.2);
-              const group = 2.8 + r(2) * 1.8;
-              const flagged = Math.floor(r(3) * 8);
-              return (
-                <tr key={p.id}>
-                  <td>
-                    <div className="row" style={{ gap: 10 }}>
-                      <Avatar persona={p} size="sm" />
-                      <div>
-                        <div className="mono" style={{ fontSize: 12, fontWeight: 600 }}>{p.name}</div>
-                        <div className="t-meta" style={{ fontSize: 10.5 }}>{p.id.toUpperCase()}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <span className="badge">{p.source_type === "fiction" ? "Fiction" : "Real-world"}</span>
-                  </td>
-                  <td className="col-mono">{Math.floor(40 + r(4) * 200)}</td>
-                  <td>
-                    <FidelityBar value={fidelity / 5} label={fidelity.toFixed(2)} />
-                  </td>
-                  <td>
-                    <FidelityBar value={group / 5} label={group.toFixed(2)} color="var(--accent)" />
-                  </td>
-                  <td>
-                    {flagged > 4 ? (
-                      <span className="badge badge-danger">{flagged}</span>
-                    ) : (
-                      <span className="badge">{flagged}</span>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      {rows.length === 0 ? (
+        <Empty title="No data yet" sub="Performance stats appear after agents participate in chats." icon={<Icons.Brain size={20} />} />
+      ) : (
+        <div className="card" style={{ overflow: "hidden" }}>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Agent</th>
+                <th>Source</th>
+                <th style={{ width: 120 }}>Sessions</th>
+                <th style={{ width: 160 }}>Individual fidelity</th>
+                <th style={{ width: 140 }}>Group fidelity</th>
+                <th style={{ width: 90 }}>Flagged</th>
+              </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 }
@@ -324,8 +350,15 @@ function ExportSection() {
 // Lists eligible sessions; chats already judged are tagged so the admin sees
 // at a glance which ones have a cached report.
 function JudgingSection({ onJudge, reports }) {
+  const { byId } = window.useAgents();
   const [q, setQ] = React.useState("");
-  const sessions = window.RECENT_SESSIONS.filter(s =>
+  const [allSessions, setAllSessions] = React.useState([]);
+  React.useEffect(() => {
+    window.api.get("/admin/sessions?limit=100")
+      .then(data => setAllSessions(data))
+      .catch(() => setAllSessions([]));
+  }, []);
+  const sessions = allSessions.filter(s =>
     !q || s.id.toLowerCase().includes(q.toLowerCase()) || s.topic.toLowerCase().includes(q.toLowerCase())
   );
   return (
@@ -358,7 +391,7 @@ function JudgingSection({ onJudge, reports }) {
             return (
               <div key={s.id} className="judge-launcher-row">
                 <div className="col-mono" style={{ width: 80, color: "var(--fg-1)" }}>{s.id}</div>
-                <AvatarStack personas={s.participants.map(window.findPersona)} size="xs" max={4} />
+                <AvatarStack personas={s.participants.map(id => byId(id)).filter(Boolean)} size="xs" max={4} />
                 <div style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{s.topic}</div>
                 <div className="t-meta col-mono" style={{ width: 90 }}>{s.duration}</div>
                 <StatusPill status={s.status} />
@@ -435,6 +468,7 @@ const EVAL_GROUPS = [
 ];
 
 function JudgingModal({ session, cached, onClose, onSaveReport }) {
+  const { byId } = window.useAgents();
   const [tab, setTab] = React.useState("persona_id");
   const [stage, setStage] = React.useState(cached ? "done" : "running");
   const [progress, setProgress] = React.useState(cached ? 100 : 0);
@@ -544,7 +578,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
   }, [session?.id]);
 
   if (!session) return null;
-  const personas = (session.participants || []).map(window.findPersona).filter(Boolean);
+  const personas = (session.participants || []).map(id => byId(id)).filter(Boolean);
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -623,7 +657,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
           {stage === "done" && report && tab === "individual_fidelity" && (
             <ReportIndividualFidelity
               group={EVAL_GROUPS[1]}
-              rows={report.fidelityRows.map(r => ({ ...r, persona: window.findPersona(r.personaId) })).filter(r => r.persona)}
+              rows={report.fidelityRows.map(r => ({ ...r, persona: byId(r.personaId) })).filter(r => r.persona)}
             />
           )}
           {stage === "done" && report && tab === "group_fidelity" && (
@@ -819,8 +853,9 @@ function ReportIndividualFidelity({ group, rows }) {
 }
 
 function ReportGroupFidelity({ group, gini, giniZ, giniCI, driftScore, turnShares }) {
+  const { byId } = window.useAgents();
   const inRange = gini >= 0.28 && gini <= 0.42;
-  const rows = (turnShares || []).map(t => ({ ...t, persona: window.findPersona(t.personaId) })).filter(r => r.persona);
+  const rows = (turnShares || []).map(t => ({ ...t, persona: byId(t.personaId) })).filter(r => r.persona);
   return (
     <>
       <ReportHeader group={group} />
