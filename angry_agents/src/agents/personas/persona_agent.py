@@ -121,8 +121,3 @@ class PersonaAgent:
         )
         return llm_call(system, user, self.model)
 
-    def update_summary(self, chat_id: int, _new_message: str, current_summary: dict) -> dict:
-        chat_state = current_summary.get(str(chat_id), {})
-        chat_state["turn_count"] = chat_state.get("turn_count", 0) + 1
-        current_summary[str(chat_id)] = chat_state
-        return current_summary

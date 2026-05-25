@@ -118,6 +118,7 @@ function App() {
   const handleLaunchGroup = async ({ participants, topics, tone }) => {
     try {
       const chat = await window.api.post("/ui/chats", { type: "group", participants, topics, tone });
+      await window.api.post(`/ui/chats/${chat.id}/start`);
       setChats(cs => [chat, ...cs]);
       setActiveChatId(chat.id);
       setSessionDraft([]);
