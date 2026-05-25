@@ -20,15 +20,12 @@ PERSONAS_DIR = Path(__file__).parents[3] / "data" / "personas"
 
 # Profiles that share a persona_name with a newer version — excluded to avoid
 # chunk ID collisions during upsert.
-_EXCLUDED = {"jimmy_profile_old.json"}
+
 
 
 def _load_profiles() -> list[dict]:
     profiles = []
     for path in sorted(PERSONAS_DIR.glob("*.json")):
-        if path.name in _EXCLUDED:
-            print(f"  skipping {path.name} (excluded)")
-            continue
         profiles.append(json.loads(path.read_text(encoding="utf-8")))
     return profiles
 

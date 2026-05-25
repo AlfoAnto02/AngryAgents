@@ -9,8 +9,7 @@ Flow:
   4. Final output: PersonaIdentificationResult (same interface as base judges).
 
 One LLM call per judge (not per candidate) — 17x cheaper than the per-candidate loop.
-Only works with LLM_BACKEND=openai. Falls back to standard run_persona_identification
-when Ollama is configured (Ollama tool-calling support varies by model).
+Requires LLM_BACKEND=openai (tool calling).
 """
 
 import json
@@ -25,7 +24,6 @@ from ..agents.agent_config import (
     OPENAI_MODEL,
     format_messages,
     format_profile,
-    run_persona_identification,
 )
 from ..agents.judges.base_judge import AuthorMatch, PersonaIdentificationResult, PersonaScore
 from ..agents.judges.templates import render_prompt
@@ -35,6 +33,13 @@ load_dotenv()
 log = logging.getLogger(__name__)
 
 _MAX_TOOL_CALLS = 5
+
+_ROLE_TEMPLATES: dict[str, str] = {
+    "style": "persona_id_style_batch.j2",
+    "ideology": "persona_id_ideology_batch.j2",
+    "general": "persona_id_general_batch.j2",
+    "behavioral": "persona_id_behavioral_batch.j2",
+}
 
 
 def _openai_tool_loop(system: str, user: str, model: str) -> str:
@@ -127,21 +132,25 @@ def run_persona_identification_with_tools(
     chat: dict,
     candidates: list[dict],
     model: str = OPENAI_MODEL,
+    role: str = "general",
 ) -> PersonaIdentificationResult:
     """
     Identify personas using a single RAG-assisted LLM call per judge.
 
     candidates  — pre-filtered profiles from retrieve_candidates().
-    focus       — the judge's lens, e.g. "vocabulary, sentence structure, tone".
+    focus       — the judge's lens description (used for logging/fallback).
+    role        — judge role: "style", "ideology", "general", or "behavioral".
+                  Selects the role-specific batch template.
 
-    Falls back to standard run_persona_identification when LLM_BACKEND=ollama.
+    Requires LLM_BACKEND=openai.
     """
     if LLM_BACKEND != "openai":
-        log.warning(
-            "run_persona_identification_with_tools: tool use requires openai backend. "
-            "Falling back to standard persona identification."
+        raise RuntimeError(
+            "run_persona_identification_with_tools requires LLM_BACKEND=openai. "
+            f"Current backend: {LLM_BACKEND!r}."
         )
-        return run_persona_identification("persona_id_general.j2", chat, candidates, model)
+
+    template = _ROLE_TEMPLATES.get(role, "persona_id_general_batch.j2")
 
     messages_block, authors = format_messages(chat)
     if not authors:
@@ -157,8 +166,7 @@ def run_persona_identification_with_tools(
     )
 
     system, user = render_prompt(
-        "persona_id_rag_batch.j2",
-        focus=focus,
+        template,
         n_candidates=len(candidates),
         candidates_block=candidates_block,
         messages_block=messages_block,

@@ -1,17 +1,22 @@
 """
-Evaluation test — 20 RAG-assisted judges (5 per role × 4 roles).
+Evaluation — 20 RAG-assisted judges (5 per role × 4 roles).
 
 Each role is instantiated 5 times independently. Instances of the same role
 share the same retrieval fields and focus, but run as separate LLM calls,
 producing variance that drives Phase 2 deliberation.
 
 Run from the repo root:
-    python -m angry_agents.src.rag.evaluation_test_20_judges
+    python -m angry_agents.src.rag.evaluation_test_20_judges --chat <path/to/chat.jsonl>
+
+The chat file must be a JSONL file where each line is a message object with at
+least "author" (anonymous digest string) and "message" (text) fields — the same
+format produced by the UI and stored in Chat_messages.
 
 Requires the ChromaDB index to be built first:
     python -m angry_agents.src.rag.build_index
 """
 
+import argparse
 import json
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -21,7 +26,7 @@ from pathlib import Path
 from .judge_with_tools import run_persona_identification_with_tools
 from .retriever import retrieve_candidates
 
-CHAT_FILE = Path(__file__).parents[3] / "data" / "eval" / "chat_simulation_with_embedding" / "transcript.jsonl"
+_DEFAULT_CHAT_FILE = Path(__file__).parents[3] / "data" / "eval" / "chat_simulation_with_embedding" / "transcript.jsonl"
 PERSONAS_DIR = Path(__file__).parents[3] / "data" / "personas"
 EVAL_DIR = Path(__file__).parents[2] / "src" / "agents" / "judge_eval"
 
@@ -74,10 +79,10 @@ def _load_all_profiles() -> dict[str, dict]:
     return profiles
 
 
-def _load_chat() -> dict:
+def _load_chat(chat_file: Path) -> dict:
     messages = [
         json.loads(line)
-        for line in CHAT_FILE.read_text(encoding="utf-8").splitlines()
+        for line in chat_file.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
     return {"messages": messages}
@@ -150,17 +155,34 @@ def _print_result(judge: dict, result, candidate_names: list[str]) -> None:
 
 
 def main() -> None:
-    chat = _load_chat()
+    parser = argparse.ArgumentParser(
+        description="Run 20-judge RAG evaluation on a chat JSONL file."
+    )
+    parser.add_argument(
+        "--chat",
+        type=Path,
+        default=_DEFAULT_CHAT_FILE,
+        help=(
+            "Path to a JSONL chat file. Each line must be a message object with "
+            "'author' (digest string) and 'message' fields. "
+            f"Defaults to the test chat at {_DEFAULT_CHAT_FILE}."
+        ),
+    )
+    args = parser.parse_args()
+    chat_file: Path = args.chat
+
+    chat = _load_chat(chat_file)
     all_profiles = _load_all_profiles()
     messages_by_digest = _messages_by_digest(chat)
     chat_id = 1
 
-    print(f"\nChat: {len(chat['messages'])} messages, {len(messages_by_digest)} agents")
+    print(f"\nChat file: {chat_file}")
+    print(f"Chat: {len(chat['messages'])} messages, {len(messages_by_digest)} agents")
     print(f"Full DB: {len(all_profiles)} personas")
     print(f"Judges: {len(JUDGES)} ({JUDGES_PER_ROLE} per role × {len(_ROLE_CONFIGS)} roles)\n")
 
     if not chat["messages"]:
-        raise ValueError(f"Chat file is empty: {CHAT_FILE}")
+        raise ValueError(f"Chat file is empty: {chat_file}")
     if not all_profiles:
         raise ValueError(f"No persona files found in: {PERSONAS_DIR}")
 
@@ -178,6 +200,7 @@ def main() -> None:
             focus=judge["focus"],
             chat=chat,
             candidates=candidates,
+            role=judge["role"],
         )
         _print_result(judge, result, candidate_names)
         return _build_record(judge_id, judge, chat_id, result, candidate_names)
