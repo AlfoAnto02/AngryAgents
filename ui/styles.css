@@ -22,11 +22,11 @@
   --border-1: #2F2F3A;
   --border-2: #3A3A48;
 
-  /* accent (user = violet) */
-  --accent: #7C3AED;
-  --accent-hover: #8B4DF0;
-  --accent-soft: rgba(124, 58, 237, 0.12);
-  --accent-border: rgba(124, 58, 237, 0.35);
+  /* accent (user = orange — matches the warmth of the app icon) */
+  --accent: #EA580C;
+  --accent-hover: #F97316;
+  --accent-soft: rgba(234, 88, 12, 0.12);
+  --accent-border: rgba(234, 88, 12, 0.35);
 
   /* admin accent = amber */
   --admin: #F59E0B;
@@ -379,11 +379,7 @@ input, textarea, select {
 .topnav-logo {
   width: 28px; height: 28px;
   border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+  object-fit: contain;
 }
 .topnav-nav {
   display: flex;
@@ -491,10 +487,8 @@ input, textarea, select {
   width: 48px; height: 48px;
   border-radius: 8px;
   margin: 0 auto 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  object-fit: contain;
+  display: block;
 }
 .auth-brand h1 {
   font-family: var(--font-mono);
@@ -1209,4 +1203,277 @@ input, textarea, select {
   opacity: 0.5;
   margin: 0 4px;
   vertical-align: middle;
+}
+
+/* ============================================================
+   Admin · Judging (Change 3)
+   ============================================================ */
+
+/* Overview now has 2 KPI cards instead of 4 — keep them at a comfortable width. */
+.kpi-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 360px));
+}
+
+/* Launcher list */
+.judge-launcher {
+  overflow: hidden;
+}
+.judge-launcher-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-0);
+}
+.judge-launcher-list {
+  max-height: 460px;
+  overflow-y: auto;
+}
+.judge-launcher-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-0);
+  font-size: 12.5px;
+}
+.judge-launcher-row:last-child { border-bottom: 0; }
+.judge-launcher-row:hover { background: var(--bg-2); }
+
+/* Judging modal */
+.modal-judge {
+  width: 880px;
+  max-width: calc(100vw - 40px);
+}
+.judge-progress {
+  padding: 10px 0 16px;
+}
+.judge-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.judge-progress-bar {
+  margin-top: 8px;
+  height: 4px;
+  background: var(--bg-3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.judge-progress-bar > div {
+  height: 100%;
+  background: var(--admin);
+  transition: width .14s linear;
+}
+.judge-progress-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.judge-progress-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.judge-progress-step.done {
+  color: var(--admin);
+}
+
+/* Tabs along the bottom of the modal head */
+.judge-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border-0);
+  margin: 4px -18px 0;
+  padding: 0 18px;
+}
+.judge-tab {
+  padding: 10px 12px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--fg-2);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.judge-tab:hover { color: var(--fg-0); }
+.judge-tab.active {
+  color: var(--admin);
+  border-bottom-color: var(--admin);
+}
+
+.judge-running-body {
+  padding: 24px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 240px;
+}
+
+/* Report blocks */
+.report-head { margin-bottom: 14px; }
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+.metric-stat {
+  padding: 12px 14px;
+  border: 1px solid var(--border-0);
+  border-radius: var(--r-card);
+  background: var(--bg-1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.metric-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+.metric-stat-value {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--fg-0);
+  letter-spacing: -0.005em;
+}
+.metric-stat-sub {
+  font-size: 11px;
+  color: var(--fg-2);
+}
+.metric-stat-good { border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.06); }
+.metric-stat-good .metric-stat-value { color: var(--ok); }
+.metric-stat-warn { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.06); }
+.metric-stat-warn .metric-stat-value { color: var(--admin); }
+
+/* Properties list (per-group, from EVAL.md) */
+.props-list {
+  margin-top: 22px;
+  border-top: 1px solid var(--border-0);
+  padding-top: 14px;
+}
+.props-row {
+  display: grid;
+  grid-template-columns: 14px 200px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 6px 0;
+  font-size: 12px;
+}
+.props-key {
+  font-size: 11.5px;
+  color: var(--fg-0);
+  font-weight: 500;
+}
+.props-desc {
+  color: var(--fg-2);
+  line-height: 1.5;
+}
+
+/* Confusion matrix */
+.cm-wrap { overflow-x: auto; }
+.cm-table {
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin: 4px 0 4px;
+}
+.cm-table th {
+  color: var(--fg-2);
+  font-weight: 500;
+  padding: 4px 8px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.cm-table td {
+  width: 36px;
+  height: 32px;
+  text-align: center;
+  border: 1px solid var(--bg-0);
+}
+
+/* Individual fidelity table */
+.fidelity-table { width: 100%; }
+
+/* Turn distribution */
+.turn-dist {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0 8px;
+}
+.turn-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.turn-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--bg-3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.turn-bar > div {
+  height: 100%;
+  border-radius: 999px;
+  transition: width .3s;
+}
+
+/* Calibration curve */
+.calibration {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  padding: 8px 4px 12px;
+  height: 180px;
+}
+.cal-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-end;
+}
+.cal-bar-wrap {
+  width: 100%;
+  flex: 1;
+  background: var(--bg-2);
+  border: 1px solid var(--border-0);
+  border-radius: var(--r-card);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.cal-bar {
+  width: 100%;
+  background: linear-gradient(180deg, var(--admin-hover), var(--admin));
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.cal-label {
+  font-size: 10.5px;
+  color: var(--fg-2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cal-val {
+  font-size: 11px;
+  color: var(--fg-0);
 }

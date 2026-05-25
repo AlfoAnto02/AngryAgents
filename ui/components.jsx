@@ -122,9 +122,7 @@ function TagChip({ children, active, onClick, prefix = "#" }) {
 // ---- Brand logo --------------------------------------------------------
 function BrandMark({ size = 28 }) {
   return (
-    <div className="topnav-logo" style={{ width: size, height: size }}>
-      <img src="logo.png" alt="logo" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
-    </div>
+    <img src="logo.png" className="topnav-logo" style={{ width: size, height: size }} alt="Angry Agents" />
   );
 }
 
@@ -198,7 +196,7 @@ function PieChartPlaceholder({ label }) {
   const segs = [
     { v: 0.42, c: "var(--admin)" },
     { v: 0.27, c: "#a16207" },
-    { v: 0.18, c: "#7c3aed" },
+    { v: 0.18, c: "var(--accent)" },
     { v: 0.13, c: "#5e5e68" },
   ];
   let acc = 0;
@@ -247,14 +245,17 @@ const chartLabelStyle = {
 };
 
 // ---- Top nav -----------------------------------------------------------
-function TopNav({ role, userRole, onRoleChange, page, onNav, user, onLogout }) {
+// Role guard (Change 1):
+//   - Admins see the Dashboard nav plus a direct "New chat" entry into the
+//     chat-creation wizard. There is NO toggle to switch into the user view.
+//   - Regular users see Home / Agents / Chats / New (no admin entry points).
+function TopNav({ role, userRole, page, onNav, user, onLogout }) {
   const isAdmin = role === "admin";
-  const canSwitchRole = userRole === "admin";
   return (
     <header className="topnav">
       <button
         className="topnav-brand"
-        onClick={() => onNav(role === "admin" ? "admin" : "home")}
+        onClick={() => onNav(isAdmin ? "admin" : "home")}
         style={{ background: "transparent", border: 0, color: "inherit", cursor: "pointer", padding: 0, font: "inherit" }}
         title="Home"
       >
@@ -293,33 +294,34 @@ function TopNav({ role, userRole, onRoleChange, page, onNav, user, onLogout }) {
           </>
         )}
         {isAdmin && (
-          <button
-            className={`topnav-nav-item ${page === "admin" ? "active" : ""}`}
-            onClick={() => onNav("admin")}
-          >
-            <Icons.Shield size={14} /> Dashboard
-          </button>
+          <>
+            <button
+              className={`topnav-nav-item ${page === "admin" ? "active" : ""}`}
+              onClick={() => onNav("admin")}
+            >
+              <Icons.Shield size={14} /> Dashboard
+            </button>
+            <button
+              className={`topnav-nav-item ${page === "newgroup" ? "active" : ""}`}
+              onClick={() => onNav("newgroup")}
+              style={{ marginLeft: 8, color: "var(--admin)" }}
+              title="Create a new group chat session"
+            >
+              <Icons.Users size={13} /> New group
+            </button>
+            <button
+              className={`topnav-nav-item ${page === "newdm" ? "active" : ""}`}
+              onClick={() => onNav("newdm")}
+              style={{ color: "var(--admin)" }}
+              title="Create a new 1:1 chat with an agent"
+            >
+              <Icons.User size={13} /> New DM
+            </button>
+          </>
         )}
       </nav>
 
       <div className="topnav-spacer" />
-
-      {canSwitchRole ? (
-        <div className="role-switch" title="Switch role view">
-          <button
-            className={`role-switch-btn ${!isAdmin ? "active" : ""}`}
-            onClick={() => onRoleChange("user")}
-          >
-            <Icons.User size={12} /> User
-          </button>
-          <button
-            className={`role-switch-btn ${isAdmin ? "active" : ""}`}
-            onClick={() => onRoleChange("admin")}
-          >
-            <Icons.Shield size={12} /> Admin
-          </button>
-        </div>
-      ) : null}
 
       <div style={{ display: "flex", alignItems: "center", gap: 10, paddingLeft: 6 }}>
         <span className={`badge ${isAdmin ? "badge-admin" : "badge-accent"} badge-dot`}>
