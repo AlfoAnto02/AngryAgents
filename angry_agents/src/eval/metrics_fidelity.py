@@ -114,23 +114,13 @@ def _judge_type_agreement(
 # Public API
 # ---------------------------------------------------------------------------
 
-def run(
+def compute_fidelity(
     judge_evals: list[dict],
-    author_map: dict[str, str],
-    personas: list[dict],
+    name_to_author: dict[str, str],
 ) -> dict:
-    """
-    Full individual fidelity metrics.
-    """
-    pid_to_name = {
-        "p_" + p["persona_name"].lower().replace(" ", "_"): p["persona_name"]
-        for p in personas
-    }
-    name_to_author = {pid_to_name[pid]: tag for tag, pid in author_map.items() if pid in pid_to_name}
-
+    """Full individual fidelity metrics using a pre-built name_to_author mapping."""
     raw = _fidelity_scores_for_persona(judge_evals, name_to_author)
 
-    # Per-persona breakdown
     per_persona: dict[str, dict] = {}
     for pname, by_judge in raw.items():
         all_scores = [s for ss in by_judge.values() for s in ss]
@@ -140,15 +130,12 @@ def run(
             "per_judge_type": per_judge_stats,
         }
 
-    # Cross-type agreement: pool all personas, compute per judge_type
     all_scores_by_judge: dict[str, list[int]] = defaultdict(list)
     for by_judge in raw.values():
         for jt, scores in by_judge.items():
             all_scores_by_judge[jt].extend(scores)
 
     agreement = _judge_type_agreement(dict(all_scores_by_judge))
-
-    # Aggregate across all personas and judges
     all_scores_flat = [s for by_judge in raw.values() for ss in by_judge.values() for s in ss]
 
     return {
@@ -158,6 +145,20 @@ def run(
             "judge_type_agreement": agreement,
         }
     }
+
+
+def run(
+    judge_evals: list[dict],
+    author_map: dict[str, str],
+    personas: list[dict],
+) -> dict:
+    """Full individual fidelity metrics (legacy: builds name_to_author from author_map + personas)."""
+    pid_to_name = {
+        "p_" + p["persona_name"].lower().replace(" ", "_"): p["persona_name"]
+        for p in personas
+    }
+    name_to_author = {pid_to_name[pid]: tag for tag, pid in author_map.items() if pid in pid_to_name}
+    return compute_fidelity(judge_evals, name_to_author)
 
 
 # ---------------------------------------------------------------------------

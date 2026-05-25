@@ -507,10 +507,10 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
   React.useEffect(() => { cachedRef.current = cached; }, [cached]);
   React.useEffect(() => { onSaveReportRef.current = onSaveReport; }, [onSaveReport]);
 
-  // ─── pipeline simulation ──────────────────────────────────
+  // ─── real pipeline via API + SSE ─────────────────────────────
   React.useEffect(() => {
     if (!session) return;
-    // First open for a session AND a cached report exists → show it as-is.
+    // Show cached report without re-running.
     if (runKey === 0 && cachedRef.current && cachedRef.current.sessionId === session.id) {
       setReport(cachedRef.current);
       setStage("done");
@@ -519,77 +519,50 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
       return;
     }
 
-    // Otherwise: run the pipeline. Seeds change with runKey so re-runs differ.
     setStage("running");
     setProgress(0);
     setTab("persona_id");
 
-    const baseSeed = String(session.id).split("").reduce((a, c) => a + c.charCodeAt(0), 0);
-    let s = (baseSeed + runKey * 1009) || 1;
-    const rng = () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+    let es = null;
+    let cancelled = false;
 
-    const personaIds = session.participants || [];
-    const accuracy = 0.34 + rng() * 0.35;
-    const ciLow = Math.max(0.125, accuracy - 0.08);
-    const ciHigh = Math.min(0.99, accuracy + 0.08);
-    const pValue = accuracy > 0.4 ? 0.001 + rng() * 0.01 : 0.04 + rng() * 0.08;
+    window.api.post(`/admin/judge-chat/${session.id}`, {})
+      .then(() => {
+        if (cancelled) return;
+        // Open SSE stream for progress updates and the final result.
+        es = new EventSource(`${window.api.base}/admin/judge-chat/${session.id}/stream`);
 
-    const fidelityRows = personaIds.map(pid => {
-      const median = 2.4 + rng() * 2.4;
-      const iqr = 0.4 + rng() * 1.2;
-      const ciL = Math.max(1, median - 0.5 - rng() * 0.4);
-      const ciH = Math.min(5, median + 0.4 + rng() * 0.4);
-      return { personaId: pid, median, iqr, ciL, ciH };
-    });
+        es.onmessage = (evt) => {
+          if (cancelled) { es.close(); return; }
+          let data;
+          try { data = JSON.parse(evt.data); } catch { return; }
 
-    const gini = 0.24 + rng() * 0.28;
-    const giniZ = (gini - 0.33) / 0.05;
-    const giniCI = [Math.max(0, gini - 0.05), Math.min(1, gini + 0.05)];
-    const driftScore = 0.55 + rng() * 0.28;
+          if (data.type === "progress") {
+            setProgress(data.progress);
+          } else if (data.type === "result") {
+            const fresh = { ...data.result };
+            setReport(fresh);
+            setStage("done");
+            setProgress(100);
+            onSaveReportRef.current?.(session.id, fresh);
+            es.close();
+          } else if (data.type === "error") {
+            setStage("error");
+            es.close();
+          }
+        };
 
-    const convergenceRate = 0.55 + rng() * 0.35;
-    const convCIL = Math.max(0, convergenceRate - 0.1);
-    const convCIH = Math.min(1, convergenceRate + 0.08);
-    const pearson = -0.15 + rng() * 0.85;
-    const fTestP = 0.005 + rng() * 0.06;
-    const calibration = [1, 2, 3, 4, 5].map(c => ({ c, acc: Math.min(0.98, 0.18 + c * 0.13 + (rng() - 0.5) * 0.08) }));
-
-    const N = 8;
-    const cm = Array.from({ length: N }, (_, i) =>
-      Array.from({ length: N }, (_, j) => {
-        if (i === j) return Math.round(8 + accuracy * 10 + (rng() - 0.5) * 2);
-        return Math.round(rng() * 3);
+        es.onerror = () => {
+          if (!cancelled) setStage("error");
+          es.close();
+        };
       })
-    );
-    const turnShares = personaIds.map((pid, i) => ({
-      personaId: pid,
-      share: 0.05 + (Math.sin(i * 1.7 + gini * 10) + 1.2) * 0.12,
-    }));
+      .catch(() => { if (!cancelled) setStage("error"); });
 
-    const fresh = {
-      sessionId: session.id,
-      ranAt: new Date().toISOString(),
-      accuracy, ciLow, ciHigh, pValue, cm,
-      fidelityRows,
-      gini, giniZ, giniCI, driftScore, turnShares,
-      convergenceRate, convCIL, convCIH, pearson, fTestP, calibration,
+    return () => {
+      cancelled = true;
+      es?.close();
     };
-
-    // Animated progress bar — when it hits 100%, commit the report.
-    let p = 0;
-    const t = setInterval(() => {
-      p += 8 + Math.random() * 12;
-      if (p >= 100) {
-        setProgress(100);
-        setReport(fresh);
-        setStage("done");
-        onSaveReportRef.current?.(session.id, fresh);
-        clearInterval(t);
-      } else {
-        setProgress(p);
-      }
-    }, 140);
-    return () => clearInterval(t);
     // Intentionally NOT depending on `cached` / `onSaveReport` — see refs above.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session?.id, runKey]);
@@ -639,7 +612,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
               </div>
               <div className="judge-progress-bar"><div style={{ width: `${progress}%` }} /></div>
               <div className="judge-progress-steps">
-                {["Bootstrap", "Persona ID", "Fidelity", "Group", "Deliberation"].map((label, i) => (
+                {["RAG index", "Persona ID", "Fidelity", "Group", "Metrics"].map((label, i) => (
                   <span key={label} className={`judge-progress-step ${progress > i * 20 ? "done" : ""}`}>
                     {progress > i * 20 ? <Icons.Check size={10} /> : <Icons.Dot size={10} />}
                     {label}
@@ -647,7 +620,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
                 ))}
               </div>
             </div>
-          ) : (
+          ) : stage !== "error" ? (
             <div className="judge-tabs">
               {EVAL_GROUPS.map(g => (
                 <button
@@ -659,13 +632,21 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
                 </button>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
 
         <div className="modal-body" style={{ background: "var(--bg-0)" }}>
           {stage === "running" && (
             <div className="judge-running-body">
-              <div className="t-meta">Resampling 10,000× per metric. Computing bootstrap CIs.</div>
+              <div className="t-meta">Running 20 judges in parallel. Computing bootstrap CIs.</div>
+            </div>
+          )}
+          {stage === "error" && (
+            <div className="judge-running-body" style={{ color: "var(--danger)" }}>
+              <Icons.AlertCircle size={20} sw={2} />
+              <div className="t-meta" style={{ marginTop: 8 }}>
+                The judging pipeline failed. Check that ChromaDB is indexed and the OpenAI key is set, then try again.
+              </div>
             </div>
           )}
 
@@ -703,7 +684,6 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
           {stage === "done" && (
             <>
               <Btn variant="outline" icon={<Icons.Download size={12} />}>Export JSON</Btn>
-              {/* Re-judge: the ONLY way to re-run the pipeline once a report is cached. */}
               <Btn
                 variant="primary"
                 icon={<Icons.Sparkles size={12} sw={2} />}
@@ -713,6 +693,15 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
                 Launch judging again
               </Btn>
             </>
+          )}
+          {stage === "error" && (
+            <Btn
+              variant="primary"
+              icon={<Icons.Sparkles size={12} sw={2} />}
+              onClick={() => setRunKey(k => k + 1)}
+            >
+              Retry
+            </Btn>
           )}
         </div>
       </div>

@@ -154,6 +154,64 @@ def _print_result(judge: dict, result, candidate_names: list[str]) -> None:
         print(f"    >> Predicted: {match.predicted}")
 
 
+def run_evaluation_from_db_data(
+    chat: dict,
+    all_profiles: dict[str, dict],
+    chat_id: int,
+    progress_callback=None,
+    forced_names: list[str] | None = None,
+) -> list[dict]:
+    """
+    Run the 20-judge pipeline on already-loaded chat data (from the database).
+
+    chat: {"messages": [{"author": digest, "message": text}, ...]}
+    all_profiles: {persona_name: profile_dict} — loaded from disk or DB
+    chat_id: stored in the output records
+    progress_callback: optional callable(done_count, total) called after each judge completes
+    forced_names: persona names to always include as candidates (e.g. actual chat participants)
+    """
+    messages_by_digest = _messages_by_digest(chat)
+
+    if not chat["messages"]:
+        raise ValueError("Chat has no messages")
+    if not all_profiles:
+        raise ValueError("No persona profiles loaded")
+
+    _completed = [0]
+
+    def _run_judge(judge_id: int, judge: dict) -> dict:
+        candidates = retrieve_candidates(
+            messages_by_digest=messages_by_digest,
+            profiles_by_name=all_profiles,
+            top_k=judge["top_k"],
+            field_filter=judge["rag_fields"],
+            forced_names=forced_names,
+        )
+        candidate_names = [p["persona_name"] for p in candidates]
+        result = run_persona_identification_with_tools(
+            focus=judge["focus"],
+            chat=chat,
+            candidates=candidates,
+            role=judge["role"],
+        )
+        _completed[0] += 1
+        if progress_callback:
+            progress_callback(_completed[0], len(JUDGES))
+        return _build_record(judge_id, judge, chat_id, result, candidate_names)
+
+    futures_map: dict = {}
+    with ThreadPoolExecutor(max_workers=len(JUDGES)) as pool:
+        for judge_id, judge in enumerate(JUDGES, start=1):
+            futures_map[pool.submit(_run_judge, judge_id, judge)] = judge_id
+
+    records = [None] * len(JUDGES)
+    for future in as_completed(futures_map):
+        judge_id = futures_map[future]
+        records[judge_id - 1] = future.result()
+
+    return records
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Run 20-judge RAG evaluation on a chat JSONL file."

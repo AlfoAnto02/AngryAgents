@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
+import hmac as _hmac
 import json
 import logging
 import os
@@ -590,6 +592,304 @@ def ui_create_message(
         "ts": msg.created_at,
         "time": _short_time(msg.created_at),
     }
+
+
+# ---------------------------------------------------------------------------
+# Judge pipeline — background jobs + SSE stream
+# ---------------------------------------------------------------------------
+
+# chat_id → {"status": "running"|"done"|"error", "progress": 0-100, "result": {...}|None, "error": str|None}
+_judge_jobs: dict[int, dict] = {}
+
+
+def _build_ui_report(
+    chat_id: int,
+    pid_result: dict,
+    fid_result: dict,
+    grp_result: dict,
+    author_map: dict[str, str],
+    digest_to_agent_id: dict[str, int],
+    messages: list[dict],
+) -> dict:
+    """Translate src/eval module outputs into the shape the UI JudgingModal expects."""
+    # persona_id string → DB agent_id
+    pid_to_agent_id: dict[str, int] = {pid: digest_to_agent_id[d] for d, pid in author_map.items() if d in digest_to_agent_id}
+
+    # ── Persona ID ──────────────────────────────────────────────
+    pi_agg = pid_result.get("persona_identification", {}).get("aggregate", {})
+    accuracy = float(pi_agg.get("accuracy") or 0.0)
+    ci_95 = pi_agg.get("ci_95") or [0.0, 0.0]
+    cm_data = pid_result.get("persona_identification", {}).get("confusion_matrix", {})
+    cm = cm_data.get("matrix") or []
+
+    # ── Individual fidelity ──────────────────────────────────────
+    per_persona = fid_result.get("individual_fidelity", {}).get("per_persona", {})
+    # per_persona is keyed by persona display name ("Claire Dunphy")
+    fidelity_rows = []
+    for pname, stats in per_persona.items():
+        overall = stats.get("overall", {})
+        agent_id = pid_to_agent_id.get(pname, 0)
+        ci = overall.get("ci_95") or [0.0, 0.0]
+        fidelity_rows.append({
+            "personaId": agent_id,
+            "median": float(overall.get("median") or 0.0),
+            "iqr": float(overall.get("iqr") or 0.0),
+            "ciL": float(ci[0]),
+            "ciH": float(ci[1]),
+        })
+
+    # ── Group fidelity ───────────────────────────────────────────
+    gini_data = grp_result.get("group_fidelity", {}).get("gini", {})
+    gini = float(gini_data.get("gini") or 0.0)
+    gini_ci_raw = gini_data.get("ci_95") or [0.0, 0.0]
+    gini_z = float(gini_data.get("z_vs_reference") or 0.0)
+
+    # Turn distribution from raw messages
+    turn_counts: dict[str, int] = {}
+    for msg in messages:
+        author = msg.get("author")
+        if author and author in digest_to_agent_id:
+            pid_str = author_map.get(author, "")
+            turn_counts[pid_str] = turn_counts.get(pid_str, 0) + 1
+    total_turns = sum(turn_counts.values())
+    turn_shares = [
+        {"personaId": pid_to_agent_id.get(pid, 0), "share": cnt / total_turns if total_turns else 0.0}
+        for pid, cnt in turn_counts.items()
+    ]
+
+    return {
+        "sessionId": chat_id,
+        "ranAt": datetime.now(timezone.utc).isoformat(),
+        "accuracy": accuracy,
+        "ciLow": float(ci_95[0]),
+        "ciHigh": float(ci_95[1]),
+        "pValue": float(pi_agg.get("p_value") or 1.0),
+        "cm": cm,
+        "fidelityRows": fidelity_rows,
+        "gini": gini,
+        "giniZ": gini_z,
+        "giniCI": [float(gini_ci_raw[0]), float(gini_ci_raw[1])],
+        "driftScore": 0.0,
+        "turnShares": turn_shares,
+        # Phase 2 deliberation not yet implemented
+        "convergenceRate": 0.0,
+        "convCIL": 0.0,
+        "convCIH": 0.0,
+        "pearson": 0.0,
+        "fTestP": 1.0,
+        "calibration": [{"c": c, "acc": 0.0} for c in range(1, 6)],
+    }
+
+
+_EVAL_DIR = (
+    # repo_root/data/eval/
+    __import__("pathlib").Path(__file__).parents[4] / "data" / "eval"
+)
+
+
+class _NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        import numpy as np  # noqa: PLC0415
+        if isinstance(obj, (np.integer,)):
+            return int(obj)
+        if isinstance(obj, (np.floating,)):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        if isinstance(obj, (np.bool_,)):
+            return bool(obj)
+        return super().default(obj)
+
+
+def _save_eval_report(
+    chat_id: int,
+    records: list[dict],
+    pid_result: dict,
+    fid_result: dict,
+    grp_result: dict,
+    author_map: dict[str, str],
+) -> None:
+    """Write the full evaluation report to data/eval/chat_<id>/."""
+    from pathlib import Path
+
+    out_dir = _EVAL_DIR / f"chat_{chat_id}"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # 1. Raw judge records — one JSON object per line (same format as eval_20j_N.jsonl)
+    records_path = out_dir / "judge_records.jsonl"
+    records_path.write_text(
+        "\n".join(json.dumps(r, cls=_NumpyEncoder) for r in records),
+        encoding="utf-8",
+    )
+
+    # 2. Full metrics report — all three eval modules merged
+    full_report = {
+        "chat_id": chat_id,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "author_map": author_map,
+        **pid_result,
+        **fid_result,
+        **grp_result,
+        "deliberation": {"note": "Phase 2 not yet implemented"},
+    }
+    report_path = out_dir / "metrics_report.json"
+    report_path.write_text(
+        json.dumps(full_report, indent=2, ensure_ascii=False, cls=_NumpyEncoder),
+        encoding="utf-8",
+    )
+    log.info("eval report saved → %s", out_dir)
+
+
+def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
+    """Background task: run 20 real judges on a DB chat then compute metrics via src/eval."""
+    _judge_jobs[chat_id] = {"status": "running", "progress": 2, "result": None, "error": None}
+    try:
+        conn = get_connection(db_path)
+
+        # Load agent messages only (author digest is set; user messages have Created_by)
+        rows = conn.execute(
+            """SELECT message, author FROM Chat_messages
+               WHERE ID_Chat = ? AND deleted_at IS NULL AND author IS NOT NULL
+               ORDER BY created_at ASC""",
+            (chat_id,),
+        ).fetchall()
+        messages = [{"author": r["author"], "message": r["message"]} for r in rows]
+
+        agents = conn.execute(
+            """SELECT a.ID, a.Name, a.Surname, a.Summary
+               FROM Chat_agent ca JOIN Agents a ON ca.id_agent = a.ID
+               WHERE ca.id_chat = ? AND a.deleted_at IS NULL""",
+            (chat_id,),
+        ).fetchall()
+        conn.close()
+
+        # author_map: {digest: "Claire Dunphy"} — actual persona display name from DB
+        author_map: dict[str, str] = {}
+        digest_to_agent_id: dict[str, int] = {}
+
+        for a in agents:
+            digest = _hmac.new(
+                author_secret.encode(),
+                f"{a['Name']}:{a['Surname']}".encode(),
+                hashlib.sha256,
+            ).hexdigest()
+            try:
+                summary = json.loads(a["Summary"] or "{}")
+            except Exception:
+                summary = {}
+            persona_name = summary.get("persona_name") or f"{a['Name']} {a['Surname']}"
+            author_map[digest] = persona_name
+            digest_to_agent_id[digest] = a["ID"]
+
+        if not messages:
+            _judge_jobs[chat_id] = {"status": "error", "progress": 0, "result": None, "error": "Chat has no agent messages"}
+            return
+
+        from ...rag.evaluation_test_20_judges import _load_all_profiles, run_evaluation_from_db_data
+        from ...eval import metrics_persona_id, metrics_fidelity, metrics_group
+
+        all_profiles = _load_all_profiles()
+        _judge_jobs[chat_id]["progress"] = 5
+
+        def _progress(done: int, total: int) -> None:
+            _judge_jobs[chat_id]["progress"] = 5 + int(done / total * 80)
+
+        chat = {"messages": messages}
+        # Force-include the actual chat personas so no participant is missing from RAG candidates
+        forced_names = list(author_map.values())
+        records = run_evaluation_from_db_data(chat, all_profiles, chat_id, _progress, forced_names=forced_names)
+        _judge_jobs[chat_id]["progress"] = 88
+
+        # Build transcript_meta for group metrics (speaker_stats keyed by persona name)
+        speaker_stats: dict[str, dict] = {}
+        for msg in messages:
+            author = msg.get("author")
+            if author and author in author_map:
+                pid = author_map[author]
+                speaker_stats.setdefault(pid, {"turns": 0})
+                speaker_stats[pid]["turns"] += 1
+        transcript_meta = {"speaker_stats": speaker_stats}
+
+        # author_map is {digest: "Claire Dunphy"} — build name_to_author directly
+        name_to_author = {name: digest for digest, name in author_map.items()}
+        chat_persona_names = sorted(name_to_author.keys())
+        acc = metrics_persona_id.compute_accuracy(records, name_to_author)
+        all_pairs = acc.pop("all_pairs")
+        cm_data = metrics_persona_id.confusion_matrix(all_pairs, chat_persona_names)
+        pid_result = {"persona_identification": {**acc, "confusion_matrix": cm_data}}
+        _judge_jobs[chat_id]["progress"] = 93
+        fid_result = metrics_fidelity.compute_fidelity(records, name_to_author)
+        _judge_jobs[chat_id]["progress"] = 97
+        grp_result = metrics_group.run(transcript_meta)
+
+        result = _build_ui_report(chat_id, pid_result, fid_result, grp_result, author_map, digest_to_agent_id, messages)
+
+        # ── Persist full report to data/eval/ ───────────────────────
+        _save_eval_report(chat_id, records, pid_result, fid_result, grp_result, author_map)
+
+        _judge_jobs[chat_id] = {"status": "done", "progress": 100, "result": result, "error": None}
+
+    except Exception as exc:
+        log.exception("judge pipeline failed for chat %d", chat_id)
+        _judge_jobs[chat_id] = {"status": "error", "progress": 0, "result": None, "error": str(exc)}
+
+
+@router.post("/admin/judge-chat/{chat_id}", status_code=202)
+def admin_start_judging(
+    chat_id: int,
+    background_tasks: BackgroundTasks,
+    db: sqlite3.Connection = Depends(get_db),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    chat = db.execute(
+        "SELECT ID FROM Group_chat WHERE ID = ? AND deleted_at IS NULL", (chat_id,)
+    ).fetchone()
+    if chat is None:
+        raise HTTPException(status_code=404, detail="Chat not found")
+
+    job = _judge_jobs.get(chat_id)
+    if job and job["status"] == "running":
+        raise HTTPException(status_code=409, detail="Judging already in progress")
+
+    background_tasks.add_task(_bg_run_judging, chat_id, settings.db_path, settings.author_secret)
+    return {"chat_id": chat_id, "status": "running"}
+
+
+@router.get("/admin/judge-chat/{chat_id}/stream")
+async def admin_judge_stream(chat_id: int):
+    async def generate():
+        idle = 0
+        while idle < 600:  # max 5 min
+            job = _judge_jobs.get(chat_id)
+            if job is None:
+                idle += 1
+                await asyncio.sleep(0.5)
+                continue
+
+            status = job["status"]
+            progress = job.get("progress", 0)
+
+            if status == "running":
+                idle = 0
+                yield f"data: {json.dumps({'type': 'progress', 'progress': progress})}\n\n"
+                await asyncio.sleep(0.5)
+            elif status == "done":
+                yield f"data: {json.dumps({'type': 'result', 'result': job['result']})}\n\n"
+                yield "event: done\ndata: {}\n\n"
+                break
+            elif status == "error":
+                yield f"data: {json.dumps({'type': 'error', 'error': job.get('error', 'Unknown error')})}\n\n"
+                yield "event: done\ndata: {}\n\n"
+                break
+            else:
+                idle += 1
+                await asyncio.sleep(0.5)
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+    )
 
 
 # ---------------------------------------------------------------------------
