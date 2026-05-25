@@ -47,7 +47,7 @@ function AgentCard({ persona, selected, onAdd, onSelect, addLabel = "Add to sess
             <Icons.MessageDots size={12} /> Start DM
           </button>
           <div className="spacer" />
-          <span className="t-meta mono" style={{ fontSize: 10 }}>{persona.id.toUpperCase()}</span>
+          <span className="t-meta mono" style={{ fontSize: 10 }}>{String(persona.id)}</span>
         </div>
       )}
     </div>
@@ -55,12 +55,13 @@ function AgentCard({ persona, selected, onAdd, onSelect, addLabel = "Add to sess
 }
 
 function LibraryScreen({ session, onAddToSession, onStartDM, onOpenAgent }) {
+  const { agents } = window.useAgents();
   const [q, setQ] = React.useState("");
   const [activeTag, setActiveTag] = React.useState(null);
   const [sourceFilter, setSourceFilter] = React.useState("all"); // all | fiction | real_world
   const [sort, setSort] = React.useState("name");
 
-  let list = window.PERSONAS.filter(p => {
+  let list = agents.filter(p => {
     if (q && !(p.name.toLowerCase().includes(q.toLowerCase()) || p.desc.toLowerCase().includes(q.toLowerCase()))) return false;
     if (activeTag && !p.tags.includes(activeTag)) return false;
     if (sourceFilter !== "all" && p.source_type !== sourceFilter) return false;
@@ -119,7 +120,7 @@ function LibraryScreen({ session, onAddToSession, onStartDM, onOpenAgent }) {
         <div className="lib-section-head">
           <div>
             <div className="t-eyebrow" style={{ marginBottom: 4 }}>
-              {list.length} {list.length === 1 ? "agent" : "agents"} · {window.PERSONAS.length} total in library
+              {list.length} {list.length === 1 ? "agent" : "agents"} · {agents.length} total in library
             </div>
             <h2 className="t-h2">Agent library</h2>
           </div>

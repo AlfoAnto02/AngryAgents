@@ -245,10 +245,12 @@ const chartLabelStyle = {
 };
 
 // ---- Top nav -----------------------------------------------------------
-// Role guard (Change 1):
-//   - Admins see the Dashboard nav plus a direct "New chat" entry into the
-//     chat-creation wizard. There is NO toggle to switch into the user view.
-//   - Regular users see Home / Agents / Chats / New (no admin entry points).
+// Role guard:
+//   - Admins see the Dashboard nav, direct "New chat" entries, AND a
+//     "Chats" link so they can open any chat and send messages as a
+//     participant (judge mode). There is NO toggle to switch into the
+//     user view — the admin role IS the super-user role.
+//   - Regular users see Home / Agents / Chats / New.
 function TopNav({ role, userRole, page, onNav, user, onLogout }) {
   const isAdmin = role === "admin";
   return (
@@ -300,6 +302,13 @@ function TopNav({ role, userRole, page, onNav, user, onLogout }) {
               onClick={() => onNav("admin")}
             >
               <Icons.Shield size={14} /> Dashboard
+            </button>
+            <button
+              className={`topnav-nav-item ${page === "chat" ? "active" : ""}`}
+              onClick={() => onNav("chat")}
+              title="Open any chat and send messages as a participant"
+            >
+              <Icons.MessageDots size={14} /> Chats
             </button>
             <button
               className={`topnav-nav-item ${page === "newgroup" ? "active" : ""}`}
