@@ -293,16 +293,19 @@ def scrape_by_ids(
 
         url = f"https://www.youtube.com/watch?v={vid_id}"
         ydl_opts = {"quiet": True, "extractor_args": {"youtube": {"lang": ["it"]}}}
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=False)
-
-        video = {
-            "video_id": info["id"],
-            "title": info.get("title") or "",
-            "upload_date": info.get("upload_date") or "",
-            "duration": info.get("duration"),
-            "url": url,
-        }
+        try:
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                info = ydl.extract_info(url, download=False)
+            video = {
+                "video_id": info["id"],
+                "title": info.get("title") or "",
+                "upload_date": info.get("upload_date") or "",
+                "duration": info.get("duration"),
+                "url": url,
+            }
+        except yt_dlp.utils.DownloadError as e:
+            print(f"  [warn] yt-dlp metadata failed for {vid_id}: {e}. Using minimal record.")
+            video = {"video_id": vid_id, "title": "", "upload_date": "", "duration": None, "url": url}
 
         transcript, speaker_count = get_transcript(vid_id, speaker_rank)
         results.append({**video, "transcript": transcript, "speaker_count": speaker_count})
