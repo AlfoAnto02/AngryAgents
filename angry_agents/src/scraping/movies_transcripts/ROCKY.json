@@ -1,10 +1,17 @@
 {
   "character": "ROCKY",
   "films": [
-    "Rocky"
+    "rocky-1976",
+    "rocky-ii-1979",
+    "rocky-iii-1982"
   ],
-  "lines_count": 332,
+  "lines_count": 630,
   "lines": [
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Written by Sylvester Stallone RING PRODUCTIONS, INC."
+    },
     {
       "scene": "INT. BLUE DOOR FIGHT CLUB - NIGHT",
       "speech_type": "direct",
@@ -13,7 +20,7 @@
     {
       "scene": "INT. BLUE DOOR FIGHT CLUB - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Just gimme the water. A FIGHT FAN rushes up to Rocky... He is sixty-five, with yellow teeth and wearing sunglasses."
+      "dialogue": "... Just gimme the water."
     },
     {
       "scene": "INT. BLUE DOOR FIGHT CLUB - NIGHT",
@@ -23,17 +30,17 @@
     {
       "scene": "INT. BLUE DOOR FIGHT CLUB - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...I just want the mouthpiece. The BELL RINGS... Rocky makes the sign of the cross. The fighters engage in battle. The other fighter grabs Rocky in a clinch and purposely butts him... The butt opens a bleeding cut on the corner of Rocky's eye. Rocky becomes furious over the foul and drives a flurry into the man's body... Rocky slams the man on the jaw and the fighter is out for the night. The fans throw rubbish into the ring. Rocky ignores it. The fans loudly go about collecting bets. The referee does not bother to even count the fighter out and drags him under the ropes where he is placed on a stretcher. Two new fighters enter the ring. Rocky slips on a tattered robe. Embroidered clumsily on the back is, \"The Italian Stallion.\""
+      "dialogue": "... I just want the mouthpiece."
     },
     {
       "scene": "INT. TROLLEY - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I'm a fighter."
+      "dialogue": "I'm a fighter. 4."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Look who's home. Rocky starts to boil a pan of water on his hot plate, then places an old 45 RPM record on a battered phonograph. The record is a tune, \"ALL IN THE GAME.\" ...As the CRACKLING MUSIC BEGINS, Rocky picks up his hairbrush. Using it like a microphone, he mimes to the record. He assumes the posture of a famous singer crooning to thousands of adoring fans... He then switches into a bullish fighting stance and throws several punches. The water boils. Rocky soaks his badly-swollen hands."
+      "dialogue": "...Look who's home. 5."
     },
     {
       "scene": "EXT. DOCKS - EARLY MORNING",
@@ -43,12 +50,12 @@
     {
       "scene": "EXT. DOCKS - EARLY MORNING",
       "speech_type": "direct",
-      "dialogue": "Yeah, here an' there. MAFIA #1 Mebbe we make sum money togather soon... Give ya boss my best. Rocky shrugs and moves away... He nears a heavy man working the crane. The heavy man looks frightened... He stops the crane and hurries into the ship's hole. Rocky dashes up the gangplank."
+      "dialogue": "Yeah, here an' there. MAFIA #1 Mebbe we make sum money togather soon... Give ya boss my best."
     },
     {
       "scene": "INT. SHIP - DAY",
       "speech_type": "direct",
-      "dialogue": "Mr. Gazzo wants the two hundred now!"
+      "dialogue": "Mr. Gazzo wants the two hundred now! 6."
     },
     {
       "scene": "INT. SHIP - DAY",
@@ -58,7 +65,7 @@
     {
       "scene": "INT. SHIP - DAY",
       "speech_type": "direct",
-      "dialogue": "Goin' fishin'? The man drops the hook."
+      "dialogue": "Goin' fishin'?"
     },
     {
       "scene": "INT. SHIP - DAY",
@@ -68,7 +75,7 @@
     {
       "scene": "INT. SHIP - DAY",
       "speech_type": "direct",
-      "dialogue": "Look, Bob, if ya wanna dance, ya gotta pay the band -- If ya borrow, ya gotta pay the man... Me, I ain't emotionally involved. Rocky's determined expression strikes home. The fat man quickly fumbles through his pockets and hands over a small wad of bills."
+      "dialogue": "Look, Bob, if ya wanna dance, ya gotta pay the band -- If ya borrow, ya gotta pay the man... Me, I ain't emotionally involved."
     },
     {
       "scene": "INT. SHIP - DAY",
@@ -88,7 +95,7 @@
     {
       "scene": "INT. SHIP - DAY",
       "speech_type": "direct",
-      "dialogue": "...The juice is climbin' every week."
+      "dialogue": "... The juice is climbin' every week."
     },
     {
       "scene": "INT. SHIP - DAY",
@@ -103,7 +110,7 @@
     {
       "scene": "INT. PET SHOP - DAY",
       "speech_type": "direct",
-      "dialogue": "...How's the turtle food this week?"
+      "dialogue": "... How's the turtle food this week?"
     },
     {
       "scene": "INT. PET SHOP - DAY",
@@ -113,17 +120,17 @@
     {
       "scene": "INT. PET SHOP - DAY",
       "speech_type": "direct",
-      "dialogue": "Ain't your fault -- Here's the problem. Adrian nods... Though charmed, she is slightly intimidated."
+      "dialogue": "Ain't your fault - Here's the problem."
     },
     {
       "scene": "INT. PET SHOP - DAY",
       "speech_type": "direct",
-      "dialogue": "The last food I got here had more moths than flies -- An' the moths get caught in my turtle's throat -- That makes them cough -- The OWNER, a squat woman of forty, steps out of the back and waves at Rocky."
+      "dialogue": "The last food I got here had more moths than flies -- An' the moths get caught in my turtle's throat -- That makes them cough --"
     },
     {
       "scene": "INT. PET SHOP - DAY",
       "speech_type": "direct",
-      "dialogue": "Yo, Gloria -- I was talkin' about the turtle food -- Like I was sayin', the moths get caught in the turtle's throat an' makes 'em cough... A little cough an' I gotta smack 'em on the shell -- An' whatta think they get? Adrian shrugs."
+      "dialogue": "Yo, Gloria -- I was talkin' about the turtle food -- Like I was sayin', the moths get caught in the turtle's throat an' makes 'em cough... A little cough an' I gotta smack 'em on the shell -- An' whatta think they get?"
     },
     {
       "scene": "INT. PET SHOP - DAY",
@@ -133,12 +140,12 @@
     {
       "scene": "INT. PET SHOP - DAY",
       "speech_type": "direct",
-      "dialogue": "Shell-shocked! Both the Owner and Adrian smile."
+      "dialogue": "Shell-shocked!"
     },
     {
       "scene": "INT. PET SHOP - DAY",
       "speech_type": "direct",
-      "dialogue": "Inventin' jokes ain't easy. Rocky steps over to a large cage at the rear of the shop... Inside is a huge dog."
+      "dialogue": "Inventin' jokes ain't easy. 10."
     },
     {
       "scene": "INT. PET SHOP - DAY",
@@ -148,7 +155,7 @@
     {
       "scene": "INT. PET SHOP - DAY",
       "speech_type": "direct",
-      "dialogue": "Yo, Butkus -- Dead. Play dead. The dog plays dead."
+      "dialogue": "Yo, Butkus -- Dead. Play dead."
     },
     {
       "scene": "INT. PET SHOP - DAY",
@@ -168,7 +175,7 @@
     {
       "scene": "INT. GAZZO'S CAR - MOVING - DAY",
       "speech_type": "direct",
-      "dialogue": "...Fine. Gazzo's Bodyguard looks at Rocky's bruised face in the mirror and smiles."
+      "dialogue": "... Fine."
     },
     {
       "scene": "INT. GAZZO'S CAR - MOVING - DAY",
@@ -178,32 +185,27 @@
     {
       "scene": "INT. GAZZO'S CAR - MOVING - DAY",
       "speech_type": "direct",
-      "dialogue": "I figure if I break the thumb this guy gets thrown outta his job and can't pay nothin' no more."
-    },
-    {
-      "scene": "EXT. GYM - DAY",
-      "speech_type": "direct",
-      "dialogue": "Nah, I was fightin' myself."
+      "dialogue": "I figure if I break the thumb this guy gets thrown outta his job and can't pay nothin no more."
     },
     {
       "scene": "EXT./INT. GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "The third -- Shoulda seen it. Rocky passes another FIGHTER punching the heavy bag. FIGHTER #2 Hey, Rock, touch my hand."
+      "dialogue": "The third -- Shoulda seen it. FIGHTER #2 Hey, Rock, touch my hand. 13."
     },
     {
       "scene": "EXT./INT. GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "How come? FIGHTER #2 C'mon, it's important. Rocky touches the Fighter's bare hand. FIGHTER #2 Can ya tell I just whacked-off? Rocky smiles and moves away."
+      "dialogue": "How come? FIGHTER #2 C'mon, it's important. FIGHTER #2 Can ya tell I just whacked-off?"
     },
     {
       "scene": "INT. DRESSING ROOM - DAY",
       "speech_type": "direct",
-      "dialogue": "...These ain't my clothes. He sees a picture of several black girls taped on the inside of the door."
+      "dialogue": "... These ain't my clothes."
     },
     {
       "scene": "INT. DRESSING ROOM - DAY",
       "speech_type": "direct",
-      "dialogue": "...These ain't my pictures. A short powerful man of thirty-five enters. His hair looks like it has been shaped with hedge clippers. His name is MIKE."
+      "dialogue": "... These ain't my pictures."
     },
     {
       "scene": "INT. DRESSING ROOM - DAY",
@@ -223,7 +225,7 @@
     {
       "scene": "INT. GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "Creed's great. Mike fakes a friendly punch at Rocky and hurries off to another chore..."
+      "dialogue": "Creed's great. 15."
     },
     {
       "scene": "INT. GYM - DAY",
@@ -248,7 +250,7 @@
     {
       "scene": "INT. GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "...Tomato?"
+      "dialogue": "... Tomato?"
     },
     {
       "scene": "INT. GYM - DAY",
@@ -303,32 +305,32 @@
     {
       "scene": "INT. GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "Yeah, sure. Shrugging, Rocky moves away."
+      "dialogue": "Yeah, sure. 18."
     },
     {
       "scene": "INT. GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "...I think I'm gonna take a steam -- Shoulda seen me fight -- Did good, y'know. Mickey leans over to Mike who approaches with a mop and pail."
+      "dialogue": "...I think I'm gonna take a steam -- Shoulda seen me fight -- Did good, y'know."
     },
     {
       "scene": "INT. PET SHOP - DUSK",
       "speech_type": "direct",
-      "dialogue": "...Wow -- cold! Good night to catch pneumonia. Adrian smiles slightly and moves behind the counter. Rocky fumbles idly among the pet toys."
+      "dialogue": "... Wow -- cold! Good night to catch pneumonia."
     },
     {
       "scene": "INT. PET SHOP - DUSK",
       "speech_type": "direct",
-      "dialogue": "Ah -- I came in here for somethin'... Oh, yeah, would ya like somebody to walk ya home?"
+      "dialogue": "Ah -- I came in here for somethin'... Oh, yeah, would ya like somebody to walk ya home? 19."
     },
     {
       "scene": "INT. PET SHOP - DUSK",
       "speech_type": "direct",
-      "dialogue": "Hey, how's my buddy doin'? (looks into Butkus' cage) -- Nice dog -- Well, I'll see ya later."
+      "dialogue": "Hey, how's my buddy doin'? -- Nice dog -- Well, I'll see ya later."
     },
     {
       "scene": "INT. ANDY'S BAR - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Catch pneumonia out there -- Seen Paulie? Andy casually nods towards the men's room. Rocky traverses the room and passes TWO DRUNKS leaning on the bar."
+      "dialogue": "Catch pneumonia out there -- Seen Paulie?"
     },
     {
       "scene": "INT. ANDY'S RESTROOM - NIGHT",
@@ -348,7 +350,12 @@
     {
       "scene": "INT. ANDY'S RESTROOM - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Every mornin', every night I pass by -- I smile. I say jokes. Nothin'. She looks at me."
+      "dialogue": "Every mornin', every night I pass by -- I smile."
+    },
+    {
+      "scene": "INT. ANDY'S RESTROOM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I say jokes. Nothin'. She looks at me."
     },
     {
       "scene": "INT. ANDY'S RESTROOM - NIGHT",
@@ -368,7 +375,7 @@
     {
       "scene": "INT. ANDY'S RESTROOM - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Ya always in a bad mood --"
+      "dialogue": "Ya always in a bad mood -- 21."
     },
     {
       "scene": "INT. ANDY'S RESTROOM - NIGHT",
@@ -388,12 +395,12 @@
     {
       "scene": "INT. ANDY'S BAR - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Sure."
+      "dialogue": "... Sure."
     },
     {
       "scene": "INT. ANDY'S BAR - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Absolutely... Paulie smiles and Rocky guides him to a booth... Rocky steps to the bar. Andy leans over to him."
+      "dialogue": "Absolutely... 22."
     },
     {
       "scene": "INT. ANDY'S BAR - NIGHT",
@@ -408,7 +415,7 @@
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...No wine -- Bad for ya' brain."
+      "dialogue": "... No wine -- Bad for ya' brain. 25."
     },
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
@@ -428,17 +435,17 @@
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...That's an old one."
+      "dialogue": "... That's an old one."
     },
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Is that Marie? -- Marie, ya brother know you're hangin' out so late? The girl, MARIE, assumes an indifferent attitude, attempting to impress her friends."
+      "dialogue": "Is that Marie? -- Marie, ya brother know you're hangin' out so late?"
     },
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "What'd you say?"
+      "dialogue": "What'd you say? 26."
     },
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
@@ -458,12 +465,12 @@
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Don't ya never come round this girl -- Go home. YOUNG MAN #2 This is our corner, man! You go, chump! Rocky moves forward and they scatter... They quickly move off."
+      "dialogue": "Don't ya never come round this girl -- Go home. YOUNG MAN #2 This is our corner, man! You go, chump!"
     },
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Pull heat on me? -- I'll dent ya face! Rocky leads the girl away."
+      "dialogue": "Pull heat on me? -- I'll dent ya face! 27."
     },
     {
       "scene": "EXT. STREET - NIGHT",
@@ -493,7 +500,12 @@
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "'Cause that's the way guys are -- They laugh when ya talk dirty. They think ya cute for a while, but then ya getta reputation an' watch out. Nobody's ever gonna take ya serious. Ya get no respect... I gotta use a bad word -- Whore. You'll end up maybe becomin' a whore."
+      "dialogue": "'Cause that's the way guys are -- They laugh when ya talk dirty. They think ya cute for a while, but then ya getta reputation an' watch out."
+    },
+    {
+      "scene": "EXT. STREET - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Nobody's ever gonna take ya serious. Ya get no respect... I gotta use a bad word -- Whore. You'll end up maybe becomin' a whore."
     },
     {
       "scene": "EXT. STREET - NIGHT",
@@ -503,12 +515,12 @@
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Yo, a bad reputation -- Twenty years from now people will say 'D'you remember Marie?' 'No, who was she?' 'She was that little whore who hung out at the Atomic Hoagie Shop.' 'Oh, now I remember!'... See, they don't remember you, they remember the rep. Rocky and Marie exit the dark school yard... Standing in the shadows of the building are three young muggers. The light from their cigarettes flares red in their faces. The muggers pace Rocky across the street and follow them down the block... Rocky sees them and stops and faces the three. The muggers pause and study Rocky from a distance of twenty yards. Rocky gives a loud boxer's snort, wipes his nose with the side of his thumb and rolls his shoulders... The muggers are intimidated and slowly peel off the meander away. Rocky turns to Marie who has been standing behind him."
+      "dialogue": "Yo, a bad reputation -- Twenty years from now people will say 'D'you remember Marie?' 'No, who was she?' 'She was that little whore who hung out at the Atomic Hoagie Shop.' 'Oh, now I remember!'... See, they don't remember you, they remember the rep."
     },
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...That's your house, ain't it? Marie nods."
+      "dialogue": "... That's your house, ain't it? 29."
     },
     {
       "scene": "EXT. STREET - NIGHT",
@@ -523,17 +535,17 @@
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Ya, somethin' like that. They exchange smiles and Marie moves away. Rocky has made an impact on her life."
+      "dialogue": "Ya, somethin' like that."
     },
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "'Night, Marie. She takes a few more steps and pauses again."
+      "dialogue": "'Night, Marie."
     },
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Yeah, who're you to give advice, Creepo."
+      "dialogue": "... Yeah, who're you to give advice, Creepo."
     },
     {
       "scene": "EXT. STREET - DAY",
@@ -563,12 +575,12 @@
     {
       "scene": "EXT. STREET - DAY",
       "speech_type": "direct",
-      "dialogue": "Does that bum have to say that? The Bodyguard reddens... Gazzo motions to his Bodyguard to relax."
+      "dialogue": "Does that bum have to say that?"
     },
     {
       "scene": "EXT. STREET - DAY",
       "speech_type": "direct",
-      "dialogue": "He's always in a bad mood. Count ya blessin's. Ya a healthy person -- ya legs work -- ya hands work -- The Bodyguard has been looking at Rocky with murderous eyes."
+      "dialogue": "He's always in a bad mood. Count ya blessin's. 34. Ya a healthy person -- ya legs work -- ya hands work --"
     },
     {
       "scene": "EXT. STREET - DAY",
@@ -578,7 +590,7 @@
     {
       "scene": "EXT. STREET - DAY",
       "speech_type": "direct",
-      "dialogue": "Move your shoulders down. Mr. Gazzo is amused. He steps out of the car, followed by Rocky."
+      "dialogue": "Move your shoulders down."
     },
     {
       "scene": "EXT. STREET - DAY",
@@ -588,7 +600,7 @@
     {
       "scene": "EXT. STREET - DAY",
       "speech_type": "direct",
-      "dialogue": "Thanks, Mr. Gazzo. Rocky enters his apartment and Gazzo drives off."
+      "dialogue": "Thanks, Mr. Gazzo."
     },
     {
       "scene": "EXT. STREET - DUSK",
@@ -623,7 +635,7 @@
     {
       "scene": "EXT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Ya sister knows I'm comin'?"
+      "dialogue": "Ya sister knows I'm comin'? 38."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
@@ -633,22 +645,22 @@
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Yo, Adrian, it's me, Rocky... Ah, ah -- Ah, it's kinda hard for me to think of somethin' to say, y'know -- 'Cause I never talked to a door before, I mean whatta ya say to a door. Rocky turns away and begins to walk off."
+      "dialogue": "... Yo, Adrian, it's me, Rocky... Ah, ah -- Ah, it's kinda hard for me to think of somethin' to say, y'know -- 'Cause I never talked to a door before, I mean whatta ya say to a door."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Maybe I better forget it."
+      "dialogue": "... Maybe I better forget it."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Ah, Adrian, I know ya ain't too happy at this moment, but would ya do me a favor -- I ain't got nobody to spend Thanksgivin' with -- How 'bout you an' me goin' out -- Get somethin' to eat, maybe laugh a little, who knows... Would ya like, I dunno, go out together? Adrian opens the door... She already has her winter coat on."
+      "dialogue": "Ah, Adrian, I know ya ain't too happy at this moment, but would ya do me a favor -- I ain't got nobody to spend Thanksgivin' with -- How 'bout you an' me goin' out -- Get somethin' to eat, maybe laugh a little, who knows... Would ya like, I dunno, go out together?"
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "We'll have a good time. Paulie opens the front door and gives Rocky an encouraging smile..."
+      "dialogue": "We'll have a good time. 41."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
@@ -673,7 +685,7 @@
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I think mebbe we're early or somethin' -- From across the rink a CLEANING MAN yells at them."
+      "dialogue": "I think mebbe we're early or somethin' --"
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
@@ -698,12 +710,12 @@
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Ten minutes."
+      "dialogue": "... Ten minutes."
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Yeah, give 'er the Blades."
+      "dialogue": "... Yeah, give 'er the Blades."
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
@@ -738,12 +750,12 @@
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "This guy is beautiful -- get the Cokes. Adrian does a slight turn and Rocky has to speed up and nearly falls."
+      "dialogue": "This guy is beautiful -- get the Cokes."
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "See, I ain't graceful, y'know -- I don't move good -- Stink as a dancer too -- But I can really swat, I hit hard, real hard, but I'm a southpaw an' nobody wants to fight a southpaw! -- Havin' a good time? Adrian nods and is very nervous... The Cleaner moves carefully across the ice."
+      "dialogue": "See, I ain't graceful, y'know -- I don't move good -- Stink as a dancer too -- But I"
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
@@ -753,7 +765,7 @@
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Yeah -- My ol' man who was never the sharpest told me -- I weren't born with much brain so I better use my body. For the first time, Adrian laughs."
+      "dialogue": "Yeah -- My ol' man who was never the sharpest told me -- I weren't born with much brain so I better use my body."
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
@@ -763,17 +775,17 @@
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I must be goin' deaf 'cause I thought ya said, 'ten cents.' Rocky hands him a dime."
+      "dialogue": "I must be goin' deaf 'cause I thought ya said, 'ten cents.'"
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Charge it. Rocky and Adrian start to leave. Rocky pauses at the door and fishes into his pocket and hands over eleven dollars."
+      "dialogue": "Charge it."
     },
     {
       "scene": "INT. ICE SKATING RINK - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Had ya goin', didn't I, huh? He grins and leaves."
+      "dialogue": "Had ya goin', didn't I, huh?"
     },
     {
       "scene": "EXT. STREET - NIGHT",
@@ -783,7 +795,7 @@
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I would say you're very shy by nature."
+      "dialogue": "I would say you're very shy bu nature."
     },
     {
       "scene": "EXT. STREET - NIGHT",
@@ -793,7 +805,7 @@
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Then why did I bother bringin' it up? 'Cause I'm dumb, that's why... Y'know, I think we make a real sharp coupla coconuts -- I'm dumb an' you're shy."
+      "dialogue": "Then why did I bother bringin' it up? 'Cause I'm dumb, that's why... Y'know, I think we make a real sharp coupla coconuts -- I'm dumb an' you're shy. 46."
     },
     {
       "scene": "EXT. STREET - NIGHT",
@@ -803,22 +815,22 @@
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...I'm at least half a bum. Yeah, fightin' is a crazy racket. The roughest part is the mornin' after."
+      "dialogue": "... I'm at least half a bum. Yeah, fightin' is a crazy racket. The roughest part is the mornin' after."
     },
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "After a rough fight, ya' nothin' but a large wound. Sometimes I feel like callin' a taxi to drive me from my bed to the bathroom... Ya' eyes hurt, ya' ears hurt, ya' hair even hurts... But the thing I'm proud of is I been in over sixty fights an' never had a busted nose -- Bent an' twisted an' bitten but never broke... That's rare."
+      "dialogue": "After a rough fight, ya' nothin' but a large wound. Sometimes I feel like callin' a taxi to drive me from my bed to the bathroom... Ya' eyes hurt, ya' ears hurt, ya' hair even hurts... But the thing I'm proud of is I been in over sixty fights an' never had a busted nose - - Bent an' twisted an' bitten but never broke... That's rare."
     },
     {
       "scene": "EXT. STREET - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Guess."
+      "dialogue": "... Guess."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Would ya like a glass of water?"
+      "dialogue": "Would ya like a glass of water? 47."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -828,7 +840,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Oh, yeah, I bought the whole kit -- Yeah, ya sold me the turtles, the bowl, an' the mountain -- I had to get rid of the mountain 'cause they kept fallin' off."
+      "dialogue": "... Oh, yeah, I bought the whole kit -- Yeah, ya sold me the turtles, the bowl, an' the mountain -- I had to get rid of the mountain 'cause they kept fallin' off."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -848,17 +860,17 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Why?"
+      "dialogue": "Why? 48."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I'll call your brother. Rocky flings open the window and bellows like a foghorn."
+      "dialogue": "I'll call your brother."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "!!Yo, Paulie -- Ya sister's with me! I'll call ya later. Rocky closes the window and faces the woman... She is not smiling. She looks frightened."
+      "dialogue": "!!Yo, Paulie -- Ya sister's with me! I'll call ya later."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -888,7 +900,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "They're all the same."
+      "dialogue": "They're all the same. 49."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -898,7 +910,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "But I'm willin' to make the best of this uncomfortable situation. Adrian moves to the door... Rocky intercepts her."
+      "dialogue": "But I'm willin' to make the best of this uncomfortable situation."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -908,7 +920,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "The glasses... Please. Rocky removes her glasses and looks deeply into her eyes."
+      "dialogue": "The glasses... Please."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -918,7 +930,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Could ya take off that hat. After a moment, Adrian removes the hat... She is becoming rather pretty."
+      "dialogue": "Could ya take off that hat."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -928,17 +940,17 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I wanna kiss ya -- Ya don't have to kiss me back if ya don't feel like it. Rocky softly kisses the woman... Her arms hang limp. He puts more passion into the kiss and she starts to respond. Her hand glides like smoke up his back. She embraces his neck. The dam of passion erupts. She gives herself freely for the first time in thirty years."
+      "dialogue": "I wanna kiss ya -- Ya don't have to kiss me back if ya don't feel like it."
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "'Bout what? Mickey Goldmill steps out of his office..."
+      "dialogue": "'Bout what?"
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "Message -- What message? Mickey pulls out a card from his breast pocket... He hands it to Rocky."
+      "dialogue": "Message -- What message? 51."
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
@@ -958,12 +970,12 @@
     {
       "scene": "INT. JERGENS' PRODUCTIONS - DAY",
       "speech_type": "direct",
-      "dialogue": "Balboa, Rocky Balboa. The Secretary rises and enters Jergens' office... Rocky eyes the multitude of sporting pictures hanging on all four walls. The Secretary returns."
+      "dialogue": "Balboa, Rocky Balboa."
     },
     {
       "scene": "INT. JERGENS' OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "...Thanks."
+      "dialogue": "... Thanks."
     },
     {
       "scene": "INT. JERGENS' OFFICE - DAY",
@@ -993,12 +1005,12 @@
     {
       "scene": "INT. JERGENS' OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "I wouldn't take no cheap shots. I'd be a good sparrin' partner. Jergens seems very amused. He lights a cigar."
+      "dialogue": "I wouldn't take no cheap shots. I'd be a good sparrin' partner."
     },
     {
       "scene": "INT. JERGENS' OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "...Like I said, I'd make a boss sparrin' mate."
+      "dialogue": "... Like I said, I'd make a boss sparrin' mate."
     },
     {
       "scene": "INT. JERGENS' OFFICE - DAY",
@@ -1008,7 +1020,7 @@
     {
       "scene": "INT. JERGENS' OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "...Ah... Absolutely. The SCENE FADES and becomes a black and white television."
+      "dialogue": "... Ah... Absolutely. 54."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
@@ -1018,7 +1030,7 @@
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Creed's great, ain't he... I'll do what I can."
+      "dialogue": "Creed's great, ain't he... I'll do what I can. REPORTER #1 Where did you get the name, 'Italian Stallion?'"
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
@@ -1028,22 +1040,22 @@
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Four hundred -- But that was a long time ago. REPORTER #2 And now your payday will be one hundred and fifty thousand dollars. Any comment?"
+      "dialogue": "Four hundred -- But that was a long time ago. 56. REPORTER #2 And now your payday will be one hundred and fifty thousand dollars. Any comment?"
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Listen, I wanna say hi to my girlfriend -- Yo, Adrian! Adrian blushes and laughs."
+      "dialogue": "Listen, I wanna say hi to my girlfriend -- Yo, Adrian!"
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Sure I did. You heard. They continue to watch the remainder of the interview... The head COMMENTATOR is looking directly into the camera."
+      "dialogue": "Sure I did. You heard."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Why?"
+      "dialogue": "Why? 57."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
@@ -1073,7 +1085,7 @@
     {
       "scene": "INT. HALLWAY OF PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "See ya tomorrow. Rocky moves down the stairway and continues to do so as he converses with Adrian who remains upstairs. His VOICE ECHOES up the stairwell."
+      "dialogue": "See ya tomorrow."
     },
     {
       "scene": "INT. HALLWAY OF PAULIE'S APARTMENT - NIGHT",
@@ -1098,7 +1110,7 @@
     {
       "scene": "INT. HALLWAY OF PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "It did. As Rocky completes the last word, he exits the building and slams the door which RESOUNDS throughout the apartment house."
+      "dialogue": "It did. 59."
     },
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
@@ -1113,17 +1125,17 @@
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "A few bucks. Gazzo takes out a wad and peels off several bills."
+      "dialogue": "A few bucks."
     },
     {
       "scene": "EXT. ATOMIC HOAGIE SHOP - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Do I have to pay juice? Gazzo looks at the Bodyguard and shakes his head as if to imply, \"Why's this guy asking such a foolish question?\" Gazzo and the bodyguard step to the white Caddy parked at the curb. They enter the cab. Rocky watches."
+      "dialogue": "Do I have to pay juice?"
     },
     {
       "scene": "INT. CAR - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Gonna try."
+      "dialogue": "Gonna try. 60."
     },
     {
       "scene": "INT. CAR - NIGHT",
@@ -1148,12 +1160,12 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Look who's home! Rocky notices two telegrams laying inside the threshold. He approaches them with a sense of awe. He opens and reads one. Settling on the bed, he reads the other. A KNOCK is HEARD. Rocky opens the door. Mickey Goldmill, the gym owner, stands framed in the doorway."
+      "dialogue": "Look who's home!"
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Hey, Mickey -- Whatta ya doin' here? Here, sit down. Rocky tosses soiled clothing off a mangled armchair."
+      "dialogue": "Hey, Mickey -- Whatta ya doin' here? Here, sit down."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1163,7 +1175,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I'm usta seein' ya at the gym, but seein' ya here, in my house, it's kinda outta joint. By the manner in which Goldmill listens, it is obvious something important is preying on his mind. Rocky is slightly uncomfortable, almost embarrassed at having outsiders see how he lives."
+      "dialogue": "I'm usta seein' ya at the gym, but seein' ya here, in my house, it's kinda outta joint."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1178,7 +1190,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Freak luck is a strange thing. Mickey does not hear. His attention is drawn to the turtles."
+      "dialogue": "Freak luck is a strange thing."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1198,12 +1210,12 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...What?"
+      "dialogue": "... What?"
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Ya got a good mind for dates. Mickey deafly continues, becoming more engrossed every second."
+      "dialogue": "Ya got a good mind for dates. 64."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1218,17 +1230,17 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Heart, but I ain't got no Tocker. Rocky shifts against the wall and lowers himself into a crouch."
+      "dialogue": "Heart, but I ain't got no Tocker."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Ya gave Dipper my locker."
+      "dialogue": "... Ya gave Dipper my locker."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "The fight's set -- I don't need a manager."
+      "dialogue": "The fight's set -- I don't need a manager. 66."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1238,7 +1250,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Whatever I got, I always got on the slide. This shot's no different. I didn't earn nothin' -- I got it on the slide... I needed ya help about ten years ago when I was startin', but ya never helped me none. Mickey drops the ashtray and kneels to pick it up... He remains on one knee."
+      "dialogue": "Whatever I got, I always got on the slide. This shot's no different. I didn't earn nothin' -- I got it on the slide... I needed ya help about ten years ago when I was startin', but ya never helped me none."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1248,12 +1260,12 @@
     {
       "scene": "INT. SHIPPING OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "...Tight."
+      "dialogue": "... Tight."
     },
     {
       "scene": "INT. SHIPPING OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "...No. Rocky notices TWO PUERTO RICANS lounging alongside the shipping office."
+      "dialogue": "... No."
     },
     {
       "scene": "INT. FREEZER - DAY",
@@ -1263,7 +1275,7 @@
     {
       "scene": "INT. FREEZER - DAY",
       "speech_type": "direct",
-      "dialogue": "Keep this job, ya eat better. Paulie opens a jackknife and idly jabs the hanging meat. He swills whiskey from a pint bottle."
+      "dialogue": "Keep this job, ya eat better."
     },
     {
       "scene": "INT. FREEZER - DAY",
@@ -1278,7 +1290,7 @@
     {
       "scene": "INT. FREEZER - DAY",
       "speech_type": "direct",
-      "dialogue": "Sure I like her."
+      "dialogue": "Sure I like her. 70."
     },
     {
       "scene": "INT. FREEZER - DAY",
@@ -1288,7 +1300,7 @@
     {
       "scene": "INT. FREEZER - DAY",
       "speech_type": "direct",
-      "dialogue": "(shrugs and takes meat) She got gaps. I got gaps -- together we fill the gaps."
+      "dialogue": "She got gaps. I got gaps -- together we fill the gaps."
     },
     {
       "scene": "INT. FREEZER - DAY",
@@ -1298,32 +1310,32 @@
     {
       "scene": "INT. FREEZER - DAY",
       "speech_type": "direct",
-      "dialogue": "That's why I can't put ya together with Gazzo, cause ya talk too much -- big mouth. Paulie reddens. He steps forward and slams his fists in a hanging beef. The punching of the beef is a muted challenge and Rocky responds. Rocky walks up to a beef and slams his fist into the ribs. The grotesque object swings in a wide arc like a hanging corpse. Rocky moves to the next one and hooks. Rocky's face reveals a never before seen concentration, as though he were locked in total battle."
+      "dialogue": "That's why I can't put ya together with Gazzo, cause ya talk too much - - big mouth."
     },
     {
       "scene": "INT. FREEZER - DAY",
       "speech_type": "direct",
-      "dialogue": "Don't talk dirty 'bout ya sister. Rocky takes the package and runs out. Paulie's bleary eyes reveal a fearful respect and slight resentment."
+      "dialogue": "Don't talk dirty 'bout ya sister."
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "I never had good footwork. Mike completes the task."
+      "dialogue": "I never had good footwork."
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "...Sure."
+      "dialogue": "... Sure."
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "Should I do this? Mickey nods and Rocky faces the glaring lights."
+      "dialogue": "Should I do this?"
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "...People talk to me more."
+      "dialogue": "... People talk to me more."
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
@@ -1333,7 +1345,7 @@
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "Maybe -- He faces Mickey. Mickey whispers in his ear."
+      "dialogue": "Maybe --"
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
@@ -1343,7 +1355,7 @@
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
       "speech_type": "direct",
-      "dialogue": "Derogatory? Yeah, he's great. Apollo Creed and his entourage enter the gym."
+      "dialogue": "Derogatory? Yeah, he's great."
     },
     {
       "scene": "INT. GOLDMILL'S GYM - DAY",
@@ -1353,7 +1365,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "They either say, 'Kill the nigger' or 'Hope you die, Honky.' -- What ya got in the bag? Adrian steps to the window. She pulls a pair of short but lovely curtains from a shopping bag... The colorful curtains glare in the dark room."
+      "dialogue": "They either say, 'Kill the nigger' or 'Hope you die, Honky.' -- What ya got in the bag?"
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1363,7 +1375,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "No... Sharp -- You look great. Adrian smiles and pulls out a small Christmas wreath... Rocky smiles. His eyes show what he feels for this woman."
+      "dialogue": "No... Sharp -- You look great. 79."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1378,12 +1390,12 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Yeah... But I think weak legs ain't bad sometimes, y'know. Rocky approaches in a seductive manner. Adrian uncharacteristically removes her sweater. Underneath is a T- shirt that reads \"Win, Rocky, Win.\""
+      "dialogue": "Yeah... But I think weak legs ain't bad sometimes, y'know."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Ya right -- Mebbe we best just hold hands -- the shirt made me feel guilty, y'know. SCENE FADES:"
+      "dialogue": "Ya right -- Mebbe we best just hold hands -- the shirt made me feel guilty, y'know."
     },
     {
       "scene": "EXT. EASTERN PACKING COMPANY - DAWN",
@@ -1418,17 +1430,17 @@
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...What's to say? I dunno what he wants from me -- Filled with uncontrollable anger, Paulie smashes into the room."
+      "dialogue": "... What's to say? I dunno what he wants from me --"
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...It's cold outside, Paulie. Paulie goes to the living room closet and removes a baseball bat... Rocky and Adrian quickly follow."
+      "dialogue": "... It's cold outside, Paulie."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Hey -- Paulie cocks the bat back and tenses... Rocky remains still."
+      "dialogue": "Hey --"
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
@@ -1438,12 +1450,12 @@
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "What break? Huh? What break! Who am I to give breaks! I'm a fighter, you haul meat. You do what you do an' I do what I do best -- that's it -- that's life, man! Paulie looks ashamed... Rocky walks, then returns."
+      "dialogue": "What break? Huh? What break! Who am I to give breaks! I'm a fighter, you haul meat. You do what you do an' I do what I do best -- that's it -- that's life, man!"
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...An' what ya said to my girlfriend ain't right -- Do it again, I'll kill ya. Rocky goes into the bedroom... Adrian has buried her face in a pillow... She is rocking slightly. Rocky cradles her and kisses her cheek."
+      "dialogue": "... An' what ya said to my girlfriend ain't right -- Do it again, I'll kill ya."
     },
     {
       "scene": "INT. PAULIE'S APARTMENT - NIGHT",
@@ -1458,7 +1470,7 @@
     {
       "scene": "INT. MAYOR'S OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "...I'll try. The mayor presses a button and a photographer enters."
+      "dialogue": "... I'll try."
     },
     {
       "scene": "INT. MAYOR'S OFFICE - DAY",
@@ -1468,32 +1480,32 @@
     {
       "scene": "INT. MAYOR'S OFFICE - DAY",
       "speech_type": "direct",
-      "dialogue": "...Run for mayor. The mayor is shocked at first but then breaks into a big, friendly laugh, and Rocky exits."
+      "dialogue": "... Run for mayor."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Yeah... She flips through Sports Illustrated, The American Sportsman, Ring Magazine, World Boxing, True, and a multitude of other clippings. The TELEPHONE RINGS... Rocky rises and walks to the new white object hanging on the wall."
+      "dialogue": "Yeah..."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "My first call... Hello? Yeah, speakin' -- Who is this? Bruce? Bruce who? -- Yo, Bruce! How ya been? I ain't seen ya for nine or eight years -- Yeah, things is great, how's things with you upstate -- Ya sellin' real estate, hey, that's a good job... Yeah, I gotta advance, but I bought ringside seats for the guys at the gym. I get the hundred an' fifty grand after the fight... Adrian overhears the statement."
+      "dialogue": "My first call... Hello? Yeah, speakin' -- Who is this? Bruce? Bruce who? -- Yo, Bruce! How ya been? I ain't seen ya for nine or eight years -- Yeah, things is great, how's things with you upstate -- Ya sellin' real estate, hey, that's a good job... Yeah, I gotta advance, but I bought ringside seats for the guys at the gym. I get the hundred an' fifty grand after the fight..."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Yeah, I know it's a lotta money -- Condominiums? Nobody uses them anybody. Listen, I think a pet shop is a good investment, y'know -- I don't care 'bout long hours -- there's no depreciation -- that don't matter none to me -- Yeah, I like animals. Why don't ya give me ya number an' I'll call ya back? Lemme getta pencil -- Rocky makes no motion to get a pencil."
+      "dialogue": "... Yeah, I know it's a lotta money -- Condominiums? Nobody uses them anybody. Listen, I think a pet shop is a good investment, y'know -- I don't care 'bout long hours -- there's no depreciation -- that don't matter none to me -- Yeah, I like animals. Why don't ya give me ya number an' I'll call ya back? Lemme getta pencil --"
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Okay, what is it -- four-twelve 659- 2424. Yeah, yeah, thanks for callin' -- Sure I'll get back to ya, Bruce -- see ya. Rocky hangs up."
+      "dialogue": "Okay, what is it -- four- twelve 659-2424. Yeah, yeah, thanks for callin' -- Sure I'll get back to ya, Bruce -- see ya. 92."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...What?"
+      "dialogue": "... What?"
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
@@ -1503,27 +1515,27 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "I gotta go out for a while. Rocky grabs his coat and moves to the front door."
+      "dialogue": "I gotta go out for a while."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Come."
+      "dialogue": "... Come."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
       "speech_type": "direct",
-      "dialogue": "...Can't do it."
+      "dialogue": "... Can't do it."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
       "speech_type": "direct",
-      "dialogue": "...I can't beat him."
+      "dialogue": "... I can't beat him."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
       "speech_type": "direct",
-      "dialogue": "Yeah, I can't beat him. Adrian touches his face."
+      "dialogue": "Yeah, I can't beat him."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
@@ -1533,7 +1545,7 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
       "speech_type": "direct",
-      "dialogue": "...I dunno."
+      "dialogue": "... I dunno."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
@@ -1543,22 +1555,22 @@
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
       "speech_type": "direct",
-      "dialogue": "C'mon, it's true -- But that don't bother me -- I just wanna prove somethin' -- I ain't no bum... It don't matter if I lose... Don't matter if he opens my head... The only thing I wanna do is go the distance -- That's all. Nobody's ever gone fifteen rounds with Creed. If I go them fifteen rounds, an' that bell rings an' I'm still standin', I'm gonna know then I weren't just another bum from the neighborhood... Adrian touches Rocky's face... The fighter gently lowers himself beside his woman."
+      "dialogue": "C'mon, it's true -- But that don't bother me -- I just wanna prove somethin' -- I ain't no bum... It don't matter if I lose... Don't matter if he opens my head... The only thing I wanna do is go the distance -- That's all. Nobody's ever gone fifteen rounds with Creed. If I go them fifteen rounds, an' that bell rings an' I'm still standin', I'm gonna know then I weren't just another bum from the neighborhood... 95."
     },
     {
       "scene": "INT. ROCKY'S APARTMENT - DAY",
       "speech_type": "direct",
-      "dialogue": "...No foolin' around."
+      "dialogue": "... No foolin' around."
     },
     {
       "scene": "INT. HALLWAY - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Yo, Mick, can I have my robe? Rocky puts on the robe... Embroidered across the back in flaming letters is: \"THE ITALIAN STALLION\" *Pennzoil* Mike helps him into the robe... Mickey is not amused."
+      "dialogue": "Yo, Mick, can I have my rob?"
     },
     {
       "scene": "INT. HALLWAY - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...I'm doin' it for a friend."
+      "dialogue": "... I'm doin' it for a friend."
     },
     {
       "scene": "INT. HALLWAY - NIGHT",
@@ -1573,7 +1585,7 @@
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Christ, Jack Dempsey."
+      "dialogue": "Christ, Jack Dempsey. 100."
     },
     {
       "scene": "INT. ARENA - NIGHT",
@@ -1583,7 +1595,7 @@
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Thanks, Mick -- I'm gonna try."
+      "dialogue": "Thanks, Mick -- I'm gonna try. COMMENTATOR #1 The Champ stings the slower challenger with jabs at will -- Balboa blocks eighty percent of the blows with his face -- Creed doesn't look the best he's ever been but is moving smoothly -- Creed snaps out a triple combination that backs Balboa into a corner -- oh, a solid hook by Creed, a master of fist-men. COMMENTATOR #2 The Champion is smiling and toying with the man -- trying to give the fans their money's worth and make a show of it with the badly out- classes challenger -- Another left to right combination. I feel sorry for --"
     },
     {
       "scene": "INT. ARENA - NIGHT",
@@ -1603,7 +1615,7 @@
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...The guy's great."
+      "dialogue": "... The guy's great."
     },
     {
       "scene": "INT. ARENA - NIGHT",
@@ -1628,7 +1640,7 @@
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Open my eyes -- Please, open my eyes! Mickey nods to Benny. He secretly places a small ring knife between his index and middle finger. In one smooth movement he drags the razor over the blood welts and quickly covers the draining wounds with gauze... It is done so quickly no one is ever aware of the operation."
+      "dialogue": "Open my eyes -- Please, open my eyes!"
     },
     {
       "scene": "INT. ARENA - NIGHT",
@@ -1638,32 +1650,1512 @@
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Fine -- Go away, I'm gonna make it -- I'm gonna make it! Everyone is distraught over Rocky's dangerous condition."
+      "dialogue": "Fine -- Go away, I'm gonna make it - - I'm gonna make it!"
     },
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "(impassioned and quietly) I'll kill ya all... Don't stop nothin' --"
+      "dialogue": "I'll kill ya all... Don't stop nothin' -- COMMENTATOR #1 The fight has slowed down to a near stand-still -- Creed circles to Rocky's right... The spectrum is nearly silent -- Neither fighter has made a motion to throw... I've never seen anything like it in the last round of a championship fight... Apollo spits blood on the canvas. It appears he is protecting his right side. His ribs were probably injured at the end of round fourteen. COMMENTATOR #1 It's confirmed, unofficially, Creed's ribs may be broken -- Apollo fakes a left and throws a big tired right -- Balboa's"
     },
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Gimme ya best!!!! Mickey looks at the clock... TEN SECONDS TO GO."
+      "dialogue": "Gimme ya best!!!!"
     },
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Gimme ya best!!! Blood sprays over the ropes and onto the ringside photographers... They are horrified and wipe away the blood. The fighters stand toe to toe and drag every remaining bit of strength from their souls and beat each other without mercy. They look hypnotized and have entered a dimension far beyond blood and pain."
+      "dialogue": "Gimme ya best!!! 114."
     },
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "...Don't want one. Mickey comes over and separates them and leads him back to his corner... Mickey embraces him."
+      "dialogue": "... Don't want one."
     },
     {
       "scene": "INT. ARENA - NIGHT",
       "speech_type": "direct",
-      "dialogue": "Yo, can I have my locker back? Mickey and Rocky look at each other and grin. Mickey hugs Rocky like a son. Mickey raises Rocky's hand again. Rocky turns away from Mickey and pats Benny the cut-man's shoulder... Benny smiles wearily. Rocky stares across the ring at Apollo Creed, who stands victorious, but his face and body are badly distorted... The two men lock stares that reflect admiration."
+      "dialogue": "Yo, can I have my locker back? 116. 117."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I can't see, ya gotta open my e.ye."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "•.. Open my eye, Mick. 2"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gimme ya best!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gimme l! best!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Don't want one! COMMENTATOR , Rocky! Rocky! Will there be a rematch?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Adrian! ! ! 9"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Adrian! Get outta my face! I hadda 'nough things in my face tonight!!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ad r a n Ad r a n i ! ! ! i !"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Where's ya hat? CONTINUED ADRIAN Iloveyou! ANNOUNCER •.. Winner a~d still heavyweight champ, Apollo Cre~d!"
+    },
+    {
+      "scene": "EXT. HOSPITAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": ". . . Thanks •"
+    },
+    {
+      "scene": "EXT. HOSPITAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "How bad's my nose? Bad as Mickey's? ---·-· ·---· ······---·------.. - -··- It's not that ~orrible. A IN ROCKY S FACE. CKEY YEl.LS AT"
+    },
+    {
+      "scene": "EXT. HOSPITAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That I should have stayed in school. GOES"
+    },
+    {
+      "scene": "EXT. HOSPITAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Maybe ya better go home -- I think l 1m gonna be busy healin' ·for a while."
+    },
+    {
+      "scene": "EXT. HOSPITAL - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, mebbe ya should.ride home with Paulie an' sleep. CONTINUED 10 16 ADRIAN -You want me· to? ROCKY Maybe ya·better. ADRIAN •.• I love you. PAULIE Rock, ya see Gazzo, would ya if mention my name? ADRIAN Will be all-right? MICKEY Some Band~Aids an' Vaseline. He'll be as good as new."
+    },
+    {
+      "scene": "INT. HOSPITAL EMERGENCY ROOM",
+      "speech_type": "direct",
+      "dialogue": "•.. Can ya fix my nose? -- I'm a little depressed about the nose."
+    },
+    {
+      "scene": "INT. HOSPITAL EMERGENCY ROOM",
+      "speech_type": "direct",
+      "dialogue": "The eye's good -- y'know, I ain't never really felt this great. Yeah."
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "I think so."
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "How' s it 1o o k?"
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "Hey, Tony, could ya do me a favor?"
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "Ya know Paulie~ my friend. He admires ya ... Can ya give him my old job with ya?"
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "He's good with numbers."
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "Very handsome -- Could ya tell me what· r:oom Apollo Creed's stayin' in?"
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "... You too."
+    },
+    {
+      "scene": "INT. HOSPITAL - ROCKY'S ROOM 19",
+      "speech_type": "direct",
+      "dialogue": "'To my good friend, Charlie Flynn,' who I don't even know."
+    },
+    {
+      "scene": "INT. APOLLO'S HOSPITAL ROOM - NJGHT 20",
+      "speech_type": "direct",
+      "dialogue": "Apollo?"
+    },
+    {
+      "scene": "INT. APOLLO'S HOSPITAL ROOM - NJGHT 20",
+      "speech_type": "direct",
+      "dialogue": "Me, Rocky •.. Answer me one question."
+    },
+    {
+      "scene": "INT. APOLLO'S HOSPITAL ROOM - NJGHT 20",
+      "speech_type": "direct",
+      "dialogue": "Did ya gimme ya best?"
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, but just think how fast ya'll be when ya get it off. AGENT #2 Now the point is we have to set things in motion while your name's still in everybody's mind."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Then ya.better hurry. {leans over) Rocky, we've got to go."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah, listen, I'll sign whatever ya want -- But we got more important business now. AGENT #1 More important than this? CONTINUED · 22"
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "... Absolutely • 23 St"
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Absolutely -- yes."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "••• Yeah? They g~od? MICKEY Yeah -- See ya. -- C'mon, Mike, Al. · PAULIE C'mon, let's get d~unk • . GAZZO Wait a minute -- I wanna talk to to the bridegroom, here -- C'mere, Rock -- •- Ya look beautiful, Kid over ' here, Rock. ADRIAN You look nice, Paulie • ... PAULIE Yes I do -- I'm on a diet too. ADRIAN ···Si nee when.····· PAULIE"
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "I got married."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Thanks but we got things to do ••• See ya's."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, if did, woulda carrfed ya I I everywhere~."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "- Absolutely -- November 24th About ten-thirty in the evening ■- 1 even remember the tempature.-"
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Nah,-~his~ii g~eat for th~ arms, y'know .:,_"
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "We are -- I got proof."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yeah,· but I knew what was gonna happen from the start. _"
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well I said the first time I seen ya, I says to myself, I said this J is the girl want to marry, she's special -- She has the disease of being shy,· but undern~ath them glasses, hat, an' what'd ya use to wear? 'Bout twenty sweaters."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": ".CC/ Yeah,. three sweaters -- This is the best girl in Philly. ADRIAN Realty."
+    },
+    {
+      "scene": "EXT. HOSPITAL COURTYARD - DAY",
+      "speech_type": "direct",
+      "dialogue": ". . . ,· . ~ 22"
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "{low) . . . Y'know, ya look beautiful • ADRIAN {quietly} · · ... Real)Y. think s·o?"
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah, you're the best thing that ever come into my crazy life. ADRIAN •.•• Do you think it'll always be like this."
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "• Oh, yeah • • • ADRIAN I hope you don't get"
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What? ADRIAN ••• tired of me·."
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Ya never gettin' rid of me. ADRIAN I hope I can do everythin' right. \"ROCKY Me too.· ADRIAN ••• I hqpe nothing changes so much has happened. ain't ever changin' nothin' ·····--··-··about you. · --- ·------- --~ ·· ·-·-- ····-•·-·---·-···-· ·--··- ··.CONTINUED 24 .. 2"
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "... -· ·----.. . I lo.Ye. you. EMBRACE AND THE SCENE SLOWLY DARKENS. MAYOR Rocky Balboa, the great cit~ of Philadelphia is honored to bestow plaque to serve as a reminder of and a symbol of pride for e~ery Philadelphian for years to come. ROCKY It's heavy•- Thank you, Mr·. Mayoi. REPORTER · Roe ky ,-- now -··that ·you '·ve re t i·red , -------- ---\"\"'-~---- ---·- _: ------ ---- - what kind of work will you seek? -· ·- ···--- ---- --·------ - ··ROCKY··--·---------···---·--- -- --------- ----·-··---· --------- ---·- Someth in easy, y'know? I REPORTER"
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I ain't sure -- sorry I'm not sure what to say ..• Ah, I retired from school when I was in Ninth Grade, y'know -- to be a fighter . -- so it took me seventeen years an' a lotta beatin's to get this -- My advice to yas, is get it. while it's hot, y'know what I mean -- Thanks. 30 .. .. _.:, ____ _. ·····---- ·-··-- ... •'-· 27 ~"
+    },
+    {
+      "scene": "INT. ROCKY'S APARTMENT - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Look at ya little wrist there it's all naked and everythin' we gotta keep it covered so don't catch no cold -- it ROCKY Yo, now we gotta ~over the other one! 32 ADRIAN Roe ky ..• Can you drive? ROCKY You kiddin'? I'm one of the greats!! #"
+    },
+    {
+      "scene": "EXT. SOUTH PHILLY STREET - DAY 36",
+      "speech_type": "direct",
+      "dialogue": "Nice bricks, huh?"
+    },
+    {
+      "scene": "EXT. SOUTH PHILLY STREET - DAY 36",
+      "speech_type": "direct",
+      "dialogue": "It's nice ain't it."
+    },
+    {
+      "scene": "EXT. SOUTH PHILLY STREET - DAY 36",
+      "speech_type": "direct",
+      "dialogue": "Nice bricks."
+    },
+    {
+      "scene": "INT. HOUSE - LIVING ROOM - DAY 37",
+      "speech_type": "direct",
+      "dialogue": "There's a great place to set up a bag ••. •.. I gotta teach ya to work the bag."
+    },
+    {
+      "scene": "INT. HOUSE - LIVING ROOM - DAY 37",
+      "speech_type": "direct",
+      "dialogue": "Mebbe that's a good spot for a TV."
+    },
+    {
+      "scene": "INT. HOUSE - LIVING ROOM - DAY 37",
+      "speech_type": "direct",
+      "dialogue": "It don't matter •.• let's get the house. ADRIAN Are you sure?"
+    },
+    {
+      "scene": "INT. HOUSE - LIVING ROOM - DAY 37",
+      "speech_type": "direct",
+      "dialogue": "Absolutely. { to Agent·) ... We'll take it. {turns to Salesman and mock threatens him) An' it better not leak, or else. {smiles) Could ya step outside?"
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yo, Adrian, ya did it ! ! 40 AGENT Listen, we're sorry it took a sure all the swelling was gone. · ROCKY Sure. ... CONTINUED"
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ya got any deodorant? ~ .: I"
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Excuse me."
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I know I said it wrong, an' y'know I mean, d'ya think this stuff smells like a man -- I.would say no."
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sure, but it still don't smell manly. Adrian, don't it remind y-0u of fruit punch of somethin'?"
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Sorry."
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "••. I splash it on and it-does manly-things-to-me ..• It-surrounds -my face-with-class."
+    },
+    {
+      "scene": "INT. DOCTOR'S OFFICE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Y'know, it sounded great insid~ before it came out. 34"
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Dummy card?"
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hi -- my-name-is-Rocty-Balboa the-Italian-Stallion-They-say I'm-the-American Dream-but-I'm not •.. After-a-hard~day-in-the ring-I-look-like-the-American scream •.. Then I say, 'Rocky, boy, you gotta shape up t' ••• Then-I-slap-on --"
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "to crack) Beast-After-Shave, then-I really-am-the-American Dream so-don't-be-punchy -- So-don't be-punchy-like-me -- Be-a-smart-guy-an' •.."
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "Wait, y'know, I wanna explain something -- I ain't punchy - I got what ya call a relaxed brain, not punchy."
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, that's not right This ain't right."
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "You're a rude guy --.I'm tryin' hard an' ya bein' rude. That's bad manners, y'know -- isn't it, Adrian."
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "But I gotta be almost punchy to be doin'. this in front of my wife."
+    },
+    {
+      "scene": "INT. CREED'S GYM - DAY",
+      "speech_type": "direct",
+      "dialogue": "the after-shave) Y'know, you got the wrong name. for this stuff -- ya oughta call it Creep Cologhe. ROCKY Does smell like fruit punch don't it? 44"
+    },
+    {
+      "scene": "EXT. ROCKY'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "'It's no time to cuss me,' ,snarled the robber. 'By Gawd Fe 11 as grab ! your rifles an' take cove~.' How's that sound? ADRIAN • Good."
+    },
+    {
+      "scene": "EXT. ROCKY'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Bein' a good reader is gonna help when I get an office job -- Wanna hear some more?"
+    },
+    {
+      "scene": "EXT. ROCKY'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "'There ain't no cover, Smokey,' said Brad Lincoln, 'we better head for the canyon."
+    },
+    {
+      "scene": "EXT. ROCKY'S HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Thank you. Y'know, you lie nice."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Bones for Butkus -- you, Butkus! Ya ain't gonna believe it!"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Well, I lugged beef scraped marrow an' hauled fat trims But it's not as excitin' as it sounds!"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Gimme the five .•."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Yeah, I'm real shrewd."
+    },
+    {
+      "scene": "EXT. MATERNITY SHOP - DAY",
+      "speech_type": "direct",
+      "dialogue": "ya It's my pleasure -- I want to see these nice clothes. CONTINUED 45 60"
+    },
+    {
+      "scene": "EXT. MATERNITY SHOP - DAY",
+      "speech_type": "direct",
+      "dialogue": "No, you get what ya need -- I'm pickin' up some overtime tonight."
+    },
+    {
+      "scene": "INT. MEAT HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, I feel dynamic -- Listen, I wanna sh~w ya off -- so tomorrow night how 'bout you, me and Paulie do somethin' nice -- How's ya stomach."
+    },
+    {
+      "scene": "INT. MEAT HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Ya look great. 63"
+    },
+    {
+      "scene": "INT. MEAT HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah?"
+    },
+    {
+      "scene": "INT. MEAT HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Why? ... I'm doin' good."
+    },
+    {
+      "scene": "INT. MEAT HOUSE - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Look, how 'bout I take a cut. I'll work for half."
+    },
+    {
+      "scene": "INT. PET SHOP - DAY",
+      "speech_type": "direct",
+      "dialogue": "Now ••• if I could make Adrian feel the way feel wouldn·•t I I have this proble~~~- but when ia ~ive_y~ word, Butkus, that's it. I tan understand she's, she don't want me gettin' my head broke -- but I like boxin', so wh~tta suppose to do -- ya I words', ya word ••• you, Butkus, ya smart dog, ya got any answers? a"
+    },
+    {
+      "scene": "INT. PET SHOP - DAY",
+      "speech_type": "direct",
+      "dialogue": "••• Y'know, Butkus •.• you got it . made .•. C'mon, l·et's take a ride.· '& - '"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "- 'Th&-Aton lady.: MICKEY _you a key -- Come up here, Rock. CONTtNUEO 72"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "That's Butkus, my large dog."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Yo, Mick, can I have my locker back?"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Hurt me. . · HfCKEY' Kurt you bad. ·"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "t Mick •.• tf can't fi'ght no more, r ft1eo6e can do so111eftHn' to tie-1 p out around here --"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Get more hip into it -- keep ya arm in t.ighter. MICKEY· C'mon, snap in there -- don't be so sloppy! -- Hey, Chico! Ain't talkin' to hear my. head rattle! ••• Now lemme tell ya somethin' else, sometimes a good snarl can give what the Bible calls a psychological edge -- now snarl an' punch -- punch an' snarl!"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "__ ._ _ C'mon·, _don't_nifnd. ___________ _ I -- ···--·-------·-··----~-/ .. ·- . I HEAVY·w·E GHT Hey, wait a minute! ·- • .- - ..:· .. \\ ."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "v·ea h."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Ooops."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "t c~n•t do that no more • < . -- - <i\"AZZO : ya wtiatta lfke-6ein ··a jani·tor, 1 fiuh.-·-- Forget these straight jobs. Ya need to be outside. · CONTINUED -· . - ..... --· . - . ···- ···--·--·· . .. . . • · - -., ~ : .. _,., 'r.;... ,_ ...: ._ ~-C..~~\\~-~~,;~~-~·:..:•~••~c?-·•;_•-•:'~---~-.-.:Z.;;..a .... . .. ~ :,.-•.•---·- ~.,__.,,,. .,._ . .,_ -~.. ·.'.\"._"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "~ {reading one) 'Roses are red, Violets are blue, I can't wait ta Really smash you, Love, Apo 11 o. ' He's spendin' a fortune. on insults~"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "... That's ·okay. I'll have some Cream of Wheat an' a piece of chicken from last night."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Hey, whatta ya doin'?!"
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "-- This has been a very bad day I'm sorry."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "We're losing it."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": ". . . The house. I'm sorry ."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Thanks."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Well, I got this letter sayin' me an' my wife are being foreclosed, y'know."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Does that mean, ah, ya just kickin' us out."
+    },
+    {
+      "scene": "INt. GYM STAIRWAY~ NIGHT 72",
+      "speech_type": "direct",
+      "dialogue": "Without us in it. CONTINUED 80A BANKER It will be vacant, yes. ROCKY Wel 1, how .' bout .ya give me some more time? BANKER We'd like to of course but that's not the way a bank is run. ROCKY But I'm go-0d for the money -- I give ya my word, I ain't goin' nowhere. BANKER We realize that -- But your home will become a liability to us, if we let your payments go unchecked. ROCKY"
+    },
+    {
+      "scene": "INT. GYM DAY 81",
+      "speech_type": "direct",
+      "dialogue": "Whatta ya got? '"
+    },
+    {
+      "scene": "INT. GYM DAY 81",
+      "speech_type": "direct",
+      "dialogue": "v·eah. It's ktnda of a funny ptcture.· W'HO"
+    },
+    {
+      "scene": "INT. GYM DAY 81",
+      "speech_type": "direct",
+      "dialogue": "Funny, atn 1t tt. 81A THRQW·s·"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Kew y-ou guys· dotn l? Dtd anybody move today? -- gotta exerctse, y' know·. ROCKY· CONTINUED 66"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Things was kinda slow at the office."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Y'know, the feel in' mutual. ADRlAN Are you hungry?"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "A little -- I'm kinda half hungry -- whatta got?"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Th e n I ' 11 do my b es t to eat t a 11 • . • i Yo, Butkus."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "So Dog what'd you do today? Did ya bark at somethin'? Y'know, Adrian, sometimes I look at Butkus an' don't think he's a dog."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I dunno -- maybe a little guy just pretendin' he's a dog for fun - gimme a kiss. CONTINUED 86"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Yeah -- An' I think maybe I'm becomin' a nobody again. ADRIAN In whose eyes?· Not mine."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "In mine ••• {taps his head) In here. ADRIAN You know what the Doctor said."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "I know -- But I want you an' the kid to have everythin' -- -not nothin'. CONTINUED 72"
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "That's just it. I don't • • • want ya•~ to just get by th~ hard way. want ya's to have the I best -- I want the Kid to have good things."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "think we need them now, don't I we."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "Adrian, it's all I know."
+    },
+    {
+      "scene": "EXT. ROCKY'S STREET - DUSK",
+      "speech_type": "direct",
+      "dialogue": "••• It's all I know."
+    },
+    {
+      "scene": "INT. PENNSYLVANIA BOXING COMMISSION - DAY",
+      "speech_type": "direct",
+      "dialogue": "Yes I do, he's great."
+    },
+    {
+      "scene": "INT. PENNSYLVANIA BOXING COMMISSION - DAY",
+      "speech_type": "direct",
+      "dialogue": "•.. Ke's very ups~t. 91A AND ROCKY' ARE WATCH.INS THE 8Mft1"
+    },
+    {
+      "scene": "EXT. SOUTH PHILLY BACK YARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "It brings me luck."
+    },
+    {
+      "scene": "EXT. SOUTH PHILLY BACK YARD - DAY",
+      "speech_type": "direct",
+      "dialogue": "But why do I gotta chase a chicken?"
+    },
+    {
+      "scene": "INT. MICKEY'S GYM - DAY 101",
+      "speech_type": "direct",
+      "dialogue": "W'h.at's that mean? 'MICKEY· rt means ya traintn' like a ninth-rate pug who oughta be pumptn gas in Jersey. 1"
+    },
+    {
+      "scene": "INT. MICKEY'S GYM - DAY 101",
+      "speech_type": "direct",
+      "dialogue": "I think.I'm gonna shower ..."
+    },
+    {
+      "scene": "INT. MICKEY'S GYM - DAY 101",
+      "speech_type": "direct",
+      "dialogue": "What's your problem, Mtck?"
+    },
+    {
+      "scene": "INT. MICKEY'S GYM - DAY 101",
+      "speech_type": "direct",
+      "dialogue": "Bum.·"
+    },
+    {
+      "scene": "INT. MICKEY'S GYM - DAY 101",
+      "speech_type": "direct",
+      "dialogue": "Maybe ya right -- maybe I ain't got t·t no more."
+    },
+    {
+      "scene": "INT. MICKEY'S GYM - DAY 101",
+      "speech_type": "direct",
+      "dialogue": ". ' W-f\\at' s· -mat ter? tl'le Ml'KE Ya wtfe's stck!"
+    },
+    {
+      "scene": "EXT. MlCKEY\" S GY·M DAY· 105",
+      "speech_type": "direct",
+      "dialogue": "pp en e d w·h at ha ?"
+    },
+    {
+      "scene": "EXT. MlCKEY\" S GY·M DAY· 105",
+      "speech_type": "direct",
+      "dialogue": "Did ya call an ambulance."
+    },
+    {
+      "scene": "EXT. MlCKEY\" S GY·M DAY· 105",
+      "speech_type": "direct",
+      "dialogue": "Adrian, how bad is it? Did ya call the ~mbulance?"
+    },
+    {
+      "scene": "INT. GY-M 134",
+      "speech_type": "direct",
+      "dialogue": "Oh, y~ah ••• my favorite colors."
+    },
+    {
+      "scene": "INT. GY-M 134",
+      "speech_type": "direct",
+      "dialogue": "Y'know, Adrian, ya the best ••. 1448 148* l48A"
+    },
+    {
+      "scene": "INT. GY-M 134",
+      "speech_type": "direct",
+      "dialogue": ".. . Gu~sJ I gotta go now • · (he exits)"
+    },
+    {
+      "scene": "INT. GY-M 134",
+      "speech_type": "direct",
+      "dialogue": "So Paulie, ya gonna help out with the baby tonight. CONTINUED - 101 ,148B PAULIE I'll handle everythin'. ROCKY Ju~t take care of ev~rythin', okay you still losin' ~eight? •. PAULIE I'm on a good diet -- Ya gonna . ' be late for ya own fight. ADRIAN Rocky, you better go. ROCKY Then everythin's okay here -"
+    },
+    {
+      "scene": "INT. SPECTRUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I appreciate it."
+    },
+    {
+      "scene": "INT. SPECTRUM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Wouldn't it bother you? JERGENS Ladies and gentlemen, welcome to the Spectrum. 169 MICKEY Speed -- speed! 170 JERGENS Without further delay may I introduce the combatants for tonight's fight ... CONTINUED I I 9/22/78 170 JER,SENS. lC0NT '0 l t·n th.e far corner, w-e_i9htng two hundred and one, man who"
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "Ke's still upset."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "I'll try."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "He broic.e -my nose again."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "I wanna go back to my old style."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "He's great, Mick."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "A tank. 201 AFTER CONTINUED Hl'M"
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "No, I a in t I ! ! COMMENTATOR #1 (V.O.) ••• It.--s ·my op1n1on we're in for a long night. .."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "Everything is o~ay."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "Not yet."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "I ain't goin' down. 202r;"
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "It works."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "I know what I'm doin'."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "... It's my 1 if e !"
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "I think I can win. No tricks."
+    },
+    {
+      "scene": "INT. SPECTRUM - NlGffT 171",
+      "speech_type": "direct",
+      "dialogue": "No tricks."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "... I can't believe this happened -- I wanna thank Apollo for fightin' me, Mickey for trainin' me and the great people of Philadelphia."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I love ya's too -- Except for my kid being born, this is the greatest night in the history of my life ... I just wanna say one more thing to my wife at home ... Yo Adrian, I did it!! CRASH CUT: in 2."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Hey, Mickey, I've been thinkin' about havin' face fixed -- my Get all this fixed."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "I'm gonna get it fixed. body ... The man's agony spurs Clubber on to ever"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "... Yeah. 10. POLICEMAN /fol I gotta see that one. POLICEMAN ffo My uncle use to wrestle weighed about two-forty."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": ". . . Good. POLICEMAN ffo Hell of a drinker too -- a whole case, no problem -- How is it? Cold outside. It's always freezing down here, feel it ... Y'know that last fight ya had was great. When you gonna fight this Clubber Lang? POLICEMAN /fol This ya relation here?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Paulie ... Paulie ..."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Wh.atta ya doin', Paulie? ... Wh.atta ya doin'? 11."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "You better say somethin' -- This is the fourth time I got you outta here."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "No, you don't owe me nothin'."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "She's home."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "She don't like this kinda thing here."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Watch ya mouth, Paulie."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "'Why don't you screw ya head on right? 12."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "What did I do?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Paulie."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "watch) Paulie."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Ya got it backwards -- They use to laugh at both of us."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "She was pregnant."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Everybody's got 'em."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "No, maybe it's the hell with you."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Hey, why don't ya say what ya mean once in ya life."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "You still don't got it right! - The truth is we started out on the same corner -- even -- 14."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "-- I got real lucky with everything an' it's drivin' you nuts, 'cause as long as I was a bum, ya always had somebody ya could feel better than. Right, Paulie? That's where it's at! -- And jobs? I got ya ten jobs an' you blew them all because you don't wanna work. What you want is what everybody else has got! Yo, it don't work that way!"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "C'mon, ya talk like everybody owes ya a livin'."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Nobody owes nobody nothin' -- You owe yaself."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Friends owe nothin'I They do 'cause they wanna do, understand?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Keep yellin' it, Paulie, an' maybe you'll believe it! Keepin' you down? Ya know, sometimes you're like a crazy brother to me, so I'm gonna tell ya what I'm feeling here, an' I mean this from the heart. You ain't down, Paulie. You ain't a loser, you're just a jealous, lazy bum! it, 15."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "All ya had to do was ask."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "You punch pretty good."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Superb."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "I'll give ya a call."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "I'm okay, thanks. 16."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Listen, why don't ya go home an' get some rest."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "He's somethin' else -- Maybe, Paulie."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Maybe."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Nothin' unusual."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Definitely."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "'Sh-blup, blup ... sh-blup, blup-ooo - Here I am an' so are you.'"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Being romantic -- 'Sh, blup, blup' - That's your part, c'mon, 'sh, blup, b lup' ..."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "'Sh, blup, blup' --"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Good, but 'sh, bloop' ain't correct -- It's 'she blup' --"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "'But I only have eyes for you.'"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "I don't know no more of the composition."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Very lucky ..."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Yeah."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Yeah, a few."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": ". . . No."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Yo, this pep talk has done me a world of good, Mick. Thanks ... How ya doin', Paulie?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "I'm working now. 22."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "When we gonna fight him?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Yeah."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Bob Hope would."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "How do you fight a person like that?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "How much do you think he eats? 26."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "After the match, how about we take a Polaroid together?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "You're pretty fast."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Let's just move around a little and give them a show -- Alright, you chase me, then I'll chase you - Fair enough?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Cut these off!"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Cut them off, Paulie!"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Hey, c'mon! TO: CUT 32."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Stomp! C'mon! \\ ) ~"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Anytime --"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Very large guy. 36A."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "... very large guy."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Wonderful."
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "up) Yo, why'd ya get so crazy?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Thanks ... Listen, while ya stiil calm, how 'bout if we get that picture?"
+    },
+    {
+      "scene": "INT. CITY HALL",
+      "speech_type": "direct",
+      "dialogue": "Y'know, sometimes charitv really hurts... ·"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "... An' this big bear say, 'Somebody's been sleepin' in my bed.' ROCKY. JR. Why did he say that?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I guess he was upset An' the bear says. 'Somebody's been mama sleepin' in bed.' my ROCKY• JR. She was upset. too?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "... Absolutely -- An'. y'know. the little kid bear. like you. he says ...."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "And he says. 'Somebody's sleepin' in bed and there she isl' An' my this little bear. he whi~s off the blanket. thereby exposin Goldilocks to the public -- C'mon. keep eatin' ya cereal before it sinks. ROCKY, JR. Then what happened to Goldilocks?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'm not too sure. 37."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "... Nice, Paulie."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Don't give him any beer. 'ROCKY Do you know what this is all about?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Well, y'know, what do you say to something like this? I 40. ROCKY (CONT'D) -- I can't believe it -- My wife says she is proud of me ... Well, I gotta say I'm proud of all of you -- And the past three years this city that has really taken me, y'know, inside ... Lately I've been thinkin' that I wouldn't do nothin' to hurt this sport -- I've been talkin' it over with my wife · an' manager, and we all think that maybe it's time to step out, y'know, retire"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I can't listen to this no more - Hey, anytime ya -- MICKEY I don't care what ya's ranked, ya don't deserve a shot. ROCKY ... What are ya doin', Mick? MICKEY Ya the kinda guy who wrecks the sport! I said ya don't deserve a shot, an' I mean it!"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Whatta ya doin'? I want to fight him."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Then go .on, I'll do it without you."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "... You got it. You want it, you got it!"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "-- Wh.y'd ya leave me there? - Wh.y'd ya walk away like that? a"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Where're you goin'?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "We got one more fight."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Why you doin' this?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Why're ya doin' this!? MICKEY 'Cause ya can't win. MICKEY Kid, he'll beat ya to death inside of three rounds. ROCKY How can ya know that? MICKEY 1i know. ROCKY He's just another fighter -- MICKEY He ain't just a fighter, he's a w-reckin' machine and he's great at it. I know -- while you been out gettin' awards I've been watchin' this pug come up the ranks, an' he's got it all - He's hungry -- Hell, you ain't"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Hungry? Whatta ya talkin' about? I've had ten title defenses."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "What d'ya mean 'easy'? MICY..EY Hand-picked, kid."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "... Set-ups?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Why? -- Why'd you do it."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "Ya really don't think I got nothin' left. 47."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "... I can't retire knowin' all this -- I can't."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "You've been carryin' me."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I want this fight."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I'll live in the gym."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE - DAY",
+      "speech_type": "direct",
+      "dialogue": "I do! ... I'm askin' you to hang with me one last time. ROCKY ... If you don't, I'm gonna tell everybody you ain't bought a new pair of underwear in ten years. MICKEY You would, wouldn't ya. ROCKY ... And sleep with this every night. MICKEY ... Wise guy. CUSTOMER Donation for what? PAtn..IE ... Do I ask you questions? -- Next!"
+    },
+    {
+      "scene": "INT. ROCKY'S GYM - DAY *",
+      "speech_type": "direct",
+      "dialogue": "'Cause we should go out in style!"
+    },
+    {
+      "scene": "INT. ROCKY'S GYM - DAY *",
+      "speech_type": "direct",
+      "dialogue": "C 'mon, just enjoy i't !"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'm okay."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That's for sure."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": ". . . Yo."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "... Whatta we gonna do when it's over?"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "We're gonna do it. CUT TO:"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "That's nice to know."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Don't look bad to me."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "C'mon, mouth!"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Mick. what's wrong?!! Adrian. what's wrong?"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What's happenin'? What's happenin' here?!"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Paulie, tell them the fight's off - Go on."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Not tonight."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "The fight's off!"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I ain' t leavin' ."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "What should I do? MICKEY ... Go on! -- I'll be along. ROCKY ... Get a doctor, please. CUT TO: 59. CUT TO: TITLE COMMENTATOR #2 Clubber Lang has entered the ring -- A hard-looking fighter with over fifty-five knockouts to his credit - Balboa may have his hands full tonight ... TITLE COMMENTATOR #1 And here comes the Champion, Rocky Balboa! His last ten title defenses have been knockouts so we have two very heavy hitters in there tonight and incredibly they're both left handers."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "-- I can't keep him off. CUT TO: MANAGER He can't back up -- get inside an' use the overhand right lead! CUT TO: 64. CUT TO:"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "How is he?"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "talk to him? Can I"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Mick ... slowly his eyes."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Yeah. MICKEY What happened?"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Knockout. MICKEY What round? ROCKY Second. MICKEY Ya did it -- I knew we'd do it . ROCKY Yeah, everythin' okay, so don't ~..rorry about nothin' 'cause it's gonna be okay ... 67."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "Y'know ... Ya should take care of yasel{, ya ain't that young no more --"
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "No, we ain't done everythin' -- we got more to do -- We'll do more, whatever you want. Okay? MICKEY ... Okay."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "I'll do whatever you want -- But no more gettin' sick. MICKEY ... I love ya, kid. ROCKY Please, Mick, don't go nowhere ... Please, I need ya, Mick ... Don't I go, Mick -- Please, Mick. love ya, don' t go ... ROCKY Oh, God! 68."
+    },
+    {
+      "scene": "INT. GYM - NIGHT",
+      "speech_type": "direct",
+      "dialogue": "He wanted us to go out good."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Never better."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Thanks. CUT TO:-"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "It's all over."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "What?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Y'k:now •.. I can't believe you're doing this."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "Yeah -- When'd you think of this?"
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "This is crazy."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "But didn't you say after losin' to me, you'd learned to live with it."
+    },
+    {
+      "scene": "INT. ROCKY'S HOUSE",
+      "speech_type": "direct",
+      "dialogue": "So you've just gotta know for yourself. APOLLO TV, Just for myself. No no papers, just us. ROCKY Go slow -- Ya not as young as springtime no more. APOLLO Young enough to whip your butt. ROCKY How can you win? Ya taught me all your tricks . APOLLO Almost everything. APOU.O Stallion. I want you to remember that you might fight great, but I'm a great fighter ... Ready?"
     }
   ]
 }

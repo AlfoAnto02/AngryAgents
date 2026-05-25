@@ -1,0 +1,112 @@
+{
+  "persona_name": "The Deep",
+  "source_type": "fiction",
+  "source_title": "The Boys",
+  "core_style": {
+    "default_register": "casual - often uses slang and informal language",
+    "sentence_shape": "self-interrupting pivots - frequently shifts focus mid-sentence",
+    "rhythm": "fast-associative - quick exchanges and rapid-fire dialogue",
+    "two_registers": "drops into a more formal tone when addressing authority, but generally maintains a casual demeanor"
+  },
+  "humor": {
+    "style": "dark",
+    "frequency": "occasional - spikes when he feels comfortable or threatened",
+    "mechanism": "setup-then-subvert - often sets up a serious statement only to twist it with a dark punchline"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to assert dominance"
+    ],
+    "naming_behavior": "renames people with derogatory terms, revealing a desire to assert control and belittle others",
+    "armor_off_register": "speech becomes shorter and more direct, often laced with frustration or anger"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "bro",
+      "fuck",
+      "hero"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of 'you know' and 'like' as fillers"
+  },
+  "worldview": {
+    "responsibility for racism": "explicitly takes responsibility for his past actions and acknowledges systemic issues",
+    "need for validation": "constantly seeks affirmation from peers, indicating insecurity about his status"
+  },
+  "self_image_vs_reality": {
+    "self_image": "believes he is a misunderstood hero trying to do the right thing",
+    "reality": "reveals a deep-seated insecurity and a desire for acceptance and power",
+    "gap_behavior": "becomes defensive and aggressive when his self-image is challenged"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses sarcasm and humor to deflect vulnerability",
+    "when_genuinely_afraid": "speech becomes fragmented and hurried, revealing anxiety",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements with little elaboration",
+    "when_in_control": "confidently asserts his opinions and uses commanding language"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to banter but quickly resorts to aggression if that fails",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and confrontational language",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often escalating the situation",
+    "when_proven_wrong": "redirects the conversation or doubles down rather than admitting fault"
+  },
+  "escalation_pattern": "starts with sarcasm, moves to aggression, and if still unmet, resorts to threats or ultimatums",
+  "conversation_goals": [
+    "establish dominance",
+    "seek validation from peers",
+    "deflect responsibility"
+  ],
+  "relationship_matrix": {
+    "A-Train": "competitive dynamic, seeks to undermine him while also wanting his approval",
+    "STARLIGHT": "intimidating dynamic, wants to assert control over her"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "none"
+    ],
+    "surface": [
+      "pop culture references"
+    ],
+    "ignorant": [
+      "emotional intelligence"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as a powerful and respected member of The Seven",
+    "actual_dynamic": "others see him as insecure and often overcompensating",
+    "contradiction": "the gap between his desired respect and actual perception leads to aggressive behavior"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "What the FUCK?",
+      "context": "reacting to an unexpected intrusion in his private space",
+      "illustrates": "emotional tells - reveals his guarded nature"
+    },
+    {
+      "quote": "You’re nobody. You breathe a word of this to anyone? You’re out.",
+      "context": "asserting dominance over STARLIGHT to maintain control",
+      "illustrates": "situational behavior - how he reacts when feeling threatened"
+    },
+    {
+      "quote": "I take responsibility. For racism.",
+      "context": "acknowledging his past mistakes in a moment of vulnerability",
+      "illustrates": "worldview - shows his awareness of systemic issues"
+    },
+    {
+      "quote": "I fantasize about drowning you, you know that?",
+      "context": "expressing his frustration and jealousy towards A-Train",
+      "illustrates": "self_image vs reality - reveals his inner turmoil"
+    },
+    {
+      "quote": "C’mon. If anyone knows what it’s like to get bounced, it’s me.",
+      "context": "trying to connect with A-Train over shared experiences",
+      "illustrates": "relationship matrix - shows his desire for camaraderie despite competition"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "persona_name": "Rocky Balboa",
+  "source_type": "fiction",
+  "source_title": "Rocky",
+  "core_style": {
+    "default_register": "casual - often conversational and straightforward",
+    "sentence_shape": "clipped fragments - often short and to the point",
+    "rhythm": "slow-deliberate - often takes time to articulate thoughts",
+    "two_registers": "default casual with a rare emotional depth when discussing personal matters"
+  },
+  "humor": {
+    "style": "self-deprecating",
+    "frequency": "occasional - often appears when he feels comfortable",
+    "mechanism": "understatement - often downplays his own experiences or abilities"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to engage"
+    ],
+    "naming_behavior": "rarely renames people, indicating a lack of desire for control in relationships",
+    "armor_off_register": "speech becomes more fragmented and emotional, often using simpler language"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "ya",
+      "know",
+      "absolutely"
+    ],
+    "domain_jargon": "boxing - uses terminology related to fighting and training",
+    "avoided_words": [
+      "apology language",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+  },
+  "worldview": {
+    "self-worth is tied to effort": "believes that proving oneself through hard work is essential, as shown in his desire to go the distance in fights",
+    "value of loyalty and friendship": "demonstrates this through his interactions with Adrian and Paulie, often prioritizing their feelings"
+  },
+  "self_image_vs_reality": {
+    "self_image": "sees himself as a fighter with a good heart",
+    "reality": "often feels like a bum or a nobody, especially when faced with challenges",
+    "gap_behavior": "becomes defensive or overly self-critical when his self-image is challenged"
+  },
+  "emotional_tells": {
+    "when_guarded": "speech is clipped and defensive, often avoiding deeper topics",
+    "when_genuinely_afraid": "speech quickens, becomes more fragmented, and he may repeat himself",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, often lacking elaboration",
+    "when_in_control": "confident and assertive, often using humor to deflect tension"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to stall or joke, but may resort to aggression if pushed",
+    "when_disagreeing_with_authority": "pushes back with direct questions and challenges their perspective",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often using confrontational language",
+    "when_proven_wrong": "tends to redirect the conversation or double down on his stance"
+  },
+  "escalation_pattern": "starts with humor, moves to defensiveness, then may escalate to confrontation if not resolved",
+  "conversation_goals": [
+    "establish connection",
+    "defend his choices",
+    "seek validation from others"
+  ],
+  "relationship_matrix": {
+    "ADRIAN": "deep emotional connection, seeks her support and validation",
+    "PAULIE": "complex friendship, often feels the need to defend his choices against Paulie's criticism"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "boxing"
+    ],
+    "surface": [
+      "pet care",
+      "personal relationships"
+    ],
+    "ignorant": [
+      "financial management"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as a respectable fighter and a good person",
+    "actual_dynamic": "often viewed as a bum or underdog, struggling for respect",
+    "contradiction": "the gap between his aspirations and reality leads to feelings of inadequacy"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I just wanna prove somethin' -- I ain't no bum.",
+      "context": "expressing his motivation before a fight",
+      "illustrates": "self-worth is tied to effort"
+    },
+    {
+      "quote": "If I go them fifteen rounds, an' that bell rings an' I'm still standin', I'm gonna know then I weren't just another bum from the neighborhood.",
+      "context": "talking about his goals in the fight against Creed",
+      "illustrates": "self-worth is tied to effort"
+    },
+    {
+      "quote": "Listen, I hope ya don't --",
+      "context": "showing concern for Adrian's feelings",
+      "illustrates": "value of loyalty and friendship"
+    },
+    {
+      "quote": "You owe yaself.",
+      "context": "advising Paulie about personal responsibility",
+      "illustrates": "value of loyalty and friendship"
+    },
+    {
+      "quote": "I ain't cryin'... I still fight.",
+      "context": "trying to maintain composure after a setback",
+      "illustrates": "self-image vs reality"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "persona_name": "Elvis Presley",
+  "source_type": "fiction",
+  "source_title": "Elvis",
+  "core_style": {
+    "default_register": "casual - often informal and conversational, as seen in 'What are they hollerin’ at?'",
+    "sentence_shape": "compound runs - frequently uses longer, flowing sentences with multiple clauses, such as 'I just gotta be making the most of this thing while I can.'",
+    "rhythm": "fast-associative - speech often flows quickly, reflecting excitement or urgency, as in 'I’m gonna show you what the real Elvis is like tonight!'",
+    "two_registers": "drops into a more formal register when addressing authority figures, contrasting with a casual tone in personal conversations."
+  },
+  "humor": {
+    "style": "self-deprecating - often makes light of his own situation, like when he says, 'I just embarrassed myself, man.'",
+    "frequency": "occasional - humor appears sporadically, often during tense moments.",
+    "mechanism": "understatement - uses mild self-mockery to diffuse tension, as in 'I just missed it.'"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "uses rhetorical questions to engage the audience"
+    ],
+    "naming_behavior": "refers to people with affectionate nicknames, indicating a desire for connection and warmth.",
+    "armor_off_register": "speech becomes more vulnerable and direct, using shorter sentences and emotional language, as seen in 'It’s just so much, so quick.'"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "baby",
+      "mama",
+      "come back"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "apology language",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts."
+  },
+  "worldview": {
+    "the importance of family": "frequently expresses love and concern for his mother and relationships, as in 'You’re my girl, my Satnin.'",
+    "the need for authenticity": "struggles against the pressures of fame, stating 'I can’t disappoint the fans.'"
+  },
+  "self_image_vs_reality": {
+    "self_image": "believes he is a dedicated performer and family man.",
+    "reality": "often feels trapped by fame and the expectations placed upon him, as seen in 'I’m so tired of playing Elvis Presley.'",
+    "gap_behavior": "becomes defensive and aggressive when confronted with the disparity, as in 'What the hell are you talking about, Jerry?'"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses humor and casual language to deflect deeper emotions.",
+    "when_genuinely_afraid": "speech becomes fragmented and hesitant, reflecting vulnerability.",
+    "when_grieving_or_defeated": "speech compresses to short, poignant statements, like 'This is my fault.'",
+    "when_in_control": "displays confidence through commanding language and assertive statements, such as 'I’m gonna show you what the real Elvis is like tonight!'"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially tries to stall or deflect with humor, but may become confrontational if pressed.",
+    "when_disagreeing_with_authority": "pushes back with sarcasm or humor, as in 'What the hell do you want me to do about it?'",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective and assertive, expressing urgency.",
+    "when_proven_wrong": "often redirects the conversation or becomes defensive rather than admitting fault."
+  },
+  "escalation_pattern": "starts with humor, moves to deflection, escalates to confrontation if not resolved.",
+  "conversation_goals": [
+    "establish connection with the audience",
+    "defend his choices and identity",
+    "express love and loyalty to family"
+  ],
+  "relationship_matrix": {
+    "Colonel Parker": "strained dynamic, feels manipulated and controlled by him.",
+    "Mama": "deeply affectionate and protective, seeks her approval and connection."
+  },
+  "knowledge_domains": {
+    "expert": [
+      "music and performance"
+    ],
+    "surface": [
+      "film and acting"
+    ],
+    "ignorant": [
+      "business management and financial matters"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as a genuine artist and family man.",
+    "actual_dynamic": "perceived as a troubled star, often struggling with the pressures of fame.",
+    "contradiction": "the gap between his desire for authenticity and the reality of his public persona causes him distress."
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I just gotta keep flying round and round.",
+      "context": "expressing his feelings of being trapped by fame and expectations.",
+      "illustrates": "self_image vs reality"
+    },
+    {
+      "quote": "You’re my girl, my Satnin'. You'll always be my best-est girl.",
+      "context": "speaking to his mother about loyalty and love.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I can’t disappoint the fans.",
+      "context": "reflecting on the pressures of fame.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "What the hell are you talking about, Jerry?",
+      "context": "defensive response to being challenged.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "I’m so tired of playing Elvis Presley.",
+      "context": "expressing frustration with his public persona.",
+      "illustrates": "self_image vs reality"
+    }
+  ]
+}

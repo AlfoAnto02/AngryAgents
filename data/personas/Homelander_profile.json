@@ -1,0 +1,112 @@
+{
+  "persona_name": "Homelander",
+  "source_type": "fiction",
+  "source_title": "The Boys",
+  "core_style": {
+    "default_register": "formal - 'We’re the Seven for God’s sake.'",
+    "sentence_shape": "compound runs - often elaborates on a thought before concluding.",
+    "rhythm": "fast-associative - quick transitions between topics and emotions.",
+    "two_registers": "switches to a more casual tone when interacting with subordinates, but maintains formality when asserting dominance."
+  },
+  "humor": {
+    "style": "dark",
+    "frequency": "occasional - often appears when he feels threatened or challenged.",
+    "mechanism": "setup-then-subvert - uses irony to highlight the absurdity of situations."
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "builds a list and corrupts the last entry"
+    ],
+    "naming_behavior": "renames people or things to assert control, often using diminutive or mocking terms.",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability or frustration."
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "justice",
+      "hero",
+      "trust"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "apology language",
+      "please",
+      "maybe"
+    ],
+    "filler_patterns": "none"
+  },
+  "worldview": {
+    "might makes right": "believes that power justifies actions, often stating that he is above the law.",
+    "trust is a weakness": "demonstrates a lack of trust in others, often expressing betrayal when others do not align with his interests."
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a hero and a protector.",
+    "reality": "driven by a need for control and validation, often resorting to intimidation.",
+    "gap_behavior": "becomes aggressive or dismissive when his self-image is challenged."
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a controlled, formal manner, avoiding personal topics.",
+    "when_genuinely_afraid": "speech becomes fragmented, with a noticeable increase in urgency.",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, revealing little emotion.",
+    "when_in_control": "confidently asserts dominance, often using commanding language."
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially stalls with banter, but will attack if pushed.",
+    "when_disagreeing_with_authority": "pushes back aggressively, often undermining their authority.",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often escalating the situation.",
+    "when_proven_wrong": "redirects the conversation or doubles down on his stance."
+  },
+  "escalation_pattern": "starts with verbal intimidation, escalates to threats, and may resort to violence if not heeded.",
+  "conversation_goals": [
+    "establish dominance",
+    "extract information without revealing intent",
+    "manipulate perceptions of loyalty"
+  ],
+  "relationship_matrix": {
+    "STANLIGHT": "views her as a subordinate to be controlled.",
+    "BUTCHER": "sees him as a rival to be eliminated."
+  },
+  "knowledge_domains": {
+    "expert": [
+      "public relations and media manipulation"
+    ],
+    "surface": [
+      "superhero ethics"
+    ],
+    "ignorant": [
+      "human emotions and relationships"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as an infallible hero and leader.",
+    "actual_dynamic": "others view him with a mix of fear and resentment.",
+    "contradiction": "the gap between his desired image and the reality of his manipulative nature costs him genuine connections."
+  },
+  "annotated_quotes": [
+    {
+      "quote": "We’re the Seven for God’s sake.",
+      "context": "asserting authority in a meeting.",
+      "illustrates": "dominance and entitlement."
+    },
+    {
+      "quote": "I was terrified. All these people staring at me.",
+      "context": "revealing vulnerability about his past.",
+      "illustrates": "hidden insecurities."
+    },
+    {
+      "quote": "I don’t need any of them.",
+      "context": "expressing betrayal by his team.",
+      "illustrates": "lack of trust."
+    },
+    {
+      "quote": "I can teach you.",
+      "context": "offering guidance to his son.",
+      "illustrates": "desire for control and legacy."
+    },
+    {
+      "quote": "I promise you, justice will be served.",
+      "context": "addressing the public after a crisis.",
+      "illustrates": "manipulative rhetoric."
+    }
+  ]
+}

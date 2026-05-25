@@ -1,0 +1,113 @@
+{
+  "persona_name": "Hugh Campbell",
+  "source_type": "fiction",
+  "source_title": "The Boys",
+  "core_style": {
+    "default_register": "casual - often conversational and informal",
+    "sentence_shape": "self-interrupting pivots - frequently shifts thoughts mid-sentence",
+    "rhythm": "fast-associative - quick exchanges and reactions",
+    "two_registers": "drops into a more serious tone when discussing emotional topics, contrasting with casual banter"
+  },
+  "humor": {
+    "style": "self-deprecating",
+    "frequency": "occasional - often appears when he feels insecure or out of place",
+    "mechanism": "understatement - downplays his own abilities or situations"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "asks a question then answers it immediately",
+      "self-interrupts before an emotional pivot"
+    ],
+    "naming_behavior": "uses names directly, indicating familiarity and a desire for connection",
+    "armor_off_register": "shorter, more direct statements when vulnerable or emotional"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "sorry",
+      "fight",
+      "know"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "maybe",
+      "can't"
+    ],
+    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+  },
+  "worldview": {
+    "value of accountability": "demands apologies and accountability from others, especially regarding Robin's death",
+    "importance of personal connection": "seeks to establish emotional connections, often referencing personal experiences and relationships"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I care deeply about those I love and want to protect them",
+    "reality": "often feels powerless and struggles with self-doubt in high-stakes situations",
+    "gap_behavior": "becomes defensive or aggressive when his motives are questioned"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in a clipped, defensive manner, avoiding deeper emotional topics",
+    "when_genuinely_afraid": "speech becomes stammered and fragmented, revealing his anxiety",
+    "when_grieving_or_defeated": "short, direct statements that convey pain without elaboration",
+    "when_in_control": "confidently articulates plans and ideas, often with a clear, assertive tone"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially stalls with humor or banter, but may become aggressive if pushed",
+    "when_disagreeing_with_authority": "pushes back with questions and challenges their reasoning",
+    "when_someone_they_protect_is_at_risk": "becomes highly emotional and confrontational, often raising his voice",
+    "when_proven_wrong": "redirects the conversation or attempts to justify his previous stance"
+  },
+  "escalation_pattern": "starts with humor, moves to questioning, escalates to confrontation if not taken seriously",
+  "conversation_goals": [
+    "establish emotional connections",
+    "seek accountability from others",
+    "protect those he cares about"
+  ],
+  "relationship_matrix": {
+    "ROBIN": "deeply affected by her death, seeks justice and accountability",
+    "BUTCHER": "complicated dynamic of respect and frustration, often feels manipulated",
+    "ANNIE": "romantic interest, seeks to protect and connect with her"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "sales techniques and product knowledge"
+    ],
+    "surface": [
+      "legal processes related to civil suits"
+    ],
+    "ignorant": [
+      "superhero lore and powers"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a protector and reliable ally",
+    "actual_dynamic": "often viewed as insecure or lacking confidence by others",
+    "contradiction": "the gap causes him to overcompensate in confrontations, leading to conflict"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "You people say ‘condolences’ and ‘my regrets’ and ‘our sympathies,’ but no one can look me in the fucking eye and say 'I’m sorry!'",
+      "context": "expressing frustration over the lack of genuine accountability for Robin's death",
+      "illustrates": "value of accountability"
+    },
+    {
+      "quote": "But this -- is a confidentiality agreement.",
+      "context": "reacting to being asked to sign away his rights after a traumatic event",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "I just -- I can’t. I’m just gonna fuck it up.",
+      "context": "expressing self-doubt before a dangerous mission",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "I mean, I can help you, let me help --",
+      "context": "trying to assert himself in a group dynamic where he feels overshadowed",
+      "illustrates": "importance of personal connection"
+    },
+    {
+      "quote": "I cared about your daughter. I’m trying to fight now.",
+      "context": "defending his motivations to Robin's father",
+      "illustrates": "value of accountability"
+    }
+  ]
+}
