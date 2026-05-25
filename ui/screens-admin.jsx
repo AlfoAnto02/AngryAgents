@@ -125,7 +125,7 @@ function OverviewSection() {
 }
 
 // ─── Sessions table (with optional per-row Judge / View report action) ─────
-function RecentSessionsTable({ onJudge, reports }) {
+function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
   const { byId } = window.useAgents();
   const [sessions, setSessions] = React.useState([]);
   React.useEffect(() => {
@@ -158,7 +158,7 @@ function RecentSessionsTable({ onJudge, reports }) {
             <th style={{ width: 110 }}>Duration</th>
             <th style={{ width: 150 }}>Date</th>
             <th style={{ width: 130 }}>Status</th>
-            <th style={{ width: 160 }}></th>
+            <th style={{ width: 230 }}></th>
           </tr>
         </thead>
         <tbody>
@@ -181,6 +181,17 @@ function RecentSessionsTable({ onJudge, reports }) {
                 <td><StatusPill status={s.status} /></td>
                 <td>
                   <div className="row" style={{ gap: 4, justifyContent: "flex-end" }}>
+                    {onOpenChat && (
+                      <Btn
+                        variant="outline"
+                        size="sm"
+                        icon={<Icons.MessageDots size={12} />}
+                        onClick={() => onOpenChat(s)}
+                        title="Open this chat and post as a participant"
+                      >
+                        Open
+                      </Btn>
+                    )}
                     {judged ? (
                       <Btn
                         variant="outline"
@@ -349,7 +360,7 @@ function ExportSection() {
 // ─── Judging launcher section (Change 3) ─────────────────────
 // Lists eligible sessions; chats already judged are tagged so the admin sees
 // at a glance which ones have a cached report.
-function JudgingSection({ onJudge, reports }) {
+function JudgingSection({ onJudge, reports, onOpenChat }) {
   const { byId } = window.useAgents();
   const [q, setQ] = React.useState("");
   const [allSessions, setAllSessions] = React.useState([]);
@@ -396,6 +407,17 @@ function JudgingSection({ onJudge, reports }) {
                 <div className="t-meta col-mono" style={{ width: 90 }}>{s.duration}</div>
                 <StatusPill status={s.status} />
                 {judged && <span className="badge badge-ok"><Icons.Check size={10} sw={2.5} /> Judged</span>}
+                {onOpenChat && (
+                  <Btn
+                    variant="outline"
+                    size="sm"
+                    icon={<Icons.MessageDots size={12} />}
+                    onClick={() => onOpenChat(s)}
+                    title="Open this chat and post as a participant"
+                  >
+                    Open
+                  </Btn>
+                )}
                 <Btn
                   variant={judged ? "outline" : "primary"}
                   size="sm"
@@ -946,7 +968,7 @@ function ReportDeliberation({ group, convergenceRate, convCIL, convCIH, pearson,
 }
 
 // ─── Admin shell ─────────────────────────────────────────────
-function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM }) {
+function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpenChat }) {
   const [judging, setJudging] = React.useState(null);
   // sessionId → cached report. Persists for the life of the session so the
   // admin can reopen a judged chat without re-running the pipeline.
@@ -1010,13 +1032,13 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM }) {
         {section === "overview" && (
           <>
             <OverviewSection />
-            <RecentSessionsTable onJudge={openJudging} reports={reports} />
+            <RecentSessionsTable onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />
           </>
         )}
         {section === "analytics" && <ChatAnalyticsSection />}
         {section === "performance" && <AgentPerformanceSection />}
-        {section === "sessions" && <RecentSessionsTable onJudge={openJudging} reports={reports} />}
-        {section === "judging" && <JudgingSection onJudge={openJudging} reports={reports} />}
+        {section === "sessions" && <RecentSessionsTable onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />}
+        {section === "judging" && <JudgingSection onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />}
         {section === "export" && <ExportSection />}
       </main>
 

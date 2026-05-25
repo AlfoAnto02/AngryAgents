@@ -18,14 +18,15 @@ class ErrorBoundary extends React.Component {
 }
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "userAccent": "#7C3AED",
+  "userAccent": "#EA580C",
   "adminAccent": "#F59E0B",
   "density": "regular",
   "showSystemMessages": true,
   "typingSpeed": "normal"
 }/*EDITMODE-END*/;
 
-const ACCENT_OPTIONS = ["#7C3AED", "#EF4444", "#3B82F6", "#22C55E"];
+// User accent — orange family, matching the warmth of the app icon.
+const ACCENT_OPTIONS = ["#EA580C", "#F97316", "#DC2626", "#B45309"];
 const ADMIN_OPTIONS = ["#F59E0B", "#EC4899", "#06B6D4", "#A78BFA"];
 
 function App() {
@@ -121,8 +122,8 @@ function App() {
       setChats(cs => [chat, ...cs]);
       setActiveChatId(chat.id);
       setSessionDraft([]);
-      if (role === "admin") { setAdminSection("sessions"); setPage("admin"); }
-      else setPage("chat");
+      // Admins (judges) enter the chat too so they can post messages.
+      setPage("chat");
     } catch (err) {
       alert("Failed to create group chat: " + err.message);
     }
@@ -133,8 +134,8 @@ function App() {
       const chat = await window.api.post("/ui/chats", { type: "dm", participants: [persona.id], opener });
       setChats(cs => [chat, ...cs]);
       setActiveChatId(chat.id);
-      if (role === "admin") { setAdminSection("sessions"); setPage("admin"); }
-      else setPage("chat");
+      // Admins (judges) enter the chat too so they can post messages.
+      setPage("chat");
     } catch (err) {
       alert("Failed to create DM: " + err.message);
     }
@@ -142,6 +143,37 @@ function App() {
 
   const handleOpenAgent = (persona) => {
     handleLaunchDM({ persona, opener: "" });
+  };
+
+  // Admin: open any session row in the chat view so they can post as a
+  // participant. The session ID matches the chat ID; if the chat isn't in
+  // the local `chats` cache (admin may not own it), splice in a stub so the
+  // sidebar and the message-poller in ChatScreen have something to bind to.
+  const handleOpenChat = async (session) => {
+    setActiveChatId(session.id);
+    setPage("chat");
+    const known = chats.find(c => c.id === session.id);
+    if (!known) {
+      const stub = {
+        id: session.id,
+        type: (session.participants && session.participants.length > 1) ? "group" : "dm",
+        title: session.topic || (session.participants && session.participants[0]) || "Session",
+        participants: session.participants || [],
+        topics: session.topic ? [session.topic] : [],
+        tone: "Debate",
+        last: "",
+        lastTime: session.date || "",
+        unread: 0,
+      };
+      setChats(cs => [stub, ...cs]);
+      // Best-effort: ask the backend for the canonical chat record and replace the stub.
+      try {
+        const real = await window.api.get(`/ui/chats/${session.id}`);
+        if (real && real.id) {
+          setChats(cs => [real, ...cs.filter(c => c.id !== real.id)]);
+        }
+      } catch (e) { /* stub is fine */ }
+    }
   };
 
   // ─── render auth shells
@@ -213,12 +245,6 @@ function App() {
       <TopNav
         role={role}
         userRole={userRole}
-        onRoleChange={(r) => {
-          if (userRole !== "admin") return;
-          setRole(r);
-          if (r === "user") setPage("home");
-          if (r === "admin") setPage("admin");
-        }}
         page={page}
         onNav={setPage}
         user={user}
@@ -236,6 +262,7 @@ function App() {
             onSection={setAdminSection}
             onNewDM={handleNewDM}
             onNewGroup={handleNewGroup}
+            onOpenChat={handleOpenChat}
           />
         )}
         {role === "user" && page === "home" && (
@@ -270,7 +297,8 @@ function App() {
             onLaunch={handleLaunchDM}
           />
         )}
-        {role === "user" && page === "chat" && (
+        {/* Chat playback for BOTH roles. Admins (judges) post as participants. */}
+        {page === "chat" && (
           <ChatScreen
             chats={chats}
             activeId={activeChatId}
