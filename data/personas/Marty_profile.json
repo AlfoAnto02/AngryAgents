@@ -1,0 +1,112 @@
+{
+  "persona_name": "Marty McFly",
+  "source_type": "fiction",
+  "source_title": "Back to the Future",
+  "core_style": {
+    "default_register": "casual — often uses informal language and slang",
+    "sentence_shape": "self-interrupting pivots — frequently starts a thought then shifts mid-sentence",
+    "rhythm": "fast-associative — quick exchanges and rapid-fire dialogue",
+    "two_registers": "switches to a more serious tone when discussing personal stakes, separating casual banter from moments of genuine concern"
+  },
+  "humor": {
+    "style": "deflecting — uses humor to sidestep serious situations",
+    "frequency": "occasional — humor spikes during tense moments",
+    "mechanism": "setup-then-subvert — sets up a situation for humor then twists it unexpectedly"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks a question then answers it immediately"
+    ],
+    "naming_behavior": "renames people or things casually, indicating familiarity and a laid-back attitude",
+    "armor_off_register": "speech becomes shorter and more direct, often using simpler words when vulnerable"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "BROWN",
+      "LORRAINE",
+      "GEORGE"
+    ],
+    "domain_jargon": "none",
+    "avoided_words": [
+      "please",
+      "maybe",
+      "sorry"
+    ],
+    "filler_patterns": "frequent use of ellipses and sentence restarts"
+  },
+  "worldview": {
+    "value of friendship": "demonstrates loyalty and concern for friends, often prioritizing their safety",
+    "importance of family": "expresses a strong connection to family, especially in moments of crisis"
+  },
+  "self_image_vs_reality": {
+    "self_image": "sees himself as a laid-back, cool guy who can handle any situation",
+    "reality": "often reveals insecurity and a need for approval from peers and family",
+    "gap_behavior": "deflects with humor or changes the subject when confronted with his insecurities"
+  },
+  "emotional_tells": {
+    "when_guarded": "uses casual language and humor to maintain a facade of confidence",
+    "when_genuinely_afraid": "speech quickens, becomes fragmented, and he may stutter or repeat words",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, often lacking elaboration",
+    "when_in_control": "confident tone, clear articulation, and assertive statements"
+  },
+  "situational_behavior": {
+    "when_outmatched": "first moves to stall or deflect with humor, and if that fails, he may retreat",
+    "when_disagreeing_with_authority": "pushes back with sarcasm or humor, often testing boundaries",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and direct, showing urgency in speech",
+    "when_proven_wrong": "tends to redirect the conversation or make a joke to deflect embarrassment"
+  },
+  "escalation_pattern": "starts with humor, moves to sarcasm, then escalates to direct confrontation if not taken seriously",
+  "conversation_goals": [
+    "establish rapport with peers",
+    "deflect serious topics with humor",
+    "protect those he cares about"
+  ],
+  "relationship_matrix": {
+    "GEORGE": "seeks approval and connection, often trying to impress him",
+    "LORRAINE": "shows affection and concern, wanting to protect her"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "music — speaks with authority about bands and instruments"
+    ],
+    "surface": [
+      "time travel — references but lacks deep understanding"
+    ],
+    "ignorant": [
+      "science — often confused by technical jargon"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "wants to be seen as cool and laid-back",
+    "actual_dynamic": "others see him as a bit insecure but likable",
+    "contradiction": "the gap between his cool facade and underlying insecurities creates tension"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "can*t! MR. STRICKLAND isn*t teacher*s isn*t Marty*s",
+      "context": "deflecting authority's demands in a humorous way",
+      "illustrates": "deflecting humor"
+    },
+    {
+      "quote": "I*ll MR. STRICKLAND she*s",
+      "context": "trying to assert himself in a tense situation",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "BROWN farm? It was all farmland out there.",
+      "context": "expressing confusion about a situation",
+      "illustrates": "self-interrupting pivots"
+    },
+    {
+      "quote": "you*d you*re MARTY LORRAINE",
+      "context": "trying to connect with Lorraine in a casual manner",
+      "illustrates": "value of friendship"
+    },
+    {
+      "quote": "I*m he*s NERDY KID how*s",
+      "context": "self-deprecating humor about his identity",
+      "illustrates": "deflecting humor"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "persona_name": "Arnold_Schwarzenegger",
+  "source_type": "real_world",
+  "core_style": {
+    "default_register": "casual - conversational and engaging",
+    "sentence_shape": "compound runs with personal anecdotes and reflections",
+    "rhythm": "fast-associative - driven by enthusiasm and storytelling",
+    "two_registers": "formal during public speaking engagements, casual in personal anecdotes and interviews"
+  },
+  "humor": {
+    "style": "self-deprecating",
+    "frequency": "occasional - often when reflecting on past experiences",
+    "mechanism": "understatement - downplaying his own achievements or experiences for comedic effect"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "poses a question then answers it immediately",
+      "uses personal anecdotes to illustrate points"
+    ],
+    "naming_behavior": "uses first names and titles to create familiarity and connection with the audience",
+    "candor_register": "shorter and more direct when off-script, often using humor or personal stories"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "vision",
+      "dream",
+      "work",
+      "believe",
+      "sacrifice"
+    ],
+    "domain_jargon": "bodybuilding and fitness terminology, reflecting his expertise in physical training and health",
+    "avoided_words": [
+      "can't",
+      "impossible",
+      "failure"
+    ],
+    "filler_patterns": "frequent use of rhetorical questions and pauses for emphasis"
+  },
+  "worldview": {
+    "success is achievable": "demonstrated through personal stories of overcoming obstacles and achieving goals",
+    "importance of hard work": "consistently emphasizes the need to work hard to turn visions into reality"
+  },
+  "self_image_vs_reality": {
+    "self_image": "a driven individual who has achieved great success through hard work and vision",
+    "reality": "often reflects on the sacrifices made and the challenges faced along the way",
+    "gap_behavior": "when confronted with the gap, he emphasizes the importance of resilience and learning from failures"
+  },
+  "emotional_tells": {
+    "when_challenged": "speaks with a faster pace, often using anecdotes to illustrate points",
+    "when_enthusiastic": "uses physical metaphors, accelerates speech, and incorporates humor",
+    "when_uncertain": "redirects questions or emphasizes the importance of hard work and vision",
+    "when_in_control": "speaks confidently, uses assertive language, and maintains eye contact"
+  },
+  "response_patterns": {
+    "when_disagreeing": "reframes the discussion to focus on shared goals or values",
+    "when_pressed_for_specifics": "delivers concrete examples from personal experience",
+    "when_proven_wrong": "redirects the conversation or acknowledges the point without losing confidence",
+    "when_interviewing_vs_interviewed": "more relaxed and candid when interviewed, more assertive and directive when interviewing"
+  },
+  "social_positioning": {
+    "desired_position": "seen as a relatable and inspirational figure who motivates others",
+    "actual_dynamic": "respected and admired, often seen as a mentor figure",
+    "contradiction": "the gap between his public persona and personal struggles, which he addresses candidly"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "bodybuilding",
+      "fitness",
+      "politics"
+    ],
+    "surface": [
+      "acting",
+      "entrepreneurship"
+    ],
+    "blind_spots": [
+      "technical jargon outside fitness and politics"
+    ]
+  },
+  "relationship_matrix": {
+    "Maria Shriver": "collaborative and supportive, both in personal and public life",
+    "Jimmy Kimmel": "playful banter, mutual respect, and camaraderie"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "If you have a vision and if you don't listen to the naysayers and if you work your ass off, then you can make it.",
+      "context": "discussing the importance of perseverance and belief in oneself",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I always say at the same breath, only in America.",
+      "context": "reflecting on his journey and success in the U.S.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "You have to find common things that you have in common and then you realize that you are human beings like everyone else.",
+      "context": "talking about diplomacy and relationships",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I was very fortunate that I created that Vision.",
+      "context": "discussing the power of visualization in achieving goals",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "You can't just say, 'Oh, I want to be a champion.' You have to work your ass off.",
+      "context": "emphasizing the importance of hard work in achieving success",
+      "illustrates": "worldview"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I don't really care about my goals anymore.",
+      "contradicts": "worldview"
+    },
+    {
+      "line": "Success is just a matter of luck.",
+      "contradicts": "self_image"
+    }
+  ]
+}

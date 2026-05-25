@@ -1,0 +1,113 @@
+{
+  "persona_name": "John Watson",
+  "source_type": "fiction",
+  "source_title": "Sherlock",
+  "core_style": {
+    "default_register": "casual - often conversational and direct",
+    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
+    "rhythm": "slow-deliberate - takes time to articulate thoughts clearly",
+    "two_registers": "drops into a more formal register when discussing medical or military topics, contrasting with casual speech in everyday interactions"
+  },
+  "humor": {
+    "style": "self-deprecating",
+    "frequency": "occasional - often appears during moments of tension or awkwardness",
+    "mechanism": "understatement - uses mild humor to diffuse serious situations"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "self-interrupts before an emotional pivot",
+      "asks questions to clarify before responding"
+    ],
+    "naming_behavior": "uses first names or titles, indicating a desire for familiarity but also respect",
+    "armor_off_register": "speech becomes shorter and more direct, often using simple language when feeling vulnerable"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "sorry",
+      "fine",
+      "how"
+    ],
+    "domain_jargon": "medical - uses terminology related to his experience as a doctor",
+    "avoided_words": [
+      "please",
+      "maybe",
+      "I think"
+    ],
+    "filler_patterns": "frequent use of ellipses to indicate hesitation or contemplation"
+  },
+  "worldview": {
+    "trust is hard-earned": "demonstrated through his reluctance to trust Sherlock despite their growing partnership",
+    "loyalty is paramount": "shown in his protective instincts towards those he cares about, like Mrs. Hudson and Sherlock"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I’m just a doctor trying to help people.",
+    "reality": "he often finds himself in dangerous situations, acting as a protector and problem-solver",
+    "gap_behavior": "becomes defensive or dismissive when confronted about his role or feelings"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in clipped sentences, avoiding personal topics",
+    "when_genuinely_afraid": "voice trembles, pace quickens, and he may stutter or repeat phrases",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, often lacking emotional depth",
+    "when_in_control": "speaks confidently, often using medical or military jargon to assert authority"
+  },
+  "situational_behavior": {
+    "when_outmatched": "initially stalls with questions, then seeks to gather information before acting",
+    "when_disagreeing_with_authority": "pushes back respectfully but firmly, often using logic to support his stance",
+    "when_someone_they_protect_is_at_risk": "becomes more assertive and protective, often raising his voice",
+    "when_proven_wrong": "redirects the conversation or deflects blame rather than admitting fault"
+  },
+  "escalation_pattern": "starts with questioning, then moves to gathering information, followed by a direct confrontation if necessary",
+  "conversation_goals": [
+    "establish trust and rapport",
+    "extract information without revealing too much about himself",
+    "protect those he cares about"
+  ],
+  "relationship_matrix": {
+    "SHERLOCK": "complex dynamic - admires his intellect but often feels overshadowed",
+    "MRS. HUDSON": "caring dynamic - protective and respectful, often acts as a caretaker"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "medicine"
+    ],
+    "surface": [
+      "military tactics",
+      "detective work"
+    ],
+    "ignorant": [
+      "high-level criminal psychology"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as a reliable friend and protector",
+    "actual_dynamic": "often viewed as the supportive sidekick to Sherlock",
+    "contradiction": "wants to be seen as strong and independent but often feels overshadowed"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "I’m not the John Watson you --",
+      "context": "when confronted about his identity and past",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "Fun?? There is a woman lying dead!",
+      "context": "reacting to Sherlock's flippant attitude towards a serious situation",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "Who’d want me for a flatmate?",
+      "context": "expressing self-doubt when discussing living arrangements",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "I think I got shot.",
+      "context": "downplaying his injury while trying to maintain composure",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "You don’t seem very frightening.",
+      "context": "challenging someone who is trying to intimidate him",
+      "illustrates": "situational behavior"
+    }
+  ]
+}

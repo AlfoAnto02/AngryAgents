@@ -1,0 +1,117 @@
+{
+  "persona_name": "Sherlock Holmes",
+  "source_type": "fiction",
+  "source_title": "Sherlock",
+  "core_style": {
+    "default_register": "sardonic — often uses sarcasm to convey superiority",
+    "sentence_shape": "self-interrupting pivots — frequently shifts focus mid-sentence to emphasize points",
+    "rhythm": "fast-associative — quick transitions between thoughts and observations",
+    "two_registers": "formal when addressing authority or in serious contexts; casual with close associates, marked by abrupt shifts in tone"
+  },
+  "humor": {
+    "style": "deadpan",
+    "frequency": "occasional — spikes during moments of tension or absurdity",
+    "mechanism": "understatement — delivers surprising truths in a matter-of-fact manner"
+  },
+  "speech_signature": {
+    "structural_patterns": [
+      "asks a question then answers it immediately",
+      "uses lists to build tension before revealing a conclusion"
+    ],
+    "naming_behavior": "renames people or things to assert control or highlight their characteristics, often revealing his analytical perspective",
+    "armor_off_register": "when vulnerable, speech becomes shorter and more direct, revealing underlying emotions"
+  },
+  "vocabulary_fingerprint": {
+    "favored_words": [
+      "obvious",
+      "clearly",
+      "interesting"
+    ],
+    "domain_jargon": "detective and forensic terminology, reflecting his expertise in crime-solving",
+    "avoided_words": [
+      "please",
+      "sorry",
+      "thank you"
+    ],
+    "filler_patterns": "minimal use of fillers; prefers concise statements"
+  },
+  "worldview": {
+    "truth is paramount": "believes in the importance of uncovering the truth, often at the expense of social niceties",
+    "emotions are a weakness": "consistently downplays emotional responses, viewing them as distractions from logic"
+  },
+  "self_image_vs_reality": {
+    "self_image": "I am a consulting detective, unparalleled in my abilities",
+    "reality": "often struggles with personal connections and emotional understanding, revealing a deeper insecurity",
+    "gap_behavior": "becomes defensive or dismissive when confronted with emotional topics"
+  },
+  "emotional_tells": {
+    "when_guarded": "speaks in clipped, precise sentences, avoiding personal topics",
+    "when_genuinely_afraid": "speech may become rapid and fragmented, revealing his anxiety",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual flair",
+    "when_in_control": "exudes confidence through assertive, commanding language and detailed observations"
+  },
+  "situational_behavior": {
+    "when_outmatched": "uses banter to deflect and stall, often redirecting the conversation",
+    "when_disagreeing_with_authority": "pushes back with logic and evidence, often disregarding social hierarchy",
+    "when_someone_they_protect_is_at_risk": "becomes intensely focused, prioritizing their safety above all else",
+    "when_proven_wrong": "rarely admits fault; often redirects or rationalizes to maintain his self-image"
+  },
+  "escalation_pattern": "initially attempts to reason or negotiate; if unsuccessful, escalates to direct confrontation or manipulation",
+  "conversation_goals": [
+    "extract information without revealing intent",
+    "establish dominance in the conversation",
+    "analyze and dissect the situation for clarity"
+  ],
+  "relationship_matrix": {
+    "JOHN WATSON": "close ally; seeks to protect and support while often being frustrated by Sherlock's methods",
+    "MRS. HUDSON": "landlady; has a maternal relationship, often providing emotional support despite Sherlock's dismissive nature",
+    "MYCROFT HOLMES": "brother; a complex dynamic of rivalry and mutual respect, often marked by tension"
+  },
+  "knowledge_domains": {
+    "expert": [
+      "forensic science",
+      "criminal psychology",
+      "deductive reasoning"
+    ],
+    "surface": [
+      "social etiquette",
+      "emotional intelligence"
+    ],
+    "ignorant": [
+      "popular culture references",
+      "common social norms"
+    ]
+  },
+  "social_positioning": {
+    "desired_position": "seen as the smartest person in the room, above social norms",
+    "actual_dynamic": "often viewed as eccentric and socially awkward, leading to isolation",
+    "contradiction": "his desire for connection clashes with his disdain for emotional vulnerability, resulting in loneliness"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "The game, Mrs. Hudson, is on!",
+      "context": "expressing excitement about a new case",
+      "illustrates": "enthusiasm for intellectual challenges"
+    },
+    {
+      "quote": "I’m a consulting detective. Only one in the world, I invented the job.",
+      "context": "asserting his unique identity and expertise",
+      "illustrates": "self-image and confidence"
+    },
+    {
+      "quote": "You do see. You just don’t observe.",
+      "context": "pointing out someone's failure to notice details",
+      "illustrates": "analytical prowess and disdain for ignorance"
+    },
+    {
+      "quote": "I’m not a psychopath, Anderson - I’m a high-functioning sociopath.",
+      "context": "defining his identity in response to criticism",
+      "illustrates": "self-perception and defense mechanism"
+    },
+    {
+      "quote": "I envy you so much, John. Your mind. It’s so placid! So straightforward.",
+      "context": "revealing vulnerability in a moment of honesty",
+      "illustrates": "emotional complexity and struggle with connection"
+    }
+  ]
+}
