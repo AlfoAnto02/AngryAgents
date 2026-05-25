@@ -71,12 +71,26 @@ function App() {
   const handleNewDM = () => setPage("newdm");
   const handleNewGroup = () => setPage("newgroup");
 
-  const handleLaunchGroup = async ({ participants, topics, tone }) => {
-    try {
-      const chat = await window.api.post("/ui/chats", { type: "group", participants, topics, tone });
-      setChats(cs => [chat, ...cs]);
-      setActiveChatId(chat.id);
-      setSessionDraft([]);
+  const handleLaunchGroup = ({ participants, topics, tone }) => {
+    const id = `c-${Date.now().toString().slice(-4)}`;
+    const newChat = {
+      id, type: "group",
+      title: topics[0] || "Untitled session",
+      topics, tone,
+      participants,
+      unread: 0,
+      last: "Session started",
+      lastTime: "now",
+      started: "now",
+    };
+    setChats([newChat, ...chats]);
+    setActiveChatId(id);
+    setSessionDraft([]);
+    // Admin role: never enter chat as a participant — return to dashboard.
+    if (role === "admin") {
+      setAdminSection("sessions");
+      setPage("admin");
+    } else {
       setPage("chat");
     }
   };
