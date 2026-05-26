@@ -6,6 +6,17 @@ _QUERY_MESSAGES = 5
 
 _DEFAULT_TOP_K = 20
 
+# Per-role chunk weights for aggregation.
+# Fields not listed default to 1.0.
+# Boosts the chunks most relevant to each judge's lens so the shortlist
+# reflects the role's perspective rather than a flat average.
+_ROLE_FIELD_WEIGHTS: dict[str, dict[str, float]] = {
+    "style":      {"style": 3.0, "voice": 2.0, "vocabulary": 3.0, "quote": 1.5, "do_not_say": 1.5, "worldview": 0.5, "behavior": 0.5},
+    "ideology":   {"worldview": 3.0, "quote": 1.5, "do_not_say": 1.5, "behavior": 1.0, "style": 0.5, "voice": 0.5, "vocabulary": 0.5},
+    "behavioral": {"behavior": 3.0, "quote": 1.5, "do_not_say": 1.5, "worldview": 1.0, "style": 0.5, "voice": 0.5, "vocabulary": 0.5},
+    "general":    {},  # empty → all fields weight 1.0
+}
+
 
 def retrieve_candidates(
     messages_by_digest: dict[str, list[str]],
@@ -13,6 +24,7 @@ def retrieve_candidates(
     top_k: int = _DEFAULT_TOP_K,
     field_filter: list[str] | None = None,
     forced_names: list[str] | None = None,
+    role: str = "general",
 ) -> list[dict]:
     """
     Return the top_k most relevant persona profiles for a given set of authors.
@@ -29,6 +41,8 @@ def retrieve_candidates(
     profiles_by_name:   {persona_name: profile_dict} — full profiles for lookup
     field_filter:       restrict search to specific chunk types, e.g. ["style", "voice"].
                         None searches all chunk types (default).
+    role:               judge role used to select per-field score weights.
+                        One of "style", "ideology", "behavioral", "general".
     """
     collection = _get_collection()
     total = collection.count()
@@ -36,7 +50,14 @@ def retrieve_candidates(
         return list(profiles_by_name.values())[:top_k]
 
     n_results = min(top_k * 3, total)
-    candidate_scores: dict[str, float] = {}
+    field_weights = _ROLE_FIELD_WEIGHTS.get(role, {})
+
+    # Accumulate weighted chunk scores per persona.
+    # Mean over weights prevents a single generic chunk from dominating
+    # (attractor problem) while role-specific weights ensure each judge's
+    # shortlist reflects its own lens.
+    weighted_sum: dict[str, float] = {}
+    weight_total: dict[str, float] = {}
 
     # Build the ChromaDB where clause for field filtering.
     # Single field → {"field": value}, multiple → {"$or": [{"field": v}, ...]}
@@ -57,10 +78,15 @@ def retrieve_candidates(
         )
         for metadata, distance in zip(results["metadatas"][0], results["distances"][0]):
             name = metadata["persona_name"]
-            # ChromaDB returns L2 distance: lower = more similar
+            field = metadata.get("field", "")
             score = 1.0 / (1.0 + distance)
-            if score > candidate_scores.get(name, 0.0):
-                candidate_scores[name] = score
+            w = field_weights.get(field, 1.0)
+            weighted_sum[name] = weighted_sum.get(name, 0.0) + score * w
+            weight_total[name] = weight_total.get(name, 0.0) + w
+
+    candidate_scores = {
+        name: weighted_sum[name] / weight_total[name] for name in weighted_sum
+    }
 
     ranked = sorted(candidate_scores, key=candidate_scores.__getitem__, reverse=True)
     top_names = list(ranked[:top_k])

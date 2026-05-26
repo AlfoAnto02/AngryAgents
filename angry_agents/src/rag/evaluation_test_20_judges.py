@@ -186,6 +186,7 @@ def run_evaluation_from_db_data(
             top_k=judge["top_k"],
             field_filter=judge["rag_fields"],
             forced_names=forced_names,
+            role=judge["role"],
         )
         candidate_names = [p["persona_name"] for p in candidates]
         result = run_persona_identification_with_tools(
@@ -251,6 +252,7 @@ def main() -> None:
             profiles_by_name=all_profiles,
             top_k=judge["top_k"],
             field_filter=judge["rag_fields"],
+            role=judge["role"],
         )
         candidate_names = [p["persona_name"] for p in candidates]
         print(f"  [{judge['name']}] → {candidate_names}")

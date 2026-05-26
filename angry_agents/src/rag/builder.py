@@ -1,6 +1,43 @@
 import json
 
 
+def _vocab_to_natural(name: str, vf: dict) -> str:
+    """
+    Convert a vocabulary_fingerprint dict into a natural-language sentence
+    that the embedding model can meaningfully encode.
+
+    A JSON list like {"favored_words": ["cunt", "mate"]} produces an
+    embedding close to any list of words. Rendering the same data as prose
+    — 'Billy Butcher habitually says "cunt", "mate"' — anchors the vector
+    to actual speech, making it far more discriminating at query time.
+    """
+    parts: list[str] = []
+
+    favored = vf.get("favored_words") or []
+    if favored:
+        quoted = ", ".join(f'"{w}"' for w in favored)
+        parts.append(f'{name} habitually uses the words {quoted}.')
+
+    avoided = vf.get("avoided_words") or []
+    if avoided:
+        quoted = ", ".join(f'"{w}"' for w in avoided)
+        parts.append(f'{name} never says {quoted}.')
+
+    jargon = vf.get("domain_jargon")
+    if jargon and jargon not in ("none", "None", "", None):
+        parts.append(f'Domain jargon: {jargon}.')
+
+    markers = vf.get("vocabulary_markers") or []
+    if markers:
+        parts.append("Characteristic markers: " + "; ".join(str(m) for m in markers) + ".")
+
+    fillers = vf.get("filler_patterns")
+    if fillers and fillers not in ("none", "None", "", None):
+        parts.append(f'Filler patterns: {fillers}.')
+
+    return " ".join(parts) if parts else ""
+
+
 def build_chunks(profile: dict) -> list[dict]:
     """
     Split a persona profile into semantic chunks for embedding.
@@ -32,14 +69,25 @@ def build_chunks(profile: dict) -> list[dict]:
     if style_parts:
         _add("style", f"{name} — " + " | ".join(style_parts))
 
-    # Voice — surface-level signals
+    # Voice — humor + vocabulary as natural language (Fix A + Fix D)
     voice_parts: list[str] = []
     if h := profile.get("humor"):
         voice_parts.append(f"humor: {_dump(h)}")
     if vf := profile.get("vocabulary_fingerprint"):
-        voice_parts.append(f"vocabulary: {_dump(vf)}")
+        natural = _vocab_to_natural(name, vf)
+        if natural:
+            voice_parts.append(natural)
+        else:
+            voice_parts.append(f"vocabulary: {_dump(vf)}")
     if voice_parts:
         _add("voice", f"{name} — " + " | ".join(voice_parts))
+
+    # Vocabulary in context — dedicated chunk for lexical fingerprint (Fix D)
+    # Separate from voice so style judges can query it independently.
+    if vf := profile.get("vocabulary_fingerprint"):
+        natural = _vocab_to_natural(name, vf)
+        if natural:
+            _add("vocabulary", natural)
 
     # Worldview — ideology/behavioral judges
     world_parts: list[str] = []

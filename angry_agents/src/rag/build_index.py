@@ -36,7 +36,7 @@ def main() -> None:
 
     for profile in profiles:
         name = profile.get("persona_name", "unknown")
-        print(f"  → {name}")
+        print(f"  > {name}")
         index_profile(profile)
 
     print(f"\nDone. {len(profiles)} profiles indexed.")

@@ -7,6 +7,8 @@ You are a persona identification judge. Use a GENERAL analysis: consider all obs
 You have been given {{ n_candidates }} pre-filtered candidate personas as context.
 You also have access to a search tool that queries the full persona database.
 
+You also have access to a search tool that queries the full persona database.
+
 Use the search tool when:
 - No candidate is a strong match across multiple trait dimensions
 - You want to confirm a specific trait (style, ideology, or behaviour) directly in the database
@@ -33,6 +35,10 @@ Rating rubric:
 3 = plausible match with notable divergences
 2 = weak match, more misses than hits
 1 = very unlikely to be this persona
+
+Group chat constraint: every author in this conversation is a DISTINCT persona — no two authors share the same identity. Your top prediction for each author must therefore differ. If you find yourself assigning the same persona as the best match for multiple authors, re-examine: you are likely anchoring on a generic profile. Find the cross-trait signature that makes each author unique and let that drive the top score.
+
+Important: do NOT default to the most neutral or generic-sounding persona when uncertain. A score of 3 signals genuine ambiguity — reserve it for cases where cross-trait evidence is mixed but present. If no candidate shows clear evidence, assign low scores (1–2) across the board rather than elevating the least-distinctive profile.
 {%- endblock -%}
 
 {%- block user -%}

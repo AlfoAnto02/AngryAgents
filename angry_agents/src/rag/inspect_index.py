@@ -44,9 +44,9 @@ def inspect_all(show_vectors: bool = False) -> None:
         by_persona[name].append(entry)
 
     for persona, chunks in sorted(by_persona.items()):
-        print(f"{'─' * 60}")
+        print("-" * 60)
         print(f"  {persona}  ({len(chunks)} chunks)")
-        print(f"{'─' * 60}")
+        print("-" * 60)
         for c in chunks:
             print(f"  [{c['field']}]  id: {c['id']}")
             print(f"    {c['text'][:120]}{'...' if len(c['text']) > 120 else ''}")
