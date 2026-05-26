@@ -60,7 +60,7 @@ def _extract_tags(summary: dict) -> list[str]:
     return domains[:4]
 
 
-_DEFAULT_TURNS = 30
+_DEFAULT_TURNS = 24
 
 
 def _dm_run_agent_turn(db: sqlite3.Connection, chat_id: int, settings: Settings) -> None:
@@ -620,6 +620,7 @@ def ui_list_messages(
 def ui_create_message(
     chat_id: int,
     body: UIMessageCreate,
+    background_tasks: BackgroundTasks,
     current_user=Depends(get_current_user),
     db: sqlite3.Connection = Depends(get_db),
     settings: Settings = Depends(get_settings),
@@ -636,6 +637,13 @@ def ui_create_message(
         _dm_run_agent_turn(db, chat_id, settings)
     elif body.text.strip().lower() in ("stop", "exit"):
         GroupChatService(db).set_status(chat_id, "stopped")
+    else:
+        chat = GroupChatService(db).get(chat_id)
+        if chat and chat.status == "stopped":
+            GroupChatService(db).set_status(chat_id, "running")
+            background_tasks.add_task(
+                _bg_run_conversation, chat_id, settings.db_path, settings.author_secret, _DEFAULT_TURNS
+            )
     return {
         "kind": "user",
         "text": msg.message,
