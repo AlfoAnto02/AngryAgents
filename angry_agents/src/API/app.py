@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -20,8 +22,20 @@ from .routes import (
     ui_routes,
 )
 
+def _setup_logging() -> None:
+    level = getattr(logging, os.getenv("LOG_LEVEL", "INFO").upper(), logging.INFO)
+    logging.basicConfig(
+        level=level,
+        format="%(levelname)-8s %(name)s | %(message)s",
+    )
+    # suppress noisy third-party loggers
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    _setup_logging()
     settings = get_settings()
     conn = get_connection(settings.db_path)
     init_db(conn)
