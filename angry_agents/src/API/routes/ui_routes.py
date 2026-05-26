@@ -25,13 +25,39 @@ router = APIRouter()
 log = logging.getLogger(__name__)
 
 
-def _to_str(v) -> str:
-    if isinstance(v, str):
-        return v
-    if isinstance(v, dict):
-        # flatten nested style objects to a readable summary
-        return "; ".join(f"{k}: {val}" for k, val in v.items() if isinstance(val, str))
-    return str(v) if v else ""
+def _extract_desc(summary: dict) -> str:
+    """Return a single human-readable sentence describing the persona."""
+    sir = summary.get("self_image_vs_reality")
+    if isinstance(sir, dict) and sir.get("self_image"):
+        return str(sir["self_image"]).strip().rstrip(".")
+    sp = summary.get("social_positioning")
+    if isinstance(sp, dict) and sp.get("desired_position"):
+        return str(sp["desired_position"]).strip().rstrip(".")
+    wv = summary.get("worldview")
+    if isinstance(wv, dict):
+        for val in wv.values():
+            if isinstance(val, str) and val.strip():
+                return val.strip().rstrip(".")
+    cs = summary.get("core_style")
+    if isinstance(cs, dict) and cs.get("default_register"):
+        return str(cs["default_register"]).strip()
+    return ""
+
+
+def _extract_tags(summary: dict) -> list[str]:
+    """Derive up to 4 tags from knowledge_domains, falling back to worldview keys."""
+    kd = summary.get("knowledge_domains", {})
+    domains: list[str] = []
+    if isinstance(kd, dict):
+        for key in ("expert", "surface"):
+            for item in (kd.get(key) or []):
+                if isinstance(item, str) and item.strip():
+                    domains.append(item.strip().lower())
+    if not domains:
+        wv = summary.get("worldview", {})
+        if isinstance(wv, dict):
+            domains = [k.strip().lower() for k in list(wv.keys())[:4]]
+    return domains[:4]
 
 
 _DEFAULT_TURNS = 30
@@ -133,13 +159,8 @@ def ui_list_agents(db: sqlite3.Connection = Depends(get_db)) -> list:
             "slug": a["Slug"],
             "source_type": summary.get("source_type", "fiction"),
             "source_title": summary.get("source_title") or a["Surname"],
-            "desc": _to_str(
-                summary.get("core_style")
-                or summary.get("description")
-                or summary.get("desc")
-                or ""
-            ),
-            "tags": summary.get("tags") or [],
+            "desc": _extract_desc(summary),
+            "tags": _extract_tags(summary),
         })
     return result
 
