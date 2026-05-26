@@ -141,8 +141,10 @@ function App() {
     }
   };
 
+  const [agentProfileOpen, setAgentProfileOpen] = React.useState(null);
+
   const handleOpenAgent = (persona) => {
-    handleLaunchDM({ persona, opener: "" });
+    setAgentProfileOpen(persona);
   };
 
   // Admin: open any session row in the chat view so they can post as a
@@ -343,6 +345,18 @@ function App() {
       )}
 
       {renderTweaksPanel(t, setTweak)}
+
+      {agentProfileOpen && (
+        <AgentProfileModal
+          persona={agentProfileOpen}
+          onClose={() => setAgentProfileOpen(null)}
+          onStartDM={(p) => handleLaunchDM({ persona: p, opener: "" })}
+          onAddToSession={(p) => {
+            if (!sessionDraft.includes(p.id)) setSessionDraft(d => [...d, p.id]);
+          }}
+          inSession={sessionDraft.includes(agentProfileOpen.id)}
+        />
+      )}
     </div>
   );
 }

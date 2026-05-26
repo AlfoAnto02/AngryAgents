@@ -165,6 +165,31 @@ def ui_list_agents(db: sqlite3.Connection = Depends(get_db)) -> list:
     return result
 
 
+@router.get("/ui/agents/{agent_id}")
+def ui_get_agent(agent_id: int, db: sqlite3.Connection = Depends(get_db)) -> dict:
+    row = db.execute(
+        "SELECT ID, Name, Surname, Slug, Summary FROM Agents WHERE ID = ? AND deleted_at IS NULL",
+        (agent_id,),
+    ).fetchone()
+    if row is None:
+        raise HTTPException(status_code=404, detail="Agent not found")
+    summary: dict = {}
+    try:
+        summary = json.loads(row["Summary"] or "{}")
+    except Exception:
+        pass
+    return {
+        "id": row["ID"],
+        "name": f"{row['Name']} {row['Surname']}".strip(),
+        "slug": row["Slug"],
+        "source_type": summary.get("source_type", "fiction"),
+        "source_title": summary.get("source_title") or row["Surname"],
+        "desc": _extract_desc(summary),
+        "tags": _extract_tags(summary),
+        "profile": summary,
+    }
+
+
 # ---------------------------------------------------------------------------
 # Chats
 # ---------------------------------------------------------------------------

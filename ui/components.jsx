@@ -409,9 +409,269 @@ function PasswordInput({ value, onChange, placeholder, name }) {
   );
 }
 
+// ---- AgentProfileModal -------------------------------------------------
+
+// inline style constants — no CSS class dependencies for layout
+const S = {
+  divider:    { height: 1, background: "var(--border-0)", margin: "4px 0" },
+  grid2:      { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 },
+  block:      { display: "flex", flexDirection: "column", gap: 8 },
+  blockTitle: {
+    fontSize: 10, fontWeight: 700, letterSpacing: "0.08em",
+    textTransform: "uppercase", color: "var(--fg-2)", marginBottom: 2,
+  },
+  row:        { display: "flex", alignItems: "flex-start", gap: 0, fontSize: 12.5, lineHeight: 1.5 },
+  rowLabel:   {
+    flexShrink: 0, width: 76, fontSize: 10, fontWeight: 600,
+    textTransform: "uppercase", letterSpacing: "0.05em",
+    color: "var(--fg-2)", paddingTop: 2,
+  },
+  rowArrow:   { color: "var(--accent)", fontSize: 10, paddingTop: 2, marginRight: 6, flexShrink: 0 },
+  rowValue:   { color: "var(--fg-0)", flex: 1 },
+  chips:      { display: "flex", flexWrap: "wrap", gap: 5 },
+  chip:       {
+    fontSize: 11, padding: "2px 9px", borderRadius: 999,
+    background: "var(--bg-3)", color: "var(--fg-1)",
+    border: "1px solid var(--border-1)", whiteSpace: "nowrap",
+  },
+  chipAccent: {
+    fontSize: 11, padding: "2px 9px", borderRadius: 999,
+    background: "var(--accent-soft)", color: "var(--accent-hover)",
+    border: "1px solid var(--accent-border)", whiteSpace: "nowrap",
+  },
+  tell:       { fontSize: 12.5, color: "var(--fg-1)", lineHeight: 1.5 },
+  quote:      {
+    background: "var(--bg-2)", borderRadius: 8,
+    borderLeft: "3px solid var(--accent-border)", padding: "12px 14px",
+  },
+  quoteText:  { fontSize: 13, color: "var(--fg-0)", fontStyle: "italic", lineHeight: 1.6 },
+  quoteLabel: {
+    fontSize: 10.5, color: "var(--fg-2)", marginTop: 6,
+    textTransform: "uppercase", letterSpacing: "0.05em",
+  },
+  never:      {
+    fontSize: 12, color: "var(--fg-2)", fontStyle: "italic",
+    padding: "5px 0", borderBottom: "1px solid var(--border-0)",
+  },
+};
+
+function PIChips({ items, accent }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <div style={S.chips}>
+      {items.map((t, i) => <span key={i} style={accent ? S.chipAccent : S.chip}>{t}</span>)}
+    </div>
+  );
+}
+
+function PIRow({ label, value }) {
+  if (!value) return null;
+  const text = Array.isArray(value) ? value.join(", ") : String(value);
+  if (!text.trim()) return null;
+  return (
+    <div style={S.row}>
+      <span style={S.rowLabel}>{label}</span>
+      <span style={S.rowArrow}>→</span>
+      <span style={S.rowValue}>{text}</span>
+    </div>
+  );
+}
+
+function PIBlock({ title, children }) {
+  return (
+    <div style={S.block}>
+      <div style={S.blockTitle}>{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function AgentProfileModal({ persona, onClose, onStartDM, onAddToSession, inSession }) {
+  const [profile, setProfile] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!persona) return;
+    setLoading(true);
+    setProfile(null);
+    window.api.get(`/ui/agents/${persona.id}`)
+      .then(data => { setProfile(data.profile || {}); })
+      .catch(() => { setProfile({}); })
+      .finally(() => setLoading(false));
+  }, [persona?.id]);
+
+  if (!persona) return null;
+
+  const p = profile || {};
+  const cs  = p.core_style || {};
+  const hm  = p.humor || {};
+  const sir = p.self_image_vs_reality || {};
+  const sp  = p.social_positioning || {};
+  const kd  = p.knowledge_domains || {};
+  const et  = p.emotional_tells || {};
+  const wv  = p.worldview && typeof p.worldview === "object" ? p.worldview : {};
+  const vf  = p.vocabulary_fingerprint || {};
+  const quotes   = Array.isArray(p.annotated_quotes) ? p.annotated_quotes : [];
+  const doNotSay = Array.isArray(p.do_not_say) ? p.do_not_say : [];
+  const expert   = (kd.expert || []).filter(Boolean);
+  const blind    = (kd.blind_spots || kd.ignorant || []).filter(Boolean);
+  const beliefs  = Object.keys(wv).filter(Boolean);
+  const favored  = (vf.favored_words || []).filter(Boolean);
+  const avoided  = (vf.avoided_words || []).filter(Boolean);
+  const firstTell = Object.values(et).find(v => typeof v === "string" && v.trim()) || "";
+  const featuredQuote = quotes[0] || null;
+
+  return (
+    <Modal
+      open={true}
+      onClose={onClose}
+      width="660px"
+      title={
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Avatar persona={persona} size="lg" />
+          <div>
+            <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.01em" }}>{persona.name}</div>
+            <div style={{ fontSize: 11, color: "var(--fg-2)", marginTop: 3, letterSpacing: "0.06em" }}>
+              {persona.source_type === "fiction" ? "FICTION" : "REAL-WORLD"}
+              {persona.source_title ? ` · ${persona.source_title.toUpperCase()}` : ""}
+            </div>
+          </div>
+        </div>
+      }
+      footer={
+        <div style={{ display: "flex", gap: 8, width: "100%" }}>
+          <Btn variant="outline" size="sm" onClick={() => { onAddToSession?.(persona); onClose(); }}>
+            {inSession ? "✓ In session" : "+ Add to session"}
+          </Btn>
+          <div style={{ flex: 1 }} />
+          <Btn variant="primary" size="sm" onClick={() => { onClose(); onStartDM?.(persona); }}>
+            Start DM
+          </Btn>
+        </div>
+      }
+    >
+      {loading ? (
+        <div style={{ padding: "32px 0", textAlign: "center", color: "var(--fg-2)", fontSize: 13 }}>Loading…</div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+
+          {/* desc + tags */}
+          {persona.desc && (
+            <div style={{ fontSize: 13, color: "var(--fg-2)", fontStyle: "italic", lineHeight: 1.5 }}>
+              "{persona.desc}"
+            </div>
+          )}
+          {persona.tags?.length > 0 && <PIChips items={persona.tags} />}
+
+          <div style={S.divider} />
+
+          {/* VOICE + PERSONALITY */}
+          <div style={S.grid2}>
+            <PIBlock title="Voice">
+              <PIRow label="register" value={cs.default_register} />
+              <PIRow label="rhythm"   value={cs.rhythm} />
+              <PIRow label="humor"    value={hm.style ? `${hm.style}${hm.frequency ? ` · ${hm.frequency}` : ""}` : null} />
+              <PIRow label="shape"    value={cs.sentence_shape} />
+            </PIBlock>
+            <PIBlock title="Personality">
+              <PIRow label="self-image" value={sir.self_image} />
+              <PIRow label="reality"    value={sir.reality} />
+              <PIRow label="gap"        value={sir.gap_behavior} />
+            </PIBlock>
+          </div>
+
+          {/* KNOWS + BLIND SPOTS */}
+          {(expert.length > 0 || blind.length > 0) && (
+            <div style={S.grid2}>
+              {expert.length > 0 && (
+                <PIBlock title="Knows">
+                  <PIChips items={expert} accent />
+                </PIBlock>
+              )}
+              {blind.length > 0 && (
+                <PIBlock title="Blind spots">
+                  <PIChips items={blind} />
+                </PIBlock>
+              )}
+            </div>
+          )}
+
+          {/* BELIEFS */}
+          {beliefs.length > 0 && (
+            <PIBlock title="Beliefs">
+              <PIChips items={beliefs} />
+            </PIBlock>
+          )}
+
+          {/* SAYS OFTEN + NEVER SAYS */}
+          {(favored.length > 0 || avoided.length > 0) && (
+            <div style={S.grid2}>
+              {favored.length > 0 && (
+                <PIBlock title="Says often">
+                  <PIChips items={favored} accent />
+                </PIBlock>
+              )}
+              {avoided.length > 0 && (
+                <PIBlock title="Never says">
+                  <PIChips items={avoided} />
+                </PIBlock>
+              )}
+            </div>
+          )}
+
+          {/* UNDER PRESSURE + WANTS TO BE SEEN AS */}
+          {(firstTell || sp.desired_position) && (
+            <div style={S.grid2}>
+              {firstTell && (
+                <PIBlock title="Under pressure">
+                  <div style={S.tell}>{firstTell}</div>
+                </PIBlock>
+              )}
+              {sp.desired_position && (
+                <PIBlock title="Wants to be seen as">
+                  <div style={S.tell}>{sp.desired_position}</div>
+                </PIBlock>
+              )}
+            </div>
+          )}
+
+          {/* FEATURED QUOTE */}
+          {featuredQuote && (
+            <>
+              <div style={S.divider} />
+              <div style={S.quote}>
+                <div style={S.quoteText}>"{featuredQuote.quote}"</div>
+                {featuredQuote.illustrates && (
+                  <div style={S.quoteLabel}>{featuredQuote.illustrates}</div>
+                )}
+              </div>
+            </>
+          )}
+
+          {/* WOULD NEVER SAY */}
+          {doNotSay.length > 0 && (
+            <>
+              <div style={S.divider} />
+              <PIBlock title="Would never say">
+                {doNotSay.slice(0, 2).map((d, i) => (
+                  <div key={i} style={{ ...S.never, ...(i === doNotSay.slice(0,2).length - 1 ? { borderBottom: "none" } : {}) }}>
+                    "{d.line}"
+                    {d.contradicts && <span style={{ color: "var(--fg-2)", marginLeft: 8, fontSize: 11 }}>— {d.contradicts}</span>}
+                  </div>
+                ))}
+              </PIBlock>
+            </>
+          )}
+
+        </div>
+      )}
+    </Modal>
+  );
+}
+
 Object.assign(window, {
   Avatar, AvatarStack, TensionMeter, tensionColor, tensionLabel,
   Btn, IconBtn, Checkbox, TagChip, BrandMark, Empty, Sparkline,
   BarChartPlaceholder, LineChartPlaceholder, PieChartPlaceholder,
-  TopNav, Modal, Field, PasswordInput,
+  TopNav, Modal, Field, PasswordInput, AgentProfileModal,
 });

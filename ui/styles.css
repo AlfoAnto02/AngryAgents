@@ -1241,6 +1241,60 @@ input, textarea, select {
 .judge-launcher-row:last-child { border-bottom: 0; }
 .judge-launcher-row:hover { background: var(--bg-2); }
 
+/* Agent profile modal — compact character card */
+.pcard { display: flex; flex-direction: column; gap: 14px; }
+.pcard-desc {
+  font-size: 13px; color: var(--fg-2); font-style: italic;
+  line-height: 1.5; margin-bottom: 2px;
+}
+.pcard-divider { height: 1px; background: var(--border-0); margin: 2px 0; }
+.pcard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.pblock { display: flex; flex-direction: column; gap: 6px; }
+.pblock-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--fg-2);
+}
+
+.pstat { display: flex; gap: 8px; align-items: baseline; font-size: 12.5px; line-height: 1.4; }
+.pstat-label {
+  flex-shrink: 0; color: var(--fg-2); font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.04em; width: 64px;
+}
+.pstat-value { color: var(--fg-0); }
+
+.pchip-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.pchip {
+  font-size: 11px; padding: 2px 8px; border-radius: 999px;
+  background: var(--bg-3); color: var(--fg-1);
+  border: 1px solid var(--border-1);
+}
+.pchip-accent { background: var(--accent-soft); color: var(--accent-hover); border-color: var(--accent-border); }
+
+.pcard-tell { font-size: 12.5px; color: var(--fg-1); line-height: 1.5; }
+
+.pcard-quote {
+  background: var(--bg-2); border-radius: 8px;
+  padding: 14px 16px; position: relative;
+}
+.pcard-quote-mark {
+  font-size: 48px; line-height: 1; color: var(--accent-border);
+  position: absolute; top: 4px; left: 12px; font-family: Georgia, serif;
+}
+.pcard-quote-text {
+  font-size: 13px; color: var(--fg-0); font-style: italic;
+  line-height: 1.6; padding-left: 24px; padding-top: 8px;
+}
+.pcard-quote-label {
+  font-size: 11px; color: var(--fg-2); margin-top: 8px;
+  padding-left: 24px; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.pcard-never {
+  font-size: 12px; color: var(--fg-2); font-style: italic;
+  padding: 4px 0; border-bottom: 1px solid var(--border-0);
+}
+.pcard-never:last-child { border-bottom: none; }
+
 /* Judging modal */
 .modal-judge {
   width: 880px;
