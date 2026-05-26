@@ -17,7 +17,7 @@ class GroupChatFactory:
         author_secret: str,
         scheduler_strategy: Literal["round_robin", "weighted_random"] = "weighted_random",
         window_strategy: Literal["rolling", "selective"] = "selective",
-        max_messages: int = 40,
+        max_messages: int = 24,
     ) -> GroupChatSession:
         from ..agents.personas.factory import AgentFactory
         from ..db.services.group_chat_service import GroupChatService

@@ -91,6 +91,9 @@ def _bg_run_conversation(
             svc.set_status(chat_id, "done")
             return
         for _ in range(n_turns):
+            chat = svc.get(chat_id)
+            if chat and chat.status == "stopped":
+                return
             try:
                 session.run_turn(conn)
             except Exception as exc:
@@ -526,7 +529,7 @@ async def ui_stream_chat(
                     chat_row = conn.execute(
                         "SELECT status FROM Group_chat WHERE ID = ?", (chat_id,)
                     ).fetchone()
-                    if chat_row and chat_row["status"] in ("done", "error"):
+                    if chat_row and chat_row["status"] in ("done", "error", "stopped"):
                         yield "event: done\ndata: {}\n\n"
                         break
                     idle_ticks += 1
@@ -631,6 +634,8 @@ def ui_create_message(
     ).fetchone()["n"]
     if agent_count == 1:
         _dm_run_agent_turn(db, chat_id, settings)
+    elif body.text.strip().lower() in ("stop", "exit"):
+        GroupChatService(db).set_status(chat_id, "stopped")
     return {
         "kind": "user",
         "text": msg.message,
