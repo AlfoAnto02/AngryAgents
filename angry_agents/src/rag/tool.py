@@ -27,9 +27,14 @@ SEARCH_TOOL: dict = {
                 },
                 "field": {
                     "type": "string",
-                    "enum": ["style", "voice", "worldview", "behavior", "quote"],
+                    "enum": ["style", "structure", "voice", "vocabulary", "worldview", "self_image", "behavior", "escalation", "quote", "do_not_say"],
                     "description": (
                         "Optional. Restrict the search to one profile dimension. "
+                        "style=register/rhythm, structure=speech patterns/syntax, "
+                        "voice=humor/vocabulary prose, vocabulary=word fingerprint, "
+                        "worldview=beliefs/values/knowledge domains, self_image=self-image vs reality gap, "
+                        "behavior=situational reactions/goals/emotional tells, escalation=escalation pattern, "
+                        "quote=direct speech examples, do_not_say=negative fingerprint. "
                         "Omit to search all dimensions."
                     ),
                 },

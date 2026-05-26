@@ -38,13 +38,13 @@ _ROLE_CONFIGS: list[dict] = [
     {
         "role": "style",
         "focus": "vocabulary, sentence structure, tone, and rhetorical habits",
-        "rag_fields": ["style", "voice"],
+        "rag_fields": ["style", "structure", "voice"],
         "top_k": 20,
     },
     {
         "role": "ideology",
         "focus": "values, political views, moral stances, and belief systems",
-        "rag_fields": ["worldview"],
+        "rag_fields": ["worldview", "self_image"],
         "top_k": 20,
     },
     {
@@ -56,7 +56,7 @@ _ROLE_CONFIGS: list[dict] = [
     {
         "role": "behavioral",
         "focus": "situational reactions, escalation patterns, and conversation goals",
-        "rag_fields": ["behavior"],
+        "rag_fields": ["behavior", "escalation"],
         "top_k": 20,
     },
 ]

@@ -58,16 +58,33 @@ def build_chunks(profile: dict) -> list[dict]:
     def _dump(v: object) -> str:
         return json.dumps(v) if isinstance(v, (dict, list)) else str(v)
 
-    # Style — primary signature, most useful for style/general judges
+    # Style — register, rhythm, sentence shape (broad style signal)
     style_parts: list[str] = []
     if cs := profile.get("core_style"):
         style_parts.append(f"core style: {_dump(cs)}")
     if ss := profile.get("speech_signature"):
-        style_parts.append(f"speech signature: {_dump(ss)}")
+        # Include naming_behavior and armor_off_register but NOT structural_patterns
+        # (those go in the dedicated structure chunk below for sharper retrieval)
+        ss_summary = {k: v for k, v in ss.items() if k != "structural_patterns"}
+        if ss_summary:
+            style_parts.append(f"speech signature: {_dump(ss_summary)}")
     if rst := profile.get("register_shift_triggers"):
         style_parts.append(f"register shifts when: {_dump(rst)}")
     if style_parts:
         _add("style", f"{name} — " + " | ".join(style_parts))
+
+    # Structure — dedicated chunk for structural_patterns + armor_off_register.
+    # Most discriminating style feature: Yoda's OVS syntax, Rick's *burp*,
+    # Gollum's self-dialogue, Sheldon's Bazinga. Kept separate so it is not
+    # diluted by the broader style embedding.
+    if ss := profile.get("speech_signature"):
+        struct_parts: list[str] = []
+        if sp := ss.get("structural_patterns"):
+            struct_parts.append(f"structural patterns: {_dump(sp)}")
+        if aor := ss.get("armor_off_register"):
+            struct_parts.append(f"armor off register: {aor}")
+        if struct_parts:
+            _add("structure", f"{name} — " + " | ".join(struct_parts))
 
     # Voice — humor + vocabulary as natural language (Fix A + Fix D)
     voice_parts: list[str] = []
@@ -89,36 +106,54 @@ def build_chunks(profile: dict) -> list[dict]:
         if natural:
             _add("vocabulary", natural)
 
-    # Worldview — ideology/behavioral judges
+    # Worldview — ideology judges: values, beliefs, knowledge domains
     world_parts: list[str] = []
     if wv := profile.get("worldview"):
         world_parts.append(f"worldview: {_dump(wv)}")
-    if sivr := profile.get("self_image_vs_reality"):
-        world_parts.append(f"self image vs reality: {_dump(sivr)}")
-    if et := profile.get("emotional_tells"):
-        world_parts.append(f"emotional tells: {_dump(et)}")
     if kd := profile.get("knowledge_domains"):
         world_parts.append(f"knowledge domains: {_dump(kd)}")
-    if rm := profile.get("relationship_matrix"):
-        world_parts.append(f"relationship matrix: {_dump(rm)}")
     if world_parts:
         _add("worldview", f"{name} — " + " | ".join(world_parts))
 
-    # Behavior — behavioral judge
-    # response_patterns (real_world) is the equivalent of situational_behavior (fiction)
+    # Self-image — dedicated chunk for self_image_vs_reality.
+    # The gap between a character's self-image and reality is highly discriminating
+    # for ideology judges and unique per persona (e.g. "I did it for me" — Walter White).
+    if sivr := profile.get("self_image_vs_reality"):
+        self_img = sivr.get("self_image", "")
+        reality = sivr.get("reality", "")
+        gap = sivr.get("gap_behavior", "")
+        parts = [f'{name} self-image: "{self_img}"']
+        if reality:
+            parts.append(f"reality: {reality}")
+        if gap:
+            parts.append(f"gap behavior: {gap}")
+        _add("self_image", " | ".join(parts))
+
+    # Behavior — behavioral judges: reactions, goals, social, emotional tells,
+    # relationship dynamics. emotional_tells and relationship_matrix moved here from
+    # worldview because they describe how the persona acts, not what they believe.
     beh_parts: list[str] = []
     if rp := profile.get("response_patterns"):
         beh_parts.append(f"response patterns: {_dump(rp)}")
     if sb := profile.get("situational_behavior"):
         beh_parts.append(f"situational behavior: {_dump(sb)}")
-    if ep := profile.get("escalation_pattern"):
-        beh_parts.append(f"escalation: {ep}")
     if cg := profile.get("conversation_goals"):
         beh_parts.append(f"conversation goals: {_dump(cg)}")
     if sp := profile.get("social_positioning"):
         beh_parts.append(f"social positioning: {_dump(sp)}")
+    if et := profile.get("emotional_tells"):
+        beh_parts.append(f"emotional tells: {_dump(et)}")
+    if rm := profile.get("relationship_matrix"):
+        beh_parts.append(f"relationship matrix: {_dump(rm)}")
     if beh_parts:
         _add("behavior", f"{name} — " + " | ".join(beh_parts))
+
+    # Escalation — dedicated chunk for escalation_pattern.
+    # Single sentence, highly distinctive per persona, currently diluted in behavior blob.
+    # e.g. Yoda: "calm advice -> urgent warnings -> firm directives"
+    # vs Rick: "snark -> lecture -> planet-destroying threat delivered casually"
+    if ep := profile.get("escalation_pattern"):
+        _add("escalation", f"{name} escalation pattern: {ep}")
 
     # Quotes — most discriminating; one chunk per quote
     for i, q in enumerate(profile.get("annotated_quotes", [])):

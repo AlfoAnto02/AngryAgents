@@ -857,6 +857,9 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
             _judge_jobs[chat_id] = {"status": "error", "progress": 0, "result": None, "error": "Chat has no agent messages"}
             return
 
+        # Digests that actually appear in the chat — silent participants cannot be identified.
+        active_digests = {msg["author"] for msg in messages}
+
         from ...rag.evaluation_test_20_judges import _load_all_profiles, run_evaluation_from_db_data
         from ...eval import metrics_persona_id, metrics_fidelity, metrics_group
 
@@ -867,8 +870,8 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
             _judge_jobs[chat_id]["progress"] = 5 + int(done / total * 80)
 
         chat = {"messages": messages}
-        # Force-include the actual chat personas so no participant is missing from RAG candidates
-        forced_names = list(author_map.values())
+        # Force-include only active participants — silent agents have no messages to match against.
+        forced_names = [name for digest, name in author_map.items() if digest in active_digests]
         records = run_evaluation_from_db_data(chat, all_profiles, chat_id, _progress, forced_names=forced_names)
         _judge_jobs[chat_id]["progress"] = 88
 
@@ -882,8 +885,10 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
                 speaker_stats[pid]["turns"] += 1
         transcript_meta = {"speaker_stats": speaker_stats}
 
-        # author_map is {digest: "Claire Dunphy"} — build name_to_author directly
-        name_to_author = {name: digest for digest, name in author_map.items()}
+        # author_map is {digest: "Claire Dunphy"} — only map personas whose authors spoke.
+        # Silent participants can never be identified correctly; excluding them prevents
+        # their 20 guaranteed-wrong predictions from dragging down the accuracy denominator.
+        name_to_author = {name: digest for digest, name in author_map.items() if digest in active_digests}
         chat_persona_names = sorted(name_to_author.keys())
         acc = metrics_persona_id.compute_accuracy(records, name_to_author)
         all_pairs = acc.pop("all_pairs")

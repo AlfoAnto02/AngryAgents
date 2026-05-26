@@ -37,23 +37,82 @@ def format_messages(chat: dict) -> tuple[str, list[str]]:
 
 def format_profile(profile: dict) -> str:
     lines = []
-    if style := profile.get("core_style"):
-        lines.append(f"Style: {style}")
+
+    # Style
+    if cs := profile.get("core_style"):
+        lines.append(f"Style: {cs}")
+    if ss := profile.get("speech_signature"):
+        lines.append(f"Speech signature: {ss}")
     if humor := profile.get("humor"):
         lines.append(f"Humor: {humor}")
-    if vocab := profile.get("vocabulary_markers"):
+
+    # Vocabulary — fiction uses vocabulary_fingerprint
+    if vf := profile.get("vocabulary_fingerprint"):
+        parts = []
+        if fw := vf.get("favored_words"):
+            parts.append("favored: " + ", ".join(fw))
+        if aw := vf.get("avoided_words"):
+            parts.append("avoided: " + ", ".join(aw))
+        if dj := vf.get("domain_jargon"):
+            if dj not in ("none", "None", "", None):
+                parts.append(f"jargon: {dj}")
+        if fp := vf.get("filler_patterns"):
+            if fp not in ("none", "None", "", None):
+                parts.append(f"fillers: {fp}")
+        if parts:
+            lines.append("Vocabulary: " + " | ".join(parts))
+    # real_world profiles use vocabulary_markers
+    elif vocab := profile.get("vocabulary_markers"):
         lines.append(f"Vocabulary markers: {', '.join(vocab)}")
-    if ideology := profile.get("ideological_positions"):
-        lines.append(f"Ideology: {ideology}")
-    if triggers := profile.get("emotional_triggers"):
-        lines.append(f"Triggers: {triggers}")
-    if patterns := profile.get("response_patterns"):
-        lines.append(f"Response patterns: {patterns}")
-    if social := profile.get("social_positioning"):
-        lines.append(f"Social positioning: {social}")
-    if quotes := profile.get("exemplar_quotes"):
-        lines.append("Exemplar quotes:")
-        lines.extend(f'  "{q}"' for q in quotes)
+
+    # Worldview / ideology — fiction uses worldview, real_world uses ideological_positions
+    if wv := profile.get("worldview") or profile.get("ideological_positions"):
+        lines.append(f"Worldview: {wv}")
+    if si := profile.get("self_image_vs_reality"):
+        self_img = si.get("self_image", "")
+        reality = si.get("reality", "")
+        lines.append(f'Self-image: "{self_img}" (reality: {reality})')
+
+    # Emotional / behavioral
+    if kd := profile.get("knowledge_domains"):
+        lines.append(f"Knowledge domains: {kd}")
+    if rm := profile.get("relationship_matrix"):
+        lines.append(f"Relationship matrix: {rm}")
+    # fiction: emotional_tells; real_world: emotional_triggers
+    if et := profile.get("emotional_tells") or profile.get("emotional_triggers"):
+        lines.append(f"Emotional tells: {et}")
+    # fiction: situational_behavior; real_world: response_patterns
+    if sb := profile.get("situational_behavior") or profile.get("response_patterns"):
+        lines.append(f"Situational behavior: {sb}")
+    if ep := profile.get("escalation_pattern"):
+        lines.append(f"Escalation: {ep}")
+    if cg := profile.get("conversation_goals"):
+        goals = ", ".join(cg) if isinstance(cg, list) else str(cg)
+        lines.append(f"Conversation goals: {goals}")
+
+    # Social positioning
+    if sp := profile.get("social_positioning"):
+        lines.append(f"Social positioning: {sp}")
+
+    # Quotes — fiction: annotated_quotes; real_world: exemplar_quotes
+    quotes = profile.get("annotated_quotes") or profile.get("exemplar_quotes") or []
+    if quotes:
+        lines.append("Quotes:")
+        for q in quotes:
+            if isinstance(q, dict):
+                ctx = q.get("context", "")
+                lines.append(f'  "{q["quote"]}"' + (f"  [{ctx}]" if ctx else ""))
+            else:
+                lines.append(f'  "{q}"')
+
+    # Do-not-say — negative fingerprint
+    dns = profile.get("do_not_say") or []
+    if dns:
+        entries = []
+        for d in dns:
+            entries.append(d.get("line", str(d)) if isinstance(d, dict) else str(d))
+        lines.append("Would NEVER say: " + " | ".join(f'"{e}"' for e in entries))
+
     return "\n".join(lines)
 
 

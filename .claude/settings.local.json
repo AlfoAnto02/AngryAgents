@@ -4,7 +4,9 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\alfon\\\\Desktop\\\\AngryAgents\\\\angry-agents\\\\angry_agents\\\\src\" -Recurse -Force)",
       "Bash(Select-Object FullName)",
       "Bash(Sort-Object FullName)",
-      "Bash(findstr /i annie)"
+      "Bash(findstr /i annie)",
+      "Bash(python -c \"from angry_agents.src.rag.retriever import retrieve_candidates; print\\('OK'\\)\")",
+      "Bash(python -c ' *)"
     ]
   }
 }
