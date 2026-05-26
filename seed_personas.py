@@ -127,7 +127,7 @@ def main():
     failed = 0
 
     for path in files:
-        with open(path) as fh:
+        with open(path, encoding="utf-8") as fh:
             profile = json.load(fh)
 
         persona_name = profile.get("persona_name", os.path.basename(path).replace("_profile.json", ""))
