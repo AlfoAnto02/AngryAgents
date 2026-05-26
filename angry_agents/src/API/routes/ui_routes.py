@@ -6,6 +6,7 @@ import hmac as _hmac
 import json
 import logging
 import os
+import random
 import sqlite3
 import time as _time
 from datetime import datetime, timezone
@@ -61,6 +62,8 @@ def _extract_tags(summary: dict) -> list[str]:
 
 
 _DEFAULT_TURNS = 24
+_TURN_DELAY_MIN = 4.0   # seconds — minimum pause between agent turns
+_TURN_DELAY_MAX = 8.0  # seconds — maximum pause between agent turns
 
 
 def _dm_run_agent_turn(db: sqlite3.Connection, chat_id: int, settings: Settings) -> None:
@@ -98,6 +101,7 @@ def _bg_run_conversation(
                 session.run_turn(conn)
             except Exception as exc:
                 deviation("group turn failed", chat_id=chat_id, exc=str(exc))
+            _time.sleep(random.uniform(_TURN_DELAY_MIN, _TURN_DELAY_MAX))
         svc.set_status(chat_id, "done")
     except Exception as exc:
         deviation("group conversation failed", chat_id=chat_id, exc=str(exc))

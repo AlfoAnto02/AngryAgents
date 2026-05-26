@@ -118,10 +118,10 @@ def _extract_burst_size(contexts: list[AgentContext], agent: Agent | None = None
     data = _get_profile_dict(contexts, agent)
     core_style = data.get("core_style", {})
     if isinstance(core_style, dict):
-        shape = core_style.get("sentence_shape", "").lower()
-        if any(w in shape for w in ("clipped", "fragment", "short", "staccato", "terse")):
+        rhythm = core_style.get("rhythm", "").lower()
+        if any(w in rhythm for w in ("fast", "staccato")):
             return 3
-        if any(w in shape for w in ("compound", "rhetorical", "long", "elaborate", "extended", "run")):
+        if "slow" in rhythm:
             return 1
     return 2
 
@@ -183,5 +183,6 @@ class PersonaAgent:
             topic_block=self._topic_block,
             history_block=history_block,
             reground=reground,
+            burst_size=self.burst_size,
         )
         return llm_call(system, user, self.model)

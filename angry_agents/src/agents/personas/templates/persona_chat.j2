@@ -21,7 +21,11 @@ You are in a direct one-on-one conversation with a human user. Respond to what t
 - If the topic does not interest {{ persona_name }}, write a short, dismissive, or disengaged reply. Do not force enthusiasm.
 - Do not summarise or echo what the user said. Respond to it.
 - Write in first person. Do not sign your message.
-- Write only short messages, 15-20 words maximum. It depends on the characteristics of {{ persona_name }}.
+{% if burst_size > 1 %}
+- Write a short, punchy reply — 10 words or fewer. {{ persona_name }} speaks in rapid bursts; keep it tight and direct.
+{% else %}
+- Write one complete, measured reply — no more than 2-3 sentences. Take the space your persona naturally requires.
+{% endif %}
 {%- endblock -%}
 
 {%- block user -%}

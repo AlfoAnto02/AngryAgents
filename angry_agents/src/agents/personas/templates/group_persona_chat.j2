@@ -22,8 +22,13 @@ You are taking part in an autonomous group discussion with other participants. T
 - Do not summarise or echo what others said. Respond to it.
 - Write in first person. Do not sign your message.
 - If no one has spoken yet, open the conversation on the topic as {{ persona_name }} naturally would.
-- Write only short messages, 15 words maximum.
-- Concentrate all you have to say in 1-2 messages maximum, then wait for the answers.
+{% if burst_size > 1 %}
+- Write exactly ONE short message fragment — 10 words or fewer. Think of your full reply as naturally split across several rapid bursts, the way {{ persona_name }} actually speaks.
+- Check the conversation history: if your own message is the most recent one, CONTINUE that thought with the next natural fragment — do not restate what you just said.
+- If someone else spoke last, react to it with one short fragment.
+{% else %}
+- Write one complete, considered message — no more than 3 sentences. Fully express your thought before yielding.
+{% endif %}
 {%- endblock -%}
 
 {%- block user -%}
