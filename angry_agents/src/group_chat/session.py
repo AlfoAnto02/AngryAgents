@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import random
+import time
 from dataclasses import dataclass, field
-from typing import Callable
+from typing import Callable, Optional
 
 from ..db.models.chat_messages import ChatMessage
 from ..db.models.topic import Topic
@@ -35,24 +37,37 @@ class GroupChatSession:
                 on_message(msg)
         return produced
 
-    def run_turn(self, db) -> ChatMessage:
+    def run_turn(
+        self,
+        db,
+        stop_check: Optional[Callable[[], bool]] = None,
+    ) -> ChatMessage | None:
         from ..db.services.chat_messages_service import ChatMessageService
 
         svc = ChatMessageService(db, self.author_secret)
         agent = self.scheduler.next()
+        self._turn_count += 1
+
+        history: list[ChatMessage] = svc.query(filters={"id_chat": self.chat_id})
+        trimmed = self.context_window.trim(history, agent)
 
         last_msg: ChatMessage | None = None
-        for _ in range(agent.burst_size):
-            self._turn_count += 1
 
-            history: list[ChatMessage] = svc.query(filters={"id_chat": self.chat_id})
-            trimmed = self.context_window.trim(history, agent)
-
+        if agent.burst_size > 1:
+            # Single LLM call produces all fragments; write them one by one with typing delay
+            fragments = agent.respond_burst(trimmed, turn_count=self._turn_count)
+            for i, fragment in enumerate(fragments):
+                if stop_check and stop_check():
+                    break
+                if i > 0:
+                    time.sleep(random.uniform(2.0, 4.0))
+                last_msg = self._write_message(svc, agent, fragment)
+        else:
             content = agent.respond(trimmed, turn_count=self._turn_count)
             last_msg = self._write_message(svc, agent, content)
 
         self.scheduler.mark_spoke(agent)
-        return last_msg  # type: ignore[return-value]  # burst_size >= 1 always
+        return last_msg
 
     def _write_message(self, svc: ChatMessageService, agent: PersonaAgent, content: str) -> ChatMessage:
         return svc.create(

@@ -20,7 +20,7 @@ class TurnScheduler:
     def _effective_weight(self, agent: PersonaAgent) -> float:
         turns_since = self._turn_count - self._last_spoke.get(agent.agent.id, -999)
         if turns_since < agent.cooldown_turns:
-            return agent.dominance_weight * 0.1
+            return 0.0
         return agent.dominance_weight
 
     def next(self) -> PersonaAgent:

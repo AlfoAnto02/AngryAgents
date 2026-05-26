@@ -108,10 +108,10 @@ def _extract_cooldown_turns(contexts: list[AgentContext], agent: Agent | None = 
     if isinstance(core_style, dict):
         rhythm = core_style.get("rhythm", "").lower()
         if any(w in rhythm for w in ("fast", "staccato", "rapid", "quick", "associative")):
-            return 1
+            return 3
         if any(w in rhythm for w in ("slow", "deliberate", "lecture", "measured", "methodical")):
             return 6
-    return 3
+    return 4
 
 
 def _extract_burst_size(contexts: list[AgentContext], agent: Agent | None = None) -> int:
@@ -169,14 +169,12 @@ class PersonaAgent:
         self.cooldown_turns = _extract_cooldown_turns(self.contexts, self.agent)
         self.burst_size = _extract_burst_size(self.contexts, self.agent)
 
-    def respond(self, history: list[ChatMessage], turn_count: int = 0) -> str:
-        from ..agent_config import llm_call
-
+    def _render(self, history: list[ChatMessage], turn_count: int) -> tuple[str, str]:
         history_block = "\n".join(
             f"[{m.author or 'User'}]: {m.message}" for m in history
         )
         reground = turn_count > 0 and turn_count % 20 == 0
-        system, user = render_prompt(
+        return render_prompt(
             self._template_name,
             persona_name=self._persona_name,
             profile_block=self._profile_block,
@@ -185,4 +183,19 @@ class PersonaAgent:
             reground=reground,
             burst_size=self.burst_size,
         )
+
+    def respond(self, history: list[ChatMessage], turn_count: int = 0) -> str:
+        from ..agent_config import llm_call
+
+        system, user = self._render(history, turn_count)
         return llm_call(system, user, self.model)
+
+    def respond_burst(self, history: list[ChatMessage], turn_count: int = 0) -> list[str]:
+        import re
+        from ..agent_config import llm_call
+
+        system, user = self._render(history, turn_count)
+        raw = llm_call(system, user, self.model)
+        fragments = re.findall(r'\[\d+\]\s*(.+?)(?=\s*\[\d+\]|$)', raw, re.DOTALL)
+        cleaned = [f.strip() for f in fragments if f.strip()]
+        return cleaned if cleaned else [raw.strip()]

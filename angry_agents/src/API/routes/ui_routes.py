@@ -62,8 +62,8 @@ def _extract_tags(summary: dict) -> list[str]:
 
 
 _DEFAULT_TURNS = 24
-_TURN_DELAY_MIN = 4.0   # seconds — minimum pause between agent turns
-_TURN_DELAY_MAX = 8.0  # seconds — maximum pause between agent turns
+_TURN_DELAY_MIN = 8.0   # seconds — minimum pause between agent turns
+_TURN_DELAY_MAX = 14.0  # seconds — maximum pause between agent turns
 
 
 def _dm_run_agent_turn(db: sqlite3.Connection, chat_id: int, settings: Settings) -> None:
@@ -93,15 +93,24 @@ def _bg_run_conversation(
         if not session.agents:
             svc.set_status(chat_id, "done")
             return
+
+        def _is_stopped() -> bool:
+            row = svc.get(chat_id)
+            return bool(row and row.status == "stopped")
+
         for _ in range(n_turns):
-            chat = svc.get(chat_id)
-            if chat and chat.status == "stopped":
+            if _is_stopped():
                 return
             try:
-                session.run_turn(conn)
+                session.run_turn(conn, stop_check=_is_stopped)
             except Exception as exc:
                 deviation("group turn failed", chat_id=chat_id, exc=str(exc))
-            _time.sleep(random.uniform(_TURN_DELAY_MIN, _TURN_DELAY_MAX))
+            # Interruptible sleep: check for stop every 0.5 s
+            deadline = _time.time() + random.uniform(_TURN_DELAY_MIN, _TURN_DELAY_MAX)
+            while _time.time() < deadline:
+                if _is_stopped():
+                    return
+                _time.sleep(0.5)
         svc.set_status(chat_id, "done")
     except Exception as exc:
         deviation("group conversation failed", chat_id=chat_id, exc=str(exc))
