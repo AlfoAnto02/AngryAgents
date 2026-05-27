@@ -8,6 +8,12 @@ from dotenv import load_dotenv
 
 from .judges.base_judge import AuthorMatch, PersonaIdentificationResult, PersonaScore
 from .judges.templates import render_prompt
+from ..rag.builder import (
+    _emotional_tells_to_natural,
+    _knowledge_to_natural,
+    _social_positioning_to_natural,
+    _vocab_to_natural,
+)
 
 log = logging.getLogger(__name__)
 
@@ -36,66 +42,99 @@ def format_messages(chat: dict) -> tuple[str, list[str]]:
 
 
 def format_profile(profile: dict) -> str:
-    lines = []
+    """
+    Render a persona profile as clean natural-language text for the judge LLM prompt.
 
-    # Style
+    This is the text each judge reads when scoring (candidates_block). It must be
+    readable, consistent, and schema-aware — fiction and real_world profiles use
+    different field names for the same concepts:
+
+        armor_off_register  (fiction)  ↔  candor_register     (real_world)
+        situational_behavior (fiction) ↔  response_patterns   (real_world)
+        knowledge_domains.ignorant     ↔  knowledge_domains.blind_spots
+
+    Dead fallbacks removed (0/84 profiles had them):
+        ideological_positions, vocabulary_markers, emotional_triggers, exemplar_quotes
+    """
+    name = profile.get("persona_name", "Unknown")
+    lines: list[str] = []
+
+    # ── Style ──────────────────────────────────────────────────────────────────
     if cs := profile.get("core_style"):
         lines.append(f"Style: {cs}")
+
     if ss := profile.get("speech_signature"):
-        lines.append(f"Speech signature: {ss}")
+        # Structural patterns first
+        if sp := ss.get("structural_patterns"):
+            lines.append(f"Structural patterns: {sp}")
+        # Off-guard register — fiction: armor_off_register / real_world: candor_register
+        off_guard = ss.get("armor_off_register") or ss.get("candor_register")
+        if off_guard:
+            lines.append(f"Off-guard register: {off_guard}")
+        # Naming behaviour (if present)
+        if nb := ss.get("naming_behavior"):
+            lines.append(f"Naming behavior: {nb}")
+
     if humor := profile.get("humor"):
         lines.append(f"Humor: {humor}")
 
-    # Vocabulary — fiction uses vocabulary_fingerprint
+    # ── Vocabulary ─────────────────────────────────────────────────────────────
+    # All 84 profiles use vocabulary_fingerprint — render as prose via shared converter.
     if vf := profile.get("vocabulary_fingerprint"):
-        parts = []
-        if fw := vf.get("favored_words"):
-            parts.append("favored: " + ", ".join(fw))
-        if aw := vf.get("avoided_words"):
-            parts.append("avoided: " + ", ".join(aw))
-        if dj := vf.get("domain_jargon"):
-            if dj not in ("none", "None", "", None):
-                parts.append(f"jargon: {dj}")
-        if fp := vf.get("filler_patterns"):
-            if fp not in ("none", "None", "", None):
-                parts.append(f"fillers: {fp}")
-        if parts:
-            lines.append("Vocabulary: " + " | ".join(parts))
-    # real_world profiles use vocabulary_markers
-    elif vocab := profile.get("vocabulary_markers"):
-        lines.append(f"Vocabulary markers: {', '.join(vocab)}")
+        prose = _vocab_to_natural(name, vf)
+        lines.append(f"Vocabulary: {prose}" if prose else f"Vocabulary: {vf}")
 
-    # Worldview / ideology — fiction uses worldview, real_world uses ideological_positions
-    if wv := profile.get("worldview") or profile.get("ideological_positions"):
+    # ── Worldview / ideology ───────────────────────────────────────────────────
+    if wv := profile.get("worldview"):
         lines.append(f"Worldview: {wv}")
     if si := profile.get("self_image_vs_reality"):
         self_img = si.get("self_image", "")
         reality = si.get("reality", "")
-        lines.append(f'Self-image: "{self_img}" (reality: {reality})')
+        gap = si.get("gap_behavior", "")
+        line = f'Self-image: "{self_img}"'
+        if reality:
+            line += f" | reality: {reality}"
+        if gap:
+            line += f" | gap behavior: {gap}"
+        lines.append(line)
 
-    # Emotional / behavioral
+    # Knowledge domains — prose via shared converter.
+    # fiction: knowledge_domains.ignorant / real_world: knowledge_domains.blind_spots
     if kd := profile.get("knowledge_domains"):
-        lines.append(f"Knowledge domains: {kd}")
+        prose = _knowledge_to_natural(name, kd)
+        lines.append(f"Knowledge: {prose}" if prose else f"Knowledge domains: {kd}")
+
+    # ── Behavior ───────────────────────────────────────────────────────────────
     if rm := profile.get("relationship_matrix"):
         lines.append(f"Relationship matrix: {rm}")
-    # fiction: emotional_tells; real_world: emotional_triggers
-    if et := profile.get("emotional_tells") or profile.get("emotional_triggers"):
-        lines.append(f"Emotional tells: {et}")
-    # fiction: situational_behavior; real_world: response_patterns
-    if sb := profile.get("situational_behavior") or profile.get("response_patterns"):
+
+    # fiction: situational_behavior / real_world: response_patterns — different labels
+    if sb := profile.get("situational_behavior"):
         lines.append(f"Situational behavior: {sb}")
+    if rp := profile.get("response_patterns"):
+        lines.append(f"Response patterns: {rp}")
+
     if ep := profile.get("escalation_pattern"):
         lines.append(f"Escalation: {ep}")
     if cg := profile.get("conversation_goals"):
         goals = ", ".join(cg) if isinstance(cg, list) else str(cg)
         lines.append(f"Conversation goals: {goals}")
 
-    # Social positioning
-    if sp := profile.get("social_positioning"):
-        lines.append(f"Social positioning: {sp}")
+    # Emotional tells — prose via shared converter.
+    # fiction keys: when_guarded / when_genuinely_afraid / when_grieving_or_defeated
+    # real_world keys: when_challenged / when_enthusiastic / when_uncertain
+    if et := profile.get("emotional_tells"):
+        prose = _emotional_tells_to_natural(name, et)
+        lines.append(prose if prose else f"Emotional tells: {et}")
 
-    # Quotes — fiction: annotated_quotes; real_world: exemplar_quotes
-    quotes = profile.get("annotated_quotes") or profile.get("exemplar_quotes") or []
+    # Social positioning — prose via shared converter.
+    if sp := profile.get("social_positioning"):
+        prose = _social_positioning_to_natural(name, sp)
+        lines.append(prose if prose else f"Social positioning: {sp}")
+
+    # ── Quotes ─────────────────────────────────────────────────────────────────
+    # All 84 profiles use annotated_quotes.
+    quotes = profile.get("annotated_quotes") or []
     if quotes:
         lines.append("Quotes:")
         for q in quotes:
@@ -105,13 +144,21 @@ def format_profile(profile: dict) -> str:
             else:
                 lines.append(f'  "{q}"')
 
-    # Do-not-say — negative fingerprint
+    # ── Do-not-say ─────────────────────────────────────────────────────────────
+    # Include the 'contradicts' field so the judge sees WHY each phrase
+    # disqualifies — the personality violation, not just the banned phrase.
     dns = profile.get("do_not_say") or []
     if dns:
         entries = []
         for d in dns:
-            entries.append(d.get("line", str(d)) if isinstance(d, dict) else str(d))
-        lines.append("Would NEVER say: " + " | ".join(f'"{e}"' for e in entries))
+            if isinstance(d, dict):
+                line = d.get("line", "")
+                contradicts = d.get("contradicts", "")
+                entry = f'"{line}"' + (f' [violates: {contradicts}]' if contradicts else "")
+            else:
+                entry = f'"{str(d)}"'
+            entries.append(entry)
+        lines.append("Would NEVER say: " + " | ".join(entries))
 
     return "\n".join(lines)
 
