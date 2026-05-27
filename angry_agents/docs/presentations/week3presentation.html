@@ -9,62 +9,33 @@
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background: #fff;
   }
 
-  /* ── Deck ────────────────────────────────────────────────── */
-  .deck { flex: 1; position: relative; overflow: hidden; }
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+  }
+
+  /* Deck */
+  .deck { position: relative; }
 
   .slide {
-    position: absolute;
-    inset: 0;
-    display: none;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 3.5rem 5rem;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
   }
 
-  .slide.active { display: flex; }
-
-  /* ── Nav bar ─────────────────────────────────────────────── */
-  .nav {
-    height: 54px;
-    background: #fff;
-    border-top: 1px solid #e5e5e3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-shrink: 0;
-    z-index: 10;
-  }
-
-  .nav button {
-    background: #f4f4f2;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 7px 26px;
-    font-size: 15px;
-    font-weight: 500;
-    color: #333;
-    cursor: pointer;
-    transition: background 0.15s;
-    font-family: inherit;
-  }
-
-  .nav button:hover:not(:disabled) { background: #e8e8e6; }
-  .nav button:disabled { opacity: 0.3; cursor: default; }
-  .nav-counter { font-size: 14px; color: #888; min-width: 60px; text-align: center; }
-  .nav-dots { display: flex; gap: 8px; align-items: center; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: #d0d0ce; transition: background 0.2s; cursor: pointer; }
-  .dot.active { background: #333; }
-
-  /* ══════════════════════════════════════════════════════════ */
-  /* SLIDE 1 — Intro (dark)                                     */
-  /* ══════════════════════════════════════════════════════════ */
+  /* Slide 1 — Intro */
   #slide-1 {
     background: #111;
     align-items: center;
@@ -75,8 +46,9 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 25% 40%, rgba(15,110,86,0.3) 0%, transparent 55%),
-                radial-gradient(ellipse at 78% 65%, rgba(26,94,138,0.22) 0%, transparent 50%);
+    background:
+      radial-gradient(ellipse at 25% 40%, rgba(15,110,86,0.3) 0%, transparent 55%),
+      radial-gradient(ellipse at 78% 65%, rgba(26,94,138,0.22) 0%, transparent 50%);
     pointer-events: none;
   }
 
@@ -128,9 +100,7 @@
   .member-name { font-size: 17px; font-weight: 500; color: #ddd; margin-bottom: 4px; }
   .member-role { font-size: 13px; color: #555; }
 
-  /* ══════════════════════════════════════════════════════════ */
-  /* SLIDES 2 & 3 — Content (light)                             */
-  /* ══════════════════════════════════════════════════════════ */
+  /* Slides 2 & 3 */
   #slide-2, #slide-3 { background: #fafaf9; }
 
   .tag {
@@ -179,10 +149,10 @@
     margin-bottom: 0.8rem;
   }
 
-  .label-problem  { color: #993C1D; }
+  .label-problem { color: #993C1D; }
   .label-solution { color: #0F6E56; }
-  .label-p1       { color: #0F6E56; }
-  .label-p2       { color: #1A5E8A; }
+  .label-p1 { color: #0F6E56; }
+  .label-p2 { color: #1A5E8A; }
 
   .item-list { list-style: none; }
 
@@ -236,9 +206,27 @@
     padding: 16px 24px;
   }
 
-  .arrow-step { font-size: 15px; color: #555; white-space: nowrap; flex: 1; text-align: center; }
-  .arrow-step .step-title { font-weight: 600; color: #111; font-size: 15px; display: block; margin-bottom: 3px; }
-  .arrow-step .step-sub   { font-size: 12px; color: #888; display: block; }
+  .arrow-step {
+    font-size: 15px;
+    color: #555;
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+  }
+
+  .arrow-step .step-title {
+    font-weight: 600;
+    color: #111;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .arrow-step .step-sub {
+    font-size: 12px;
+    color: #888;
+    display: block;
+  }
 
   .badges { margin-bottom: 4px; }
 
@@ -253,8 +241,8 @@
     margin-right: 3px;
   }
 
-  .badge-yt  { background: #fee2e2; color: #991b1b; }
-  .badge-tw  { background: #dbeafe; color: #1e40af; }
+  .badge-yt { background: #fee2e2; color: #991b1b; }
+  .badge-tw { background: #dbeafe; color: #1e40af; }
   .badge-pdf { background: #ede9fe; color: #5b21b6; }
 
   .arr { font-size: 20px; color: #bbb; padding: 0 6px; flex-shrink: 0; }
@@ -262,22 +250,37 @@
   .metrics-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .metrics-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 
-  .metric { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 1.2rem; text-align: center; }
+  .metric {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+  }
 
-  .metric-num { font-size: 36px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.5px; }
-  .metric-num.good    { color: #0F6E56; }
-  .metric-num.p1      { color: #0F6E56; }
-  .metric-num.p2      { color: #1A5E8A; }
+  .metric-num {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .metric-num.good { color: #0F6E56; }
+  .metric-num.p1 { color: #0F6E56; }
+  .metric-num.p2 { color: #1A5E8A; }
   .metric-num.neutral { color: #111; }
 
-  .metric-label { font-size: 14px; color: #777; line-height: 1.5; }
+  .metric-label {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
 
 <div class="deck">
-
-  <!-- ══════════════════════ SLIDE 1 — Intro ══════════════════ -->
+  <!-- Slide 1 — Intro -->
   <div class="slide active" id="slide-1">
     <div class="intro-eyebrow">AI Design 2026 &#8212; Group Project</div>
     <div class="intro-title">Angry<span>Agents</span></div>
@@ -291,7 +294,7 @@
     </div>
   </div>
 
-  <!-- ══════════════════════ SLIDE 2 — RAG ════════════════════ -->
+  <!-- Slide 2 — RAG -->
   <div class="slide" id="slide-2">
     <div class="tag">RAG system &#8212; persona identification</div>
     <h1>From 33 minutes to 30 seconds.</h1>
@@ -338,7 +341,7 @@
     </div>
   </div>
 
-  <!-- ══════════════════ SLIDE 3 — Persona Extraction ═════════ -->
+  <!-- Slide 3 — Persona Extraction -->
   <div class="slide" id="slide-3">
     <div class="tag">Persona extraction &#8212; two-phase pipeline</div>
     <h1>Source material &#8594; structured behavioral fingerprint.</h1>
@@ -398,44 +401,325 @@
     </div>
   </div>
 
-</div>
+  <!-- ══════════════════ SLIDE 4 — Chat modes and templates ═════════════════ -->
+<div class="slide" id="slide-4">
+  <div class="tag">Chat modes — DM vs group chat</div>
+  <h1>Two chat modes. One persona engine.</h1>
+  <p class="subtitle">The same persona can speak in two different settings: a direct DM with one human, or a group conversation with 2 to 8 agents on a shared topic.</p>
+  <hr>
 
-<!-- ── Navigation ─────────────────────────────────────────── -->
-<div class="nav">
-  <button id="btn-prev" onclick="go(-1)" disabled>&#8592; Prev</button>
-  <div class="nav-dots">
-    <div class="dot active" onclick="goTo(0)"></div>
-    <div class="dot" onclick="goTo(1)"></div>
-    <div class="dot" onclick="goTo(2)"></div>
+  <div class="two-col">
+    <div class="phase-box">
+      <div class="section-label label-problem">DM chat</div>
+      <ul class="item-list">
+        <li><strong>1 agent</strong> talks to <strong>1 human user</strong>.</li>
+        <li>The agent must answer in the user’s language.</li>
+        <li>The prompt is optimized for direct interaction and user instructions.</li>
+        <li class="note">This mode is used for one-on-one conversations, not peer discussion.</li>
+      </ul>
+    </div>
+
+    <div class="phase-box">
+      <div class="section-label label-solution">Group chat</div>
+      <ul class="item-list">
+        <li><strong>2 to 8 agents</strong> talk to each other.</li>
+        <li>They discuss a <strong>given topic</strong> inside the same conversation.</li>
+        <li>The user can observe the conversation and interact with the agents.</li>
+        <li class="note">Each agent sees other participants only as labeled speakers, not real identities.</li>
+      </ul>
+    </div>
   </div>
-  <div class="nav-counter" id="counter">1 / 3</div>
-  <button id="btn-next" onclick="go(1)">Next &#8594;</button>
+
+  <div class="phase-box" style="margin-bottom: 1.8rem;">
+    <div class="section-label label-p1">Why templates matter</div>
+    <ul class="item-list">
+      <li>Templates are the <strong>system prompt</strong> sent to the LLM before generation.</li>
+      <li>They inject the persona profile, topic, history, and writing style into the model context.</li>
+      <li>They also enforce different behavior for DM and group chat.</li>
+      <li class="note">Without templates, the same persona would sound generic and drift more easily.</li>
+    </ul>
+  </div>
+
+  <div class="phase-box" style="margin-bottom: 1.8rem;">
+    <div class="section-label label-p1">How the templates work</div>
+    <ul class="item-list">
+      <li><strong>They are Jinja2 system prompts.</strong> At runtime, the code renders a different template depending on the chat mode, then passes the filled prompt to the LLM.</li>
+      <li><strong>Group chat template.</strong> It gives the model the persona profile, the topic, the conversation history, and explicit writing constraints so each agent speaks like a peer in the group, not like a generic chatbot.</li>
+      <li><strong>DM template.</strong> It keeps the same persona profile but changes the instructions: one human user, same-language replies, and direct engagement with the user’s request.</li>
+      <li><strong>They are effective because they separate behavior by mode.</strong> The same persona can speak as a peer in group chat or as a direct assistant in DM without losing consistency.</li>
+      <li class="note">The template also adds re-grounding every 20 turns, which reduces persona drift without extra LLM calls.</li>
+    </ul>
+  </div>
 </div>
 
-<script>
-  const slides  = document.querySelectorAll('.slide');
-  const dots    = document.querySelectorAll('.dot');
-  const counter = document.getElementById('counter');
-  const btnPrev = document.getElementById('btn-prev');
-  const btnNext = document.getElementById('btn-next');
-  let current   = 0;
+  <!-- ══════════════════ SLIDE 5 — Group chat overview ═════════════════ -->
+  <div class="slide" id="slide-5">
+    <div class="tag">Group chat — architecture</div>
+    <h1>Eight agents. One shared conversation.</h1>
+    <p class="subtitle">The group chat module keeps each persona consistent, schedules turns fairly, and hides real identities from the judges.</p>
+    <hr>
 
-  function render() {
-    slides.forEach((s, i) => s.classList.toggle('active', i === current));
-    dots.forEach((d, i)   => d.classList.toggle('active', i === current));
-    counter.textContent  = (current + 1) + ' / ' + slides.length;
-    btnPrev.disabled = current === 0;
-    btnNext.disabled = current === slides.length - 1;
-  }
+    <div class="two-col">
+      <div class="phase-box">
+        <div class="section-label label-problem">What the system must do</div>
+        <ul class="item-list">
+          <li><strong>Stay in character</strong> for dozens of turns without drifting.</li>
+          <li><strong>Call the LLM only when needed</strong>, not at every tick of the loop.</li>
+          <li><strong>Keep authors anonymous</strong> so judges cannot see who wrote what.</li>
+          <li class="note">Each message author is stored as an HMAC token, not a real name.</li>
+        </ul>
+      </div>
 
-  function go(dir)   { current = Math.max(0, Math.min(slides.length - 1, current + dir)); render(); }
-  function goTo(idx) { current = idx; render(); }
+      <div class="phase-box">
+        <div class="section-label label-solution">Main building blocks</div>
+        <ul class="item-list">
+          <li><strong>PersonaAgent</strong> — encapsulates the persona profile and prompt data.</li>
+          <li><strong>TurnScheduler</strong> — decides which agent speaks next.</li>
+          <li><strong>ContextWindow</strong> — chooses how much history each agent sees.</li>
+          <li><strong>GroupChatSession</strong> — runs the conversation and writes messages to the DB.</li>
+        </ul>
+      </div>
+    </div>
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(1);
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   go(-1);
-  });
-</script>
+    <div class="phase-box" style="margin-bottom: 1.8rem;">
+      <div class="section-label label-solution">How one turn works</div>
+      <div class="arrow-row">
+        <div class="arrow-step"><span class="step-title">Pick agent</span><span class="step-sub">scheduler.next()</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">Load history</span><span class="step-sub">from the database</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">Trim context</span><span class="step-sub">according to strategy</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">Generate reply</span><span class="step-sub">single or burst mode</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">Save message</span><span class="step-sub">with anonymous author token</span></div>
+      </div>
+      <ul class="item-list">
+        <li>If an agent has <strong>message_count &gt; 1</strong>, it produces a burst with one LLM call.</li>
+        <li>The session adds short delays between fragments to simulate typing.</li>
+        <li>Every 20 turns, the prompt is re-grounded to reduce persona drift.</li>
+        <li class="note">Judges never see the real author names during evaluation.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- ══════════════════ SLIDE 6 — RAG build time ═════════════════ -->
+  <div class="slide" id="slide-6">
+    <div class="tag">RAG system — build time</div>
+    <h1>Chunk once. Index once.</h1>
+    <p class="subtitle">Before any evaluation starts, each persona profile is split into semantic chunks and embedded into a persistent vector store.</p>
+    <hr>
 
+    <div class="two-col">
+      <div class="phase-box">
+        <div class="section-label label-p1">1 — Chunking</div>
+        <div class="model-chip">builder.py</div>
+        <ul class="item-list">
+          <li class="mono"><strong>style</strong> — core_style, speech_signature, response_patterns</li>
+          <li class="mono"><strong>voice</strong> — humor, vocabulary_fingerprint, vocabulary_markers</li>
+          <li class="mono"><strong>worldview</strong> — beliefs, ideology, emotional triggers</li>
+          <li class="mono"><strong>behavior</strong> — situational behavior, escalation, social positioning</li>
+          <li class="mono"><strong>quote</strong> — one chunk per annotated quote</li>
+          <li class="note">Each profile becomes 4–9 chunks depending on how rich it is.</li>
+        </ul>
+      </div>
+
+      <div class="phase-box">
+        <div class="section-label label-p2">2 — Indexing</div>
+        <div class="model-chip">indexer.py + ChromaDB</div>
+        <ul class="item-list">
+          <li>Each chunk is embedded with <strong>text-embedding-3-small</strong>.</li>
+          <li>Vectors and metadata are stored in <strong>data/chroma/</strong>.</li>
+          <li>The index is built <strong>once</strong> and reused for every evaluation.</li>
+          <li>Quotes are the strongest signal because they preserve rhythm and register.</li>
+          <li class="note">At query time, judges never scan all 100 profiles directly.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="metrics-3">
+      <div class="metric">
+        <div class="metric-num neutral">4–9</div>
+        <div class="metric-label">chunks per profile<br>depending on available fields</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num p1">1</div>
+        <div class="metric-label">embedding model<br>used for build-time indexing</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num good">∞</div>
+        <div class="metric-label">reuses<br>after one-time index build</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ══════════════════ SLIDE 7 — RAG query time ═════════════════ -->
+  <div class="slide" id="slide-7">
+    <div class="tag">RAG system — query time</div>
+    <h1>Prefilter first. Judge later.</h1>
+    <p class="subtitle">At evaluation time, only the most relevant persona profiles are retrieved from ChromaDB and passed to the judges.</p>
+    <hr>
+
+    <div class="phase-box" style="margin-bottom: 1.8rem;">
+      <div class="section-label label-solution">Retrieval flow</div>
+      <div class="arrow-row">
+        <div class="arrow-step"><span class="step-title">Chat transcript</span><span class="step-sub">last 5 messages per author</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">Embed query</span><span class="step-sub">same model as indexing</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">ChromaDB search</span><span class="step-sub">nearest chunks</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">Score + dedupe</span><span class="step-sub">best score per persona</span></div>
+        <span class="arr">&#8594;</span>
+        <div class="arrow-step"><span class="step-title">Top-20 candidates</span><span class="step-sub">passed to judges</span></div>
+      </div>
+      <ul class="item-list">
+        <li>Each author digest becomes one semantic query.</li>
+        <li>The retriever oversamples nearest chunks, then merges scores by persona.</li>
+        <li>The judges receive a base set of 8 personas plus 12 retrieved candidates.</li>
+        <li class="note">If the correct persona is missing from the retrieved 12, that is a retrieval miss, not a judging miss.</li>
+      </ul>
+    </div>
+
+    <div class="metrics-3">
+      <div class="metric">
+        <div class="metric-num good">20</div>
+        <div class="metric-label">profiles returned<br>instead of 100</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num p2">5</div>
+        <div class="metric-label">messages per author<br>used for the query</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num neutral">1</div>
+        <div class="metric-label">shortlist sent<br>to the judge pipeline</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ══════════════════ SLIDE 8 — Judge phase ═════════════════ -->
+  <div class="slide" id="slide-8">
+    <div class="tag">Judge phase — evaluation workflow</div>
+    <h1>One judge pass, one tool pass, then metrics and deliberation.</h1>
+    <p class="subtitle">The evaluation starts from a RAG-shortlisted candidate set, then the judges score persona identity and fidelity, and finally the system aggregates the results and runs deliberation on the harder cases.</p>
+    <hr>
+
+    <div class="arrow-row">
+      <div class="arrow-step"><span class="step-title">RAG pre-filtering</span><span class="step-sub">shortlist the candidate personas</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Persona identification</span><span class="step-sub">score anonymous authors against personas</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Individual fidelity</span><span class="step-sub">rate how well each agent fits</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Metrics</span><span class="step-sub">accuracy, F1, kappa, fidelity stats</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Deliberation</span><span class="step-sub">resolve contested cases in Phase 2</span></div>
+    </div>
+
+    <div class="two-col">
+      <div class="phase-box">
+        <div class="section-label label-problem">LLM call 1 — normal judge pass</div>
+        <ul class="item-list">
+          <li>The judge sees the persona profile and the chat history.</li>
+          <li>It scores the anonymised authors and produces the first answer.</li>
+          <li>This pass is used for persona identification and individual fidelity.</li>
+          <li class="note">The candidate set is already shortened by RAG before this call.</li>
+        </ul>
+      </div>
+
+      <div class="phase-box">
+        <div class="section-label label-solution">LLM call 2 — RAG as a tool</div>
+        <ul class="item-list">
+          <li>The same judge runs again, but can query ChromaDB when the shortlist is not enough.</li>
+          <li>This lets the judge fetch extra evidence instead of being trapped in the initial candidates.</li>
+          <li>The tool-based pass improves robustness on ambiguous or borderline cases.</li>
+          <li class="note">The tool mechanism will be explained in a separate slide.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box" style="margin-bottom: 1.8rem;">
+      <div class="section-label label-p1">What happens after scoring</div>
+      <ul class="item-list">
+        <li>The system computes the evaluation metrics from the judge outputs.</li>
+        <li>It then selects the harder or higher-variance cases for deliberation.</li>
+        <li>In Phase 2, judges compare their first pass results and may revise them.</li>
+        <li class="note">RAG remains the entry point, but the core of this slide is the judging process itself.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════ SLIDE 9 — Judge phase with tool ═════════════════ -->
+  <div class="slide" id="slide-8">
+    <div class="tag">Judge phase — RAG as a tool</div>
+    <h1>Tool access improves accuracy, especially on semantic fields like ideology.</h1>
+    <p class="subtitle">The judge first evaluates the merged candidate set, then can call RAG as a tool for deeper semantic retrieval when the initial shortlist is not enough. This helps the model reason on harder dimensions, but it also increases token usage and cost.</p>
+    <hr>
+
+    <div class="arrow-row">
+      <div class="arrow-step"><span class="step-title">Merged candidates</span><span class="step-sub">8 base personas + 12 retrieved</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Judge pass</span><span class="step-sub">persona ID + fidelity</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">RAG as a tool</span><span class="step-sub">deeper semantic retrieval</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Metrics</span><span class="step-sub">accuracy, agreement, fidelity</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Deliberation</span><span class="step-sub">resolve contested cases</span></div>
+    </div>
+
+    <div class="two-col">
+      <div class="phase-box">
+        <div class="section-label label-problem">LLM call 1 — normal judge pass</div>
+        <ul class="item-list">
+          <li>The judge sees the merged list of personas and the chat history.</li>
+          <li>It scores anonymous authors against the candidate personas.</li>
+          <li>This pass produces the first persona identification and fidelity estimates.</li>
+          <li class="note">This pass works, but it struggles more on semantic fields such as ideology.</li>
+        </ul>
+      </div>
+
+      <div class="phase-box">
+        <div class="section-label label-solution">LLM call 2 — RAG as a tool</div>
+        <ul class="item-list">
+          <li>The same judge can query ChromaDB for the semantic chunks that matter most.</li>
+          <li>This is particularly useful for fields like ideology, where pure prompt reasoning is weaker.</li>
+          <li>It improves accuracy by about <strong>10%</strong>, but roughly doubles token usage.</li>
+          <li>In practice, the trade-off is whether the gain in quality is worth the added cost.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box" style="margin-bottom: 1.8rem;">
+      <div class="section-label label-p1">Measured trade-off</div>
+      <table style="width:100%; border-collapse: collapse; font-size: 0.92rem;">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.18);">Metric</th>
+            <th style="text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.18);">Con tool</th>
+            <th style="text-align:left; padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.18);">Senza tool</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.10);">Chiamate API</td>
+            <td style="padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.10);">40</td>
+            <td style="padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.10);">20</td>
+          </tr>
+          <tr>
+            <td style="padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.10);">Token totali</td>
+            <td style="padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.10);">~1.136.000</td>
+            <td style="padding:0.45rem 0.6rem; border-bottom:1px solid rgba(255,255,255,0.10);">541.939</td>
+          </tr>
+          <tr>
+            <td style="padding:0.45rem 0.6rem;">Costo</td>
+            <td style="padding:0.45rem 0.6rem;"><strong>$0.1886</strong></td>
+            <td style="padding:0.45rem 0.6rem;"><strong>$0.0977</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:0.8rem;">Open question: does the ~10% accuracy gain justify the doubled cost, especially when the drop is most visible on semantic fields like ideology?</p>
+    </div>
+  </div>
 </body>
 </html>
