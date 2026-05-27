@@ -654,6 +654,9 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
             <ReportPersonaID
               group={EVAL_GROUPS[0]}
               accuracy={report.accuracy} ciLow={report.ciLow} ciHigh={report.ciHigh} pValue={report.pValue}
+              cohenKappa={report.cohenKappa ?? 0} macroF1={report.macroF1 ?? 0}
+              prfRows={report.prfRows || []}
+              judgeVarMean={report.judgeVarMean ?? 0} judgeVarStd={report.judgeVarStd ?? 0}
               cm={report.cm} cmLabels={report.cmLabels || []} personas={personas}
             />
           )}
@@ -746,7 +749,15 @@ function PropsList({ group }) {
   );
 }
 
-function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cm, cmLabels, personas }) {
+function kappaLabel(k) {
+  if (k > 0.8) return "Excellent";
+  if (k > 0.6) return "Good";
+  if (k > 0.4) return "Moderate";
+  if (k > 0.2) return "Fair";
+  return "Poor";
+}
+
+function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cohenKappa, macroF1, prfRows, judgeVarMean, judgeVarStd, cm, cmLabels }) {
   return (
     <>
       <ReportHeader group={group} />
@@ -768,7 +779,25 @@ function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cm, cmLabels,
           sub={pValue < 0.05 ? "Reject H₀ — above random" : "Inconclusive"}
           tone={pValue < 0.05 ? "good" : "warn"}
         />
+        <MetricStat
+          label="Cohen's κ"
+          value={cohenKappa.toFixed(3)}
+          sub={kappaLabel(cohenKappa)}
+          tone={cohenKappa > 0.4 ? "good" : cohenKappa > 0.2 ? "warn" : "bad"}
+        />
+        <MetricStat
+          label="Macro F1"
+          value={macroF1.toFixed(3)}
+          sub="Unweighted avg across personas"
+          tone={macroF1 > 0.5 ? "good" : "warn"}
+        />
       </div>
+
+      {judgeVarStd > 0 && (
+        <div className="t-meta" style={{ margin: "4px 0 16px", color: "var(--fg-2)" }}>
+          Judge accuracy — mean <span className="mono">{(judgeVarMean * 100).toFixed(1)}%</span>, std <span className="mono">{(judgeVarStd * 100).toFixed(1)}%</span>
+        </div>
+      )}
 
       <div className="t-eyebrow" style={{ margin: "20px 0 8px" }}>Confusion matrix (true × predicted)</div>
       <div className="cm-wrap">
@@ -817,6 +846,38 @@ function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cm, cmLabels,
         </div>
       )}
 
+      {prfRows.length > 0 && (
+        <>
+          <div className="t-eyebrow" style={{ margin: "20px 0 8px" }}>Precision · Recall · F1 per persona</div>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Persona</th>
+                <th style={{ width: 90 }}>Precision</th>
+                <th style={{ width: 90 }}>Recall</th>
+                <th style={{ width: 90 }}>F1</th>
+                <th>F1 bar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {prfRows.map((r, i) => (
+                <tr key={i}>
+                  <td className="mono" style={{ fontSize: 12 }}>{r.label}</td>
+                  <td className="col-mono">{r.precision.toFixed(3)}</td>
+                  <td className="col-mono">{r.recall.toFixed(3)}</td>
+                  <td className="col-mono">{r.f1.toFixed(3)}</td>
+                  <td>
+                    <div style={{ height: 8, borderRadius: 4, background: "var(--bg-3)", overflow: "hidden" }}>
+                      <div style={{ width: `${r.f1 * 100}%`, height: "100%", background: r.f1 > 0.5 ? "var(--admin)" : "var(--warn)", borderRadius: 4 }} />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      )}
+
       <PropsList group={group} />
     </>
   );
@@ -830,8 +891,9 @@ function ReportIndividualFidelity({ group, rows }) {
         <thead>
           <tr>
             <th>Persona</th>
-            <th style={{ width: 100 }}>Median</th>
-            <th style={{ width: 100 }}>IQR</th>
+            <th style={{ width: 80 }}>Mean</th>
+            <th style={{ width: 80 }}>Median</th>
+            <th style={{ width: 80 }}>IQR</th>
             <th style={{ width: 160 }}>Bootstrap CI</th>
             <th>Score distribution</th>
           </tr>
@@ -845,6 +907,7 @@ function ReportIndividualFidelity({ group, rows }) {
                   <div className="mono" style={{ fontSize: 12, fontWeight: 600 }}>{r.persona.name}</div>
                 </div>
               </td>
+              <td className="col-mono">{(r.mean ?? 0).toFixed(2)}</td>
               <td className="col-mono">{r.median.toFixed(2)}</td>
               <td className="col-mono">{r.iqr.toFixed(2)}</td>
               <td className="col-mono">[{r.ciL.toFixed(2)}, {r.ciH.toFixed(2)}]</td>
