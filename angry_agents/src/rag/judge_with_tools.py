@@ -12,6 +12,8 @@ One LLM call per judge (not per candidate) — 17x cheaper than the per-candidat
 Requires LLM_BACKEND=openai (tool calling).
 """
 
+from __future__ import annotations
+
 import json
 import logging
 import os
@@ -50,17 +52,14 @@ def _openai_tool_loop(
     system: str,
     user: str,
     model: str,
-    *,
-    tracker: "TokenTracker | None" = None,
     judge_name: str = "unknown",
     judge_role: str = "general",
+    tracker: "TokenTracker | None" = None,
 ) -> str:
     """
     Run an OpenAI chat completion that can invoke search_persona_profiles.
     Returns the final text content once the model stops calling tools.
-
-    If *tracker* is provided, records token usage for every API call made
-    (initial call, any tool-follow-up calls, and the force-final call).
+    Records token usage into *tracker* when provided.
     """
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     messages: list[dict] = [
@@ -79,8 +78,8 @@ def _openai_tool_loop(
         )
         choice = response.choices[0]
 
-        if tracker is not None and response.usage:
-            call_type = "tool_followup" if _ > 0 else "main"
+        if tracker and response.usage:
+            call_type = "tool_followup" if len(messages) > 2 else "main"
             tracker.record(
                 judge_name=judge_name,
                 judge_role=judge_role,
@@ -116,7 +115,7 @@ def _openai_tool_loop(
         response_format={"type": "json_object"},
         temperature=0,
     )
-    if tracker is not None and final.usage:
+    if tracker and final.usage:
         tracker.record(
             judge_name=judge_name,
             judge_role=judge_role,
@@ -176,8 +175,8 @@ def run_persona_identification_with_tools(
     focus       — the judge's lens description (used for logging/fallback).
     role        — judge role: "style", "ideology", "general", or "behavioral".
                   Selects the role-specific batch template.
-    judge_name  — label used in token tracking (e.g. "style_1").
-    tracker     — optional TokenTracker; records usage for every API call made.
+    judge_name  — identifier recorded in the token tracker (e.g. "style_3").
+    tracker     — optional TokenTracker; records all API call token counts.
 
     Requires LLM_BACKEND=openai.
     """
@@ -215,9 +214,9 @@ def run_persona_identification_with_tools(
         system,
         user,
         model,
-        tracker=tracker,
         judge_name=judge_name,
         judge_role=role,
+        tracker=tracker,
     )
     author_persona_scores = _parse_batch_scores(raw, authors, candidates)
 

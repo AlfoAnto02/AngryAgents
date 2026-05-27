@@ -18,6 +18,7 @@ Requires the ChromaDB index to be built first:
 
 import argparse
 import json
+import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -215,15 +216,19 @@ def run_evaluation_from_db_data(
             progress_callback(_completed[0], len(JUDGES))
         return _build_record(judge_id, judge, chat_id, result, candidate_names)
 
-    # Cap concurrency at 5: running all 20 judges simultaneously floods the
-    # OpenAI API and triggers rate-limit retries that stall the entire pool.
-    # 5 workers → batches of 5, still 4× faster than serial, no retry cascades.
-    _MAX_WORKERS = 5
+    # Keep concurrency low to stay within gpt-4o-mini TPM limits.
+    # Each prompt is ~27k tokens; 3 workers × 29k tokens × 3 calls/min ≈ 260k TPM
+    # (Tier 1 cap = 200k TPM, Tier 2 = 2M TPM).
+    # Increase to 5 if on Tier 2+.
+    _MAX_WORKERS = 3
 
     futures_map: dict = {}
     with ThreadPoolExecutor(max_workers=_MAX_WORKERS) as pool:
         for judge_id, judge in enumerate(JUDGES, start=1):
             futures_map[pool.submit(_run_judge, judge_id, judge)] = judge_id
+            # Stagger submissions: 1.5s between jobs keeps the initial burst
+            # well under the TPM window even as workers fill up.
+            time.sleep(1.5)
 
     records = [None] * len(JUDGES)
     for future in as_completed(futures_map):
@@ -295,9 +300,10 @@ def main() -> None:
         return _build_record(judge_id, judge, chat_id, result, candidate_names)
 
     futures_map: dict = {}
-    with ThreadPoolExecutor(max_workers=5) as pool:
+    with ThreadPoolExecutor(max_workers=3) as pool:
         for judge_id, judge in enumerate(JUDGES, start=1):
             futures_map[pool.submit(_run_judge, judge_id, judge)] = judge_id
+            time.sleep(1.5)
 
     records = [None] * len(JUDGES)
     for future in as_completed(futures_map):

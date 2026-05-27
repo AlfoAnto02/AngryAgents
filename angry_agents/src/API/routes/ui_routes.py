@@ -838,6 +838,10 @@ def _save_eval_report(
 def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
     """Background task: run 20 real judges on a DB chat then compute metrics via src/eval."""
     _judge_jobs[chat_id] = {"status": "running", "progress": 2, "result": None, "error": None}
+    _t_start = _time.monotonic()
+    print(f"\n{'='*60}")
+    print(f"  [chat {chat_id}] JUDGING START")
+    print(f"{'='*60}")
     try:
         conn = get_connection(db_path)
 
@@ -895,11 +899,15 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         chat = {"messages": messages}
         # Force-include only active participants — silent agents have no messages to match against.
         forced_names = [name for digest, name in author_map.items() if digest in active_digests]
+        _t_llm_start = _time.monotonic()
+        print(f"  [chat {chat_id}] ── LLM calls START  (20 judges × {len(all_profiles)} profiles → {len(forced_names or [])} forced)")
         records = run_evaluation_from_db_data(
             chat, all_profiles, chat_id, _progress,
             forced_names=forced_names,
             out_dir=_EVAL_DIR / f"chat_{chat_id}",
         )
+        _t_llm_end = _time.monotonic()
+        print(f"  [chat {chat_id}] ── LLM calls DONE   ({_t_llm_end - _t_llm_start:.1f}s)")
         _judge_jobs[chat_id]["progress"] = 88
 
         # Build transcript_meta for group metrics (speaker_stats keyed by persona name)
@@ -921,19 +929,36 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         all_pairs = acc.pop("all_pairs")
         cm_data = metrics_persona_id.confusion_matrix(all_pairs, chat_persona_names)
         pid_result = {"persona_identification": {**acc, "confusion_matrix": cm_data}}
+        _t_metrics_start = _time.monotonic()
+        print(f"  [chat {chat_id}] ── metrics START")
         _judge_jobs[chat_id]["progress"] = 93
         fid_result = metrics_fidelity.compute_fidelity(records, name_to_author)
         _judge_jobs[chat_id]["progress"] = 97
         grp_result = metrics_group.run(transcript_meta)
+        _t_metrics_end = _time.monotonic()
+        print(f"  [chat {chat_id}] ── metrics DONE     ({_t_metrics_end - _t_metrics_start:.1f}s)")
 
         result = _build_ui_report(chat_id, pid_result, fid_result, grp_result, author_map, digest_to_agent_id, messages)
 
         # ── Persist full report to data/eval/ ───────────────────────
         _save_eval_report(chat_id, records, pid_result, fid_result, grp_result, author_map)
 
+        _t_total = _time.monotonic() - _t_start
+        _t_llm = _t_llm_end - _t_llm_start
+        _t_metrics = _t_metrics_end - _t_metrics_start
+        print(f"\n{'='*60}")
+        print(f"  [chat {chat_id}] JUDGING DONE")
+        print(f"  LLM calls : {_t_llm/60:.1f}m  ({_t_llm:.1f}s)")
+        print(f"  Metrics   : {_t_metrics:.1f}s")
+        print(f"  Total     : {_t_total/60:.1f}m  ({_t_total:.1f}s)")
+        print(f"{'='*60}\n")
         _judge_jobs[chat_id] = {"status": "done", "progress": 100, "result": result, "error": None}
 
     except Exception as exc:
+        _t_total = _time.monotonic() - _t_start
+        print(f"\n{'='*60}")
+        print(f"  [chat {chat_id}] JUDGING ERROR after {_t_total:.1f}s: {exc}")
+        print(f"{'='*60}\n")
         log.exception("judge pipeline failed for chat %d", chat_id)
         _judge_jobs[chat_id] = {"status": "error", "progress": 0, "result": None, "error": str(exc)}
 
