@@ -1,0 +1,2065 @@
+{
+  "chat_id": 10,
+  "generated_at": "2026-05-27T13:42:39.476320+00:00",
+  "author_map": {
+    "8dd365f5d361a0cdd1b2115a25a84cfa4eb3c40cdfb3bb14836bb188d7d46a47": "Barack Obama",
+    "679da71d09834c9cb8cd919f9cb382903669b523e89ed1918409987522485f62": "Batman",
+    "0c20eea595e380bb574ca490c1cc90e74eb6d7c184e677a13fc5b000e19c8192": "Cicciogamer89",
+    "b217c804fe3bbd99854f3264984b60291294cac82a09fb44d54321d4afe6ff0f": "Donald Trump",
+    "9f9ec280eb54043c1684102d9f8725e1d97214be3a8eb20e4ae6d06cfeafe276": "Harry Potter",
+    "348568fef5a97fe3f904835a593a6a7440d3d6511147868caf3bb08dec01ee56": "Novak Djokovic",
+    "1829c9c2c71139595d2f8e3bc78d07aac511cded76d8d59360d0de3a9302bc04": "Sam Altman",
+    "4ed320d3389e1158adec48c0f1255f7324acd3dd2f20e6f05f506c236e021d08": "Steve Jobs"
+  },
+  "persona_identification": {
+    "aggregate": {
+      "correct": 114,
+      "total": 120,
+      "accuracy": 0.95,
+      "random_baseline": 0.125,
+      "ci_95": [
+        0.9037,
+        1.0
+      ],
+      "p_value": 0.0,
+      "significant": true
+    },
+    "judge_accuracy_variance": {
+      "mean": 0.95,
+      "variance": 0.014909,
+      "std": 0.1221
+    },
+    "per_judge": [
+      {
+        "judge_name": "style_1",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "style_2",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "style_3",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "style_4",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "style_5",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "ideology_1",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "ideology_2",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "ideology_3",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "ideology_4",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "ideology_5",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "general_1",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "general_2",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "general_3",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "general_4",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "general_5",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "behavioral_1",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      },
+      {
+        "judge_name": "behavioral_2",
+        "correct": 4,
+        "total": 6,
+        "accuracy": 0.6667
+      },
+      {
+        "judge_name": "behavioral_3",
+        "correct": 4,
+        "total": 6,
+        "accuracy": 0.6667
+      },
+      {
+        "judge_name": "behavioral_4",
+        "correct": 4,
+        "total": 6,
+        "accuracy": 0.6667
+      },
+      {
+        "judge_name": "behavioral_5",
+        "correct": 6,
+        "total": 6,
+        "accuracy": 1.0
+      }
+    ],
+    "confusion_matrix": {
+      "labels": [
+        "Batman",
+        "Cicciogamer89",
+        "Donald Trump",
+        "Novak Djokovic",
+        "Sam Altman",
+        "Steve Jobs"
+      ],
+      "matrix": [
+        [
+          17,
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          20,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          19,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          20,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          19,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          19
+        ]
+      ],
+      "precision_recall_f1": {
+        "per_persona": {
+          "Batman": {
+            "precision": 0.85,
+            "recall": 0.85,
+            "f1": 0.85
+          },
+          "Cicciogamer89": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "Donald Trump": {
+            "precision": 0.95,
+            "recall": 0.95,
+            "f1": 0.95
+          },
+          "Novak Djokovic": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "Sam Altman": {
+            "precision": 0.95,
+            "recall": 0.95,
+            "f1": 0.95
+          },
+          "Steve Jobs": {
+            "precision": 0.95,
+            "recall": 0.95,
+            "f1": 0.95
+          }
+        },
+        "macro_f1": 0.95
+      },
+      "cohen_kappa": 0.94
+    }
+  },
+  "individual_fidelity": {
+    "aggregate": {
+      "n": 120,
+      "mean": 3.85,
+      "median": 4.0,
+      "iqr": 2.0,
+      "variance": 1.4563,
+      "std": 1.2068,
+      "ci_95": [
+        4.0,
+        4.5
+      ]
+    },
+    "per_persona": {
+      "Cicciogamer89": {
+        "overall": {
+          "n": 20,
+          "mean": 3.25,
+          "median": 3.0,
+          "iqr": 1.0,
+          "variance": 0.9342,
+          "std": 0.9665,
+          "ci_95": [
+            3.0,
+            3.5
+          ]
+        },
+        "per_judge_type": {
+          "style_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "style_2": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_3": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "style_4": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_5": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "ideology_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology_2": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "ideology_3": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "ideology_4": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "ideology_5": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "general_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_2": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "general_3": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "general_4": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "general_5": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "behavioral_1": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "behavioral_2": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "behavioral_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_5": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          }
+        }
+      },
+      "Donald Trump": {
+        "overall": {
+          "n": 20,
+          "mean": 5.0,
+          "median": 5.0,
+          "iqr": 0.0,
+          "variance": 0.0,
+          "std": 0.0,
+          "ci_95": [
+            5.0,
+            5.0
+          ]
+        },
+        "per_judge_type": {
+          "style_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "style_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "style_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "style_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "style_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          }
+        }
+      },
+      "Novak Djokovic": {
+        "overall": {
+          "n": 20,
+          "mean": 3.35,
+          "median": 3.5,
+          "iqr": 1.0,
+          "variance": 0.9763,
+          "std": 0.9881,
+          "ci_95": [
+            3.0,
+            4.0
+          ]
+        },
+        "per_judge_type": {
+          "style_1": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_2": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_3": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "style_4": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_5": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "ideology_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology_2": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology_3": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology_4": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology_5": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "general_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_2": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "general_3": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "general_4": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "general_5": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "behavioral_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "behavioral_2": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "behavioral_3": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              1.0,
+              1.0
+            ]
+          },
+          "behavioral_4": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              1.0,
+              1.0
+            ]
+          },
+          "behavioral_5": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          }
+        }
+      },
+      "Batman": {
+        "overall": {
+          "n": 20,
+          "mean": 2.75,
+          "median": 3.0,
+          "iqr": 2.0,
+          "variance": 1.6711,
+          "std": 1.2927,
+          "ci_95": [
+            2.0,
+            3.5
+          ]
+        },
+        "per_judge_type": {
+          "style_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "style_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "style_3": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "style_5": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "ideology_1": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "ideology_2": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "ideology_3": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "ideology_4": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "ideology_5": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "general_1": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              1.0,
+              1.0
+            ]
+          },
+          "general_2": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              1.0,
+              1.0
+            ]
+          },
+          "general_3": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "general_4": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "general_5": {
+            "n": 1,
+            "mean": 2.0,
+            "median": 2.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              2.0,
+              2.0
+            ]
+          },
+          "behavioral_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "behavioral_2": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "behavioral_3": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              1.0,
+              1.0
+            ]
+          },
+          "behavioral_4": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              1.0,
+              1.0
+            ]
+          },
+          "behavioral_5": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          }
+        }
+      },
+      "Steve Jobs": {
+        "overall": {
+          "n": 20,
+          "mean": 4.3,
+          "median": 4.0,
+          "iqr": 1.0,
+          "variance": 0.5368,
+          "std": 0.7327,
+          "ci_95": [
+            4.0,
+            5.0
+          ]
+        },
+        "per_judge_type": {
+          "style_1": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_2": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_3": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "style_4": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_5": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "general_2": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "general_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_4": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "general_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_1": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "behavioral_2": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "behavioral_3": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "behavioral_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          }
+        }
+      },
+      "Sam Altman": {
+        "overall": {
+          "n": 20,
+          "mean": 4.45,
+          "median": 5.0,
+          "iqr": 1.0,
+          "variance": 1.1026,
+          "std": 1.0501,
+          "ci_95": [
+            4.5,
+            5.0
+          ]
+        },
+        "per_judge_type": {
+          "style_1": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_2": {
+            "n": 1,
+            "mean": 3.0,
+            "median": 3.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              3.0,
+              3.0
+            ]
+          },
+          "style_3": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "style_4": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "style_5": {
+            "n": 1,
+            "mean": 4.0,
+            "median": 4.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              4.0,
+              4.0
+            ]
+          },
+          "ideology_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "ideology_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_4": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "general_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_1": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_2": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_3": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          },
+          "behavioral_4": {
+            "n": 1,
+            "mean": 1.0,
+            "median": 1.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              1.0,
+              1.0
+            ]
+          },
+          "behavioral_5": {
+            "n": 1,
+            "mean": 5.0,
+            "median": 5.0,
+            "iqr": 0.0,
+            "variance": 0.0,
+            "std": 0.0,
+            "ci_95": [
+              5.0,
+              5.0
+            ]
+          }
+        }
+      }
+    },
+    "judge_type_agreement": {
+      "judge_median_scores": {
+        "behavioral_1": 4.0,
+        "behavioral_2": 4.0,
+        "behavioral_3": 4.5,
+        "behavioral_4": 3.0,
+        "behavioral_5": 4.5,
+        "general_1": 5.0,
+        "general_2": 3.5,
+        "general_3": 4.0,
+        "general_4": 3.5,
+        "general_5": 4.0,
+        "ideology_1": 4.5,
+        "ideology_2": 4.5,
+        "ideology_3": 4.5,
+        "ideology_4": 4.5,
+        "ideology_5": 4.5,
+        "style_1": 3.5,
+        "style_2": 3.0,
+        "style_3": 4.0,
+        "style_4": 3.5,
+        "style_5": 3.5
+      },
+      "judge_mean_scores": {
+        "behavioral_1": 4.1667,
+        "behavioral_2": 4.1667,
+        "behavioral_3": 3.5,
+        "behavioral_4": 3.0,
+        "behavioral_5": 4.3333,
+        "general_1": 4.1667,
+        "general_2": 3.3333,
+        "general_3": 3.8333,
+        "general_4": 3.5,
+        "general_5": 3.6667,
+        "ideology_1": 4.1667,
+        "ideology_2": 4.0,
+        "ideology_3": 4.1667,
+        "ideology_4": 4.1667,
+        "ideology_5": 4.1667,
+        "style_1": 3.6667,
+        "style_2": 3.6667,
+        "style_3": 4.0,
+        "style_4": 3.8333,
+        "style_5": 3.5
+      },
+      "mad_between_types": {
+        "behavioral_1_vs_behavioral_2": 0.0,
+        "behavioral_1_vs_behavioral_3": 0.5,
+        "behavioral_1_vs_behavioral_4": 1.0,
+        "behavioral_1_vs_behavioral_5": 0.5,
+        "behavioral_1_vs_general_1": 1.0,
+        "behavioral_1_vs_general_2": 0.5,
+        "behavioral_1_vs_general_3": 0.0,
+        "behavioral_1_vs_general_4": 0.5,
+        "behavioral_1_vs_general_5": 0.0,
+        "behavioral_1_vs_ideology_1": 0.5,
+        "behavioral_1_vs_ideology_2": 0.5,
+        "behavioral_1_vs_ideology_3": 0.5,
+        "behavioral_1_vs_ideology_4": 0.5,
+        "behavioral_1_vs_ideology_5": 0.5,
+        "behavioral_1_vs_style_1": 0.5,
+        "behavioral_1_vs_style_2": 1.0,
+        "behavioral_1_vs_style_3": 0.0,
+        "behavioral_1_vs_style_4": 0.5,
+        "behavioral_1_vs_style_5": 0.5,
+        "behavioral_2_vs_behavioral_3": 0.5,
+        "behavioral_2_vs_behavioral_4": 1.0,
+        "behavioral_2_vs_behavioral_5": 0.5,
+        "behavioral_2_vs_general_1": 1.0,
+        "behavioral_2_vs_general_2": 0.5,
+        "behavioral_2_vs_general_3": 0.0,
+        "behavioral_2_vs_general_4": 0.5,
+        "behavioral_2_vs_general_5": 0.0,
+        "behavioral_2_vs_ideology_1": 0.5,
+        "behavioral_2_vs_ideology_2": 0.5,
+        "behavioral_2_vs_ideology_3": 0.5,
+        "behavioral_2_vs_ideology_4": 0.5,
+        "behavioral_2_vs_ideology_5": 0.5,
+        "behavioral_2_vs_style_1": 0.5,
+        "behavioral_2_vs_style_2": 1.0,
+        "behavioral_2_vs_style_3": 0.0,
+        "behavioral_2_vs_style_4": 0.5,
+        "behavioral_2_vs_style_5": 0.5,
+        "behavioral_3_vs_behavioral_4": 1.5,
+        "behavioral_3_vs_behavioral_5": 0.0,
+        "behavioral_3_vs_general_1": 0.5,
+        "behavioral_3_vs_general_2": 1.0,
+        "behavioral_3_vs_general_3": 0.5,
+        "behavioral_3_vs_general_4": 1.0,
+        "behavioral_3_vs_general_5": 0.5,
+        "behavioral_3_vs_ideology_1": 0.0,
+        "behavioral_3_vs_ideology_2": 0.0,
+        "behavioral_3_vs_ideology_3": 0.0,
+        "behavioral_3_vs_ideology_4": 0.0,
+        "behavioral_3_vs_ideology_5": 0.0,
+        "behavioral_3_vs_style_1": 1.0,
+        "behavioral_3_vs_style_2": 1.5,
+        "behavioral_3_vs_style_3": 0.5,
+        "behavioral_3_vs_style_4": 1.0,
+        "behavioral_3_vs_style_5": 1.0,
+        "behavioral_4_vs_behavioral_5": 1.5,
+        "behavioral_4_vs_general_1": 2.0,
+        "behavioral_4_vs_general_2": 0.5,
+        "behavioral_4_vs_general_3": 1.0,
+        "behavioral_4_vs_general_4": 0.5,
+        "behavioral_4_vs_general_5": 1.0,
+        "behavioral_4_vs_ideology_1": 1.5,
+        "behavioral_4_vs_ideology_2": 1.5,
+        "behavioral_4_vs_ideology_3": 1.5,
+        "behavioral_4_vs_ideology_4": 1.5,
+        "behavioral_4_vs_ideology_5": 1.5,
+        "behavioral_4_vs_style_1": 0.5,
+        "behavioral_4_vs_style_2": 0.0,
+        "behavioral_4_vs_style_3": 1.0,
+        "behavioral_4_vs_style_4": 0.5,
+        "behavioral_4_vs_style_5": 0.5,
+        "behavioral_5_vs_general_1": 0.5,
+        "behavioral_5_vs_general_2": 1.0,
+        "behavioral_5_vs_general_3": 0.5,
+        "behavioral_5_vs_general_4": 1.0,
+        "behavioral_5_vs_general_5": 0.5,
+        "behavioral_5_vs_ideology_1": 0.0,
+        "behavioral_5_vs_ideology_2": 0.0,
+        "behavioral_5_vs_ideology_3": 0.0,
+        "behavioral_5_vs_ideology_4": 0.0,
+        "behavioral_5_vs_ideology_5": 0.0,
+        "behavioral_5_vs_style_1": 1.0,
+        "behavioral_5_vs_style_2": 1.5,
+        "behavioral_5_vs_style_3": 0.5,
+        "behavioral_5_vs_style_4": 1.0,
+        "behavioral_5_vs_style_5": 1.0,
+        "general_1_vs_general_2": 1.5,
+        "general_1_vs_general_3": 1.0,
+        "general_1_vs_general_4": 1.5,
+        "general_1_vs_general_5": 1.0,
+        "general_1_vs_ideology_1": 0.5,
+        "general_1_vs_ideology_2": 0.5,
+        "general_1_vs_ideology_3": 0.5,
+        "general_1_vs_ideology_4": 0.5,
+        "general_1_vs_ideology_5": 0.5,
+        "general_1_vs_style_1": 1.5,
+        "general_1_vs_style_2": 2.0,
+        "general_1_vs_style_3": 1.0,
+        "general_1_vs_style_4": 1.5,
+        "general_1_vs_style_5": 1.5,
+        "general_2_vs_general_3": 0.5,
+        "general_2_vs_general_4": 0.0,
+        "general_2_vs_general_5": 0.5,
+        "general_2_vs_ideology_1": 1.0,
+        "general_2_vs_ideology_2": 1.0,
+        "general_2_vs_ideology_3": 1.0,
+        "general_2_vs_ideology_4": 1.0,
+        "general_2_vs_ideology_5": 1.0,
+        "general_2_vs_style_1": 0.0,
+        "general_2_vs_style_2": 0.5,
+        "general_2_vs_style_3": 0.5,
+        "general_2_vs_style_4": 0.0,
+        "general_2_vs_style_5": 0.0,
+        "general_3_vs_general_4": 0.5,
+        "general_3_vs_general_5": 0.0,
+        "general_3_vs_ideology_1": 0.5,
+        "general_3_vs_ideology_2": 0.5,
+        "general_3_vs_ideology_3": 0.5,
+        "general_3_vs_ideology_4": 0.5,
+        "general_3_vs_ideology_5": 0.5,
+        "general_3_vs_style_1": 0.5,
+        "general_3_vs_style_2": 1.0,
+        "general_3_vs_style_3": 0.0,
+        "general_3_vs_style_4": 0.5,
+        "general_3_vs_style_5": 0.5,
+        "general_4_vs_general_5": 0.5,
+        "general_4_vs_ideology_1": 1.0,
+        "general_4_vs_ideology_2": 1.0,
+        "general_4_vs_ideology_3": 1.0,
+        "general_4_vs_ideology_4": 1.0,
+        "general_4_vs_ideology_5": 1.0,
+        "general_4_vs_style_1": 0.0,
+        "general_4_vs_style_2": 0.5,
+        "general_4_vs_style_3": 0.5,
+        "general_4_vs_style_4": 0.0,
+        "general_4_vs_style_5": 0.0,
+        "general_5_vs_ideology_1": 0.5,
+        "general_5_vs_ideology_2": 0.5,
+        "general_5_vs_ideology_3": 0.5,
+        "general_5_vs_ideology_4": 0.5,
+        "general_5_vs_ideology_5": 0.5,
+        "general_5_vs_style_1": 0.5,
+        "general_5_vs_style_2": 1.0,
+        "general_5_vs_style_3": 0.0,
+        "general_5_vs_style_4": 0.5,
+        "general_5_vs_style_5": 0.5,
+        "ideology_1_vs_ideology_2": 0.0,
+        "ideology_1_vs_ideology_3": 0.0,
+        "ideology_1_vs_ideology_4": 0.0,
+        "ideology_1_vs_ideology_5": 0.0,
+        "ideology_1_vs_style_1": 1.0,
+        "ideology_1_vs_style_2": 1.5,
+        "ideology_1_vs_style_3": 0.5,
+        "ideology_1_vs_style_4": 1.0,
+        "ideology_1_vs_style_5": 1.0,
+        "ideology_2_vs_ideology_3": 0.0,
+        "ideology_2_vs_ideology_4": 0.0,
+        "ideology_2_vs_ideology_5": 0.0,
+        "ideology_2_vs_style_1": 1.0,
+        "ideology_2_vs_style_2": 1.5,
+        "ideology_2_vs_style_3": 0.5,
+        "ideology_2_vs_style_4": 1.0,
+        "ideology_2_vs_style_5": 1.0,
+        "ideology_3_vs_ideology_4": 0.0,
+        "ideology_3_vs_ideology_5": 0.0,
+        "ideology_3_vs_style_1": 1.0,
+        "ideology_3_vs_style_2": 1.5,
+        "ideology_3_vs_style_3": 0.5,
+        "ideology_3_vs_style_4": 1.0,
+        "ideology_3_vs_style_5": 1.0,
+        "ideology_4_vs_ideology_5": 0.0,
+        "ideology_4_vs_style_1": 1.0,
+        "ideology_4_vs_style_2": 1.5,
+        "ideology_4_vs_style_3": 0.5,
+        "ideology_4_vs_style_4": 1.0,
+        "ideology_4_vs_style_5": 1.0,
+        "ideology_5_vs_style_1": 1.0,
+        "ideology_5_vs_style_2": 1.5,
+        "ideology_5_vs_style_3": 0.5,
+        "ideology_5_vs_style_4": 1.0,
+        "ideology_5_vs_style_5": 1.0,
+        "style_1_vs_style_2": 0.5,
+        "style_1_vs_style_3": 0.5,
+        "style_1_vs_style_4": 0.0,
+        "style_1_vs_style_5": 0.0,
+        "style_2_vs_style_3": 1.0,
+        "style_2_vs_style_4": 0.5,
+        "style_2_vs_style_5": 0.5,
+        "style_3_vs_style_4": 0.5,
+        "style_3_vs_style_5": 0.5,
+        "style_4_vs_style_5": 0.0
+      }
+    }
+  },
+  "group_fidelity": {
+    "gini": {
+      "gini": 0.3056,
+      "ci_95": [
+        0.119,
+        0.3205
+      ],
+      "reference_range": [
+        0.28,
+        0.42
+      ],
+      "within_reference_range": true,
+      "z_vs_reference": -0.489
+    },
+    "cosine_distance_matrix": {
+      "note": "embeddings not provided. Generate with: python -m angry_agents.src.eval.simulate_transcript --embed-model nomic-embed-text"
+    },
+    "spearman_vs_reference": {
+      "note": "requires embeddings"
+    }
+  },
+  "deliberation": {
+    "note": "Phase 2 not yet implemented"
+  }
+}

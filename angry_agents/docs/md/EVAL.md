@@ -36,6 +36,18 @@ accuracy = number of correct guesses / total guesses
 
 This is computed per judge and also aggregated across all judges.
 
+### Variance Across Judges
+
+Each judge gets a per-judge accuracy (score from 0 to 1, with 8 guesses each). We compute variance and std across those 20 per-judge accuracies:
+
+```
+mean_acc   = Σ accuracy_j / 20
+variance   = Σ (accuracy_j - mean_acc)² / (20 - 1)   [sample variance, ddof=1]
+std        = sqrt(variance)
+```
+
+This is separate from the binomial CI: variance tells you how much judges *disagree with each other* on the task difficulty. High variance = some judges identified personas well, others failed — the task is inconsistently hard or some judges are outliers. Low variance = all judges performed similarly.
+
 ### Binomial Exact Confidence Interval
 
 We use a **binomial exact test** (Clopper-Pearson method) to build a 95% confidence interval around the aggregate accuracy.
@@ -53,13 +65,55 @@ If `p-value < 0.05`, we reject H₀ and conclude judges are doing better than ra
 
 We build an 8×8 matrix where entry `[i][j]` = how many times the true persona was `i` but the judge predicted `j`. The diagonal = correct guesses, off-diagonal = mistakes.
 
-Then we run a **chi-square test** to check whether the mistakes are random or systematic:
+### Precision, Recall, F1 (per persona)
+
+For each persona `i`, treating it as the positive class vs all others:
 
 ```
-Expected mistakes per off-diagonal cell = total_errors / (8 × 7)
+Precision(i) = TP_i / (TP_i + FP_i)
+```
+Of all times judges predicted persona `i`, how many were actually persona `i`.
+
+```
+Recall(i) = TP_i / (TP_i + FN_i)
+```
+Of all times the true persona was `i`, how many did judges correctly identify.
+
+```
+F1(i) = 2 × Precision(i) × Recall(i) / (Precision(i) + Recall(i))
+```
+Harmonic mean of Precision and Recall. Penalizes large gaps between the two.
+
+We report **macro F1** (unweighted average across all 8 personas) as the aggregate score. This treats every persona equally regardless of how often it appeared.
+
+### Cohen's Kappa (κ)
+
+Accuracy alone is misleading — a judge who guesses randomly still gets ~12.5% correct. Cohen's Kappa corrects for chance agreement:
+
+```
+κ = (p_o - p_e) / (1 - p_e)
 ```
 
-If `chi2_p < 0.05`, some personas are being confused with specific others more than chance — there's a pattern in the errors.
+- **`p_o`** (observed agreement) = fraction of guesses where the judge's prediction matched the true persona = raw accuracy.
+- **`p_e`** (expected agreement by chance) = probability that judge and ground truth would agree even if the judge guessed randomly, computed from the marginal distributions of predicted labels and true labels:
+
+```
+p_e = Σ_i (n_predicted_i / n) × (n_true_i / n)
+```
+
+Where `n_predicted_i` = how many times judges predicted persona `i`, `n_true_i` = how many times persona `i` was the true answer, and `n` = total guesses. If all personas appear equally (ideal case), `p_e = 1/8 = 0.125`.
+
+Interpretation:
+
+| κ | Agreement |
+|---|---|
+| < 0.2 | Poor |
+| 0.2–0.4 | Fair |
+| 0.4–0.6 | Moderate |
+| 0.6–0.8 | Good |
+| > 0.8 | Excellent |
+
+κ = 0 means judges perform exactly at chance. κ = 1 means perfect identification. Negative κ means worse than random.
 
 ---
 
@@ -80,7 +134,9 @@ variance = sum((x - mean)²) / (n - 1)   [sample variance, ddof=1]
 std = sqrt(variance)
 ```
 
-The **median** is preferred over the mean because fidelity scores are ordinal (1–5) and the distribution may be skewed. The **IQR** tells us how much judges disagreed.
+We report both **mean** and **median**. Mean is sensitive to outliers (one judge giving 1 drags it down); median is robust to them. For ordinal scores (1–5) with potentially skewed distributions, median is the primary measure — mean is reported for completeness.
+
+**IQR** (Interquartile Range) = Q3 − Q1, where Q1 = 25th percentile and Q3 = 75th percentile of the scores. It captures the spread of the middle 50% of judges, ignoring extreme outliers. Small IQR = judges agreed. Large IQR = judges split.
 
 ### Bootstrap 95% CI on the Median
 
@@ -105,6 +161,14 @@ MAD(style, ideology) = |median_score_style - median_score_ideology|
 ```
 
 Lower MAD = more agreement between those two judge types. This is computed for every pair of judge types.
+
+We also report the **mean score per judge type** across all personas:
+
+```
+mean_type = Σ scores_assigned_by_that_type / n_scores
+```
+
+This reveals systematic bias: if `style` judges consistently average 2.1 while `general` judges average 3.8, those two types are not measuring the same thing — or one type applies a harsher standard. MAD on medians tells you if they *disagree on a specific persona*; mean per type tells you if they *disagree on scale* across the board.
 
 ---
 
@@ -133,19 +197,6 @@ z = (gini - 0.33) / 0.05
 ```
 
 Bootstrap CI on Gini is also computed (same 10,000-resample method as above).
-
-### Cosine Distance Matrix (optional) (TO CONSIDER IF IT IS WORTHY OR NOT)
-
-If message embeddings are available (one embedding vector per agent, averaged over all their messages), we build an **8×8 pairwise cosine distance matrix**:
-
-```
-cosine_distance(agent_i, agent_j) = 1 - cosine_similarity(v_i, v_j)
-                                  = 1 - (v_i · v_j) / (||v_i|| × ||v_j||)
-```
-
-Distance = 0 means two agents talked about exactly the same things in exactly the same way. Distance close to 1 means their messages were very different.
-
-This tells us: are agents staying in their own character lane, or are they sounding like each other?
 
 ## Step 4 — Deliberation (`metrics_deliberation.py`)
 

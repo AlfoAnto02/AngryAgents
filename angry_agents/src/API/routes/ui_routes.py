@@ -705,6 +705,7 @@ def _build_ui_report(
         ci = overall.get("ci_95") or [0.0, 0.0]
         fidelity_rows.append({
             "personaId": agent_id,
+            "mean": float(overall.get("mean") or 0.0),
             "median": float(overall.get("median") or 0.0),
             "iqr": float(overall.get("iqr") or 0.0),
             "ciL": float(ci[0]),
@@ -730,13 +731,33 @@ def _build_ui_report(
         for pid, cnt in turn_counts.items()
     ]
 
+    # ── Persona ID — new metrics ──────────────────────────────────
+    prf_data = cm_data.get("precision_recall_f1") or {}
+    prf_per_persona = prf_data.get("per_persona") or {}
+    # Attach prf to each cm label in order
+    prf_rows = [
+        {
+            "label": lbl,
+            "precision": float((prf_per_persona.get(lbl) or {}).get("precision") or 0.0),
+            "recall":    float((prf_per_persona.get(lbl) or {}).get("recall")    or 0.0),
+            "f1":        float((prf_per_persona.get(lbl) or {}).get("f1")        or 0.0),
+        }
+        for lbl in cm_labels
+    ]
+    judge_var = pid_result.get("persona_identification", {}).get("judge_accuracy_variance") or {}
+
     return {
         "sessionId": chat_id,
         "ranAt": datetime.now(timezone.utc).isoformat(),
         "accuracy": accuracy,
         "ciLow": float(ci_95[0]),
         "ciHigh": float(ci_95[1]),
-        "pValue": float(pi_agg.get("p_value") or 1.0),
+        "pValue": float(pi_agg["p_value"]) if pi_agg.get("p_value") is not None else 1.0,
+        "cohenKappa": float(cm_data.get("cohen_kappa") or 0.0),
+        "macroF1": float(prf_data.get("macro_f1") or 0.0),
+        "prfRows": prf_rows,
+        "judgeVarMean": float(judge_var.get("mean") or 0.0),
+        "judgeVarStd": float(judge_var.get("std") or 0.0),
         "cm": cm,
         "cmLabels": cm_labels,
         "fidelityRows": fidelity_rows,
