@@ -276,15 +276,6 @@
     line-height: 1.5;
   }
 
-  /* Slide 3 — compact overrides */
-  #slide-3 { padding: 2rem 4rem; }
-  #slide-3 h1 { font-size: 26px; margin-bottom: 0.25rem; }
-  #slide-3 .subtitle { font-size: 14px; margin-bottom: 1.2rem; }
-  #slide-3 hr { margin-bottom: 1.2rem; }
-  #slide-3 .two-col { gap: 1.2rem; margin-bottom: 1.2rem; }
-  #slide-3 .phase-box { padding: 1rem 1.2rem; margin-bottom: 1.2rem; }
-  #slide-3 .section-label { font-size: 11px; margin-bottom: 0.5rem; }
-  #slide-3 .item-list li { font-size: 13px; padding: 5px 0; }
 
   /* Slide 2 — compact overrides to fit all content */
   #slide-2 { padding: 2rem 4rem; }
@@ -384,56 +375,6 @@
     </div>
   </div>
 
-  <!-- ══════════════════ SLIDE 3 — Chat modes and templates ═════════════════ -->
-<div class="slide" id="slide-3">
-  <div class="tag">Chat modes — DM vs group chat</div>
-  <h1>Two chat modes. One persona engine.</h1>
-  <p class="subtitle">The same persona can speak in two different settings: a direct DM with one human, or a group conversation with 2 to 8 agents on a shared topic.</p>
-  <hr>
-
-  <div class="two-col">
-    <div class="phase-box">
-      <div class="section-label label-problem">DM chat</div>
-      <ul class="item-list">
-        <li><strong>1 agent</strong> talks to <strong>1 human user</strong>.</li>
-        <li>The agent must answer in the user’s language.</li>
-        <li>The prompt is optimized for direct interaction and user instructions.</li>
-        <li class="note">This mode is used for one-on-one conversations, not peer discussion.</li>
-      </ul>
-    </div>
-
-    <div class="phase-box">
-      <div class="section-label label-solution">Group chat</div>
-      <ul class="item-list">
-        <li><strong>2 to 8 agents</strong> talk to each other.</li>
-        <li>They discuss a <strong>given topic</strong> inside the same conversation.</li>
-        <li>The user can observe the conversation and interact with the agents.</li>
-        <li class="note">Each agent sees other participants only as labeled speakers, not real identities.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="phase-box" style="margin-bottom: 1.8rem;">
-    <div class="section-label label-p1">Why templates matter</div>
-    <ul class="item-list">
-      <li>Templates are the <strong>system prompt</strong> sent to the LLM before generation.</li>
-      <li>They inject the persona profile, topic, history, and writing style into the model context.</li>
-      <li>They also enforce different behavior for DM and group chat.</li>
-      <li class="note">Without templates, the same persona would sound generic and drift more easily.</li>
-    </ul>
-  </div>
-
-  <div class="phase-box" style="margin-bottom: 1.8rem;">
-    <div class="section-label label-p1">How the templates work</div>
-    <ul class="item-list">
-      <li><strong>They are Jinja2 system prompts.</strong> At runtime, the code renders a different template depending on the chat mode, then passes the filled prompt to the LLM.</li>
-      <li><strong>Group chat template.</strong> It gives the model the persona profile, the topic, the conversation history, and explicit writing constraints so each agent speaks like a peer in the group, not like a generic chatbot.</li>
-      <li><strong>DM template.</strong> It keeps the same persona profile but changes the instructions: one human user, same-language replies, and direct engagement with the user’s request.</li>
-      <li><strong>They are effective because they separate behavior by mode.</strong> The same persona can speak as a peer in group chat or as a direct assistant in DM without losing consistency.</li>
-      <li class="note">The template also adds re-grounding every 20 turns, which reduces persona drift without extra LLM calls.</li>
-    </ul>
-  </div>
-</div>
 
   <!-- ══════════════════ SLIDE 4 — Group chat overview ═════════════════ -->
   <div class="slide" id="slide-4">
@@ -441,6 +382,14 @@
     <h1>Eight agents. One shared conversation.</h1>
     <p class="subtitle">The group chat module keeps each persona consistent, schedules turns fairly, and hides real identities from the judges.</p>
     <hr>
+
+    <div class="phase-box" style="margin-bottom: 1.8rem;">
+      <div class="section-label label-solution">Two chat models. One Persona Engine</div>
+      <ul class="item-list">
+        <li style="font-size: 14px;">Templates are the Jinja2 system prompt sent to the LLM before generation. They inject the persona profile, topic, history, and writing style into the model context.</li>
+        <li style="font-size: 14px;">The same persona can speak in two different settings: a direct DM with one human, or a group conversation with 2 to 8 agents on a shared topic.</li>
+      </ul>
+    </div>
 
     <div class="two-col">
       <div class="phase-box">
