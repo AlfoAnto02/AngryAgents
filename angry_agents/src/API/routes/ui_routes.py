@@ -735,7 +735,7 @@ def _build_ui_report(
         "accuracy": accuracy,
         "ciLow": float(ci_95[0]),
         "ciHigh": float(ci_95[1]),
-        "pValue": float(pi_agg.get("p_value") or 1.0),
+        "pValue": float(pi_agg["p_value"]) if pi_agg.get("p_value") is not None else 1.0,
         "cm": cm,
         "fidelityRows": fidelity_rows,
         "gini": gini,
