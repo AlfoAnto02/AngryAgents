@@ -162,6 +162,14 @@ MAD(style, ideology) = |median_score_style - median_score_ideology|
 
 Lower MAD = more agreement between those two judge types. This is computed for every pair of judge types.
 
+We also report the **mean score per judge type** across all personas:
+
+```
+mean_type = Σ scores_assigned_by_that_type / n_scores
+```
+
+This reveals systematic bias: if `style` judges consistently average 2.1 while `general` judges average 3.8, those two types are not measuring the same thing — or one type applies a harsher standard. MAD on medians tells you if they *disagree on a specific persona*; mean per type tells you if they *disagree on scale* across the board.
+
 ---
 
 ## Step 3 — Group Fidelity (`metrics_group.py`)
@@ -189,19 +197,6 @@ z = (gini - 0.33) / 0.05
 ```
 
 Bootstrap CI on Gini is also computed (same 10,000-resample method as above).
-
-### Cosine Distance Matrix (optional) (TO CONSIDER IF IT IS WORTHY OR NOT)
-
-If message embeddings are available (one embedding vector per agent, averaged over all their messages), we build an **8×8 pairwise cosine distance matrix**:
-
-```
-cosine_distance(agent_i, agent_j) = 1 - cosine_similarity(v_i, v_j)
-                                  = 1 - (v_i · v_j) / (||v_i|| × ||v_j||)
-```
-
-Distance = 0 means two agents talked about exactly the same things in exactly the same way. Distance close to 1 means their messages were very different.
-
-This tells us: are agents staying in their own character lane, or are they sounding like each other?
 
 ## Step 4 — Deliberation (`metrics_deliberation.py`)
 
