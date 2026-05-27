@@ -41,8 +41,11 @@ Usage:
     [
       {"input": "data/youtube/cicciogamer89.json", "name": "cicciogamer89", "type": "podcast"},
       {"input": "angry_agents/src/scraping/movies_transcripts/PO.json", "name": "po", "type": "fiction"},
-      {"input": "data/movies/pulp_fiction.txt", "name": "vincent_vega", "type": "fiction", "character": "VINCENT"}
+      {"input": "data/movies/pulp_fiction.txt", "name": "vincent_vega", "type": "fiction", "character": "VINCENT"},
+      {"input": "data/youtube/trump.json", "name": "trump", "type": "podcast",
+       "model": "gpt-4o", "knowledge_model": "gpt-4o"}
     ]
+    Per-spec "model" and "knowledge_model" override the CLI --model / --knowledge-model flags.
 """
 
 import argparse
@@ -102,18 +105,26 @@ simulate how this person speaks and reacts in novel conversations.
 
 Rules before you start:
 - Only use lines you are confident belong to {name}. Discard ambiguous lines.
-- Do NOT infer from cultural knowledge, reputation, or anything external to this text.
-- For worldview: only assert a belief if {name} explicitly states it OR demonstrates \
-it across at least 3 different episodes/excerpts. No reputation-based inference.
-- For vocabulary_fingerprint: only include words/phrases that recur across at least \
-3 different episodes — not one-off lines.
 - For relationship_matrix: only include hosts or guests who actually appear in these \
 transcripts. Do not invent relationships.
-- For annotated_quotes: pick only lines that ONLY {name} would say in this way. \
-Reject anything a generic commentator could say. Maximum 5 quotes, each proving a \
-different dimension.
-- For do_not_say: write plausible-sounding lines this person would NEVER produce — \
-they must contradict a specific, named profile dimension (state which one).
+
+TRANSCRIPT-ONLY FIELDS — verbatim or nothing, no model knowledge:
+- annotated_quotes: MINIMUM 10 quotes. Every quote must be copied verbatim from the \
+transcript below. If fewer real quotes exist, produce fewer — never fabricate. \
+Prioritize iconic, unmistakable lines each proving a DIFFERENT profile dimension.
+
+MODEL KNOWLEDGE ALLOWED — supplement transcript where thin:
+If you recognize {name} from your training data, use that knowledge to enrich \
+worldview, emotional_tells, response_patterns, and core_style with documented \
+public behavior. For lesser-known figures, derive from transcript only.
+NOTE: favored_words, structural_patterns, do_not_say are extracted separately \
+without the transcript — do NOT include them in this response.
+
+SPECIFICITY TEST — apply to every field before writing it:
+Ask: "Could this exact description fit a different podcaster/public figure without \
+changing a word?" If yes, rewrite until the answer is no. Generic fillers like \
+"speaks casually and connects with his audience", "values authenticity", "uses humor \
+to deflect" describe thousands of people. Every field must be falsifiable.
 
 Return this exact JSON structure (fill every field):
 
@@ -132,19 +143,17 @@ Return this exact JSON structure (fill every field):
     "mechanism": "<the structural move: setup-then-subvert, callback, contemptuous irony, understatement — be specific, not generic>"
   }},
   "speech_signature": {{
-    "structural_patterns": ["<a recurring syntactic construction, not just a word: e.g. 'builds a list then corrupts the last entry', 'poses a question then answers it immediately', 'concedes a point only to reverse it'>"],
     "naming_behavior": "<does this person use nicknames, labels, or framings to position people or ideas? what does that reveal about their relationship to authority or control>",
     "candor_register": "<what the speech looks like when performance drops: shorter/longer/slower/specific word choices — give a concrete marker from the transcripts>"
   }},
   "vocabulary_fingerprint": {{
-    "favored_words": ["<word or phrase recurring across 3+ episodes>", "<another>", "<another>"],
     "domain_jargon": "<specialized vocabulary domain this person draws from and why — e.g. finance/tech/philosophy — or 'none'>",
     "avoided_words": ["<word class or specific word this person never uses — e.g. 'apology language', 'I was wrong', 'maybe'>"],
     "filler_patterns": "<habitual filler or pause behavior: ellipsis use, sentence restarts, verbal tics — or 'none'>"
   }},
   "worldview": {{
-    "<belief or value grounded in the transcripts>": "<how it concretely manifests in speech or behavior — cite the pattern, not the conclusion>",
-    "<belief or value grounded in the transcripts>": "<how it concretely manifests>"
+    "<belief or value grounded in the transcripts>": "<how it manifests — and what a DIFFERENT person of the same type would believe instead>",
+    "<belief or value grounded in the transcripts>": "<how it manifests — and what a DIFFERENT person of the same type would believe instead>"
   }},
   "self_image_vs_reality": {{
     "self_image": "<one clause: how this person narrates their own identity and motives>",
@@ -179,7 +188,7 @@ Return this exact JSON structure (fill every field):
   }},
   "annotated_quotes": [
     {{
-      "quote": "<verbatim line — must be exact, must be a line only this person would say this way>",
+      "quote": "<verbatim line from transcript — iconic, unmistakable, only {name} would say this>",
       "context": "<one clause: the situation or topic that produced it>",
       "illustrates": "<which specific profile dimension this proves>"
     }},
@@ -202,16 +211,31 @@ Return this exact JSON structure (fill every field):
       "quote": "<verbatim line>",
       "context": "<one clause>",
       "illustrates": "<specific dimension>"
-    }}
-  ],
-  "do_not_say": [
-    {{
-      "line": "<plausible-sounding line this person would NEVER produce>",
-      "contradicts": "<specific named dimension from this profile>"
     }},
     {{
-      "line": "<another line>",
-      "contradicts": "<specific named dimension>"
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
     }}
   ]
 }}
@@ -225,22 +249,28 @@ Below is a movie/TV script. Extract a behavioral profile for the character "{cha
 precise enough to simulate how they speak and react in novel situations.
 
 Rules before you start:
-- Only use lines actually spoken by "{character}" in the script below.
-- Do NOT infer from cultural knowledge or reputation. Every field must be grounded \
-in specific lines from this transcript.
-- For worldview: only assert a belief if "{character}" explicitly states it OR \
-demonstrates it across at least 3 distinct scenes. No reputation-based inference.
-- For vocabulary_fingerprint: only include words/phrases that recur across at least \
-3 different scenes — not one-off lines.
-- For relationship_matrix: only include characters who actually appear in this transcript. \
+- For relationship_matrix: only include characters who actually appear in this script. \
 Do not invent relationships.
 - For backstory_anchors: only include events explicitly referenced in dialogue — \
 not implied by plot.
-- For annotated_quotes: pick only lines that ONLY "{character}" would say in this way. \
-Reject anything a generic protagonist could say. Maximum 5 quotes, each proving a \
-different dimension.
-- For do_not_say: write plausible-sounding lines this character would NEVER produce — \
-they must contradict a specific, named profile dimension (state which one).
+
+TRANSCRIPT-ONLY FIELDS — verbatim or nothing, no model knowledge:
+- annotated_quotes: MINIMUM 10 quotes. Every quote must be copied verbatim from the \
+script below. If fewer real lines exist, produce fewer — never fabricate. \
+Prioritize iconic, unmistakable lines each proving a DIFFERENT profile dimension.
+
+MODEL KNOWLEDGE ALLOWED — supplement script where thin:
+If you recognize "{character}" from your training data, use that knowledge to enrich \
+worldview, emotional_tells, situational_behavior, and core_style with behavior from \
+the full source material. For lesser-known characters, derive from script only.
+NOTE: favored_words, structural_patterns, do_not_say are extracted separately \
+without the script — do NOT include them in this response.
+
+SPECIFICITY TEST — apply to every field before writing it:
+Ask: "Could this exact description fit a different character from the same genre \
+without changing a word?" If yes, rewrite until the answer is no. Generic fillers \
+like "brave and determined", "loyal to their friends", "haunted by their past" \
+describe hundreds of characters. Every field must be falsifiable.
 
 Return this exact JSON structure (fill every field):
 
@@ -260,19 +290,17 @@ Return this exact JSON structure (fill every field):
     "mechanism": "<the structural move that makes jokes land: setup-then-subvert, nickname-as-weapon, understatement, callback, contemptuous irony — be specific, not generic>"
   }},
   "speech_signature": {{
-    "structural_patterns": ["<a recurring syntactic construction, not a word: e.g. 'builds a list and corrupts the last entry', 'asks a question then answers it immediately', 'self-interrupts before an emotional pivot'>"],
     "naming_behavior": "<does this character rename people or things? if so, what does that naming reveal about their relationship to power or control>",
     "armor_off_register": "<what the speech looks like when the default register drops: shorter/longer/slower/specific word choices — give a concrete marker>"
   }},
   "vocabulary_fingerprint": {{
-    "favored_words": ["<word or phrase that recurs across 3+ scenes>", "<another>", "<another>"],
     "domain_jargon": "<specialized vocabulary domain this character draws from and why — e.g. legal/chemistry/military — or 'none'>",
     "avoided_words": ["<word class or specific word this character never uses — e.g. 'apology language', 'please', 'maybe'>"],
     "filler_patterns": "<habitual filler or pause behavior: ellipsis use, sentence restarts, silence — or 'none'>"
   }},
   "worldview": {{
-    "<belief or value grounded in the transcript>": "<how it concretely manifests in behavior or speech — cite the pattern, not the conclusion>",
-    "<belief or value grounded in the transcript>": "<how it concretely manifests in behavior or speech>"
+    "<belief or value grounded in the transcript>": "<how it manifests — and what a DIFFERENT character of the same archetype would believe instead>",
+    "<belief or value grounded in the transcript>": "<how it manifests — and what a DIFFERENT character of the same archetype would believe instead>"
   }},
   "self_image_vs_reality": {{
     "self_image": "<one clause: how this character narrates their own identity and motives>",
@@ -313,7 +341,7 @@ Return this exact JSON structure (fill every field):
   }},
   "annotated_quotes": [
     {{
-      "quote": "<verbatim line — must be exact, must be a line only this character would say this way>",
+      "quote": "<verbatim line from script — iconic, unmistakable, only {character} would say this>",
       "context": "<one clause: the situation or emotional state that produced it>",
       "illustrates": "<which specific profile dimension this proves>"
     }},
@@ -336,12 +364,103 @@ Return this exact JSON structure (fill every field):
       "quote": "<verbatim line>",
       "context": "<one clause>",
       "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }},
+    {{
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
     }}
-  ],
+  ]
 }}
 
 --- SCRIPT ---
 {transcript_text}
+"""
+
+KNOWLEDGE_PROMPT = """\
+You are building a discriminating behavioral fingerprint for {name} ({source_type}).
+
+GOAL: produce three fields that would let a judge IMMEDIATELY distinguish {name} \
+from the single most similar figure they could be confused with in a lineup.
+
+Before you start, name (internally) the ONE figure most likely to be confused with \
+{name} — same domain, similar status, similar era. Every item below must pass the \
+"would the similar figure also do/say this?" test. If yes, discard it.
+
+SPECIFICITY BAR — use this as your calibration:
+  REJECT (too generic — fits any comparable figure):
+    favored_words: "dedication", "hard work", "passion"
+    structural_patterns: "uses personal anecdotes", "speaks confidently"
+    do_not_say: "I don't care about winning"
+  KEEP (only {name} would produce this):
+    favored_words: a catchphrase, exclamation, trademark brand phrase, or ESL \
+pattern unique to this person
+    structural_patterns: a specific syntactic tic, self-naming habit, sentence \
+opener no similar figure uses
+    do_not_say: a line the similar figure MIGHT say but {name} specifically would not
+
+1. vocabulary_fingerprint.favored_words (minimum 5, prioritized):
+   FIRST: trademark exclamations, catchphrases, brand terms (e.g. iconic celebration \
+cries, self-branding vocabulary, product/team names they invoke constantly).
+   THEN: recurring content words that appear in {name}'s speech but NOT in the \
+similar figure's — specific names, places, concepts they own.
+   THEN (only if real_world and non-native speaker): ESL patterns, accent markers, \
+grammatical constructions specific to their language background.
+   Every entry must fail if swapped to the similar figure.
+
+2. speech_signature.structural_patterns (minimum 3):
+   Syntactic habits UNIQUE to {name}. Concrete patterns, not descriptions of intent.
+   Examples of the right specificity level:
+     - "refers to himself in the third person when asserting greatness"
+     - "opens disagreements with 'Look,' or 'Listen,' before reframing"
+     - "ends self-praise with a rhetorical 'you know?' seeking validation"
+   REJECT any pattern that fits 30%+ of people in the same domain.
+
+3. do_not_say (minimum 5):
+   Lines {name} would NEVER produce.
+   At least 3 must directly target the gap vs the similar figure — lines the \
+similar figure MIGHT say, but that would be OUT OF CHARACTER for {name}, with \
+a contradicts note that names the specific trait.
+   Remaining entries: lines that violate {name}'s documented worldview or \
+self-image regardless of the similar figure.
+
+Return ONLY this JSON:
+{{
+  "vocabulary_fingerprint": {{
+    "favored_words": ["<catchphrase/exclamation or specific term>", "<another>", \
+"<another>", "<another>", "<another>"]
+  }},
+  "speech_signature": {{
+    "structural_patterns": ["<concrete syntactic pattern>", "<another>", "<another>"]
+  }},
+  "do_not_say": [
+    {{"line": "<line>", "contradicts": "<specific trait of {name} — name the gap vs similar figure if applicable>"}},
+    {{"line": "<line>", "contradicts": "<specific trait>"}},
+    {{"line": "<line>", "contradicts": "<specific trait>"}},
+    {{"line": "<line>", "contradicts": "<specific trait>"}},
+    {{"line": "<line>", "contradicts": "<specific trait>"}}
+  ]
+}}
 """
 
 # ---------------------------------------------------------------------------
@@ -562,7 +681,7 @@ def extract_profile(
             {"role": "user", "content": user_content},
         ],
         temperature=0.2,
-        max_tokens=4096,
+        max_tokens=8192,
         response_format={"type": "json_object"},
     )
     
@@ -571,6 +690,43 @@ def extract_profile(
     
     raw = response.choices[0].message.content
     return _parse_json_from_response(raw)
+
+
+
+
+def extract_knowledge_fields(
+    name: str,
+    source_type: str,
+    model: str,
+    usage_logger: TokenUsageLogger,
+) -> dict:
+    """Call 2: extract favored_words, structural_patterns, do_not_say using model knowledge only — no transcript."""
+    user_content = KNOWLEDGE_PROMPT.format(name=name, source_type=source_type)
+    client = OpenAI(api_key=OPENAI_API_KEY)
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_content},
+        ],
+        temperature=0,
+        max_tokens=1024,
+        response_format={"type": "json_object"},
+    )
+    usage_logger.log_usage(response.usage, model)
+    return _parse_json_from_response(response.choices[0].message.content)
+
+
+def _merge_knowledge(profile: dict, knowledge: dict) -> dict:
+    """Merge knowledge-call fields into the transcript-call profile."""
+    result = dict(profile)
+    if words := knowledge.get("vocabulary_fingerprint", {}).get("favored_words"):
+        result.setdefault("vocabulary_fingerprint", {})["favored_words"] = words
+    if patterns := knowledge.get("speech_signature", {}).get("structural_patterns"):
+        result.setdefault("speech_signature", {})["structural_patterns"] = patterns
+    if dns := knowledge.get("do_not_say"):
+        result["do_not_say"] = dns
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -584,6 +740,7 @@ def process_one(
     type: str,
     character: str | None = None,
     model: str = DEFAULT_MODEL,
+    knowledge_model: str | None = None,
     max_tokens: int = MAX_TRANSCRIPT_TOKENS,
     out_dir: Path,
     usage_logger: TokenUsageLogger,
@@ -620,9 +777,13 @@ def process_one(
 
     approx_tokens = len(transcript_text) // CHARS_PER_TOKEN
     print(f"[{name}] Transcript loaded: ~{approx_tokens:,} tokens")
-    print(f"[{name}] Calling OpenAI ({model})...")
-
+    print(f"[{name}] Calling OpenAI ({model}) — transcript pass...")
     profile = extract_profile(transcript_text, prompt_template, template_vars, model, usage_logger)
+
+    _kmodel = knowledge_model or model
+    print(f"[{name}] Calling OpenAI ({_kmodel}) — knowledge pass...")
+    knowledge = extract_knowledge_fields(name, type, _kmodel, usage_logger)
+    profile = _merge_knowledge(profile, knowledge)
 
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(profile, f, ensure_ascii=False, indent=2)
@@ -643,6 +804,7 @@ def main() -> None:
     parser.add_argument("--character", default=None, help="Character name in script (fiction only, ALL CAPS)")
     parser.add_argument("--batch", help="Path to JSON batch config file (array of persona specs)")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"OpenAI model to use (default: {DEFAULT_MODEL})")
+    parser.add_argument("--knowledge-model", default=None, help="Model for the knowledge pass (default: same as --model). Use gpt-4o or gpt-4.1 for richer fingerprints on famous personas.")
     parser.add_argument("--max-tokens", type=int, default=MAX_TRANSCRIPT_TOKENS, help="Max transcript tokens to send")
     parser.add_argument("--out-dir", default=str(OUTPUT_DIR), help="Output directory")
     args = parser.parse_args()
@@ -672,7 +834,8 @@ def main() -> None:
                     name=spec["name"],
                     type=spec["type"],
                     character=spec.get("character"),
-                    model=args.model,
+                    model=spec.get("model", args.model),
+                    knowledge_model=spec.get("knowledge_model", args.knowledge_model),
                     max_tokens=args.max_tokens,
                     out_dir=out_dir,
                     usage_logger=usage_logger,
@@ -695,6 +858,7 @@ def main() -> None:
             type=args.type,
             character=args.character,
             model=args.model,
+            knowledge_model=args.knowledge_model,
             max_tokens=args.max_tokens,
             out_dir=out_dir,
             usage_logger=usage_logger,
