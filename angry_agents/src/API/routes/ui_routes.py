@@ -874,7 +874,11 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         chat = {"messages": messages}
         # Force-include only active participants — silent agents have no messages to match against.
         forced_names = [name for digest, name in author_map.items() if digest in active_digests]
-        records = run_evaluation_from_db_data(chat, all_profiles, chat_id, _progress, forced_names=forced_names)
+        records = run_evaluation_from_db_data(
+            chat, all_profiles, chat_id, _progress,
+            forced_names=forced_names,
+            out_dir=_EVAL_DIR / f"chat_{chat_id}",
+        )
         _judge_jobs[chat_id]["progress"] = 88
 
         # Build transcript_meta for group metrics (speaker_stats keyed by persona name)
