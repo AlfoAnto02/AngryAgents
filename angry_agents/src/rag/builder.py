@@ -1,6 +1,12 @@
 import json
 
 
+# ── Natural-language converters ────────────────────────────────────────────────
+# Each converter turns a profile dict-field into prose that embeds well.
+# JSON dumps produce vectors close to any similar list of words; prose anchors
+# the vector to semantics, making retrieval far more discriminating.
+
+
 def _vocab_to_natural(name: str, vf: dict) -> str:
     """
     Convert a vocabulary_fingerprint dict into a natural-language sentence
@@ -38,33 +44,159 @@ def _vocab_to_natural(name: str, vf: dict) -> str:
     return " ".join(parts) if parts else ""
 
 
+def _emotional_tells_to_natural(name: str, et: dict) -> str:
+    """
+    Convert an emotional_tells dict into natural-language prose.
+
+    Fiction profiles use keys: when_guarded, when_genuinely_afraid,
+    when_grieving_or_defeated, when_in_control.
+
+    Real-world profiles use keys: when_challenged, when_enthusiastic,
+    when_uncertain, when_in_control.
+
+    Both are handled — any unknown key is rendered with its name converted
+    to words so no signal is silently dropped.
+    """
+    if not et:
+        return ""
+
+    _LABEL = {
+        "when_guarded":             "when guarded",
+        "when_genuinely_afraid":    "when genuinely afraid",
+        "when_grieving_or_defeated": "when grieving or defeated",
+        "when_in_control":          "when in control",
+        "when_challenged":          "when challenged",
+        "when_enthusiastic":        "when enthusiastic",
+        "when_uncertain":           "when uncertain",
+    }
+
+    parts = []
+    for key, value in et.items():
+        label = _LABEL.get(key, key.replace("_", " "))
+        parts.append(f"{label}: {value}")
+
+    return f"{name}'s emotional register — " + "; ".join(parts) + "." if parts else ""
+
+
+def _knowledge_to_natural(name: str, kd: dict) -> str:
+    """
+    Convert a knowledge_domains dict into natural-language prose.
+
+    Fiction profiles use 'ignorant' for blind spots.
+    Real-world profiles use 'blind_spots'.
+    Both are handled explicitly so the prose is always fluent.
+    """
+    if not kd:
+        return ""
+
+    clauses: list[str] = []
+
+    expert = kd.get("expert") or []
+    if expert:
+        items = ", ".join(expert) if isinstance(expert, list) else str(expert)
+        clauses.append(f"{name} is expert in {items}")
+
+    surface = kd.get("surface") or []
+    if surface:
+        items = ", ".join(surface) if isinstance(surface, list) else str(surface)
+        clauses.append(f"has surface knowledge of {items}")
+
+    # Fiction uses 'ignorant'; real-world uses 'blind_spots'
+    gaps = kd.get("blind_spots") or kd.get("ignorant") or []
+    if gaps:
+        items = ", ".join(gaps) if isinstance(gaps, list) else str(gaps)
+        label = "has blind spots in" if kd.get("blind_spots") else "is ignorant of"
+        clauses.append(f"{label} {items}")
+
+    return ". ".join(clauses) + "." if clauses else ""
+
+
+def _social_positioning_to_natural(name: str, sp: dict) -> str:
+    """
+    Convert a social_positioning dict into natural-language prose.
+
+    Encodes the gap between a persona's desired social role and how they are
+    actually perceived — a core ideological and behavioral signal.
+    """
+    if not sp:
+        return ""
+
+    parts: list[str] = []
+
+    desired = sp.get("desired_position", "")
+    if desired:
+        parts.append(f'{name} wants to be seen as: "{desired}"')
+
+    actual = sp.get("actual_dynamic", "")
+    if actual:
+        parts.append(f'but is actually perceived as: "{actual}"')
+
+    contradiction = sp.get("contradiction", "")
+    if contradiction:
+        parts.append(f"The gap: {contradiction}")
+
+    return " | ".join(parts) + "." if parts else ""
+
+
+# ── Chunk builder ──────────────────────────────────────────────────────────────
+
+
 def build_chunks(profile: dict) -> list[dict]:
     """
     Split a persona profile into semantic chunks for embedding.
     Returns list of {"id": str, "text": str, "metadata": dict}.
-    Each chunk covers one dimension so retrieval is field-aware.
+
+    Each chunk covers one dimension so retrieval is field-aware and
+    role-specific field weights in retriever.py can boost the most relevant
+    dimensions per judge type (style / ideology / behavioral / general).
+
+    Chunk field inventory
+    ─────────────────────
+    style          register, rhythm, sentence shape, speech signature summary
+    structure      structural_patterns + off-guard register (armor_off / candor)
+    voice          humor + vocabulary prose (broad style signal)
+    vocabulary     lexical fingerprint prose only (sharper style signal)
+    worldview      values and beliefs (ideology judge)
+    self_image     self-image vs reality gap (ideology judge)
+    knowledge      expert/surface/ignorant knowledge domains (ideology judge)
+    behavior       situational reactions, conversation goals, relationship matrix
+    emotional_tells emotion-keyed register shifts (style + behavioral judges)
+    social_positioning desired vs actual role and contradiction (ideology + behavioral)
+    escalation     escalation arc, one sentence per persona (behavioral judge)
+    quote          one chunk per annotated quote (all judges — highest signal)
+    do_not_say     one chunk per negative example (all judges — negative fingerprint)
     """
     name = profile["persona_name"]
     source_type = profile.get("source_type", "unknown")
+    source_title = profile.get("source_title", "")
     chunks: list[dict] = []
 
     def _add(field: str, text: str, idx: int = 0) -> None:
+        metadata: dict = {
+            "persona_name": name,
+            "source_type": source_type,
+            "field": field,
+        }
+        # Expose source_title for fiction profiles so downstream filters can
+        # restrict searches to a specific show/film without a post-hoc decode.
+        if source_title:
+            metadata["source_title"] = source_title
         chunks.append({
             "id": f"{name}__{field}__{idx}",
             "text": text,
-            "metadata": {"persona_name": name, "source_type": source_type, "field": field},
+            "metadata": metadata,
         })
 
     def _dump(v: object) -> str:
         return json.dumps(v) if isinstance(v, (dict, list)) else str(v)
 
-    # Style — register, rhythm, sentence shape (broad style signal)
+    # ── Style ──────────────────────────────────────────────────────────────────
+    # Broad style signal: register, rhythm, sentence shape.
+    # speech_signature summary WITHOUT structural_patterns (those go in structure).
     style_parts: list[str] = []
     if cs := profile.get("core_style"):
         style_parts.append(f"core style: {_dump(cs)}")
     if ss := profile.get("speech_signature"):
-        # Include naming_behavior and armor_off_register but NOT structural_patterns
-        # (those go in the dedicated structure chunk below for sharper retrieval)
         ss_summary = {k: v for k, v in ss.items() if k != "structural_patterns"}
         if ss_summary:
             style_parts.append(f"speech signature: {_dump(ss_summary)}")
@@ -73,20 +205,29 @@ def build_chunks(profile: dict) -> list[dict]:
     if style_parts:
         _add("style", f"{name} — " + " | ".join(style_parts))
 
-    # Structure — dedicated chunk for structural_patterns + armor_off_register.
+    # ── Structure ──────────────────────────────────────────────────────────────
     # Most discriminating style feature: Yoda's OVS syntax, Rick's *burp*,
     # Gollum's self-dialogue, Sheldon's Bazinga. Kept separate so it is not
     # diluted by the broader style embedding.
+    #
+    # Off-guard register name differs by source_type:
+    #   fiction     → speech_signature.armor_off_register
+    #   real_world  → speech_signature.candor_register
+    # Both describe the same concept (register when the persona's guard is down).
+    # Previously only armor_off_register was checked, silently dropping candor_register
+    # for ALL real-world personas.
     if ss := profile.get("speech_signature"):
         struct_parts: list[str] = []
         if sp := ss.get("structural_patterns"):
             struct_parts.append(f"structural patterns: {_dump(sp)}")
-        if aor := ss.get("armor_off_register"):
-            struct_parts.append(f"armor off register: {aor}")
+        off_guard = ss.get("armor_off_register") or ss.get("candor_register")
+        if off_guard:
+            struct_parts.append(f"off-guard register: {off_guard}")
         if struct_parts:
             _add("structure", f"{name} — " + " | ".join(struct_parts))
 
-    # Voice — humor + vocabulary as natural language (Fix A + Fix D)
+    # ── Voice ──────────────────────────────────────────────────────────────────
+    # Humor + vocabulary as natural language (Fix A + Fix D).
     voice_parts: list[str] = []
     if h := profile.get("humor"):
         voice_parts.append(f"humor: {_dump(h)}")
@@ -99,25 +240,26 @@ def build_chunks(profile: dict) -> list[dict]:
     if voice_parts:
         _add("voice", f"{name} — " + " | ".join(voice_parts))
 
-    # Vocabulary in context — dedicated chunk for lexical fingerprint (Fix D)
-    # Separate from voice so style judges can query it independently.
+    # ── Vocabulary ─────────────────────────────────────────────────────────────
+    # Dedicated chunk for lexical fingerprint so style judges can query it
+    # independently of humor (sharper retrieval than the combined voice chunk).
     if vf := profile.get("vocabulary_fingerprint"):
         natural = _vocab_to_natural(name, vf)
         if natural:
             _add("vocabulary", natural)
 
-    # Worldview — ideology judges: values, beliefs, knowledge domains
+    # ── Worldview ──────────────────────────────────────────────────────────────
+    # Values and beliefs only. knowledge_domains moved to its own chunk so the
+    # ideology judge can query it independently at higher weight.
     world_parts: list[str] = []
     if wv := profile.get("worldview"):
         world_parts.append(f"worldview: {_dump(wv)}")
-    if kd := profile.get("knowledge_domains"):
-        world_parts.append(f"knowledge domains: {_dump(kd)}")
     if world_parts:
         _add("worldview", f"{name} — " + " | ".join(world_parts))
 
-    # Self-image — dedicated chunk for self_image_vs_reality.
-    # The gap between a character's self-image and reality is highly discriminating
-    # for ideology judges and unique per persona (e.g. "I did it for me" — Walter White).
+    # ── Self-image ─────────────────────────────────────────────────────────────
+    # The gap between self-image and reality is highly discriminating for ideology
+    # judges — e.g. "I did it for me" (Walter White) vs "I am the damage" (Homelander).
     if sivr := profile.get("self_image_vs_reality"):
         self_img = sivr.get("self_image", "")
         reality = sivr.get("reality", "")
@@ -129,9 +271,30 @@ def build_chunks(profile: dict) -> list[dict]:
             parts.append(f"gap behavior: {gap}")
         _add("self_image", " | ".join(parts))
 
-    # Behavior — behavioral judges: reactions, goals, social, emotional tells,
-    # relationship dynamics. emotional_tells and relationship_matrix moved here from
-    # worldview because they describe how the persona acts, not what they believe.
+    # ── Knowledge ──────────────────────────────────────────────────────────────
+    # Dedicated chunk for expert / surface / ignorant knowledge domains.
+    # Extracted from the worldview blob so ideology judges can weight it
+    # independently via _ROLE_FIELD_WEIGHTS.
+    #
+    # Schema variants:
+    #   fiction     → knowledge_domains.ignorant
+    #   real_world  → knowledge_domains.blind_spots
+    # Both are handled by _knowledge_to_natural().
+    if kd := profile.get("knowledge_domains"):
+        natural = _knowledge_to_natural(name, kd)
+        if natural:
+            _add("knowledge", natural)
+
+    # ── Behavior ───────────────────────────────────────────────────────────────
+    # Situational reactions, conversation goals, relationship dynamics.
+    #
+    # Schema variants:
+    #   fiction     → situational_behavior + conversation_goals
+    #   real_world  → response_patterns
+    # Both are included; each key is labelled so the judge can distinguish them.
+    #
+    # emotional_tells and social_positioning were previously in this blob but
+    # are now extracted into their own chunks (below) for sharper retrieval.
     beh_parts: list[str] = []
     if rp := profile.get("response_patterns"):
         beh_parts.append(f"response patterns: {_dump(rp)}")
@@ -139,23 +302,49 @@ def build_chunks(profile: dict) -> list[dict]:
         beh_parts.append(f"situational behavior: {_dump(sb)}")
     if cg := profile.get("conversation_goals"):
         beh_parts.append(f"conversation goals: {_dump(cg)}")
-    if sp := profile.get("social_positioning"):
-        beh_parts.append(f"social positioning: {_dump(sp)}")
-    if et := profile.get("emotional_tells"):
-        beh_parts.append(f"emotional tells: {_dump(et)}")
     if rm := profile.get("relationship_matrix"):
         beh_parts.append(f"relationship matrix: {_dump(rm)}")
     if beh_parts:
         _add("behavior", f"{name} — " + " | ".join(beh_parts))
 
-    # Escalation — dedicated chunk for escalation_pattern.
-    # Single sentence, highly distinctive per persona, currently diluted in behavior blob.
-    # e.g. Yoda: "calm advice -> urgent warnings -> firm directives"
-    # vs Rick: "snark -> lecture -> planet-destroying threat delivered casually"
+    # ── Escalation ─────────────────────────────────────────────────────────────
+    # Single sentence, highly distinctive per persona.
+    # e.g. Yoda: "calm advice → urgent warnings → firm directives"
+    # vs Rick: "snark → lecture → planet-destroying threat delivered casually"
     if ep := profile.get("escalation_pattern"):
         _add("escalation", f"{name} escalation pattern: {ep}")
 
-    # Quotes — most discriminating; one chunk per quote
+    # ── Emotional tells ────────────────────────────────────────────────────────
+    # Dedicated chunk for per-emotion register shifts.
+    # Valuable for BOTH style judges (tone changes signal identity) and behavioral
+    # judges (emotional reactions signal character).
+    #
+    # Schema variants (keys differ, concept is the same):
+    #   fiction     → when_guarded, when_genuinely_afraid, when_grieving_or_defeated
+    #   real_world  → when_challenged, when_enthusiastic, when_uncertain
+    #   both        → when_in_control
+    #
+    # _emotional_tells_to_natural() handles all keys generically so no signal
+    # is lost when new key variants are added to profiles.
+    if et := profile.get("emotional_tells"):
+        natural = _emotional_tells_to_natural(name, et)
+        if natural:
+            _add("emotional_tells", natural)
+
+    # ── Social positioning ─────────────────────────────────────────────────────
+    # Dedicated chunk for desired vs actual social role and the contradiction
+    # between them. Core signal for ideology judges (how does the persona
+    # perceive their place in the world?) and behavioral judges (does the
+    # observed behavior match the desired vs actual position?).
+    if sp := profile.get("social_positioning"):
+        natural = _social_positioning_to_natural(name, sp)
+        if natural:
+            _add("social_positioning", natural)
+
+    # ── Quotes ─────────────────────────────────────────────────────────────────
+    # Most discriminating chunks: one per quote. Linguistic fingerprint
+    # (rhythm, register, irony) that the embedding model captures even without
+    # lexical overlap with the query.
     for i, q in enumerate(profile.get("annotated_quotes", [])):
         text = (
             f'{name} says: "{q["quote"]}" (context: {q.get("context", "")})'
@@ -164,13 +353,26 @@ def build_chunks(profile: dict) -> list[dict]:
         )
         _add("quote", text, i)
 
-    # Do-not-say — negative examples; highly discriminating for persona identity
+    # ── Do-not-say ─────────────────────────────────────────────────────────────
+    # Negative examples: highly discriminating for persona identity.
+    # A persona that says what another would NEVER say is a strong disconfirmation.
+    #
+    # Chunk format leads with the PERSONALITY VIOLATION (contradicts), not the
+    # banned phrase. Many profiles share generic "winning isn't everything" lines —
+    # leading with the trait violation ensures embedding vectors diverge even when
+    # the banned line text is shared across profiles.
+    #   Old: '{name} would NEVER say: "line" (contradicts: trait)'
+    #   New: '{name} — trait violated: "trait" — would never say: "line"'
     for i, d in enumerate(profile.get("do_not_say", [])):
-        text = (
-            f'{name} would NEVER say: "{d["line"]}" (contradicts: {d.get("contradicts", "")})'
-            if isinstance(d, dict)
-            else f'{name} would NEVER say: "{d}"'
-        )
+        if isinstance(d, dict):
+            line = d.get("line", "")
+            contradicts = d.get("contradicts", "")
+            if contradicts:
+                text = f'{name} — trait violated: "{contradicts}" — would never say: "{line}"'
+            else:
+                text = f'{name} would NEVER say: "{line}"'
+        else:
+            text = f'{name} would NEVER say: "{d}"'
         _add("do_not_say", text, i)
 
     return chunks

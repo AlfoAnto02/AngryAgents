@@ -100,15 +100,35 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
   const [draft, setDraft] = React.useState("");
   const [sending, setSending] = React.useState(false);
   const scrollRef = React.useRef(null);
+  // True when the user is within 100px of the bottom — used to decide whether
+  // to auto-scroll on new messages. We use a ref (not state) so the scroll
+  // listener never causes a re-render.
+  const isNearBottomRef = React.useRef(true);
 
   const chat = chats.find(c => c.id === activeId) || chats[0];
   const personas = chat ? chat.participants.map(id => byId(id)).filter(Boolean) : [];
 
+  // When the active chat changes, always jump to the bottom and reset the flag.
   React.useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      isNearBottomRef.current = true;
     }
-  }, [messages, activeId]);
+  }, [activeId]);
+
+  // When messages arrive, only scroll if the user is already near the bottom.
+  // This lets users scroll up to read history without being yanked back down.
+  React.useEffect(() => {
+    if (scrollRef.current && isNearBottomRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  const handleChatScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+    isNearBottomRef.current = scrollHeight - scrollTop - clientHeight < 100;
+  };
 
   // Load messages and poll for agent replies
   React.useEffect(() => {
@@ -131,6 +151,8 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
     const text = draft.trim();
     setDraft("");
     setSending(true);
+    // Sending your own message always snaps to the bottom, even if you'd scrolled up.
+    isNearBottomRef.current = true;
     try {
       await window.api.post(`/ui/chats/${chat.id}/messages`, { text });
       const fresh = await window.api.get(`/ui/chats/${chat.id}/messages`);
@@ -204,7 +226,7 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
           </div>
         </header>
 
-        <div className="chat-messages" ref={scrollRef}>
+        <div className="chat-messages" ref={scrollRef} onScroll={handleChatScroll}>
           {decorated.map((m, i) => (
             <MessageBubble key={i} msg={m} withAuthor={m._withAuthor !== false} />
           ))}

@@ -693,6 +693,7 @@ def _build_ui_report(
     ci_95 = pi_agg.get("ci_95") or [0.0, 0.0]
     cm_data = pid_result.get("persona_identification", {}).get("confusion_matrix", {})
     cm = cm_data.get("matrix") or []
+    cm_labels = cm_data.get("labels") or []  # persona display names, same order as matrix rows/cols
 
     # ── Individual fidelity ──────────────────────────────────────
     per_persona = fid_result.get("individual_fidelity", {}).get("per_persona", {})
@@ -737,6 +738,7 @@ def _build_ui_report(
         "ciHigh": float(ci_95[1]),
         "pValue": float(pi_agg["p_value"]) if pi_agg.get("p_value") is not None else 1.0,
         "cm": cm,
+        "cmLabels": cm_labels,
         "fidelityRows": fidelity_rows,
         "gini": gini,
         "giniZ": gini_z,

@@ -14,7 +14,7 @@ class DMFactory:
         chat_id: int,
         model: str,
         author_secret: str,
-        window_strategy: Literal["rolling", "selective"] = "rolling",
+        window_strategy: Literal["rolling", "selective", "full"] = "full",
         max_messages: int = 40,
     ) -> DMSession:
         from ..agents.personas.factory import AgentFactory

@@ -1463,6 +1463,37 @@ input, textarea, select {
   border: 1px solid var(--bg-0);
 }
 
+/* Confusion matrix legend */
+.cm-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2px 16px;
+  margin: 8px 0 16px;
+  padding: 10px 12px;
+  background: var(--bg-1);
+  border-radius: 8px;
+  border: 1px solid var(--border-0);
+}
+.cm-legend-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  padding: 2px 0;
+}
+.cm-legend-key {
+  color: var(--admin);
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 28px;
+}
+.cm-legend-name {
+  color: var(--fg-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Individual fidelity table */
 .fidelity-table { width: 100%; }
 

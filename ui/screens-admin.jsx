@@ -654,7 +654,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
             <ReportPersonaID
               group={EVAL_GROUPS[0]}
               accuracy={report.accuracy} ciLow={report.ciLow} ciHigh={report.ciHigh} pValue={report.pValue}
-              cm={report.cm} personas={personas}
+              cm={report.cm} cmLabels={report.cmLabels || []} personas={personas}
             />
           )}
           {stage === "done" && report && tab === "individual_fidelity" && (
@@ -746,7 +746,7 @@ function PropsList({ group }) {
   );
 }
 
-function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cm, personas }) {
+function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cm, cmLabels, personas }) {
   return (
     <>
       <ReportHeader group={group} />
@@ -805,6 +805,17 @@ function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cm, personas 
           </tbody>
         </table>
       </div>
+
+      {cmLabels.length > 0 && (
+        <div className="cm-legend">
+          {cmLabels.map((name, i) => (
+            <div key={i} className="cm-legend-row">
+              <span className="mono cm-legend-key">P{i + 1}</span>
+              <span className="cm-legend-name">{name}</span>
+            </div>
+          ))}
+        </div>
+      )}
 
       <PropsList group={group} />
     </>

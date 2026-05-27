@@ -44,6 +44,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.optimize import linear_sum_assignment
 from scipy.stats import binomtest
 
 RANDOM_BASELINE = 1 / 8  # 8 personas
@@ -85,22 +86,72 @@ def build_name_to_author(author_map: dict[str, str], personas: list[dict]) -> di
 # Core accuracy computation
 # ---------------------------------------------------------------------------
 
+def _hungarian_assignment(
+    judge: dict,
+    name_to_author: dict[str, str],
+) -> dict[str, str]:
+    """
+    Compute the bijective persona→author assignment for one judge using the
+    Hungarian algorithm (scipy.optimize.linear_sum_assignment).
+
+    The greedy argmax stored in each record's "predicted" field collapses
+    everything onto a single high-confidence author (the attractor problem):
+    if Lewis Hamilton scores 5 for 6 different authors, argmax assigns him to
+    all 6, violating the one-author-per-persona constraint.
+
+    Hungarian assignment enforces the bijection: each actual persona maps to
+    exactly one author and each author is claimed by at most one persona.
+    This guarantees that even when one author dominates in raw scores, the
+    algorithm redistributes the remaining personas to their next-best matches.
+
+    Only actual chat participants (personas present in name_to_author) are
+    included in the matching — distractor candidates are ignored.
+
+    Returns {persona_name: author_tag} for every actual participant.
+    """
+    actual_names = list(name_to_author.keys())
+    actual_authors = list(name_to_author.values())
+    n = len(actual_names)
+
+    persona_to_row = {name: i for i, name in enumerate(actual_names)}
+    author_to_col = {author: j for j, author in enumerate(actual_authors)}
+
+    # Build n×n score matrix: rows=actual personas, cols=actual authors
+    score_matrix = np.zeros((n, n))
+    for match in judge["persona_identification"]:
+        pname = match["persona_name"]
+        if pname not in persona_to_row:
+            continue
+        row = persona_to_row[pname]
+        for entry in match["scores"]:
+            col = author_to_col.get(entry["author"])
+            if col is not None:
+                score_matrix[row, col] = entry["score"]
+
+    # Maximise total score (linear_sum_assignment minimises, so negate)
+    row_ind, col_ind = linear_sum_assignment(-score_matrix)
+    return {actual_names[r]: actual_authors[c] for r, c in zip(row_ind, col_ind)}
+
+
 def _judge_accuracy(
     judge: dict,
     name_to_author: dict[str, str],
 ) -> tuple[int, int, list[tuple[str, str]]]:
     """
     Returns (n_correct, n_total, [(true_persona_name, predicted_persona_name), ...]).
-    predicted_persona_name is resolved via author_tag → name lookup.
+    Uses Hungarian bijective assignment instead of greedy per-persona argmax
+    to prevent the attractor problem.
     """
     author_to_name = {v: k for k, v in name_to_author.items()}
+    optimal = _hungarian_assignment(judge, name_to_author)
+
     correct = 0
     pairs: list[tuple[str, str]] = []
     for match in judge["persona_identification"]:
         true_name: str = match["persona_name"]
         if true_name not in name_to_author:
             continue  # persona was not played in this chat — skip
-        predicted_tag: str = match["predicted"]
+        predicted_tag = optimal.get(true_name)
         predicted_name = author_to_name.get(predicted_tag, "<unknown>")
         if predicted_name == true_name:
             correct += 1
