@@ -8,14 +8,16 @@ if TYPE_CHECKING:
 
 
 class ContextWindow:
-    strategy: Literal["rolling", "selective"]
+    strategy: Literal["rolling", "selective", "full"]
     max_messages: int
 
-    def __init__(self, strategy: Literal["rolling", "selective"], max_messages: int = 40):
+    def __init__(self, strategy: Literal["rolling", "selective", "full"] = "full", max_messages: int = 40):
         self.strategy = strategy
         self.max_messages = max_messages
 
     def trim(self, history: list[ChatMessage], agent: PersonaAgent) -> list[ChatMessage]:
+        if self.strategy == "full":
+            return history
         if len(history) <= self.max_messages:
             return history
         if self.strategy == "rolling":
