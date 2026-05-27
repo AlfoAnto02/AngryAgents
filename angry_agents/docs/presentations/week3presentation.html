@@ -275,6 +275,34 @@
     color: #777;
     line-height: 1.5;
   }
+
+  /* Slide 4 — compact overrides */
+  #slide-4 { padding: 2rem 4rem; }
+  #slide-4 h1 { font-size: 26px; margin-bottom: 0.25rem; }
+  #slide-4 .subtitle { font-size: 14px; margin-bottom: 1.2rem; }
+  #slide-4 hr { margin-bottom: 1.2rem; }
+  #slide-4 .two-col { gap: 1.2rem; margin-bottom: 1.2rem; }
+  #slide-4 .phase-box { padding: 1rem 1.2rem; margin-bottom: 1.2rem; }
+  #slide-4 .section-label { font-size: 11px; margin-bottom: 0.5rem; }
+  #slide-4 .item-list li { font-size: 13px; padding: 5px 0; }
+
+  /* Slide 3 — compact overrides to fit all content */
+  #slide-3 { padding: 2rem 4rem; }
+  #slide-3 h1 { font-size: 26px; margin-bottom: 0.25rem; }
+  #slide-3 .subtitle { font-size: 14px; margin-bottom: 1.2rem; }
+  #slide-3 hr { margin-bottom: 1.2rem; }
+  #slide-3 .two-col { gap: 1.2rem; margin-bottom: 1.2rem; }
+  #slide-3 .phase-box { padding: 1rem 1.2rem; }
+  #slide-3 .section-label { font-size: 11px; margin-bottom: 0.5rem; }
+  #slide-3 .model-chip { font-size: 11px; margin-bottom: 0.6rem; }
+  #slide-3 .item-list li { font-size: 13px; padding: 5px 0; }
+  #slide-3 .arrow-row { padding: 10px 16px; margin-bottom: 1.2rem; }
+  #slide-3 .arrow-step .step-title { font-size: 13px; }
+  #slide-3 .arrow-step .step-sub { font-size: 11px; }
+  #slide-3 .metrics-3 { gap: 10px; }
+  #slide-3 .metric { padding: 0.8rem; }
+  #slide-3 .metric-num { font-size: 26px; margin-bottom: 4px; }
+  #slide-3 .metric-label { font-size: 12px; }
 </style>
 </head>
 <body>
@@ -393,11 +421,13 @@
       <div class="arrow-step"><span class="step-title">Profile JSON</span><span class="step-sub">data/personas/</span></div>
     </div>
 
-    <div class="metrics-4">
+    <div class="metrics-3">
       <div class="metric"><div class="metric-num neutral">3</div><div class="metric-label">Source types<br>YouTube &middot; Twitter &middot; Script</div></div>
       <div class="metric"><div class="metric-num p1">40 k</div><div class="metric-label">Max tokens per transcript<br>~160 k chars</div></div>
       <div class="metric"><div class="metric-num p2">2</div><div class="metric-label">API calls per persona<br>independent models</div></div>
       <div class="metric"><div class="metric-num neutral">80</div><div class="metric-label">Personas in batch<br>current config</div></div>
+      <div class="metric"><div class="metric-num neutral">1.19 M</div><div class="metric-label">Total tokens<br>1,056,763 in &middot; 136,657 out</div></div>
+      <div class="metric"><div class="metric-num good">$0.57</div><div class="metric-label">Total build cost<br>full batch of 80 personas</div></div>
     </div>
   </div>
 
