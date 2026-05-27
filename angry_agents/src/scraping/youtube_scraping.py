@@ -55,7 +55,7 @@ _TURN_RE = re.compile(r'^-\s+')
 
 CHANNEL_URL = "https://www.youtube.com/@JOk3R1"
 OUTPUT_DIR = Path("data/youtube")
-TRANSCRIPT_LANGS = ["it", "en"]
+TRANSCRIPT_LANGS = ["en", "it"]
 REQUEST_DELAY = 0.5  # seconds between transcript requests
 CHARS_PER_TOKEN = 4
 MAX_TOKENS_DEFAULT = 50_000
@@ -66,7 +66,6 @@ def get_channel_videos(channel_url: str, max_videos: int | None = None) -> list[
         "quiet": True,
         "extract_flat": True,
         "playlist_items": f"1-{max_videos}" if max_videos else None,
-        "extractor_args": {"youtube": {"lang": ["it"]}},
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(channel_url, download=False)
@@ -90,7 +89,6 @@ def get_videos_by_ids(video_ids: list[str]) -> list[dict]:
     ydl_opts = {
         "quiet": True,
         "extract_flat": True,
-        "extractor_args": {"youtube": {"lang": ["it"]}},
     }
     videos = []
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -292,7 +290,7 @@ def scrape_by_ids(
             break
 
         url = f"https://www.youtube.com/watch?v={vid_id}"
-        ydl_opts = {"quiet": True, "extractor_args": {"youtube": {"lang": ["it"]}}}
+        ydl_opts = {"quiet": True}
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=False)
