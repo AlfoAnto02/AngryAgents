@@ -38,25 +38,32 @@ _ROLE_CONFIGS: list[dict] = [
     {
         "role": "style",
         "focus": "vocabulary, sentence structure, tone, and rhetorical habits",
-        "rag_fields": ["style", "structure", "voice"],
+        # vocabulary: lexical fingerprint (dedicated, sharper than voice)
+        # emotional_tells: per-emotion register shifts expose tone identity
+        "rag_fields": ["style", "structure", "voice", "vocabulary", "emotional_tells"],
         "top_k": 20,
     },
     {
         "role": "ideology",
         "focus": "values, political views, moral stances, and belief systems",
-        "rag_fields": ["worldview", "self_image"],
+        # knowledge: expert/surface/ignorant domains reveal worldview directly
+        # social_positioning: desired vs actual role is a core ideological signal
+        "rag_fields": ["worldview", "self_image", "knowledge", "social_positioning"],
         "top_k": 20,
     },
     {
         "role": "general",
         "focus": "all observable traits combined: style, ideology, and behaviour",
+        # None → no field filter, all chunk types scored with equal weight
         "rag_fields": None,
         "top_k": 20,
     },
     {
         "role": "behavioral",
         "focus": "situational reactions, escalation patterns, and conversation goals",
-        "rag_fields": ["behavior", "escalation"],
+        # emotional_tells: how a persona reacts under pressure is behavioural
+        # social_positioning: observed behaviour either matches or contradicts role
+        "rag_fields": ["behavior", "escalation", "emotional_tells", "social_positioning"],
         "top_k": 20,
     },
 ]

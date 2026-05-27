@@ -27,14 +27,27 @@ SEARCH_TOOL: dict = {
                 },
                 "field": {
                     "type": "string",
-                    "enum": ["style", "structure", "voice", "vocabulary", "worldview", "self_image", "behavior", "escalation", "quote", "do_not_say"],
+                    "enum": [
+                        "style", "structure", "voice", "vocabulary",
+                        "worldview", "self_image", "knowledge",
+                        "behavior", "emotional_tells", "social_positioning", "escalation",
+                        "quote", "do_not_say",
+                    ],
                     "description": (
                         "Optional. Restrict the search to one profile dimension. "
-                        "style=register/rhythm, structure=speech patterns/syntax, "
-                        "voice=humor/vocabulary prose, vocabulary=word fingerprint, "
-                        "worldview=beliefs/values/knowledge domains, self_image=self-image vs reality gap, "
-                        "behavior=situational reactions/goals/emotional tells, escalation=escalation pattern, "
-                        "quote=direct speech examples, do_not_say=negative fingerprint. "
+                        "style=register/rhythm/speech signature, "
+                        "structure=structural speech patterns/syntax/off-guard register, "
+                        "voice=humor+vocabulary prose, "
+                        "vocabulary=word fingerprint only, "
+                        "worldview=beliefs/values, "
+                        "self_image=self-image vs reality gap, "
+                        "knowledge=expert/surface/ignorant knowledge domains, "
+                        "behavior=situational reactions/conversation goals/relationship matrix, "
+                        "emotional_tells=per-emotion register shifts (guarded/afraid/challenged/enthusiastic), "
+                        "social_positioning=desired vs actual social role and contradiction, "
+                        "escalation=escalation arc pattern, "
+                        "quote=direct speech examples, "
+                        "do_not_say=negative fingerprint. "
                         "Omit to search all dimensions."
                     ),
                 },

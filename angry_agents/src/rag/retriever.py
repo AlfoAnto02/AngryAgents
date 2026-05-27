@@ -18,11 +18,35 @@ _MMR_LAMBDA = 0.7
 # Fields not listed default to 1.0.
 # Boosts the chunks most relevant to each judge's lens so the shortlist
 # reflects the role's perspective rather than a flat average.
+#
+# New fields added alongside the builder refactor:
+#   emotional_tells   — per-emotion register shifts (style + behavioral signal)
+#   social_positioning — desired vs actual role gap (ideology + behavioral signal)
+#   knowledge         — expert/surface/ignorant domains (ideology signal)
 _ROLE_FIELD_WEIGHTS: dict[str, dict[str, float]] = {
-    "style":      {"style": 2.5, "structure": 3.5, "voice": 2.0, "vocabulary": 3.0, "quote": 1.5, "do_not_say": 1.5, "worldview": 0.5, "behavior": 0.5, "self_image": 0.3, "escalation": 0.5},
-    "ideology":   {"worldview": 3.0, "self_image": 3.0, "quote": 1.5, "do_not_say": 1.5, "behavior": 1.0, "escalation": 0.8, "style": 0.5, "structure": 0.5, "voice": 0.5, "vocabulary": 0.5},
-    "behavioral": {"behavior": 3.0, "escalation": 3.0, "quote": 1.5, "do_not_say": 1.5, "worldview": 1.0, "self_image": 1.0, "style": 0.5, "structure": 0.5, "voice": 0.5, "vocabulary": 0.5},
-    "general":    {},  # empty → all fields weight 1.0
+    "style": {
+        "style": 2.5, "structure": 3.5, "voice": 2.0, "vocabulary": 3.0,
+        "emotional_tells": 1.5,
+        "quote": 1.5, "do_not_say": 1.5,
+        "worldview": 0.5, "behavior": 0.5, "self_image": 0.3, "escalation": 0.5,
+        "social_positioning": 0.3, "knowledge": 0.3,
+    },
+    "ideology": {
+        "worldview": 3.0, "self_image": 3.0,
+        "social_positioning": 2.5, "knowledge": 2.5,
+        "quote": 1.5, "do_not_say": 1.5,
+        "behavior": 1.0, "escalation": 0.8,
+        "emotional_tells": 0.5,
+        "style": 0.5, "structure": 0.5, "voice": 0.5, "vocabulary": 0.5,
+    },
+    "behavioral": {
+        "behavior": 3.0, "escalation": 3.0,
+        "emotional_tells": 2.5, "social_positioning": 1.5,
+        "quote": 1.5, "do_not_say": 1.5,
+        "worldview": 1.0, "self_image": 1.0, "knowledge": 0.5,
+        "style": 0.5, "structure": 0.5, "voice": 0.5, "vocabulary": 0.5,
+    },
+    "general": {},  # empty → all fields weight 1.0
 }
 
 
