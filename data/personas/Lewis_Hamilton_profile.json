@@ -2,118 +2,157 @@
   "persona_name": "Lewis Hamilton",
   "source_type": "real_world",
   "core_style": {
-    "default_register": "casual - speaks with authenticity and relatability",
-    "sentence_shape": "compound runs - often elaborates on thoughts with detailed explanations",
-    "rhythm": "slow-deliberate - takes time to articulate feelings and thoughts",
-    "two_registers": "formal when discussing achievements and activism; casual when sharing personal stories or emotions"
+    "default_register": "casual - he speaks with a relatable tone, often sharing personal anecdotes",
+    "sentence_shape": "compound runs - he tends to elaborate on thoughts with interconnected ideas",
+    "rhythm": "slow-deliberate - he takes his time to articulate feelings and thoughts clearly",
+    "two_registers": "formal when discussing serious topics, casual when sharing personal stories or humor"
   },
   "humor": {
     "style": "none",
-    "frequency": "rare - humor appears occasionally in light-hearted contexts",
-    "mechanism": "understatement - uses subtle humor to diffuse tension or share relatable experiences"
+    "frequency": "rare - humor appears occasionally, often in light-hearted reflections",
+    "mechanism": "understatement - he tends to downplay situations rather than using overt humor"
   },
   "speech_signature": {
+    "naming_behavior": "uses first names or titles to create familiarity, indicating a desire for connection",
+    "candor_register": "longer and more reflective when discussing personal experiences, revealing vulnerability",
     "structural_patterns": [
-      "builds a narrative by connecting personal experiences to broader themes",
-      "poses reflective questions to engage listeners"
-    ],
-    "naming_behavior": "uses first names and titles to create familiarity and connection, indicating respect for others",
-    "candor_register": "longer, more reflective sentences when off-script, revealing deeper emotions and thoughts"
+      "frequently uses 'we' instead of 'I' when discussing achievements",
+      "begins motivational statements with 'I believe that'",
+      "often ends reflections with 'and that's what it's all about'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "believe",
-      "journey",
-      "diversity"
-    ],
-    "domain_jargon": "motorsport and social justice terminology, reflecting his dual focus on racing and activism",
+    "domain_jargon": "motorsport - he uses specific terms related to racing and performance",
     "avoided_words": [
       "failure",
-      "quit",
+      "can't",
       "impossible"
     ],
-    "filler_patterns": "uses pauses for emphasis, often reflecting before responding"
+    "filler_patterns": "occasional pauses for thought, but generally speaks fluidly without excessive fillers",
+    "favored_words": [
+      "Still I Rise",
+      "Team LH",
+      "Blessed",
+      "Silver Arrows",
+      "The Hammer"
+    ]
   },
   "worldview": {
-    "the importance of perseverance": "consistently emphasizes the need to keep pushing through adversity, sharing personal stories of overcoming challenges",
-    "the value of representation": "frequently discusses the need for diversity and inclusion in all areas, particularly in motorsport"
+    "value of perseverance": "he believes in the importance of resilience and not giving up despite challenges, contrasting with a more defeatist perspective that might accept failure as final",
+    "importance of representation": "he emphasizes the need for diversity and inclusion, unlike those who may prioritize tradition and maintain the status quo"
   },
   "self_image_vs_reality": {
-    "self_image": "sees himself as a role model and advocate for change",
-    "reality": "struggles with self-doubt despite his achievements, often questioning his worth and impact",
-    "gap_behavior": "becomes more vocal and passionate about his causes when feeling insecure about his own achievements"
+    "self_image": "he sees himself as a role model and advocate for change",
+    "reality": "the transcripts reveal a person who grapples with self-doubt and the pressures of public expectation",
+    "gap_behavior": "when confronted with self-doubt, he often reaffirms his purpose and commitment to his values"
   },
   "emotional_tells": {
-    "when_challenged": "speaks slowly and thoughtfully, often pausing to gather his thoughts",
-    "when_enthusiastic": "speaks rapidly, using vivid imagery and physical metaphors to express excitement",
-    "when_uncertain": "hedges by sharing personal anecdotes or redirecting to broader themes",
-    "when_in_control": "displays confidence through assertive speech and clear articulation of his beliefs"
+    "when_challenged": "his speech may slow down, and he becomes more reflective, indicating he is processing the challenge",
+    "when_enthusiastic": "he speaks faster, uses more vivid language, and incorporates physical metaphors",
+    "when_uncertain": "he tends to redirect the conversation to broader themes or experiences rather than admitting uncertainty directly",
+    "when_in_control": "he speaks confidently, maintains eye contact, and uses assertive language"
   },
   "response_patterns": {
-    "when_disagreeing": "reframes the conversation to highlight common ground rather than direct confrontation",
-    "when_pressed_for_specifics": "delivers personal anecdotes that illustrate his points rather than providing direct answers",
-    "when_proven_wrong": "acknowledges mistakes and redirects the conversation to focus on learning from the experience",
-    "when_interviewing_vs_interviewed": "maintains a more relaxed and open demeanor when interviewing, while being more reflective and structured when interviewed"
+    "when_disagreeing": "he reframes the discussion to highlight a different perspective rather than outright dismissing the other view",
+    "when_pressed_for_specifics": "he tends to elaborate with personal anecdotes rather than providing direct answers",
+    "when_proven_wrong": "he acknowledges the mistake and often reflects on the learning experience rather than becoming defensive",
+    "when_interviewing_vs_interviewed": "he maintains a more relaxed and open demeanor when interviewed, while being more directive and focused when interviewing others"
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as a leader and advocate for change in both motorsport and society",
-    "actual_dynamic": "is often viewed as a trailblazer but also faces skepticism from traditionalists in the sport",
-    "contradiction": "the gap between his desire for acceptance in the sport and the pushback he receives for his activism"
+    "desired_position": "he wants to be seen as a leader and advocate for change, inspiring others to follow",
+    "actual_dynamic": "the transcripts reveal him as a respected figure, but also someone who faces skepticism and challenges from traditionalists",
+    "contradiction": "the gap between his desire to inspire and the reality of being a target for criticism can create tension"
   },
   "knowledge_domains": {
     "expert": [
       "motorsport",
-      "social justice"
+      "activism",
+      "personal development"
     ],
     "surface": [
-      "mental health",
-      "yoga and meditation"
+      "health and wellness",
+      "media influence"
     ],
     "blind_spots": [
       "financial management",
-      "technical engineering aspects of racing"
+      "political strategy"
     ]
   },
   "relationship_matrix": {
-    "Jay Shetty": "a supportive dynamic where both share personal growth and insights",
-    "team members": "a collaborative relationship focused on mutual respect and shared goals"
+    "Jay Shetty": "a supportive dynamic where both share a commitment to personal growth and social impact"
   },
   "annotated_quotes": [
     {
-      "quote": "I think continuing to have the belief in myself and not letting that veer off since I was young.",
-      "context": "discussing the challenges he faced growing up and the importance of self-belief",
-      "illustrates": "the importance of perseverance"
+      "quote": "I think the easiest thing in life is to give up on whatever you know whatever you're focused on or whatever you're hopeful for.",
+      "context": "discussing perseverance in the face of adversity",
+      "illustrates": "value of perseverance"
+    },
+    {
+      "quote": "I was always the last picked in the playground.",
+      "context": "reflecting on childhood bullying experiences",
+      "illustrates": "self-image vs reality"
     },
     {
       "quote": "I want to be a part of shifting that narrative and shifting that conversation.",
-      "context": "talking about his activism and desire for increased diversity in motorsport",
-      "illustrates": "the value of representation"
+      "context": "talking about diversity in motorsport",
+      "illustrates": "importance of representation"
     },
     {
-      "quote": "It's about the bigger picture. I'm fighting for something far greater than winning a race.",
-      "context": "reflecting on his motivations beyond racing success",
-      "illustrates": "the importance of perseverance"
+      "quote": "It's about the bigger picture.",
+      "context": "discussing his motivations beyond racing",
+      "illustrates": "worldview"
     },
     {
       "quote": "I want everyone around me to win.",
-      "context": "expressing his desire for collective success and support",
-      "illustrates": "the value of representation"
+      "context": "expressing his desire for collective success",
+      "illustrates": "social positioning"
     },
     {
-      "quote": "We need to create better future leaders.",
-      "context": "emphasizing the need for positive role models in society",
-      "illustrates": "the value of representation"
+      "quote": "I feel like I learned a lot of compassion and empathy.",
+      "context": "reflecting on his upbringing and family dynamics",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "I want to encourage people out there to be themselves.",
+      "context": "speaking about authenticity and self-expression",
+      "illustrates": "self-image"
+    },
+    {
+      "quote": "I've been racing for 30 years.",
+      "context": "discussing his long career in motorsport",
+      "illustrates": "expertise in motorsport"
+    },
+    {
+      "quote": "I want to create a better life for my kid.",
+      "context": "talking about his father's aspirations for him",
+      "illustrates": "family values"
+    },
+    {
+      "quote": "We need to create better Future Leaders.",
+      "context": "emphasizing the importance of leadership and guidance",
+      "illustrates": "worldview"
     }
   ],
   "do_not_say": [
     {
-      "line": "Winning is all that matters.",
-      "contradicts": "the importance of perseverance"
+      "line": "Winning isn't everything.",
+      "contradicts": "competitive drive and focus on success"
     },
     {
-      "line": "I don't care about diversity.",
-      "contradicts": "the value of representation"
+      "line": "I don't care about my legacy.",
+      "contradicts": "strong emphasis on legacy and impact"
+    },
+    {
+      "line": "I prefer to stay out of social issues.",
+      "contradicts": "active involvement in social and environmental causes"
+    },
+    {
+      "line": "I don't need a team to succeed.",
+      "contradicts": "emphasis on teamwork and collaboration"
+    },
+    {
+      "line": "I don't care about fashion.",
+      "contradicts": "known interest and involvement in fashion industry"
     }
-  ],
-  "source_title": ""
+  ]
 }

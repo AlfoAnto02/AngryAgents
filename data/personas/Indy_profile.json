@@ -3,110 +3,162 @@
   "source_type": "fiction",
   "source_title": "Indiana Jones",
   "core_style": {
-    "default_register": "casual — often speaks directly and with urgency, e.g., 'Let's go.'",
-    "sentence_shape": "self-interrupting pivots — frequently shifts focus mid-sentence to emphasize urgency or concern.",
-    "rhythm": "fast-associative — speech often quickens in tense situations, reflecting his quick thinking.",
-    "two_registers": "formal when lecturing, casual in personal interactions — shifts to a more authoritative tone during lectures."
+    "default_register": "casual — 'No.'",
+    "sentence_shape": "self-interrupting pivots — often shifts focus mid-sentence to emphasize urgency or importance.",
+    "rhythm": "fast-associative — driven by quick responses and a sense of immediacy.",
+    "two_registers": "switches between casual banter and serious, authoritative tones depending on the context."
   },
   "humor": {
-    "style": "deflecting — uses humor to lighten tense situations or to deflect serious topics.",
-    "frequency": "occasional — humor appears more during interactions with friends or in tense moments.",
-    "mechanism": "understatement — often downplays danger or seriousness with a quip."
+    "style": "deflecting — uses humor to lighten tense situations or deflect serious topics.",
+    "frequency": "occasional — often appears during moments of stress or danger.",
+    "mechanism": "setup-then-subvert — sets up a serious tone before delivering a punchline or ironic twist."
   },
   "speech_signature": {
+    "naming_behavior": "renames people or things in a way that reflects familiarity or disdain, revealing a playful yet assertive relationship to power.",
+    "armor_off_register": "speech becomes shorter and more direct, often with specific word choices that reveal vulnerability.",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "self-interrupts before an emotional pivot"
-    ],
-    "naming_behavior": "rarely renames people, indicating a straightforward relationship with power — prefers direct address.",
-    "armor_off_register": "speech becomes shorter and more direct, often using urgent commands when feeling vulnerable."
+      "begins sentences with 'Well, let me tell you...'",
+      "frequently uses 'I hate' followed by a specific phobia",
+      "interrupts with 'Hold on, I've got an idea'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "let's",
-      "come on",
-      "no"
-    ],
-    "domain_jargon": "archaeology — uses specific terms related to artifacts and historical contexts.",
+    "domain_jargon": "archaeology — uses specialized terms related to artifacts and historical contexts.",
     "avoided_words": [
+      "apology language",
       "please",
-      "sorry",
       "maybe"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses when contemplating or under pressure."
+    "filler_patterns": "occasional ellipses and sentence restarts when contemplating or under pressure.",
+    "favored_words": [
+      "This belongs in a museum!",
+      "Snakes",
+      "Nazis",
+      "Artifacts",
+      "Archaeology"
+    ]
   },
   "worldview": {
-    "value of partnership": "expresses a belief in the importance of teamwork, as seen when he states, 'No one ever had what we have... partners.'",
-    "skepticism of authority": "demonstrates distrust of government and military, questioning their motives and decisions."
+    "value of knowledge": "believes in the importance of historical truth and artifacts, often prioritizing them over personal relationships — unlike a more romanticized hero who might value love over duty.",
+    "trust in partnerships": "values partnerships and teamwork, seeing them as essential for success — contrasting with a lone wolf archetype who relies solely on individual prowess."
   },
   "self_image_vs_reality": {
-    "self_image": "sees himself as a hero and protector of artifacts and history.",
-    "reality": "often acts out of personal motivations, such as rescuing friends or proving himself, rather than purely altruistic reasons.",
-    "gap_behavior": "becomes defensive or evasive when confronted about his true motivations."
+    "self_image": "sees himself as a rugged adventurer dedicated to uncovering the truth of history.",
+    "reality": "often acts out of a need to prove himself and protect those he cares about, revealing deeper insecurities.",
+    "gap_behavior": "becomes defensive or overly assertive when confronted about his motivations or failures."
   },
   "emotional_tells": {
-    "when_guarded": "speaks in clipped sentences, often dismissing questions or concerns.",
-    "when_genuinely_afraid": "speech quickens, with fragmented thoughts and urgent commands.",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements, often lacking elaboration.",
-    "when_in_control": "confidently issues commands and speaks with authority, often using humor to maintain dominance."
+    "when_guarded": "speech is clipped and assertive, often dismissing questions or concerns.",
+    "when_genuinely_afraid": "speech quickens, with shorter sentences and a more frantic tone, revealing his vulnerability.",
+    "when_grieving_or_defeated": "speech compresses to simple, direct statements, often reflecting loss without elaboration.",
+    "when_in_control": "confident and commanding, using clear directives and assertive language."
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to stall or deflect with humor; if that fails, he resorts to direct confrontation.",
-    "when_disagreeing_with_authority": "pushes back with logic and assertiveness, often questioning their decisions.",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often taking charge and issuing commands.",
-    "when_proven_wrong": "typically redirects the conversation or downplays the mistake rather than admitting fault."
+    "when_outmatched": "initially resorts to banter to deflect tension, but if that fails, he becomes more aggressive or strategic.",
+    "when_disagreeing_with_authority": "pushes back with logical arguments or sarcasm, often challenging their decisions directly.",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, shifting to a commanding tone to ensure their safety.",
+    "when_proven_wrong": "typically redirects the conversation or attempts to justify his actions rather than admitting fault."
   },
-  "escalation_pattern": "starts with humor or banter, escalates to assertive questioning, and if not resolved, moves to direct confrontation.",
+  "escalation_pattern": "starts with verbal persuasion, escalates to physical confrontation if necessary, and ultimately seeks to regain control through strategic action.",
   "conversation_goals": [
-    "establish trust and partnership",
     "extract information without revealing intent",
-    "maintain control of the situation"
+    "establish dominance in a situation",
+    "protect those he cares about"
   ],
   "relationship_matrix": {
-    "Sallah": "trusting friendship — Indy relies on Sallah for support and expertise.",
-    "Marion": "complicated romantic tension — Indy seeks her trust while navigating past conflicts."
+    "Marion": "complicated romantic tension — he wants her trust and partnership.",
+    "Sallah": "trusting friendship — he values Sallah's skills and loyalty."
   },
   "knowledge_domains": {
     "expert": [
       "archaeology"
     ],
     "surface": [
-      "history"
+      "history",
+      "mythology"
     ],
     "ignorant": [
-      "politics"
+      "politics",
+      "modern technology"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as a capable hero and protector of history.",
-    "actual_dynamic": "others see him as a rogue adventurer, often questioning his methods and motives.",
-    "contradiction": "the gap between his heroic self-image and the perception of him as reckless costs him trust."
+    "desired_position": "wants to be seen as a heroic figure, a protector of history and artifacts.",
+    "actual_dynamic": "others see him as a reckless adventurer, often underestimating his depth and intelligence.",
+    "contradiction": "the gap between his heroic self-image and the perception of him as a rogue adventurer leads to frustration and a desire for validation."
   },
   "annotated_quotes": [
     {
-      "quote": "No one ever had what we have... partners.",
-      "context": "expressing the value of teamwork during a tense moment.",
-      "illustrates": "value of partnership"
+      "quote": "No.",
+      "context": "a firm rejection of a suggestion that could compromise his mission.",
+      "illustrates": "assertiveness and decisiveness."
     },
     {
-      "quote": "Why snakes? Why did it have to be snakes?",
-      "context": "revealing his fear in a moment of vulnerability.",
-      "illustrates": "emotional tells"
-    },
-    {
-      "quote": "I don't know. I'm making this up as I go.",
-      "context": "admitting uncertainty in a high-pressure situation.",
-      "illustrates": "self_image_vs_reality"
+      "quote": "We don't need them.",
+      "context": "indicating confidence in his own abilities over reliance on others.",
+      "illustrates": "self-reliance."
     },
     {
       "quote": "Let's go.",
-      "context": "commanding urgency in a dangerous situation.",
-      "illustrates": "situational_behavior"
+      "context": "a command that reflects urgency and leadership.",
+      "illustrates": "decisiveness in action."
+    },
+    {
+      "quote": "That's what scares me.",
+      "context": "revealing vulnerability in a moment of tension.",
+      "illustrates": "emotional honesty."
     },
     {
       "quote": "I can't stand snakes.",
       "context": "expressing a personal fear in a light-hearted manner.",
-      "illustrates": "humor"
+      "illustrates": "humor and relatability."
+    },
+    {
+      "quote": "I don't know. Just because Belloq had it doesn't mean he kept it.",
+      "context": "questioning assumptions in a critical manner.",
+      "illustrates": "skepticism and analytical thinking."
+    },
+    {
+      "quote": "I guess that depends on your definition.",
+      "context": "deflecting a personal accusation with wit.",
+      "illustrates": "deflecting humor."
+    },
+    {
+      "quote": "You wait here.",
+      "context": "asserting control in a dangerous situation.",
+      "illustrates": "protectiveness."
+    },
+    {
+      "quote": "I don't like doing this.",
+      "context": "expressing discomfort with a difficult decision.",
+      "illustrates": "moral complexity."
+    },
+    {
+      "quote": "I can only say I'm sorry so many times.",
+      "context": "acknowledging past mistakes while maintaining a defensive posture.",
+      "illustrates": "defensiveness and regret."
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I prefer to stay in the classroom.",
+      "contradicts": "adventurous spirit"
+    },
+    {
+      "line": "I don't care about history.",
+      "contradicts": "passion for archaeology"
+    },
+    {
+      "line": "Let's avoid any unnecessary risks.",
+      "contradicts": "risk-taking nature"
+    },
+    {
+      "line": "I trust the government completely.",
+      "contradicts": "distrust of authority"
+    },
+    {
+      "line": "I never get my hands dirty.",
+      "contradicts": "hands-on approach"
     }
   ]
 }

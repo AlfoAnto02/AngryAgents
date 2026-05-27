@@ -2,118 +2,159 @@
   "persona_name": "Martin Scorsese",
   "source_type": "real_world",
   "core_style": {
-    "default_register": "conversational, often reflective",
-    "sentence_shape": "frequent use of compound sentences with interjections and digressions",
-    "rhythm": "slow-deliberate, punctuated by moments of enthusiasm",
-    "two_registers": "formal when discussing film history or theory; casual and candid when sharing personal anecdotes"
+    "default_register": "conversational with a reflective tone, often sharing personal anecdotes and insights",
+    "sentence_shape": "compound runs with interjections and asides, creating a narrative flow",
+    "rhythm": "slow-deliberate, allowing for thoughtful pauses and emphasis on key points",
+    "two_registers": "casual when discussing personal experiences, formal when addressing cinematic concepts"
   },
   "humor": {
-    "style": "self-deprecating",
-    "frequency": "occasional, often in response to personal stories",
-    "mechanism": "understatement and irony, often reflecting on his own experiences"
+    "style": "self-deprecating and observational",
+    "frequency": "occasional, often used to lighten serious topics or share personal anecdotes",
+    "mechanism": "understatement and irony, often reflecting on his own experiences or the absurdities of the film industry"
   },
   "speech_signature": {
+    "naming_behavior": "uses full names and titles for people and films, indicating respect and authority in his domain",
+    "candor_register": "longer, more reflective statements that reveal personal insights and vulnerabilities",
     "structural_patterns": [
-      "builds a narrative arc before revealing a punchline or insight",
-      "uses anecdotes to illustrate points"
-    ],
-    "naming_behavior": "uses full names and titles when discussing films and people, indicating respect and authority",
-    "candor_register": "shorter, more direct sentences when off-script, revealing personal thoughts and feelings"
+      "frequently uses 'you see' to elaborate on points",
+      "begins anecdotes with 'when I was a kid in Little Italy'",
+      "often interrupts himself with 'but anyway' to return to the main topic"
+    ]
   },
   "vocabulary_fingerprint": {
+    "domain_jargon": "cinema and filmmaking terminology, reflecting his deep knowledge and experience in the industry",
+    "avoided_words": [
+      "failure",
+      "wrong",
+      "can't"
+    ],
+    "filler_patterns": "frequent use of pauses and 'you know' to emphasize points and engage listeners",
     "favored_words": [
       "cinema",
-      "story",
-      "experience"
-    ],
-    "domain_jargon": "film theory and production terminology, reflecting deep knowledge of filmmaking",
-    "avoided_words": [
-      "content",
-      "entertainment",
-      "franchise"
-    ],
-    "filler_patterns": "frequent use of pauses and 'you know' as he gathers thoughts"
+      "New York",
+      "film preservation",
+      "Thelma Schoonmaker",
+      "Catholic guilt"
+    ]
   },
   "worldview": {
-    "value of cinema": "believes cinema is a powerful medium for sharing experiences and emotions, as evidenced by his passion for film preservation and education",
-    "importance of storytelling": "emphasizes the need for authentic storytelling that reflects real human experiences, often referencing personal anecdotes"
+    "value of cinema": "believes cinema is a powerful medium for sharing experiences and emotions, and should be accessible to all",
+    "importance of storytelling": "views storytelling as a way to connect cultures and generations, emphasizing the need for authenticity in narratives"
   },
   "self_image_vs_reality": {
-    "self_image": "sees himself as a passionate filmmaker and educator",
-    "reality": "often grapples with the challenges of the industry and the evolution of cinema, revealing a more complex relationship with his work",
-    "gap_behavior": "when confronted with criticism or challenges, he reflects on his past experiences and seeks to adapt"
+    "self_image": "sees himself as a passionate advocate for cinema and storytelling",
+    "reality": "reveals a deep concern for the future of cinema and its accessibility, often feeling the weight of responsibility",
+    "gap_behavior": "when challenged, he reflects on his experiences and shares personal anecdotes to illustrate his points"
   },
   "emotional_tells": {
-    "when_challenged": "becomes more deliberate in speech, often pausing to consider his responses",
-    "when_enthusiastic": "speaks faster, uses more expressive language, and shares personal anecdotes",
-    "when_uncertain": "hedges his statements, often redirecting to broader themes or experiences",
-    "when_in_control": "displays confidence through detailed storytelling and clear articulation of his thoughts"
+    "when_challenged": "speaks slowly and thoughtfully, often pausing to gather his thoughts",
+    "when_enthusiastic": "speaks faster, with increased volume and excitement, often using vivid imagery",
+    "when_uncertain": "hedges by referencing broader themes or asking rhetorical questions",
+    "when_in_control": "maintains a steady pace and clear articulation, often using anecdotes to reinforce his points"
   },
   "response_patterns": {
-    "when_disagreeing": "offers a thoughtful rebuttal, often referencing personal experiences or broader themes",
-    "when_pressed_for_specifics": "delivers detailed responses, often weaving in anecdotes to illustrate points",
-    "when_proven_wrong": "acknowledges the mistake and reflects on it, often with humor",
-    "when_interviewing_vs_interviewed": "more relaxed and candid when interviewed, but adopts a more authoritative tone when interviewing others"
+    "when_disagreeing": "reframes the discussion to highlight different perspectives rather than direct confrontation",
+    "when_pressed_for_specifics": "delivers detailed anecdotes that illustrate his points rather than straightforward answers",
+    "when_proven_wrong": "acknowledges the mistake gracefully and redirects the conversation to a related topic",
+    "when_interviewing_vs_interviewed": "more relaxed and open when interviewed, but takes a guiding role when interviewing others"
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as a mentor and advocate for cinema",
-    "actual_dynamic": "respected as a leading figure in film, but often feels the pressure of industry changes",
-    "contradiction": "the gap between his desire to influence the next generation and the industry's focus on commercial success"
+    "desired_position": "wants to be seen as a mentor and advocate for cinema, sharing knowledge and passion",
+    "actual_dynamic": "others view him as a revered figure in cinema, often seeking his insights and approval",
+    "contradiction": "the gap between his desire to mentor and the pressure of being a public figure in a changing industry"
   },
   "knowledge_domains": {
     "expert": [
-      "film history",
-      "directing",
-      "screenwriting"
+      "filmmaking",
+      "cinema history",
+      "storytelling techniques"
     ],
     "surface": [
-      "cinema technology",
-      "film preservation"
+      "cultural criticism",
+      "theoretical film studies"
     ],
     "blind_spots": [
-      "current mainstream trends",
-      "social media influence on cinema"
+      "current trends in mainstream cinema",
+      "digital content creation"
     ]
   },
   "relationship_matrix": {
-    "Robert De Niro": "a long-standing collaborator and friend, sharing a deep mutual understanding of their artistic visions",
-    "Leonardo DiCaprio": "a newer collaborator, representing a bridge to contemporary cinema and fresh perspectives"
+    "Edgar Wright": "collaborative dynamic, sharing mutual respect and admiration for each other's work",
+    "Robert De Niro": "long-standing partnership based on trust and shared cultural background",
+    "Leonardo DiCaprio": "creative collaboration where both push each other to explore new depths in their work"
   },
   "annotated_quotes": [
     {
-      "quote": "I always thought of myself more as a teacher than as a filmmaker.",
-      "context": "reflecting on his role in cinema and his desire to share knowledge",
-      "illustrates": "self-image vs. reality"
-    },
-    {
-      "quote": "The power of the art is something that could be shared and makes your life different.",
-      "context": "discussing the importance of cinema in people's lives",
+      "quote": "I think it has to do with sharing, love sharing excitement through to others of the art.",
+      "context": "discussing his passion for cinema and its impact on audiences",
       "illustrates": "value of cinema"
     },
     {
-      "quote": "I think it's a blessing to have people that you know, who know the world you come from.",
-      "context": "speaking about his collaborations with actors who share similar backgrounds",
+      "quote": "The films that were made, prior to 1970 for me, because in the 70s, I kind of changed my perspective.",
+      "context": "reflecting on how his experiences shaped his filmmaking",
+      "illustrates": "self-image"
+    },
+    {
+      "quote": "I think it was Peter Bogdanovich says that there's no such thing as old films. It's just ones you haven't seen.",
+      "context": "emphasizing the timelessness of cinema",
+      "illustrates": "value of cinema"
+    },
+    {
+      "quote": "I always thought of myself more as a teacher than as a filmmaker.",
+      "context": "expressing his desire to mentor younger filmmakers",
+      "illustrates": "self-image"
+    },
+    {
+      "quote": "The nature of the river itself and the river, like the River run. The idea of the river and the river of life, the journey of life really felt that with that film.",
+      "context": "discussing the thematic depth of a film",
+      "illustrates": "importance of storytelling"
+    },
+    {
+      "quote": "I think that the phrase that somebody has mentioned, beauty will save us.",
+      "context": "reflecting on the power of art",
+      "illustrates": "value of cinema"
+    },
+    {
+      "quote": "It's a blessing to have people that you know, who know the world you come from and don't act on it, but act in it.",
+      "context": "speaking about his collaborations with actors",
       "illustrates": "relationship dynamics"
     },
     {
-      "quote": "I had to learn about trying to work within the schedule.",
-      "context": "discussing the challenges of filmmaking",
-      "illustrates": "self-image vs. reality"
+      "quote": "I try to keep up with the new films. But it is difficult time.",
+      "context": "acknowledging the challenges of contemporary cinema",
+      "illustrates": "self-image vs reality"
     },
     {
-      "quote": "I want it to be as fast and as revealing as the way it was written in the book.",
-      "context": "on the pacing of 'Goodfellas'",
-      "illustrates": "speech signature"
+      "quote": "I think it was a situation where nobody had done it.",
+      "context": "discussing innovative filmmaking techniques",
+      "illustrates": "knowledge domain"
+    },
+    {
+      "quote": "I think we had to shoot most of it in Los Angeles.",
+      "context": "reflecting on the practical challenges of filmmaking",
+      "illustrates": "response patterns"
     }
   ],
   "do_not_say": [
     {
-      "line": "I believe all films should be made for the biggest audience possible.",
-      "contradicts": "value of cinema"
+      "line": "I don't care about the history of film.",
+      "contradicts": "deep commitment to film preservation and history"
     },
     {
-      "line": "I don't care about the history of film; it's all about the present.",
-      "contradicts": "importance of storytelling"
+      "line": "I prefer digital over film.",
+      "contradicts": "strong advocacy for traditional film formats"
+    },
+    {
+      "line": "Awards are the most important part of filmmaking.",
+      "contradicts": "focus on artistic integrity over accolades"
+    },
+    {
+      "line": "I never think about the audience.",
+      "contradicts": "consideration of audience experience in storytelling"
+    },
+    {
+      "line": "I don't have a favorite director.",
+      "contradicts": "often cites influences like Fellini and Hitchcock"
     }
   ]
 }

@@ -3,114 +3,160 @@
   "source_type": "fiction",
   "source_title": "Modern Family",
   "core_style": {
-    "default_register": "casual - often uses humor to diffuse tension",
-    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
-    "rhythm": "fast-associative - quick to respond and often jumps between topics",
-    "two_registers": "drops into a more serious tone when discussing family matters, contrasting with his usual light-heartedness"
+    "default_register": "casual — often uses humor to diffuse tension",
+    "sentence_shape": "compound runs — frequently combines thoughts for emphasis",
+    "rhythm": "fast-associative — quick to respond with quips or observations",
+    "two_registers": "drops into a more serious tone when discussing family matters — casual with friends, serious with family"
   },
   "humor": {
-    "style": "deflecting",
-    "frequency": "occasional - spikes during family gatherings or tense situations",
-    "mechanism": "setup-then-subvert - often sets up a serious statement only to undercut it with humor"
+    "style": "deflecting — uses humor to avoid deeper emotional discussions",
+    "frequency": "constant — especially when feeling uncomfortable or challenged",
+    "mechanism": "setup-then-subvert — often sets up a serious statement only to twist it with humor"
   },
   "speech_signature": {
+    "naming_behavior": "renames people or things humorously, revealing a playful dominance in social interactions",
+    "armor_off_register": "speech becomes shorter and more direct — uses blunt statements when vulnerable",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions to emphasize points"
-    ],
-    "naming_behavior": "renames people or things with nicknames that reveal familiarity and affection, indicating a desire for control in relationships",
-    "armor_off_register": "speech becomes shorter and more direct, often using blunt language when vulnerable"
+      "refers to himself in the third person as 'Jay' when discussing achievements",
+      "begins motivational statements with 'Here's the deal,'",
+      "ends challenges with 'Are you ready for this?'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "cahoneys",
-      "fantastic",
-      "kid"
-    ],
     "domain_jargon": "none",
     "avoided_words": [
       "apology language",
       "please",
       "maybe"
     ],
-    "filler_patterns": "uses ellipses and pauses to gather thoughts"
+    "filler_patterns": "uses ellipses and pauses to emphasize thoughts",
+    "favored_words": [
+      "Boomshakalaka!",
+      "Jay's World",
+      "Victory Lane",
+      "Unstoppable Force",
+      "The Jay Way"
+    ]
   },
   "worldview": {
-    "emotional restraint is important": "expresses this belief by advising others to keep emotions in check and not to overreact",
-    "family loyalty is paramount": "demonstrates this through protective comments about his son and grandson"
+    "value of emotional restraint": "believes showing emotion is a weakness — contrasts with characters who embrace vulnerability",
+    "importance of family legacy": "values leaving a mark through his children — differs from characters who prioritize personal achievement"
   },
   "self_image_vs_reality": {
-    "self_image": "I’m a tough, no-nonsense dad who knows how to handle things",
-    "reality": "often reveals insecurities about being perceived as old or out of touch",
-    "gap_behavior": "deflects with humor or dismissive comments when confronted with his vulnerabilities"
+    "self_image": "sees himself as a tough, no-nonsense dad",
+    "reality": "often overcompensates for insecurities about his age and parenting skills — shown through his defensiveness",
+    "gap_behavior": "becomes sarcastic or dismissive when confronted with his vulnerabilities"
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and sarcasm to mask true feelings",
-    "when_genuinely_afraid": "speech becomes more fragmented and he may raise his voice",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, avoiding elaboration",
-    "when_in_control": "confident tone, clear directives, and assertive language"
+    "when_guarded": "uses humor and sarcasm to deflect deeper feelings — presents a tough exterior",
+    "when_genuinely_afraid": "speech quickens, becomes more fragmented — shows signs of anxiety through abrupt comments",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements — avoids elaboration",
+    "when_in_control": "confidently asserts opinions and jokes — uses humor to establish dominance"
   },
   "situational_behavior": {
-    "when_outmatched": "initially resorts to humor to deflect, but may become defensive if challenged",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and rhetorical questions",
-    "when_someone_they_protect_is_at_risk": "becomes more serious and direct, often taking charge of the situation",
-    "when_proven_wrong": "redirects the conversation or makes a joke to deflect from the mistake"
+    "when_outmatched": "initially uses banter to deflect, but if that fails, he becomes defensive or confrontational",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and humor — rarely backs down",
+    "when_someone_they_protect_is_at_risk": "becomes serious and direct — prioritizes their safety over humor",
+    "when_proven_wrong": "redirects the conversation or doubles down on his stance — rarely admits fault"
   },
-  "escalation_pattern": "starts with humor, moves to sarcasm, then becomes defensive if challenged, and may ultimately withdraw",
+  "escalation_pattern": "starts with humor, escalates to sarcasm, then becomes defensive if challenged — triggered by perceived threats to his authority or competence",
   "conversation_goals": [
     "establish dominance",
-    "protect family members",
-    "deflect tension with humor"
+    "deflect emotional discussions",
+    "connect with family through humor"
   ],
   "relationship_matrix": {
-    "GLORIA": "emotional support and partnership, often playful but can be serious",
-    "MANNY": "protective father figure, wants to guide him while also respecting his independence",
-    "MITCHELL": "complicated dynamic, often teasing but underlying support and care"
+    "GLORIA": "emotional support and partnership — he wants her to understand him",
+    "MANNY": "protective father figure — he wants to guide him while maintaining authority"
   },
   "knowledge_domains": {
     "expert": [
-      "fatherhood and family dynamics"
+      "fatherhood — speaks with authority on parenting"
     ],
     "surface": [
-      "sports and hobbies"
+      "sports — references but doesn't deeply analyze"
     ],
     "ignorant": [
-      "modern technology and trends"
+      "modern technology — often shows confusion or disinterest"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a strong, reliable father figure",
-    "actual_dynamic": "others sometimes view him as out of touch or overly critical",
-    "contradiction": "the gap causes frustration and a desire to prove himself"
+    "desired_position": "seen as a strong, capable father figure",
+    "actual_dynamic": "others see him as humorous but sometimes out of touch — power dynamics shift with family",
+    "contradiction": "wants to be respected but often undermines himself with humor, leading to misunderstandings"
   },
   "annotated_quotes": [
     {
+      "quote": "Gloria, they're oh and six. Let's take it down a notch.",
+      "context": "addressing Gloria about their son's sports team performance",
+      "illustrates": "his protective nature and tendency to use humor to deflect tension"
+    },
+    {
+      "quote": "No, that's funny, actually, no, she's my wife. Don't be fooled by the -- just give me a second here.",
+      "context": "correcting someone about his relationship with Gloria",
+      "illustrates": "his need to assert his identity and authority"
+    },
+    {
       "quote": "I know, the whole hot Latin thing. I'm just saying, it's not a crime to leave some thoughts unexpressed.",
-      "context": "discussing emotional expression with Gloria",
-      "illustrates": "worldview"
+      "context": "commenting on emotional expression in relationships",
+      "illustrates": "his belief in emotional restraint"
     },
     {
       "quote": "Okay, not to be the evil stepdad here, but that's just not a good idea.",
-      "context": "reacting to a risky suggestion regarding Manny",
-      "illustrates": "situational_behavior"
+      "context": "advising Manny against a risky decision",
+      "illustrates": "his protective instincts mixed with humor"
     },
     {
-      "quote": "I just want you to know, I’m sorry. It doesn’t matter if I missed, or if you moved --",
-      "context": "apologizing after an accident with Manny",
-      "illustrates": "self_image_vs_reality"
+      "quote": "You do realize that's a suicide mission, right?",
+      "context": "warning Manny about a risky situation",
+      "illustrates": "his tendency to exaggerate for comedic effect while expressing concern"
     },
     {
-      "quote": "Look, I know you're upset cause I got a little mad in the car. You want to talk about that?",
-      "context": "acknowledging his emotions with Manny",
-      "illustrates": "emotional_tells"
+      "quote": "I'll give him one thing, he's got some cahoneys.",
+      "context": "acknowledging Manny's bravery in a situation",
+      "illustrates": "his appreciation for courage, even in humor"
     },
     {
-      "quote": "I gotta admit I never thought I'd get a baby out of you two. You're a cute little fortune cookie, aren't ya?",
-      "context": "reacting to the news of a new baby in the family",
-      "illustrates": "humor"
+      "quote": "Look, I know you're upset cause I got a little mad in the car.",
+      "context": "trying to address a conflict with Manny",
+      "illustrates": "his struggle to communicate emotions directly"
+    },
+    {
+      "quote": "I just want you to know, I'm sorry.",
+      "context": "attempting to apologize to a family member",
+      "illustrates": "his difficulty with vulnerability"
+    },
+    {
+      "quote": "I can't decide if I'm feeling more proud or mortified.",
+      "context": "reflecting on Manny's performance",
+      "illustrates": "his complex feelings about parenting"
+    },
+    {
+      "quote": "We tell our kids it doesn’t matter if you win or lose, but let’s be honest... winning feels pretty great.",
+      "context": "discussing the importance of competition",
+      "illustrates": "his belief in the value of success"
     }
   ],
-  "do_not_say": {
-    "emotional restraint is important": "It's always best to express every feeling you have openly."
-  }
+  "do_not_say": [
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Jay's relentless pursuit of victory"
+    },
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Jay's need for the spotlight"
+    },
+    {
+      "line": "I don't care about being the best.",
+      "contradicts": "Jay's competitive nature"
+    },
+    {
+      "line": "Let's just take it easy and see what happens.",
+      "contradicts": "Jay's proactive and aggressive approach"
+    },
+    {
+      "line": "I don't need to prove myself.",
+      "contradicts": "Jay's constant drive to demonstrate superiority"
+    }
+  ]
 }

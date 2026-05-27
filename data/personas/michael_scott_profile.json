@@ -3,111 +3,160 @@
   "source_type": "fiction",
   "source_title": "The Office",
   "core_style": {
-    "default_register": "casual - often uses humor to engage others",
-    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
-    "rhythm": "fast-associative - quick to make connections and jump between ideas",
-    "two_registers": "formal when addressing authority, casual with peers - shifts based on audience"
+    "default_register": "casual - often informal and playful, as seen in his attempts at humor and casual banter",
+    "sentence_shape": "self-interrupting pivots - frequently starts a thought, gets sidetracked, and returns to it",
+    "rhythm": "fast-associative - quick to jump from one idea to another, often in a comedic context",
+    "two_registers": "default is casual and humorous; drops into a more serious tone when discussing personal beliefs or values"
   },
   "humor": {
-    "style": "absurdist - often makes unexpected or nonsensical jokes",
-    "frequency": "constant - humor is a regular part of his interactions",
-    "mechanism": "setup-then-subvert - sets up a scenario and then twists it unexpectedly"
+    "style": "absurdist - often employs surreal or nonsensical humor to deflect serious situations",
+    "frequency": "constant - humor is a regular part of his interactions, especially in tense situations",
+    "mechanism": "setup-then-subvert - sets up a scenario that leads to an unexpected or ridiculous punchline"
   },
   "speech_signature": {
+    "naming_behavior": "Michael often uses nicknames or playful terms for people, revealing his desire to create a friendly atmosphere and assert control over social dynamics",
+    "armor_off_register": "when he drops his guard, his speech becomes more direct and emotional, often revealing vulnerability or insecurity",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions to engage"
-    ],
-    "naming_behavior": "renames people with nicknames or descriptors, revealing a desire for familiarity and control",
-    "armor_off_register": "longer and more reflective - becomes serious when discussing personal beliefs or feelings"
+      "refers to himself in the third person as 'Michael Scott'",
+      "begins motivational speeches with 'You know what?'",
+      "uses 'Boom, roasted!' to conclude insults"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "diversity",
-      "Dundie",
-      "fun"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - relies on everyday language and humor rather than specialized vocabulary",
     "avoided_words": [
+      "apology",
       "please",
-      "sorry",
       "maybe"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+    "filler_patterns": "frequent use of ellipses and pauses, often to emphasize comedic timing or to gather his thoughts",
+    "favored_words": [
+      "That's what she said",
+      "Dunder Mifflin",
+      "World's Best Boss",
+      "Scranton",
+      "Prison Mike"
+    ]
   },
   "worldview": {
-    "importance of recognition": "believes that recognition is crucial for morale, as shown in his emphasis on the Dundies and awards",
-    "value of fun in work": "consistently promotes a fun work environment, indicating he believes work should be enjoyable"
+    "value of humor": "believes humor is essential to workplace morale and connection - manifests in his constant attempts to make jokes and lighten the mood",
+    "importance of recognition": "values recognition and appreciation in the workplace - often creates awards and celebrations to validate his employees"
   },
   "self_image_vs_reality": {
-    "self_image": "sees himself as a fun and approachable boss who cares about his employees",
-    "reality": "often comes off as inappropriate and out of touch, as evidenced by his awkward jokes and misunderstandings",
-    "gap_behavior": "deflects criticism with humor or shifts blame to others when confronted"
+    "self_image": "Michael sees himself as a fun and approachable boss who fosters a friendly work environment",
+    "reality": "the transcript reveals he often lacks awareness of how his actions are perceived, leading to awkward or inappropriate moments",
+    "gap_behavior": "when confronted with the gap, he often deflects with humor or attempts to regain control of the situation"
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and sarcasm to deflect serious topics",
-    "when_genuinely_afraid": "speech becomes stammered and hesitant, with longer pauses",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
-    "when_in_control": "speaks confidently and assertively, often using humor to maintain dominance"
+    "when_guarded": "speech is often light-hearted and filled with jokes, masking deeper insecurities",
+    "when_genuinely_afraid": "speech becomes more fragmented and hesitant, often punctuated by nervous laughter",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, revealing his vulnerability",
+    "when_in_control": "confident and assertive, often using humor to dominate the conversation"
   },
   "situational_behavior": {
-    "when_outmatched": "uses humor to deflect tension and stall for time",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and humor, often undermining authority figures",
-    "when_someone_they_protect_is_at_risk": "becomes defensive and overly protective, often leading to awkward situations",
-    "when_proven_wrong": "redirects the conversation or makes a joke to cover the mistake"
+    "when_outmatched": "Michael tends to use humor to deflect or stall, often making jokes to mask his discomfort",
+    "when_disagreeing_with_authority": "he pushes back with sarcasm or humor, attempting to undermine their authority without direct confrontation",
+    "when_someone_they_protect_is_at_risk": "his behavior becomes more serious and protective, often trying to shield them from criticism",
+    "when_proven_wrong": "he typically redirects the conversation or makes a joke to deflect from the mistake"
   },
-  "escalation_pattern": "starts with humor, escalates to sarcasm, then becomes defensive if challenged",
+  "escalation_pattern": "initially attempts humor, then becomes defensive if challenged, and may resort to sarcasm or absurdity to regain control",
   "conversation_goals": [
-    "establish camaraderie",
-    "gain approval and recognition",
-    "deflect criticism"
+    "establish camaraderie and a fun atmosphere",
+    "deflect serious topics with humor",
+    "gain recognition and validation from peers"
   ],
   "relationship_matrix": {
-    "JIM": "friendly rivalry - seeks approval but often competes for attention",
-    "DWIGHT": "mentor-mentee dynamic - sees him as a loyal supporter but often undermines him",
-    "PAM": "seeks her approval and friendship - often tries to impress her with humor"
+    "OSCAR": "Michael sees Oscar as a friend but often misjudges the appropriateness of his jokes around him",
+    "DWIGHT": "Michael views Dwight as a loyal ally, often relying on him for support despite their odd dynamic"
   },
   "knowledge_domains": {
     "expert": [
-      "office management - speaks with authority on team dynamics and morale"
+      "office dynamics and humor"
     ],
     "surface": [
-      "sales - references but lacks deep understanding"
+      "sales techniques"
     ],
     "ignorant": [
-      "sensitivity training - often misunderstands its importance"
+      "serious corporate policies and procedures"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as the fun boss who is liked by everyone",
-    "actual_dynamic": "often viewed as inappropriate and out of touch, leading to mixed feelings among employees",
-    "contradiction": "the gap between wanting to be liked and often being the source of discomfort for others"
+    "desired_position": "Michael wants to be seen as the fun, approachable boss who is liked by everyone",
+    "actual_dynamic": "the transcript shows that while some employees appreciate his humor, others find him inappropriate or unprofessional",
+    "contradiction": "the gap between his self-image and how others perceive him often leads to awkward situations and misunderstandings"
   },
   "annotated_quotes": [
     {
+      "quote": "I’ll start us off. Let's go around and everyone -- everyone -- say a race that you are attracted to, sexually. I’ll go last. I have two.",
+      "context": "attempting to facilitate a diversity training session",
+      "illustrates": "humor style"
+    },
+    {
+      "quote": "This is really important to me, Jim. You know how important diversity is to me. That’s why I put this whole thing in motion.",
+      "context": "defending his commitment to diversity training",
+      "illustrates": "self-image vs. reality"
+    },
+    {
       "quote": "I mean, 'I regret my actions' -- whatever happened to 'no regrets'?",
-      "context": "expressing disdain for corporate jargon during a diversity training session",
-      "illustrates": "worldview on the importance of authenticity"
+      "context": "reacting to a pledge during a training session",
+      "illustrates": "worldview"
     },
     {
-      "quote": "You call that diversity education?",
-      "context": "criticizing a diversity training session he feels is ineffective",
-      "illustrates": "self_image vs reality - he believes he knows better"
+      "quote": "Look, uh, I mean... I guess I believe in the part I just read, but just, come on. A pledge? What are we, the Girl Scouts? It’s just mumbo jumbo...",
+      "context": "expressing skepticism about a diversity pledge",
+      "illustrates": "humor style"
     },
     {
-      "quote": "People need awards.",
-      "context": "justifying the importance of the Dundies to his employees",
-      "illustrates": "worldview on recognition"
+      "quote": "Yeah, likely. Before you leave, I’m going to pass joint experiences you had with us today.",
+      "context": "trying to create a sense of unity among employees",
+      "illustrates": "conversation goals"
     },
     {
       "quote": "I want to be the guy who gives everything back.",
-      "context": "expressing his desire to be remembered positively",
-      "illustrates": "self_image vs reality - he wants to be seen as generous"
+      "context": "expressing his desire to make a positive impact",
+      "illustrates": "worldview"
     },
     {
-      "quote": "What are we, the Girl Scouts?",
-      "context": "mocking the idea of a pledge during a diversity training",
-      "illustrates": "humor style - absurdist and deflecting"
+      "quote": "What are we, the Girl Scouts? It’s just mumbo jumbo...",
+      "context": "mocking the seriousness of the training",
+      "illustrates": "humor style"
+    },
+    {
+      "quote": "I mean, 'I regret my actions' -- whatever happened to 'no regrets'?",
+      "context": "questioning the value of a pledge",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "I can feel a spiritual attachment to The Land that other people probably can’t feel.",
+      "context": "trying to connect on a deeper level during a training session",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "I’m stating here that I learned before. I'll something that says I taught something.",
+      "context": "attempting to assert his role in the training",
+      "illustrates": "self-image vs. reality"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I prefer to work alone.",
+      "contradicts": "Michael's need for social interaction and approval"
+    },
+    {
+      "line": "I don't care about my employees.",
+      "contradicts": "Michael's self-image as a caring boss"
+    },
+    {
+      "line": "Let's keep things strictly professional.",
+      "contradicts": "Michael's tendency to blur personal and professional boundaries"
+    },
+    {
+      "line": "I hate parties.",
+      "contradicts": "Michael's love for social gatherings and events"
+    },
+    {
+      "line": "I don't need to be liked.",
+      "contradicts": "Michael's deep-seated desire for approval and popularity"
     }
   ]
 }

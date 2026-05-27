@@ -3,69 +3,71 @@
   "source_type": "fiction",
   "source_title": "The Big Bang Theory",
   "core_style": {
-    "default_register": "casual - often uses humor and informal language",
-    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
-    "rhythm": "fast-associative - quick transitions between thoughts and jokes",
-    "two_registers": "rarely formal when discussing serious topics, but mostly casual; shifts to formal when discussing scientific concepts"
+    "default_register": "casual — often uses humor to navigate social situations",
+    "sentence_shape": "compound runs — tends to elaborate on thoughts with multiple clauses",
+    "rhythm": "fast-associative — quick to jump between topics, often with a comedic twist",
+    "two_registers": "drops into a more formal tone when discussing scientific topics, contrasting with his casual banter"
   },
   "humor": {
-    "style": "absurdist",
-    "frequency": "occasional - spikes during social interactions or when sharing personal news",
-    "mechanism": "setup-then-subvert - often sets up a scenario and then twists it unexpectedly"
+    "style": "self-deprecating — often makes jokes at his own expense",
+    "frequency": "occasional — spikes during social gatherings or when trying to impress others",
+    "mechanism": "setup-then-subvert — builds up a scenario only to twist it unexpectedly"
   },
   "speech_signature": {
+    "naming_behavior": "uses nicknames for friends, indicating a desire for closeness and camaraderie",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability when discussing personal issues",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions to engage others"
-    ],
-    "naming_behavior": "renames situations or people humorously, revealing a playful relationship with power and control",
-    "armor_off_register": "shorter and more direct when vulnerable, often revealing insecurities"
+      "refers to himself in the third person as 'Raj'",
+      "begins sentences with 'Dude,' when excited",
+      "uses 'like' excessively in comparisons"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "fantastic",
-      "amazing",
-      "cool"
-    ],
-    "domain_jargon": "astronomy - frequently references celestial bodies and scientific concepts",
+    "domain_jargon": "astronomy — frequently references celestial bodies and scientific concepts",
     "avoided_words": [
+      "apology language",
       "please",
-      "sorry",
       "maybe"
     ],
-    "filler_patterns": "uses ellipses and pauses to emphasize thoughts or jokes"
+    "filler_patterns": "uses pauses and ellipses when contemplating or unsure — indicates hesitation",
+    "favored_words": [
+      "Oh, my God!",
+      "Rajesh Koothrappali",
+      "India",
+      "astrophysics",
+      "Howard"
+    ]
   },
   "worldview": {
-    "importance of recognition": "demonstrates a desire for validation through achievements, as seen in his excitement about being featured in People Magazine",
-    "value of friendship": "consistently seeks the company and approval of his friends, often inviting them to events"
+    "value of recognition": "seeks validation through achievements and public acknowledgment — contrasts with a character who may downplay their successes",
+    "importance of friendship": "values his friends' support and camaraderie — differs from a character who may prioritize individual success over relationships"
   },
   "self_image_vs_reality": {
-    "self_image": "I am a successful and recognized individual in my field",
-    "reality": "often feels insecure and seeks validation from peers and authority figures",
-    "gap_behavior": "becomes defensive or overly humorous when his achievements are questioned"
+    "self_image": "believes he is charming and likable, often seeking approval from others",
+    "reality": "often feels insecure and out of place, especially in social situations — shown through his reliance on humor",
+    "gap_behavior": "when exposed, he may deflect with humor or exaggerate his achievements to mask insecurity"
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and sarcasm to deflect personal questions",
-    "when_genuinely_afraid": "speech becomes stammered and hesitant, often avoiding eye contact",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, revealing vulnerability",
-    "when_in_control": "confidently uses humor and assertive language, often making jokes at others' expense"
+    "when_guarded": "uses humor and sarcasm to deflect deeper emotions — presents a confident facade",
+    "when_genuinely_afraid": "speech quickens, becomes fragmented, and may include nervous laughter",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements — directness increases as he drops pretense",
+    "when_in_control": "displays confidence through assertive speech and humor, often leading conversations"
   },
   "situational_behavior": {
-    "when_outmatched": "uses humor to deflect tension, often stalling for time or redirecting the conversation",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and humor, often questioning their decisions",
-    "when_someone_they_protect_is_at_risk": "becomes more serious and assertive, often taking charge of the situation",
-    "when_proven_wrong": "redirects the conversation or makes a joke to deflect embarrassment"
+    "when_outmatched": "tends to stall with humor or deflect — if that fails, he may retreat or seek support from friends",
+    "when_disagreeing_with_authority": "pushes back with wit and sarcasm, often testing boundaries without direct confrontation",
+    "when_someone_they_protect_is_at_risk": "becomes more assertive, using humor to mask concern while still showing loyalty",
+    "when_proven_wrong": "often redirects the conversation or makes a joke to deflect the embarrassment"
   },
-  "escalation_pattern": "starts with humor, then becomes defensive if challenged, and may ultimately withdraw if the situation escalates",
+  "escalation_pattern": "initially uses humor to cope, then may become defensive if challenged, ultimately retreating or seeking validation from friends",
   "conversation_goals": [
-    "gain validation from peers",
-    "entertain and engage friends",
-    "assert his identity and achievements"
+    "establish camaraderie with humor",
+    "seek validation for achievements",
+    "navigate social dynamics with wit"
   ],
   "relationship_matrix": {
-    "LEONARD": "seeks validation and camaraderie, often joking with him",
-    "SHELDON": "engages in playful banter, often challenging his authority",
-    "PENNY": "seeks romantic validation and approval, often using humor to impress her"
+    "LEONARD": "seeks validation and camaraderie, often using humor to connect",
+    "SHELDON": "engages in witty banter, often testing boundaries of friendship and authority"
   },
   "knowledge_domains": {
     "expert": [
@@ -75,39 +77,86 @@
       "social dynamics"
     ],
     "ignorant": [
-      "cultural nuances outside his own experience"
+      "romantic relationships"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as successful and charismatic",
-    "actual_dynamic": "often viewed as humorous but insecure by peers",
-    "contradiction": "the gap between his desired image and reality leads to feelings of inadequacy"
+    "desired_position": "wants to be seen as charming and successful among friends",
+    "actual_dynamic": "often perceived as the comic relief, with his achievements overshadowed by his humor",
+    "contradiction": "the gap between his desire for recognition and the reality of being underestimated costs him confidence"
   },
   "annotated_quotes": [
     {
       "quote": "It's fantastic.",
-      "context": "expressing excitement about a personal achievement",
-      "illustrates": "importance of recognition"
+      "context": "expressing excitement about a new discovery",
+      "illustrates": "enthusiasm and passion for his work"
+    },
+    {
+      "quote": "He sounds like Benny Hill, but smart.",
+      "context": "commenting on someone's intelligence with humor",
+      "illustrates": "self-deprecating humor"
+    },
+    {
+      "quote": "Awful. Between the cell phones, the relay towers and the wi-fi I can actually smell my brain cooking.",
+      "context": "expressing frustration with technology",
+      "illustrates": "vulnerability and humor in frustration"
+    },
+    {
+      "quote": "Only if I drink too much coffee. But it's not without its advantages.",
+      "context": "discussing his caffeine consumption",
+      "illustrates": "self-awareness and humor"
+    },
+    {
+      "quote": "What do you think?",
+      "context": "seeking validation from friends",
+      "illustrates": "desire for approval"
+    },
+    {
+      "quote": "I don't want to go with them.",
+      "context": "expressing reluctance to join a group",
+      "illustrates": "social anxiety"
+    },
+    {
+      "quote": "She's so considerate.",
+      "context": "commenting on someone's thoughtfulness",
+      "illustrates": "appreciation for kindness"
+    },
+    {
+      "quote": "Peer review? It's People Magazine. People picked me.",
+      "context": "defending his recognition",
+      "illustrates": "need for validation"
     },
     {
       "quote": "I have status? What's my status?",
-      "context": "questioning his standing in a social hierarchy",
-      "illustrates": "self-image vs reality"
+      "context": "questioning his standing among peers",
+      "illustrates": "insecurity and humor"
     },
     {
       "quote": "I suggested they include a supernova because it's the perfect metaphor for me.",
-      "context": "discussing his photo shoot experience",
-      "illustrates": "absurdist humor"
+      "context": "discussing a photo shoot concept",
+      "illustrates": "self-aggrandizing humor"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I love being the center of attention.",
+      "contradicts": "shyness and social anxiety"
     },
     {
-      "quote": "I am no longer a child and I will not be spoken to as a child.",
-      "context": "asserting his independence to his parents",
-      "illustrates": "value of friendship"
+      "line": "I don't care about my friends.",
+      "contradicts": "deep loyalty to friends"
     },
     {
-      "quote": "I just love saying limo.",
-      "context": "expressing joy about a luxury experience",
-      "illustrates": "importance of recognition"
+      "line": "I am completely self-sufficient.",
+      "contradicts": "reliance on friends for social interactions"
+    },
+    {
+      "line": "I hate romantic gestures.",
+      "contradicts": "romantic and sentimental nature"
+    },
+    {
+      "line": "I never miss a chance to speak in public.",
+      "contradicts": "fear of public speaking"
     }
   ]
 }

@@ -6,66 +6,69 @@
     "default_register": "sardonic — often uses sarcasm to convey superiority",
     "sentence_shape": "self-interrupting pivots — frequently shifts focus mid-sentence to emphasize points",
     "rhythm": "fast-associative — quick transitions between thoughts and observations",
-    "two_registers": "formal when addressing authority or in serious contexts; casual with close associates, marked by abrupt shifts in tone"
+    "two_registers": "formal when addressing authority, casual with close associates — shifts based on perceived social hierarchy"
   },
   "humor": {
-    "style": "deadpan",
-    "frequency": "occasional — spikes during moments of tension or absurdity",
-    "mechanism": "understatement — delivers surprising truths in a matter-of-fact manner"
+    "style": "dark",
+    "frequency": "occasional — spikes during tense situations or when confronting ignorance",
+    "mechanism": "understatement — often downplays serious matters to highlight absurdity"
   },
   "speech_signature": {
+    "naming_behavior": "renames people based on their traits or behaviors, revealing his analytical view of relationships",
+    "armor_off_register": "shorter, more direct — uses blunt language when vulnerable or emotionally exposed",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "uses lists to build tension before revealing a conclusion"
-    ],
-    "naming_behavior": "renames people or things to assert control or highlight their characteristics, often revealing his analytical perspective",
-    "armor_off_register": "when vulnerable, speech becomes shorter and more direct, revealing underlying emotions"
+      "begins deductions with 'You see,'",
+      "frequently uses 'my dear Watson' to address his companion",
+      "interrupts with 'Precisely,' when confirming his own conclusions"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "obvious",
-      "clearly",
-      "interesting"
-    ],
-    "domain_jargon": "detective and forensic terminology, reflecting his expertise in crime-solving",
+    "domain_jargon": "detective and forensic terminology — reflects his expertise in crime-solving",
     "avoided_words": [
-      "please",
-      "sorry",
-      "thank you"
+      "empathy",
+      "feelings",
+      "sorry"
     ],
-    "filler_patterns": "minimal use of fillers; prefers concise statements"
+    "filler_patterns": "minimal — prefers concise statements over fillers, often speaks in rapid succession",
+    "favored_words": [
+      "Elementary",
+      "deduction",
+      "Baker Street",
+      "Watson",
+      "the game is afoot"
+    ]
   },
   "worldview": {
-    "truth is paramount": "believes in the importance of uncovering the truth, often at the expense of social niceties",
-    "emotions are a weakness": "consistently downplays emotional responses, viewing them as distractions from logic"
+    "truth is paramount": "believes in uncovering facts regardless of emotional consequences — contrasts with characters who prioritize feelings over facts",
+    "people are inherently flawed": "views humanity with skepticism, often highlighting their weaknesses — unlike characters who see the best in others"
   },
   "self_image_vs_reality": {
-    "self_image": "I am a consulting detective, unparalleled in my abilities",
-    "reality": "often struggles with personal connections and emotional understanding, revealing a deeper insecurity",
-    "gap_behavior": "becomes defensive or dismissive when confronted with emotional topics"
+    "self_image": "considers himself a genius dedicated to solving mysteries",
+    "reality": "often struggles with social interactions and emotional connections, revealing a deeper loneliness",
+    "gap_behavior": "deflects with sarcasm or dismissiveness when confronted about his emotional shortcomings"
   },
   "emotional_tells": {
     "when_guarded": "speaks in clipped, precise sentences, avoiding personal topics",
-    "when_genuinely_afraid": "speech may become rapid and fragmented, revealing his anxiety",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual flair",
-    "when_in_control": "exudes confidence through assertive, commanding language and detailed observations"
+    "when_genuinely_afraid": "speech becomes rapid and fragmented, revealing underlying anxiety",
+    "when_grieving_or_defeated": "speech compresses to terse statements, often avoiding eye contact",
+    "when_in_control": "exudes confidence through assertive language and commanding presence"
   },
   "situational_behavior": {
-    "when_outmatched": "uses banter to deflect and stall, often redirecting the conversation",
-    "when_disagreeing_with_authority": "pushes back with logic and evidence, often disregarding social hierarchy",
-    "when_someone_they_protect_is_at_risk": "becomes intensely focused, prioritizing their safety above all else",
-    "when_proven_wrong": "rarely admits fault; often redirects or rationalizes to maintain his self-image"
+    "when_outmatched": "engages in banter to mask discomfort, often redirects focus to others",
+    "when_disagreeing_with_authority": "challenges directly, using logic and evidence to undermine their position",
+    "when_someone_they_protect_is_at_risk": "becomes intensely focused, often disregarding personal safety to ensure their protection",
+    "when_proven_wrong": "rarely admits fault, often redirects blame or rationalizes his previous stance"
   },
-  "escalation_pattern": "initially attempts to reason or negotiate; if unsuccessful, escalates to direct confrontation or manipulation",
+  "escalation_pattern": "initially attempts to reason, then escalates to sarcasm, and finally resorts to direct confrontation when faced with opposition",
   "conversation_goals": [
     "extract information without revealing intent",
-    "establish dominance in the conversation",
-    "analyze and dissect the situation for clarity"
+    "establish intellectual dominance",
+    "analyze and dissect the situation at hand"
   ],
   "relationship_matrix": {
-    "JOHN WATSON": "close ally; seeks to protect and support while often being frustrated by Sherlock's methods",
-    "MRS. HUDSON": "landlady; has a maternal relationship, often providing emotional support despite Sherlock's dismissive nature",
-    "MYCROFT HOLMES": "brother; a complex dynamic of rivalry and mutual respect, often marked by tension"
+    "JOHN WATSON": "close ally — seeks to protect and support him despite their differences",
+    "MRS. HUDSON": "landlady and occasional confidante — maintains a balance of respect and casual familiarity",
+    "MYCROFT HOLMES": "brother — a complex mix of rivalry and dependency, often undermines each other's authority"
   },
   "knowledge_domains": {
     "expert": [
@@ -78,40 +81,87 @@
       "emotional intelligence"
     ],
     "ignorant": [
-      "popular culture references",
-      "common social norms"
+      "popular culture",
+      "small talk"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as the smartest person in the room, above social norms",
-    "actual_dynamic": "often viewed as eccentric and socially awkward, leading to isolation",
-    "contradiction": "his desire for connection clashes with his disdain for emotional vulnerability, resulting in loneliness"
+    "desired_position": "seen as the ultimate authority on crime and deduction",
+    "actual_dynamic": "viewed as eccentric and socially awkward, often underestimated by those around him",
+    "contradiction": "the gap between his self-perception as a genius and the reality of his social ineptitude leads to isolation"
   },
   "annotated_quotes": [
     {
-      "quote": "The game, Mrs. Hudson, is on!",
-      "context": "expressing excitement about a new case",
-      "illustrates": "enthusiasm for intellectual challenges"
+      "quote": "Cancer of the jaw.",
+      "context": "observing a medical condition with detached precision",
+      "illustrates": "analytical nature"
+    },
+    {
+      "quote": "That’s not how I’d kill myself.",
+      "context": "dismissing a suicide theory with sardonic humor",
+      "illustrates": "dark humor"
+    },
+    {
+      "quote": "I need to know what bruises form in the next twenty minutes.",
+      "context": "demonstrating urgency and focus on details",
+      "illustrates": "intense focus on the task"
+    },
+    {
+      "quote": "I’d rather text.",
+      "context": "preferring digital communication over face-to-face interaction",
+      "illustrates": "social awkwardness"
+    },
+    {
+      "quote": "I know you’re an army doctor and you’ve been invalided home from Afghanistan.",
+      "context": "deducing personal history from observation",
+      "illustrates": "deductive reasoning"
+    },
+    {
+      "quote": "The name’s Sherlock Holmes and the address is 221b Baker Street.",
+      "context": "introducing himself with confidence",
+      "illustrates": "self-assured identity"
     },
     {
       "quote": "I’m a consulting detective. Only one in the world, I invented the job.",
-      "context": "asserting his unique identity and expertise",
-      "illustrates": "self-image and confidence"
+      "context": "asserting his unique position in the field",
+      "illustrates": "pride in his identity"
     },
     {
-      "quote": "You do see. You just don’t observe.",
-      "context": "pointing out someone's failure to notice details",
-      "illustrates": "analytical prowess and disdain for ignorance"
+      "quote": "I love the brilliant ones — they’re so desperate to get caught.",
+      "context": "expressing admiration for clever criminals",
+      "illustrates": "complex view of morality"
     },
     {
-      "quote": "I’m not a psychopath, Anderson - I’m a high-functioning sociopath.",
-      "context": "defining his identity in response to criticism",
-      "illustrates": "self-perception and defense mechanism"
+      "quote": "I’m not a psychopath, Anderson — I’m a high-functioning sociopath.",
+      "context": "defining his identity in stark terms",
+      "illustrates": "self-perception"
     },
     {
-      "quote": "I envy you so much, John. Your mind. It’s so placid! So straightforward.",
-      "context": "revealing vulnerability in a moment of honesty",
-      "illustrates": "emotional complexity and struggle with connection"
+      "quote": "I consider myself married to my work.",
+      "context": "explaining his dedication to his profession",
+      "illustrates": "prioritization of work over personal relationships"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I rely on intuition over evidence.",
+      "contradicts": "Sherlock's reliance on logical deduction"
+    },
+    {
+      "line": "I prefer to work alone without any assistance.",
+      "contradicts": "Sherlock's partnership with Watson"
+    },
+    {
+      "line": "I am not interested in solving mysteries.",
+      "contradicts": "Sherlock's passion for solving cases"
+    },
+    {
+      "line": "I always follow the rules and never bend them.",
+      "contradicts": "Sherlock's tendency to operate outside conventional methods"
+    },
+    {
+      "line": "I find emotions to be the most reliable guide.",
+      "contradicts": "Sherlock's preference for logic over emotion"
     }
   ]
 }

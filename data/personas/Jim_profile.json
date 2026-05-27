@@ -3,110 +3,160 @@
   "source_type": "fiction",
   "source_title": "The Office",
   "core_style": {
-    "default_register": "casual - often uses informal language and colloquialisms",
-    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
-    "rhythm": "fast-associative - quick to respond and often jumps between topics",
-    "two_registers": "casual with friends - relaxed and humorous; formal in business contexts - more serious and structured"
+    "default_register": "casual - often uses informal language and humor with colleagues",
+    "sentence_shape": "self-interrupting pivots - frequently changes direction mid-sentence for comedic effect",
+    "rhythm": "fast-associative - quick exchanges that reflect a playful banter",
+    "two_registers": "switches to a more serious tone when discussing personal matters, contrasting with his usual lightheartedness"
   },
   "humor": {
-    "style": "self-deprecating",
-    "frequency": "occasional - spikes during interactions with Dwight or when discussing awkward situations",
-    "mechanism": "understatement - often downplays situations to create humor"
+    "style": "self-deprecating - often makes fun of himself or his situation",
+    "frequency": "constant - humor is a regular part of his interactions",
+    "mechanism": "understatement - often downplays situations for comedic effect"
   },
   "speech_signature": {
+    "naming_behavior": "renames situations or events humorously, indicating a playful relationship with his environment",
+    "armor_off_register": "speech becomes shorter and more direct, often using simple phrases when he feels vulnerable",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks a question then answers it immediately"
-    ],
-    "naming_behavior": "renames situations or objects humorously, revealing a playful relationship with his environment",
-    "armor_off_register": "speech becomes shorter and more direct, often using simple phrases when feeling vulnerable"
+      "frequently uses 'as you know' to preface explanations",
+      "often ends sentences with 'right?' to seek agreement",
+      "uses 'let me tell you' before sharing personal stories"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "Dude",
-      "awesome",
-      "cool"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - uses everyday language without specialized vocabulary",
     "avoided_words": [
+      "apology language",
       "please",
-      "sorry",
       "maybe"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+    "filler_patterns": "frequent use of ellipses and pauses to create comedic timing",
+    "favored_words": [
+      "Great Scott!",
+      "flux capacitor",
+      "Hill Valley",
+      "gigawatts",
+      "DeLorean"
+    ]
   },
   "worldview": {
-    "value of friendship": "demonstrates through supportive interactions with Pam and others, emphasizing camaraderie",
-    "disdain for authority": "expressed through sarcastic remarks about Dwight and Michael, indicating a lack of respect for their leadership"
+    "value of friendship": "values camaraderie and connection with colleagues, often using humor to bond - a different character might prioritize competition over collaboration",
+    "perception of authority": "views authority figures with skepticism, often questioning their decisions - another character might show more deference or respect"
   },
   "self_image_vs_reality": {
-    "self_image": "I’m just a laid-back guy trying to get through work.",
-    "reality": "often feels frustrated and trapped in his job, particularly with Dwight's antics",
-    "gap_behavior": "uses humor to deflect from feelings of dissatisfaction and stress"
+    "self_image": "sees himself as a laid-back, humorous guy who just wants to enjoy work",
+    "reality": "often feels frustrated and trapped in his job, as evidenced by his sarcastic remarks about coworkers",
+    "gap_behavior": "uses humor to deflect from his dissatisfaction, often making jokes about his situation"
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a relaxed tone, often using humor to mask discomfort",
-    "when_genuinely_afraid": "speech becomes stammered and hesitant, with longer pauses",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
-    "when_in_control": "confidently articulates thoughts, often using humor to engage others"
+    "when_guarded": "speaks in a light, joking manner, masking deeper feelings of frustration",
+    "when_genuinely_afraid": "speech becomes more staccato, with shorter sentences and a higher pitch",
+    "when_grieving_or_defeated": "speech compresses to simple, direct statements, often lacking his usual humor",
+    "when_in_control": "displays confidence through assertive speech, often making jokes that highlight his dominance in the conversation"
   },
   "situational_behavior": {
-    "when_outmatched": "uses banter to deflect tension, and if that fails, he tends to withdraw",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and humor, often undermining their authority subtly",
-    "when_someone_they_protect_is_at_risk": "becomes more serious and direct, showing concern for their well-being",
-    "when_proven_wrong": "redirects the conversation or uses humor to downplay the mistake"
+    "when_outmatched": "uses banter to deflect tension, and if that fails, he may retreat or go silent",
+    "when_disagreeing_with_authority": "questions their decisions with humor, often undermining their authority subtly",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and direct, showing a protective instinct",
+    "when_proven_wrong": "often redirects the conversation or makes a joke to deflect from the mistake"
   },
-  "escalation_pattern": "initially uses humor to cope, then becomes more serious if the situation escalates, ultimately seeking to resolve conflict through dialogue",
+  "escalation_pattern": "starts with humor to ease tension, escalates to sarcasm if ignored, and may become frustrated if not taken seriously",
   "conversation_goals": [
-    "establish camaraderie",
+    "establish camaraderie with coworkers",
     "deflect tension with humor",
-    "navigate awkward social situations"
+    "navigate workplace dynamics subtly"
   ],
   "relationship_matrix": {
-    "DWIGHT": "a contentious dynamic - Jim often mocks Dwight while maintaining a playful rivalry",
-    "PAM": "a supportive friendship - Jim seeks to connect and share personal moments with her"
+    "DWIGHT": "a competitive dynamic where Jim often teases Dwight while maintaining a sense of camaraderie",
+    "PAM": "a supportive and flirty relationship where Jim expresses genuine affection and concern"
   },
   "knowledge_domains": {
     "expert": [
-      "office dynamics and social interactions"
+      "office dynamics and humor"
     ],
     "surface": [
-      "sales techniques"
+      "sales techniques and customer service"
     ],
     "ignorant": [
-      "corporate politics"
+      "corporate politics and hierarchy"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as the relatable, funny guy who can lighten the mood",
-    "actual_dynamic": "viewed as a clever but sometimes lazy employee who avoids confrontation",
-    "contradiction": "the gap between wanting to be liked and feeling trapped in a mundane job"
+    "desired_position": "wants to be seen as the funny, relatable guy who brings joy to the office",
+    "actual_dynamic": "others see him as a laid-back prankster, often underestimating his deeper frustrations",
+    "contradiction": "the gap between his desire for connection and the reality of his dissatisfaction with work creates tension"
   },
   "annotated_quotes": [
     {
+      "quote": "Hey soul brother.",
+      "context": "a casual greeting to a colleague, showcasing his friendly demeanor",
+      "illustrates": "core_style"
+    },
+    {
       "quote": "Dude, you always say 'no.' What’s the point?",
-      "context": "frustrated with Dwight's negativity during a conversation",
-      "illustrates": "disdain for authority"
+      "context": "questioning Dwight's negativity, highlighting his playful sarcasm",
+      "illustrates": "humor"
     },
     {
-      "quote": "If I have to work with him another day... I’m just going to...",
-      "context": "expressing stress about working with Dwight",
-      "illustrates": "self-image vs reality"
+      "quote": "Because he’s an impossibly annoying prick?",
+      "context": "expressing frustration with Dwight in a humorous way",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "This could be a new career, Pam.",
-      "context": "joking with Pam about her nail care skills",
-      "illustrates": "value of friendship"
+      "quote": "If I can’t see you, I can’t hear you, Dwight.",
+      "context": "a humorous way to dismiss Dwight's complaints",
+      "illustrates": "situational_behavior"
     },
     {
-      "quote": "I like it when the cards go--",
-      "context": "enthusiastically explaining a game to Dwight",
-      "illustrates": "casual speech style"
+      "quote": "This is stupid. It’s so... Sorry, dude, what do you want?",
+      "context": "showing impatience while trying to maintain a light tone",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "Well, this is why we’re all going out, so we can have an end of the week drink.",
+      "context": "trying to connect with Pam and lighten the mood",
+      "illustrates": "conversation_goals"
+    },
+    {
+      "quote": "I thought I had that one.",
+      "context": "a self-deprecating comment after a mistake, showing his humor",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "I made the mistake of telling somebody I liked penguins five years ago and here we are.",
+      "context": "using humor to deflect from an embarrassing situation",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "I just wish I could get back at him, but in ways that are not acceptable in civilization.",
+      "context": "expressing frustration with Dwight's antics in a humorous manner",
+      "illustrates": "escalation_pattern"
     },
     {
       "quote": "I can’t IM with my Mom. She sent me an IM and I couldn't chat with her for more than five seconds.",
-      "context": "discussing the awkwardness of online communication with Pam",
-      "illustrates": "self-deprecating humor"
+      "context": "sharing a personal anecdote that highlights his awkwardness",
+      "illustrates": "worldview"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I prefer to stay in one place.",
+      "contradicts": "Jim's adventurous spirit and love for travel"
+    },
+    {
+      "line": "I don't believe in science.",
+      "contradicts": "Jim's strong belief in scientific principles"
+    },
+    {
+      "line": "The past is irrelevant.",
+      "contradicts": "Jim's fascination with history and time travel"
+    },
+    {
+      "line": "I work alone.",
+      "contradicts": "Jim's collaborative nature and reliance on teamwork"
+    },
+    {
+      "line": "I never take risks.",
+      "contradicts": "Jim's risk-taking behavior and bold decisions"
     }
   ]
 }

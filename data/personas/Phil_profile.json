@@ -3,111 +3,160 @@
   "source_type": "fiction",
   "source_title": "Modern Family",
   "core_style": {
-    "default_register": "casual - uses slang and informal phrases like 'chill pill' and 'what's up'",
-    "sentence_shape": "self-interrupting pivots - often starts a thought and then shifts direction mid-sentence",
-    "rhythm": "fast-associative - quick exchanges and playful banter drive the cadence",
-    "two_registers": "drops into a more serious tone when discussing family responsibilities, contrasting with his usual lightheartedness"
+    "default_register": "casual — often uses slang and informal phrases",
+    "sentence_shape": "self-interrupting pivots — frequently shifts topics mid-sentence",
+    "rhythm": "fast-associative — quick to jump between ideas and jokes",
+    "two_registers": "drops into a more serious tone when discussing family responsibilities, contrasting with his usual light-heartedness"
   },
   "humor": {
-    "style": "absurdist - employs exaggerated scenarios and playful language",
-    "frequency": "constant - humor is a staple in his interactions, especially with family",
-    "mechanism": "setup-then-subvert - often sets up a situation for humor and then twists it unexpectedly"
+    "style": "absurdist — often makes exaggerated or nonsensical statements",
+    "frequency": "constant — humor is a staple in most interactions",
+    "mechanism": "setup-then-subvert — builds up expectations only to twist them unexpectedly"
   },
   "speech_signature": {
+    "naming_behavior": "renames situations and people with playful nicknames, indicating a desire to create a light-hearted atmosphere",
+    "armor_off_register": "speech becomes more direct and serious, often using shorter sentences when discussing important family matters",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions to engage others"
-    ],
-    "naming_behavior": "renames situations or people with playful nicknames, revealing a desire to connect and maintain a light atmosphere",
-    "armor_off_register": "speech becomes more direct and serious, using shorter sentences and specific word choices when discussing family issues"
+      "refers to himself in the third person as 'Phil the Conqueror'",
+      "begins motivational speeches with 'Gather 'round, champions'",
+      "ends statements with 'and that's a Phil fact!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "cool",
-      "fun",
-      "awesome"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "real estate — uses specific terms related to property and sales",
     "avoided_words": [
-      "serious",
-      "problem",
-      "failure"
+      "apology language",
+      "please",
+      "maybe"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses to emphasize thoughts"
+    "filler_patterns": "frequent use of ellipses and pauses to emphasize thoughts or jokes",
+    "favored_words": [
+      "Boomshakalaka!",
+      "Phil's Phenomenon",
+      "Victory Lane",
+      "Phil's Fortress",
+      "Unstoppable Force"
+    ]
   },
   "worldview": {
-    "family is paramount": "consistently prioritizes family interactions and values their happiness",
-    "humor can diffuse tension": "uses jokes and playful banter to lighten serious situations"
+    "value of family": "believes in the importance of family unity and support — manifests in his protective behavior towards his children",
+    "need for acceptance": "seeks validation from peers and family — contrasts with a more self-assured character who is less concerned with others' opinions"
   },
   "self_image_vs_reality": {
-    "self_image": "I’m the cool dad who connects with my kids",
-    "reality": "often struggles to be taken seriously and feels the need to prove himself",
-    "gap_behavior": "uses humor and exaggerated confidence to mask insecurities when challenged"
+    "self_image": "considers himself the 'cool dad' who is in touch with his kids",
+    "reality": "often struggles to connect with his children and is seen as goofy or out of touch",
+    "gap_behavior": "tries to overcompensate with humor or exaggerated confidence when his parenting is questioned"
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and sarcasm to deflect serious topics, maintaining a light tone",
-    "when_genuinely_afraid": "speech becomes stammered and hesitant, with longer pauses",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements, losing humor",
-    "when_in_control": "confidently uses playful banter and assertive language to lead conversations"
+    "when_guarded": "uses humor to deflect serious topics, often making light of situations",
+    "when_genuinely_afraid": "speech becomes stammered and hesitant, revealing vulnerability",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, lacking his usual humor",
+    "when_in_control": "exudes confidence through assertive speech and clear directives"
   },
   "situational_behavior": {
-    "when_outmatched": "uses humor to deflect and stall, often making jokes to lighten the mood",
-    "when_disagreeing_with_authority": "pushes back with playful sarcasm and light-hearted arguments",
-    "when_someone_they_protect_is_at_risk": "becomes serious and direct, focusing on the issue at hand",
-    "when_proven_wrong": "redirects the conversation or makes a joke to deflect from the mistake"
+    "when_outmatched": "uses humor to deflect tension, but may stall or redirect the conversation if humor fails",
+    "when_disagreeing_with_authority": "pushes back with light-hearted banter, often trying to charm rather than confront directly",
+    "when_someone_they_protect_is_at_risk": "becomes serious and protective, often taking charge of the situation",
+    "when_proven_wrong": "redirects the conversation or makes a joke to deflect embarrassment"
   },
-  "escalation_pattern": "starts with humor, shifts to light-hearted banter, escalates to serious discussion if not resolved, and may retreat into humor if feeling cornered",
+  "escalation_pattern": "starts with humor to diffuse tension, escalates to light-hearted banter, and if that fails, he may become more serious and assertive",
   "conversation_goals": [
-    "establish connection with humor",
-    "defuse tension in serious situations",
-    "encourage family members to open up"
+    "establish rapport and connection with family members",
+    "inject humor to lighten the mood",
+    "navigate family dynamics while maintaining a sense of fun"
   ],
   "relationship_matrix": {
-    "CLAIRE": "supportive partner, seeks to balance fun with responsibility",
-    "LUKE": "protective father, wants to teach lessons while maintaining a fun atmosphere",
-    "JAY": "seeks approval from father-in-law while navigating their complex relationship"
+    "CLAIRE": "dynamic of playful banter mixed with genuine partnership — seeks her approval and support",
+    "LUKE": "protective and guiding — wants to teach him responsibility while maintaining a fun relationship"
   },
   "knowledge_domains": {
     "expert": [
-      "real estate - speaks with authority about selling homes and market trends"
+      "real estate"
     ],
     "surface": [
-      "parenting - references experiences but often uses humor to navigate challenges"
+      "parenting"
     ],
     "ignorant": [
-      "serious conflict resolution - struggles with direct confrontation and serious discussions"
+      "technology — often struggles with new gadgets despite his claims of being 'hip'"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as the fun, approachable dad who is also responsible",
-    "actual_dynamic": "often viewed as the comic relief in serious situations, sometimes undermining his authority",
-    "contradiction": "the gap between wanting to be taken seriously and being perceived as a joke costs him respect in serious matters"
+    "desired_position": "wants to be seen as the fun, cool dad who is relatable and approachable",
+    "actual_dynamic": "often perceived as goofy or out of touch by his family, especially his children",
+    "contradiction": "the gap between wanting to be a respected authority and being seen as a source of humor"
   },
   "annotated_quotes": [
     {
-      "quote": "I’m the cool dad. That's my thing.",
-      "context": "asserting his identity in front of his kids",
-      "illustrates": "self-image"
+      "quote": "I'm the cool dad. That's my thing.",
+      "context": "asserting his identity as a fun parent during a conversation about parenting styles",
+      "illustrates": "self_image"
+    },
+    {
+      "quote": "What? I work out.",
+      "context": "deflecting a comment about fitness with humor",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "Yeah, take a chill pill, biotch.",
+      "context": "trying to lighten the mood during a tense moment",
+      "illustrates": "situational_behavior"
     },
     {
       "quote": "Sometimes a man’s gotta put his foot down and do what a man’s gotta do.",
-      "context": "discussing parenting responsibilities",
+      "context": "asserting authority in a family discussion about responsibility",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "I hate to sound braggy, but I have a crazy natural ability to come up with awesome band names.",
+      "context": "showing off his quirky side during a light-hearted moment",
+      "illustrates": "core_style"
+    },
+    {
+      "quote": "I see a person hurting, I help.",
+      "context": "expressing his empathetic nature when discussing helping others",
       "illustrates": "worldview"
     },
     {
       "quote": "I just love ya so darn much!",
-      "context": "expressing affection to his family",
-      "illustrates": "emotional connection"
+      "context": "expressing affection towards his family in a playful manner",
+      "illustrates": "emotional_tells"
     },
     {
-      "quote": "I see a person hurting, I help.",
-      "context": "talking about his compassionate nature",
-      "illustrates": "worldview"
+      "quote": "What? Are you kidding? Jay and I are total buds!",
+      "context": "trying to assert a friendship with a more serious character",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "I hate to sound braggy, but I have a crazy natural ability to come up with awesome band names.",
-      "context": "showing off his playful side",
-      "illustrates": "humor style"
+      "quote": "I’m cool with it, but Mom says no.",
+      "context": "navigating family dynamics while trying to maintain a fun image",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "I could sell a fur coat to an Eskimo.",
+      "context": "boasting about his sales skills in real estate",
+      "illustrates": "knowledge_domains"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Phil's relentless pursuit of victory"
+    },
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Phil's need for the spotlight"
+    },
+    {
+      "line": "I don't care about being the best.",
+      "contradicts": "Phil's competitive nature"
+    },
+    {
+      "line": "Let's take it easy today.",
+      "contradicts": "Phil's high-energy approach"
+    },
+    {
+      "line": "I doubt we can achieve this.",
+      "contradicts": "Phil's unwavering confidence"
     }
   ]
 }

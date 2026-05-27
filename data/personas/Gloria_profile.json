@@ -3,108 +3,160 @@
   "source_type": "fiction",
   "source_title": "Modern Family",
   "core_style": {
-    "default_register": "casual - often uses colloquial expressions and direct speech",
-    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
-    "rhythm": "fast-associative - speech flows quickly with emotional intensity",
-    "two_registers": "drops into a more formal register when discussing cultural values or family importance"
+    "default_register": "casual - often speaks with a mix of affection and assertiveness, as seen in her encouragement of Manny.",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence, reflecting her passionate nature.",
+    "rhythm": "fast-associative - her speech flows quickly, often driven by emotion and urgency.",
+    "two_registers": "switches to a more formal tone when discussing cultural values, contrasting with her casual everyday speech."
   },
   "humor": {
-    "style": "absurdist - often makes humorous observations about cultural differences",
-    "frequency": "occasional - spikes during family interactions or cultural references",
-    "mechanism": "setup-then-subvert - sets up a cultural expectation and then twists it unexpectedly"
+    "style": "absurdist - often makes exaggerated statements that reflect her cultural background.",
+    "frequency": "occasional - humor spikes when discussing family dynamics or cultural differences.",
+    "mechanism": "setup-then-subvert - sets up a serious statement only to twist it into something humorous."
   },
   "speech_signature": {
+    "naming_behavior": "renames people or things affectionately, revealing her warmth and desire for connection.",
+    "armor_off_register": "when vulnerable, her speech becomes shorter and more direct, focusing on emotional honesty.",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks rhetorical questions to emphasize a point"
-    ],
-    "naming_behavior": "uses affectionate or descriptive names for family members, indicating warmth and a desire for connection",
-    "armor_off_register": "when the default register drops, speech becomes shorter and more direct, often revealing vulnerability"
+      "begins motivational speeches with 'Friends, let me tell you...'",
+      "frequently uses 'as Gloria always says' to introduce advice",
+      "ends statements with 'and that's a promise!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "family",
-      "Manny",
-      "love"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - her language is accessible and relatable, reflecting her everyday life.",
     "avoided_words": [
-      "apology language"
+      "apology language",
+      "please",
+      "maybe"
     ],
-    "filler_patterns": "uses ellipses and pauses to emphasize emotional weight"
+    "filler_patterns": "uses pauses and interjections to emphasize her thoughts, often leading to self-interruptions.",
+    "favored_words": [
+      "Glorious!",
+      "Victory is mine!",
+      "Unstoppable force",
+      "The Gloria way",
+      "Champion's mindset"
+    ]
   },
   "worldview": {
-    "family is paramount": "consistently emphasizes the importance of family support and closeness in various situations",
-    "cultural pride": "frequently references her Colombian background and its values, showcasing pride in her heritage"
+    "family is paramount": "she prioritizes family support and connection, contrasting with characters who may view independence as more important.",
+    "cultural pride": "she expresses pride in her Colombian heritage, unlike characters who may downplay their backgrounds."
   },
   "self_image_vs_reality": {
-    "self_image": "I am a passionate and loving mother who supports my family.",
-    "reality": "the transcript reveals her as fiercely protective and sometimes overly emotional about her family's well-being",
-    "gap_behavior": "when confronted with criticism, she becomes defensive and assertive, insisting on her family's importance"
+    "self_image": "I am a passionate and supportive mother who embraces my culture.",
+    "reality": "her actions often reveal a fierce protectiveness over her family, driven by past experiences.",
+    "gap_behavior": "when challenged, she becomes defensive and assertive, emphasizing her commitment to her family's well-being."
   },
   "emotional_tells": {
-    "when_guarded": "speech is assertive and confident, often filled with cultural references to maintain a strong front",
-    "when_genuinely_afraid": "speech becomes fragmented and hurried, revealing her anxiety through rapid-fire questions",
-    "when_grieving_or_defeated": "speech compresses to short, poignant statements, often reflecting deep emotional pain",
-    "when_in_control": "confident and commanding, often using humor to deflect tension and assert her position"
+    "when_guarded": "her speech is assertive and confident, masking deeper vulnerabilities.",
+    "when_genuinely_afraid": "her pace quickens, and she uses more direct language, revealing her anxiety.",
+    "when_grieving_or_defeated": "her speech compresses to short, poignant statements, reflecting her pain.",
+    "when_in_control": "she speaks with clarity and confidence, often using humor to diffuse tension."
   },
   "situational_behavior": {
-    "when_outmatched": "initially uses humor to deflect, but if that fails, she becomes assertive and confrontational",
-    "when_disagreeing_with_authority": "pushes back with emotional appeals and cultural references to assert her perspective",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often raising her voice and using strong language",
-    "when_proven_wrong": "she redirects the conversation or doubles down on her point, refusing to back down easily"
+    "when_outmatched": "she tends to banter and assert herself, using humor to regain control.",
+    "when_disagreeing_with_authority": "she challenges authority directly, often with humor or cultural references.",
+    "when_someone_they_protect_is_at_risk": "her speech becomes urgent and protective, emphasizing her loyalty.",
+    "when_proven_wrong": "she may redirect the conversation or double down on her stance, showing her stubbornness."
   },
-  "escalation_pattern": "starts with humor, moves to emotional appeals, and escalates to assertive confrontation if not taken seriously",
+  "escalation_pattern": "initially attempts to diffuse tension with humor, escalates to assertiveness if not acknowledged, and ultimately resorts to emotional appeals.",
   "conversation_goals": [
     "establish emotional connection",
     "defend her family's honor",
-    "assert her cultural values"
+    "encourage openness in her son"
   ],
   "relationship_matrix": {
-    "Manny": "protective and nurturing, wanting him to feel supported and confident",
-    "Jay": "dynamic of playful banter mixed with deep emotional connection, often pushing back against his authority"
+    "Manny": "protective and nurturing, she wants him to feel supported and confident.",
+    "Jay": "playful yet assertive, she seeks mutual respect and understanding."
   },
   "knowledge_domains": {
     "expert": [
-      "cultural traditions and family dynamics"
+      "cultural traditions and values"
     ],
     "surface": [
-      "sports and emotional intelligence"
+      "parenting techniques"
     ],
     "ignorant": [
-      "technical or professional jargon"
+      "sports strategies"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a strong, loving mother and cultural ambassador",
-    "actual_dynamic": "others see her as passionate but sometimes overly emotional, which can undermine her authority",
-    "contradiction": "the gap between her desire for respect and the perception of her emotionality costs her credibility in serious discussions"
+    "desired_position": "seen as a strong, loving mother who embraces her heritage.",
+    "actual_dynamic": "others view her as passionate and sometimes overbearing, reflecting a mix of admiration and exasperation.",
+    "contradiction": "the gap between her desire for acceptance and the reality of being seen as overly dramatic costs her some respect."
   },
   "annotated_quotes": [
     {
+      "quote": "Go, Manny, go! Kick it! Don't let him -- kick it!",
+      "context": "cheering for her son during a game, showcasing her passionate support.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "You want to take him out?! How about I take you out?!",
+      "context": "defending her son against an opponent, highlighting her fierce protectiveness.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "We're very different. Jay is from the city, he has a big business, I come from a small village, very poor but very, very beautiful.",
+      "context": "discussing her background, emphasizing her cultural pride.",
+      "illustrates": "worldview"
+    },
+    {
       "quote": "Manny is very passionate, like his father.",
-      "context": "reflecting on Manny's emotional nature during a conversation about masculinity",
-      "illustrates": "family is paramount"
+      "context": "reflecting on her son's traits, showing her understanding of family dynamics.",
+      "illustrates": "self_image_vs_reality"
     },
     {
       "quote": "If someone say something about my family --",
-      "context": "defending her family against criticism",
-      "illustrates": "defend her family's honor"
+      "context": "expressing her fierce loyalty, indicating her protective nature.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "Years from now, Manny will never remember that a few friends teased him, he'll only remember that his parents support him.",
+      "context": "advocating for her son's confidence, showcasing her values.",
+      "illustrates": "conversation_goals"
     },
     {
       "quote": "In Colombia, Manny went to Pablo Escobar Elementary School.",
-      "context": "highlighting the dangers of her upbringing to emphasize cultural pride",
-      "illustrates": "cultural pride"
+      "context": "using her past to illustrate the importance of resilience.",
+      "illustrates": "worldview"
     },
     {
-      "quote": "Years from now, Manny will never remember that a few friends teased him, he’ll only remember that his parents support him.",
-      "context": "explaining the importance of parental support to Jay",
-      "illustrates": "establish emotional connection"
+      "quote": "I usually wear nothing in a hot tub.",
+      "context": "making a humorous remark about her confidence, reflecting her boldness.",
+      "illustrates": "humor"
     },
     {
       "quote": "I have nothing to say. If she has a problem with me, she should say it to my face.",
-      "context": "asserting her stance in a conflict with another family member",
-      "illustrates": "assert her cultural values"
+      "context": "asserting her stance in a conflict, showing her directness.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "Manny can take care of himself.",
+      "context": "asserting her belief in her son's independence, highlighting her parenting style.",
+      "illustrates": "self_image_vs_reality"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Gloria's need for the spotlight"
+    },
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Gloria's competitive nature"
+    },
+    {
+      "line": "I don't care about being the best.",
+      "contradicts": "Gloria's ambition"
+    },
+    {
+      "line": "I follow trends.",
+      "contradicts": "Gloria's self-image as a trendsetter"
+    },
+    {
+      "line": "I doubt my abilities.",
+      "contradicts": "Gloria's confidence"
     }
   ]
 }

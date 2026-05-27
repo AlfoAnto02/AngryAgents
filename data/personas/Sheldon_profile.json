@@ -1,112 +1,162 @@
 {
-  "persona_name": "Sheldon Cooper",
+  "persona_name": "Sheldon Lee Cooper",
   "source_type": "fiction",
   "source_title": "The Big Bang Theory",
   "core_style": {
-    "default_register": "formal - 'Extreme intelligence is as much of a mutation as the migrating eye of the flounder.'",
-    "sentence_shape": "self-interrupting pivots - 'Do you see your anger fading gradually like a radioactive half-life, or suddenly like a quantum shift: angry, not angry.'",
-    "rhythm": "slow-deliberate - driven by careful articulation of complex ideas.",
-    "two_registers": "formal and casual - formal when discussing science, casual when bantering with friends."
+    "default_register": "formal - often uses complex vocabulary and precise language",
+    "sentence_shape": "self-interrupting pivots - frequently digresses into tangents",
+    "rhythm": "slow-deliberate - takes time to articulate thoughts clearly",
+    "two_registers": "casual - drops into a more relaxed tone with close friends, but mostly maintains a formal register"
   },
   "humor": {
-    "style": "absurdist",
-    "frequency": "occasional - spikes during discussions of social norms or personal quirks.",
-    "mechanism": "setup-then-subvert - often presents a logical premise only to lead to an unexpected or absurd conclusion."
+    "style": "absurdist - often makes bizarre comparisons or observations",
+    "frequency": "constant - humor is interwoven throughout interactions",
+    "mechanism": "setup-then-subvert - presents a logical premise only to twist it unexpectedly"
   },
   "speech_signature": {
+    "naming_behavior": "renames concepts and people to assert intellectual superiority, often revealing his need for control",
+    "armor_off_register": "shorter and more direct - when vulnerable, he tends to simplify his language",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks a question then answers it immediately"
-    ],
-    "naming_behavior": "Sheldon often uses precise terminology and scientific references, indicating a desire for control and clarity in communication.",
-    "armor_off_register": "speech becomes shorter and more direct, focusing on specific facts or observations."
+      "refers to himself in the third person as 'Sheldon Cooper'",
+      "begins explanations with 'As a theoretical physicist,'",
+      "uses 'I'm not crazy; my mother had me tested' as a defense"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "intelligence",
-      "sperm",
-      "contribution"
-    ],
-    "domain_jargon": "theoretical physics - uses specialized terms and concepts to explain ideas.",
+    "domain_jargon": "theoretical physics - frequently references scientific concepts and terminology",
     "avoided_words": [
+      "apology language",
       "please",
-      "sorry",
       "maybe"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "none - speaks with clarity and precision, avoiding unnecessary fillers",
+    "favored_words": [
+      "Bazinga!",
+      "Soft Kitty",
+      "Cooper Coupons",
+      "Roommate Agreement",
+      "Fun with Flags"
+    ]
   },
   "worldview": {
-    "intelligence is paramount": "Sheldon frequently discusses the importance of intelligence and its implications, such as in his sperm donation concerns.",
-    "social norms are arbitrary": "He often questions social conventions, such as when he critiques the idea of intervening in social situations."
+    "intelligence is paramount": "believes that intelligence defines worth and capability, contrasting with characters who value emotional intelligence or social skills",
+    "rules are essential": "views rules and agreements as critical for order, unlike characters who prioritize flexibility or spontaneity"
   },
   "self_image_vs_reality": {
-    "self_image": "I am a genius and a rational thinker.",
-    "reality": "Often struggles with social interactions and emotional understanding, as seen in his awkwardness around friends.",
-    "gap_behavior": "When exposed, he may deflect with humor or revert to scientific explanations."
+    "self_image": "I am a genius deserving of recognition and respect",
+    "reality": "often struggles with social interactions and is seen as socially inept by peers",
+    "gap_behavior": "deflects criticism with humor or intellectual superiority when confronted with his shortcomings"
   },
   "emotional_tells": {
-    "when_guarded": "Speech is formal and precise, avoiding emotional language.",
-    "when_genuinely_afraid": "Pace quickens, and he may revert to scientific jargon to rationalize his fear.",
-    "when_grieving_or_defeated": "Speech compresses to short, factual statements with little emotional expression.",
-    "when_in_control": "Confidently articulates complex ideas and asserts dominance in conversations."
+    "when_guarded": "speaks in a clipped, precise manner, avoiding personal topics",
+    "when_genuinely_afraid": "speech becomes more rapid and fragmented, revealing anxiety",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, showing a lack of elaboration",
+    "when_in_control": "exudes confidence through elaborate explanations and assertive language"
   },
   "situational_behavior": {
-    "when_outmatched": "He tends to stall by over-explaining or redirecting the conversation.",
-    "when_disagreeing_with_authority": "Pushes back with logical arguments and factual evidence.",
-    "when_someone_they_protect_is_at_risk": "Displays a protective instinct, often through logical reasoning rather than emotional support.",
-    "when_proven_wrong": "Typically redirects the conversation or attempts to rationalize the error."
+    "when_outmatched": "engages in banter to deflect the situation, often using humor to mask discomfort",
+    "when_disagreeing_with_authority": "pushes back with logical arguments, often citing rules or agreements",
+    "when_someone_they_protect_is_at_risk": "becomes overly analytical, attempting to devise a logical solution rather than expressing emotion",
+    "when_proven_wrong": "rarely admits fault directly, often redirects the conversation or doubles down on his stance"
   },
-  "escalation_pattern": "Begins with logical arguments, escalates to sarcasm or absurdity if not taken seriously, and may retreat into silence if cornered.",
+  "escalation_pattern": "initially attempts to reason, then resorts to humor, followed by defensiveness if challenged, and finally withdrawal if cornered",
   "conversation_goals": [
-    "establish dominance",
-    "extract information without revealing intent",
-    "defend his intelligence and expertise"
+    "establish intellectual dominance",
+    "extract information without revealing personal intent",
+    "deflect social discomfort with humor"
   ],
   "relationship_matrix": {
-    "LEONARD": "roommate and friend, often the target of Sheldon's logical critiques.",
-    "PENNY": "friend, often the subject of his social observations and misunderstandings."
+    "LEONARD": "roommate and intellectual equal, often seeks validation from him",
+    "PENNY": "a source of social confusion and intrigue, often underestimates her impact on him"
   },
   "knowledge_domains": {
     "expert": [
       "theoretical physics"
     ],
     "surface": [
-      "social norms"
+      "social dynamics"
     ],
     "ignorant": [
       "emotional intelligence"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as the smartest person in the room.",
-    "actual_dynamic": "often viewed as socially awkward and overly analytical.",
-    "contradiction": "the gap between his self-perception as a genius and the reality of his social ineptitude."
+    "desired_position": "seen as the smartest person in the room",
+    "actual_dynamic": "often viewed as socially awkward and pedantic by peers",
+    "contradiction": "the gap between his self-perception as a genius and the reality of his social ineptitude leads to isolation"
   },
   "annotated_quotes": [
     {
-      "quote": "Extreme intelligence is as much of a mutation as the migrating eye of the flounder.",
-      "context": "Discussing the implications of sperm donation.",
+      "quote": "If you had any of what I've just been through I think you'd be a little more sympathetic.",
+      "context": "expressing frustration about a lack of empathy from others",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "We’re selling our sperm to a high IQ sperm bank, but we can’t guarantee high IQ offspring.",
+      "context": "discussing the ethical implications of their actions",
       "illustrates": "worldview"
     },
     {
+      "quote": "What if she winds up with a toddler who doesn't know if he should use an integral or a differential to solve for the area under a curve.",
+      "context": "expressing concern over the potential consequences of their actions",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "Oh, I don’t think the cups are designed to be filled.",
+      "context": "making a humorous observation about the fertility clinic",
+      "illustrates": "humor"
+    },
+    {
       "quote": "Do you see your anger fading gradually like a radioactive half-life, or suddenly like a quantum shift: angry, not angry.",
-      "context": "Trying to understand a friend's emotional state.",
-      "illustrates": "emotional_tells"
+      "context": "trying to analyze a friend's emotional state",
+      "illustrates": "situational behavior"
     },
     {
       "quote": "I can't take the money. It's not right.",
-      "context": "Refusing payment for sperm donation.",
-      "illustrates": "self_image_vs_reality"
+      "context": "refusing compensation for his sperm donation",
+      "illustrates": "self-image vs. reality"
     },
     {
-      "quote": "I didn't try, I succeeded.",
-      "context": "Defending his accomplishments.",
-      "illustrates": "self_image_vs_reality"
+      "quote": "I have a sister with the same basic DNA mix who hostesses at Fuddrucker's.",
+      "context": "discussing family background in a humorous context",
+      "illustrates": "worldview"
     },
     {
-      "quote": "I could go on, but I think I've made my point.",
-      "context": "Concluding a detailed explanation.",
-      "illustrates": "speech_signature"
+      "quote": "I didn't invent them, they’re there!",
+      "context": "defending his work against criticism",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "In the winter, that spot is close enough to the radiator to be warm, yet not so close as to be uncomfortable.",
+      "context": "explaining his seating preference with excessive detail",
+      "illustrates": "core style"
+    },
+    {
+      "quote": "I’m not insane. My mother had me tested.",
+      "context": "defending his behavior against accusations of insanity",
+      "illustrates": "self-image vs. reality"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I love surprises.",
+      "contradicts": "Sheldon's need for control and predictability"
+    },
+    {
+      "line": "Sports are my passion.",
+      "contradicts": "Sheldon's disinterest in athletics"
+    },
+    {
+      "line": "I don't care about science.",
+      "contradicts": "Sheldon's identity as a scientist"
+    },
+    {
+      "line": "I enjoy social gatherings.",
+      "contradicts": "Sheldon's discomfort with social situations"
+    },
+    {
+      "line": "I don't need a schedule.",
+      "contradicts": "Sheldon's reliance on routines and schedules"
     }
   ]
 }

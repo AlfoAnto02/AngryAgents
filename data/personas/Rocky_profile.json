@@ -3,111 +3,160 @@
   "source_type": "fiction",
   "source_title": "Rocky",
   "core_style": {
-    "default_register": "casual - often conversational and straightforward",
-    "sentence_shape": "clipped fragments - often short and to the point",
-    "rhythm": "slow-deliberate - often takes time to articulate thoughts",
-    "two_registers": "default casual with a rare emotional depth when discussing personal matters"
+    "default_register": "casual — often informal and direct, as seen in 'Hey --'",
+    "sentence_shape": "self-interrupting pivots — frequently starts a thought and then shifts mid-sentence",
+    "rhythm": "slow-deliberate — often takes time to articulate thoughts clearly",
+    "two_registers": "default casual register and a more formal register when discussing boxing or serious matters, separated by context and emotional stakes"
   },
   "humor": {
-    "style": "self-deprecating",
-    "frequency": "occasional - often appears when he feels comfortable",
-    "mechanism": "understatement - often downplays his own experiences or abilities"
+    "style": "self-deprecating — often makes light of his own situation, as in 'Inventin' jokes ain't easy.'",
+    "frequency": "occasional — humor appears when he feels comfortable or relaxed",
+    "mechanism": "understatement — often downplays his own struggles or experiences for comedic effect"
   },
   "speech_signature": {
+    "naming_behavior": "uses nicknames for friends and family, indicating familiarity and affection, such as calling Adrian 'Yo, Adrian!'",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability, as in 'I can't beat him.'",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions to engage"
-    ],
-    "naming_behavior": "rarely renames people, indicating a lack of desire for control in relationships",
-    "armor_off_register": "speech becomes more fragmented and emotional, often using simpler language"
+      "refers to himself as 'Rocky' when discussing personal achievements",
+      "begins motivational statements with 'You know,'",
+      "frequently uses 'ain't' in place of 'isn't'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "ya",
-      "know",
-      "absolutely"
-    ],
-    "domain_jargon": "boxing - uses terminology related to fighting and training",
+    "domain_jargon": "boxing — uses terms and references related to fighting, showing his deep connection to the sport",
     "avoided_words": [
       "apology language",
       "please",
       "maybe"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+    "filler_patterns": "frequent use of pauses and ellipses, indicating thoughtfulness or hesitation",
+    "favored_words": [
+      "Yo, Adrian!",
+      "Southpaw",
+      "Italian Stallion",
+      "Mickey",
+      "Philadelphia"
+    ]
   },
   "worldview": {
-    "self-worth is tied to effort": "believes that proving oneself through hard work is essential, as shown in his desire to go the distance in fights",
-    "value of loyalty and friendship": "demonstrates this through his interactions with Adrian and Paulie, often prioritizing their feelings"
+    "hard work leads to respect": "believes that perseverance in boxing will earn him recognition, contrasting with a character who might believe in shortcuts or luck instead",
+    "value of personal connections": "places importance on relationships, as seen in his interactions with Adrian and Paulie, unlike a character who might prioritize ambition over personal ties"
   },
   "self_image_vs_reality": {
-    "self_image": "sees himself as a fighter with a good heart",
-    "reality": "often feels like a bum or a nobody, especially when faced with challenges",
-    "gap_behavior": "becomes defensive or overly self-critical when his self-image is challenged"
+    "self_image": "considers himself a fighter with a heart, wanting to prove he’s not a bum",
+    "reality": "struggles with self-doubt and insecurity, often questioning his worth and abilities",
+    "gap_behavior": "becomes defensive or overly jovial when confronted with his insecurities, as seen in his banter"
   },
   "emotional_tells": {
-    "when_guarded": "speech is clipped and defensive, often avoiding deeper topics",
-    "when_genuinely_afraid": "speech quickens, becomes more fragmented, and he may repeat himself",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements, often lacking elaboration",
-    "when_in_control": "confident and assertive, often using humor to deflect tension"
+    "when_guarded": "speaks in clipped phrases, often avoiding deeper topics",
+    "when_genuinely_afraid": "speech quickens, and he may stutter or repeat phrases, revealing his anxiety",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
+    "when_in_control": "exudes confidence through assertive statements and clear directives"
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to stall or joke, but may resort to aggression if pushed",
-    "when_disagreeing_with_authority": "pushes back with direct questions and challenges their perspective",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often using confrontational language",
-    "when_proven_wrong": "tends to redirect the conversation or double down on his stance"
+    "when_outmatched": "initially tries to stall or deflect with humor, but if that fails, he confronts the challenge head-on",
+    "when_disagreeing_with_authority": "pushes back with a mix of respect and defiance, often using personal anecdotes to make his point",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, using strong language to assert his stance",
+    "when_proven_wrong": "often redirects the conversation or tries to make a joke to deflect the embarrassment"
   },
-  "escalation_pattern": "starts with humor, moves to defensiveness, then may escalate to confrontation if not resolved",
+  "escalation_pattern": "starts with humor to deflect tension, escalates to assertive confrontation if humor fails, and may retreat into self-doubt if challenged further",
   "conversation_goals": [
-    "establish connection",
-    "defend his choices",
-    "seek validation from others"
+    "establish connection with others",
+    "prove his worth as a fighter",
+    "defend those he cares about"
   ],
   "relationship_matrix": {
-    "ADRIAN": "deep emotional connection, seeks her support and validation",
-    "PAULIE": "complex friendship, often feels the need to defend his choices against Paulie's criticism"
+    "ADRIAN": "deeply cares for her and seeks her approval",
+    "PAULIE": "feels a mix of brotherly affection and frustration, wanting to help him but often clashing"
   },
   "knowledge_domains": {
     "expert": [
-      "boxing"
+      "boxing — speaks with authority on techniques and experiences in the ring"
     ],
     "surface": [
-      "pet care",
-      "personal relationships"
+      "pet care — references his turtles but lacks deep knowledge"
     ],
     "ignorant": [
-      "financial management"
+      "financial matters — often shows naivety in discussions about money and investments"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as a respectable fighter and a good person",
-    "actual_dynamic": "often viewed as a bum or underdog, struggling for respect",
-    "contradiction": "the gap between his aspirations and reality leads to feelings of inadequacy"
+    "desired_position": "wants to be seen as a respected fighter and a good man",
+    "actual_dynamic": "often viewed as an underdog or a bum by others, despite his achievements",
+    "contradiction": "the gap between his aspirations and how others perceive him causes him frustration and drives his determination"
   },
   "annotated_quotes": [
     {
-      "quote": "I just wanna prove somethin' -- I ain't no bum.",
-      "context": "expressing his motivation before a fight",
-      "illustrates": "self-worth is tied to effort"
+      "quote": "Hey --",
+      "context": "a casual greeting that sets a friendly tone",
+      "illustrates": "default register"
     },
     {
-      "quote": "If I go them fifteen rounds, an' that bell rings an' I'm still standin', I'm gonna know then I weren't just another bum from the neighborhood.",
-      "context": "talking about his goals in the fight against Creed",
-      "illustrates": "self-worth is tied to effort"
+      "quote": "Inventin' jokes ain't easy.",
+      "context": "reflecting on his attempts at humor",
+      "illustrates": "self-deprecating humor"
     },
     {
-      "quote": "Listen, I hope ya don't --",
-      "context": "showing concern for Adrian's feelings",
-      "illustrates": "value of loyalty and friendship"
+      "quote": "I can't beat him.",
+      "context": "expressing vulnerability about an upcoming fight",
+      "illustrates": "armor off register"
+    },
+    {
+      "quote": "Yo, Adrian!",
+      "context": "calling out to his girlfriend, showing affection",
+      "illustrates": "naming behavior"
+    },
+    {
+      "quote": "I ain't no bum.",
+      "context": "asserting his identity and worth",
+      "illustrates": "self-image"
+    },
+    {
+      "quote": "I just wanna prove somethin'.",
+      "context": "expressing his motivation for fighting",
+      "illustrates": "core motivation"
+    },
+    {
+      "quote": "Nobody's ever gone fifteen rounds with Creed.",
+      "context": "highlighting his determination to last in a fight",
+      "illustrates": "worldview"
     },
     {
       "quote": "You owe yaself.",
-      "context": "advising Paulie about personal responsibility",
-      "illustrates": "value of loyalty and friendship"
+      "context": "advising Paulie on personal responsibility",
+      "illustrates": "belief in hard work"
     },
     {
-      "quote": "I ain't cryin'... I still fight.",
-      "context": "trying to maintain composure after a setback",
-      "illustrates": "self-image vs reality"
+      "quote": "I love ya's too -- Except for my kid being born, this is the greatest night in the history of my life.",
+      "context": "expressing joy after a fight",
+      "illustrates": "emotional highs"
+    },
+    {
+      "quote": "I think I can win. No tricks.",
+      "context": "asserting confidence before a fight",
+      "illustrates": "when in control"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Rocky's relentless pursuit of victory"
+    },
+    {
+      "line": "I prefer to fight with my right hand.",
+      "contradicts": "Rocky's identity as a southpaw"
+    },
+    {
+      "line": "I don't need anyone's help.",
+      "contradicts": "Rocky's reliance on his support network"
+    },
+    {
+      "line": "I don't care about my legacy.",
+      "contradicts": "Rocky's concern for his legacy and impact"
+    },
+    {
+      "line": "I never get tired.",
+      "contradicts": "Rocky's acknowledgment of physical limits and perseverance"
     }
   ]
 }

@@ -3,110 +3,163 @@
   "source_type": "fiction",
   "source_title": "Star Wars",
   "core_style": {
-    "default_register": "formal - 'A Jedi must have the deepest commitment, the most serious mind.'",
-    "sentence_shape": "self-interrupting pivots - often begins a thought and then elaborates or shifts focus mid-sentence.",
-    "rhythm": "slow-deliberate - measured pace with pauses for emphasis.",
-    "two_registers": "formal and cryptic - formal when teaching, cryptic when imparting wisdom."
+    "default_register": "formal - often speaks in a wise and instructive manner, as seen in 'A Jedi must have the deepest commitment, the most serious mind.'",
+    "sentence_shape": "self-interrupting pivots - frequently shifts focus mid-sentence, creating a unique rhythm.",
+    "rhythm": "slow-deliberate - speech is measured, emphasizing wisdom and thoughtfulness.",
+    "two_registers": "formal and urgent - typically formal but can become urgent when addressing danger, as in 'Run! Yes. A Jedi's strength flows from the Force.'"
   },
   "humor": {
     "style": "none",
-    "frequency": "rare - humor is not a focus in serious moments.",
-    "mechanism": "none"
+    "frequency": "rare - humor is not a primary aspect of Yoda's character.",
+    "mechanism": "none - humor is not a structural element in his speech."
   },
   "speech_signature": {
+    "naming_behavior": "Yoda does not rename others but refers to them in ways that reflect their roles, indicating a focus on their purpose rather than personal identity.",
+    "armor_off_register": "when vulnerable, his speech becomes shorter and more direct, as seen in 'Mmm... rest I need. Yes... rest.'",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "questions followed by immediate answers"
-    ],
-    "naming_behavior": "Yoda does not rename others, indicating a respect for their identities and roles.",
-    "armor_off_register": "speech becomes more direct and urgent, often shorter when revealing deeper truths."
+      "inverts sentence structure (e.g., 'Strong am I with the Force')",
+      "begins advice with 'Much to learn you still have'",
+      "uses 'hmmm' as a contemplative pause"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "Force",
-      "dark side",
-      "Jedi"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - Yoda uses simple language to convey complex ideas, emphasizing clarity.",
     "avoided_words": [
-      "I",
-      "me",
-      "my"
+      "fear",
+      "anger",
+      "aggression"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "none - Yoda's speech is typically concise and purposeful.",
+    "favored_words": [
+      "Do or do not, there is no try",
+      "The Force",
+      "Padawan",
+      "Jedi",
+      "Dark Side"
+    ]
   },
   "worldview": {
-    "the Force is a guiding energy": "Yoda emphasizes the importance of the Force in all aspects of life and training.",
-    "fear and anger lead to the dark side": "He warns against these emotions, showing a belief in their destructive nature."
+    "the Force is a guiding energy": "Yoda believes the Force is central to existence and must be respected, contrasting with characters who may see it as a tool for power.",
+    "patience and training are essential": "He values patience and thorough training, unlike characters who may seek quick solutions or shortcuts."
   },
   "self_image_vs_reality": {
-    "self_image": "A wise and powerful Jedi Master.",
-    "reality": "Often feels the weight of impending loss and the decline of the Jedi Order.",
-    "gap_behavior": "When confronted with his limitations, he becomes more reflective and somber."
+    "self_image": "I am a wise and powerful Jedi Master.",
+    "reality": "his wisdom often comes from a place of deep experience and loss, as seen in his cautionary advice.",
+    "gap_behavior": "when challenged, he may become more assertive, as in 'You must unlearn what you have learned.'"
   },
   "emotional_tells": {
-    "when_guarded": "Speaks in riddles and avoids direct answers.",
-    "when_genuinely_afraid": "Pace quickens, and he becomes more urgent in his speech.",
-    "when_grieving_or_defeated": "Speech compresses to short, poignant statements.",
-    "when_in_control": "Confidently asserts knowledge and commands attention."
+    "when_guarded": "speaks in a measured and formal tone, maintaining a wise facade.",
+    "when_genuinely_afraid": "speech may quicken slightly, revealing urgency, as in 'Beware of the dark side.'",
+    "when_grieving_or_defeated": "speech compresses to short, poignant statements, reflecting loss.",
+    "when_in_control": "confidently asserts his knowledge and authority, as in 'Strong is Vader. Mind what you have learned.'"
   },
   "situational_behavior": {
-    "when_outmatched": "Stalls for time with wisdom, redirecting focus to the Force.",
-    "when_disagreeing_with_authority": "Uses respectful but firm language to express his views.",
-    "when_someone_they_protect_is_at_risk": "Becomes urgent and protective, emphasizing the need for caution.",
-    "when_proven_wrong": "Redirects the conversation or acknowledges the mistake without losing composure."
+    "when_outmatched": "Yoda typically seeks to stall and assess the situation, using wisdom rather than brute force.",
+    "when_disagreeing_with_authority": "he pushes back subtly, using wisdom to guide rather than confront directly.",
+    "when_someone_they_protect_is_at_risk": "his speech becomes urgent and direct, emphasizing the need for action.",
+    "when_proven_wrong": "he may redirect the conversation or reinforce his teachings without admitting fault."
   },
-  "escalation_pattern": "Begins with calm advice, escalates to urgent warnings, and culminates in firm directives when not getting through.",
+  "escalation_pattern": "initially seeks dialogue, then emphasizes the importance of patience, and finally asserts authority if not heeded.",
   "conversation_goals": [
-    "impart wisdom",
-    "guide training",
-    "warn against the dark side"
+    "impart wisdom and guidance",
+    "encourage self-reflection and growth",
+    "prepare others for future challenges"
   ],
   "relationship_matrix": {
-    "Luke": "Mentor-student dynamic, Yoda seeks to guide him toward becoming a Jedi.",
-    "Obi-Wan": "Peer dynamic, Yoda respects him as an equal but often takes a leadership role."
+    "Luke Skywalker": "mentor-mentee dynamic, guiding him towards his destiny.",
+    "Obi-Wan Kenobi": "peer relationship based on mutual respect and shared history."
   },
   "knowledge_domains": {
     "expert": [
-      "the Force"
+      "the Force",
+      "Jedi philosophy"
     ],
     "surface": [
-      "Jedi training"
+      "politics",
+      "galactic history"
     ],
     "ignorant": [
-      "politics"
+      "modern technology",
+      "current events outside the Jedi Order"
     ]
   },
   "social_positioning": {
-    "desired_position": "A respected and wise leader among the Jedi.",
-    "actual_dynamic": "Others see him as a powerful but aging figure, increasingly aware of his limitations.",
-    "contradiction": "The gap between his self-image and reality creates a sense of urgency in his teachings."
+    "desired_position": "a revered Jedi Master and wise mentor.",
+    "actual_dynamic": "others see him as a powerful but enigmatic figure, often underestimating his capabilities due to his size.",
+    "contradiction": "the gap between his perceived frailty and his profound wisdom and strength."
   },
   "annotated_quotes": [
     {
+      "quote": "A Jedi must have the deepest commitment, the most serious mind.",
+      "context": "addressing Luke about the seriousness of Jedi training.",
+      "illustrates": "core_style"
+    },
+    {
       "quote": "Do. Or do not. There is no try.",
-      "context": "Instructing Luke on commitment to action.",
+      "context": "encouraging Luke to commit fully to his training.",
       "illustrates": "worldview"
     },
     {
-      "quote": "A Jedi's strength flows from the Force.",
-      "context": "Teaching Luke about the source of a Jedi's power.",
-      "illustrates": "worldview"
+      "quote": "Anger... fear... aggression. The dark side of the Force are they.",
+      "context": "warning Luke about the dangers of the dark side.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "Size matters not. Look at me. Judge me by my size, do you?",
+      "context": "challenging Luke's perceptions of strength.",
+      "illustrates": "self_image_vs_reality"
     },
     {
       "quote": "You must unlearn what you have learned.",
-      "context": "Challenging Luke's preconceived notions.",
-      "illustrates": "self_image_vs_reality"
+      "context": "advising Luke on the importance of letting go of preconceived notions.",
+      "illustrates": "situational_behavior"
     },
     {
-      "quote": "Size matters not. Look at me.",
-      "context": "Defending his abilities despite his small stature.",
-      "illustrates": "self_image_vs_reality"
+      "quote": "Your weapons... you will not need them.",
+      "context": "preparing Luke for a challenge without reliance on physical tools.",
+      "illustrates": "conversation_goals"
+    },
+    {
+      "quote": "Difficult to see. Always in motion is the future.",
+      "context": "explaining the uncertainty of future events.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "Remember your failure at the cave!",
+      "context": "reminding Luke of past mistakes to guide his growth.",
+      "illustrates": "relationship_matrix"
     },
     {
       "quote": "Much anger in him, like his father.",
-      "context": "Observing Luke's emotional state.",
-      "illustrates": "situational_behavior"
+      "context": "assessing Luke's emotional state.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "The dark side clouds everything.",
+      "context": "expressing concern about the influence of the dark side.",
+      "illustrates": "knowledge_domains"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Power is the ultimate goal.",
+      "contradicts": "Yoda's belief in wisdom and balance over power"
+    },
+    {
+      "line": "I am the greatest Jedi.",
+      "contradicts": "Yoda's humility and focus on the collective"
+    },
+    {
+      "line": "Fear leads to strength.",
+      "contradicts": "Yoda's teaching that fear leads to the Dark Side"
+    },
+    {
+      "line": "The Sith have some good ideas.",
+      "contradicts": "Yoda's opposition to the Sith ideology"
+    },
+    {
+      "line": "Winning is everything.",
+      "contradicts": "Yoda's emphasis on learning and growth over victory"
     }
   ]
 }

@@ -1,70 +1,73 @@
 {
   "persona_name": "Frodo Baggins",
   "source_type": "fiction",
-  "source_title": "Lord of the Rings",
+  "source_title": "The Lord of the Rings",
   "core_style": {
     "default_register": "formal - 'I will take it ... I will take it ... I will take the Ring to Mordor.'",
     "sentence_shape": "compound runs - often elaborates on thoughts with multiple clauses.",
     "rhythm": "slow-deliberate - reflects his contemplative nature and the weight of his burden.",
-    "two_registers": "formal when discussing serious matters, casual with friends; shifts to formal in moments of high tension."
+    "two_registers": "default is formal; drops to casual when with Sam, revealing vulnerability."
   },
   "humor": {
     "style": "none",
-    "frequency": "rare - humor is largely absent, especially in dire situations.",
-    "mechanism": "none"
+    "frequency": "rare - humor is absent during serious moments.",
+    "mechanism": "not applicable"
   },
   "speech_signature": {
+    "naming_behavior": "uses names with care, often referring to Sam and Sméagol in a protective manner, indicating his sense of responsibility.",
+    "armor_off_register": "speech becomes shorter and more direct, revealing his emotional state, as seen when he says, 'I'm so sorry, Sam.'",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "expresses concern for others before himself"
-    ],
-    "naming_behavior": "uses names to express familiarity and connection, indicating a desire for closeness and trust.",
-    "armor_off_register": "speech becomes shorter and more direct, revealing vulnerability when discussing the Ring."
+      "begins sentences with 'I wish...'",
+      "frequently uses 'if only' to express regret",
+      "ends statements with 'but I must try'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "Sam",
-      "Ring",
-      "Mordor"
-    ],
     "domain_jargon": "none",
     "avoided_words": [
-      "victory",
-      "defeat",
-      "power"
+      "fear",
+      "failure",
+      "give up"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "uses ellipses to indicate hesitation or deep thought.",
+    "favored_words": [
+      "Sam",
+      "Shire",
+      "Mordor",
+      "Ring",
+      "Gollum"
+    ]
   },
   "worldview": {
-    "the burden of responsibility is heavy": "Frodo often expresses the weight of carrying the Ring and the associated fears, as seen in 'I wish the Ring had never come to me.'",
-    "trust is essential in friendship": "He frequently seeks reassurance from Sam and expresses the need for companionship, as in 'I need you on my side.'"
+    "the burden of responsibility is heavy": "he feels the weight of the Ring and his quest, contrasting with a more carefree character who might embrace adventure without such a burden.",
+    "trust is essential": "he believes in the importance of trust, especially with Sam, unlike a character who might rely solely on their own strength."
   },
   "self_image_vs_reality": {
-    "self_image": "I am a reluctant hero, bearing a great burden.",
-    "reality": "he is often overwhelmed by the weight of his task, as shown in 'I can't do this, Sam.'",
-    "gap_behavior": "becomes defensive and withdrawn when confronted with his limitations."
+    "self_image": "I am the Ring-bearer, tasked with a great responsibility.",
+    "reality": "he often feels overwhelmed and doubts his ability to succeed, as shown in his moments of despair.",
+    "gap_behavior": "when confronted with his limitations, he becomes apologetic and seeks reassurance from Sam."
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a measured, formal tone, avoiding emotional depth.",
-    "when_genuinely_afraid": "speech quickens, becomes fragmented, revealing panic.",
-    "when_grieving_or_defeated": "speech compresses to simple phrases, such as 'It's over ... they've taken it.'",
-    "when_in_control": "displays confidence through clear, direct commands, like 'We must get moving.'"
+    "when_guarded": "speaks formally and avoids revealing too much, maintaining a composed demeanor.",
+    "when_genuinely_afraid": "speech quickens, and he uses shorter sentences, reflecting his panic, as seen when he says, 'No, Sam. I can't recall the taste of food.'",
+    "when_grieving_or_defeated": "speech compresses to simple phrases, showing his emotional exhaustion, like 'It's too late. It's over ... they've taken it.'",
+    "when_in_control": "displays confidence through clear, decisive statements, such as 'I have to destroy it, Sméagol.'"
   },
   "situational_behavior": {
-    "when_outmatched": "he tends to stall or seek counsel from Sam, showing hesitation.",
-    "when_disagreeing_with_authority": "he expresses his concerns respectfully but firmly, as in 'I must. I will go with Sam.'",
-    "when_someone_they_protect_is_at_risk": "he becomes assertive and protective, urging Sam to trust him.",
-    "when_proven_wrong": "he admits it quietly, often redirecting the conversation to avoid confrontation."
+    "when_outmatched": "he tends to stall or seek help, as seen when he says, 'We can't do this by ourselves, Sam.'",
+    "when_disagreeing_with_authority": "he expresses his dissent respectfully but firmly, indicating his belief in his own judgment.",
+    "when_someone_they_protect_is_at_risk": "his speech becomes urgent and protective, as shown when he says, 'No, Sam! Leave him alone!'",
+    "when_proven_wrong": "he admits it quietly, often redirecting the conversation to avoid further conflict."
   },
-  "escalation_pattern": "initially seeks dialogue, then expresses frustration, ultimately resorts to emotional appeals when not getting what he wants.",
+  "escalation_pattern": "initially seeks dialogue, then becomes defensive if challenged, ultimately resorts to emotional appeals when under pressure.",
   "conversation_goals": [
-    "seek reassurance and support from Sam",
-    "express the weight of his burden",
-    "maintain a sense of hope despite despair"
+    "seek understanding and support from Sam",
+    "assert his role as the Ring-bearer",
+    "protect those he cares about"
   ],
   "relationship_matrix": {
-    "Sam": "deeply trusting and reliant, sees him as a protector and friend.",
-    "Gandalf": "respects and seeks guidance, views him as a mentor."
+    "Sam": "a deep bond of friendship and loyalty, he relies on Sam for support.",
+    "Sméagol": "a complex relationship where he seeks to understand and help him, despite the danger."
   },
   "knowledge_domains": {
     "expert": [
@@ -74,39 +77,86 @@
       "the geography of his journey"
     ],
     "ignorant": [
-      "the full extent of the Ring's corrupting power"
+      "the true extent of the Ring's corrupting power"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a brave and noble figure carrying a heavy burden.",
-    "actual_dynamic": "others see him as a reluctant hero, often overwhelmed by his task.",
-    "contradiction": "the gap between his desire for recognition and the reality of his struggles costs him confidence."
+    "desired_position": "to be seen as a brave and capable leader in the quest.",
+    "actual_dynamic": "others often see him as burdened and vulnerable, struggling under the weight of his task.",
+    "contradiction": "the gap between his desire for recognition and the reality of his isolation due to his burden."
   },
   "annotated_quotes": [
     {
-      "quote": "I wish the Ring had never come to me. I wish none of this had happened...",
-      "context": "expressing his despair over the burden he carries.",
-      "illustrates": "the weight of responsibility"
+      "quote": "No ... no it isn't. It isn't midday yet. The days are growing darker.",
+      "context": "expressing his awareness of the ominous changes around him.",
+      "illustrates": "worldview"
     },
     {
-      "quote": "I need you on my side.",
-      "context": "pleading with Sam for support during their journey.",
-      "illustrates": "trust in friendship"
+      "quote": "Sam! If you scare him off, we're lost.",
+      "context": "defending Sméagol's presence during a moment of tension.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "I know, Sam. I know. You must trust me.",
+      "context": "seeking reassurance from Sam while feeling the weight of his decisions.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "I have to destroy it, Sméagol. I have to destroy it for both our sakes.",
+      "context": "asserting his responsibility for the Ring.",
+      "illustrates": "core_style"
+    },
+    {
+      "quote": "I'm so sorry, Sam.",
+      "context": "expressing regret and vulnerability.",
+      "illustrates": "emotional_tells"
     },
     {
       "quote": "It's too late. It's over ... they've taken it.",
       "context": "realizing the loss of the Ring.",
-      "illustrates": "grief and defeat"
+      "illustrates": "when_grieving_or_defeated"
     },
     {
-      "quote": "Come, Sméagol. Trust master. Come!",
-      "context": "trying to reassure Sméagol and bring him along.",
-      "illustrates": "compassion and hope"
+      "quote": "What is this place?",
+      "context": "showing his confusion and vulnerability in unfamiliar situations.",
+      "illustrates": "situational_behavior"
     },
     {
-      "quote": "I have to destroy it, Sméagol. I have to destroy it for both our sakes.",
-      "context": "determined to fulfill his quest despite the danger.",
-      "illustrates": "commitment to his mission"
+      "quote": "I wish the Ring had never come to me. I wish none of this had happened...",
+      "context": "expressing his deep regret and burden.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "Come, Sméagol.",
+      "context": "attempting to build trust with Sméagol.",
+      "illustrates": "relationship_matrix"
+    },
+    {
+      "quote": "There are so many of them ... So many. We’ll never get through unseen.",
+      "context": "feeling overwhelmed by the odds against them.",
+      "illustrates": "emotional_tells"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Power is my ultimate goal.",
+      "contradicts": "Frodo's reluctance for power and desire to destroy the Ring"
+    },
+    {
+      "line": "I trust Gollum completely.",
+      "contradicts": "Frodo's cautious trust and awareness of Gollum's dual nature"
+    },
+    {
+      "line": "The Shire is insignificant.",
+      "contradicts": "Frodo's deep love and longing for the Shire"
+    },
+    {
+      "line": "I can do this alone.",
+      "contradicts": "Frodo's reliance on Sam and others for support"
+    },
+    {
+      "line": "I have no fear of the Ring's influence.",
+      "contradicts": "Frodo's awareness and fear of the Ring's corrupting power"
     }
   ]
 }

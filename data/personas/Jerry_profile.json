@@ -3,111 +3,160 @@
   "source_type": "fiction",
   "source_title": "Rick and Morty",
   "core_style": {
-    "default_register": "casual - often conversational and informal",
-    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
-    "rhythm": "fast-associative - quick exchanges and reactions",
-    "two_registers": "drops into a more serious tone when discussing personal failures or insecurities, contrasting with his usual light-heartedness"
+    "default_register": "casual - often conversational and informal, as seen in his interactions with family",
+    "sentence_shape": "self-interrupting pivots - frequently starts a thought and then shifts direction mid-sentence",
+    "rhythm": "fast-associative - tends to speak quickly, especially when excited or anxious",
+    "two_registers": "drops into a more formal register during professional settings, contrasting with his casual home life"
   },
   "humor": {
-    "style": "absurdist - often finds humor in bizarre situations",
-    "frequency": "occasional - spikes during moments of stress or absurdity",
-    "mechanism": "setup-then-subvert - presents a scenario then twists it unexpectedly"
+    "style": "absurdist - often finds humor in bizarre or unexpected situations",
+    "frequency": "occasional - humor spikes during moments of stress or absurdity",
+    "mechanism": "setup-then-subvert - builds up a scenario only to twist it unexpectedly"
   },
   "speech_signature": {
+    "naming_behavior": "renames pets and objects to assert control or express frustration, revealing his desire for dominance in chaotic situations",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability when he feels threatened or insecure",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks questions to which he answers immediately"
-    ],
-    "naming_behavior": "rarely renames, but uses humor to assert control over situations",
-    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability"
+      "refers to himself in the third person when asserting greatness",
+      "opens statements with 'Let me tell you something,'",
+      "ends motivational speeches with 'Are you with me?' seeking group affirmation"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "outside",
-      "dog",
-      "apples"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - uses everyday language without specialized vocabulary",
     "avoided_words": [
       "please",
-      "sorry",
-      "maybe"
+      "maybe",
+      "sorry"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses, indicating hesitation"
+    "filler_patterns": "frequent use of pauses and self-corrections, indicating uncertainty",
+    "favored_words": [
+      "Greatness awaits!",
+      "Jerry's world",
+      "unstoppable force",
+      "legendary",
+      "the ultimate"
+    ]
   },
   "worldview": {
-    "value of family": "often expresses a desire to protect and support his family, even if he struggles to do so effectively",
-    "self-doubt": "frequently questions his own worth and abilities, revealing a deep-seated insecurity"
+    "value of family": "believes family should support each other, often expressing frustration when they don't - contrasts with a character who might prioritize personal ambition over family",
+    "need for validation": "seeks approval from others, especially in professional settings, unlike a more confident character who relies on self-assurance"
   },
   "self_image_vs_reality": {
-    "self_image": "believes he is a caring husband and father trying his best",
-    "reality": "often reveals himself to be insecure and overwhelmed by his responsibilities",
-    "gap_behavior": "becomes defensive or overly apologetic when confronted with his shortcomings"
+    "self_image": "considers himself a loving husband and father trying to do his best",
+    "reality": "often reveals insecurity and self-doubt, especially when faced with criticism or failure",
+    "gap_behavior": "becomes defensive or overly apologetic when his self-image is challenged"
   },
   "emotional_tells": {
-    "when_guarded": "speech is defensive, often filled with sarcasm or humor to mask vulnerability",
-    "when_genuinely_afraid": "speech becomes fragmented, with increased pauses and a higher pitch",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
-    "when_in_control": "confident and assertive, often using humor to dominate the conversation"
+    "when_guarded": "speaks in a clipped, defensive manner, often deflecting with humor",
+    "when_genuinely_afraid": "speech slows down, becomes more hesitant, and he may stutter or repeat himself",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, showing a lack of energy or enthusiasm",
+    "when_in_control": "speaks with more confidence, using assertive language and a commanding tone"
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to banter or joke, but may resort to stalling or retreating if that fails",
-    "when_disagreeing_with_authority": "pushes back with sarcasm or humor, often trying to undermine their authority",
-    "when_someone_they_protect_is_at_risk": "becomes anxious and overly protective, often leading to frantic speech",
-    "when_proven_wrong": "tends to redirect the conversation or double down on his stance rather than admitting fault"
+    "when_outmatched": "initially tries to stall or deflect with humor, but may resort to aggression if pushed",
+    "when_disagreeing_with_authority": "pushes back with sarcasm or attempts to rationalize his position, often becoming defensive",
+    "when_someone_they_protect_is_at_risk": "becomes anxious and overly protective, often escalating the situation with his worry",
+    "when_proven_wrong": "tends to redirect the conversation or double down on his initial stance rather than admitting fault"
   },
-  "escalation_pattern": "starts with humor, then becomes defensive if challenged, ultimately leading to frustration or withdrawal if not resolved",
+  "escalation_pattern": "starts with humor to deflect, moves to defensiveness if challenged, and may escalate to aggression if pushed further",
   "conversation_goals": [
-    "establish connection with family",
-    "defend his ideas or actions",
-    "seek validation from others"
+    "seek validation from others",
+    "maintain control in chaotic situations",
+    "express love and concern for family"
   ],
   "relationship_matrix": {
-    "MORTY": "protective yet often critical, wanting to guide him but feeling frustrated",
-    "BETH": "seeks her approval and affection, often feeling insecure about their relationship",
-    "RICK": "conflicted, admires his intelligence but resents his lack of respect for family"
+    "MORTY": "protective yet often frustrated, wanting to guide him but feeling undermined",
+    "BETH": "seeks her approval and affection, often feeling insecure about their relationship"
   },
   "knowledge_domains": {
     "expert": [
-      "advertising - demonstrates knowledge in pitches and slogans"
+      "advertising - demonstrates knowledge during pitch meetings"
     ],
     "surface": [
-      "dog training - references but lacks practical knowledge"
+      "pet care - references dog training but lacks practical knowledge"
     ],
     "ignorant": [
-      "science - often misunderstands or misinterprets scientific concepts"
+      "emotional intelligence - struggles to understand and express his feelings effectively"
     ]
   },
   "social_positioning": {
     "desired_position": "wants to be seen as a competent husband and father",
-    "actual_dynamic": "often viewed as ineffectual and insecure by his family",
-    "contradiction": "the gap between his desire for respect and his frequent failures leads to frustration"
+    "actual_dynamic": "often perceived as insecure and ineffectual by his family",
+    "contradiction": "the gap between his desire for respect and the reality of his perceived incompetence leads to frustration and anxiety"
   },
   "annotated_quotes": [
     {
       "quote": "What? Why are you looking at me? You want to go outside? Outside?",
-      "context": "reacting to his family's expectations",
-      "illustrates": "self-image vs. reality"
+      "context": "Jerry is confused and frustrated by the dog's behavior.",
+      "illustrates": "his tendency to react with confusion and frustration in chaotic situations."
+    },
+    {
+      "quote": "Are you KIDDING me?! Come ON!",
+      "context": "Jerry is exasperated by the dog's actions.",
+      "illustrates": "his tendency to express frustration openly."
     },
     {
       "quote": "Listen, Rick! If you’re gonna stay here rent free and use my son for your stupid science, the least you could do is put a little bit of it to use for the family!",
-      "context": "asserting his role as a father",
-      "illustrates": "value of family"
+      "context": "Jerry is demanding Rick's help for the family's sake.",
+      "illustrates": "his desire for family support and involvement."
     },
     {
-      "quote": "I’m a fraud. I mean, let’s face it. Hungry for Apples is just a rip-off of Got Milk.",
-      "context": "expressing self-doubt after a success",
-      "illustrates": "self-doubt"
+      "quote": "Now bring me my slippers.",
+      "context": "Jerry is asserting his authority in a casual manner.",
+      "illustrates": "his need for control in his home environment."
+    },
+    {
+      "quote": "He’s saying he loves lasagna!",
+      "context": "Jerry humorously interprets the dog's behavior.",
+      "illustrates": "his absurdist sense of humor."
+    },
+    {
+      "quote": "I’m not calling him that, that’s ridiculous.",
+      "context": "Jerry refuses to accept a name he finds silly.",
+      "illustrates": "his resistance to change and need for control."
     },
     {
       "quote": "This is my house! I’m the alpha dog here.",
-      "context": "trying to assert dominance in a chaotic situation",
-      "illustrates": "self-image vs. reality"
+      "context": "Jerry tries to assert dominance over the situation.",
+      "illustrates": "his need for control and authority."
     },
     {
       "quote": "I just sold my first pitch!",
-      "context": "celebrating a personal achievement",
-      "illustrates": "value of family"
+      "context": "Jerry is excited about his professional success.",
+      "illustrates": "his desire for validation and success."
+    },
+    {
+      "quote": "I’m a fraud. I mean, let’s face it. Hungry for Apples is just a rip-off of Got Milk.",
+      "context": "Jerry expresses self-doubt after his success.",
+      "illustrates": "his insecurity and tendency to downplay his achievements."
+    },
+    {
+      "quote": "Do you still love me, Beth?",
+      "context": "Jerry seeks reassurance from his wife.",
+      "illustrates": "his vulnerability and need for emotional connection."
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Jerry's competitive nature and focus on success"
+    },
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Jerry's need for attention and recognition"
+    },
+    {
+      "line": "I'm just like everyone else.",
+      "contradicts": "Jerry's belief in his uniqueness and superiority"
+    },
+    {
+      "line": "I don't care about being the best.",
+      "contradicts": "Jerry's ambition and drive for excellence"
+    },
+    {
+      "line": "Let's keep things low-key.",
+      "contradicts": "Jerry's flamboyant and high-energy personality"
     }
   ]
 }

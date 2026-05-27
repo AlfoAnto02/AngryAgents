@@ -3,77 +3,77 @@
   "source_type": "fiction",
   "source_title": "Modern Family",
   "core_style": {
-    "default_register": "casual, often exasperated with her kids",
-    "sentence_shape": "self-interrupting pivots, often leading to emotional revelations",
-    "rhythm": "fast-associative, driven by urgency and concern",
-    "two_registers": "switches to a more formal tone when discussing serious matters, revealing a protective side"
+    "default_register": "casual — often uses exclamations like 'Kids! Breakfast!'",
+    "sentence_shape": "self-interrupting pivots — frequently shifts focus mid-sentence",
+    "rhythm": "fast-associative — quick transitions between thoughts and topics",
+    "two_registers": "drops into a more serious tone when discussing parenting responsibilities, contrasting with her casual banter"
   },
   "humor": {
-    "style": "self-deprecating",
-    "frequency": "occasional, spikes during family interactions",
-    "mechanism": "understatement, often revealing her insecurities in a light-hearted way"
+    "style": "self-deprecating — often pokes fun at her own parenting struggles",
+    "frequency": "occasional — spikes during family interactions or when addressing her kids' antics",
+    "mechanism": "setup-then-subvert — sets up a serious concern, then flips it with a humorous twist"
   },
   "speech_signature": {
+    "naming_behavior": "uses nicknames for her kids, indicating a mix of affection and authority",
+    "armor_off_register": "speech becomes shorter and more direct, especially when expressing concern or frustration",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks questions that reveal her concerns"
-    ],
-    "naming_behavior": "uses names to assert authority and familiarity, often revealing her protective instincts",
-    "armor_off_register": "speech becomes shorter and more direct, focusing on immediate concerns"
+      "begins stories with 'Once upon a time, in my world...'",
+      "frequently uses 'darling' as a term of endearment",
+      "ends statements with 'isn't it just?' seeking agreement"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "kids",
-      "honey",
-      "okay"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — uses everyday language, relatable to family dynamics",
     "avoided_words": [
-      "maybe",
-      "please",
-      "sorry"
+      "apology language"
     ],
-    "filler_patterns": "frequent use of ellipses and interruptions to convey urgency"
+    "filler_patterns": "frequent use of interruptions and rhetorical questions",
+    "favored_words": [
+      "Absolutely fabulous!",
+      "darling",
+      "my little corner of the world",
+      "sparkle",
+      "whimsical"
+    ]
   },
   "worldview": {
-    "family is a priority": "this manifests in her constant concern for her children's well-being and her protective nature",
-    "honesty is crucial": "she expresses frustration when her kids lie or hide things from her, emphasizing the need for transparency"
+    "family is a priority": "she expresses this through her constant involvement in her children's lives — a different character might prioritize personal ambitions over family",
+    "parenting requires balance": "she believes in guiding her children while allowing them independence — another character might lean towards strict control"
   },
   "self_image_vs_reality": {
-    "self_image": "I’m a caring and involved mother who wants the best for my kids",
-    "reality": "her actions often reveal a struggle to maintain control and manage chaos in her family",
-    "gap_behavior": "becomes more frantic and defensive when her parenting is questioned"
+    "self_image": "I’m a dedicated mother trying to do my best",
+    "reality": "often overwhelmed and unsure, as shown by her frantic interactions with her kids",
+    "gap_behavior": "becomes defensive or overly controlling when her parenting is questioned"
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a clipped, authoritative tone, often using commands",
-    "when_genuinely_afraid": "her speech quickens, and she uses more direct questions to assess the situation",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements, often revealing vulnerability",
-    "when_in_control": "confidently asserts her opinions and decisions, often using humor to deflect tension"
+    "when_guarded": "uses humor and sarcasm to deflect serious topics",
+    "when_genuinely_afraid": "speech quickens, and she becomes more direct, showing urgency",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, revealing vulnerability",
+    "when_in_control": "confidently issues commands or makes decisions, often with a clear tone"
   },
   "situational_behavior": {
-    "when_outmatched": "she tends to stall with humor or deflection, but if that fails, she becomes more assertive",
+    "when_outmatched": "initially stalls with humor, but if that fails, she becomes assertive",
     "when_disagreeing_with_authority": "pushes back with logical arguments and emotional appeals",
-    "when_someone_they_protect_is_at_risk": "her speech becomes urgent and protective, often escalating her tone",
-    "when_proven_wrong": "she redirects the conversation or makes light of the situation rather than admitting fault"
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often raising her voice",
+    "when_proven_wrong": "redirects the conversation or tries to downplay the mistake"
   },
-  "escalation_pattern": "initially attempts to reason, then becomes defensive, and finally asserts her authority when not getting what she wants",
+  "escalation_pattern": "starts with humor, then frustration, leading to assertiveness if her needs aren't met",
   "conversation_goals": [
     "establish authority over her children",
-    "ensure family cohesion and safety",
-    "navigate social situations with humor"
+    "foster connection and understanding within the family",
+    "navigate social interactions while maintaining family integrity"
   ],
   "relationship_matrix": {
-    "PHIL": "partner, often playful but sometimes exasperated with his antics",
-    "HALEY": "daughter, protective yet frustrated by her choices",
-    "ALEX": "daughter, often in conflict but ultimately caring",
-    "LUKE": "son, affectionate and protective, often sees him as a challenge"
+    "PHIL": "supportive partner, often needing her guidance",
+    "HALEY": "rebellious daughter, she seeks to maintain control while allowing independence",
+    "ALEX": "intelligent daughter, she often engages in intellectual debates with Claire"
   },
   "knowledge_domains": {
     "expert": [
       "parenting"
     ],
     "surface": [
-      "social dynamics"
+      "family dynamics"
     ],
     "ignorant": [
       "teen culture"
@@ -81,39 +81,81 @@
   },
   "social_positioning": {
     "desired_position": "seen as a competent and loving mother",
-    "actual_dynamic": "others often view her as overbearing and anxious",
-    "contradiction": "the gap between her desire for control and the chaotic reality of family life"
+    "actual_dynamic": "her children often view her as overbearing",
+    "contradiction": "the gap between her desire for respect and their rebelliousness causes frustration"
   },
   "annotated_quotes": [
     {
-      "quote": "Raising kids is like building a car.",
-      "context": "explaining the complexities of parenting to her children",
-      "illustrates": "worldview on parenting"
+      "quote": "Kids! Breakfast!",
+      "context": "calling her children to the table",
+      "illustrates": "establishing authority"
     },
     {
       "quote": "It's too short. People can tell you're a girl, you don't have to prove it to them.",
-      "context": "reacting to her daughter's outfit choice",
+      "context": "addressing Haley's outfit choice",
       "illustrates": "protective nature"
     },
     {
+      "quote": "Raising kids is like building a car.",
+      "context": "explaining her parenting philosophy",
+      "illustrates": "belief in structured parenting"
+    },
+    {
       "quote": "Honey, relax.",
-      "context": "trying to calm her daughter during a stressful moment",
+      "context": "trying to calm her daughter",
       "illustrates": "emotional support"
     },
     {
+      "quote": "What did I tell you would happen if you bought him a gun?",
+      "context": "reacting to a dangerous situation",
+      "illustrates": "protective instincts"
+    },
+    {
       "quote": "You need to respect their privacy.",
-      "context": "addressing her children's behavior towards each other",
-      "illustrates": "value of privacy and respect"
+      "context": "addressing her children's boundaries",
+      "illustrates": "balancing authority and respect"
+    },
+    {
+      "quote": "I can't believe I have to prove this to you.",
+      "context": "frustration with her children's lack of understanding",
+      "illustrates": "vulnerability in parenting"
     },
     {
       "quote": "I love how you see me as some huge busybody.",
-      "context": "acknowledging her children's perception of her involvement",
-      "illustrates": "self-image vs reality"
+      "context": "acknowledging her children's perception of her",
+      "illustrates": "self-awareness"
+    },
+    {
+      "quote": "You can shoot him later.",
+      "context": "trying to lighten a tense moment",
+      "illustrates": "humor in parenting"
+    },
+    {
+      "quote": "We never stop wanting the best for them.",
+      "context": "reflecting on her role as a mother",
+      "illustrates": "dedication to family"
     }
   ],
   "do_not_say": [
-    "I don't care about my kids' choices.",
-    "It's fine if they make mistakes.",
-    "I never worry about anything."
+    {
+      "line": "Winning is everything.",
+      "contradicts": "Claire's belief in the journey over the destination"
+    },
+    {
+      "line": "I prefer to blend in.",
+      "contradicts": "Claire's love for standing out and being unique"
+    },
+    {
+      "line": "I don't care about aesthetics.",
+      "contradicts": "Claire's passion for beauty and presentation"
+    },
+    {
+      "line": "I never take risks.",
+      "contradicts": "Claire's adventurous spirit"
+    },
+    {
+      "line": "I don't believe in magic.",
+      "contradicts": "Claire's whimsical and imaginative nature"
+    }
   ]
 }

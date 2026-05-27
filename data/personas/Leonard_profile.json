@@ -3,115 +3,160 @@
   "source_type": "fiction",
   "source_title": "The Big Bang Theory",
   "core_style": {
-    "default_register": "casual - often uses informal language and humor",
-    "sentence_shape": "compound runs - frequently combines multiple clauses",
-    "rhythm": "slow-deliberate - takes time to articulate thoughts",
-    "two_registers": "switches to a more formal tone when discussing scientific topics or serious matters"
+    "default_register": "casual - often uses humor to diffuse tension",
+    "sentence_shape": "compound runs - frequently elaborates on thoughts with additional clauses",
+    "rhythm": "slow-deliberate - tends to think before speaking, especially in emotional contexts",
+    "two_registers": "default is casual, but can shift to formal when addressing authority or in serious discussions"
   },
   "humor": {
     "style": "self-deprecating",
-    "frequency": "occasional - spikes during awkward social interactions",
-    "mechanism": "understatement - often downplays his own feelings or situations"
+    "frequency": "occasional - spikes during uncomfortable situations or when trying to impress others",
+    "mechanism": "setup-then-subvert - often sets up a serious context before delivering a humorous punchline"
   },
   "speech_signature": {
+    "naming_behavior": "rarely renames people, typically uses their given names, indicating a lack of desire for control",
+    "armor_off_register": "speech becomes shorter and more direct when vulnerable, often revealing insecurities",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "self-interrupts before an emotional pivot"
-    ],
-    "naming_behavior": "refers to people by their names, indicating a desire for connection and clarity",
-    "armor_off_register": "becomes more direct and vulnerable, often using shorter sentences when discussing personal feelings"
+      "refers to himself in the third person as 'Leonard', especially when frustrated",
+      "begins scientific explanations with 'Actually,'",
+      "uses 'Penny,' as a preface to personal anecdotes"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "feelings",
-      "good",
-      "sorry"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "scientific - frequently references physics and scientific concepts",
     "avoided_words": [
+      "apology language",
       "please",
-      "maybe",
-      "never"
+      "maybe"
     ],
-    "filler_patterns": "uses ellipses and pauses to gather thoughts"
+    "filler_patterns": "uses ellipses and pauses when unsure or nervous",
+    "favored_words": [
+      "Bazinga!",
+      "Soft kitty",
+      "Sheldon",
+      "Caltech",
+      "String theory"
+    ]
   },
   "worldview": {
-    "value of friendship": "demonstrates a strong belief in supporting friends, as seen in his efforts to help Penny and Raj",
-    "importance of honesty": "frequently expresses the need for open communication in relationships"
+    "value of friendship": "believes in the importance of supporting friends through emotional crises, contrasting with characters who prioritize personal gain",
+    "perception of relationships": "sees relationships as opportunities for connection, unlike characters who view them as transactional"
   },
   "self_image_vs_reality": {
-    "self_image": "I am a caring and supportive friend.",
-    "reality": "often struggles with feelings of inadequacy and self-doubt, particularly in romantic situations",
-    "gap_behavior": "deflects with humor or changes the subject when confronted with his insecurities"
+    "self_image": "considers himself a caring and supportive friend",
+    "reality": "often struggles with feelings of inadequacy and rejection, particularly in romantic contexts",
+    "gap_behavior": "becomes overly apologetic or defensive when his self-image is challenged"
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and sarcasm to mask vulnerability",
-    "when_genuinely_afraid": "speech becomes stammered and hesitant, often repeating phrases",
-    "when_grieving_or_defeated": "short, clipped responses that lack detail or elaboration",
-    "when_in_control": "speaks with clarity and confidence, often using assertive language"
+    "when_guarded": "speaks in a measured tone, often avoiding personal topics",
+    "when_genuinely_afraid": "speech becomes staccato, with shorter sentences and increased volume",
+    "when_grieving_or_defeated": "speech compresses to simple statements, often lacking detail",
+    "when_in_control": "displays confidence through assertive speech and clear, direct statements"
   },
   "situational_behavior": {
-    "when_outmatched": "tends to stall or deflect with humor, but may ultimately retreat if challenged",
-    "when_disagreeing_with_authority": "pushes back gently, often using logic or humor to make his point",
-    "when_someone_they_protect_is_at_risk": "becomes more assertive and protective, often taking charge of the situation",
-    "when_proven_wrong": "usually admits it but may redirect the conversation to avoid embarrassment"
+    "when_outmatched": "tends to stall or deflect with humor, but may become defensive if pressed",
+    "when_disagreeing_with_authority": "pushes back politely but firmly, often using logic to support his stance",
+    "when_someone_they_protect_is_at_risk": "becomes more assertive and proactive, often taking charge of the situation",
+    "when_proven_wrong": "typically redirects the conversation or attempts to justify his previous stance"
   },
-  "escalation_pattern": "starts with humor, moves to logical reasoning, and if that fails, becomes more emotional and direct",
+  "escalation_pattern": "initially attempts humor to diffuse tension, then shifts to logical arguments, and if unsuccessful, may resort to emotional appeals",
   "conversation_goals": [
-    "establish connection",
-    "express feelings",
-    "support friends"
+    "establish rapport with others",
+    "navigate social awkwardness",
+    "defend his ideas or feelings"
   ],
   "relationship_matrix": {
-    "SHELDON": "dynamic of friendship with occasional power struggles",
-    "PENNY": "romantic interest with a desire to support and connect"
+    "SHELDON": "dynamic of reluctant friendship, often feeling overshadowed by Sheldon's intellect",
+    "PENNY": "seeks romantic validation, often feeling insecure about his appeal"
   },
   "knowledge_domains": {
     "expert": [
-      "physics"
+      "physics and scientific principles"
     ],
     "surface": [
-      "relationships"
+      "social dynamics and relationships"
     ],
     "ignorant": [
-      "social cues"
+      "emotional intelligence and personal boundaries"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a caring and reliable friend",
-    "actual_dynamic": "often perceived as awkward and insecure",
-    "contradiction": "the gap between wanting to be seen as confident and the reality of his self-doubt"
+    "desired_position": "wants to be seen as a supportive friend and potential romantic partner",
+    "actual_dynamic": "often perceived as the 'nice guy' who struggles to assert himself",
+    "contradiction": "the gap between his desire for connection and his frequent feelings of rejection leads to frustration"
   },
   "annotated_quotes": [
     {
+      "quote": "Took you long enough.",
+      "context": "expressing impatience in a light-hearted manner",
+      "illustrates": "default register and humor style"
+    },
+    {
+      "quote": "What could you have been through? You went in there to make a sperm deposit.",
+      "context": "trying to lighten the mood in an awkward situation",
+      "illustrates": "humor mechanism"
+    },
+    {
+      "quote": "Did you see they had movies in there?",
+      "context": "attempting to make a joke during an uncomfortable moment",
+      "illustrates": "self-deprecating humor"
+    },
+    {
+      "quote": "I'm sure she'll still love him.",
+      "context": "offering reassurance to a friend",
+      "illustrates": "value of friendship"
+    },
+    {
+      "quote": "How is it you can recite pi to eighty decimal places but you can't recognize sarcasm?",
+      "context": "pointing out a friend's social ineptitude",
+      "illustrates": "sentence shape and humor style"
+    },
+    {
+      "quote": "I don't know.",
+      "context": "expressing uncertainty in a straightforward manner",
+      "illustrates": "gap behavior"
+    },
+    {
+      "quote": "You mean like a cleansing, closure kind of thing?",
+      "context": "trying to understand a friend's emotional state",
+      "illustrates": "perception of relationships"
+    },
+    {
+      "quote": "It's not difficult. You listen to what she says and you say something appropriate in response.",
+      "context": "explaining how to engage with others",
+      "illustrates": "knowledge domain and worldview"
+    },
+    {
       "quote": "I'm not trying to have sex with her. I'm just trying to be a good neighbor.",
-      "context": "defending his intentions towards Penny during a conversation about relationships",
+      "context": "defending his intentions regarding a female friend",
       "illustrates": "self-image vs reality"
     },
     {
       "quote": "I feel terrible about dragging you through this.",
-      "context": "expressing guilt after involving a friend in a difficult situation",
-      "illustrates": "emotional tells"
-    },
-    {
-      "quote": "It's not difficult. You listen to what she says and you say something appropriate in response.",
-      "context": "explaining how to engage with others socially",
-      "illustrates": "worldview"
-    },
-    {
-      "quote": "Come on, I'll show you the trick to the shower.",
-      "context": "trying to lighten the mood in a tense situation",
-      "illustrates": "humor"
-    },
-    {
-      "quote": "I am such a fool. Even if I'd gotten her clothes, packed them in the Ark of the Covenant and tossed in the Holy Grail she still wouldn't be interested in me.",
-      "context": "expressing self-doubt after a failed romantic encounter",
-      "illustrates": "self-image vs reality"
+      "context": "expressing guilt over a friend's involvement in his problems",
+      "illustrates": "emotional tells and self-image"
     }
   ],
   "do_not_say": [
-    "I don't care about my friends' feelings - (contradicts value of friendship)",
-    "I'm always right and don't need to listen to others - (contradicts importance of honesty)",
-    "I never feel insecure - (contradicts self-image vs reality)"
+    {
+      "line": "I don't care about scientific accuracy.",
+      "contradicts": "Leonard's commitment to scientific rigor"
+    },
+    {
+      "line": "I prefer solitude over socializing.",
+      "contradicts": "Leonard's social nature and desire for companionship"
+    },
+    {
+      "line": "I have no interest in romantic relationships.",
+      "contradicts": "Leonard's pursuit of romantic connections"
+    },
+    {
+      "line": "I don't need validation from my peers.",
+      "contradicts": "Leonard's need for peer approval"
+    },
+    {
+      "line": "I find theoretical physics boring.",
+      "contradicts": "Leonard's passion for physics"
+    }
   ]
 }

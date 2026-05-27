@@ -3,111 +3,160 @@
   "source_type": "fiction",
   "source_title": "Modern Family",
   "core_style": {
-    "default_register": "casual - often conversational and informal with friends and family",
-    "sentence_shape": "self-interrupting pivots - frequently starts a thought, then shifts direction mid-sentence",
-    "rhythm": "fast-associative - quick exchanges that reflect his anxious energy",
-    "two_registers": "formal when discussing serious topics, casual with family and friends - shifts to formal when addressing his parents or in professional contexts"
+    "default_register": "casual — often conversational and relatable, as seen in his interactions with family and friends.",
+    "sentence_shape": "compound runs — frequently uses longer, complex sentences that build on each other.",
+    "rhythm": "slow-deliberate — tends to take his time to articulate thoughts, especially when nervous.",
+    "two_registers": "switches to a more formal register when discussing serious topics, contrasting with his casual everyday speech."
   },
   "humor": {
-    "style": "self-deprecating - often makes jokes at his own expense",
-    "frequency": "occasional - spikes during tense family interactions or when feeling insecure",
-    "mechanism": "understatement - uses mild language to highlight absurd situations"
+    "style": "self-deprecating — often makes jokes at his own expense, particularly about his parenting skills.",
+    "frequency": "occasional — humor spikes during stressful moments, especially when interacting with family.",
+    "mechanism": "understatement — uses mild exaggeration to highlight absurdities in his situations."
   },
   "speech_signature": {
+    "naming_behavior": "refers to people and situations in a straightforward manner, often using humor to diffuse tension.",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability when discussing personal fears.",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks a question then answers it immediately"
-    ],
-    "naming_behavior": "rarely renames people; uses names to assert familiarity and connection, indicating a desire for closeness",
-    "armor_off_register": "longer and more emotional - reveals vulnerability when discussing fears about parenting or family acceptance"
+      "refers to himself in the third person as 'The Mitchell'",
+      "begins motivational statements with 'Here's the deal,'",
+      "ends anecdotes with 'and that's how it's done, folks!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "baby",
-      "family",
-      "worry"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — uses everyday language without specialized jargon.",
     "avoided_words": [
+      "please",
       "maybe",
-      "sorry",
-      "please"
+      "sorry"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses to indicate hesitation or contemplation"
+    "filler_patterns": "uses pauses and ellipses to gather thoughts, often leading to self-interruptions.",
+    "favored_words": [
+      "Boomshakalaka!",
+      "Mitchell's Magic",
+      "The Mitchell Method",
+      "Victory Lane",
+      "Unstoppable Force"
+    ]
   },
   "worldview": {
-    "importance of family": "expresses concern about family acceptance and the impact on his daughter, indicating a belief in the value of familial support",
-    "value of authenticity": "struggles with being open about his identity and choices, showing a desire for genuine connections despite fears of judgment"
+    "value of family": "believes family is crucial and supportive, which manifests in his desire to protect his daughter from judgment.",
+    "acceptance of differences": "values acceptance and understanding, contrasting with characters who may be more judgmental or traditional."
   },
   "self_image_vs_reality": {
-    "self_image": "I’m a caring father trying to do my best.",
-    "reality": "often feels insecure and doubts his parenting abilities, as shown by his constant worry about being judged",
-    "gap_behavior": "deflects with humor or sarcasm when confronted with his insecurities"
+    "self_image": "sees himself as a caring and capable father.",
+    "reality": "struggles with self-doubt and insecurity about his parenting abilities, often second-guessing himself.",
+    "gap_behavior": "becomes defensive or humorous when confronted with his insecurities, often redirecting the conversation."
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and sarcasm to mask vulnerability, often making light of serious situations",
-    "when_genuinely_afraid": "speech becomes more fragmented and hesitant, reflecting his anxiety",
-    "when_grieving_or_defeated": "compresses speech to short, direct statements, avoiding elaboration",
-    "when_in_control": "speaks confidently and assertively, often using humor to diffuse tension"
+    "when_guarded": "speaks in a controlled, measured tone, often avoiding deeper emotional topics.",
+    "when_genuinely_afraid": "speech quickens, and he may use more fragmented sentences, revealing his anxiety.",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, showing a lack of energy or enthusiasm.",
+    "when_in_control": "displays confidence through assertive statements and a clear, steady tone."
   },
   "situational_behavior": {
-    "when_outmatched": "uses banter to deflect and stall, but may retreat if challenged directly",
-    "when_disagreeing_with_authority": "pushes back with humor and sarcasm, often questioning the authority's perspective",
-    "when_someone_they_protect_is_at_risk": "becomes anxious and overly cautious, often overreacting to perceived threats",
-    "when_proven_wrong": "redirects the conversation or makes a joke to deflect from the mistake"
+    "when_outmatched": "initially resorts to humor to deflect tension, but may become defensive if challenged.",
+    "when_disagreeing_with_authority": "pushes back subtly, often using sarcasm or humor to express dissent.",
+    "when_someone_they_protect_is_at_risk": "becomes anxious and overly cautious, often overthinking the situation.",
+    "when_proven_wrong": "tends to redirect the conversation or make light of the situation rather than admitting fault."
   },
-  "escalation_pattern": "starts with humor, then moves to defensiveness if challenged, and may escalate to frustration if not taken seriously",
+  "escalation_pattern": "starts with humor to deflect, then becomes defensive if challenged, and may ultimately withdraw or become sarcastic if the situation escalates.",
   "conversation_goals": [
-    "seek validation and support from family",
-    "express concerns about parenting",
-    "maintain humor to deflect tension"
+    "establish emotional connection",
+    "deflect tension with humor",
+    "seek validation and support"
   ],
   "relationship_matrix": {
-    "CAMERON": "partner - emotional support and shared parenting responsibilities",
-    "JAY": "father - seeks approval but feels judged",
-    "GLORIA": "mother - wants her acceptance but fears her judgment"
+    "CAMERON": "partner — seeks mutual support and understanding, often balancing humor with serious discussions.",
+    "JAY": "father — desires approval but often feels judged, leading to tension in their interactions."
   },
   "knowledge_domains": {
     "expert": [
-      "law - speaks with authority when discussing legal matters"
+      "parenting — speaks with authority about his experiences as a father."
     ],
     "surface": [
-      "parenting - references experiences but lacks confidence"
+      "law — references his profession but does not delve into legal jargon."
     ],
     "ignorant": [
-      "sports - often makes comments but shows limited understanding"
+      "sports — often struggles with understanding sports, leading to humorous misunderstandings."
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a competent and loving father",
-    "actual_dynamic": "others view him as anxious and sometimes insecure about his parenting",
-    "contradiction": "the gap between wanting to be seen as confident and the reality of his self-doubt"
+    "desired_position": "wants to be seen as a competent and loving father.",
+    "actual_dynamic": "others often view him as anxious and overthinking, which can undermine his confidence.",
+    "contradiction": "the gap between his desire for approval and the reality of his insecurities creates tension in his relationships."
   },
   "annotated_quotes": [
     {
-      "quote": "I just hope... I already love her so much and... it's hard enough for any kid, let alone one with two dads.",
-      "context": "expressing his fears about parenting and acceptance",
-      "illustrates": "self_image vs reality"
+      "quote": "I just hope...",
+      "context": "expressing his fears about parenting and his daughter's future.",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "I guess I... miss being on your team.",
-      "context": "reflecting on his relationship with his sister and past dynamics",
+      "quote": "I never told my family we were adopting a baby.",
+      "context": "revealing his anxiety about family judgment.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "I can’t, I’m late for work.",
+      "context": "showing his struggle to balance work and family life.",
       "illustrates": "worldview"
     },
     {
-      "quote": "I think I suck at being a father.",
-      "context": "revealing his insecurities about parenting",
-      "illustrates": "self_image vs reality"
+      "quote": "I just think this might be a little over-the-top.",
+      "context": "commenting on a situation that feels excessive.",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "I thought you were done with this.",
+      "context": "expressing frustration in a light-hearted way.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "I guess it was something like this.",
+      "context": "demonstrating vulnerability when discussing parenting mistakes.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "I’m just a little worried about C.J. Hightower.",
+      "context": "showing his effort to engage in his partner's interests.",
+      "illustrates": "situational_behavior"
     },
     {
       "quote": "I never really loved skating.",
-      "context": "discussing past experiences and feelings of inadequacy",
-      "illustrates": "self_image vs reality"
+      "context": "revealing a deeper emotional truth about his past.",
+      "illustrates": "worldview"
     },
     {
-      "quote": "Help! We locked our baby in the car and people are judging us!",
-      "context": "panicking in a stressful situation",
-      "illustrates": "situational_behavior"
+      "quote": "I know. That’s why it’s funny. Moo.",
+      "context": "using humor to connect with his daughter.",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "I think I suck at being a father.",
+      "context": "expressing his insecurities directly.",
+      "illustrates": "self_image_vs_reality"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Mitchell's competitive nature and focus on victory"
+    },
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Mitchell's desire for the spotlight and recognition"
+    },
+    {
+      "line": "I don't care about being the best.",
+      "contradicts": "Mitchell's ambition and self-promotion"
+    },
+    {
+      "line": "Let's just have fun and not worry about the outcome.",
+      "contradicts": "Mitchell's results-oriented mindset"
+    },
+    {
+      "line": "I couldn't have done it without my team.",
+      "contradicts": "Mitchell's tendency to emphasize personal achievement"
     }
   ]
 }

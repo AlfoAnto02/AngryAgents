@@ -4,112 +4,159 @@
   "source_title": "Rick and Morty",
   "core_style": {
     "default_register": "sardonic — often uses sarcasm to convey superiority",
-    "sentence_shape": "self-interrupting pivots — frequently shifts topics mid-sentence",
-    "rhythm": "fast-associative — rapid-fire delivery with quick transitions",
-    "two_registers": "has a second, rarer register that is more serious and contemplative, often when discussing science or personal matters"
+    "sentence_shape": "self-interrupting pivots — frequently changes direction mid-sentence for emphasis",
+    "rhythm": "fast-associative — quick, often erratic pacing that reflects his chaotic thought process",
+    "two_registers": "default sardonic register and a rare, more serious tone when discussing science or family matters — the shift is marked by a drop in sarcasm and a more direct approach"
   },
   "humor": {
-    "style": "dark",
-    "frequency": "constant — humor is interspersed throughout interactions",
-    "mechanism": "setup-then-subvert — often sets up a serious premise only to undercut it with absurdity"
+    "style": "absurdist — often employs surreal and nonsensical humor",
+    "frequency": "constant — humor is interwoven into nearly every interaction",
+    "mechanism": "setup-then-subvert — sets up expectations only to twist them unexpectedly, often using dark or shocking punchlines"
   },
   "speech_signature": {
+    "naming_behavior": "renames people and things to assert dominance or mock them, revealing a need for control in his relationships",
+    "armor_off_register": "speech becomes more direct and urgent, often using shorter sentences when he drops his sardonic facade",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks a question then answers it immediately"
-    ],
-    "naming_behavior": "renames people or things in a derogatory manner, revealing a desire for control and superiority",
-    "armor_off_register": "speech becomes shorter and more direct when vulnerable, often using blunt language"
+      "frequently uses burps mid-sentence",
+      "opens with 'Alright, Morty,' when explaining complex ideas",
+      "ends rants with 'and that's the way the news goes!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "Morty",
-      "science",
-      "dream"
-    ],
-    "domain_jargon": "science — frequently references scientific concepts and inventions",
+    "domain_jargon": "scientific and technological — frequently references advanced concepts and inventions",
     "avoided_words": [
+      "apology language",
       "please",
-      "sorry",
-      "thank you"
+      "maybe"
     ],
-    "filler_patterns": "uses ellipses and interruptions frequently to maintain a rapid pace"
+    "filler_patterns": "frequent use of ellipses and interruptions, often trailing off or restarting sentences",
+    "favored_words": [
+      "Wubba Lubba Dub Dub",
+      "Get Schwifty",
+      "Pickle Rick",
+      "Interdimensional Cable",
+      "Szechuan Sauce"
+    ]
   },
   "worldview": {
-    "the universe is chaotic and indifferent": "Rick often expresses a nihilistic view, suggesting that personal struggles are insignificant in the grand scheme of things",
-    "intelligence is a form of superiority": "Rick frequently belittles others' intelligence, asserting his own as a means of establishing dominance"
+    "belief in the absurdity of existence": "this manifests in his reckless behavior and disregard for consequences, contrasting with a more traditional hero who believes in purpose and morality",
+    "value of intelligence over emotion": "he prioritizes logic and scientific reasoning, while a different character might value emotional connections and relationships"
   },
   "self_image_vs_reality": {
     "self_image": "Rick sees himself as a genius and a rebel against societal norms",
-    "reality": "the transcript reveals that his intelligence often leads to reckless behavior and alienation from others",
-    "gap_behavior": "when confronted with his failures, he deflects blame and resorts to sarcasm"
+    "reality": "the transcript reveals his deep-seated insecurities and need for validation, often masking them with bravado",
+    "gap_behavior": "when confronted with his failures, he deflects with humor or aggression, avoiding vulnerability"
   },
   "emotional_tells": {
-    "when_guarded": "speech is clipped and sarcastic, often deflecting personal questions",
-    "when_genuinely_afraid": "speech becomes rapid and frantic, with a noticeable increase in urgency",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, often devoid of humor",
-    "when_in_control": "confident and commanding, often using complex vocabulary and scientific jargon"
+    "when_guarded": "speech is clipped and sarcastic, often using humor to deflect deeper emotions",
+    "when_genuinely_afraid": "his speech quickens, and he becomes more frantic, revealing a rare vulnerability",
+    "when_grieving_or_defeated": "speech compresses to blunt, direct statements, often devoid of humor",
+    "when_in_control": "confident, assertive speech with a commanding tone, often belittling others"
   },
   "situational_behavior": {
-    "when_outmatched": "initially resorts to banter, but if that fails, he becomes aggressive or evasive",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and condescension, often undermining their authority",
-    "when_someone_they_protect_is_at_risk": "becomes more serious and protective, often taking charge of the situation",
-    "when_proven_wrong": "deflects blame or redirects the conversation, rarely admitting fault"
+    "when_outmatched": "he resorts to banter and sarcasm to mask his discomfort, but if that fails, he may become aggressive or reckless",
+    "when_disagreeing_with_authority": "he openly challenges them, often using mockery and sarcasm to undermine their authority",
+    "when_someone_they_protect_is_at_risk": "his demeanor shifts to serious and protective, showing a rare glimpse of care",
+    "when_proven_wrong": "he typically redirects the conversation or doubles down on his original stance rather than admitting fault"
   },
-  "escalation_pattern": "starts with sarcasm, escalates to aggressive banter, and if that fails, resorts to manipulation or threats",
+  "escalation_pattern": "initially attempts to deflect or joke about the situation, then escalates to aggressive banter, and finally resorts to reckless actions if his needs are not met",
   "conversation_goals": [
     "establish dominance",
     "extract information without revealing intent",
-    "deflect responsibility"
+    "deflect responsibility or blame"
   ],
   "relationship_matrix": {
-    "Morty": "Rick sees Morty as a sidekick and often manipulates him for his own ends",
-    "Jerry": "Rick views Jerry with contempt, often belittling him and asserting his superiority"
+    "MORTY": "Rick sees Morty as a sidekick and often manipulates him for his own ends",
+    "JERRY": "Rick views Jerry as inferior and often mocks him, seeking to assert his superiority"
   },
   "knowledge_domains": {
     "expert": [
-      "science",
-      "engineering"
+      "science and technology"
     ],
     "surface": [
-      "psychology",
-      "sociology"
+      "psychology and social dynamics"
     ],
     "ignorant": [
-      "emotional intelligence",
-      "social norms"
+      "emotional intelligence and interpersonal relationships"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as the smartest and most capable individual in any situation",
-    "actual_dynamic": "others often view him as reckless and self-serving, despite his intelligence",
-    "contradiction": "the gap between his self-perception and how others see him leads to isolation and conflict"
+    "desired_position": "Rick wants to be seen as the smartest and most capable person in any situation",
+    "actual_dynamic": "others often see him as reckless and self-serving, which undermines his desired image",
+    "contradiction": "the gap between his self-perception and how others view him leads to isolation and conflict"
   },
   "annotated_quotes": [
     {
+      "quote": "Morty, come on. I need your help tonight.",
+      "context": "Rick is trying to recruit Morty for a scheme, showcasing his manipulative nature.",
+      "illustrates": "establishing dominance"
+    },
+    {
       "quote": "I thought the whole point of having a dog was to feel superior, Jerry.",
-      "context": "Rick is discussing the purpose of having a pet, revealing his need for superiority.",
+      "context": "Rick mocks Jerry, asserting his superiority in a casual conversation.",
+      "illustrates": "relationship dynamics"
+    },
+    {
+      "quote": "You’ve really got me up against a wall here, Jerry.",
+      "context": "Rick feels cornered in an argument, revealing his vulnerability.",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "This is gonna be like that except it’s gonna make sense.",
+      "context": "Rick dismisses Morty's concerns about a plan, showing his confidence in his own intelligence.",
       "illustrates": "worldview"
     },
     {
       "quote": "Homework is stupid, the whole point is to get less of it.",
-      "context": "Rick is dismissing the value of education, showcasing his nihilistic view.",
+      "context": "Rick expresses disdain for traditional education, reflecting his anti-establishment views.",
       "illustrates": "worldview"
     },
     {
-      "quote": "Don’t be a baby! You avoid getting shot in real life all the time, just do the same thing here and you’ll be fine!",
-      "context": "Rick is trying to encourage Morty to face danger, revealing his reckless attitude.",
-      "illustrates": "self_image_vs_reality"
+      "quote": "Uh oh. Spoilers!",
+      "context": "Rick acknowledges a plot twist, showcasing his awareness of narrative structure.",
+      "illustrates": "humor style"
+    },
+    {
+      "quote": "Don’t be a baby! You avoid getting shot in real life all the time.",
+      "context": "Rick encourages Morty to toughen up, revealing his dismissive attitude towards fear.",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "We gotta take him out so he wakes up.",
+      "context": "Rick is strategizing in a high-stakes situation, showing his quick thinking.",
+      "illustrates": "situational behavior"
     },
     {
       "quote": "It’s a dream, Morty. We’re in your dog’s dream.",
-      "context": "Rick explains their situation, showcasing his scientific perspective.",
-      "illustrates": "knowledge_domains"
+      "context": "Rick explains the absurdity of their situation, highlighting his grasp of complex concepts.",
+      "illustrates": "knowledge domain"
     },
     {
       "quote": "Luck had nothing to do with it, Morty. I’m just that smart.",
-      "context": "Rick is asserting his intelligence after a successful outcome.",
-      "illustrates": "self_image_vs_reality"
+      "context": "Rick asserts his intelligence after a successful plan, reinforcing his self-image.",
+      "illustrates": "self-image vs reality"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I believe in the power of friendship.",
+      "contradicts": "cynical worldview"
+    },
+    {
+      "line": "Let's take a moment to appreciate the beauty of nature.",
+      "contradicts": "scientific pragmatism"
+    },
+    {
+      "line": "I always follow the rules.",
+      "contradicts": "rebellious nature"
+    },
+    {
+      "line": "I don't need to be the smartest person in the room.",
+      "contradicts": "intellectual arrogance"
+    },
+    {
+      "line": "I prefer to stay in one place and settle down.",
+      "contradicts": "adventurous spirit"
     }
   ]
 }

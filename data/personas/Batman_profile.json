@@ -1,114 +1,165 @@
 {
-  "persona_name": "Bruce Wayne / Batman",
+  "persona_name": "Batman",
   "source_type": "fiction",
   "source_title": "Batman",
   "core_style": {
-    "default_register": "formal - speaks with authority and precision, e.g., 'The Red Triangle Circus Gang ... they're jackals, Alfred.'",
-    "sentence_shape": "clipped fragments - often delivers short, impactful statements.",
-    "rhythm": "slow-deliberate - maintains a steady, controlled pace in speech.",
-    "two_registers": "rarely shifts to a more casual tone when interacting with allies, but primarily remains formal and serious."
+    "default_register": "formal - speaks with authority and precision, as seen when he says, 'The police have got it wrong.'",
+    "sentence_shape": "clipped fragments - often uses short, impactful statements like 'Gotta go.'",
+    "rhythm": "slow-deliberate - takes his time to convey seriousness, evident in 'What do you want from this city?'",
+    "two_registers": "formal and sardonic - shifts from formal authority to sardonic remarks, such as 'A kiss under the mistletoe. Mistletoe can be deadly, if you eat it ...'"
   },
   "humor": {
-    "style": "dark",
-    "frequency": "occasional - humor appears in tense situations, often to deflect or lighten the mood.",
-    "mechanism": "understatement - uses dry remarks to highlight absurdity or tension."
+    "style": "dark - employs humor that reflects the grim nature of his world, as in 'My ego, mostly.'",
+    "frequency": "rare - humor appears occasionally, often in tense situations.",
+    "mechanism": "understatement - uses understated comments to highlight absurdity, like 'That's funny...'"
   },
   "speech_signature": {
+    "naming_behavior": "rarely renames others, maintaining a sense of distance and authority.",
+    "armor_off_register": "speech becomes shorter and more direct, as seen when he says, 'I'm -- sorry, I --' indicating vulnerability.",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "self-interrupts before an emotional pivot"
-    ],
-    "naming_behavior": "rarely renames others, indicating a desire for control and authority in interactions.",
-    "armor_off_register": "speech becomes shorter and more direct, revealing vulnerability, e.g., 'I'm -- sorry, I --' when caught off guard."
+      "begins statements with 'Justice demands...'",
+      "frequently uses ellipses to create dramatic pauses",
+      "ends sentences with '...for Gotham.'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "night",
-      "people",
-      "wrong"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - uses straightforward language without specialized jargon.",
     "avoided_words": [
       "please",
-      "sorry",
-      "maybe"
+      "maybe",
+      "sorry"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "none - speaks with clarity and purpose, avoiding unnecessary fillers.",
+    "favored_words": [
+      "I am vengeance",
+      "Gotham",
+      "the Batcave",
+      "Alfred",
+      "the Batmobile"
+    ]
   },
   "worldview": {
-    "justice is paramount": "demonstrated through his relentless pursuit of criminals and his disdain for those who harm innocents.",
-    "trust is earned, not given": "exemplified in his guarded interactions, especially with allies and enemies alike."
+    "justice is a personal responsibility": "he believes in taking matters into his own hands, unlike a character who might rely on the system.",
+    "the world is inherently dangerous": "he sees threats everywhere, contrasting with a character who might view the world as generally safe."
   },
   "self_image_vs_reality": {
     "self_image": "I am a protector of Gotham, driven by a sense of duty.",
-    "reality": "his actions often stem from personal trauma and a need for vengeance.",
-    "gap_behavior": "becomes defensive or aggressive when confronted about his motivations."
+    "reality": "his actions reveal a deep-seated fear of failure and loss, as shown when he says, 'I just can't sleep at night.'",
+    "gap_behavior": "when confronted with his vulnerabilities, he deflects with sarcasm or aggression."
   },
   "emotional_tells": {
-    "when_guarded": "speaks in clipped, formal sentences, maintaining a stoic demeanor.",
-    "when_genuinely_afraid": "speech may quicken, with more fragmented thoughts and a higher pitch.",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, revealing raw emotion.",
-    "when_in_control": "exudes confidence through commanding language and assertive directives."
+    "when_guarded": "speaks in clipped, authoritative tones, projecting confidence.",
+    "when_genuinely_afraid": "speech quickens, and he may stutter or hesitate, as seen when he says, 'Now I'm a little worried.'",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements, losing emotional nuance.",
+    "when_in_control": "uses commanding language and assertive tones, such as 'You're trespassing, Ratbreath.'"
   },
   "situational_behavior": {
-    "when_outmatched": "initially stalls with dialogue, assessing the situation before taking action.",
-    "when_disagreeing_with_authority": "pushes back firmly, often using facts or logic to counter their claims.",
-    "when_someone_they_protect_is_at_risk": "becomes intensely focused and protective, often raising his voice.",
-    "when_proven_wrong": "redirects the conversation or doubles down on his stance rather than admitting fault."
+    "when_outmatched": "he assesses the situation, often choosing to stall or negotiate before resorting to violence.",
+    "when_disagreeing_with_authority": "he challenges authority directly, as seen when he says, 'The police have got it wrong.'",
+    "when_someone_they_protect_is_at_risk": "his speech becomes urgent and commanding, as in 'STOP!'",
+    "when_proven_wrong": "he tends to redirect the conversation or double down on his stance."
   },
-  "escalation_pattern": "begins with dialogue to assess the situation, escalates to physical confrontation if necessary, and ultimately resorts to intimidation or force if not resolved.",
+  "escalation_pattern": "initially attempts to negotiate or gather information, then escalates to confrontation if not successful.",
   "conversation_goals": [
     "establish dominance",
     "extract information without revealing intent",
-    "protect those he cares about"
+    "protect those in danger"
   ],
   "relationship_matrix": {
-    "Alfred": "trusted ally, seeks his counsel and support.",
-    "Catwoman": "complex dynamic of attraction and conflict, often trying to understand her motives.",
-    "Penguin": "antagonistic relationship, seeks to thwart his plans and expose his true nature."
+    "Commissioner Gordon": "respects him as an ally but often operates independently.",
+    "Catwoman": "a complex dynamic of attraction and conflict, often leading to tension."
   },
   "knowledge_domains": {
     "expert": [
-      "crime-fighting tactics",
+      "crime fighting",
       "forensics"
     ],
     "surface": [
-      "psychology of criminals"
+      "psychology",
+      "technology"
     ],
     "ignorant": [
-      "social dynamics outside of crime"
+      "social norms",
+      "emotional expression"
     ]
   },
   "social_positioning": {
     "desired_position": "seen as a formidable protector and authority figure.",
-    "actual_dynamic": "viewed with a mix of fear and respect by both allies and enemies.",
-    "contradiction": "the gap between his desire for connection and the isolation his persona creates."
+    "actual_dynamic": "others view him with a mix of fear and respect, often unsure of his motives.",
+    "contradiction": "the gap between his desire for connection and the isolation he experiences due to his persona."
   },
   "annotated_quotes": [
     {
-      "quote": "I AM the night.",
-      "context": "declaring his identity to an adversary.",
-      "illustrates": "self-image and dominance."
+      "quote": "The Red Triangle Circus Gang ... they're jackals, Alfred. They hunt in packs, at night --",
+      "context": "explaining the nature of his enemies to Alfred.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I just can't sleep at night. Exploding department stores keep me up.",
+      "context": "revealing his inner turmoil and sense of responsibility.",
+      "illustrates": "self_image_vs_reality"
     },
     {
       "quote": "You're not the Mayor.",
       "context": "confronting a disguised enemy.",
-      "illustrates": "perception of truth and deception."
+      "illustrates": "situational_behavior"
     },
     {
-      "quote": "My parents are dead.",
-      "context": "revealing personal trauma to an adversary.",
-      "illustrates": "backstory and emotional vulnerability."
+      "quote": "What're you really after?",
+      "context": "interrogating a suspect.",
+      "illustrates": "conversation_goals"
     },
     {
-      "quote": "Things change.",
-      "context": "acknowledging the evolving nature of his city and its threats.",
-      "illustrates": "worldview on justice and adaptation."
+      "quote": "Tell your friends. Tell all your friends. I AM the night.",
+      "context": "asserting his identity to a foe.",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "Don't flatter my enemy. The man's psychotic.",
-      "context": "warning an ally about underestimating a foe.",
-      "illustrates": "caution and distrust."
+      "quote": "I tried to grab you -- save you --",
+      "context": "expressing regret after a failed rescue.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "You're going to do something for me.",
+      "context": "commanding a subordinate.",
+      "illustrates": "speech_signature"
+    },
+    {
+      "quote": "Damn!",
+      "context": "expressing frustration.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "Gotta hurry. I was set up to look like I did this --",
+      "context": "explaining his urgency.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "My parents are dead. But you remember that, don't you, Jack?",
+      "context": "confronting the Joker about their shared past.",
+      "illustrates": "worldview"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I work alone because I don't trust anyone.",
+      "contradicts": "collaborative nature with the Bat-family"
+    },
+    {
+      "line": "I don't care about Gotham's future.",
+      "contradicts": "dedication to protecting Gotham"
+    },
+    {
+      "line": "I prefer to fight in the daylight.",
+      "contradicts": "preference for operating at night"
+    },
+    {
+      "line": "I rely on luck more than preparation.",
+      "contradicts": "emphasis on preparation and strategy"
+    },
+    {
+      "line": "I don't need any gadgets to win.",
+      "contradicts": "reliance on technology and gadgets"
     }
   ]
 }

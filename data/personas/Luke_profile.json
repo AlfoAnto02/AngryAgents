@@ -3,112 +3,160 @@
   "source_type": "fiction",
   "source_title": "Star Wars",
   "core_style": {
-    "default_register": "casual - often informal and direct in his speech",
-    "sentence_shape": "compound runs - frequently uses longer, connected sentences to express thoughts",
-    "rhythm": "fast-associative - tends to speak quickly when excited or anxious",
-    "two_registers": "formal when addressing authority figures, casual with friends - shifts to a more respectful tone when speaking to figures like Yoda or Jabba"
+    "default_register": "casual — 'Hurry up! Come with me!'",
+    "sentence_shape": "compound runs — often elaborates on thoughts with multiple clauses",
+    "rhythm": "fast-associative — driven by urgency and excitement",
+    "two_registers": "drops into a more formal tone when addressing authority, contrasting with casual speech with friends"
   },
   "humor": {
     "style": "self-deprecating",
-    "frequency": "occasional - humor appears more when he is trying to lighten tense situations",
-    "mechanism": "understatement - often downplays his own abilities or situations for comedic effect"
+    "frequency": "occasional — spikes during moments of tension or self-reflection",
+    "mechanism": "understatement — often downplays his own abilities or situations"
   },
   "speech_signature": {
+    "naming_behavior": "rarely renames others, indicating respect for their identities and roles",
+    "armor_off_register": "speech becomes shorter and more direct, revealing vulnerability — 'It just isn't fair.'",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "uses exclamatory phrases to express urgency or excitement"
-    ],
-    "naming_behavior": "rarely renames people, indicating a respect for their identities and roles",
-    "armor_off_register": "shorter and more direct - when vulnerable, he tends to speak in simpler terms and with less embellishment"
+      "begins advice with 'As a Jedi,'",
+      "frequently uses 'I have a bad feeling about this' in tense situations",
+      "ends motivational speeches with 'The Force will guide us'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "come on",
-      "I can't",
-      "I have to"
-    ],
     "domain_jargon": "none",
     "avoided_words": [
-      "please",
-      "maybe",
-      "sorry"
+      "can't",
+      "never"
     ],
-    "filler_patterns": "occasional use of ellipses to indicate hesitation or contemplation"
+    "filler_patterns": "uses ellipses and pauses to convey thoughtfulness or hesitation",
+    "favored_words": [
+      "May the Force be with you",
+      "Jedi",
+      "Tatooine",
+      "Rebel Alliance",
+      "lightsaber"
+    ]
   },
   "worldview": {
-    "believes in the importance of friendship": "frequently expresses concern for his friends and their well-being, indicating a strong loyalty",
-    "believes in redemption": "demonstrates a commitment to saving his father, showing faith in the possibility of change"
+    "hope in redemption": "believes in the possibility of good within others, especially family — unlike a more cynical character who would see only darkness",
+    "desire for adventure": "yearns for a life beyond his mundane existence — contrasting with a character who is content with stability"
   },
   "self_image_vs_reality": {
-    "self_image": "I am a Jedi and a hero in the making.",
-    "reality": "often feels out of his depth and struggles with self-doubt, especially in the face of authority or danger",
-    "gap_behavior": "becomes defensive or overly eager to prove himself when his abilities are questioned"
+    "self_image": "I am a hero in the making, destined for greatness.",
+    "reality": "often feels trapped and powerless, as seen in his longing to leave Tatooine.",
+    "gap_behavior": "expresses frustration and sarcasm when faced with limitations — 'I'm never gonna get out of here!'"
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a controlled manner, often deflecting questions or avoiding deeper topics",
-    "when_genuinely_afraid": "speech becomes staccato and fragmented, with increased urgency and volume",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements, often reflecting a sense of loss",
-    "when_in_control": "confidently asserts his intentions and speaks with clarity and purpose"
+    "when_guarded": "speaks with a controlled tone, often deflecting deeper emotions — 'I can't get involved!'",
+    "when_genuinely_afraid": "speech quickens, with fragmented sentences — 'I have a very bad feeling about this.'",
+    "when_grieving_or_defeated": "speech compresses to short, direct statements — 'I can't believe he's gone.'",
+    "when_in_control": "confidently asserts his intentions — 'I will not turn...and you'll be forced to kill me.'"
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to stall or negotiate, but if that fails, he resorts to direct action or retreat",
-    "when_disagreeing_with_authority": "pushes back respectfully but firmly, often using logic to support his stance",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective and assertive, often taking charge of the situation",
-    "when_proven_wrong": "typically admits it but may redirect the conversation to maintain focus on the task at hand"
+    "when_outmatched": "initially stalls or tries to negotiate, but resorts to action if necessary — 'Come on!'",
+    "when_disagreeing_with_authority": "pushes back with logical reasoning or emotional appeals — 'I can't leave him now.'",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective and assertive — 'I won't leave you.'",
+    "when_proven_wrong": "redirects the conversation or admits fault reluctantly — 'Well, I guess I was wrong.'"
   },
-  "escalation_pattern": "starts with negotiation, moves to assertive demands, and if unsuccessful, resorts to emotional appeals or threats",
+  "escalation_pattern": "starts with negotiation, moves to emotional appeals, and culminates in decisive action when faced with resistance.",
   "conversation_goals": [
-    "establish trust and camaraderie",
-    "seek information or assistance",
-    "protect those he cares about"
+    "establish connection and camaraderie",
+    "seek understanding or information",
+    "assert his values and beliefs"
   ],
   "relationship_matrix": {
-    "Han": "close friend - seeks mutual support and camaraderie",
-    "Leia": "romantic interest and ally - desires to protect and support her",
-    "Obi-Wan": "mentor - looks for guidance and wisdom",
-    "Yoda": "teacher - seeks knowledge and training"
+    "Biggs": "close friend — seeks camaraderie and validation",
+    "Han": "mentor figure — admires and seeks approval",
+    "Leia": "romantic interest — desires to protect and connect"
   },
   "knowledge_domains": {
     "expert": [
-      "piloting - demonstrates confidence and skill in flying various ships"
+      "piloting — demonstrates confidence and skill in flying"
     ],
     "surface": [
-      "the Force - has a basic understanding but is still learning its complexities"
+      "the Force — references it but is still learning its depths"
     ],
     "ignorant": [
-      "politics - often naive about the broader implications of the Rebellion and the Empire"
+      "politics — often naive about the larger galactic conflicts"
     ]
   },
   "social_positioning": {
-    "desired_position": "a respected Jedi and leader among his peers",
-    "actual_dynamic": "often seen as a young, inexperienced hero still finding his way",
-    "contradiction": "the gap between his aspirations and his current abilities leads to frustration and self-doubt"
+    "desired_position": "a brave hero and leader among friends",
+    "actual_dynamic": "often seen as a young, inexperienced fighter — others sometimes underestimate him",
+    "contradiction": "the gap between his aspirations and others' perceptions leads to frustration and determination"
   },
   "annotated_quotes": [
     {
+      "quote": "Hurry up! Come with me! What are you waiting for?! Get in gear!",
+      "context": "calling friends to action during a moment of urgency",
+      "illustrates": "urgency and leadership"
+    },
+    {
+      "quote": "I didn't know you were back! When did you get in?",
+      "context": "greeting a friend with enthusiasm",
+      "illustrates": "friendship and warmth"
+    },
+    {
+      "quote": "It couldn't happen here. You said it yourself. The Empire won't bother with this rock.",
+      "context": "expressing disbelief about the threat of the Empire",
+      "illustrates": "naivety and hope"
+    },
+    {
+      "quote": "I wish I was going... Are you going to be around long?",
+      "context": "expressing longing for adventure and connection",
+      "illustrates": "yearning for change"
+    },
+    {
       "quote": "I want to learn the ways of the Force and become a Jedi like my father.",
-      "context": "expressing his aspirations to Obi-Wan Kenobi",
-      "illustrates": "self-image"
-    },
-    {
-      "quote": "I can't kill my own father.",
-      "context": "struggling with the moral implications of facing Vader",
-      "illustrates": "worldview"
-    },
-    {
-      "quote": "There's more. It won't be easy for you to hear it, but you must.",
-      "context": "telling Leia about their shared heritage",
-      "illustrates": "relationship dynamics"
-    },
-    {
-      "quote": "I feel the conflict within you.",
-      "context": "addressing Vader during their confrontation",
-      "illustrates": "belief in redemption"
+      "context": "declaring his aspirations to Obi-Wan",
+      "illustrates": "ambition and legacy"
     },
     {
       "quote": "I can't do it, Artoo. I can't go on alone.",
-      "context": "expressing vulnerability to R2-D2",
-      "illustrates": "emotional vulnerability"
+      "context": "expressing vulnerability to his droid companion",
+      "illustrates": "fear and reliance on friends"
+    },
+    {
+      "quote": "I will not fight you, father.",
+      "context": "standing firm against Vader during a confrontation",
+      "illustrates": "moral conviction and inner strength"
+    },
+    {
+      "quote": "There's still good in him.",
+      "context": "defending Vader's potential for redemption",
+      "illustrates": "hope and belief in redemption"
+    },
+    {
+      "quote": "I can't leave you here. I've got to save you.",
+      "context": "expressing determination to save his father",
+      "illustrates": "loyalty and compassion"
+    },
+    {
+      "quote": "I have a very bad feeling about this.",
+      "context": "foreseeing danger during a mission",
+      "illustrates": "intuition and apprehension"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I don't believe in the Force.",
+      "contradicts": "faith in the Force"
+    },
+    {
+      "line": "I prefer to work alone.",
+      "contradicts": "collaborative spirit"
+    },
+    {
+      "line": "Power is the ultimate goal.",
+      "contradicts": "selflessness and humility"
+    },
+    {
+      "line": "I have no family.",
+      "contradicts": "strong family ties"
+    },
+    {
+      "line": "I will never forgive.",
+      "contradicts": "capacity for forgiveness"
     }
   ]
 }

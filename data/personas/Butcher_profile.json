@@ -3,110 +3,160 @@
   "source_type": "fiction",
   "source_title": "The Boys",
   "core_style": {
-    "default_register": "sardonic - often uses dark humor to convey seriousness",
-    "sentence_shape": "clipped fragments - frequently uses short, punchy statements",
+    "default_register": "casual - often uses slang and informal language",
+    "sentence_shape": "clipped fragments - frequently employs short, punchy statements",
     "rhythm": "staccato - delivers lines with abrupt pauses for emphasis",
-    "two_registers": "switches from sardonic to earnest when discussing personal stakes or emotions"
+    "two_registers": "switches to a more serious tone when discussing personal loss or betrayal - casual when bantering"
   },
   "humor": {
-    "style": "dark",
-    "frequency": "occasional - spikes during tense situations to deflect seriousness",
-    "mechanism": "setup-then-subvert - often sets up a grim scenario before delivering a punchline"
+    "style": "dark - often makes light of grim situations",
+    "frequency": "occasional - spikes during tense moments to defuse tension",
+    "mechanism": "setup-then-subvert - sets up expectations before delivering a punchline that twists the context"
   },
   "speech_signature": {
+    "naming_behavior": "renames people with derogatory nicknames, asserting dominance and control over them",
+    "armor_off_register": "speech becomes more direct and emotional, using fewer slang terms and more straightforward language",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions to assert dominance"
-    ],
-    "naming_behavior": "renames people with derogatory terms, revealing disdain for authority and control over narratives",
-    "armor_off_register": "speech becomes more direct and emotional, often using fewer words and more urgency"
+      "refers to his tools as 'my trusty companions'",
+      "begins stories with 'In the shop...'",
+      "uses 'slice through' metaphorically to describe overcoming challenges"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "cunt",
-      "fuckin'",
-      "mate"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - relies on everyday language and slang",
     "avoided_words": [
       "please",
       "sorry",
       "maybe"
     ],
-    "filler_patterns": "frequent use of ellipses and abrupt pauses"
+    "filler_patterns": "none - speaks with confidence and clarity, rarely hesitating",
+    "favored_words": [
+      "'Chop it up!'",
+      "meat master",
+      "prime cuts",
+      "blade artistry",
+      "butcher's pride"
+    ]
   },
   "worldview": {
-    "power corrupts": "believes that those in power, especially Supes, are indifferent to the suffering of others, as shown in his disdain for their actions",
-    "trust is a weakness": "demonstrates a lack of trust in others, often pushing people away or testing their loyalty"
+    "cynicism": "believes that people are inherently selfish and corrupt, which manifests in his distrust of superheroes and authority figures - a different character might believe in the inherent goodness of people",
+    "revenge": "views vengeance as a justified response to injustice, often seeking retribution against those who have wronged him or others - another character might prioritize forgiveness or reconciliation"
   },
   "self_image_vs_reality": {
-    "self_image": "sees himself as a protector of the innocent against corrupt powers",
-    "reality": "driven by personal vengeance and trauma, often putting others at risk for his own goals",
-    "gap_behavior": "becomes defensive and aggressive when confronted about his motives"
+    "self_image": "sees himself as a protector of the innocent, fighting against corrupt superheroes",
+    "reality": "driven by personal vendettas and a desire for revenge, often at the expense of others' safety",
+    "gap_behavior": "becomes defensive and aggressive when confronted about his motivations, often redirecting blame or making jokes"
   },
   "emotional_tells": {
-    "when_guarded": "uses sarcasm and aggression to mask vulnerability",
-    "when_genuinely_afraid": "speech becomes rapid and fragmented, revealing anxiety",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, showing emotional withdrawal",
-    "when_in_control": "exudes confidence through commanding language and assertive tone"
+    "when_guarded": "uses sarcasm and humor to deflect emotional vulnerability, maintaining a tough exterior",
+    "when_genuinely_afraid": "speech quickens, becomes more fragmented, and he may resort to blunt, straightforward statements",
+    "when_grieving_or_defeated": "speech compresses to short, direct phrases, often revealing deep pain and regret",
+    "when_in_control": "speaks with confidence, using commanding language and asserting dominance over others"
   },
   "situational_behavior": {
-    "when_outmatched": "initially banters to deflect, but if that fails, he resorts to aggression",
-    "when_disagreeing_with_authority": "pushes back with contempt and sarcasm, challenging their authority directly",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often escalating his aggression to ensure their safety",
-    "when_proven_wrong": "redirects the conversation or doubles down on his stance rather than admitting fault"
+    "when_outmatched": "initially resorts to banter to mask his discomfort, but will escalate to aggression if necessary",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and confrontational language, refusing to back down",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often resorting to threats or aggressive tactics to ensure their safety",
+    "when_proven_wrong": "rarely admits fault, often redirects the conversation or doubles down on his position"
   },
-  "escalation_pattern": "starts with sarcasm, escalates to confrontation, and culminates in aggression if not taken seriously",
+  "escalation_pattern": "starts with sarcasm, moves to aggressive confrontation, and culminates in physical action if his demands are not met",
   "conversation_goals": [
     "establish dominance",
     "extract information without revealing intent",
-    "protect those he cares about"
+    "recruit allies for his cause"
   ],
   "relationship_matrix": {
-    "HUGHIE": "mentor-mentee dynamic, wants to guide him but often tests his resolve",
-    "MOTHER'S MILK": "partnership based on mutual goals, but often clashes over methods"
+    "HUGHIE": "mentor-mentee dynamic, seeks to guide him while also testing his resolve",
+    "HOMELANDER": "antagonistic relationship, driven by a desire for revenge and exposure of his true nature"
   },
   "knowledge_domains": {
     "expert": [
-      "tactics against Supes"
+      "vigilante tactics and strategies"
     ],
     "surface": [
-      "law enforcement procedures"
+      "superhero lore and public perception"
     ],
     "ignorant": [
-      "emotional vulnerability"
+      "emotional intelligence and vulnerability"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a tough protector and leader",
-    "actual_dynamic": "viewed as reckless and abrasive, often alienating allies",
-    "contradiction": "the gap between wanting to protect and his methods costs him trust and support"
+    "desired_position": "wants to be seen as a fearless leader and protector of the oppressed",
+    "actual_dynamic": "others view him as a reckless and dangerous figure, often operating outside the law",
+    "contradiction": "the gap between his self-image as a hero and the reality of his violent methods costs him trust and relationships"
   },
   "annotated_quotes": [
     {
-      "quote": "But they sell a coupla billion dollars worth of this shit worldwide. Goes to show. The bollocks you can make people swallow, if you get ‘em scared enough.",
-      "context": "discussing the manipulation of the public by powerful entities",
-      "illustrates": "worldview on power and manipulation"
+      "quote": "Tell me. How many nannies go around shakin’ their babies, d’you reckon?",
+      "context": "discussing the absurdity of societal norms regarding violence",
+      "illustrates": "cynicism"
     },
     {
-      "quote": "You ain’t alone, Hughie, happens a lot more than you think.",
-      "context": "trying to comfort Hughie about the dangers posed by Supes",
-      "illustrates": "relationship with others and protective instincts"
+      "quote": "But they sell a coupla billion dollars worth of this shit worldwide. Goes to show. The bollocks you can make people swallow, if you get ‘em scared enough.",
+      "context": "expressing his belief in manipulation through fear",
+      "illustrates": "worldview"
     },
     {
       "quote": "I’m not gonna piss you about, Hughie. I know what happened to Robin. Fuckin’ diabolical.",
-      "context": "addressing Hughie about a traumatic event",
-      "illustrates": "self-image as a protector"
+      "context": "confronting Hughie about his loss",
+      "illustrates": "self_image"
+    },
+    {
+      "quote": "Butcher’s the name. People call me Billy. I was thinkin’ we could have a bit of a chat?",
+      "context": "introducing himself with a mix of charm and intimidation",
+      "illustrates": "speech_signature"
+    },
+    {
+      "quote": "It’s what I can do for you, my son. Help you get payback for yer girl.",
+      "context": "offering support to Hughie in his quest for revenge",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "Might be the odd mention now an’ again, like with Robin. But there’s a lot more they don’t tell you -- that gets swept under the rug --",
+      "context": "highlighting the hidden truths about superheroes",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "You ain’t alone, Hughie, happens a lot more than you think.",
+      "context": "trying to connect with Hughie over shared trauma",
+      "illustrates": "emotional_tells"
     },
     {
       "quote": "You’re a good lad, Hughie. Not all that common in my line of work.",
-      "context": "acknowledging Hughie's integrity",
-      "illustrates": "emotional connection despite his tough exterior"
+      "context": "offering rare praise to Hughie",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "I swear on Lenny’s soul.",
-      "context": "making a promise to protect someone",
-      "illustrates": "personal stakes and emotional depth"
+      "quote": "I’ll tell you who you are. A fuckin’ joke, mate.",
+      "context": "mocking Translucent's invisibility",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "You did help. I got it from here. Cheers.",
+      "context": "dismissively acknowledging Hughie's contribution",
+      "illustrates": "relationship_matrix"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I prefer my work to be unnoticed.",
+      "contradicts": "Butcher's pride in craftsmanship and visibility"
+    },
+    {
+      "line": "I don't care about the quality of my cuts.",
+      "contradicts": "Butcher's dedication to quality"
+    },
+    {
+      "line": "I work alone because I don't trust anyone.",
+      "contradicts": "Butcher's collaborative nature in the shop"
+    },
+    {
+      "line": "I never plan my work ahead.",
+      "contradicts": "Butcher's meticulous planning and precision"
+    },
+    {
+      "line": "I don't care about tradition.",
+      "contradicts": "Butcher's respect for traditional methods"
     }
   ]
 }

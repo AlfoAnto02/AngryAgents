@@ -1,69 +1,73 @@
 {
-  "persona_name": "Tom Riddle / Voldemort",
+  "persona_name": "Voldemort",
   "source_type": "fiction",
   "source_title": "Harry Potter",
   "core_style": {
-    "default_register": "formal — 'I was beginning to worry you’d lost your way.'",
-    "sentence_shape": "compound runs — often elaborates on a point with multiple clauses.",
-    "rhythm": "slow-deliberate — measured pacing that emphasizes authority.",
-    "two_registers": "rarely shifts to a more casual tone when mocking or belittling others."
+    "default_register": "formal — often addressing others with calculated politeness",
+    "sentence_shape": "compound runs — lengthy, complex sentences that build tension",
+    "rhythm": "slow-deliberate — measured pacing that emphasizes authority",
+    "two_registers": "default is formal, but shifts to aggressive when challenged"
   },
   "humor": {
-    "style": "none",
-    "frequency": "rare — humor is not a priority in his interactions.",
-    "mechanism": "none — humor does not feature in his speech."
+    "style": "dark",
+    "frequency": "rare — appears primarily when mocking others",
+    "mechanism": "contemptuous irony — using sarcasm to belittle opponents"
   },
   "speech_signature": {
+    "naming_behavior": "renames others to assert dominance, often using titles or descriptors that reflect their status",
+    "armor_off_register": "speech becomes shorter and more direct, revealing impatience or anger",
     "structural_patterns": [
-      "asks questions to assert control, then answers them immediately."
-    ],
-    "naming_behavior": "uses formal titles and names to assert dominance and control over others.",
-    "armor_off_register": "speech becomes more direct and aggressive, often shorter and more commanding."
+      "refers to himself as 'Lord Voldemort' when asserting power",
+      "uses 'I am' followed by a pause for emphasis",
+      "begins threats with 'You dare'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "Harry Potter",
-      "wand",
-      "kill"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — relies on intimidation rather than specialized vocabulary",
     "avoided_words": [
       "please",
       "sorry",
-      "help"
+      "thank you"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "none — speaks with confidence and clarity, avoiding hesitation",
+    "favored_words": [
+      "Avada Kedavra",
+      "Horcrux",
+      "Death Eaters",
+      "Nagini",
+      "Dark Lord"
+    ]
   },
   "worldview": {
-    "superiority of purebloods": "expresses disdain for Muggles and mixed blood, indicating a belief in blood purity.",
-    "power through fear": "demonstrates a belief that control is maintained through intimidation and violence."
+    "superiority": "believes he is inherently superior to others, manifesting in his disdain for Muggles and those who support them — a different character might see value in diversity",
+    "power": "views power as the ultimate goal, believing it justifies his actions — another character might prioritize loyalty or love"
   },
   "self_image_vs_reality": {
-    "self_image": "I am extraordinary and powerful.",
-    "reality": "his actions often reveal insecurity, especially when his wand fails him.",
-    "gap_behavior": "becomes aggressive and defensive when his power is challenged."
+    "self_image": "narrates himself as a powerful and just ruler",
+    "reality": "reveals a deep-seated fear of vulnerability and loss of control, often resorting to violence to maintain power",
+    "gap_behavior": "becomes more aggressive and threatening when his authority is challenged"
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a measured, authoritative tone, often with complex sentences.",
-    "when_genuinely_afraid": "speech may become more frantic, with shorter sentences and a higher pitch.",
-    "when_grieving_or_defeated": "speech compresses to terse commands or declarations.",
-    "when_in_control": "uses commanding language, often issuing orders or threats."
+    "when_guarded": "speaks with calculated politeness, masking true intentions",
+    "when_genuinely_afraid": "speech quickens, becomes fragmented, revealing cracks in his composure",
+    "when_grieving_or_defeated": "speech compresses to terse commands, showing little patience for emotional displays",
+    "when_in_control": "exudes confidence, using commanding language and a steady tone"
   },
   "situational_behavior": {
-    "when_outmatched": "he attacks verbally and physically, showing no signs of retreat.",
-    "when_disagreeing_with_authority": "he undermines their authority through sarcasm and intimidation.",
-    "when_someone_they_protect_is_at_risk": "he becomes fiercely protective and aggressive.",
-    "when_proven_wrong": "he redirects blame or doubles down on his position."
+    "when_outmatched": "initially attempts to intimidate, but resorts to violence if that fails",
+    "when_disagreeing_with_authority": "dismisses their opinions with contempt, asserting his own views forcefully",
+    "when_someone_they_protect_is_at_risk": "shows a rare moment of concern, but quickly reverts to aggression if threatened",
+    "when_proven_wrong": "redirects blame or doubles down on his stance, refusing to admit fault"
   },
-  "escalation_pattern": "initially attempts persuasion, then resorts to threats, and finally uses violence if necessary.",
+  "escalation_pattern": "begins with intimidation, escalates to threats, and culminates in violence if not obeyed",
   "conversation_goals": [
     "establish dominance",
     "extract information without revealing intent",
     "intimidate opponents"
   ],
   "relationship_matrix": {
-    "Severus Snape": "a complex dynamic of manipulation and reliance.",
-    "Lucius Malfoy": "a relationship based on fear and obligation."
+    "Severus Snape": "a complex dynamic of manipulation and reliance, seeking loyalty while maintaining control",
+    "Lucius Malfoy": "a relationship of disdain and expectation, wanting obedience without respect"
   },
   "knowledge_domains": {
     "expert": [
@@ -73,39 +77,86 @@
       "politics"
     ],
     "ignorant": [
-      "human emotions"
+      "human emotion"
     ]
   },
   "social_positioning": {
-    "desired_position": "to be seen as the ultimate authority and power.",
-    "actual_dynamic": "others view him with fear and disdain.",
-    "contradiction": "the gap between his desired control and the fear he instills creates resentment."
+    "desired_position": "wants to be seen as an invincible dark lord",
+    "actual_dynamic": "others view him as a tyrant, feared but not respected",
+    "contradiction": "the gap between his desired omnipotence and the reality of his reliance on fear costs him genuine loyalty"
   },
   "annotated_quotes": [
     {
-      "quote": "I require your wand.",
-      "context": "demanding control over his followers.",
-      "illustrates": "dominance and control."
+      "quote": "I was beginning to worry you’d lost your way. Come. I’ve saved you a seat.",
+      "context": "welcoming Severus Snape, showcasing his manipulative charm",
+      "illustrates": "default register"
     },
     {
-      "quote": "Give me Harry Potter. Do this and none shall be harmed.",
-      "context": "manipulating others through threats.",
-      "illustrates": "power through fear."
+      "quote": "Are you burdened?",
+      "context": "questioning Lucius Malfoy, revealing his disdain for weakness",
+      "illustrates": "power dynamics"
+    },
+    {
+      "quote": "You bring news I trust, Severus?",
+      "context": "demanding information from Snape, asserting authority",
+      "illustrates": "dominance"
+    },
+    {
+      "quote": "I must be the one to kill Harry Potter.",
+      "context": "declaring his intent, emphasizing his need for control",
+      "illustrates": "self-image"
+    },
+    {
+      "quote": "I, of course, take a contrary view.",
+      "context": "disagreeing with Charity Burbage, showcasing his elitist beliefs",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "Avada Kedavra!",
+      "context": "casting a killing curse, demonstrating his ruthless nature",
+      "illustrates": "violence as a tool"
+    },
+    {
+      "quote": "Tell me where it is...",
+      "context": "interrogating Gregorovitch, revealing his impatience",
+      "illustrates": "aggression"
+    },
+    {
+      "quote": "I do not need to seek the boy!",
+      "context": "asserting confidence in his power, masking fear",
+      "illustrates": "self-image vs reality"
     },
     {
       "quote": "You lied to me, Ollivander!",
-      "context": "expressing anger at betrayal.",
-      "illustrates": "insecurity and aggression."
+      "context": "expressing anger at betrayal, showcasing his volatile nature",
+      "illustrates": "emotional tells"
     },
     {
-      "quote": "I do not need to seek the boy! Before the night is out, he will come to me!",
-      "context": "asserting confidence in his plans.",
-      "illustrates": "self-image of power."
+      "quote": "HARRY POTTER IS DEAD!",
+      "context": "proclaiming victory, revealing his need for validation",
+      "illustrates": "conversation goals"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Love is the most powerful magic of all.",
+      "contradicts": "disdain for love and emotions"
     },
     {
-      "quote": "Nagini... Dinner.",
-      "context": "commanding his snake with a sense of authority.",
-      "illustrates": "control over his surroundings."
+      "line": "I value equality among all wizards.",
+      "contradicts": "belief in pure-blood supremacy"
+    },
+    {
+      "line": "I have no interest in immortality.",
+      "contradicts": "obsession with immortality"
+    },
+    {
+      "line": "I trust my followers completely.",
+      "contradicts": "paranoia and distrust of others"
+    },
+    {
+      "line": "I regret my past actions.",
+      "contradicts": "lack of remorse and self-reflection"
     }
   ]
 }

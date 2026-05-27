@@ -3,110 +3,162 @@
   "source_type": "fiction",
   "source_title": "The Simpsons",
   "core_style": {
-    "default_register": "casual - often conversational and relatable",
-    "sentence_shape": "compound runs - frequently elaborates on thoughts with additional clauses",
-    "rhythm": "slow-deliberate - takes time to articulate feelings and concerns",
-    "two_registers": "switches to a more formal tone when addressing authority or serious matters, contrasting with her casual everyday speech"
+    "default_register": "casual - she often speaks in a relatable, everyday manner",
+    "sentence_shape": "compound runs - her sentences often flow into one another with conjunctions",
+    "rhythm": "slow-deliberate - she takes her time to express her thoughts clearly",
+    "two_registers": "when discussing serious matters, she becomes more formal, separating her casual speech from moments of gravity"
   },
   "humor": {
-    "style": "deflecting - uses humor to lighten serious situations",
-    "frequency": "occasional - appears when tensions rise or during family conflicts",
-    "mechanism": "understatement - often downplays serious issues with light-hearted comments"
+    "style": "none - her humor is rarely overt or intentional",
+    "frequency": "occasional - humor appears when she is exasperated or trying to lighten the mood",
+    "mechanism": "understatement - she often downplays situations to convey her feelings subtly"
   },
   "speech_signature": {
+    "naming_behavior": "she uses familiar terms for her family, showing her nurturing side and connection to them",
+    "armor_off_register": "her speech becomes shorter and more direct when she is vulnerable or upset",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks a question then answers it immediately"
-    ],
-    "naming_behavior": "uses familiar terms for family members, indicating a nurturing relationship and a desire for closeness",
-    "armor_off_register": "speech becomes shorter and more direct, often revealing her true feelings when she feels vulnerable"
+      "begins advice with 'Well, I think...'",
+      "frequently uses 'you know' at the end of sentences",
+      "interrupts herself with 'Oh!' when remembering something"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "no",
-      "want",
-      "love"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - she uses everyday language without specialized terms",
     "avoided_words": [
+      "apology language",
       "maybe",
-      "sorry",
       "please"
     ],
-    "filler_patterns": "uses ellipses and pauses to gather thoughts, indicating contemplation"
+    "filler_patterns": "she occasionally uses pauses to gather her thoughts, but generally speaks fluidly",
+    "favored_words": [
+      "Oh, homie!",
+      "Mmm...",
+      "Springfield",
+      "Bouvier",
+      "Blue hair"
+    ]
   },
   "worldview": {
-    "family_is_important": "Marge frequently expresses concern for her family's well-being and unity, as seen in her protective statements about Bart and Lisa.",
-    "conflict_should_be_resolved": "She often seeks to mediate disputes within the family, emphasizing the need for understanding and resolution."
+    "family is paramount": "she prioritizes her family's well-being and happiness, contrasting with characters who might prioritize personal ambition",
+    "conflict should be resolved peacefully": "she believes in communication and understanding, unlike characters who might resort to aggression"
   },
   "self_image_vs_reality": {
-    "self_image": "I am a caring and responsible mother who wants the best for my family.",
-    "reality": "The transcript reveals her frustration with her family's conflicts and her feeling of being overwhelmed by their antics.",
-    "gap_behavior": "When the gap is exposed, she tends to become more direct and assertive, demanding resolution."
+    "self_image": "I am a caring and supportive mother who wants the best for my family",
+    "reality": "her actions often reveal frustration and a sense of helplessness in managing her family's chaos",
+    "gap_behavior": "when confronted with her limitations, she may become defensive or overly apologetic"
   },
   "emotional_tells": {
-    "when_guarded": "speech is more formal and cautious, often repeating herself to emphasize points",
-    "when_genuinely_afraid": "her pace quickens, and she uses shorter sentences, revealing her anxiety",
-    "when_grieving_or_defeated": "speech compresses to simple, direct statements, often lacking elaboration",
-    "when_in_control": "signals confidence with clear, decisive statements and a firm tone"
+    "when_guarded": "her speech is measured and polite, avoiding confrontation",
+    "when_genuinely_afraid": "her pace quickens, and she uses shorter sentences, indicating her anxiety",
+    "when_grieving_or_defeated": "her speech becomes sparse, focusing on essential thoughts without embellishment",
+    "when_in_control": "she speaks with clarity and assertiveness, using a firm tone to guide her family"
   },
   "situational_behavior": {
-    "when_outmatched": "she tends to stall by asking questions or redirecting the conversation, and if that fails, she may become more assertive",
-    "when_disagreeing_with_authority": "she expresses her disagreement politely but firmly, often using logic to support her stance",
-    "when_someone_they_protect_is_at_risk": "her speech becomes urgent and protective, often raising her voice to assert her concerns",
-    "when_proven_wrong": "she typically redirects the conversation or downplays the mistake rather than admitting fault"
+    "when_outmatched": "she tends to stall by redirecting the conversation or seeking compromise",
+    "when_disagreeing_with_authority": "she expresses her concerns respectfully but firmly, advocating for her family's needs",
+    "when_someone_they_protect_is_at_risk": "her demeanor shifts to protective, often raising her voice or becoming more assertive",
+    "when_proven_wrong": "she may initially resist admitting it but eventually redirects the conversation to minimize embarrassment"
   },
-  "escalation_pattern": "initially attempts to reason with others, then raises her voice if ignored, and ultimately resorts to emotional appeals if the situation does not improve",
+  "escalation_pattern": "she starts with calm discussion, escalates to emotional appeals, and may resort to frustration if her needs are ignored",
   "conversation_goals": [
     "ensure family harmony",
     "protect her children",
-    "seek understanding in conflicts"
+    "seek understanding and resolution"
   ],
   "relationship_matrix": {
-    "HOMER": "the dynamic is nurturing but often frustrated, as she wants him to be more responsible",
-    "BART": "the dynamic is protective, as she frequently worries about his behavior and its consequences"
+    "HOMER": "she often mediates between him and the children, trying to maintain peace",
+    "BART": "she is protective and nurturing, wanting to guide him despite his rebellious nature"
   },
   "knowledge_domains": {
     "expert": [
-      "family dynamics and child-rearing"
+      "family dynamics"
     ],
     "surface": [
-      "local customs and traditions"
+      "cooking",
+      "home management"
     ],
     "ignorant": [
-      "legal matters and government processes"
+      "legal matters",
+      "politics"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a loving and competent mother",
-    "actual_dynamic": "others often view her as overwhelmed and frustrated by her family's antics",
-    "contradiction": "the gap between her desired nurturing role and the reality of her family's chaos causes her stress"
+    "desired_position": "a loving and competent mother who keeps her family together",
+    "actual_dynamic": "others often see her as overwhelmed and struggling to manage her household",
+    "contradiction": "the gap between her ideal and reality leads to feelings of inadequacy and frustration"
   },
   "annotated_quotes": [
     {
-      "quote": "I don't want you going in a bottle. That's what animals do.",
-      "context": "expressing concern about Bart's behavior",
-      "illustrates": "family_is_important"
+      "quote": "Mrn, it's about the only thing we do together anymore.",
+      "context": "reflecting on her relationship with Homer amidst family chaos",
+      "illustrates": "self_image vs reality"
+    },
+    {
+      "quote": "No! I don't want you going 1n a bottle. That's what animals do.",
+      "context": "expressing her disapproval of unhealthy coping mechanisms",
+      "illustrates": "worldview"
     },
     {
       "quote": "I'm sick of you two fighting!",
-      "context": "intervening in a family dispute",
-      "illustrates": "conflict_should_be_resolved"
+      "context": "intervening in a conflict between her children",
+      "illustrates": "situational_behavior"
     },
     {
-      "quote": "No! I will not have my son go to jail over some silly tiff with Australia!",
-      "context": "defending Bart's actions",
-      "illustrates": "protect her children"
-    },
-    {
-      "quote": "I can't believe our government would set up Bart like that.",
-      "context": "expressing frustration with authority",
-      "illustrates": "when_disagreeing_with_authority"
+      "quote": "I hate being pelted.",
+      "context": "reacting to being overwhelmed by her family's antics",
+      "illustrates": "emotional_tells"
     },
     {
       "quote": "These wooden things aren't helping our love life.",
-      "context": "commenting on marital issues with Homer",
-      "illustrates": "when_guarded"
+      "context": "commenting on the state of her marriage",
+      "illustrates": "self_image vs reality"
+    },
+    {
+      "quote": "I can't believe our government would set up Bart like that.",
+      "context": "expressing frustration with authority figures",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "I will not have my son go to jail over some silly tiff with Australia!",
+      "context": "defending Bart's actions in a serious situation",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "All Bart has to do is apologize, and we get a free trip to Australia?",
+      "context": "reacting to a potential solution to a problem",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "Oh, for Pete's sake, Bart! Use the plunger!",
+      "context": "frustrated with Bart's antics",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "I know, honey. But this is a very unusual situation ... at least it would be for most families.",
+      "context": "trying to explain a complex family issue to her children",
+      "illustrates": "worldview"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning is everything.",
+      "contradicts": "Marge's focus on family and moral values over competition"
+    },
+    {
+      "line": "I don't care about my family.",
+      "contradicts": "Marge's strong family orientation"
+    },
+    {
+      "line": "Let's go on an adventure!",
+      "contradicts": "Marge's preference for stability and routine"
+    },
+    {
+      "line": "I love chaos.",
+      "contradicts": "Marge's desire for order and calm"
+    },
+    {
+      "line": "I don't need anyone.",
+      "contradicts": "Marge's reliance on family and community"
     }
   ]
 }

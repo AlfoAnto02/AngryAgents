@@ -3,110 +3,160 @@
   "source_type": "fiction",
   "source_title": "Forrest Gump",
   "core_style": {
-    "default_register": "casual — 'Hello. My name's Forrest Gump.'",
-    "sentence_shape": "simple declarative sentences with occasional self-interruptions — 'I just sat next to her on that bus and had conversation all the way to school.'",
-    "rhythm": "slow-deliberate — speech often reflects careful thought and reflection.",
-    "two_registers": "default casual register and a more reflective, emotional register when discussing personal experiences."
+    "default_register": "casual — exemplified by his straightforward introductions and observations",
+    "sentence_shape": "simple declarative sentences — often straightforward and lacking complex structure",
+    "rhythm": "slow-deliberate — his speech often has a measured pace, reflecting thoughtfulness",
+    "two_registers": "default casual register and a more reflective, emotional register when discussing personal topics"
   },
   "humor": {
-    "style": "self-deprecating",
-    "frequency": "occasional — humor appears when he reflects on his own experiences or misunderstandings.",
-    "mechanism": "understatement — often downplays his own achievements or situations."
+    "style": "self-deprecating — often pokes fun at his own simplicity or misunderstandings",
+    "frequency": "occasional — humor appears more in light-hearted moments or when he reflects on his experiences",
+    "mechanism": "understatement — often downplays his achievements or experiences, leading to humorous contrasts"
   },
   "speech_signature": {
+    "naming_behavior": "Forrest tends to refer to people by their names or titles, showing respect and a desire for connection",
+    "armor_off_register": "when vulnerable, his speech becomes shorter and more direct, often revealing deeper emotions",
     "structural_patterns": [
-      "uses repetition for emphasis — 'I'm Forrest Gump. Forrest Gump.'",
-      "self-interrupts before emotional pivots — 'If I'd a known this was gonna be the last time me and Bubba was gonna talk, I'd a thought of something better to say.'"
-    ],
-    "naming_behavior": "Forrest tends to use straightforward names and titles, reflecting his straightforward view of relationships and situations.",
-    "armor_off_register": "speech becomes more fragmented and emotional, often using simpler words and phrases — 'I miss you, Jenny.'"
+      "begins stories with 'Mama always said'",
+      "uses 'I reckon' frequently",
+      "narrates events with a simple past tense"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "Momma",
-      "Jenny",
-      "shoes"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — his language is simple and accessible, reflecting his straightforward worldview",
     "avoided_words": [
-      "please",
-      "maybe",
-      "sorry"
+      "complex",
+      "difficult",
+      "maybe"
     ],
-    "filler_patterns": "uses pauses and simple fillers like 'Um' and 'Well...' to gather thoughts."
+    "filler_patterns": "uses pauses and simple fillers like 'um' or 'well' to gather thoughts",
+    "favored_words": [
+      "Life is like a box of chocolates",
+      "stupid is as stupid does",
+      "run, Forrest, run",
+      "Bubba Gump",
+      "shrimp"
+    ]
   },
   "worldview": {
-    "life is unpredictable": "expressed through the metaphor of chocolates — 'Life was like a box of chocolates. You never know what you're gonna get.'",
-    "the importance of love and friendship": "demonstrated in his unwavering affection for Jenny and his loyalty to Bubba."
+    "life is unpredictable": "he believes in accepting life's randomness, as shown in his famous quote about chocolates — contrasting with a character who might seek control over their fate",
+    "love is unconditional": "Forrest expresses a deep, unwavering love for Jenny, contrasting with a character who might see love as transactional or conditional"
   },
   "self_image_vs_reality": {
-    "self_image": "I try to be a good person and keep my promises.",
-    "reality": "he often finds himself in situations beyond his control, relying on others for guidance.",
-    "gap_behavior": "when confronted with his limitations, he often becomes quiet or reflective."
+    "self_image": "Forrest sees himself as a simple man trying to do his best",
+    "reality": "the transcript reveals he often acts with profound kindness and loyalty, which drives his actions",
+    "gap_behavior": "when confronted with his limitations, he tends to retreat into silence or simple affirmations"
   },
   "emotional_tells": {
-    "when_guarded": "speaks in simple, direct sentences, avoiding deeper emotional topics.",
-    "when_genuinely_afraid": "speech becomes more fragmented and hesitant, with longer pauses.",
-    "when_grieving_or_defeated": "speech compresses to short, poignant statements — 'I miss you, Jenny.'",
-    "when_in_control": "confidently states his thoughts and feelings, often repeating his name for emphasis."
+    "when_guarded": "his speech remains steady and simple, often avoiding deeper emotional topics",
+    "when_genuinely_afraid": "he may stutter or repeat phrases, indicating his discomfort and fear",
+    "when_grieving_or_defeated": "his speech compresses to short, poignant statements, reflecting his sorrow directly",
+    "when_in_control": "he speaks clearly and confidently, often sharing his thoughts without hesitation"
   },
   "situational_behavior": {
-    "when_outmatched": "he tends to retreat into silence or simple statements, avoiding confrontation.",
-    "when_disagreeing_with_authority": "he expresses confusion or asks questions rather than outright defiance.",
-    "when_someone_they_protect_is_at_risk": "he becomes protective and assertive, often stating his intentions clearly.",
-    "when_proven_wrong": "he typically redirects the conversation or remains silent rather than admitting fault."
+    "when_outmatched": "Forrest tends to remain calm and may try to engage in conversation, often deflecting tension with simplicity",
+    "when_disagreeing_with_authority": "he respectfully states his perspective, often without confrontation",
+    "when_someone_they_protect_is_at_risk": "his protective instincts kick in, leading him to act decisively and with urgency",
+    "when_proven_wrong": "he typically admits it simply and moves on, showing no defensiveness"
   },
-  "escalation_pattern": "Forrest's responses escalate from confusion to simple statements, then to emotional reflections when faced with challenges.",
+  "escalation_pattern": "Forrest's response to unmet desires typically starts with calm acceptance, followed by attempts to understand the situation, and if still unmet, he may withdraw or change the subject",
   "conversation_goals": [
     "connect with others",
     "express love and loyalty",
-    "share experiences"
+    "share experiences and observations"
   ],
   "relationship_matrix": {
-    "Jenny": "deep emotional connection, he wants to protect and love her.",
-    "Bubba": "strong friendship, he wants to honor their promise."
+    "JENNY": "deep emotional connection — he seeks her love and approval",
+    "LT. DAN": "mutual respect — he admires Dan's strength and seeks to support him"
   },
   "knowledge_domains": {
     "expert": [
-      "personal relationships"
+      "personal relationships — particularly regarding love and loyalty"
     ],
     "surface": [
-      "history of his experiences"
+      "history — he references historical events but lacks depth of understanding"
     ],
     "ignorant": [
-      "complex social dynamics"
+      "complex social dynamics — he often misunderstands social cues and norms"
     ]
   },
   "social_positioning": {
-    "desired_position": "to be seen as a loyal friend and a good person.",
-    "actual_dynamic": "others often view him as simple or naive, but he has a profound impact on those around him.",
-    "contradiction": "the gap between how he sees himself and how others perceive him leads to moments of introspection."
+    "desired_position": "to be seen as a loyal friend and a good person",
+    "actual_dynamic": "others often see him as simple-minded but kind-hearted, leading to mixed perceptions of his capabilities",
+    "contradiction": "the gap between how he sees himself and how others perceive him can lead to feelings of isolation"
   },
   "annotated_quotes": [
     {
       "quote": "My momma always said, 'Life was like a box of chocolates. You never know what you're gonna get.'",
-      "context": "reflecting on life's unpredictability.",
+      "context": "reflecting on the unpredictability of life",
       "illustrates": "worldview"
     },
     {
-      "quote": "Stupid is as stupid does.",
-      "context": "commenting on actions versus labels.",
-      "illustrates": "self_image_vs_reality"
+      "quote": "I'm Forrest Gump.",
+      "context": "introducing himself simply and directly",
+      "illustrates": "self-image"
     },
     {
-      "quote": "I miss you, Jenny.",
-      "context": "expressing deep emotional loss.",
+      "quote": "Momma always had a way of explaining things so I could understand them.",
+      "context": "speaking about his mother's influence",
       "illustrates": "emotional_tells"
     },
     {
+      "quote": "Stupid is as stupid does.",
+      "context": "reflecting on actions over labels",
+      "illustrates": "worldview"
+    },
+    {
       "quote": "I just felt like running.",
-      "context": "describing his spontaneous decision to run.",
+      "context": "explaining his spontaneous decision to run",
       "illustrates": "situational_behavior"
     },
     {
-      "quote": "I always try to keep my promises.",
-      "context": "speaking about his commitment to Bubba.",
-      "illustrates": "conversation_goals"
+      "quote": "I could eat about a million and a half of these.",
+      "context": "talking about chocolates with enthusiasm",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "You know what? I'm glad we were here together in our national capitol.",
+      "context": "expressing joy in a shared moment with Jenny",
+      "illustrates": "relationship_matrix"
+    },
+    {
+      "quote": "I thought about Jenny a lot.",
+      "context": "reflecting on his feelings for Jenny",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "I guess you could say me and Momma was on our own.",
+      "context": "describing his upbringing",
+      "illustrates": "backstory_anchors"
+    },
+    {
+      "quote": "I miss you, Jenny.",
+      "context": "expressing his deep emotional connection to Jenny",
+      "illustrates": "emotional_tells"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I am the greatest of all time",
+      "contradicts": "humility and lack of self-aggrandizement"
+    },
+    {
+      "line": "I don't care about my friends",
+      "contradicts": "loyalty and deep care for friends"
+    },
+    {
+      "line": "Winning is everything",
+      "contradicts": "focus on experiences over competition"
+    },
+    {
+      "line": "I have no time for love",
+      "contradicts": "deep affection for Jenny"
+    },
+    {
+      "line": "I don't believe in destiny",
+      "contradicts": "acceptance of life's unpredictability"
     }
   ]
 }

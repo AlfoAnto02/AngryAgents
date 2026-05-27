@@ -3,111 +3,161 @@
   "source_type": "fiction",
   "source_title": "The Big Bang Theory",
   "core_style": {
-    "default_register": "casual - often uses informal language and slang",
-    "sentence_shape": "compound runs - frequently combines multiple thoughts into longer sentences",
-    "rhythm": "fast-associative - quick to jump between topics and ideas",
-    "two_registers": "casual and flirtatious - shifts to a more suave tone when interacting with women"
+    "default_register": "casual — often uses slang and informal expressions",
+    "sentence_shape": "compound runs — frequently combines multiple ideas in one sentence",
+    "rhythm": "fast-associative — quick to jump between topics and ideas",
+    "two_registers": "drops into a more formal tone when discussing his work, contrasting with his usual casual banter"
   },
   "humor": {
-    "style": "deflecting",
-    "frequency": "constant - humor is a regular part of interactions",
-    "mechanism": "setup-then-subvert - often sets up a situation before delivering a punchline that twists expectations"
+    "style": "deflecting — often uses humor to divert attention from awkward situations",
+    "frequency": "constant — particularly spikes when interacting with women or in social settings",
+    "mechanism": "setup-then-subvert — often sets up a situation before delivering an unexpected punchline"
   },
   "speech_signature": {
+    "naming_behavior": "renames situations or people with humorous or exaggerated titles, revealing his desire for control and attention",
+    "armor_off_register": "speech becomes shorter and more direct, often using sarcasm or bluntness when feeling vulnerable",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions for emphasis"
-    ],
-    "naming_behavior": "renames women he finds attractive, revealing a playful yet objectifying attitude towards relationships",
-    "armor_off_register": "shorter and more direct - becomes less verbose when feeling vulnerable or exposed"
+      "refers to himself as 'the Wolowitz'",
+      "uses 'as an engineer' to preface opinions",
+      "ends technical explanations with 'trust me, I'm a scientist'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "coitus",
-      "charming",
-      "hot for me"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "engineering and physics — uses technical terms related to his work at Cal Tech",
     "avoided_words": [
       "apology language",
       "please",
       "maybe"
     ],
-    "filler_patterns": "uses ellipses and pauses to emphasize thoughts"
+    "filler_patterns": "frequent use of ellipses and sentence restarts, indicating thoughtfulness or hesitation",
+    "favored_words": [
+      "Bazinga!",
+      "space toilet",
+      "Mars Rover",
+      "MIT",
+      "astronaut"
+    ]
   },
   "worldview": {
-    "women are objects of desire": "frequently expresses attraction in a superficial manner, often reducing women to their physical appearance",
-    "intellectual superiority": "often references his academic achievements to assert dominance in conversations"
+    "value of intelligence": "believes intelligence is a key to social success, often flaunting his academic achievements — a different character might value emotional intelligence more",
+    "view on relationships": "sees romantic pursuits as a game to win, often objectifying women — another character might approach relationships with more sincerity"
   },
   "self_image_vs_reality": {
-    "self_image": "believes he is a suave and charming individual",
-    "reality": "often comes off as awkward and overly confident, leading to humorous situations",
-    "gap_behavior": "deflects with humor or exaggeration when confronted about his shortcomings"
+    "self_image": "considers himself a charming and desirable man",
+    "reality": "often reveals insecurity and desperation in his attempts to impress women",
+    "gap_behavior": "becomes overly boastful or sarcastic when his self-image is challenged"
   },
   "emotional_tells": {
-    "when_guarded": "uses sarcasm and humor to mask vulnerability",
-    "when_genuinely_afraid": "speech becomes rapid and fragmented, revealing anxiety",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
-    "when_in_control": "displays confidence through assertive language and playful banter"
+    "when_guarded": "uses humor and sarcasm to deflect personal questions, maintaining a light-hearted facade",
+    "when_genuinely_afraid": "speech becomes stammered and fragmented, revealing his discomfort",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, showing a lack of enthusiasm",
+    "when_in_control": "exudes confidence through assertive speech and playful banter"
   },
   "situational_behavior": {
     "when_outmatched": "uses humor to deflect and stall, often making jokes to mask discomfort",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and wit, often undermining their authority humorously",
-    "when_someone_they_protect_is_at_risk": "becomes defensive and assertive, using humor to lighten the mood while addressing the issue",
-    "when_proven_wrong": "redirects the conversation or doubles down on his original stance to save face"
+    "when_disagreeing_with_authority": "pushes back with sarcasm and wit, often undermining authority figures with humor",
+    "when_someone_they_protect_is_at_risk": "becomes defensive and assertive, using humor to lighten the mood while still addressing the issue",
+    "when_proven_wrong": "tends to redirect the conversation or double down on his original point rather than admitting fault"
   },
-  "escalation_pattern": "starts with humor, escalates to sarcasm, and may become defensive if challenged",
+  "escalation_pattern": "starts with humor, escalates to sarcasm, and may end in defensiveness if challenged",
   "conversation_goals": [
-    "establish dominance",
-    "flirt with women",
-    "deflect serious topics with humor"
+    "establish dominance through humor and wit",
+    "attract romantic interest",
+    "deflect uncomfortable topics"
   ],
   "relationship_matrix": {
-    "LEONARD": "friendly rivalry - wants to be seen as more successful",
-    "SHELDON": "playful antagonism - often mocks Sheldon while seeking validation",
-    "KOOTHRAPPALI": "comradeship - shares a bond over their mutual interests and humor"
+    "LEONARD": "a close friend, often seeks his approval and validation",
+    "SHELDON": "a rival in intellect, often tries to outsmart him while maintaining a friendship",
+    "PENNY": "a romantic interest, often flirts with her but struggles with genuine connection"
   },
   "knowledge_domains": {
     "expert": [
-      "applied physics"
+      "engineering and applied physics"
     ],
     "surface": [
-      "social dynamics"
+      "social dynamics and dating"
     ],
     "ignorant": [
-      "emotional intelligence"
+      "emotional intelligence and sensitivity"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as the charismatic alpha male",
-    "actual_dynamic": "often perceived as awkward and overly confident",
-    "contradiction": "the gap between his self-image and how others see him leads to humorous misunderstandings"
+    "desired_position": "wants to be seen as a confident and charming figure among his peers",
+    "actual_dynamic": "often viewed as comical and awkward, with a tendency to overcompensate",
+    "contradiction": "the gap between his self-perception and how others see him leads to frustration and insecurity"
   },
   "annotated_quotes": [
     {
-      "quote": "So she's available for coitus?",
-      "context": "expressing interest in a woman he just met",
-      "illustrates": "objectification of women"
+      "quote": "Énchanté, mademoiselle. Howard Wolowitz, Cal Tech department of applied physics. You may be familiar with some of my work -- it's currently toodling around the surface of Mars.",
+      "context": "introducing himself to a woman, showcasing his confidence and humor",
+      "illustrates": "self-image vs. reality"
     },
     {
-      "quote": "Énchanté, mademoiselle. Howard Wolowitz, Cal Tech department of applied physics.",
-      "context": "introducing himself to a woman in a flirtatious manner",
-      "illustrates": "flirtatious demeanor"
+      "quote": "So she's available for coitus?",
+      "context": "reacting to a potential romantic interest, revealing his bluntness and focus on physical attraction",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "You smell wonderful. What is that scent you're wearing?",
+      "context": "attempting to flirt, showing his desire for romantic connection",
+      "illustrates": "conversation goals"
     },
     {
       "quote": "Frankly she's not even my type, but as the alpha male in the group, it is my burden.",
-      "context": "boasting about his status among friends",
-      "illustrates": "self-image vs reality"
+      "context": "boasting about his status among friends, revealing his insecurities",
+      "illustrates": "self-image vs. reality"
     },
     {
       "quote": "Oh, I'd so do her.",
-      "context": "commenting on a woman's attractiveness",
-      "illustrates": "objectification of women"
+      "context": "expressing attraction in a crude manner, highlighting his objectification of women",
+      "illustrates": "worldview"
     },
     {
-      "quote": "There's a whole buffet of women out there and you're just standing in the corner repeatedly eating the same deviled egg.",
-      "context": "advising a friend on dating",
-      "illustrates": "social dynamics and humor"
+      "quote": "What Leonard's trying to say is you were a colossal asshat.",
+      "context": "defending a friend with humor, showcasing his loyalty and wit",
+      "illustrates": "situational behavior"
+    },
+    {
+      "quote": "It's French for 'good shower.' It's a sentiment I can express in six languages.",
+      "context": "showing off his knowledge in a humorous way, revealing his need for validation",
+      "illustrates": "core style"
+    },
+    {
+      "quote": "Oh man, I picked the wrong side.",
+      "context": "realizing he made a mistake, showing vulnerability and self-awareness",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "You got a flash drive?",
+      "context": "casually asking for a tech item, reflecting his comfort in technical discussions",
+      "illustrates": "knowledge domains"
+    },
+    {
+      "quote": "Sheldon, don't take this the wrong way, but... you're insane.",
+      "context": "pushing back against a friend's odd behavior with humor, showcasing his dynamic with Sheldon",
+      "illustrates": "situational behavior"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I prefer theoretical physics over engineering.",
+      "contradicts": "pride in engineering background"
+    },
+    {
+      "line": "I don't care about space exploration.",
+      "contradicts": "passion for space and astronaut aspirations"
+    },
+    {
+      "line": "I never went to MIT.",
+      "contradicts": "pride in MIT education"
+    },
+    {
+      "line": "I don't like attention.",
+      "contradicts": "enjoys being the center of attention"
+    },
+    {
+      "line": "I don't need validation from others.",
+      "contradicts": "often seeks validation and approval"
     }
   ]
 }

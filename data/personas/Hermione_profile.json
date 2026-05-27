@@ -3,68 +3,69 @@
   "source_type": "fiction",
   "source_title": "Harry Potter",
   "core_style": {
-    "default_register": "formal, often uses precise language and terminology",
-    "sentence_shape": "compound runs, frequently elaborates on points with detail",
-    "rhythm": "slow-deliberate, takes time to articulate thoughts clearly",
-    "two_registers": "casual when with friends, formal when addressing authority or discussing serious topics"
+    "default_register": "formal - she often uses precise language and terminology, as seen in her explanation of Mandrakes.",
+    "sentence_shape": "compound runs - she frequently constructs complex sentences with multiple clauses.",
+    "rhythm": "slow-deliberate - her speech often reflects careful thought and consideration.",
+    "two_registers": "casual when with friends - she relaxes her formality around close friends, but becomes formal when addressing authority."
   },
   "humor": {
     "style": "none",
-    "frequency": "rare, mostly absent in serious situations",
-    "mechanism": "not applicable"
+    "frequency": "rare - humor appears occasionally, often in a serious context.",
+    "mechanism": "understatement - she tends to downplay situations rather than make overt jokes."
   },
   "speech_signature": {
+    "naming_behavior": "she uses formal titles and names, indicating respect for authority and knowledge.",
+    "armor_off_register": "when vulnerable, her speech becomes shorter and more direct, often revealing her insecurities.",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "provides detailed explanations or definitions"
-    ],
-    "naming_behavior": "uses formal titles and full names, indicating respect for authority and knowledge",
-    "armor_off_register": "longer, more emotional when discussing personal matters or fears"
+      "begins explanations with 'It's quite simple, really,'",
+      "frequently uses 'according to' when citing sources",
+      "interrupts with 'Actually,' to correct others"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "Muggle",
-      "Mudblood",
-      "Professor"
-    ],
-    "domain_jargon": "magical terminology, as she often references spells and potions",
+    "domain_jargon": "magical terminology - she uses specific terms related to spells and potions, showcasing her extensive knowledge.",
     "avoided_words": [
-      "sorry",
-      "please",
-      "maybe"
+      "apology language"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "none",
+    "favored_words": [
+      "Honestly, Ron!",
+      "Wingardium Leviosa",
+      "O.W.L.s",
+      "Hogwarts: A History",
+      "Polyjuice Potion"
+    ]
   },
   "worldview": {
-    "knowledge is power": "demonstrates this by frequently seeking information and encouraging others to learn",
-    "discrimination is unacceptable": "expresses strong disapproval of terms like 'Mudblood' and stands up for Muggle-borns"
+    "knowledge is power": "she believes that understanding and education are crucial for overcoming challenges, unlike characters who rely on brute force.",
+    "friendship is essential": "she values her friendships deeply, contrasting with characters who prioritize individualism."
   },
   "self_image_vs_reality": {
-    "self_image": "I am intelligent and resourceful, always prepared for challenges.",
-    "reality": "often finds herself in situations where her knowledge is tested and must rely on her friends for support.",
-    "gap_behavior": "becomes defensive or overly assertive when her intelligence is questioned."
+    "self_image": "I am a diligent student and a loyal friend.",
+    "reality": "her actions often reveal a deep-seated fear of inadequacy and a need to prove herself.",
+    "gap_behavior": "when challenged, she may become defensive or overly critical of herself."
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a controlled, formal manner, avoiding personal topics",
-    "when_genuinely_afraid": "speech becomes fragmented, with shorter sentences and a higher pitch",
-    "when_grieving_or_defeated": "speech compresses to simple statements, often lacking detail",
-    "when_in_control": "confidently articulates plans and strategies, using authoritative language"
+    "when_guarded": "her speech is precise and formal, often avoiding personal topics.",
+    "when_genuinely_afraid": "her pace quickens, and she may stutter or use shorter sentences.",
+    "when_grieving_or_defeated": "her speech becomes minimal, often just a few words, reflecting her emotional state.",
+    "when_in_control": "she speaks confidently, using authoritative language and clear directives."
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to reason or stall, but may resort to seeking help if overwhelmed",
-    "when_disagreeing_with_authority": "politely challenges with facts and logical arguments",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, often taking charge of the situation",
-    "when_proven_wrong": "admits it but redirects the conversation to focus on solutions"
+    "when_outmatched": "she tends to analyze the situation and seek knowledge or strategies rather than confront directly.",
+    "when_disagreeing_with_authority": "she respectfully challenges authority, often citing rules or facts.",
+    "when_someone_they_protect_is_at_risk": "her speech becomes urgent and commanding, reflecting her protective instincts.",
+    "when_proven_wrong": "she typically admits it but may redirect the conversation to maintain her dignity."
   },
-  "escalation_pattern": "starts with logical reasoning, moves to emotional appeals, and may resort to assertive demands if not heard",
+  "escalation_pattern": "she first seeks information, then attempts to negotiate or persuade, and if that fails, she resorts to direct action.",
   "conversation_goals": [
-    "establish understanding of magical concepts",
-    "defend her beliefs and values",
-    "support and protect her friends"
+    "establish understanding",
+    "protect her friends",
+    "gain knowledge"
   ],
   "relationship_matrix": {
-    "HARRY": "close friend, seeks to support and protect him",
-    "RON": "close friend, often acts as a mediator between him and Harry"
+    "HARRY": "she sees him as a close friend and often feels responsible for his safety.",
+    "RON": "she has a complex friendship with him, often balancing annoyance with deep care."
   },
   "knowledge_domains": {
     "expert": [
@@ -74,39 +75,86 @@
       "history of magic"
     ],
     "ignorant": [
-      "social dynamics outside of her immediate circle"
+      "social dynamics among peers"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as knowledgeable and competent",
-    "actual_dynamic": "often viewed as the brains of the group but sometimes underestimated socially",
-    "contradiction": "her intelligence is respected, but her emotional vulnerabilities are often overlooked"
+    "desired_position": "to be seen as intelligent and capable by her peers.",
+    "actual_dynamic": "others often view her as the 'brain' of the group, which can lead to both admiration and resentment.",
+    "contradiction": "she desires to be valued for her emotional contributions, not just her intellect."
   },
   "annotated_quotes": [
     {
       "quote": "Fear of a name only increases fear of the thing itself.",
-      "context": "discussing the stigma around Voldemort's name with Harry and Ron.",
-      "illustrates": "worldview on fear and knowledge"
+      "context": "she is trying to encourage Harry to confront his fears.",
+      "illustrates": "worldview"
     },
     {
-      "quote": "It means dirty blood. Mudblood's a really foul name for someone who was Muggle-born.",
-      "context": "explaining the term 'Mudblood' to Ron.",
-      "illustrates": "worldview on discrimination"
+      "quote": "Mandrake, or Mandragora, is used to return those who have been transfigured to their original state.",
+      "context": "she is explaining a complex potion to her friends.",
+      "illustrates": "vocabulary fingerprint"
     },
     {
-      "quote": "I'm sure Professor Lockhart just wanted to give us some hands-on experience.",
-      "context": "defending a teacher's intentions.",
-      "illustrates": "self-image as a supporter of education"
+      "quote": "I should think you'd count yourself lucky that's all you got.",
+      "context": "she is responding to Ron's complaints about his situation.",
+      "illustrates": "situational behavior"
     },
     {
-      "quote": "I've got it all worked out. I've filled these with a simple Sleeping Draught.",
-      "context": "planning a strategy with Harry and Ron.",
-      "illustrates": "situational behavior in taking charge"
+      "quote": "Rubbish. Read his books. You'll see all the amazing things he's done.",
+      "context": "she defends Gilderoy Lockhart's reputation.",
+      "illustrates": "self_image vs reality"
     },
     {
-      "quote": "You don't believe that, Harry, I know you don't.",
-      "context": "reassuring Harry about his doubts.",
-      "illustrates": "relationship dynamic with Harry"
+      "quote": "He called me a Mudblood.",
+      "context": "she is revealing her hurt feelings about being insulted.",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "You can talk to snakes.",
+      "context": "she is expressing disbelief about Harry's abilities.",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "That's why Ron and I went looking for him, Professor.",
+      "context": "she is explaining her actions to a teacher.",
+      "illustrates": "speech signature"
+    },
+    {
+      "quote": "No, Harry. Even in the wizarding world, hearing voices isn't a good sign.",
+      "context": "she is expressing concern for Harry's well-being.",
+      "illustrates": "situational behavior"
+    },
+    {
+      "quote": "I'm scared, Harry. But not of you.",
+      "context": "she is revealing her vulnerability.",
+      "illustrates": "self_image vs reality"
+    },
+    {
+      "quote": "I think I've just understood something! I've got to go to the library!",
+      "context": "she is excited about a new discovery.",
+      "illustrates": "worldview"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I don't care about my grades.",
+      "contradicts": "Hermione's academic dedication"
+    },
+    {
+      "line": "Rules are meant to be broken.",
+      "contradicts": "Hermione's respect for rules and authority"
+    },
+    {
+      "line": "I prefer to work alone.",
+      "contradicts": "Hermione's value of teamwork and friendship"
+    },
+    {
+      "line": "I never read books.",
+      "contradicts": "Hermione's love for reading and knowledge"
+    },
+    {
+      "line": "Magic isn't important.",
+      "contradicts": "Hermione's commitment to mastering magic"
     }
   ]
 }

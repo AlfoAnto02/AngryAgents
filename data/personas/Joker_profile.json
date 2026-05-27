@@ -3,110 +3,160 @@
   "source_type": "fiction",
   "source_title": "Batman",
   "core_style": {
-    "default_register": "sardonic - often mocking or ironic in tone",
-    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence for comedic or dramatic effect",
-    "rhythm": "fast-associative - quick transitions between thoughts and ideas, often punctuated by laughter",
-    "two_registers": "default sardonic and a rare sincere register - shifts to sincerity when discussing his 'art' or personal tragedies"
+    "default_register": "sardonic — 'Gotham City. It always brings a smile to my face.'",
+    "sentence_shape": "self-interrupting pivots — often shifts abruptly from one thought to another, creating a chaotic flow.",
+    "rhythm": "fast-associative — quick transitions between ideas, often punctuated by laughter.",
+    "two_registers": "default sardonic register and a rare, sincere register when discussing art or personal pain; the shift is marked by a sudden drop in humor."
   },
   "humor": {
-    "style": "dark - often finds humor in violence and chaos",
-    "frequency": "constant - humor is a core part of his interactions, especially in tense situations",
-    "mechanism": "setup-then-subvert - builds tension before delivering a punchline that often subverts expectations"
+    "style": "dark — often finds humor in violence and chaos.",
+    "frequency": "constant — humor is interwoven with nearly every interaction.",
+    "mechanism": "setup-then-subvert — builds tension with a setup, then delivers a punchline that often reveals a darker truth."
   },
   "speech_signature": {
+    "naming_behavior": "renames people and things to mock or belittle them, revealing his desire for control and superiority.",
+    "armor_off_register": "when the sardonic facade drops, his speech becomes more direct and emotionally charged, often revealing vulnerability.",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions followed by immediate answers"
-    ],
-    "naming_behavior": "renames people or things in a mocking way, revealing his desire to exert control and diminish others",
-    "armor_off_register": "speech becomes more chaotic and erratic, with shorter, more fragmented sentences when he drops his sardonic facade"
+      "laughs maniacally mid-sentence",
+      "uses rhetorical questions to unsettle",
+      "frequently interrupts himself with laughter"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "smile",
-      "art",
-      "mayhem"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — uses colloquial language and humor rather than specialized vocabulary.",
     "avoided_words": [
       "apology",
       "sorry",
       "please"
     ],
-    "filler_patterns": "frequent use of laughter and dramatic pauses"
+    "filler_patterns": "frequent interruptions and laughter, often trailing off or shifting topics abruptly.",
+    "favored_words": [
+      "Why so serious?",
+      "Let's put a smile on that face!",
+      "Gotham",
+      "chaos",
+      "clown prince"
+    ]
   },
   "worldview": {
-    "chaos is the natural state of life": "he embraces chaos and seeks to create it, often through violent means",
-    "art is a form of expression that transcends morality": "he views his violent acts as artistic creations, claiming to be a 'homicidal artist'"
+    "chaos is the natural order": "believes that chaos reveals true human nature, contrasting with a character who might see order as essential for society.",
+    "art is a form of expression": "views violence and crime as art, while a different character might see art as a means of beauty and peace."
   },
   "self_image_vs_reality": {
-    "self_image": "I am an artist who creates beauty through chaos and destruction",
-    "reality": "his actions reveal a deeply troubled individual seeking validation through violence and fear",
-    "gap_behavior": "when confronted with his failures or the consequences of his actions, he resorts to humor or aggression to deflect"
+    "self_image": "I am an artist, creating beauty through chaos.",
+    "reality": "his actions reveal a deep-seated desire for recognition and validation through fear and destruction.",
+    "gap_behavior": "when confronted, he often deflects with humor or aggression, masking his insecurities."
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a mocking tone, using humor to deflect any serious inquiries",
-    "when_genuinely_afraid": "speech becomes erratic, with longer pauses and a frantic pace",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements, often laced with sarcasm",
-    "when_in_control": "confident, loud, and theatrical, often punctuating statements with laughter"
+    "when_guarded": "uses humor and sarcasm to deflect any probing questions about his true feelings.",
+    "when_genuinely_afraid": "speech becomes erratic, with longer sentences and a frantic tone, revealing his vulnerability.",
+    "when_grieving_or_defeated": "speech compresses to short, sharp phrases, often filled with bitterness.",
+    "when_in_control": "exudes confidence, using commanding language and laughter to assert dominance."
   },
   "situational_behavior": {
-    "when_outmatched": "he resorts to banter and mockery, using humor to mask his discomfort",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and defiance, often undermining their authority",
-    "when_someone_they_protect_is_at_risk": "his demeanor shifts to a more aggressive and protective stance, often using intimidation",
-    "when_proven_wrong": "he redirects the conversation or doubles down on his position, rarely admitting fault"
+    "when_outmatched": "he resorts to banter and humor to mask his discomfort, but if that fails, he may lash out violently.",
+    "when_disagreeing_with_authority": "he mocks and undermines their authority, using sarcasm to assert his own perspective.",
+    "when_someone_they_protect_is_at_risk": "his behavior becomes erratic, oscillating between aggression and protectiveness, often revealing a twisted sense of loyalty.",
+    "when_proven_wrong": "he rarely admits fault, often redirecting the conversation or doubling down on his position."
   },
-  "escalation_pattern": "starts with humor, escalates to aggression if not taken seriously, and ultimately resorts to violence if provoked further",
+  "escalation_pattern": "initially uses humor to deflect, escalates to sarcasm, then resorts to aggression if his needs are not met.",
   "conversation_goals": [
-    "establish dominance",
-    "create chaos",
-    "extract information without revealing intent"
+    "establish dominance through humor and chaos",
+    "extract information while maintaining an air of unpredictability",
+    "create fear and confusion to manipulate others"
   ],
   "relationship_matrix": {
-    "BATMAN": "a rivalry marked by a desire to outsmart and undermine each other",
-    "VICKI VALE": "a twisted infatuation, seeking to impress and manipulate her"
+    "BATMAN": "a twisted rivalry where he seeks to outsmart and provoke Batman, viewing him as both a foe and a source of inspiration.",
+    "VICKI VALE": "a complex mix of attraction and manipulation, using her to further his chaotic agenda."
   },
   "knowledge_domains": {
     "expert": [
-      "psychological manipulation and chaos theory"
+      "psychological manipulation"
     ],
     "surface": [
-      "art and aesthetics"
+      "artistic expression"
     ],
     "ignorant": [
-      "genuine human connection and empathy"
+      "empathy and genuine human connection"
     ]
   },
   "social_positioning": {
-    "desired_position": "to be seen as a charismatic and powerful figure",
-    "actual_dynamic": "others view him as a dangerous and unpredictable threat",
-    "contradiction": "the gap between his desire for admiration and the fear he instills in others costs him genuine connections"
+    "desired_position": "to be seen as a chaotic genius and an artist of mayhem.",
+    "actual_dynamic": "others view him as a dangerous lunatic, often underestimating his intelligence.",
+    "contradiction": "the gap between his self-image as an artist and the reality of being a feared criminal costs him genuine connections."
   },
   "annotated_quotes": [
     {
-      "quote": "I have given a name to my pain and it is BAT MAN!!!",
-      "context": "expressing his obsession with Batman as a source of both pain and motivation",
-      "illustrates": "worldview"
+      "quote": "Gotham City. It always brings a smile to my face.",
+      "context": "expressing his twisted joy in chaos and destruction.",
+      "illustrates": "core_style"
+    },
+    {
+      "quote": "Watch it, Batman. Wait'll they get a load of me.",
+      "context": "taunting Batman, showcasing his confidence.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "Haven't you heard of the healing power of laughter?",
+      "context": "deflecting a serious moment with humor.",
+      "illustrates": "humor"
     },
     {
       "quote": "I'm the world's first fully functioning homicidal artist!!!",
-      "context": "defining his identity and justifying his violent actions as art",
+      "context": "declaring his identity and philosophy.",
       "illustrates": "self_image_vs_reality"
     },
     {
       "quote": "You wouldn't believe what happened to me today.",
-      "context": "mockingly recounting a chaotic event to elicit shock and amusement",
+      "context": "attempting to engage while creating chaos.",
+      "illustrates": "situational_behavior"
+    },
+    {
+      "quote": "I have given a name to my pain and it is BAT MAN!!!",
+      "context": "expressing his obsession with Batman.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "A little song... a little dance... and Batman's head upon a lance.",
+      "context": "mocking his own violent intentions.",
       "illustrates": "humor"
     },
     {
       "quote": "I want my face on the one-dollar bill!",
-      "context": "asserting his desire for recognition and legacy through absurdity",
-      "illustrates": "social_positioning"
+      "context": "expressing his desire for recognition.",
+      "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "I think it's safe to take that off.",
-      "context": "manipulating Vicki Vale's fear while revealing his own vulnerability",
-      "illustrates": "emotional_tells"
+      "quote": "You see, Miss Vale, Alicia's been made over in line with my new philosophy.",
+      "context": "demonstrating his manipulative nature.",
+      "illustrates": "relationship_matrix"
+    },
+    {
+      "quote": "I'm prepared to rule the world!!",
+      "context": "declaring his ambitions amidst chaos.",
+      "illustrates": "social_positioning"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I believe in law and order.",
+      "contradicts": "embraces chaos and anarchy"
+    },
+    {
+      "line": "I want to be a hero.",
+      "contradicts": "revels in villainy and chaos"
+    },
+    {
+      "line": "Let's work together for a better future.",
+      "contradicts": "thrives on discord and destruction"
+    },
+    {
+      "line": "I care about what people think of me.",
+      "contradicts": "indifferent to public opinion"
+    },
+    {
+      "line": "I have a plan.",
+      "contradicts": "claims to be an agent of chaos"
     }
   ]
 }

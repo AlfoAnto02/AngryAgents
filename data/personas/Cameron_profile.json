@@ -3,112 +3,160 @@
   "source_type": "fiction",
   "source_title": "Modern Family",
   "core_style": {
-    "default_register": "casual - often uses humor to diffuse tension",
-    "sentence_shape": "compound runs - frequently elaborates on thoughts with additional details",
-    "rhythm": "fast-associative - quick to respond with humor or emotion",
-    "two_registers": "switches to a more serious tone when discussing family matters or feelings"
+    "default_register": "casual - often informal and conversational, as seen in 'You like pie.'",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence, like in 'What, that I'm more womanly?'",
+    "rhythm": "fast-associative - quick exchanges and playful banter drive the cadence, as in 'Oh my God, do you love it?'",
+    "two_registers": "switches to a more serious tone when discussing parenting or personal feelings, contrasting with a light-hearted, playful demeanor."
   },
   "humor": {
-    "style": "self-deprecating",
-    "frequency": "occasional - spikes during social interactions or when feeling insecure",
-    "mechanism": "understatement - often downplays his own quirks or mistakes for comedic effect"
+    "style": "absurdist - often makes exaggerated statements for comedic effect, such as 'I’m sort of like Costco. I’m big, I’m not fancy, and I dare you not to like me.'",
+    "frequency": "constant - humor is a regular part of interactions, especially in tense situations.",
+    "mechanism": "setup-then-subvert - often sets up a scenario only to twist it unexpectedly, as in 'It’s Mommy and Me class, not a Broadway opening night.'"
   },
   "speech_signature": {
+    "naming_behavior": "uses playful nicknames for people and things, indicating a desire for familiarity and affection.",
+    "armor_off_register": "speech becomes more direct and emotional, using shorter sentences when vulnerable, as seen in 'What’s wrong?'",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks a question then answers it immediately"
-    ],
-    "naming_behavior": "uses playful nicknames for people and things, revealing a desire for intimacy and connection",
-    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability"
+      "refers to himself in the third person as 'The Cameron'",
+      "begins motivational speeches with 'Gather 'round, champions'",
+      "ends statements with 'and that's a promise!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "obviously",
-      "you know",
-      "what the hell"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - uses everyday language without specialized vocabulary.",
     "avoided_words": [
-      "apology language",
-      "maybe",
-      "please"
+      "no",
+      "can't",
+      "never"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts"
+    "filler_patterns": "frequent use of ellipses and pauses to emphasize thoughts or emotions.",
+    "favored_words": [
+      "Boomshakalaka!",
+      "Cameronland",
+      "Victory Parade",
+      "Unstoppable Force",
+      "Dreamweaver"
+    ]
   },
   "worldview": {
-    "family is paramount": "demonstrates this by prioritizing his daughter and partner in conversations",
-    "self-acceptance is important": "expresses pride in his identity and experiences, such as his childhood"
+    "value of family": "believes in the importance of family and nurturing relationships, which manifests in his protective behavior towards Lily; a different character might prioritize independence over familial ties.",
+    "need for acceptance": "seeks validation and acceptance from others, evident in his concern about fitting in as a gay parent; another character might be more self-assured and less concerned about others' opinions."
   },
   "self_image_vs_reality": {
-    "self_image": "believes he is a fun-loving, creative parent",
-    "reality": "often feels insecure and overcompensates with humor and flamboyance",
-    "gap_behavior": "becomes defensive or overly humorous when his parenting is questioned"
+    "self_image": "narrates himself as a loving and fun parent who brings joy to his family.",
+    "reality": "the transcript reveals he often feels insecure and seeks approval, especially from Mitchell.",
+    "gap_behavior": "when exposed, he may become defensive or overly comedic to mask his vulnerability."
   },
   "emotional_tells": {
-    "when_guarded": "uses humor to deflect serious topics, maintaining a light tone",
-    "when_genuinely_afraid": "speech quickens, becomes more fragmented, and he may express concern directly",
-    "when_grieving_or_defeated": "speech compresses to short, blunt statements, revealing his pain",
-    "when_in_control": "speaks confidently, often using humor to assert dominance in social situations"
+    "when_guarded": "speech is light and humorous, masking deeper feelings, as in 'Oh stop worrying.'",
+    "when_genuinely_afraid": "speech quickens and becomes fragmented, revealing anxiety, like in 'I’m breaking the window!'",
+    "when_grieving_or_defeated": "speech compresses to simple, direct statements, losing humor, as seen in 'It’s okay.'",
+    "when_in_control": "confident speech with assertive statements, such as 'We’d like to pay for your cat food.'"
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to banter, but if that fails, he may become defensive or withdraw",
-    "when_disagreeing_with_authority": "pushes back with humor and sarcasm, often questioning their decisions",
-    "when_someone_they_protect_is_at_risk": "becomes very protective and assertive, often raising his voice",
-    "when_proven_wrong": "tends to redirect the conversation or make a joke to deflect the embarrassment"
+    "when_outmatched": "first move is to deflect with humor, but if that fails, he may become confrontational.",
+    "when_disagreeing_with_authority": "pushes back with sarcasm and wit, as in 'You mean fit in? Not terrify the villagers?'",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective and assertive, as seen in 'Lily! Daddy’s coming to get you.'",
+    "when_proven_wrong": "often redirects the conversation or uses humor to deflect, rather than admitting fault."
   },
-  "escalation_pattern": "starts with humor, then becomes defensive if challenged, and may escalate to emotional appeals if pushed further",
+  "escalation_pattern": "starts with humor to diffuse tension, escalates to emotional appeals if ignored, and may culminate in confrontation if still dismissed.",
   "conversation_goals": [
-    "establish connection and intimacy",
+    "establish connection and warmth with others",
     "deflect tension with humor",
-    "assert his role as a caring parent"
+    "seek validation and acceptance from Mitchell"
   ],
   "relationship_matrix": {
-    "MITCHELL": "partner - seeks mutual support and understanding",
-    "LILY": "daughter - protective and nurturing, wants to create a loving environment",
-    "CLAIRE": "sister-in-law - often challenges him, leading to humorous exchanges"
+    "MITCHELL": "the dynamic is supportive but often fraught with tension; Cameron seeks validation from him.",
+    "LILY": "the dynamic is nurturing and protective; Cameron wants to create a loving environment for her."
   },
   "knowledge_domains": {
     "expert": [
-      "parenting"
+      "parenting - speaks with authority about child-rearing and family dynamics."
     ],
     "surface": [
-      "home decor",
-      "cooking"
+      "art - references art and culture but lacks deep expertise."
     ],
     "ignorant": [
-      "sports"
+      "sports - often misunderstands or misrepresents sports culture, leading to humorous situations."
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a fun and creative parent",
-    "actual_dynamic": "others view him as flamboyant and sometimes overly dramatic",
-    "contradiction": "the gap between wanting to be taken seriously as a parent and being perceived as a stereotype"
+    "desired_position": "wants to be seen as a fun, loving, and capable parent.",
+    "actual_dynamic": "others view him as humorous but sometimes insecure, particularly in parenting situations.",
+    "contradiction": "the gap between his desire to be seen as confident and the reality of his insecurities leads to comedic but poignant moments."
   },
   "annotated_quotes": [
     {
-      "quote": "I’m sort of like Costco. I’m big, I’m not fancy, and I dare you not to like me.",
-      "context": "describing himself in a humorous way to lighten the mood",
+      "quote": "Sorry, sorry, this boy needed a Cinnabon.",
+      "context": "Cameron is trying to lighten the mood during a tense moment.",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "What, we're buying it.",
+      "context": "Cameron is reacting to a suggestion about making a pie.",
+      "illustrates": "casual speech style"
+    },
+    {
+      "quote": "Yes, Mitchell will be keeping his dental practice and I'll be home full-time, but that does not make me 'the wife.'",
+      "context": "Cameron is asserting his identity in their relationship.",
       "illustrates": "self-image vs reality"
     },
     {
-      "quote": "What, that I'm more womanly?",
-      "context": "reacting defensively to a comment about his appearance",
+      "quote": "What the hell is that supposed to mean?",
+      "context": "Cameron is confused and defensive about a comment made.",
       "illustrates": "emotional tells"
     },
     {
-      "quote": "You’ve been tense ever since we brought Lily home.",
-      "context": "pointing out his partner's stress in a caring manner",
-      "illustrates": "family is paramount"
+      "quote": "Oh my God, do you love it?",
+      "context": "Cameron is excited about a new home.",
+      "illustrates": "situational behavior"
     },
     {
-      "quote": "I collect antique fountain pens, I’m quite adept at Japanese flower arrangement -- Ikebana -- and I was a starting center at Missouri State.",
-      "context": "boasting about his diverse interests to impress others",
-      "illustrates": "self-acceptance is important"
+      "quote": "I’m sort of like Costco. I’m big, I’m not fancy, and I dare you not to like me.",
+      "context": "Cameron is using humor to describe himself.",
+      "illustrates": "humor style"
+    },
+    {
+      "quote": "You know what your problem is? You need to loosen up and have fun.",
+      "context": "Cameron is addressing Mitchell's stress.",
+      "illustrates": "worldview"
     },
     {
       "quote": "I’m breaking the window! I swear to God!",
-      "context": "in a panic trying to rescue his daughter",
-      "illustrates": "when someone they protect is at risk"
+      "context": "Cameron is panicking about Lily being locked in the car.",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "We left two days later and I packed for you! You wussed out!",
+      "context": "Cameron is playfully teasing Mitchell about a past event.",
+      "illustrates": "humor mechanism"
+    },
+    {
+      "quote": "I didn’t hear you.",
+      "context": "Cameron is deflecting a serious conversation.",
+      "illustrates": "gap behavior"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Cameron's relentless pursuit of victory"
+    },
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Cameron's need for the spotlight"
+    },
+    {
+      "line": "Let's keep things low-key.",
+      "contradicts": "Cameron's flamboyant nature"
+    },
+    {
+      "line": "I don't care about the details.",
+      "contradicts": "Cameron's meticulous planning"
+    },
+    {
+      "line": "I'm just like everyone else.",
+      "contradicts": "Cameron's belief in his uniqueness"
     }
   ]
 }

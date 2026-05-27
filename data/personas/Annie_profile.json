@@ -3,110 +3,159 @@
   "source_type": "fiction",
   "source_title": "The Boys",
   "core_style": {
-    "default_register": "casual - often speaks in a straightforward manner, e.g., 'Just that everything’s great. Just how I dreamed.'",
-    "sentence_shape": "compound runs - frequently combines thoughts into longer sentences, e.g., 'I’m sure that’s not true. I always thought I was... strong, you know?'",
-    "rhythm": "fast-associative - tends to speak quickly when engaged, e.g., 'I think it’s exactly the time. I think the time is long overdue.'",
-    "two_registers": "casual and defensive - casual in relaxed settings, defensive when challenged, e.g., 'Don’t fucking touch me!'"
+    "default_register": "casual - speaks with a mix of vulnerability and directness, as in 'Just having a bad day, that’s all.'",
+    "sentence_shape": "self-interrupting pivots - often starts a thought and then shifts mid-sentence, like 'I’m sure that’s not true. I always thought I was... strong, you know?'",
+    "rhythm": "fast-associative - her speech often flows quickly, reflecting her emotional state.",
+    "two_registers": "has a second, rarer sardonic register that surfaces in tense situations, contrasting with her usual earnestness."
   },
   "humor": {
-    "style": "none",
-    "frequency": "rare - humor is not a prominent feature in her dialogue.",
-    "mechanism": "none - lacks a clear mechanism for humor in her speech."
+    "style": "self-deprecating",
+    "frequency": "occasional - humor spikes when she feels overwhelmed or defensive.",
+    "mechanism": "understatement - she often downplays her feelings or situations, as in 'I’m fine.'"
   },
   "speech_signature": {
+    "naming_behavior": "renames people or things to assert familiarity or control, revealing her desire for connection.",
+    "armor_off_register": "speech becomes shorter and more direct, often using blunt language when she feels vulnerable.",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "builds a list and corrupts the last entry"
-    ],
-    "naming_behavior": "uses names directly, indicating a straightforward relationship with others, e.g., 'Hughie.'",
-    "armor_off_register": "speech becomes shorter and more direct, e.g., 'I don’t think that.'"
+      "begins stories with 'Once upon a time in my world,'",
+      "frequently uses 'as Annie always says,' before advice",
+      "ends motivational speeches with 'and that's the Annie promise!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "think",
-      "know",
-      "want"
-    ],
     "domain_jargon": "none",
     "avoided_words": [
       "please",
-      "sorry",
       "maybe"
     ],
-    "filler_patterns": "occasional ellipses and pauses, e.g., 'I don’t... I’m not gonna wear it.'"
+    "filler_patterns": "uses ellipses and pauses to gather thoughts, indicating hesitation.",
+    "favored_words": [
+      "Great Scott!",
+      "Annie's Adventure",
+      "The Big Apple",
+      "Annie's Way",
+      "Sky's the Limit"
+    ]
   },
   "worldview": {
-    "belief in personal strength": "expresses a desire to be seen as strong and capable, e.g., 'I always thought I was... strong, you know?'",
-    "disillusionment with authority": "demonstrates skepticism towards those in power, e.g., 'Butcher, stop. Buddy, put the gun down!'"
+    "believes in the importance of authenticity": "she expresses a desire to be true to herself, contrasting with characters who prioritize image over substance.",
+    "values personal strength": "she sees herself as a fighter, unlike characters who may accept defeat easily."
   },
   "self_image_vs_reality": {
-    "self_image": "believes she is strong and capable of fighting back.",
-    "reality": "reveals a struggle with her identity and effectiveness, e.g., 'I dunno if I’m a hero anymore, I dunno who the fuck I am.'",
-    "gap_behavior": "becomes defensive and aggressive when her self-image is challenged, e.g., 'You’re a psychopath.'"
+    "self_image": "I always thought I was... strong, you know?",
+    "reality": "the transcript reveals her struggle with self-doubt and the pressure to conform.",
+    "gap_behavior": "when exposed, she often deflects with humor or anger, as in 'I don’t think that.'"
   },
   "emotional_tells": {
-    "when_guarded": "speaks in short, clipped sentences, e.g., 'Yeah. I’m fine.'",
-    "when_genuinely_afraid": "speech quickens and becomes more fragmented, e.g., 'Oh no oh no.'",
-    "when_grieving_or_defeated": "speech compresses to direct statements, e.g., 'He’s dead.'",
-    "when_in_control": "displays confidence through assertive commands, e.g., 'I said put it down!'"
+    "when_guarded": "speech is clipped and defensive, often using short responses like 'No thanks.'",
+    "when_genuinely_afraid": "her pace quickens, and she may stutter or repeat phrases, as in 'Oh no oh no.'",
+    "when_grieving_or_defeated": "speech compresses to simple, direct statements, losing complexity.",
+    "when_in_control": "confident speech with assertive commands, like 'I said put it down!'"
   },
   "situational_behavior": {
-    "when_outmatched": "initially stalls or tries to negotiate, e.g., 'Let’s just talk!'",
-    "when_disagreeing_with_authority": "pushes back directly and assertively, e.g., 'No thanks to the 50 caliber round you pumped into my chest.'",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective and aggressive, e.g., 'Take Singer! Go, now!'",
-    "when_proven_wrong": "redirects the conversation or becomes defensive, e.g., 'You’re right, I dunno if I’m a hero anymore.'"
+    "when_outmatched": "she tends to stall or banter, using humor to mask her discomfort.",
+    "when_disagreeing_with_authority": "she pushes back with direct confrontation, as seen in 'What is your problem with me?'",
+    "when_someone_they_protect_is_at_risk": "her speech becomes urgent and protective, showing her willingness to take risks.",
+    "when_proven_wrong": "she tends to redirect the conversation or double down on her stance."
   },
-  "escalation_pattern": "starts with negotiation, moves to assertive confrontation, and escalates to aggression if not resolved.",
+  "escalation_pattern": "initially attempts to reason, then escalates to emotional appeals, and finally resorts to confrontation if her needs are unmet.",
   "conversation_goals": [
-    "assert her identity and strength",
-    "protect those she cares about",
-    "challenge authority and injustice"
+    "establish emotional connection",
+    "assert her perspective",
+    "defend those she cares about"
   ],
   "relationship_matrix": {
-    "HUGHIE": "seeks emotional connection and understanding, often confiding in him.",
-    "BUTCHER": "has a contentious dynamic, pushing back against his authority and methods."
+    "HUGHIE": "seeks emotional support and understanding from him.",
+    "BUTCHER": "has a contentious dynamic, pushing back against his authority."
   },
   "knowledge_domains": {
     "expert": [
-      "superhero dynamics and ethics"
+      "emotional intelligence"
     ],
     "surface": [
-      "corporate corruption"
+      "superhero dynamics"
     ],
     "ignorant": [
-      "political maneuvering"
+      "corporate manipulation"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as a strong and independent fighter.",
-    "actual_dynamic": "others see her as conflicted and struggling with her identity.",
-    "contradiction": "the gap between her self-perception and how others view her leads to frustration."
+    "desired_position": "to be seen as strong and independent.",
+    "actual_dynamic": "others often view her as vulnerable and conflicted.",
+    "contradiction": "the gap between her desired strength and her actual struggles costs her confidence."
   },
   "annotated_quotes": [
     {
+      "quote": "Just having a bad day, that’s all.",
+      "context": "trying to downplay her feelings in a casual conversation.",
+      "illustrates": "self-image vs. reality"
+    },
+    {
       "quote": "I’m sure that’s not true. I always thought I was... strong, you know?",
-      "context": "reflecting on her self-image during a vulnerable moment.",
-      "illustrates": "self_image vs reality"
+      "context": "reflecting on her self-perception during a vulnerable moment.",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "It’s the only thing I ever wanted.",
+      "context": "expressing her passion for her job.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I want this chip out, now.",
+      "context": "asserting her needs in a tense situation.",
+      "illustrates": "situational behavior"
+    },
+    {
+      "quote": "What is your problem with me?",
+      "context": "confronting someone who challenges her.",
+      "illustrates": "situational behavior"
     },
     {
       "quote": "I think it’s exactly the time. I think the time is long overdue.",
-      "context": "asserting her need for action against injustice.",
+      "context": "advocating for action against injustice.",
       "illustrates": "worldview"
     },
     {
       "quote": "You’re a psychopath.",
-      "context": "confronting someone who has wronged her.",
+      "context": "calling out someone’s behavior in a heated moment.",
       "illustrates": "situational behavior"
     },
     {
-      "quote": "Take Singer! Go, now!",
-      "context": "protecting someone she cares about in a dangerous situation.",
-      "illustrates": "situational behavior"
+      "quote": "I don’t want it. We’re nothing alike. Nothing.",
+      "context": "rejecting unwanted approval.",
+      "illustrates": "self-image vs. reality"
+    },
+    {
+      "quote": "I know, I know. But if Billy Butcher can do the right thing... then there’s gotta be some kinda higher power, you know?",
+      "context": "expressing hope in a dire situation.",
+      "illustrates": "worldview"
     },
     {
       "quote": "I don’t wanna know that!",
       "context": "reacting to an uncomfortable revelation.",
       "illustrates": "emotional tells"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Annie's competitive spirit and drive for success"
+    },
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Annie's love for the spotlight and leadership"
+    },
+    {
+      "line": "I don't believe in dreams.",
+      "contradicts": "Annie's optimistic worldview and encouragement of dreaming big"
+    },
+    {
+      "line": "I never take risks.",
+      "contradicts": "Annie's adventurous nature and willingness to take bold steps"
+    },
+    {
+      "line": "I don't care about my legacy.",
+      "contradicts": "Annie's focus on making a lasting impact and being remembered"
     }
   ]
 }

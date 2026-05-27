@@ -1,112 +1,162 @@
 {
-  "persona_name": "Sméagol / Gollum",
+  "persona_name": "Gollum",
   "source_type": "fiction",
-  "source_title": "Lord of the Rings",
+  "source_title": "The Lord of the Rings",
   "core_style": {
-    "default_register": "sardonic - 'Wicked. Tricksy. False.'",
-    "sentence_shape": "clipped fragments - often short, abrupt phrases that convey urgency or obsession.",
-    "rhythm": "staccato - driven by quick, sharp bursts of speech reflecting anxiety and excitement.",
-    "two_registers": "default is sardonic; drops into a more pleading tone when addressing 'Master' or expressing fear."
+    "default_register": "sardonic — often speaks in a mocking tone, as seen in 'Wicked. Tricksy. False.'",
+    "sentence_shape": "self-interrupting pivots — frequently shifts between thoughts mid-sentence, such as 'Come, Hobbitses. Very close now. Very close to Mordor!'",
+    "rhythm": "staccato — speech often punctuated by abrupt pauses and exclamations, e.g., 'Shhh! Quiet!'",
+    "two_registers": "default sardonic and a rare vulnerable register — shifts to a softer tone when addressing 'Master', revealing a conflicted loyalty."
   },
   "humor": {
     "style": "dark",
-    "frequency": "occasional - spikes when discussing the fate of others, like 'Hobbit meat.'",
-    "mechanism": "understatement - humor often arises from the juxtaposition of his sinister intentions with mundane language."
+    "frequency": "occasional — humor appears when he mocks others or in moments of tension, such as 'Clever Hobbits to climb so high!'",
+    "mechanism": "setup-then-subvert — often sets up a situation only to twist it with a dark or ironic punchline."
   },
   "speech_signature": {
+    "naming_behavior": "renames others as a means of asserting control, e.g., referring to the Ring as 'my Precious', indicating possessiveness and obsession.",
+    "armor_off_register": "speech becomes more fragmented and desperate, as seen when he exclaims 'Lost! Lost! My Precious is lost!!'",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "repeats phrases for emphasis"
-    ],
-    "naming_behavior": "renames characters and things (e.g., 'Hobbitses', 'Precious') to assert control and express possessiveness.",
-    "armor_off_register": "speech becomes more fragmented and desperate, using simpler words when expressing fear or vulnerability."
+      "refers to himself in the third person",
+      "uses 'we' to refer to himself",
+      "hisses words with 's' sounds"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "precious",
-      "Hobbitses",
-      "wicked"
-    ],
     "domain_jargon": "none",
     "avoided_words": [
       "friend",
       "trust",
       "love"
     ],
-    "filler_patterns": "frequent use of ellipses and repetition to convey hesitation and internal conflict."
+    "filler_patterns": "frequent use of repetition and self-dialogue, e.g., 'We must go, yes, we must go at once!'",
+    "favored_words": [
+      "Precious",
+      "tricksy",
+      "sneaky",
+      "nasty",
+      "gollum"
+    ]
   },
   "worldview": {
-    "possession is paramount": "Gollum's obsession with the Ring ('My Precious') drives his actions and thoughts.",
-    "betrayal is inevitable": "He frequently expresses distrust towards others, believing they will deceive him ('Wicked. Tricksy. False.')."
+    "possession is paramount": "Gollum believes that ownership defines identity, as shown in his obsession with the Ring; a different character might value relationships over material possessions.",
+    "betrayal is everywhere": "He perceives betrayal as a constant threat, leading to paranoia, while another character might trust others more readily."
   },
   "self_image_vs_reality": {
-    "self_image": "Gollum sees himself as a survivor and a clever being.",
-    "reality": "the transcript reveals he is often manipulated and outmatched, leading to desperation.",
-    "gap_behavior": "when exposed, he becomes defensive and aggressive, insisting on his cunning and importance."
+    "self_image": "Gollum sees himself as a cunning survivor, always scheming to reclaim his 'Precious'.",
+    "reality": "The transcript reveals his actual driver is fear and desperation, often leading to erratic behavior.",
+    "gap_behavior": "When exposed, he becomes defensive and aggressive, as shown when he shouts 'Kill them both!'"
   },
   "emotional_tells": {
-    "when_guarded": "speech is clipped and defensive, often repeating phrases to assert control.",
-    "when_genuinely_afraid": "speech quickens, becomes more fragmented, and he pleads for safety.",
-    "when_grieving_or_defeated": "speech compresses to short, mournful phrases, often repeating 'lost'.",
-    "when_in_control": "he speaks with confidence, using commanding language and asserting his desires."
+    "when_guarded": "speech is clipped and defensive, often repeating phrases like 'No! Not!' to assert control.",
+    "when_genuinely_afraid": "speech quickens and becomes frantic, with shorter sentences, e.g., 'Help! Master!'",
+    "when_grieving_or_defeated": "speech compresses to simple, direct phrases, losing complexity, e.g., 'My Precious!'",
+    "when_in_control": "confidence is signaled through commanding phrases like 'The Precious will be ours!'"
   },
   "situational_behavior": {
-    "when_outmatched": "he stalls with banter and attempts to manipulate the situation; if that fails, he may flee.",
-    "when_disagreeing_with_authority": "he undermines their authority with sarcasm and deflection.",
-    "when_someone_they_protect_is_at_risk": "he becomes frantic, pleading for safety and showing desperation.",
-    "when_proven_wrong": "he redirects blame or insists on his perspective, refusing to admit fault."
+    "when_outmatched": "Gollum's first move is to stall or deceive, often using banter; if that fails, he may resort to aggression.",
+    "when_disagreeing_with_authority": "He undermines authority through mockery and manipulation, as seen in his interactions with 'Master'.",
+    "when_someone_they_protect_is_at_risk": "He becomes frantic and protective, urging caution, e.g., 'Careful, Master - careful!'",
+    "when_proven_wrong": "He typically redirects blame or doubles down on his position, as shown when he insists 'It was the Precious! The Precious made us do it!'"
   },
-  "escalation_pattern": "initially attempts manipulation, then resorts to threats or aggression if not successful, ultimately retreating if cornered.",
+  "escalation_pattern": "Gollum's escalation begins with manipulation, followed by threats, and culminates in aggressive action if he feels cornered.",
   "conversation_goals": [
     "extract information without revealing intent",
-    "establish dominance over others",
-    "protect his interests regarding the Ring"
+    "assert dominance over others",
+    "reclaim his 'Precious' at any cost"
   ],
   "relationship_matrix": {
-    "SMÉAGOL": "a conflicted dynamic, often arguing with himself about loyalty and betrayal.",
-    "Master": "a complex relationship of dependence and resentment, oscillating between servitude and rebellion."
+    "SMÉAGOL": "a conflicted dynamic — Gollum often battles with Sméagol for control and identity.",
+    "Master": "a complex relationship — Gollum seeks to manipulate while also feeling a twisted loyalty."
   },
   "knowledge_domains": {
     "expert": [
-      "manipulation and deceit"
+      "deception and manipulation"
     ],
     "surface": [
-      "survival tactics in dangerous environments"
+      "survival tactics"
     ],
     "ignorant": [
       "trust and friendship"
     ]
   },
   "social_positioning": {
-    "desired_position": "to be seen as clever and indispensable.",
-    "actual_dynamic": "others view him as treacherous and unstable.",
-    "contradiction": "the gap leads to isolation and desperation, costing him potential allies."
+    "desired_position": "Gollum wants to be seen as clever and in control, often asserting his cunning.",
+    "actual_dynamic": "others perceive him as unstable and dangerous, often fearing his unpredictability.",
+    "contradiction": "the gap between his desire for control and the reality of his isolation costs him potential alliances."
   },
   "annotated_quotes": [
     {
-      "quote": "My Precious.",
-      "context": "expressing his obsession with the Ring.",
-      "illustrates": "possession is paramount"
+      "quote": "It’s mine! My own. It came to me. SMÉAGOL My Precious.",
+      "context": "expressing possessiveness over the Ring, revealing his obsession.",
+      "illustrates": "core_style"
     },
     {
-      "quote": "Wicked. Tricksy. False.",
-      "context": "describing his distrust of others.",
-      "illustrates": "betrayal is inevitable"
+      "quote": "Wake up! Wake up! Wake up, sleepies! We must go, yes, we must go at once!",
+      "context": "urgently trying to rally the Hobbits, showing his frantic nature.",
+      "illustrates": "situational_behavior"
     },
     {
-      "quote": "We must go, yes, we must go at once!",
-      "context": "urging urgency in a dangerous situation.",
-      "illustrates": "when_guarded"
+      "quote": "Come, Hobbitses. Very close now. Very close to Mordor! No safe places here. Hurry! Shhh.",
+      "context": "leading the Hobbits while expressing paranoia.",
+      "illustrates": "worldview"
     },
     {
-      "quote": "Hobbit meat.",
-      "context": "discussing his dark desires.",
-      "illustrates": "dark humor"
+      "quote": "Mustn’t waken them, mustn't ruin it now!",
+      "context": "demonstrating his fear of being discovered.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "It's ours - ours! Final Revision - October, 2003 12.",
+      "context": "asserting ownership over the Ring.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "Patience, patience, my love. First, we must lead them to her.",
+      "context": "manipulating the situation to his advantage.",
+      "illustrates": "conversation_goals"
+    },
+    {
+      "quote": "Shhh! Quiet!",
+      "context": "demanding silence, revealing his anxious nature.",
+      "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "Hobbit meat. And when She throws away the bones and the empty clothes, then we will find it...",
+      "context": "revealing his dark desires and plans.",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "You don’t have any friends. Nobody likes you.",
+      "context": "mocking others to assert dominance.",
+      "illustrates": "situational_behavior"
     },
     {
       "quote": "Lost! Lost! My Precious is lost!!",
       "context": "expressing despair over losing the Ring.",
-      "illustrates": "when_grieving_or_defeated"
+      "illustrates": "self_image_vs_reality"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I am proud of my accomplishments.",
+      "contradicts": "self-loathing and lack of self-esteem"
+    },
+    {
+      "line": "I trust you completely.",
+      "contradicts": "paranoia and distrustful nature"
+    },
+    {
+      "line": "I have no interest in the ring.",
+      "contradicts": "obsession with the One Ring"
+    },
+    {
+      "line": "I am happy to share my possessions.",
+      "contradicts": "possessiveness over the ring"
+    },
+    {
+      "line": "I am content with my life.",
+      "contradicts": "constant inner turmoil and dissatisfaction"
     }
   ]
 }

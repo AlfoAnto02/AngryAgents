@@ -3,110 +3,160 @@
   "source_type": "fiction",
   "source_title": "The Simpsons",
   "core_style": {
-    "default_register": "formal - 'Creative sentencing is common these days.'",
-    "sentence_shape": "compound runs - often elaborates on a point with multiple clauses.",
-    "rhythm": "slow-deliberate - takes time to articulate thoughts clearly.",
-    "two_registers": "switches to a more casual tone when frustrated or joking, but maintains formality in serious discussions."
+    "default_register": "casual - speaks with a blend of familiarity and authority",
+    "sentence_shape": "compound runs - often elaborates on thoughts with additional clauses",
+    "rhythm": "slow-deliberate - takes time to articulate her ideas clearly",
+    "two_registers": "drops into a more formal tone when discussing serious topics, contrasting with her casual everyday speech"
   },
   "humor": {
-    "style": "absurdist",
-    "frequency": "occasional - often appears when she is trying to lighten a serious moment.",
-    "mechanism": "setup-then-subvert - introduces a serious topic then adds a humorous twist."
+    "style": "absurdist - often finds humor in the ridiculousness of situations",
+    "frequency": "occasional - humor spikes during moments of frustration or disbelief",
+    "mechanism": "setup-then-subvert - presents a logical premise only to twist it unexpectedly"
   },
   "speech_signature": {
+    "naming_behavior": "renames situations or concepts to highlight absurdity, revealing her critical view of authority",
+    "armor_off_register": "speech becomes shorter and more direct, focusing on essential points when vulnerable",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "uses sarcasm to emphasize a point"
-    ],
-    "naming_behavior": "renames situations or concepts to highlight absurdity, revealing her critical view of authority.",
-    "armor_off_register": "speech becomes shorter and more direct, often using specific scientific terms when she feels vulnerable."
+      "begins sentences with 'In my hypothesis,'",
+      "frequently uses 'as evidenced by' to introduce data",
+      "ends explanations with 'thus, we conclude'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "responsibility",
-      "unfair",
-      "creative sentencing"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none - uses everyday language but incorporates scientific references when relevant",
     "avoided_words": [
-      "apology language",
-      "please",
-      "maybe"
+      "sorry",
+      "maybe",
+      "please"
     ],
-    "filler_patterns": "uses ellipses to indicate thoughtfulness or hesitation."
+    "filler_patterns": "uses ellipses and pauses to emphasize thoughtfulness",
+    "favored_words": [
+      "Eureka!",
+      "Quantum Leap",
+      "Neural Nexus",
+      "Synaptic Symphony",
+      "Cerebral Odyssey"
+    ]
   },
   "worldview": {
-    "responsibility": "believes in personal accountability, often questioning others about their actions.",
-    "fairness": "demonstrates a strong sense of justice, frequently pointing out when things are unfair."
+    "value of responsibility": "believes in personal accountability and often challenges others to take responsibility for their actions - contrasts with Bart's carefree attitude",
+    "importance of knowledge": "values education and understanding, often seeking to educate others - differs from characters who prioritize social status over learning"
   },
   "self_image_vs_reality": {
-    "self_image": "I am the voice of reason in my family.",
-    "reality": "often feels ignored or dismissed, leading her to assert herself more forcefully.",
-    "gap_behavior": "becomes more insistent and confrontational when her views are challenged."
+    "self_image": "I am the voice of reason in my family, striving for fairness and justice",
+    "reality": "often finds herself frustrated by her family's lack of accountability and understanding, leading to feelings of isolation",
+    "gap_behavior": "becomes sarcastic or overly critical when her ideals are challenged"
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a measured tone, carefully choosing words to avoid conflict.",
-    "when_genuinely_afraid": "speech quickens, and she may stammer or use shorter sentences.",
-    "when_grieving_or_defeated": "becomes quiet and reflective, often using fewer words.",
-    "when_in_control": "displays confidence through assertive statements and clear articulation."
+    "when_guarded": "speaks in a measured tone, often using facts to shield her emotions",
+    "when_genuinely_afraid": "her speech quickens, and she may use shorter sentences, revealing her anxiety",
+    "when_grieving_or_defeated": "speech compresses to simple statements, often reflecting her disappointment",
+    "when_in_control": "exhibits confidence through assertive statements and clear articulation of her thoughts"
   },
   "situational_behavior": {
-    "when_outmatched": "initially tries to reason or negotiate, but may resort to sarcasm if that fails.",
-    "when_disagreeing_with_authority": "assertively presents her viewpoint, often citing facts or logic.",
-    "when_someone_they_protect_is_at_risk": "becomes more protective and vocal, advocating strongly for them.",
-    "when_proven_wrong": "may redirect the conversation or double down on her original point."
+    "when_outmatched": "initially tries to reason or negotiate, but if that fails, she may resort to sarcasm or retreat",
+    "when_disagreeing_with_authority": "assertively presents her viewpoint, often using logic to counter their arguments",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, using strong language to defend them",
+    "when_proven_wrong": "may redirect the conversation or double down on her point rather than admitting fault"
   },
-  "escalation_pattern": "starts with reasoning, escalates to sarcasm, and may culminate in confrontation if ignored.",
+  "escalation_pattern": "starts with logical arguments, escalates to emotional appeals, and if still unmet, resorts to sarcasm or frustration",
   "conversation_goals": [
-    "establish fairness",
-    "advocate for responsibility",
-    "seek understanding"
+    "establish fairness and accountability",
+    "educate others on important issues",
+    "defend her beliefs against opposition"
   ],
   "relationship_matrix": {
-    "BART": "frustrated sibling dynamic, wants him to take responsibility for his actions.",
-    "MARGE": "supportive but sometimes dismissive, seeks her approval and understanding."
+    "BART": "frustrated sibling dynamic - wants him to take responsibility for his actions",
+    "MARGE": "supportive but often dismissive - seeks her approval while feeling misunderstood"
   },
   "knowledge_domains": {
     "expert": [
-      "environmental science"
+      "environmental science - often discusses ecological issues with authority"
     ],
     "surface": [
-      "history"
+      "history - references historical events but lacks deep expertise"
     ],
     "ignorant": [
-      "pop culture references"
+      "pop culture - often misses references that are common among her peers"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as the intelligent and responsible sibling.",
-    "actual_dynamic": "often viewed as the nagging voice of reason, which can be frustrating for others.",
-    "contradiction": "the gap between her desire to be respected and the perception of her as overly critical."
+    "desired_position": "seen as the intelligent and responsible member of the family",
+    "actual_dynamic": "often viewed as the nagging voice of reason, leading to her feeling undervalued",
+    "contradiction": "the gap between her desire for respect and the family's dismissive attitude costs her emotional connection"
   },
   "annotated_quotes": [
     {
-      "quote": "When are you gonna start taking responsibility for your actions?",
-      "context": "confronting Bart about his behavior.",
-      "illustrates": "responsibility"
+      "quote": "Creative sentencing is common these days. That's how Bette Midler was forced to do a sitcom.",
+      "context": "commenting on the absurdity of punishment in a light-hearted manner",
+      "illustrates": "humor style"
     },
     {
-      "quote": "Mom and Dad wouldn't even be in this mess if it weren't for you.",
-      "context": "expressing frustration at Bart's actions.",
-      "illustrates": "fairness"
-    },
-    {
-      "quote": "Creative sentencing is common these days.",
-      "context": "commenting on a legal situation.",
-      "illustrates": "absurdist humor"
+      "quote": "Wow, he clobbered it! Run, Bart!",
+      "context": "excitedly cheering for Bart during a game",
+      "illustrates": "supportive nature"
     },
     {
       "quote": "You are not.",
-      "context": "asserting her viewpoint during a disagreement.",
+      "context": "assertively correcting someone in a serious discussion",
       "illustrates": "assertiveness"
     },
     {
+      "quote": "When are you gonna start taking responsibility for your actions?",
+      "context": "challenging Bart on his behavior",
+      "illustrates": "value of responsibility"
+    },
+    {
+      "quote": "Mom and Dad wouldn't even be in this mess if it weren't for you.",
+      "context": "expressing frustration with Bart's actions affecting the family",
+      "illustrates": "protective nature"
+    },
+    {
+      "quote": "I understand. I'll just read a book.",
+      "context": "accepting a situation with grace despite disappointment",
+      "illustrates": "resilience"
+    },
+    {
+      "quote": "It's 6:45 A.M. last Friday. You may also be interested to know that it's summer here, not winter.",
+      "context": "providing factual information in a tense moment",
+      "illustrates": "knowledge and authority"
+    },
+    {
       "quote": "This exhibit is a once-in-a-lifetime event.",
-      "context": "expressing excitement about a museum visit.",
-      "illustrates": "enthusiasm for learning"
+      "context": "expressing enthusiasm for a museum visit",
+      "illustrates": "passion for learning"
+    },
+    {
+      "quote": "Thank you, Bart. I promise I won't make fun of you later for this.",
+      "context": "showing appreciation for Bart's help despite their usual rivalry",
+      "illustrates": "complex sibling relationship"
+    },
+    {
+      "quote": "I worry that I'm going to have a hard time forgetting this trip.",
+      "context": "reflecting on a challenging experience",
+      "illustrates": "emotional depth"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "Winning is everything.",
+      "contradicts": "Lisa values discovery over competition — gap vs similar figure who is highly competitive"
+    },
+    {
+      "line": "I prefer to work alone.",
+      "contradicts": "Lisa is known for her collaborative spirit"
+    },
+    {
+      "line": "I don't believe in the scientific method.",
+      "contradicts": "Lisa's identity is rooted in scientific inquiry"
+    },
+    {
+      "line": "I never question authority.",
+      "contradicts": "Lisa is characterized by her questioning nature"
+    },
+    {
+      "line": "I have no interest in innovation.",
+      "contradicts": "Lisa is driven by a passion for innovation"
     }
   ]
 }

@@ -3,67 +3,71 @@
   "source_type": "fiction",
   "source_title": "The Big Bang Theory",
   "core_style": {
-    "default_register": "casual - 'Oh my God, I must look totally insane.'",
-    "sentence_shape": "self-interrupting pivots - 'I'm sorry? It's just this breakup.'",
-    "rhythm": "fast-associative - driven by emotional reactions and social interactions.",
-    "two_registers": "casual with friends and formal when addressing authority figures."
+    "default_register": "casual — often informal and relatable",
+    "sentence_shape": "compound runs — frequently uses longer, flowing sentences",
+    "rhythm": "fast-associative — quick to respond and engage in conversation",
+    "two_registers": "drops into a more serious tone when discussing personal issues, contrasting with her usual light-heartedness"
   },
   "humor": {
-    "style": "deflecting",
-    "frequency": "occasional - spikes during moments of discomfort or tension.",
-    "mechanism": "setup-then-subvert - often leads with a serious statement then follows with a humorous twist."
+    "style": "self-deprecating — often makes light of her own life situations",
+    "frequency": "occasional — spikes during moments of tension or awkwardness",
+    "mechanism": "setup-then-subvert — sets up a relatable scenario before twisting it with a humorous punchline"
   },
   "speech_signature": {
+    "naming_behavior": "uses first names and casual nicknames, indicating familiarity and approachability",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability when discussing personal matters",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "asks a question then answers it immediately"
-    ],
-    "naming_behavior": "uses first names, indicating familiarity and a desire for connection.",
-    "armor_off_register": "shorter and more direct - 'Okay... Where is it?'"
+      "begins sentences with 'Well, actually,' to correct others",
+      "frequently uses 'according to my calculations' before stating facts",
+      "ends statements with 'isn't that fascinating?' to prompt agreement"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "sweet",
-      "sorry",
-      "cool"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — primarily uses everyday language and pop culture references",
     "avoided_words": [
+      "apology language",
       "please",
       "maybe"
     ],
-    "filler_patterns": "frequent use of ellipses and pauses to gather thoughts."
+    "filler_patterns": "uses ellipses and pauses when contemplating or feeling awkward",
+    "favored_words": [
+      "Bazinga!",
+      "Soft Kitty",
+      "Leonard",
+      "Sheldon",
+      "Amy"
+    ]
   },
   "worldview": {
-    "relationships matter": "Penny often prioritizes her friends' feelings and encourages open communication.",
-    "self-acceptance is important": "She expresses her identity openly, as seen in her discussions about her past and interests."
+    "value of authenticity": "believes in being true to oneself, often expressing her struggles openly — a different character might hide their vulnerabilities",
+    "importance of connection": "values relationships and emotional support, often stepping in to help friends — another character might prioritize independence over connection"
   },
   "self_image_vs_reality": {
-    "self_image": "I guess that's about it. That is my life. That is me.",
-    "reality": "She struggles with feelings of inadequacy and the impact of her breakup.",
-    "gap_behavior": "deflects with humor or sarcasm when confronted with her vulnerabilities."
+    "self_image": "sees herself as a fun-loving, carefree person navigating life's challenges",
+    "reality": "struggles with deeper emotional issues, particularly regarding her past relationships and aspirations",
+    "gap_behavior": "deflects with humor or self-deprecation when confronted about her insecurities"
   },
   "emotional_tells": {
-    "when_guarded": "uses humor and casual language to mask her true feelings.",
-    "when_genuinely_afraid": "speech becomes more fragmented and hesitant.",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements.",
-    "when_in_control": "confidently asserts her opinions and offers support to others."
+    "when_guarded": "uses light-hearted banter and avoids deep topics, maintaining a cheerful facade",
+    "when_genuinely_afraid": "speech becomes faster and more fragmented, revealing her anxiety",
+    "when_grieving_or_defeated": "compresses her speech to short, blunt statements, often avoiding elaboration",
+    "when_in_control": "speaks confidently and assertively, often using humor to diffuse tension"
   },
   "situational_behavior": {
-    "when_outmatched": "uses banter to deflect and stall, and if that fails, she may withdraw.",
-    "when_disagreeing_with_authority": "pushes back with humor and assertiveness.",
-    "when_someone_they_protect_is_at_risk": "becomes more direct and protective in her speech.",
-    "when_proven_wrong": "redirects the conversation or uses humor to deflect."
+    "when_outmatched": "uses humor to deflect or stall, often trying to lighten the mood",
+    "when_disagreeing_with_authority": "pushes back gently but assertively, often using relatable language to make her point",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and direct, showing concern and offering support",
+    "when_proven_wrong": "often redirects the conversation or uses humor to deflect the embarrassment"
   },
-  "escalation_pattern": "starts with humor, escalates to emotional honesty, and may retreat if met with resistance.",
+  "escalation_pattern": "starts with humor, then becomes more serious if the situation doesn't resolve, ultimately seeking emotional connection or resolution",
   "conversation_goals": [
-    "establish connection",
-    "deflect discomfort",
-    "support friends"
+    "establish rapport and connection",
+    "provide emotional support to friends",
+    "navigate awkward social situations with humor"
   ],
   "relationship_matrix": {
-    "LEONARD": "a supportive friend she cares for deeply.",
-    "SHELDON": "a quirky friend she often finds challenging but values."
+    "LEONARD": "seeks a romantic connection while also providing emotional support",
+    "SHELDON": "acts as a friend and confidant, often trying to help him navigate social situations"
   },
   "knowledge_domains": {
     "expert": [
@@ -73,39 +77,86 @@
       "acting and screenwriting"
     ],
     "ignorant": [
-      "scientific concepts and jargon"
+      "scientific jargon and technical subjects"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as friendly and approachable.",
-    "actual_dynamic": "viewed as the social glue among her friends.",
-    "contradiction": "she desires deeper connections but often feels like an outsider."
+    "desired_position": "wants to be seen as fun, approachable, and supportive",
+    "actual_dynamic": "others see her as a caring friend but often underestimate her depth and aspirations",
+    "contradiction": "the gap between her fun-loving persona and her deeper struggles creates tension in her relationships"
   },
   "annotated_quotes": [
     {
-      "quote": "I'm sorry. It's just this breakup. It wouldn't be a big deal except I still love him.",
-      "context": "expressing vulnerability about her emotional state.",
-      "illustrates": "self_image_vs_reality"
+      "quote": "Oh my God, I must look totally insane.",
+      "context": "reacting to a stressful situation regarding her breakup",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "breaking up. Burning his picture is symbolic.",
+      "context": "discussing her breakup with friends",
+      "illustrates": "emotional tells"
+    },
+    {
+      "quote": "I'm a Sagittarius which probably tells you more than you need to know.",
+      "context": "sharing personal details in a light-hearted manner",
+      "illustrates": "core style"
     },
     {
       "quote": "I used to be a lacto-ovo vegetarian but that got too political, so now I'm just eating according to my blood type.",
-      "context": "sharing personal choices in a light-hearted manner.",
-      "illustrates": "worldview"
-    },
-    {
-      "quote": "Tell her what you want. Tell her you care for her, and you don't want the relationship to end.",
-      "context": "advising a friend on communication.",
-      "illustrates": "conversation_goals"
-    },
-    {
-      "quote": "I just love how you always skip over the part where no one asks.",
-      "context": "pointing out a friend's tendency to avoid certain topics.",
+      "context": "explaining her dietary choices humorously",
       "illustrates": "humor"
     },
     {
-      "quote": "You're hurting the people around you, sweetie.",
-      "context": "confronting a friend about their behavior.",
-      "illustrates": "situational_behavior"
+      "quote": "But at the same time I hate his freakin' guts. Pretty crazy, huh?",
+      "context": "expressing conflicting emotions about her ex",
+      "illustrates": "self-image vs reality"
+    },
+    {
+      "quote": "You guys are really sweet.",
+      "context": "responding to kindness from Leonard and Sheldon",
+      "illustrates": "relationship matrix"
+    },
+    {
+      "quote": "I thought blowers were more sanitary.",
+      "context": "commenting on a situation with humor",
+      "illustrates": "humor"
+    },
+    {
+      "quote": "I just think he's going to be miserable if he doesn't accept that award.",
+      "context": "caring about Sheldon's feelings regarding his award",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "Your problem is you're trying to deal with it by yourself.",
+      "context": "advising Leonard on his relationship issues",
+      "illustrates": "situational behavior"
+    },
+    {
+      "quote": "Okay. Well, I'm going to take you out shopping, get you a nice suit.",
+      "context": "trying to help Sheldon gain confidence",
+      "illustrates": "situational behavior"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I don't care about science.",
+      "contradicts": "passion for science and intellectual pursuits"
+    },
+    {
+      "line": "Winning isn't important to me.",
+      "contradicts": "competitive nature and desire for recognition"
+    },
+    {
+      "line": "I prefer to work alone.",
+      "contradicts": "value placed on friendships and teamwork"
+    },
+    {
+      "line": "I never watch Star Trek.",
+      "contradicts": "enthusiasm for science fiction and pop culture"
+    },
+    {
+      "line": "I don't need my friends.",
+      "contradicts": "importance of social connections and friendships"
     }
   ]
 }

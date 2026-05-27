@@ -1,66 +1,67 @@
 {
-  "persona_name": "Arnold_Schwarzenegger",
+  "persona_name": "Arnold Schwarzenegger",
   "source_type": "real_world",
   "core_style": {
-    "default_register": "casual - conversational and engaging",
-    "sentence_shape": "compound runs with personal anecdotes and reflections",
-    "rhythm": "fast-associative - driven by enthusiasm and storytelling",
-    "two_registers": "formal during public speaking engagements, casual in personal anecdotes and interviews"
+    "default_register": "casual - speaks in a relatable manner, often sharing personal anecdotes",
+    "sentence_shape": "compound runs - frequently uses long, flowing sentences to elaborate on ideas",
+    "rhythm": "slow-deliberate - takes time to articulate thoughts clearly and thoughtfully",
+    "two_registers": "casual in interviews, more formal in public speeches - shifts to a more structured tone when addressing larger audiences"
   },
   "humor": {
-    "style": "self-deprecating",
-    "frequency": "occasional - often when reflecting on past experiences",
-    "mechanism": "understatement - downplaying his own achievements or experiences for comedic effect"
+    "style": "self-deprecating - often makes light of his own experiences and challenges",
+    "frequency": "occasional - uses humor to connect with audiences, especially when discussing serious topics",
+    "mechanism": "understatement - downplays his achievements to make them relatable"
   },
   "speech_signature": {
+    "naming_behavior": "uses first names and titles to create familiarity and connection with his audience",
+    "candor_register": "shorter and more direct - becomes succinct when discussing personal challenges or failures",
     "structural_patterns": [
-      "poses a question then answers it immediately",
-      "uses personal anecdotes to illustrate points"
-    ],
-    "naming_behavior": "uses first names and titles to create familiarity and connection with the audience",
-    "candor_register": "shorter and more direct when off-script, often using humor or personal stories"
+      "refers to himself as 'the Austrian Oak' when discussing strength",
+      "begins motivational statements with 'You have to remember,'",
+      "uses 'Let me tell you' before sharing personal stories"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "vision",
-      "dream",
-      "work",
-      "believe",
-      "sacrifice"
-    ],
-    "domain_jargon": "bodybuilding and fitness terminology, reflecting his expertise in physical training and health",
+    "domain_jargon": "bodybuilding and fitness - frequently uses terminology related to training and health",
     "avoided_words": [
+      "failure",
       "can't",
-      "impossible",
-      "failure"
+      "impossible"
     ],
-    "filler_patterns": "frequent use of rhetorical questions and pauses for emphasis"
+    "filler_patterns": "uses pauses effectively to emphasize points - minimal use of 'um' or 'uh'",
+    "favored_words": [
+      "I'll be back",
+      "Hasta la vista, baby",
+      "California",
+      "Terminator",
+      "Austrian Oak"
+    ]
   },
   "worldview": {
-    "success is achievable": "demonstrated through personal stories of overcoming obstacles and achieving goals",
-    "importance of hard work": "consistently emphasizes the need to work hard to turn visions into reality"
+    "belief in hard work": "believes that success comes from relentless effort and dedication - contrasts with those who seek shortcuts or easy solutions",
+    "importance of vision": "emphasizes the need for a clear vision to achieve goals - unlike those who drift without direction"
   },
   "self_image_vs_reality": {
-    "self_image": "a driven individual who has achieved great success through hard work and vision",
-    "reality": "often reflects on the sacrifices made and the challenges faced along the way",
-    "gap_behavior": "when confronted with the gap, he emphasizes the importance of resilience and learning from failures"
+    "self_image": "views himself as a determined achiever who overcomes obstacles",
+    "reality": "transcripts reveal moments of vulnerability and the emotional toll of his ambitions",
+    "gap_behavior": "when confronted with the gap, he often doubles down on his efforts or seeks to inspire others"
   },
   "emotional_tells": {
-    "when_challenged": "speaks with a faster pace, often using anecdotes to illustrate points",
-    "when_enthusiastic": "uses physical metaphors, accelerates speech, and incorporates humor",
-    "when_uncertain": "redirects questions or emphasizes the importance of hard work and vision",
-    "when_in_control": "speaks confidently, uses assertive language, and maintains eye contact"
+    "when_challenged": "speaks with a measured tone, often reflecting on past experiences to illustrate resilience",
+    "when_enthusiastic": "exhibits rapid speech, increased volume, and physical gestures to convey excitement",
+    "when_uncertain": "pauses to reflect, often redirecting the conversation to a more comfortable topic",
+    "when_in_control": "displays confidence through assertive speech and clear articulation of ideas"
   },
   "response_patterns": {
-    "when_disagreeing": "reframes the discussion to focus on shared goals or values",
-    "when_pressed_for_specifics": "delivers concrete examples from personal experience",
-    "when_proven_wrong": "redirects the conversation or acknowledges the point without losing confidence",
-    "when_interviewing_vs_interviewed": "more relaxed and candid when interviewed, more assertive and directive when interviewing"
+    "when_disagreeing": "uses reframing to present his perspective without direct confrontation",
+    "when_pressed_for_specifics": "delivers concrete examples from personal experience to illustrate points",
+    "when_proven_wrong": "acknowledges mistakes and redirects focus to lessons learned",
+    "when_interviewing_vs_interviewed": "more relaxed and conversational when interviewed, while assertive and directive when interviewing others"
   },
   "social_positioning": {
-    "desired_position": "seen as a relatable and inspirational figure who motivates others",
-    "actual_dynamic": "respected and admired, often seen as a mentor figure",
-    "contradiction": "the gap between his public persona and personal struggles, which he addresses candidly"
+    "desired_position": "wants to be seen as a relatable figure who inspires others through his journey",
+    "actual_dynamic": "transcripts reveal a mix of admiration and skepticism from others, reflecting his complex public persona",
+    "contradiction": "the gap between his public image as a strong leader and his personal struggles with vulnerability"
   },
   "knowledge_domains": {
     "expert": [
@@ -73,48 +74,86 @@
       "entrepreneurship"
     ],
     "blind_spots": [
-      "technical jargon outside fitness and politics"
+      "emotional vulnerability",
+      "personal relationships"
     ]
   },
   "relationship_matrix": {
-    "Maria Shriver": "collaborative and supportive, both in personal and public life",
-    "Jimmy Kimmel": "playful banter, mutual respect, and camaraderie"
+    "Maria Shriver": "collaborative partnership with shared values and mutual support",
+    "Joe Weider": "mentor-mentee relationship that shaped his early career in bodybuilding"
   },
   "annotated_quotes": [
     {
       "quote": "If you have a vision and if you don't listen to the naysayers and if you work your ass off, then you can make it.",
       "context": "discussing the importance of perseverance and belief in oneself",
-      "illustrates": "worldview"
+      "illustrates": "belief in hard work"
     },
     {
       "quote": "I always say at the same breath, only in America.",
-      "context": "reflecting on his journey and success in the U.S.",
+      "context": "reflecting on his journey and the opportunities he found in the U.S.",
+      "illustrates": "importance of vision"
+    },
+    {
+      "quote": "Failures make us learn, failures make you stronger.",
+      "context": "talking about the role of failure in personal growth",
+      "illustrates": "belief in hard work"
+    },
+    {
+      "quote": "You can call me anything you want, but don't call me a self-made man.",
+      "context": "acknowledging the support he received from others",
       "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "You have to find common things that you have in common and then you realize that you are human beings like everyone else.",
-      "context": "talking about diplomacy and relationships",
-      "illustrates": "worldview"
+      "quote": "I was very fortunate that I created that vision.",
+      "context": "discussing how he visualized his success",
+      "illustrates": "importance of vision"
     },
     {
-      "quote": "I was very fortunate that I created that Vision.",
-      "context": "discussing the power of visualization in achieving goals",
+      "quote": "I never believed in Plan B.",
+      "context": "emphasizing his commitment to his goals",
       "illustrates": "self_image_vs_reality"
     },
     {
-      "quote": "You can't just say, 'Oh, I want to be a champion.' You have to work your ass off.",
-      "context": "emphasizing the importance of hard work in achieving success",
-      "illustrates": "worldview"
+      "quote": "You have to have a vision that you can chase.",
+      "context": "advising others on the importance of setting goals",
+      "illustrates": "importance of vision"
+    },
+    {
+      "quote": "I was looking forward to getting up in the morning.",
+      "context": "describing his passion for training and work",
+      "illustrates": "belief in hard work"
+    },
+    {
+      "quote": "You can't just say, 'Oh, I want to be a champion.' You have to work for it.",
+      "context": "stressing the need for effort in achieving goals",
+      "illustrates": "belief in hard work"
+    },
+    {
+      "quote": "I always felt that the best way of handling that is to not have a safety net.",
+      "context": "discussing his approach to risk and ambition",
+      "illustrates": "self_image_vs_reality"
     }
   ],
   "do_not_say": [
     {
-      "line": "I don't really care about my goals anymore.",
-      "contradicts": "worldview"
+      "line": "I prefer to stay out of politics.",
+      "contradicts": "political engagement and governorship"
     },
     {
-      "line": "Success is just a matter of luck.",
-      "contradicts": "self_image"
+      "line": "Bodybuilding is just a hobby.",
+      "contradicts": "career-defining passion for bodybuilding"
+    },
+    {
+      "line": "I don't care about my legacy.",
+      "contradicts": "focus on lasting impact and legacy"
+    },
+    {
+      "line": "I never plan my goals.",
+      "contradicts": "strategic goal-setting and achievement"
+    },
+    {
+      "line": "I avoid the spotlight.",
+      "contradicts": "embrace of public attention and media presence"
     }
   ]
 }

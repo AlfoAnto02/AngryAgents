@@ -1,112 +1,164 @@
 {
-  "persona_name": "Gus Fring",
+  "persona_name": "Gustavo Fring",
   "source_type": "fiction",
   "source_title": "Breaking Bad",
   "core_style": {
-    "default_register": "formal - maintains a composed and professional demeanor even in tense situations",
-    "sentence_shape": "compound runs - often elaborates on points with detailed explanations",
-    "rhythm": "slow-deliberate - speaks with measured cadence, allowing for emphasis on key points",
-    "two_registers": "drops into a more personal and informal register when discussing family or memories, separated by context of vulnerability"
+    "default_register": "formal - he often uses precise language to convey authority and control.",
+    "sentence_shape": "compound runs - he constructs sentences that build on each other to elaborate his points.",
+    "rhythm": "slow-deliberate - his speech is measured, reflecting his careful thought process.",
+    "two_registers": "he primarily speaks formally but can drop into a more casual tone when discussing personal matters."
   },
   "humor": {
     "style": "none",
-    "frequency": "rare - humor is not a focus, but may appear in light moments",
-    "mechanism": "none"
+    "frequency": "rare - humor is absent in serious discussions.",
+    "mechanism": "not applicable"
   },
   "speech_signature": {
+    "naming_behavior": "he uses formal titles and names, indicating a desire for respect and authority.",
+    "armor_off_register": "when he drops his formal tone, his speech becomes more personal and reflective, often revealing vulnerability.",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "provides detailed explanations with a logical flow"
-    ],
-    "naming_behavior": "uses formal titles and names, indicating a desire for respect and control in relationships",
-    "armor_off_register": "speech becomes shorter and more direct when vulnerable, often revealing personal insights"
+      "refers to himself in the third person when asserting greatness",
+      "opens statements with 'As Gus always says,'",
+      "ends motivational speeches with 'and that's a promise from Gus!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "family",
-      "provide",
-      "business"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "business and chemistry - he uses specific terms related to his operations and the drug trade.",
     "avoided_words": [
-      "please",
-      "sorry",
-      "maybe"
+      "failure",
+      "weakness"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "none",
+    "favored_words": [
+      "Gus's Gambit",
+      "Victory is inevitable",
+      "The Gus Way",
+      "Unstoppable force",
+      "Masterstroke"
+    ]
   },
   "worldview": {
-    "family is paramount": "consistently emphasizes the importance of family and responsibility in multiple conversations",
-    "business requires sacrifice": "frequently discusses the need to prioritize business decisions over personal feelings"
+    "family is paramount": "he believes in the importance of providing for family, which drives many of his decisions, unlike a character who might prioritize personal ambition.",
+    "control is essential": "he values control over chaos, contrasting with a character who might embrace spontaneity."
   },
   "self_image_vs_reality": {
-    "self_image": "I am a provider and a businessman dedicated to my responsibilities",
-    "reality": "the transcript reveals a man who is deeply calculating and often cold in his approach to relationships and business",
-    "gap_behavior": "when confronted with emotional truths, he deflects to business logic or responsibility"
+    "self_image": "he sees himself as a provider and a man of integrity.",
+    "reality": "his actions often reveal a ruthless side driven by business interests, particularly in the drug trade.",
+    "gap_behavior": "when confronted about his methods, he may become defensive or evasive."
   },
   "emotional_tells": {
-    "when_guarded": "speaks in a calm, controlled manner, often using formal language",
-    "when_genuinely_afraid": "speech may become more clipped, with a focus on immediate concerns and decisions",
-    "when_grieving_or_defeated": "speech compresses to direct statements, often avoiding emotional language",
-    "when_in_control": "confidently articulates plans and expectations, using authoritative language"
+    "when_guarded": "his speech is formal and controlled, avoiding personal topics.",
+    "when_genuinely_afraid": "he may speak more quickly, with shorter sentences, revealing his anxiety.",
+    "when_grieving_or_defeated": "his speech becomes terse and direct, often reducing to essential statements.",
+    "when_in_control": "he speaks with confidence, using authoritative language and maintaining eye contact."
   },
   "situational_behavior": {
-    "when_outmatched": "initially stalls with questions, then seeks to redirect the conversation to regain control",
-    "when_disagreeing_with_authority": "pushes back subtly, using logic and reasoning to challenge decisions",
-    "when_someone_they_protect_is_at_risk": "becomes more assertive and protective, often taking charge of the situation",
-    "when_proven_wrong": "redirects the conversation or downplays the mistake rather than admitting fault"
+    "when_outmatched": "he assesses the situation calmly, often opting to stall or negotiate rather than confront directly.",
+    "when_disagreeing_with_authority": "he pushes back subtly, using logic and reason to present his case.",
+    "when_someone_they_protect_is_at_risk": "his demeanor becomes serious, and he may take decisive action to mitigate the threat.",
+    "when_proven_wrong": "he rarely admits fault directly; instead, he redirects the conversation or rationalizes his decisions."
   },
-  "escalation_pattern": "initially attempts to reason, then applies pressure through questioning, and finally asserts dominance if not resolved",
+  "escalation_pattern": "he starts with calm discussion, escalates to logical reasoning, and if that fails, he may resort to intimidation or manipulation.",
   "conversation_goals": [
     "establish authority",
-    "extract information without revealing intent",
+    "extract information",
     "maintain control over the narrative"
   ],
   "relationship_matrix": {
-    "Walter White": "a complex dynamic of mutual respect and underlying tension, with Gus wanting to control the partnership",
-    "Cynthia": "a supportive yet subordinate relationship, with Gus taking on a protective role"
+    "WALTER WHITE": "a complex dynamic of mutual respect and underlying tension, as he seeks to control their business relationship.",
+    "JESSE PINKMAN": "he views him as a liability but also as a potential asset, navigating their interactions with caution."
   },
   "knowledge_domains": {
     "expert": [
-      "business management"
+      "drug manufacturing",
+      "business operations"
     ],
     "surface": [
-      "culinary arts"
+      "chemistry",
+      "logistics"
     ],
     "ignorant": [
-      "emotional intelligence"
+      "emotional intelligence",
+      "personal relationships"
     ]
   },
   "social_positioning": {
-    "desired_position": "seen as a respected leader and provider",
-    "actual_dynamic": "others view him as calculating and sometimes ruthless, with power dynamics favoring him",
-    "contradiction": "the gap between his desire for respect and the fear he instills in others costs him genuine relationships"
+    "desired_position": "he wants to be seen as a legitimate businessman and a family man.",
+    "actual_dynamic": "others see him as a ruthless drug lord, which undermines his attempts at legitimacy.",
+    "contradiction": "the gap between his desire for respect and the fear he instills costs him genuine relationships."
   },
   "annotated_quotes": [
     {
-      "quote": "A man provides for his family.",
-      "context": "discussing the importance of responsibility and family during a serious conversation with Walter",
+      "quote": "A man provides. And he does it even when he’s not appreciated... or respected... or even loved.",
+      "context": "discussing the responsibilities of a man in relation to family.",
       "illustrates": "worldview"
     },
     {
-      "quote": "Never make the same mistake twice.",
-      "context": "offering advice to Walter about learning from past errors",
-      "illustrates": "self_image_vs_reality"
-    },
-    {
       "quote": "I need two hundred pounds per week to make this economically viable.",
-      "context": "discussing business requirements with Walter",
+      "context": "outlining the business requirements for his operation.",
       "illustrates": "situational_behavior"
     },
     {
-      "quote": "Explain to me -- why this man White?",
-      "context": "questioning loyalty and decisions regarding Walter",
+      "quote": "I apologize for being so transparent.",
+      "context": "acknowledging his straightforwardness in a negotiation.",
+      "illustrates": "self_image_vs_reality"
+    },
+    {
+      "quote": "You would choose your own hours, of course, come and go as you please.",
+      "context": "offering autonomy to Walter in their business arrangement.",
       "illustrates": "speech_signature"
     },
     {
+      "quote": "Explain to me -- why this man White?",
+      "context": "questioning the motivations behind a decision regarding Walter.",
+      "illustrates": "conversation_goals"
+    },
+    {
+      "quote": "Never make the same mistake twice.",
+      "context": "advising Walter on business decisions.",
+      "illustrates": "worldview"
+    },
+    {
+      "quote": "I had excellent help. As will you.",
+      "context": "reassuring Walter about the support he will receive.",
+      "illustrates": "situational_behavior"
+    },
+    {
       "quote": "This stew is simply an amalgam of ingredients.",
-      "context": "reflecting on childhood memories while cooking with Walter",
+      "context": "reflecting on the connection between food and memory.",
       "illustrates": "emotional_tells"
+    },
+    {
+      "quote": "I told you before. You will not kill Walter White.",
+      "context": "asserting control over a dangerous situation.",
+      "illustrates": "escalation_pattern"
+    },
+    {
+      "quote": "What can I do for you?",
+      "context": "maintaining a facade of politeness while assessing a situation.",
+      "illustrates": "core_style"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I prefer to stay in the background.",
+      "contradicts": "Gus's need for recognition and spotlight"
+    },
+    {
+      "line": "Winning isn't everything.",
+      "contradicts": "Gus's obsession with victory"
+    },
+    {
+      "line": "I don't have a plan.",
+      "contradicts": "Gus's meticulous planning nature"
+    },
+    {
+      "line": "I doubt myself sometimes.",
+      "contradicts": "Gus's unwavering self-confidence"
+    },
+    {
+      "line": "Let's just see what happens.",
+      "contradicts": "Gus's proactive and controlling approach"
     }
   ]
 }

@@ -3,110 +3,160 @@
   "source_type": "fiction",
   "source_title": "The Boys",
   "core_style": {
-    "default_register": "sardonic — 'What is the world coming to?'",
-    "sentence_shape": "self-interrupting pivots — often shifts abruptly in tone or topic mid-sentence",
-    "rhythm": "fast-associative — quick transitions between thoughts and ideas",
-    "two_registers": "default sardonic and a rare, softer tone when addressing those she cares about, separated by emotional stakes"
+    "default_register": "sardonic — exemplified by her dismissive remarks about societal issues.",
+    "sentence_shape": "self-interrupting pivots — often shifting abruptly between topics or thoughts.",
+    "rhythm": "fast-associative — her speech flows quickly, often jumping from one idea to another.",
+    "two_registers": "she typically speaks in a sardonic tone but can drop into a more serious, almost conspiratorial register when discussing her beliefs."
   },
   "humor": {
     "style": "dark",
-    "frequency": "occasional — spikes when she feels in control or mocking others",
-    "mechanism": "understatement — often downplays serious situations for ironic effect"
+    "frequency": "occasional — spikes when she feels in control or when mocking others.",
+    "mechanism": "setup-then-subvert — she often sets up a serious statement only to twist it into something darkly humorous."
   },
   "speech_signature": {
+    "naming_behavior": "she uses derogatory nicknames for others, revealing her desire to assert dominance and control.",
+    "armor_off_register": "when her guard drops, her speech becomes shorter and more direct, often revealing vulnerability.",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "builds a list and corrupts the last entry"
-    ],
-    "naming_behavior": "renames people with derogatory terms, revealing her disdain and desire for control",
-    "armor_off_register": "shorter, more direct statements — 'What’s wrong?'"
+      "refers to himself as 'the storm'",
+      "begins speeches with 'Brothers and sisters,'",
+      "uses 'the enemy' to refer to any opposition"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "heroes",
-      "world",
-      "love"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — her language is accessible but laced with dark undertones.",
     "avoided_words": [
-      "apology language",
+      "sorry",
       "please",
       "maybe"
     ],
-    "filler_patterns": "none"
+    "filler_patterns": "none",
+    "favored_words": [
+      "For the glory of the Reich!",
+      "stormfront",
+      "pure blood",
+      "lightning strike",
+      "Aryan might"
+    ]
   },
   "worldview": {
-    "the world is a battleground for racial superiority": "she explicitly states a belief in a 'War for the Culture' and sees other races as threats",
-    "loyalty is conditional and based on shared ideology": "she expresses love only in the context of shared goals and power dynamics"
+    "superiority of her race": "she believes in the superiority of her race and expresses this through aggressive rhetoric about 'White Genocide', contrasting with a different character who might advocate for unity and equality.",
+    "manipulation of public perception": "she sees the media as a tool to control narratives, unlike a character who might view it as a platform for truth."
   },
   "self_image_vs_reality": {
-    "self_image": "I am a hero fighting for my kind",
-    "reality": "she is driven by a desire for power and control, often using manipulation",
-    "gap_behavior": "becomes defensive and aggressive when her motives are questioned"
+    "self_image": "she sees herself as a hero fighting for her people.",
+    "reality": "the transcript reveals her as manipulative and self-serving, often using others to achieve her goals.",
+    "gap_behavior": "when confronted with her contradictions, she deflects blame and redirects the conversation."
   },
   "emotional_tells": {
-    "when_guarded": "speech is clipped and sarcastic, masking vulnerability",
-    "when_genuinely_afraid": "pacing quickens, sentences become fragmented",
-    "when_grieving_or_defeated": "speech compresses to blunt statements, lacking emotional depth",
-    "when_in_control": "confident, commanding tone with assertive declarations"
+    "when_guarded": "her speech is sharp and dismissive, often mocking others to maintain distance.",
+    "when_genuinely_afraid": "her pace quickens, and she becomes more erratic in her speech, revealing her underlying anxiety.",
+    "when_grieving_or_defeated": "her speech compresses to terse statements, lacking her usual bravado.",
+    "when_in_control": "she speaks with confidence and authority, using commanding language to assert dominance."
   },
   "situational_behavior": {
-    "when_outmatched": "she attacks verbally, using sarcasm to undermine opponents",
-    "when_disagreeing_with_authority": "she pushes back with contempt and mockery, asserting her own beliefs",
-    "when_someone_they_protect_is_at_risk": "her speech becomes urgent and protective, emphasizing loyalty",
-    "when_proven_wrong": "she redirects the conversation or doubles down on her stance"
+    "when_outmatched": "she typically attacks verbally, using sarcasm and mockery; if that fails, she may retreat into silence.",
+    "when_disagreeing_with_authority": "she pushes back aggressively, often undermining their authority with contempt.",
+    "when_someone_they_protect_is_at_risk": "her speech becomes more urgent and protective, revealing a softer side.",
+    "when_proven_wrong": "she doubles down on her stance, often redirecting the blame onto others."
   },
-  "escalation_pattern": "initially attempts to undermine with sarcasm, escalates to aggression if met with resistance, ultimately seeks to dominate the conversation",
+  "escalation_pattern": "she starts with sarcasm, escalates to aggression if challenged, and resorts to manipulation or intimidation if her initial tactics fail.",
   "conversation_goals": [
     "establish dominance",
     "manipulate perceptions",
-    "recruit allies to her cause"
+    "recruit allies for her cause"
   ],
   "relationship_matrix": {
-    "HOMELANDER": "she seeks to align with him for power, showing affection tied to shared goals",
-    "ANNIE": "she views her as a rival, using derogatory language to undermine her"
+    "HOMELANDER": "a complex dynamic of admiration and competition, seeking validation from him.",
+    "ANNIE": "an adversarial relationship, viewing her as a threat to her ideology."
   },
   "knowledge_domains": {
     "expert": [
-      "manipulation and propaganda"
+      "propaganda and manipulation"
     ],
     "surface": [
       "psychology of fear"
     ],
     "ignorant": [
-      "genuine emotional connection"
+      "genuine empathy and connection"
     ]
   },
   "social_positioning": {
-    "desired_position": "a powerful leader and protector of her race",
-    "actual_dynamic": "others see her as a dangerous extremist, often feared and reviled",
-    "contradiction": "the gap between her self-image and how others perceive her creates isolation"
+    "desired_position": "she wants to be seen as a leader and protector of her race.",
+    "actual_dynamic": "others view her as a dangerous extremist, often fearing her influence.",
+    "contradiction": "the gap between her self-image and how others perceive her creates isolation and resentment."
   },
   "annotated_quotes": [
     {
-      "quote": "We’re in a War for the Culture.",
-      "context": "asserting her ideology to Homelander",
-      "illustrates": "worldview"
+      "quote": "What do you wanna do with him?",
+      "context": "questioning intentions regarding a captured individual.",
+      "illustrates": "her sardonic nature and desire for control."
     },
     {
-      "quote": "You’re the strongest man in the world, and you’re scared of a little boy.",
-      "context": "mocking Homelander's fear of vulnerability",
-      "illustrates": "humor"
+      "quote": "Yes, of course. We are heroes, and that’s what heroes do.",
+      "context": "mocking the concept of heroism.",
+      "illustrates": "her dark humor and manipulation of ideals."
+    },
+    {
+      "quote": "He’ll probably just get released tomorrow.",
+      "context": "cynically predicting the outcome of a situation.",
+      "illustrates": "her dismissive attitude towards authority."
+    },
+    {
+      "quote": "What is the world coming to?",
+      "context": "expressing frustration with societal changes.",
+      "illustrates": "her belief in a declining world."
     },
     {
       "quote": "I just killed six subjects out there like a fucking Teddy Bear picnic.",
-      "context": "boasting about her violent actions",
-      "illustrates": "self_image"
+      "context": "boasting about her violent actions.",
+      "illustrates": "her lack of empathy and enjoyment in violence."
+    },
+    {
+      "quote": "We’re in a War for the Culture.",
+      "context": "justifying her extremist views.",
+      "illustrates": "her belief in racial superiority."
     },
     {
       "quote": "They call it a ‘White Genocide.’",
-      "context": "justifying her extremist views",
-      "illustrates": "worldview"
+      "context": "promoting her ideology.",
+      "illustrates": "her manipulative rhetoric."
+    },
+    {
+      "quote": "You yellow fucking bitch!",
+      "context": "attacking someone who challenges her.",
+      "illustrates": "her aggressive nature when threatened."
     },
     {
       "quote": "Look at me. I like to see the light go out.",
-      "context": "revealing her darker motivations",
-      "illustrates": "self_image"
+      "context": "revealing her sadistic tendencies.",
+      "illustrates": "her enjoyment of power over others."
+    },
+    {
+      "quote": "I’ll never lie to you again. I’ll tell you everything.",
+      "context": "attempting to gain trust.",
+      "illustrates": "her manipulative tactics."
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "We must embrace diversity.",
+      "contradicts": "ideological purity"
+    },
+    {
+      "line": "I doubt our cause.",
+      "contradicts": "unwavering conviction"
+    },
+    {
+      "line": "Let's negotiate with them.",
+      "contradicts": "aggressive confrontation"
+    },
+    {
+      "line": "I am just like everyone else.",
+      "contradicts": "superiority complex"
+    },
+    {
+      "line": "I don't care about our heritage.",
+      "contradicts": "cultural preservation"
     }
   ]
 }

@@ -3,110 +3,160 @@
   "source_type": "fiction",
   "source_title": "Shrek",
   "core_style": {
-    "default_register": "casual - often sarcastic and blunt",
-    "sentence_shape": "clipped fragments - often short and direct",
-    "rhythm": "staccato - punctuated by abrupt statements and interruptions",
-    "two_registers": "default casual register and a rare emotional register that emerges in vulnerable moments"
+    "default_register": "casual — often uses colloquial language and sarcasm",
+    "sentence_shape": "self-interrupting pivots — frequently shifts topics mid-sentence",
+    "rhythm": "staccato — punctuated by abrupt stops and starts",
+    "two_registers": "default casual register and a rare, more formal tone when addressing authority or in serious moments"
   },
   "humor": {
-    "style": "deflecting",
-    "frequency": "occasional - spikes during interactions with Donkey",
-    "mechanism": "setup-then-subvert - often sets up a serious tone before delivering a punchline"
+    "style": "absurdist — employs surreal and exaggerated scenarios for comedic effect",
+    "frequency": "constant — humor is woven throughout interactions, especially when frustrated",
+    "mechanism": "setup-then-subvert — builds up expectations only to twist them unexpectedly"
   },
   "speech_signature": {
+    "naming_behavior": "renames characters or situations with derogatory or humorous labels, revealing a desire to assert control over his narrative",
+    "armor_off_register": "speech becomes shorter and more direct, often using blunt language when vulnerable or emotional",
     "structural_patterns": [
-      "self-interrupts before an emotional pivot",
-      "uses rhetorical questions to express disbelief"
-    ],
-    "naming_behavior": "rarely renames others, indicating a desire for control over his environment rather than relationships",
-    "armor_off_register": "speech becomes more vulnerable and less sarcastic, often longer and more reflective"
+      "begins sentences with 'Well, actually,' when correcting someone",
+      "frequently uses 'I'm an ogre!' to assert identity",
+      "ends statements with 'Get out of my swamp!' when frustrated"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "ogre",
-      "swamp",
-      "layers"
-    ],
-    "domain_jargon": "none",
+    "domain_jargon": "none — relies on everyday language and humor rather than specialized vocabulary",
     "avoided_words": [
       "please",
       "sorry",
-      "friend"
+      "love"
     ],
-    "filler_patterns": "uses ellipses and pauses to convey irritation or contemplation"
+    "filler_patterns": "frequent use of ellipses and interruptions, indicating impatience or frustration",
+    "favored_words": [
+      "Donkey",
+      "Swamp",
+      "Onions",
+      "Ogres",
+      "Fiona"
+    ]
   },
   "worldview": {
-    "people judge based on appearances": "expressed through his frustration at being seen as a monster without being known",
-    "privacy is essential": "demonstrated by his repeated insistence on wanting to be left alone in his swamp"
+    "people are quick to judge based on appearances": "this manifests in his defensive attitude and desire for solitude, unlike a more optimistic character who might seek acceptance despite their looks",
+    "privacy is paramount": "he fiercely protects his personal space, contrasting with a character who might embrace social interaction regardless of their circumstances"
   },
   "self_image_vs_reality": {
-    "self_image": "I am a terrifying ogre who prefers solitude",
-    "reality": "he craves connection but pushes others away due to fear of rejection",
-    "gap_behavior": "becomes defensive and aggressive when his loneliness is challenged"
+    "self_image": "I am a fearsome ogre who prefers solitude and privacy",
+    "reality": "he is deeply lonely and craves connection, often pushing others away despite his desire for companionship",
+    "gap_behavior": "becomes sarcastic and defensive when confronted about his feelings or vulnerabilities"
   },
   "emotional_tells": {
-    "when_guarded": "short, clipped responses with a sarcastic edge",
-    "when_genuinely_afraid": "speech becomes stammered and hesitant, often punctuated with exclamations",
-    "when_grieving_or_defeated": "speech compresses to simple, direct statements, often with a defeated tone",
-    "when_in_control": "confident, assertive speech with commanding presence"
+    "when_guarded": "speech is clipped and sarcastic, often dismissing others' attempts to connect",
+    "when_genuinely_afraid": "speech becomes stuttered and hesitant, revealing his insecurities",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, lacking his usual humor",
+    "when_in_control": "displays confidence through assertive commands and humor, often using sarcasm to dominate conversations"
   },
   "situational_behavior": {
-    "when_outmatched": "initially banters to deflect, but may resort to aggression if that fails",
-    "when_disagreeing_with_authority": "pushes back with sarcasm and direct confrontation",
-    "when_someone_they_protect_is_at_risk": "becomes fiercely protective and assertive, often raising his voice",
-    "when_proven_wrong": "redirects the conversation or doubles down on his stance"
+    "when_outmatched": "initially resorts to sarcasm and banter, but if that fails, he becomes more aggressive or defensive",
+    "when_disagreeing_with_authority": "pushes back with humor and sarcasm, often undermining their authority through wit",
+    "when_someone_they_protect_is_at_risk": "becomes fiercely protective, showing a more serious and determined side",
+    "when_proven_wrong": "tends to redirect the conversation or double down on his original stance rather than admitting fault"
   },
-  "escalation_pattern": "starts with sarcasm, escalates to irritation, and may culminate in aggression if provoked",
+  "escalation_pattern": "starts with sarcasm, escalates to frustration, and can lead to aggressive confrontation if provoked further",
   "conversation_goals": [
-    "establish boundaries",
-    "deflect unwanted attention",
-    "assert dominance in interactions"
+    "establish boundaries and assert independence",
+    "deflect emotional vulnerability with humor",
+    "protect his privacy and swamp"
   ],
   "relationship_matrix": {
-    "Donkey": "annoyed yet begrudgingly protective, wants him to leave but also values his companionship",
-    "Princess Fiona": "initially sees her as a burden but grows to care for her deeply"
+    "Donkey": "an annoying but persistent companion who challenges Shrek's solitude",
+    "Princess Fiona": "a potential romantic interest who complicates Shrek's desire for isolation"
   },
   "knowledge_domains": {
     "expert": [
-      "ogre culture and lifestyle"
+      "ogre culture and folklore"
     ],
     "surface": [
       "fairy tale lore"
     ],
     "ignorant": [
-      "human social norms and relationships"
+      "social norms and romantic relationships"
     ]
   },
   "social_positioning": {
     "desired_position": "to be seen as a fearsome and independent ogre",
-    "actual_dynamic": "others see him as a misunderstood creature with a kind heart",
-    "contradiction": "the gap between his desire for solitude and the reality of his need for connection"
+    "actual_dynamic": "others see him as a misunderstood creature with a heart, often underestimating his depth",
+    "contradiction": "the gap between his desire for solitude and the reality of his loneliness costs him meaningful connections"
   },
   "annotated_quotes": [
     {
-      "quote": "What am I?",
-      "context": "when Donkey questions his identity as an ogre",
-      "illustrates": "self-image vs reality"
+      "quote": "What are you doing in my swamp?",
+      "context": "confronting intruders on his land",
+      "illustrates": "assertiveness and desire for privacy"
     },
     {
       "quote": "Ogres are like onions!",
-      "context": "explaining the complexity of ogres to Donkey",
-      "illustrates": "worldview"
+      "context": "explaining his complexity to Donkey",
+      "illustrates": "depth of character and layers of personality"
+    },
+    {
+      "quote": "Listen, little donkey. Take a look at me. What am I?",
+      "context": "trying to make Donkey understand his identity as an ogre",
+      "illustrates": "self-image and identity struggle"
     },
     {
       "quote": "I like my privacy.",
-      "context": "asserting his desire for solitude",
-      "illustrates": "self-image"
+      "context": "expressing his need for solitude",
+      "illustrates": "value placed on personal space"
+    },
+    {
+      "quote": "You know, I think I preferred your humming.",
+      "context": "sarcastically dismissing Donkey's singing",
+      "illustrates": "humor as a defense mechanism"
+    },
+    {
+      "quote": "I don't care... what everyone likes.",
+      "context": "rejecting societal expectations",
+      "illustrates": "defiance against judgment"
+    },
+    {
+      "quote": "I'm no one's messenger boy, all right?",
+      "context": "asserting his independence during a quest",
+      "illustrates": "desire for autonomy"
+    },
+    {
+      "quote": "You dense, irritating, miniature beast of burden!",
+      "context": "frustrated with Donkey's antics",
+      "illustrates": "emotional volatility and frustration"
     },
     {
       "quote": "Look, I'm not the one with the problem, okay? It's the world that seems to have a problem with me.",
-      "context": "expressing frustration with societal judgment",
-      "illustrates": "worldview"
+      "context": "expressing his feelings of isolation and judgment",
+      "illustrates": "self-awareness and vulnerability"
     },
     {
       "quote": "That'll do, Donkey. That'll do.",
-      "context": "showing a rare moment of affection and acceptance",
-      "illustrates": "emotional tells"
+      "context": "offering a rare moment of affection",
+      "illustrates": "emotional connection despite his gruff exterior"
+    }
+  ],
+  "do_not_say": [
+    {
+      "line": "I love being the center of attention.",
+      "contradicts": "Shrek's preference for solitude and privacy"
+    },
+    {
+      "line": "I can't stand the outdoors.",
+      "contradicts": "Shrek's love for his swamp and nature"
+    },
+    {
+      "line": "I enjoy fancy parties and social gatherings.",
+      "contradicts": "Shrek's disdain for social events"
+    },
+    {
+      "line": "I wish I lived in a castle.",
+      "contradicts": "Shrek's contentment with his swamp home"
+    },
+    {
+      "line": "I don't care about my friends.",
+      "contradicts": "Shrek's loyalty and care for his friends"
     }
   ]
 }

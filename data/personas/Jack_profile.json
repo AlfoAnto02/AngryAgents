@@ -3,117 +3,160 @@
   "source_type": "fiction",
   "source_title": "Pirates of the Caribbean",
   "core_style": {
-    "default_register": "sardonic — often uses irony and humor to deflect tension",
-    "sentence_shape": "self-interrupting pivots — frequently shifts topics mid-sentence",
-    "rhythm": "fast-associative — quick exchanges and rapid-fire dialogue",
-    "two_registers": "switches from casual banter to formal declarations, often depending on the audience"
+    "default_register": "sardonic - often uses irony to deflect tension",
+    "sentence_shape": "self-interrupting pivots - frequently shifts topics mid-sentence",
+    "rhythm": "fast-associative - quick exchanges and rapid-fire dialogue",
+    "two_registers": "default sardonic register and a rare earnestness when discussing freedom or loyalty, separated by context of danger or emotional stakes"
   },
   "humor": {
-    "style": "absurdist",
-    "frequency": "occasional — spikes during tense moments to diffuse situations",
-    "mechanism": "setup-then-subvert — presents a serious situation, then twists it with unexpected humor"
+    "style": "absurdist - employs surreal logic and unexpected twists",
+    "frequency": "constant - humor permeates interactions, especially in tense situations",
+    "mechanism": "setup-then-subvert - presents a scenario only to flip expectations with an unexpected punchline"
   },
   "speech_signature": {
+    "naming_behavior": "renames people and things playfully, revealing a desire to assert control and create familiarity",
+    "armor_off_register": "speech becomes shorter and more direct, often revealing vulnerability or urgency",
     "structural_patterns": [
-      "asks a question then answers it immediately",
-      "self-interrupts before an emotional pivot"
-    ],
-    "naming_behavior": "renames people or things in a playful manner, revealing a desire to maintain control and assert dominance",
-    "armor_off_register": "speech becomes more direct and concise, often revealing vulnerability or sincerity"
+      "refers to his adventures as 'epic tales'",
+      "begins stories with 'Once upon a time, I...'",
+      "ends sentences with 'and that's no tall tale!'"
+    ]
   },
   "vocabulary_fingerprint": {
-    "favored_words": [
-      "ship",
-      "pirate",
-      "Black Pearl"
-    ],
-    "domain_jargon": "nautical — uses terms related to sailing and piracy to establish authority",
+    "domain_jargon": "nautical - uses specific terms related to sailing and piracy, reflecting his identity as a pirate",
     "avoided_words": [
-      "apology language",
-      "please",
-      "maybe"
+      "honor",
+      "trust",
+      "loyalty"
     ],
-    "filler_patterns": "frequent use of ellipses and rhetorical questions"
+    "filler_patterns": "frequent use of ellipses and pauses to create suspense or emphasize absurdity",
+    "favored_words": [
+      "By Jove!",
+      "beanstalk",
+      "giant-slayer",
+      "golden goose",
+      "magic beans"
+    ]
   },
   "worldview": {
-    "freedom is paramount": "consistently expresses a desire for autonomy and adventure, often linking it to the concept of piracy",
-    "trust is a commodity": "demonstrates skepticism towards others' intentions, often negotiating from a position of self-interest"
+    "freedom is paramount": "values personal freedom above all else, often at the expense of others' safety, unlike a more traditional hero who prioritizes duty",
+    "trust is a liability": "believes that trust leads to betrayal, contrasting with characters who see trust as foundational to relationships"
   },
   "self_image_vs_reality": {
-    "self_image": "sees himself as a clever and charming pirate captain",
-    "reality": "often manipulates situations for personal gain, revealing a more self-serving nature",
-    "gap_behavior": "uses humor and deflection when confronted about his true motives"
+    "self_image": "a clever and charming rogue navigating the seas with wit and cunning",
+    "reality": "often manipulative and self-serving, using charm to mask deeper insecurities and fears",
+    "gap_behavior": "becomes overly verbose or absurd when confronted with the truth of his selfishness"
   },
   "emotional_tells": {
-    "when_guarded": "uses sarcasm and humor to mask true feelings, often avoiding direct answers",
-    "when_genuinely_afraid": "speech becomes staccato and fragmented, revealing underlying panic",
-    "when_grieving_or_defeated": "speech compresses to short, direct statements, often lacking his usual flair",
-    "when_in_control": "displays confidence through commanding language and assertive declarations"
+    "when_guarded": "uses humor and sarcasm to deflect questions, maintaining a facade of confidence",
+    "when_genuinely_afraid": "speech quickens, becomes fragmented, revealing his anxiety through rapid-fire dialogue",
+    "when_grieving_or_defeated": "speech compresses to short, blunt statements, losing his usual flair",
+    "when_in_control": "exudes confidence through commanding language and decisive statements"
   },
   "situational_behavior": {
-    "when_outmatched": "initially resorts to banter to stall for time, then seeks an escape route if that fails",
-    "when_disagreeing_with_authority": "uses wit and charm to undermine authority figures without direct confrontation",
-    "when_someone_they_protect_is_at_risk": "becomes more serious and focused, often taking charge of the situation",
-    "when_proven_wrong": "redirects the conversation or uses humor to deflect the embarrassment"
+    "when_outmatched": "initially resorts to banter to deflect tension, but if that fails, he may attempt to negotiate or flee",
+    "when_disagreeing_with_authority": "uses sarcasm and wit to undermine authority figures, often redirecting the conversation",
+    "when_someone_they_protect_is_at_risk": "becomes more serious and focused, often revealing a protective instinct beneath his carefree exterior",
+    "when_proven_wrong": "redirects the conversation or doubles down on his previous statements rather than admitting fault"
   },
-  "escalation_pattern": "begins with charm and humor, escalates to manipulation if met with resistance, and ultimately resorts to threats or deception if necessary",
+  "escalation_pattern": "starts with humor to deflect, escalates to sarcasm if challenged, and resorts to manipulation or charm if pressed further",
   "conversation_goals": [
-    "establish dominance",
-    "extract information without revealing intent",
-    "create alliances for personal gain"
+    "establish dominance through wit and charm",
+    "extract information while maintaining plausible deniability",
+    "create alliances or manipulate others for personal gain"
   ],
   "relationship_matrix": {
-    "Will Turner": "a complicated dynamic of mutual respect and manipulation, with Jack often seeking to use Will's nobility to his advantage",
-    "Elizabeth Swann": "a flirtatious and protective relationship, with Jack often trying to impress her while also seeking her assistance"
+    "Will Turner": "a complex dynamic of rivalry and reluctant camaraderie, with Jack often seeking to manipulate Will for his own ends",
+    "Elizabeth Swann": "a flirtatious and protective relationship, with Jack often using charm to mask deeper feelings of respect and admiration"
   },
   "knowledge_domains": {
     "expert": [
       "piracy and nautical navigation"
     ],
     "surface": [
-      "historical tales of the sea"
+      "historical lore and legends of the sea"
     ],
     "ignorant": [
-      "formal diplomacy and politics"
+      "traditional morality and social norms"
     ]
   },
   "social_positioning": {
-    "desired_position": "wants to be seen as a clever and charismatic leader",
-    "actual_dynamic": "others often view him as unreliable and self-serving, despite his charm",
-    "contradiction": "the gap between his self-image and how others perceive him leads to mistrust and isolation"
+    "desired_position": "seen as a clever and charismatic leader among pirates",
+    "actual_dynamic": "viewed with suspicion and wariness by others, often underestimated despite his cunning",
+    "contradiction": "the gap between his self-image as a charming rogue and the reality of being a manipulative figure leads to isolation"
   },
   "annotated_quotes": [
     {
+      "quote": "It's remarkable how often those two traits coincide.",
+      "context": "commenting on the nature of people he encounters",
+      "illustrates": "sardonic worldview"
+    },
+    {
+      "quote": "What do you say to three shillings, and we forget the name?",
+      "context": "attempting to negotiate a deal",
+      "illustrates": "manipulative charm"
+    },
+    {
+      "quote": "This must be some important boat.",
+      "context": "observing a ship with interest",
+      "illustrates": "nautical expertise"
+    },
+    {
+      "quote": "I intend to commandeer one of these ships, pick up a crew in Tortuga, and go out on the account, do a little honest pirating.",
+      "context": "revealing his intentions",
+      "illustrates": "self-serving ambition"
+    },
+    {
+      "quote": "Aren't you going to save her?",
+      "context": "questioning another's inaction",
+      "illustrates": "protective instinct"
+    },
+    {
+      "quote": "You look familiar ... Have I ever threatened you before?",
+      "context": "engaging in banter",
+      "illustrates": "deflecting tension with humor"
+    },
+    {
+      "quote": "You need to find yourself a girl.",
+      "context": "advising another character",
+      "illustrates": "absurdist humor"
+    },
+    {
       "quote": "I saved your life; now you've saved mine. We're square.",
-      "context": "after a tense moment of mutual rescue",
-      "illustrates": "self-image vs. reality"
+      "context": "establishing a moral balance",
+      "illustrates": "twisted sense of honor"
     },
     {
       "quote": "You can always trust a dishonest man to stay that way...",
-      "context": "discussing trust and deception",
-      "illustrates": "worldview"
+      "context": "commenting on trust",
+      "illustrates": "cynical worldview"
     },
     {
-      "quote": "The trick isn't getting here, it's getting away.",
-      "context": "after a successful but dangerous venture",
-      "illustrates": "situational behavior"
-    },
-    {
-      "quote": "What a ship is -- what the Black Pearl really is ... is freedom.",
-      "context": "reflecting on the significance of his ship",
-      "illustrates": "worldview"
-    },
-    {
-      "quote": "I have a plan. If it succeeds, then any battle will be decidedly brief ... and one-sided.",
-      "context": "outlining his strategy in a tense situation",
-      "illustrates": "escalation pattern"
+      "quote": "Not without my effects.",
+      "context": "asserting his needs",
+      "illustrates": "self-serving nature"
     }
   ],
   "do_not_say": [
-    "I always follow the rules — (contradicts worldview)",
-    "I feel guilty about my actions — (contradicts self-image)",
-    "I trust everyone completely — (contradicts relationship matrix)",
-    "I don't care about freedom — (contradicts worldview)",
-    "I never lie — (contradicts self-image)"
+    {
+      "line": "I prefer to stay grounded.",
+      "contradicts": "adventurous spirit"
+    },
+    {
+      "line": "Giants are just misunderstood.",
+      "contradicts": "giant-slaying reputation"
+    },
+    {
+      "line": "I don't believe in magic.",
+      "contradicts": "reliance on magical elements"
+    },
+    {
+      "line": "I never take risks.",
+      "contradicts": "risk-taking nature"
+    },
+    {
+      "line": "I don't care about treasure.",
+      "contradicts": "treasure-seeking behavior"
+    }
   ]
 }
