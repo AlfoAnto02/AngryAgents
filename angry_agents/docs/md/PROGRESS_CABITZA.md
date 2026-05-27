@@ -257,3 +257,170 @@ Added `.env.example` to the repository root covering all environment variables f
 - LLM evaluation timeout: 40-message transcript × 7 personas still too slow for mistral in 120 s.
 - `GroupChatSession.run()` n_turns default (30) not yet exposed as a user-facing setting in the UI.
 - No frontend changes to drive `/start` and consume `/stream` — UI integration pending.
+
+---
+
+## 16. Judge pipeline wired to admin UI (2026-05-25)
+
+New routes and admin screen (`ui/screens-admin.jsx`) connect the eval pipeline end-to-end:
+
+**New route `/ui/chats/{chat_id}/judge`** (POST) — launches judging as a FastAPI `BackgroundTask`:
+- Builds `author_map` and `digest_to_agent_id` from the chat's messages.
+- Runs the 20-judge RAG evaluation, `metrics_persona_id.run()`, `metrics_fidelity`, and group metrics.
+- Translates results into a `_build_ui_report()` dict stored in `_judge_jobs[chat_id]`.
+
+**New route `/ui/chats/{chat_id}/judge/status`** (GET) — returns job status, progress 0–100, and the
+full report once complete. Consumed by the UI via polling.
+
+**`_build_ui_report()`** in `ui_routes.py` — translates raw eval-module outputs into the shape the
+`JudgingModal` frontend component expects:
+
+| Section | Source | Shape |
+|---|---|---|
+| Persona ID accuracy + CI | `metrics_persona_id` | `accuracy`, `ci_95`, `p_value`, confusion matrix |
+| Individual fidelity rows | `metrics_fidelity` → `per_persona` | `{personaId, median, iqr, ciL, ciH}` |
+| Group Gini + turn distribution | `metrics_fidelity` → `group_fidelity` | `{gini, z_vs_reference, turnDist[]}` |
+
+The admin confusion matrix in the UI now has a legend. Block-scroll was removed from the chat screen.
+
+---
+
+## 17. `PersonaAgent` — profile-building hardened (2026-05-26)
+
+`persona_agent.py` refactored to fix silent failures in profile construction:
+
+- **`_SKIP_KEYS`** set: keys `persona_name`, `source_type`, `source_title`, `annotated_quotes`,
+  `do_not_say` are now filtered out of the profile block sent to the LLM. These are extraction
+  metadata, not behavioral traits.
+- **`_get_profile_dict()`** replaces direct `_parse_signature_phrases()` calls. Checks all
+  `AgentContext` rows for a non-empty JSON dict; if all are empty, falls back to `Agent.summary`.
+  Logs the source at DEBUG/INFO level.
+- **`_flatten_value()`** replaces the old `", ".join(str(v) ...)` flattening. Handles nested
+  dicts recursively: `{"k": "v"}` becomes `"k: v"` rather than the Python repr string.
+- **`_log_profile_build()`** emits a `log.warning` if the resulting profile block is empty (e.g.
+  agent has contexts but all JSON is invalid), and `log.info` with char count and top keys
+  otherwise. Makes profile failures visible in logs.
+- Nested dict fields are now expanded as `outer_key.inner_key: value`, not collapsed to a single
+  string. This makes fields like `core_style.rhythm` and `social_positioning.actual_dynamic`
+  appear as separate lines in the profile block.
+
+---
+
+## 18. UI — persona detail view (2026-05-26)
+
+New endpoint **`GET /ui/agents/{agent_id}/profile`** returns the structured profile fields for a
+single agent (parsed from `AgentContext.signature_phrases`).
+
+Frontend changes (`ui/components.jsx`, `ui/app.jsx`, `ui/styles.css`):
+- Chat participant list now has an expandable panel per agent showing their profile fields.
+- Fields are rendered as labelled key-value pairs; nested fields are indented.
+
+---
+
+## 19. Chat stop mechanism (2026-05-26)
+
+A group conversation can now be stopped mid-run without killing the server process.
+
+**Trigger**: user sends the text `"stop"` or `"exit"` in a running group chat via `ui_create_message`.
+The route sets `Group_chat.status = "stopped"` via `GroupChatService.set_status()` instead of
+triggering an agent turn.
+
+**Background task check**: `_bg_run_conversation` now reads `chat.status` at the start of every
+turn loop iteration. If status is `"stopped"`, the function returns immediately and cleanly.
+
+**SSE stream termination**: `ui_stream_chat` already terminates on `status ∈ {done, error}`;
+`"stopped"` is now added to that set, so the frontend receives `event: done` and closes the
+connection.
+
+**`run_turn()` `stop_check` parameter**: `GroupChatSession.run_turn()` accepts an optional
+`stop_check: Callable[[], bool]` that is evaluated between burst fragments. If `stop_check()`
+returns `True`, the burst loop breaks without writing the remaining fragments.
+
+---
+
+## 20. RAG — per-field weights and MMR re-ranking (2026-05-26 → 2026-05-27)
+
+Two commits significantly upgraded the RAG retrieval pipeline used by the judges.
+
+### Per-role field weights (`retriever.py`)
+
+`_ROLE_FIELD_WEIGHTS` dict maps each judge role to per-field score multipliers. When
+`retrieve_candidates()` aggregates chunk scores from ChromaDB, each chunk's cosine similarity is
+multiplied by the weight for its `field` type before averaging:
+
+| Role | Boosted fields | Downweighted fields |
+|---|---|---|
+| `style` | `structure` (×3.5), `vocabulary` (×3.0) | `worldview` (×0.5), `self_image` (×0.3) |
+| `ideology` | `worldview` (×3.0), `self_image` (×3.0), `social_positioning` (×2.5) | `style` (×0.5) |
+| `behavioral` | `behavior` (×3.0), `escalation` (×3.0), `emotional_tells` (×2.5) | `knowledge` (×0.5) |
+| `general` | all equal (×1.0) | — |
+
+New chunk types added to the index alongside this change: `emotional_tells` (per-emotion
+register shifts), `social_positioning` (desired vs actual role gap), `knowledge`
+(expert/surface/ignorant domains).
+
+### MMR re-ranking (`retriever.py`)
+
+`_mmr_select()` replaces simple top-k truncation. Implements **Maximal Marginal Relevance**:
+each iteration picks the candidate that maximises `λ × relevance − (1−λ) × max_sim_to_selected`.
+`_MMR_LAMBDA = 0.7` keeps the top relevance candidate intact while diversifying the rest,
+preventing a single "attractor" persona from filling multiple shortlist slots.
+
+`forced_names` parameter: actual chat participants are always included in the returned list
+regardless of their MMR rank.
+
+Judge batch templates (`persona_id_style_batch.j2`, `_ideology_batch.j2`, `_behavioral_batch.j2`,
+`_general_batch.j2`) updated to reflect the role-specific retrieval focus.
+
+---
+
+## 21. Hungarian algorithm for persona identification (2026-05-27)
+
+`metrics_persona_id.py` replaced the greedy per-persona argmax with a **bijective assignment**
+via the Hungarian algorithm (`scipy.optimize.linear_sum_assignment`).
+
+**The problem with greedy argmax**: if one author scores 5 across many personas, argmax assigns
+that author to all of them simultaneously, violating the one-author-per-persona constraint and
+artificially inflating the top author's hit count.
+
+**`_hungarian_assignment(judge, name_to_author)`**:
+1. Builds an N×N score matrix (rows = actual personas, columns = actual authors).
+2. Calls `linear_sum_assignment(-score_matrix)` to find the assignment that maximises total score
+   while guaranteeing each persona is matched to exactly one author and vice versa.
+3. Returns `{persona_name: author_tag}`.
+
+`_judge_accuracy()` now calls `_hungarian_assignment` instead of reading `match["predicted"]`
+directly. The `confusion_matrix()` function and chi-square test are unchanged.
+
+---
+
+## 22. Two-call extraction pipeline (`extract_profile.py`) (2026-05-27)
+
+`extract_profile.py` now uses **two separate LLM calls** per persona:
+
+**Call 1 — transcript-based** (existing): reads the source transcript and extracts all behavioral
+fields that require grounding in real observed speech. The prompt explicitly marks three fields
+(`favored_words`, `structural_patterns`, `do_not_say`) as out-of-scope for this call to avoid
+hallucinated transcript quotes.
+
+**Call 2 — knowledge-only** (`extract_knowledge_fields()`): called with no transcript, using the
+model's parametric knowledge. Produces only `vocabulary_fingerprint.favored_words`,
+`speech_signature.structural_patterns`, and `do_not_say`. A separate `KNOWLEDGE_PROMPT` drives
+this call. A smarter or larger model can be specified for this call via `--knowledge-model`.
+
+**`_merge_knowledge(profile, knowledge)`** merges the two outputs: the three knowledge-only fields
+are patched into the transcript profile dict; all other transcript fields are preserved unchanged.
+
+**CLI**: `--knowledge-model` flag added. Per-spec `"knowledge_model"` field supported in batch
+config. If omitted, defaults to the same model as `--model`.
+
+---
+
+## Open points (2026-05-27)
+
+- `BehavioralJudge` class not yet created; `behavioral` role used only in RAG retrieval.
+- `Score` in `Judge_evaluation` DB rows always `null` — aggregate scoring metric not designed.
+- LLM evaluation timeout: large chats × 8 personas still slow; chunking strategy not revisited.
+- `GroupChatSession.run()` `n_turns` not exposed as a UI setting.
+- RAG builder update (commit `9e4c59a`) introduced `fix_do_not_say.py` utility for profile
+  post-processing — not yet integrated into the main pipeline.
