@@ -15,6 +15,7 @@ Requires LLM_BACKEND=openai (tool calling).
 import json
 import logging
 import os
+from typing import TYPE_CHECKING
 
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -29,6 +30,9 @@ from ..agents.judges.base_judge import AuthorMatch, PersonaIdentificationResult,
 from ..agents.judges.templates import render_prompt
 from .tool import SEARCH_TOOL, execute as execute_rag_tool
 
+if TYPE_CHECKING:
+    from .token_tracker import TokenTracker
+
 load_dotenv()
 log = logging.getLogger(__name__)
 
@@ -42,10 +46,21 @@ _ROLE_TEMPLATES: dict[str, str] = {
 }
 
 
-def _openai_tool_loop(system: str, user: str, model: str) -> str:
+def _openai_tool_loop(
+    system: str,
+    user: str,
+    model: str,
+    *,
+    tracker: "TokenTracker | None" = None,
+    judge_name: str = "unknown",
+    judge_role: str = "general",
+) -> str:
     """
     Run an OpenAI chat completion that can invoke search_persona_profiles.
     Returns the final text content once the model stops calling tools.
+
+    If *tracker* is provided, records token usage for every API call made
+    (initial call, any tool-follow-up calls, and the force-final call).
     """
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     messages: list[dict] = [
@@ -63,6 +78,16 @@ def _openai_tool_loop(system: str, user: str, model: str) -> str:
             temperature=0,
         )
         choice = response.choices[0]
+
+        if tracker is not None and response.usage:
+            call_type = "tool_followup" if _ > 0 else "main"
+            tracker.record(
+                judge_name=judge_name,
+                judge_role=judge_role,
+                call_type=call_type,
+                prompt_tokens=response.usage.prompt_tokens,
+                completion_tokens=response.usage.completion_tokens,
+            )
 
         if choice.finish_reason != "tool_calls":
             content = choice.message.content or ""
@@ -91,6 +116,14 @@ def _openai_tool_loop(system: str, user: str, model: str) -> str:
         response_format={"type": "json_object"},
         temperature=0,
     )
+    if tracker is not None and final.usage:
+        tracker.record(
+            judge_name=judge_name,
+            judge_role=judge_role,
+            call_type="force_final",
+            prompt_tokens=final.usage.prompt_tokens,
+            completion_tokens=final.usage.completion_tokens,
+        )
     return final.choices[0].message.content
 
 
@@ -133,6 +166,8 @@ def run_persona_identification_with_tools(
     candidates: list[dict],
     model: str = OPENAI_MODEL,
     role: str = "general",
+    judge_name: str = "unknown",
+    tracker: "TokenTracker | None" = None,
 ) -> PersonaIdentificationResult:
     """
     Identify personas using a single RAG-assisted LLM call per judge.
@@ -141,6 +176,8 @@ def run_persona_identification_with_tools(
     focus       — the judge's lens description (used for logging/fallback).
     role        — judge role: "style", "ideology", "general", or "behavioral".
                   Selects the role-specific batch template.
+    judge_name  — label used in token tracking (e.g. "style_1").
+    tracker     — optional TokenTracker; records usage for every API call made.
 
     Requires LLM_BACKEND=openai.
     """
@@ -174,7 +211,14 @@ def run_persona_identification_with_tools(
         persona_names=persona_names,
     )
 
-    raw = _openai_tool_loop(system, user, model)
+    raw = _openai_tool_loop(
+        system,
+        user,
+        model,
+        tracker=tracker,
+        judge_name=judge_name,
+        judge_role=role,
+    )
     author_persona_scores = _parse_batch_scores(raw, authors, candidates)
 
     matches = [

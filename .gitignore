@@ -34,6 +34,9 @@ angry-agents/src/agents/scraping/personas/
 # --- ChromaDB vector store (rebuilt with build_index) ---
 data/chroma/
 
+# --- Evaluation outputs (per-chat judge records, metrics, token reports) ---
+data/eval/chat_*/
+
 # --- Temp test artifacts ---
 cookies.txt
 

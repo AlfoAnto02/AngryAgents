@@ -25,6 +25,7 @@ from pathlib import Path
 
 from .judge_with_tools import run_persona_identification_with_tools
 from .retriever import retrieve_candidates
+from .token_tracker import TokenTracker
 
 _DEFAULT_CHAT_FILE = Path(__file__).parents[3] / "data" / "eval" / "chat_simulation_with_embedding" / "transcript.jsonl"
 PERSONAS_DIR = Path(__file__).parents[3] / "data" / "personas"
@@ -167,6 +168,7 @@ def run_evaluation_from_db_data(
     chat_id: int,
     progress_callback=None,
     forced_names: list[str] | None = None,
+    out_dir: "Path | None" = None,
 ) -> list[dict]:
     """
     Run the 20-judge pipeline on already-loaded chat data (from the database).
@@ -176,7 +178,10 @@ def run_evaluation_from_db_data(
     chat_id: stored in the output records
     progress_callback: optional callable(done_count, total) called after each judge completes
     forced_names: persona names to always include as candidates (e.g. actual chat participants)
+    out_dir: if provided, writes token_report.json into this directory after all judges finish
     """
+    from ..agents.agent_config import OPENAI_MODEL
+
     messages_by_digest = _messages_by_digest(chat)
 
     if not chat["messages"]:
@@ -184,6 +189,7 @@ def run_evaluation_from_db_data(
     if not all_profiles:
         raise ValueError("No persona profiles loaded")
 
+    tracker = TokenTracker(chat_id=chat_id, model=OPENAI_MODEL)
     _completed = [0]
 
     def _run_judge(judge_id: int, judge: dict) -> dict:
@@ -201,14 +207,21 @@ def run_evaluation_from_db_data(
             chat=chat,
             candidates=candidates,
             role=judge["role"],
+            judge_name=judge["name"],
+            tracker=tracker,
         )
         _completed[0] += 1
         if progress_callback:
             progress_callback(_completed[0], len(JUDGES))
         return _build_record(judge_id, judge, chat_id, result, candidate_names)
 
+    # Cap concurrency at 5: running all 20 judges simultaneously floods the
+    # OpenAI API and triggers rate-limit retries that stall the entire pool.
+    # 5 workers → batches of 5, still 4× faster than serial, no retry cascades.
+    _MAX_WORKERS = 5
+
     futures_map: dict = {}
-    with ThreadPoolExecutor(max_workers=len(JUDGES)) as pool:
+    with ThreadPoolExecutor(max_workers=_MAX_WORKERS) as pool:
         for judge_id, judge in enumerate(JUDGES, start=1):
             futures_map[pool.submit(_run_judge, judge_id, judge)] = judge_id
 
@@ -216,6 +229,9 @@ def run_evaluation_from_db_data(
     for future in as_completed(futures_map):
         judge_id = futures_map[future]
         records[judge_id - 1] = future.result()
+
+    if out_dir is not None:
+        tracker.write(Path(out_dir) / "token_report.json")
 
     return records
 
@@ -252,6 +268,10 @@ def main() -> None:
     if not all_profiles:
         raise ValueError(f"No persona files found in: {PERSONAS_DIR}")
 
+    from ..agents.agent_config import OPENAI_MODEL
+
+    tracker = TokenTracker(chat_id=chat_id, model=OPENAI_MODEL)
+
     def _run_judge(judge_id: int, judge: dict) -> dict:
         print(f"[{judge['name']}] starting (fields={judge['rag_fields']})...")
         candidates = retrieve_candidates(
@@ -268,12 +288,14 @@ def main() -> None:
             chat=chat,
             candidates=candidates,
             role=judge["role"],
+            judge_name=judge["name"],
+            tracker=tracker,
         )
         _print_result(judge, result, candidate_names)
         return _build_record(judge_id, judge, chat_id, result, candidate_names)
 
     futures_map: dict = {}
-    with ThreadPoolExecutor(max_workers=len(JUDGES)) as pool:
+    with ThreadPoolExecutor(max_workers=5) as pool:
         for judge_id, judge in enumerate(JUDGES, start=1):
             futures_map[pool.submit(_run_judge, judge_id, judge)] = judge_id
 
@@ -286,6 +308,9 @@ def main() -> None:
     out_path.write_text(
         "\n".join(json.dumps(r) for r in records), encoding="utf-8"
     )
+    # Write token report next to the judge records
+    tracker.write(out_path.parent / f"token_report_{out_path.stem}.json")
+
     print(f"\n{'=' * 60}")
     print(f"  Saved → {out_path}")
     print(f"{'=' * 60}\n")
