@@ -67,12 +67,13 @@ def _fidelity_scores_for_persona(
 
 def _stats(scores: list[int]) -> dict:
     if not scores:
-        return {"n": 0, "median": None, "iqr": None, "variance": None, "std": None, "ci_95": None}
+        return {"n": 0, "mean": None, "median": None, "iqr": None, "variance": None, "std": None, "ci_95": None}
     arr = np.array(scores, dtype=float)
     median = float(np.median(arr))
     ci = bootstrap_ci(arr, np.median, n=10_000)
     return {
         "n": len(scores),
+        "mean": round(float(np.mean(arr)), 4),
         "median": round(median, 4),
         "iqr": round(_iqr(arr), 4),
         "variance": round(float(np.var(arr, ddof=1)) if len(arr) > 1 else 0.0, 4),
@@ -100,6 +101,10 @@ def _judge_type_agreement(
         jt: float(np.median(all_scores_by_judge[jt])) if all_scores_by_judge[jt] else float("nan")
         for jt in judge_types
     }
+    means: dict[str, float] = {
+        jt: float(np.mean(all_scores_by_judge[jt])) if all_scores_by_judge[jt] else float("nan")
+        for jt in judge_types
+    }
 
     agreement: dict[str, float] = {}
     for i, a in enumerate(judge_types):
@@ -107,7 +112,11 @@ def _judge_type_agreement(
             key = f"{a}_vs_{b}"
             agreement[key] = round(abs(medians[a] - medians[b]), 4)
 
-    return {"judge_median_scores": {k: round(v, 4) for k, v in medians.items()}, "mad_between_types": agreement}
+    return {
+        "judge_median_scores": {k: round(v, 4) for k, v in medians.items()},
+        "judge_mean_scores": {k: round(v, 4) for k, v in means.items()},
+        "mad_between_types": agreement,
+    }
 
 
 # ---------------------------------------------------------------------------

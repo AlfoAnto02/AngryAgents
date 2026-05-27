@@ -8,10 +8,12 @@ Inputs:
 
 What is computed:
   - Per-judge and aggregate accuracy vs 12.5% random baseline (1/8 personas)
+  - Variance and std of per-judge accuracies
   - Binomial exact 95% CI via scipy.stats.binomtest
   - p-value against H0: true rate = 1/8
   - 8x8 confusion matrix (predicted persona vs true persona)
-  - Chi-square test on confusion matrix vs uniform error distribution
+  - Precision, Recall, F1 per persona + macro F1
+  - Cohen's Kappa (agreement corrected for chance)
 
 The judge eval format expected (from base_judge.py / eval_test_1.json):
   [
@@ -42,7 +44,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-from scipy.stats import binomtest, chi2_contingency
+from scipy.stats import binomtest
 
 RANDOM_BASELINE = 1 / 8  # 8 personas
 
@@ -133,6 +135,12 @@ def compute_accuracy(
     result = binomtest(total_correct, total_attempts, RANDOM_BASELINE, alternative="greater")
     ci_lo, ci_hi = result.proportion_ci(confidence_level=0.95, method="exact")
 
+    judge_accs = [j["accuracy"] for j in per_judge if j["accuracy"] is not None]
+    acc_arr = np.array(judge_accs)
+    acc_mean = float(np.mean(acc_arr)) if len(acc_arr) else None
+    acc_var = float(np.var(acc_arr, ddof=1)) if len(acc_arr) > 1 else None
+    acc_std = float(np.std(acc_arr, ddof=1)) if len(acc_arr) > 1 else None
+
     return {
         "aggregate": {
             "correct": total_correct,
@@ -143,6 +151,11 @@ def compute_accuracy(
             "p_value": round(result.pvalue, 6),
             "significant": result.pvalue < 0.05,
         },
+        "judge_accuracy_variance": {
+            "mean": round(acc_mean, 4) if acc_mean is not None else None,
+            "variance": round(acc_var, 6) if acc_var is not None else None,
+            "std": round(acc_std, 4) if acc_std is not None else None,
+        },
         "per_judge": per_judge,
         "all_pairs": all_pairs,  # kept for confusion matrix
     }
@@ -152,13 +165,44 @@ def compute_accuracy(
 # Confusion matrix
 # ---------------------------------------------------------------------------
 
+def _per_class_metrics(matrix: np.ndarray, labels: list[str]) -> dict:
+    """Precision, Recall, F1 per persona (one-vs-rest) + macro F1."""
+    per_persona: dict[str, dict] = {}
+    for i, label in enumerate(labels):
+        tp = int(matrix[i, i])
+        fp = int(matrix[:, i].sum()) - tp
+        fn = int(matrix[i, :].sum()) - tp
+        precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+        recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+        f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+        per_persona[label] = {
+            "precision": round(precision, 4),
+            "recall": round(recall, 4),
+            "f1": round(f1, 4),
+        }
+    macro_f1 = float(np.mean([v["f1"] for v in per_persona.values()]))
+    return {"per_persona": per_persona, "macro_f1": round(macro_f1, 4)}
+
+
+def _cohen_kappa(matrix: np.ndarray) -> float:
+    """Cohen's Kappa: agreement corrected for chance from marginal distributions."""
+    total = matrix.sum()
+    if total == 0:
+        return 0.0
+    p_o = np.trace(matrix) / total
+    p_e = float(np.dot(matrix.sum(axis=0), matrix.sum(axis=1))) / (total ** 2)
+    if p_e >= 1.0:
+        return 1.0
+    return float((p_o - p_e) / (1.0 - p_e))
+
+
 def confusion_matrix(
     pairs: list[tuple[str, str]],
     persona_names: list[str],
 ) -> dict:
     """
     Build NxN confusion matrix where entry [i][j] = count of true=i predicted=j.
-    Also runs chi-square test vs uniform off-diagonal distribution.
+    Computes per-persona precision/recall/F1, macro F1, and Cohen's Kappa.
     """
     n = len(persona_names)
     idx = {name: i for i, name in enumerate(persona_names)}
@@ -170,31 +214,14 @@ def confusion_matrix(
         if i is not None and j is not None:
             matrix[i, j] += 1
 
-    # Chi-square: does confusion pattern differ from uniform error distribution?
-    # Expected: correct on diagonal, errors spread uniformly off-diagonal.
-    off_diag = matrix.copy()
-    np.fill_diagonal(off_diag, 0)
-    total_errors = off_diag.sum()
-
-    chi2_p = None
-    if total_errors > 0 and n > 1:
-        # Compare observed off-diagonal counts vs uniform expected
-        expected_per_cell = total_errors / (n * (n - 1))
-        expected = np.full((n, n), expected_per_cell)
-        np.fill_diagonal(expected, 0)
-        # Use only off-diagonal cells
-        obs_flat = off_diag[off_diag > 0].astype(float)
-        exp_flat = expected[off_diag > 0].astype(float)
-        if len(obs_flat) > 1:
-            _, chi2_p, _, _ = chi2_contingency(
-                np.vstack([obs_flat, exp_flat])
-            )
+    prf = _per_class_metrics(matrix, persona_names)
+    kappa = _cohen_kappa(matrix)
 
     return {
         "labels": persona_names,
         "matrix": matrix.tolist(),
-        "chi2_p_value": round(float(chi2_p), 6) if chi2_p is not None else None,
-        "non_uniform_errors": bool(chi2_p < 0.05) if chi2_p is not None else None,
+        "precision_recall_f1": prf,
+        "cohen_kappa": round(kappa, 4),
     }
 
 
