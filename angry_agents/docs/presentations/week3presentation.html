@@ -275,6 +275,34 @@
     color: #777;
     line-height: 1.5;
   }
+
+  /* Slide 3 — compact overrides */
+  #slide-3 { padding: 2rem 4rem; }
+  #slide-3 h1 { font-size: 26px; margin-bottom: 0.25rem; }
+  #slide-3 .subtitle { font-size: 14px; margin-bottom: 1.2rem; }
+  #slide-3 hr { margin-bottom: 1.2rem; }
+  #slide-3 .two-col { gap: 1.2rem; margin-bottom: 1.2rem; }
+  #slide-3 .phase-box { padding: 1rem 1.2rem; margin-bottom: 1.2rem; }
+  #slide-3 .section-label { font-size: 11px; margin-bottom: 0.5rem; }
+  #slide-3 .item-list li { font-size: 13px; padding: 5px 0; }
+
+  /* Slide 2 — compact overrides to fit all content */
+  #slide-2 { padding: 2rem 4rem; }
+  #slide-2 h1 { font-size: 26px; margin-bottom: 0.25rem; }
+  #slide-2 .subtitle { font-size: 14px; margin-bottom: 1.2rem; }
+  #slide-2 hr { margin-bottom: 1.2rem; }
+  #slide-2 .two-col { gap: 1.2rem; margin-bottom: 1.2rem; }
+  #slide-2 .phase-box { padding: 1rem 1.2rem; }
+  #slide-2 .section-label { font-size: 11px; margin-bottom: 0.5rem; }
+  #slide-2 .model-chip { font-size: 11px; margin-bottom: 0.6rem; }
+  #slide-2 .item-list li { font-size: 13px; padding: 5px 0; }
+  #slide-2 .arrow-row { padding: 10px 16px; margin-bottom: 1.2rem; }
+  #slide-2 .arrow-step .step-title { font-size: 13px; }
+  #slide-2 .arrow-step .step-sub { font-size: 11px; }
+  #slide-2 .metrics-3 { gap: 10px; }
+  #slide-2 .metric { padding: 0.8rem; }
+  #slide-2 .metric-num { font-size: 26px; margin-bottom: 4px; }
+  #slide-2 .metric-label { font-size: 12px; }
 </style>
 </head>
 <body>
@@ -294,55 +322,8 @@
     </div>
   </div>
 
-  <!-- Slide 2 — RAG -->
+  <!-- Slide 2 — Persona Extraction -->
   <div class="slide" id="slide-2">
-    <div class="tag">RAG system &#8212; persona identification</div>
-    <h1>From 33 minutes to 30 seconds.</h1>
-    <p class="subtitle">How semantic pre-filtering eliminates 97% of LLM calls.</p>
-    <hr>
-
-    <div class="two-col">
-      <div>
-        <div class="section-label label-problem">The problem</div>
-        <ul class="item-list">
-          <li><strong>100+</strong> persona profiles to evaluate</li>
-          <li><strong>2 000</strong> LLM calls per evaluation</li>
-          <li><strong>33 min</strong> wall-clock latency</li>
-          <li><strong>$0.89</strong> cost per run</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-label label-solution">The solution</div>
-        <ul class="item-list">
-          <li>Embed each author&#8217;s last <strong>5 messages</strong></li>
-          <li>Query ChromaDB for <strong>top-20</strong> candidates</li>
-          <li>Judges score <strong>20</strong> profiles, not 100</li>
-          <li>Index built <strong>once</strong>, reused forever</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="arrow-row">
-      <div class="arrow-step"><span class="step-title">Author messages</span><span class="step-sub">chat transcript</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">Embed + query</span><span class="step-sub">ChromaDB vector search</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">Top-20 candidates</span><span class="step-sub">semantic similarity</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">LLM judges</span><span class="step-sub">score &amp; reason</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">Result</span><span class="step-sub">persona identified</span></div>
-    </div>
-
-    <div class="metrics-3">
-      <div class="metric"><div class="metric-num good">&#8722;97%</div><div class="metric-label">LLM calls<br>2 000 &#8594; 80</div></div>
-      <div class="metric"><div class="metric-num good">&#8722;90%</div><div class="metric-label">Cost per run<br>$0.89 &#8594; $0.09</div></div>
-      <div class="metric"><div class="metric-num good">&#8722;97%</div><div class="metric-label">Latency<br>33 min &#8594; 30 sec</div></div>
-    </div>
-  </div>
-
-  <!-- Slide 3 — Persona Extraction -->
-  <div class="slide" id="slide-3">
     <div class="tag">Persona extraction &#8212; two-phase pipeline</div>
     <h1>Source material &#8594; structured behavioral fingerprint.</h1>
     <p class="subtitle">Phase 1 grounds every field in the transcript. Phase 2 adds discriminating model knowledge no transcript can produce.</p>
@@ -393,16 +374,18 @@
       <div class="arrow-step"><span class="step-title">Profile JSON</span><span class="step-sub">data/personas/</span></div>
     </div>
 
-    <div class="metrics-4">
+    <div class="metrics-3">
       <div class="metric"><div class="metric-num neutral">3</div><div class="metric-label">Source types<br>YouTube &middot; Twitter &middot; Script</div></div>
       <div class="metric"><div class="metric-num p1">40 k</div><div class="metric-label">Max tokens per transcript<br>~160 k chars</div></div>
       <div class="metric"><div class="metric-num p2">2</div><div class="metric-label">API calls per persona<br>independent models</div></div>
       <div class="metric"><div class="metric-num neutral">80</div><div class="metric-label">Personas in batch<br>current config</div></div>
+      <div class="metric"><div class="metric-num neutral">1.19 M</div><div class="metric-label">Total tokens<br>1,056,763 in &middot; 136,657 out</div></div>
+      <div class="metric"><div class="metric-num good">$0.57</div><div class="metric-label">Total build cost<br>full batch of 80 personas</div></div>
     </div>
   </div>
 
-  <!-- ══════════════════ SLIDE 4 — Chat modes and templates ═════════════════ -->
-<div class="slide" id="slide-4">
+  <!-- ══════════════════ SLIDE 3 — Chat modes and templates ═════════════════ -->
+<div class="slide" id="slide-3">
   <div class="tag">Chat modes — DM vs group chat</div>
   <h1>Two chat modes. One persona engine.</h1>
   <p class="subtitle">The same persona can speak in two different settings: a direct DM with one human, or a group conversation with 2 to 8 agents on a shared topic.</p>
@@ -452,8 +435,8 @@
   </div>
 </div>
 
-  <!-- ══════════════════ SLIDE 5 — Group chat overview ═════════════════ -->
-  <div class="slide" id="slide-5">
+  <!-- ══════════════════ SLIDE 4 — Group chat overview ═════════════════ -->
+  <div class="slide" id="slide-4">
     <div class="tag">Group chat — architecture</div>
     <h1>Eight agents. One shared conversation.</h1>
     <p class="subtitle">The group chat module keeps each persona consistent, schedules turns fairly, and hides real identities from the judges.</p>
@@ -500,6 +483,53 @@
         <li>Every 20 turns, the prompt is re-grounded to reduce persona drift.</li>
         <li class="note">Judges never see the real author names during evaluation.</li>
       </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════ SLIDE 5 — RAG persona identification ═════════════════ -->
+  <div class="slide" id="slide-5">
+    <div class="tag">RAG system &#8212; persona identification</div>
+    <h1>From 33 minutes to 30 seconds.</h1>
+    <p class="subtitle">How semantic pre-filtering eliminates 97% of LLM calls.</p>
+    <hr>
+
+    <div class="two-col">
+      <div>
+        <div class="section-label label-problem">The problem</div>
+        <ul class="item-list">
+          <li><strong>100+</strong> persona profiles to evaluate</li>
+          <li><strong>2 000</strong> LLM calls per evaluation</li>
+          <li><strong>33 min</strong> wall-clock latency</li>
+          <li><strong>$0.89</strong> cost per run</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-label label-solution">The solution</div>
+        <ul class="item-list">
+          <li>Embed each author&#8217;s last <strong>5 messages</strong></li>
+          <li>Query ChromaDB for <strong>top-20</strong> candidates</li>
+          <li>Judges score <strong>20</strong> profiles, not 100</li>
+          <li>Index built <strong>once</strong>, reused forever</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arrow-row">
+      <div class="arrow-step"><span class="step-title">Author messages</span><span class="step-sub">chat transcript</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Embed + query</span><span class="step-sub">ChromaDB vector search</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Top-20 candidates</span><span class="step-sub">semantic similarity</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">LLM judges</span><span class="step-sub">score &amp; reason</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Result</span><span class="step-sub">persona identified</span></div>
+    </div>
+
+    <div class="metrics-3">
+      <div class="metric"><div class="metric-num good">&#8722;97%</div><div class="metric-label">LLM calls<br>2 000 &#8594; 80</div></div>
+      <div class="metric"><div class="metric-num good">&#8722;90%</div><div class="metric-label">Cost per run<br>$0.89 &#8594; $0.09</div></div>
+      <div class="metric"><div class="metric-num good">&#8722;97%</div><div class="metric-label">Latency<br>33 min &#8594; 30 sec</div></div>
     </div>
   </div>
   
