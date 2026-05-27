@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angry Agents — Pipeline Overview</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Deck ────────────────────────────────────────────────── */
+  .deck { flex: 1; position: relative; overflow: hidden; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3.5rem 5rem;
+  }
+
+  .slide.active { display: flex; }
+
+  /* ── Nav bar ─────────────────────────────────────────────── */
+  .nav {
+    height: 54px;
+    background: #fff;
+    border-top: 1px solid #e5e5e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+    z-index: 10;
+  }
+
+  .nav button {
+    background: #f4f4f2;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 7px 26px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+
+  .nav button:hover:not(:disabled) { background: #e8e8e6; }
+  .nav button:disabled { opacity: 0.3; cursor: default; }
+  .nav-counter { font-size: 14px; color: #888; min-width: 60px; text-align: center; }
+  .nav-dots { display: flex; gap: 8px; align-items: center; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #d0d0ce; transition: background 0.2s; cursor: pointer; }
+  .dot.active { background: #333; }
+
+  /* ══════════════════════════════════════════════════════════ */
+  /* SLIDE 1 — Intro (dark)                                     */
+  /* ══════════════════════════════════════════════════════════ */
+  #slide-1 {
+    background: #111;
+    align-items: center;
+    text-align: center;
+  }
+
+  #slide-1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 25% 40%, rgba(15,110,86,0.3) 0%, transparent 55%),
+                radial-gradient(ellipse at 78% 65%, rgba(26,94,138,0.22) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .intro-eyebrow {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 1.6rem;
+    position: relative;
+  }
+
+  .intro-title {
+    font-size: 96px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 0.7rem;
+    position: relative;
+  }
+
+  .intro-title span { color: #0F6E56; }
+
+  .intro-sub {
+    font-size: 22px;
+    color: #666;
+    margin-bottom: 4rem;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .team-row {
+    display: flex;
+    gap: 1.4rem;
+    justify-content: center;
+    position: relative;
+  }
+
+  .member {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    min-width: 150px;
+  }
+
+  .member-name { font-size: 17px; font-weight: 500; color: #ddd; margin-bottom: 4px; }
+  .member-role { font-size: 13px; color: #555; }
+
+  /* ══════════════════════════════════════════════════════════ */
+  /* SLIDES 2 & 3 — Content (light)                             */
+  /* ══════════════════════════════════════════════════════════ */
+  #slide-2, #slide-3 { background: #fafaf9; }
+
+  .tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    color: #777;
+    text-transform: uppercase;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 4px 13px;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  hr { border: none; border-top: 1px solid #e8e8e6; margin-bottom: 2rem; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .label-problem  { color: #993C1D; }
+  .label-solution { color: #0F6E56; }
+  .label-p1       { color: #0F6E56; }
+  .label-p2       { color: #1A5E8A; }
+
+  .item-list { list-style: none; }
+
+  .item-list li {
+    font-size: 16px;
+    color: #555;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .item-list li:last-child { border-bottom: none; }
+  .item-list li strong { color: #111; font-weight: 500; }
+
+  .item-list li.mono strong {
+    font-family: "SF Mono", "Fira Mono", monospace;
+    font-size: 14px;
+  }
+
+  .item-list li.note { font-style: italic; font-size: 14px; color: #888; }
+
+  .phase-box {
+    border: 1px solid #e5e5e3;
+    border-radius: 12px;
+    padding: 1.4rem 1.8rem;
+    background: #fff;
+  }
+
+  .model-chip {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    background: #f4f4f2;
+    border: 1px solid #e0e0de;
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin-bottom: 1rem;
+    color: #555;
+    font-family: "SF Mono", "Fira Mono", monospace;
+  }
+
+  .arrow-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    background: #f0f0ee;
+    border-radius: 12px;
+    padding: 16px 24px;
+  }
+
+  .arrow-step { font-size: 15px; color: #555; white-space: nowrap; flex: 1; text-align: center; }
+  .arrow-step .step-title { font-weight: 600; color: #111; font-size: 15px; display: block; margin-bottom: 3px; }
+  .arrow-step .step-sub   { font-size: 12px; color: #888; display: block; }
+
+  .badges { margin-bottom: 4px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-right: 3px;
+  }
+
+  .badge-yt  { background: #fee2e2; color: #991b1b; }
+  .badge-tw  { background: #dbeafe; color: #1e40af; }
+  .badge-pdf { background: #ede9fe; color: #5b21b6; }
+
+  .arr { font-size: 20px; color: #bbb; padding: 0 6px; flex-shrink: 0; }
+
+  .metrics-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .metrics-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+  .metric { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 1.2rem; text-align: center; }
+
+  .metric-num { font-size: 36px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.5px; }
+  .metric-num.good    { color: #0F6E56; }
+  .metric-num.p1      { color: #0F6E56; }
+  .metric-num.p2      { color: #1A5E8A; }
+  .metric-num.neutral { color: #111; }
+
+  .metric-label { font-size: 14px; color: #777; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ══════════════════════ SLIDE 1 — Intro ══════════════════ -->
+  <div class="slide active" id="slide-1">
+    <div class="intro-eyebrow">AI Design 2026 &#8212; Group Project</div>
+    <div class="intro-title">Angry<span>Agents</span></div>
+    <div class="intro-sub">Chat with AI persona-agents. Evaluated by 20 judge-agents.</div>
+    <div class="team-row">
+      <div class="member"><div class="member-name">Name Surname</div><div class="member-role">Member</div></div>
+      <div class="member"><div class="member-name">Name Surname</div><div class="member-role">Member</div></div>
+      <div class="member"><div class="member-name">Name Surname</div><div class="member-role">Member</div></div>
+      <div class="member"><div class="member-name">Name Surname</div><div class="member-role">Member</div></div>
+      <div class="member"><div class="member-name">Name Surname</div><div class="member-role">Member</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SLIDE 2 — RAG ════════════════════ -->
+  <div class="slide" id="slide-2">
+    <div class="tag">RAG system &#8212; persona identification</div>
+    <h1>From 33 minutes to 30 seconds.</h1>
+    <p class="subtitle">How semantic pre-filtering eliminates 97% of LLM calls.</p>
+    <hr>
+
+    <div class="two-col">
+      <div>
+        <div class="section-label label-problem">The problem</div>
+        <ul class="item-list">
+          <li><strong>100+</strong> persona profiles to evaluate</li>
+          <li><strong>2 000</strong> LLM calls per evaluation</li>
+          <li><strong>33 min</strong> wall-clock latency</li>
+          <li><strong>$0.89</strong> cost per run</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-label label-solution">The solution</div>
+        <ul class="item-list">
+          <li>Embed each author&#8217;s last <strong>5 messages</strong></li>
+          <li>Query ChromaDB for <strong>top-20</strong> candidates</li>
+          <li>Judges score <strong>20</strong> profiles, not 100</li>
+          <li>Index built <strong>once</strong>, reused forever</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arrow-row">
+      <div class="arrow-step"><span class="step-title">Author messages</span><span class="step-sub">chat transcript</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Embed + query</span><span class="step-sub">ChromaDB vector search</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Top-20 candidates</span><span class="step-sub">semantic similarity</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">LLM judges</span><span class="step-sub">score &amp; reason</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Result</span><span class="step-sub">persona identified</span></div>
+    </div>
+
+    <div class="metrics-3">
+      <div class="metric"><div class="metric-num good">&#8722;97%</div><div class="metric-label">LLM calls<br>2 000 &#8594; 80</div></div>
+      <div class="metric"><div class="metric-num good">&#8722;90%</div><div class="metric-label">Cost per run<br>$0.89 &#8594; $0.09</div></div>
+      <div class="metric"><div class="metric-num good">&#8722;97%</div><div class="metric-label">Latency<br>33 min &#8594; 30 sec</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ SLIDE 3 — Persona Extraction ═════════ -->
+  <div class="slide" id="slide-3">
+    <div class="tag">Persona extraction &#8212; two-phase pipeline</div>
+    <h1>Source material &#8594; structured behavioral fingerprint.</h1>
+    <p class="subtitle">Phase 1 grounds every field in the transcript. Phase 2 adds discriminating model knowledge no transcript can produce.</p>
+    <hr>
+
+    <div class="two-col">
+      <div class="phase-box">
+        <div class="section-label label-p1">Phase 1 &#8212; Transcript pass</div>
+        <div class="model-chip">gpt-4o-mini (default)</div>
+        <ul class="item-list">
+          <li class="mono"><strong>core_style</strong> &#8212; register, rhythm, sentence shape</li>
+          <li class="mono"><strong>humor</strong> &#8212; style, frequency, mechanism</li>
+          <li class="mono"><strong>worldview</strong> &#8212; beliefs grounded in the text</li>
+          <li class="mono"><strong>emotional_tells</strong> &#8212; pressure, enthusiasm, uncertainty</li>
+          <li class="mono"><strong>response_patterns</strong> &#8212; disagreement, deflection, concession</li>
+          <li class="mono"><strong>relationship_matrix</strong> &#8212; only real co-speakers</li>
+          <li class="mono"><strong>annotated_quotes</strong> &#8212; &#8805;10 verbatim lines</li>
+        </ul>
+      </div>
+      <div class="phase-box">
+        <div class="section-label label-p2">Phase 2 &#8212; Knowledge pass</div>
+        <div class="model-chip">gpt-4o (per-spec override)</div>
+        <ul class="item-list">
+          <li class="mono"><strong>favored_words</strong> &#8212; catchphrases, trademark exclamations</li>
+          <li class="mono"><strong>structural_patterns</strong> &#8212; syntactic tics unique to this person</li>
+          <li class="mono"><strong>do_not_say</strong> &#8212; &#8805;5 lines with contradicts annotation</li>
+          <li class="note">No transcript sent &#8212; pure model knowledge.</li>
+          <li class="note">Each item must fail the &#8220;similar figure&#8221; test.</li>
+          <li class="note">Merged into Phase 1 output after both calls.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arrow-row">
+      <div class="arrow-step">
+        <div class="badges"><span class="badge badge-yt">YT</span><span class="badge badge-tw">TW</span><span class="badge badge-pdf">PDF</span></div>
+        <span class="step-title">Source</span><span class="step-sub">raw transcripts</span>
+      </div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Scraper</span><span class="step-sub">chunk + cap tokens</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Phase 1</span><span class="step-sub">transcript-grounded</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Phase 2</span><span class="step-sub">model knowledge only</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Merge</span><span class="step-sub">inject fingerprint fields</span></div>
+      <span class="arr">&#8594;</span>
+      <div class="arrow-step"><span class="step-title">Profile JSON</span><span class="step-sub">data/personas/</span></div>
+    </div>
+
+    <div class="metrics-4">
+      <div class="metric"><div class="metric-num neutral">3</div><div class="metric-label">Source types<br>YouTube &middot; Twitter &middot; Script</div></div>
+      <div class="metric"><div class="metric-num p1">40 k</div><div class="metric-label">Max tokens per transcript<br>~160 k chars</div></div>
+      <div class="metric"><div class="metric-num p2">2</div><div class="metric-label">API calls per persona<br>independent models</div></div>
+      <div class="metric"><div class="metric-num neutral">80</div><div class="metric-label">Personas in batch<br>current config</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Navigation ─────────────────────────────────────────── -->
+<div class="nav">
+  <button id="btn-prev" onclick="go(-1)" disabled>&#8592; Prev</button>
+  <div class="nav-dots">
+    <div class="dot active" onclick="goTo(0)"></div>
+    <div class="dot" onclick="goTo(1)"></div>
+    <div class="dot" onclick="goTo(2)"></div>
+  </div>
+  <div class="nav-counter" id="counter">1 / 3</div>
+  <button id="btn-next" onclick="go(1)">Next &#8594;</button>
+</div>
+
+<script>
+  const slides  = document.querySelectorAll('.slide');
+  const dots    = document.querySelectorAll('.dot');
+  const counter = document.getElementById('counter');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  let current   = 0;
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    dots.forEach((d, i)   => d.classList.toggle('active', i === current));
+    counter.textContent  = (current + 1) + ' / ' + slides.length;
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === slides.length - 1;
+  }
+
+  function go(dir)   { current = Math.max(0, Math.min(slides.length - 1, current + dir)); render(); }
+  function goTo(idx) { current = idx; render(); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   go(-1);
+  });
+</script>
+
+</body>
+</html>
