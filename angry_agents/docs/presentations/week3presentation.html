@@ -294,6 +294,110 @@
   #slide-2 .metric { padding: 0.8rem; }
   #slide-2 .metric-num { font-size: 26px; margin-bottom: 4px; }
   #slide-2 .metric-label { font-size: 12px; }
+
+/* Slide metrics — compact 4-col layout */
+#slide-metrics {
+  background: #fafaf9;
+  padding: 2rem 4rem;
+}
+#slide-metrics h1 { font-size: 26px; margin-bottom: 0.25rem; }
+#slide-metrics .subtitle { font-size: 14px; margin-bottom: 1.2rem; }
+#slide-metrics hr { margin-bottom: 1.2rem; }
+
+.metrics-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.metric-step {
+  border: 1px solid #e5e5e3;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  background: #fff;
+}
+
+.metric-step .step-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.metric-step .step-question {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.metric-step .step-why {
+  font-size: 11px;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 0.7rem;
+  line-height: 1.35;
+}
+
+.metric-step ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.metric-step ul li {
+  font-size: 12px;
+  color: #555;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0ee;
+  line-height: 1.35;
+}
+
+.metric-step ul li:last-child { border-bottom: none; }
+
+.metric-step ul li strong {
+  font-family: "SF Mono", "Fira Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #111;
+}
+
+.metric-step.s1 .step-num { color: #0F6E56; }
+.metric-step.s2 .step-num { color: #1A5E8A; }
+.metric-step.s3 .step-num { color: #7C3AED; }
+.metric-step.s4 .step-num { color: #C2410C; }
+
+.infra-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.infra-box {
+  border: 1px solid #e5e5e3;
+  border-radius: 10px;
+  padding: 0.8rem 1.1rem;
+  background: #fff;
+}
+
+.infra-box .infra-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 0.4rem;
+}
+
+.infra-box p {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
 </style>
 </head>
 <body>
@@ -629,6 +733,7 @@
   </div>
 
   <!-- ══════════════════ SLIDE 9 — Judge phase with tool ═════════════════ -->
+  <!-- NOTE: id="slide-8" below is intentional (duplicate from original) -->
   <div class="slide" id="slide-8">
     <div class="tag">Judge phase — RAG as a tool</div>
     <h1>Tool access improves accuracy, especially on semantic fields like ideology.</h1>
@@ -700,5 +805,83 @@
       <p class="note" style="margin-top:0.8rem;">Open question: does the ~10% accuracy gain justify the doubled cost, especially when the drop is most visible on semantic fields like ideology?</p>
     </div>
   </div>
+
+  <!-- ══════════════════ SLIDE FINALE — Evaluation Metrics ═════════════════ -->
+  <div class="slide" id="slide-metrics">
+    <div class="tag">Evaluation metrics — overview</div>
+    <h1>Four steps. One question: did the agent behave like the persona?</h1>
+    <p class="subtitle">Each step measures a distinct dimension — from raw identity recognition to group-level realism and judge quality.</p>
+    <hr>
+
+    <div class="metrics-grid-4">
+
+      <div class="metric-step s1">
+        <div class="step-num">Step 1 — Persona ID</div>
+        <div class="step-question">Can judges guess which anonymous author is which persona?</div>
+        <div class="step-why">Baseline is 12.5% (random over 8). Anything above means personas are distinguishable from chat alone.</div>
+        <ul>
+          <li><strong>accuracy</strong> — correct guesses / total guesses</li>
+          <li><strong>binomial CI</strong> — Clopper-Pearson, H₀: acc = 1/8</li>
+          <li><strong>confusion matrix</strong> — 8×8, shows which personas get mixed up</li>
+          <li><strong>macro F1</strong> — precision × recall per persona, averaged</li>
+          <li><strong>Cohen's κ</strong> — corrects accuracy for chance; κ=0 = random</li>
+          <li><strong>judge variance</strong> — how much judges disagree with each other</li>
+        </ul>
+      </div>
+
+      <div class="metric-step s2">
+        <div class="step-num">Step 2 — Individual Fidelity</div>
+        <div class="step-question">How convincingly did each agent portray its character?</div>
+        <div class="step-why">Judges score 1–5. Median is primary (robust to outliers). IQR shows if judges agree. CI shows uncertainty around the estimate.</div>
+        <ul>
+          <li><strong>median</strong> — primary score per persona (ordinal scale)</li>
+          <li><strong>IQR</strong> — spread of middle 50% of judges; small = consensus</li>
+          <li><strong>bootstrap 95% CI</strong> — 10 000 resamples on the median</li>
+          <li><strong>MAD per judge type</strong> — |median_style − median_ideology| etc.</li>
+          <li><strong>mean per judge type</strong> — reveals systematic harshness bias</li>
+        </ul>
+      </div>
+
+      <div class="metric-step s3">
+        <div class="step-num">Step 3 — Group Fidelity</div>
+        <div class="step-question">Does the group chat look like a real group conversation?</div>
+        <div class="step-why">Real chats have unequal but not dominated turn-taking. Gini in 0.28–0.42 means turn distribution matches human reference data.</div>
+        <ul>
+          <li><strong>Gini coefficient</strong> — 0 = equal turns, 1 = one agent monopolizes</li>
+          <li><strong>target range</strong> — 0.28–0.42 from reference group chats</li>
+          <li><strong>z-score</strong> — distance from reference mean (μ=0.33, σ=0.05)</li>
+          <li><strong>bootstrap CI</strong> — 10 000 resamples on the Gini value</li>
+          <li><strong>drift score</strong> — cosine similarity across last-turn embeddings; &gt;0.85 triggers early perturbation</li>
+        </ul>
+      </div>
+
+      <div class="metric-step s4">
+        <div class="step-num">Step 4 — Deliberation</div>
+        <div class="step-question">When judges discuss disagreements, do they converge on correct answers?</div>
+        <div class="step-why">Phase 2 tests judge quality. Variance should shrink across rounds. Confidence should track accuracy — if it doesn't, judges are overconfident.</div>
+        <ul>
+          <li><strong>variance reduction</strong> — var_final &lt; var_round0 → converged</li>
+          <li><strong>F-test</strong> — checks if variance drop is statistically significant</li>
+          <li><strong>convergence rate</strong> — fraction of cases that converged + binomial CI</li>
+          <li><strong>Pearson r</strong> — Δconfidence vs Δaccuracy; r&lt;0 = overconfidence flag</li>
+          <li><strong>calibration curve</strong> — accuracy at each confidence level 1–5</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="infra-row">
+      <div class="infra-box">
+        <div class="infra-label">Bootstrap engine — used everywhere</div>
+        <p>All CIs use the same non-parametric engine: resample 10 000×, take 2.5th–97.5th percentiles. No distribution assumption. Safe on small samples. Covers: fidelity median, Gini, Spearman ρ, Pearson r.</p>
+      </div>
+      <div class="infra-box">
+        <div class="infra-label">Perturbation — preventing groupthink</div>
+        <p>Every 10–15 turns (randomized per agent), a prompt injection forces character-consistent friction. If cosine similarity across agents exceeds 0.85 (drift score), perturbation fires early regardless of schedule.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
