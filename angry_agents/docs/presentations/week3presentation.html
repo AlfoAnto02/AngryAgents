@@ -716,7 +716,6 @@
           <li>The same judge runs again, but can query ChromaDB when the shortlist is not enough.</li>
           <li>This lets the judge fetch extra evidence instead of being trapped in the initial candidates.</li>
           <li>The tool-based pass improves robustness on ambiguous or borderline cases.</li>
-          <li class="note">The tool mechanism will be explained in a separate slide.</li>
         </ul>
       </div>
     </div>
@@ -739,18 +738,6 @@
     <h1>Tool access improves accuracy, especially on semantic fields like ideology.</h1>
     <p class="subtitle">The judge first evaluates the merged candidate set, then can call RAG as a tool for deeper semantic retrieval when the initial shortlist is not enough. This helps the model reason on harder dimensions, but it also increases token usage and cost.</p>
     <hr>
-
-    <div class="arrow-row">
-      <div class="arrow-step"><span class="step-title">Merged candidates</span><span class="step-sub">8 base personas + 12 retrieved</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">Judge pass</span><span class="step-sub">persona ID + fidelity</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">RAG as a tool</span><span class="step-sub">deeper semantic retrieval</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">Metrics</span><span class="step-sub">accuracy, agreement, fidelity</span></div>
-      <span class="arr">&#8594;</span>
-      <div class="arrow-step"><span class="step-title">Deliberation</span><span class="step-sub">resolve contested cases</span></div>
-    </div>
 
     <div class="two-col">
       <div class="phase-box">
