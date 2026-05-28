@@ -76,7 +76,7 @@ body {
   background: var(--bg-0);
   color: var(--fg-0);
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -104,15 +104,15 @@ input, textarea, select {
 .mono { font-family: var(--font-mono); font-feature-settings: "ss01", "cv01"; }
 .t-eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-2);
 }
-.t-h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
-.t-h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.005em; margin: 0; }
-.t-h3 { font-size: 16px; font-weight: 600; margin: 0; }
-.t-meta { font-size: 12px; color: var(--fg-2); }
+.t-h1 { font-size: 32px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+.t-h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.005em; margin: 0; }
+.t-h3 { font-size: 20px; font-weight: 600; margin: 0; }
+.t-meta { font-size: 16px; color: var(--fg-2); }
 .t-dim { color: var(--fg-2); }
 
 /* ============================================================
@@ -126,7 +126,7 @@ input, textarea, select {
   height: 36px;
   padding: 0 14px;
   border-radius: var(--r-input);
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 500;
   cursor: pointer;
   border: 1px solid transparent;
@@ -160,8 +160,8 @@ input, textarea, select {
 }
 .btn-danger-ghost:hover:not(:disabled) { background: rgba(239,68,68,0.08); }
 
-.btn-sm { height: 28px; padding: 0 10px; font-size: 12px; gap: 6px; }
-.btn-lg { height: 44px; padding: 0 18px; font-size: 14px; }
+.btn-sm { height: 28px; padding: 0 10px; font-size: 16px; gap: 6px; }
+.btn-lg { height: 44px; padding: 0 18px; font-size: 18px; }
 .btn-block { width: 100%; }
 .btn-icon { width: 32px; height: 32px; padding: 0; }
 .btn-icon-sm { width: 24px; height: 24px; padding: 0; }
@@ -177,7 +177,7 @@ input, textarea, select {
   border: 1px solid var(--border-1);
   border-radius: var(--r-input);
   color: var(--fg-0);
-  font-size: 13px;
+  font-size: 17px;
   outline: none;
   transition: border-color .12s, background .12s;
 }
@@ -199,16 +199,16 @@ input, textarea, select {
 
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field-label {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--fg-1);
   letter-spacing: 0.02em;
   text-transform: uppercase;
   font-family: var(--font-mono);
 }
-.field-hint { font-size: 11px; color: var(--fg-2); }
-.field-error { font-size: 11px; color: var(--danger); display: flex; align-items: center; gap: 4px; }
-.field-ok { font-size: 11px; color: var(--ok); display: flex; align-items: center; gap: 4px; }
+.field-hint { font-size: 15px; color: var(--fg-2); }
+.field-error { font-size: 15px; color: var(--danger); display: flex; align-items: center; gap: 4px; }
+.field-ok { font-size: 15px; color: var(--ok); display: flex; align-items: center; gap: 4px; }
 
 .input-wrap { position: relative; }
 .input-wrap .input { padding-right: 36px; }
@@ -254,7 +254,7 @@ input, textarea, select {
   height: 20px;
   padding: 0 8px;
   border-radius: var(--r-pill);
-  font-size: 10.5px;
+  font-size: 14.5px;
   font-weight: 500;
   font-family: var(--font-mono);
   letter-spacing: 0.04em;
@@ -285,7 +285,7 @@ input, textarea, select {
   border: 1px solid var(--border-1);
   border-radius: var(--r-pill);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   cursor: pointer;
   transition: all .12s;
 }
@@ -304,18 +304,18 @@ input, textarea, select {
   justify-content: center;
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 17px;
   letter-spacing: 0.02em;
   color: #fff;
   flex-shrink: 0;
   border: 1px solid rgba(255,255,255,0.06);
   position: relative;
 }
-.avatar-xs { width: 20px; height: 20px; font-size: 9px; }
-.avatar-sm { width: 28px; height: 28px; font-size: 11px; }
-.avatar-md { width: 36px; height: 36px; font-size: 13px; }
-.avatar-lg { width: 48px; height: 48px; font-size: 16px; }
-.avatar-xl { width: 64px; height: 64px; font-size: 22px; }
+.avatar-xs { width: 20px; height: 20px; font-size: 13px; }
+.avatar-sm { width: 28px; height: 28px; font-size: 15px; }
+.avatar-md { width: 36px; height: 36px; font-size: 17px; }
+.avatar-lg { width: 48px; height: 48px; font-size: 20px; }
+.avatar-xl { width: 64px; height: 64px; font-size: 26px; }
 
 .avatar-stack { display: flex; }
 .avatar-stack .avatar:not(:first-child) {
@@ -346,7 +346,7 @@ input, textarea, select {
 }
 .tension-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 14px;
   color: var(--fg-2);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -373,7 +373,7 @@ input, textarea, select {
   gap: 10px;
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 17px;
   letter-spacing: 0.02em;
 }
 .topnav-logo {
@@ -394,7 +394,7 @@ input, textarea, select {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 17px;
   color: var(--fg-1);
   cursor: pointer;
   border: 0;
@@ -420,7 +420,7 @@ input, textarea, select {
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -492,14 +492,14 @@ input, textarea, select {
 }
 .auth-brand h1 {
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: 22px;
   margin: 0 0 4px;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 .auth-brand-tagline {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   color: var(--fg-2);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -574,7 +574,7 @@ input, textarea, select {
 }
 .agent-card .agent-name {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--fg-0);
@@ -584,13 +584,13 @@ input, textarea, select {
 }
 .agent-card .agent-source {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--fg-2);
 }
 .agent-card .agent-desc {
-  font-size: 12.5px;
+  font-size: 16.5px;
   color: var(--fg-1);
   line-height: 1.5;
   display: -webkit-box;
@@ -672,7 +672,7 @@ input, textarea, select {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 500;
   margin-bottom: 2px;
 }
@@ -683,16 +683,16 @@ input, textarea, select {
   white-space: nowrap;
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.02em;
 }
 .chat-list-item .chat-list-time {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 14px;
   color: var(--fg-3);
 }
 .chat-list-item .chat-list-preview {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--fg-2);
   white-space: nowrap;
   overflow: hidden;
@@ -727,12 +727,12 @@ input, textarea, select {
 }
 .chat-header-title {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 .chat-header-sub {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--fg-2);
   display: flex;
   align-items: center;
@@ -760,7 +760,7 @@ input, textarea, select {
 .msg-bubble {
   padding: 10px 14px;
   border-radius: var(--r-card);
-  font-size: 13.5px;
+  font-size: 17.5px;
   line-height: 1.55;
   max-width: 560px;
   word-break: break-word;
@@ -785,13 +785,13 @@ input, textarea, select {
 }
 .msg-author {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 .msg-time {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 14px;
   color: var(--fg-3);
 }
 .msg-col { display: flex; flex-direction: column; min-width: 0; }
@@ -802,7 +802,7 @@ input, textarea, select {
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   color: var(--fg-3);
   padding: 4px 12px;
   letter-spacing: 0.04em;
@@ -857,7 +857,7 @@ input, textarea, select {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: 15px;
   color: var(--fg-3);
 }
 
@@ -900,7 +900,7 @@ input, textarea, select {
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   color: var(--fg-2);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -915,7 +915,7 @@ input, textarea, select {
   border-radius: var(--r-pill);
   background: var(--bg-2);
   border: 1px solid var(--border-1);
-  font-size: 10px;
+  font-size: 14px;
 }
 .stepper-num.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 .stepper-num.done { background: var(--accent-soft); border-color: var(--accent-border); color: var(--accent); }
@@ -957,7 +957,7 @@ input, textarea, select {
   background: transparent;
   border: 0;
   color: var(--fg-1);
-  font-size: 13px;
+  font-size: 17px;
   cursor: pointer;
   text-align: left;
 }
@@ -990,20 +990,20 @@ input, textarea, select {
 }
 .kpi-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--fg-2);
 }
 .kpi-value {
   font-family: var(--font-mono);
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--fg-0);
 }
 .kpi-delta {
-  font-size: 11px;
+  font-size: 15px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -1052,12 +1052,12 @@ input, textarea, select {
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12.5px;
+  font-size: 16.5px;
 }
 .table thead th {
   text-align: left;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 14.5px;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1072,7 +1072,7 @@ input, textarea, select {
   vertical-align: middle;
 }
 .table tbody tr:hover { background: var(--bg-1); }
-.table .col-mono { font-family: var(--font-mono); font-size: 12px; }
+.table .col-mono { font-family: var(--font-mono); font-size: 16px; }
 
 /* ============================================================
    Modal
@@ -1145,7 +1145,7 @@ input, textarea, select {
 }
 .empty-title {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 17px;
   color: var(--fg-1);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -1190,7 +1190,7 @@ input, textarea, select {
   border: 1px solid var(--border-1);
   border-bottom-width: 2px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 14px;
   color: var(--fg-1);
 }
 
@@ -1236,7 +1236,7 @@ input, textarea, select {
   gap: 12px;
   padding: 12px 16px;
   border-bottom: 1px solid var(--border-0);
-  font-size: 12.5px;
+  font-size: 16.5px;
 }
 .judge-launcher-row:last-child { border-bottom: 0; }
 .judge-launcher-row:hover { background: var(--bg-2); }
@@ -1244,7 +1244,7 @@ input, textarea, select {
 /* Agent profile modal — compact character card */
 .pcard { display: flex; flex-direction: column; gap: 14px; }
 .pcard-desc {
-  font-size: 13px; color: var(--fg-2); font-style: italic;
+  font-size: 17px; color: var(--fg-2); font-style: italic;
   line-height: 1.5; margin-bottom: 2px;
 }
 .pcard-divider { height: 1px; background: var(--border-0); margin: 2px 0; }
@@ -1252,45 +1252,45 @@ input, textarea, select {
 
 .pblock { display: flex; flex-direction: column; gap: 6px; }
 .pblock-title {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--fg-2);
 }
 
-.pstat { display: flex; gap: 8px; align-items: baseline; font-size: 12.5px; line-height: 1.4; }
+.pstat { display: flex; gap: 8px; align-items: baseline; font-size: 16.5px; line-height: 1.4; }
 .pstat-label {
-  flex-shrink: 0; color: var(--fg-2); font-size: 11px;
+  flex-shrink: 0; color: var(--fg-2); font-size: 15px;
   text-transform: uppercase; letter-spacing: 0.04em; width: 64px;
 }
 .pstat-value { color: var(--fg-0); }
 
 .pchip-row { display: flex; flex-wrap: wrap; gap: 5px; }
 .pchip {
-  font-size: 11px; padding: 2px 8px; border-radius: 999px;
+  font-size: 15px; padding: 2px 8px; border-radius: 999px;
   background: var(--bg-3); color: var(--fg-1);
   border: 1px solid var(--border-1);
 }
 .pchip-accent { background: var(--accent-soft); color: var(--accent-hover); border-color: var(--accent-border); }
 
-.pcard-tell { font-size: 12.5px; color: var(--fg-1); line-height: 1.5; }
+.pcard-tell { font-size: 16.5px; color: var(--fg-1); line-height: 1.5; }
 
 .pcard-quote {
   background: var(--bg-2); border-radius: 8px;
   padding: 14px 16px; position: relative;
 }
 .pcard-quote-mark {
-  font-size: 48px; line-height: 1; color: var(--accent-border);
+  font-size: 52px; line-height: 1; color: var(--accent-border);
   position: absolute; top: 4px; left: 12px; font-family: Georgia, serif;
 }
 .pcard-quote-text {
-  font-size: 13px; color: var(--fg-0); font-style: italic;
+  font-size: 17px; color: var(--fg-0); font-style: italic;
   line-height: 1.6; padding-left: 24px; padding-top: 8px;
 }
 .pcard-quote-label {
-  font-size: 11px; color: var(--fg-2); margin-top: 8px;
+  font-size: 15px; color: var(--fg-2); margin-top: 8px;
   padding-left: 24px; text-transform: uppercase; letter-spacing: 0.04em;
 }
 .pcard-never {
-  font-size: 12px; color: var(--fg-2); font-style: italic;
+  font-size: 16px; color: var(--fg-2); font-style: italic;
   padding: 4px 0; border-bottom: 1px solid var(--border-0);
 }
 .pcard-never:last-child { border-bottom: none; }
@@ -1326,7 +1326,7 @@ input, textarea, select {
   gap: 14px;
   margin-top: 10px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 14.5px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--fg-3);
@@ -1355,7 +1355,7 @@ input, textarea, select {
   border-bottom: 2px solid transparent;
   color: var(--fg-2);
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 15.5px;
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1396,20 +1396,20 @@ input, textarea, select {
 }
 .metric-stat-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--fg-2);
 }
 .metric-stat-value {
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--fg-0);
   letter-spacing: -0.005em;
 }
 .metric-stat-sub {
-  font-size: 11px;
+  font-size: 15px;
   color: var(--fg-2);
 }
 .metric-stat-good { border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.06); }
@@ -1429,10 +1429,10 @@ input, textarea, select {
   gap: 10px;
   align-items: baseline;
   padding: 6px 0;
-  font-size: 12px;
+  font-size: 16px;
 }
 .props-key {
-  font-size: 11.5px;
+  font-size: 15.5px;
   color: var(--fg-0);
   font-weight: 500;
 }
@@ -1446,7 +1446,7 @@ input, textarea, select {
 .cm-table {
   border-collapse: collapse;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 15px;
   margin: 4px 0 4px;
 }
 .cm-table th {
@@ -1478,12 +1478,12 @@ input, textarea, select {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  font-size: 12px;
+  font-size: 16px;
   padding: 2px 0;
 }
 .cm-legend-key {
   color: var(--admin);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   min-width: 28px;
 }
@@ -1553,12 +1553,12 @@ input, textarea, select {
   border-top: 1px solid rgba(255,255,255,0.15);
 }
 .cal-label {
-  font-size: 10.5px;
+  font-size: 14.5px;
   color: var(--fg-2);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .cal-val {
-  font-size: 11px;
+  font-size: 15px;
   color: var(--fg-0);
 }
