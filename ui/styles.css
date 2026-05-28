@@ -551,17 +551,18 @@ input, textarea, select {
 }
 .lib-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
 }
 
 .agent-card {
-  padding: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   cursor: pointer;
   position: relative;
+  min-height: 180px;
 }
 .agent-card .agent-card-head {
   display: flex;
@@ -590,18 +591,21 @@ input, textarea, select {
   color: var(--fg-2);
 }
 .agent-card .agent-desc {
-  font-size: 16.5px;
+  font-size: 14px;
   color: var(--fg-1);
-  line-height: 1.5;
+  line-height: 1.55;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .agent-card .agent-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+  overflow: hidden;
+  max-height: 56px;
 }
 .agent-card .agent-actions {
   display: flex;
@@ -867,7 +871,7 @@ input, textarea, select {
 .wizard-shell {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 400px;
   min-height: 0;
 }
 .wizard-main {
@@ -883,16 +887,16 @@ input, textarea, select {
   min-height: 0;
 }
 .wizard-aside-head {
-  padding: 16px 18px;
+  padding: 20px 22px;
   border-bottom: 1px solid var(--border-0);
 }
 .wizard-aside-body {
   flex: 1;
   overflow-y: auto;
-  padding: 12px 14px;
+  padding: 16px 18px;
 }
 .wizard-aside-foot {
-  padding: 14px 16px;
+  padding: 16px 20px;
   border-top: 1px solid var(--border-0);
 }
 .stepper {
