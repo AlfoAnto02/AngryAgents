@@ -358,43 +358,43 @@ input, textarea, select {
    Top nav
    ============================================================ */
 .topnav {
-  height: 56px;
+  height: 72px;
   border-bottom: 1px solid var(--border-0);
   display: flex;
   align-items: center;
-  padding: 0 20px;
-  gap: 20px;
+  padding: 0 28px;
+  gap: 24px;
   background: var(--bg-0);
   flex-shrink: 0;
 }
 .topnav-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-mono);
   font-weight: 600;
-  font-size: 17px;
+  font-size: 20px;
   letter-spacing: 0.02em;
 }
 .topnav-logo {
-  width: 28px; height: 28px;
-  border-radius: 6px;
+  width: 36px; height: 36px;
+  border-radius: 8px;
   object-fit: contain;
 }
 .topnav-nav {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   margin-left: 20px;
 }
 .topnav-nav-item {
-  height: 32px;
-  padding: 0 12px;
+  height: 40px;
+  padding: 0 16px;
   border-radius: var(--r-input);
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 17px;
+  gap: 8px;
+  font-size: 19px;
   color: var(--fg-1);
   cursor: pointer;
   border: 0;
@@ -406,21 +406,21 @@ input, textarea, select {
 
 .role-switch {
   display: flex;
-  height: 32px;
+  height: 40px;
   border: 1px solid var(--border-1);
   border-radius: var(--r-input);
   padding: 2px;
   background: var(--bg-1);
 }
 .role-switch-btn {
-  height: 26px;
-  padding: 0 10px;
+  height: 34px;
+  padding: 0 14px;
   border-radius: 3px;
   display: flex;
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -484,8 +484,8 @@ input, textarea, select {
   margin-bottom: 28px;
 }
 .auth-brand-logo {
-  width: 48px; height: 48px;
-  border-radius: 8px;
+  width: 120px; height: 120px;
+  border-radius: 16px;
   margin: 0 auto 14px;
   object-fit: contain;
   display: block;

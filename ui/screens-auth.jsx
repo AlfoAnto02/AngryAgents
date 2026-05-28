@@ -9,7 +9,7 @@ function AuthShell({ children }) {
       <div className="auth-content">
         <div className="auth-card">
           <div className="auth-brand">
-            <img src="logo.png" className="auth-brand-logo" alt="Angry Agents" />
+            <img src="logo.png?v=20260528-2" className="auth-brand-logo" alt="Angry Agents" />
             <h1>8 Angry Agents</h1>
             <div className="auth-brand-tagline">Simulate · Argue · Understand</div>
           </div>

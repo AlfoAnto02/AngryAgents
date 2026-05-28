@@ -120,9 +120,9 @@ function TagChip({ children, active, onClick, prefix = "#" }) {
 }
 
 // ---- Brand logo --------------------------------------------------------
-function BrandMark({ size = 28 }) {
+function BrandMark({ size = 48 }) {
   return (
-    <img src="logo.png" className="topnav-logo" style={{ width: size, height: size }} alt="Angry Agents" />
+    <img src="logo.png?v=20260528-2" className="topnav-logo" style={{ width: size, height: size }} alt="Angry Agents" />
   );
 }
 
@@ -262,7 +262,6 @@ function TopNav({ role, userRole, page, onNav, user, onLogout }) {
         title="Home"
       >
         <BrandMark />
-        <span>8 Angry Agents</span>
       </button>
 
       <nav className="topnav-nav">
