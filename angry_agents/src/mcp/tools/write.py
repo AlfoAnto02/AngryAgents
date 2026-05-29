@@ -13,7 +13,7 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
-from ..client import _post
+from ..client import _patch, _post
 
 
 def register(mcp: FastMCP) -> None:
@@ -49,50 +49,95 @@ def register(mcp: FastMCP) -> None:
         Topic titles are unique — check get_topics first to avoid duplicates."""
         return await _post("/topics", {"title": title, "description": description})
 
-    # ── create_chat ───────────────────────────────────────────────────────────
+    # ── create_full_chat ──────────────────────────────────────────────────────
+    # Creates a chat with participant selection. 1 participant = DM, 2–8 = group.
+    # Group chats auto-start a background agent conversation.
 
     @mcp.tool()
-    async def preview_create_chat(id_topic: int) -> dict[str, Any]:
-        """[Tier 2 — PREVIEW] Show what will be sent before opening a group chat.
-        Display this to the user and ask for explicit 'yes' before calling confirm_create_chat."""
+    async def preview_create_full_chat(
+        participants: list[int],
+        topics: list[str] | None = None,
+        tone: str = "Debate",
+        opener: str | None = None,
+        created_by: int | None = None,
+    ) -> dict[str, Any]:
+        """[Tier 2 — PREVIEW] Show what will be sent before creating a DM or group chat.
+        participants: list of agent IDs — 1 = DM, 2–8 = group chat.
+        created_by: optional user ID to post as (LLM user identity).
+        Display this to the user and ask for explicit 'yes' before calling confirm_create_full_chat."""
+        topics = topics or []
+        chat_type = "DM" if len(participants) == 1 else "group"
         return {
-            "action": "create_chat",
-            "payload": {"id_topic": id_topic},
+            "action": "create_full_chat",
+            "payload": {
+                "participants": participants,
+                "topics": topics,
+                "tone": tone,
+                "opener": opener,
+                "created_by": created_by,
+            },
             "instructions": (
                 "Show the user:\n"
                 "[CONFIRMATION REQUIRED]\n"
-                f"Action  : Open a new group chat under topic id={id_topic}\n"
-                f"Payload : {{\"id_topic\": {id_topic}}}\n\n"
+                f"Action  : Create a {chat_type} chat with {len(participants)} participant(s)\n"
+                f"Participants: {participants}\n"
+                f"Topics  : {topics}\n"
+                f"Opener  : {opener!r}\n\n"
                 "Proceed? (yes / no) >\n\n"
-                "Call confirm_create_chat only if user answers 'yes'."
+                "Call confirm_create_full_chat only if user answers 'yes'."
             ),
         }
 
     @mcp.tool()
-    async def confirm_create_chat(id_topic: int) -> dict[str, Any]:
-        """[Tier 2 — EXECUTE] Open a new group chat. Call ONLY after user confirmed the preview.
-        Verify the topic exists with get_topic_by_id before calling."""
-        return await _post("/chats", {"id_topic": id_topic})
+    async def confirm_create_full_chat(
+        participants: list[int],
+        topics: list[str] | None = None,
+        tone: str = "Debate",
+        opener: str | None = None,
+        created_by: int | None = None,
+    ) -> dict[str, Any]:
+        """[Tier 2 — EXECUTE] Create a DM or group chat with participant selection.
+        Call ONLY after user confirmed the preview.
+        1 participant = DM chat. 2–8 participants = group chat (auto-starts background conversation).
+        Use get_agents first to find valid agent IDs."""
+        return await _post(
+            "/ui/chats/create-for-llm",
+            {
+                "participants": participants,
+                "topics": topics or [],
+                "tone": tone,
+                "opener": opener,
+                "created_by": created_by,
+            },
+        )
 
     # ── create_message ────────────────────────────────────────────────────────
 
     @mcp.tool()
     async def preview_create_message(
         chat_id: int,
-        agent_id: int,
         message: str,
+        agent_id: int | None = None,
+        created_by: int | None = None,
     ) -> dict[str, Any]:
         """[Tier 2 — PREVIEW] Show what will be sent before posting a message.
+        Provide either agent_id (post as a persona) OR created_by (post as yourself/LLM user).
         Display this to the user and ask for explicit 'yes' before calling confirm_create_message.
         Read the chat messages first (get_chat_messages) to avoid breaking narrative continuity."""
+        if agent_id is None and created_by is None:
+            return {"error": "Provide either agent_id or created_by — not both, not neither."}
+        if agent_id is not None and created_by is not None:
+            return {"error": "agent_id and created_by are mutually exclusive."}
+        author = f"agent id={agent_id}" if agent_id is not None else f"user id={created_by}"
         return {
             "action": "create_message",
-            "payload": {"chat_id": chat_id, "agent_id": agent_id, "message": message},
+            "payload": {"chat_id": chat_id, "agent_id": agent_id, "created_by": created_by, "message": message},
             "instructions": (
                 "Show the user:\n"
                 "[CONFIRMATION REQUIRED]\n"
-                f"Action  : Post a message to chat id={chat_id} as agent id={agent_id}\n"
+                f"Action  : Post a message to chat id={chat_id} as {author}\n"
                 f"Payload : {{\"chat_id\": {chat_id}, \"agent_id\": {agent_id}, "
+                f"\"created_by\": {created_by}, "
                 f"\"message\": \"{message[:80]}{'...' if len(message) > 80 else ''}\"}}\n\n"
                 "Proceed? (yes / no) >\n\n"
                 "Call confirm_create_message only if user answers 'yes'."
@@ -102,9 +147,40 @@ def register(mcp: FastMCP) -> None:
     @mcp.tool()
     async def confirm_create_message(
         chat_id: int,
-        agent_id: int,
         message: str,
+        agent_id: int | None = None,
+        created_by: int | None = None,
     ) -> dict[str, Any]:
-        """[Tier 2 — EXECUTE] Post a message to a group chat. Call ONLY after user confirmed.
-        The author token in the response is HMAC-anonymised — do not try to reverse-engineer it."""
-        return await _post(f"/chats/{chat_id}/messages", {"agent_id": agent_id, "message": message})
+        """[Tier 2 — EXECUTE] Post a message to a chat. Call ONLY after user confirmed.
+        Provide either agent_id (speak as a persona) OR created_by (speak as yourself).
+        The author token in the response is HMAC-anonymised for agent messages; NULL for user messages."""
+        return await _post(
+            f"/chats/{chat_id}/messages",
+            {"agent_id": agent_id, "created_by": created_by, "message": message},
+        )
+
+    # ── stop_chat ─────────────────────────────────────────────────────────────
+
+    @mcp.tool()
+    async def preview_stop_chat(chat_id: int) -> dict[str, Any]:
+        """[Tier 2 — PREVIEW] Show what will happen before stopping a chat.
+        Stopping sets status='stopped', halting the background agent conversation loop.
+        Display this to the user and ask for explicit 'yes' before calling confirm_stop_chat."""
+        return {
+            "action": "stop_chat",
+            "payload": {"chat_id": chat_id, "status": "stopped"},
+            "instructions": (
+                "Show the user:\n"
+                "[CONFIRMATION REQUIRED]\n"
+                f"Action  : Stop chat id={chat_id} (halts background agent turns)\n\n"
+                "Proceed? (yes / no) >\n\n"
+                "Call confirm_stop_chat only if user answers 'yes'."
+            ),
+        }
+
+    @mcp.tool()
+    async def confirm_stop_chat(chat_id: int) -> dict[str, Any]:
+        """[Tier 2 — EXECUTE] Stop a chat by setting status='stopped'.
+        Call ONLY after user confirmed the preview.
+        The background agent conversation loop will halt within its next iteration (~0.5s)."""
+        return await _patch(f"/chats/{chat_id}", {"status": "stopped"})
