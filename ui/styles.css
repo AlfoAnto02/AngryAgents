@@ -321,6 +321,9 @@ input, textarea, select {
   font-size: 17px;
   cursor: pointer;
   transition: all .12s;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 220px;
 }
 .tag-chip:hover { border-color: var(--border-2); color: var(--fg-0); }
 .tag-chip.active { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-border); }

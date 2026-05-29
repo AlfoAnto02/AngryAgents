@@ -22,11 +22,36 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
   const [topicInput, setTopicInput] = React.useState("");
   const [tone, setTone] = React.useState("Debate");
   const [search, setSearch] = React.useState("");
+  const [sourceFilter, setSourceFilter] = React.useState(null); // null | "real_world" | source_title string
+  const [sourceSearch, setSourceSearch] = React.useState("");
+  const [sourceOpen, setSourceOpen] = React.useState(false);
 
-  const personas = agents;
-  const filtered = personas.filter(p =>
-    !search || p.name.toLowerCase().includes(search.toLowerCase()) || p.desc.toLowerCase().includes(search.toLowerCase())
-  );
+  // Unique fiction source_titles, sorted by how many agents belong to them (desc)
+  const sourceTitles = React.useMemo(() => {
+    const counts = {};
+    agents.forEach(p => {
+      if (p.source_type === "fiction" && p.source_title) {
+        counts[p.source_title] = (counts[p.source_title] || 0) + 1;
+      }
+    });
+    return Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+  }, [agents]);
+
+  // Filter which chips are visible when the user types in the source search box
+  const visibleTitles = sourceSearch
+    ? sourceTitles.filter(t => t.toLowerCase().includes(sourceSearch.toLowerCase()))
+    : sourceTitles;
+
+  const filtered = agents.filter(p => {
+    if (search && !(
+      p.name.toLowerCase().includes(search.toLowerCase()) ||
+      p.desc.toLowerCase().includes(search.toLowerCase()) ||
+      (p.source_title || "").toLowerCase().includes(search.toLowerCase())
+    )) return false;
+    if (sourceFilter === "real_world" && p.source_type !== "real_world") return false;
+    if (sourceFilter && sourceFilter !== "real_world" && p.source_title !== sourceFilter) return false;
+    return true;
+  });
 
   const toggle = (id) => {
     setSelected(prev =>
@@ -58,21 +83,85 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
             <p className="t-meta" style={{ marginBottom: 18, maxWidth: 540 }}>
               Pick 2 to 8 agents. They'll converse autonomously about the topics you set in the next step.
             </p>
-            <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 14 }}>
+            <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 10 }}>
               <div className="lib-search" style={{ flex: "0 1 320px" }}>
                 <span className="lib-search-icon"><Icons.Search size={14} /></span>
                 <input
                   className="input"
-                  placeholder="Search…"
+                  placeholder="Search agents…"
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                 />
               </div>
+              <Btn
+                variant={sourceFilter ? "outline" : "ghost"}
+                size="sm"
+                icon={<Icons.Filter size={13} />}
+                onClick={() => setSourceOpen(o => !o)}
+                style={sourceFilter ? { borderColor: "var(--accent)", color: "var(--accent)" } : {}}
+              >
+                Source{sourceFilter ? `: ${sourceFilter === "real_world" ? "Real World" : sourceFilter}` : ""}
+                <Icons.ChevronDown size={11} style={{ marginLeft: 2, transform: sourceOpen ? "rotate(180deg)" : "none", transition: "transform .15s" }} />
+              </Btn>
+              {sourceFilter && (
+                <IconBtn
+                  icon={<Icons.X size={12} />}
+                  title="Clear source filter"
+                  onClick={() => { setSourceFilter(null); setSourceSearch(""); }}
+                />
+              )}
               <div className="spacer" />
               <div className="t-meta">
                 Selected <span className="badge badge-accent" style={{ marginLeft: 4 }}>{selected.length}/8</span>
               </div>
             </div>
+
+            {/* ── Source filter panel (collapsible) ── */}
+            {sourceOpen && (
+              <div className="card" style={{ padding: "12px 14px", marginBottom: 14, background: "var(--bg-2)" }}>
+                <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 10 }}>
+                  <div className="lib-search" style={{ flex: "0 1 220px" }}>
+                    <span className="lib-search-icon"><Icons.Search size={12} /></span>
+                    <input
+                      className="input"
+                      placeholder="Find a source…"
+                      value={sourceSearch}
+                      onChange={e => setSourceSearch(e.target.value)}
+                      style={{ height: 30, fontSize: 13 }}
+                      autoFocus
+                    />
+                  </div>
+                  {sourceSearch && (
+                    <IconBtn icon={<Icons.X size={11} />} onClick={() => setSourceSearch("")} title="Clear search" />
+                  )}
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  <TagChip prefix="" active={!sourceFilter} onClick={() => { setSourceFilter(null); setSourceOpen(false); }}>
+                    All
+                  </TagChip>
+                  <TagChip
+                    prefix=""
+                    active={sourceFilter === "real_world"}
+                    onClick={() => { setSourceFilter(sourceFilter === "real_world" ? null : "real_world"); setSourceOpen(false); }}
+                  >
+                    Real World
+                  </TagChip>
+                  {visibleTitles.map(title => (
+                    <TagChip
+                      key={title}
+                      prefix=""
+                      active={sourceFilter === title}
+                      onClick={() => { setSourceFilter(sourceFilter === title ? null : title); setSourceOpen(false); }}
+                    >
+                      {title}
+                    </TagChip>
+                  ))}
+                  {sourceSearch && visibleTitles.length === 0 && (
+                    <span className="t-meta" style={{ padding: "2px 4px" }}>Nessun source trovato</span>
+                  )}
+                </div>
+              </div>
+            )}
 
             <div className="lib-grid">
               {filtered.map(p => (
