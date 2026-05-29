@@ -1033,9 +1033,21 @@ function ReportDeliberation({ group, convergenceRate, convCIL, convCIH, pearson,
 // ─── Admin shell ─────────────────────────────────────────────
 function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpenChat }) {
   const [judging, setJudging] = React.useState(null);
-  // sessionId → cached report. Persists for the life of the session so the
-  // admin can reopen a judged chat without re-running the pipeline.
+  // sessionId (number) → cached UI report. Pre-loaded from the server on
+  // mount so previously judged chats show "View report" after a page reload.
   const [reports, setReports] = React.useState({});
+
+  React.useEffect(() => {
+    window.api.get("/admin/judged-chats")
+      .then(data => {
+        // JSON keys are strings; session IDs in the UI are numbers
+        const byId = {};
+        Object.entries(data).forEach(([k, v]) => { byId[Number(k)] = v; });
+        setReports(byId);
+      })
+      .catch(() => {});
+  }, []);
+
   const openJudging = (s) => setJudging(s);
   const closeJudging = () => setJudging(null);
   const saveReport = React.useCallback((sessionId, report) => {

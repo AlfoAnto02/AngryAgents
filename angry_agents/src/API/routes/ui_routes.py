@@ -943,6 +943,10 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         # ── Persist full report to data/eval/ ───────────────────────
         _save_eval_report(chat_id, records, pid_result, fid_result, grp_result, author_map)
 
+        # ── Persist UI-shaped report so it survives server restarts ──
+        ui_path = _EVAL_DIR / f"chat_{chat_id}" / "ui_report.json"
+        ui_path.write_text(json.dumps(result, cls=_NumpyEncoder), encoding="utf-8")
+
         _t_total = _time.monotonic() - _t_start
         _t_llm = _t_llm_end - _t_llm_start
         _t_metrics = _t_metrics_end - _t_metrics_start
@@ -961,6 +965,97 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         print(f"{'='*60}\n")
         log.exception("judge pipeline failed for chat %d", chat_id)
         _judge_jobs[chat_id] = {"status": "error", "progress": 0, "result": None, "error": str(exc)}
+
+
+def _reconstruct_ui_report(
+    chat_id: int,
+    metrics: dict,
+    db: sqlite3.Connection,
+    author_secret: str,
+) -> dict:
+    """Rebuild the UI report shape from a saved metrics_report.json + DB."""
+    import hashlib
+    import hmac as _hmac_mod
+
+    author_map: dict[str, str] = metrics.get("author_map") or {}
+
+    agents = db.execute(
+        """SELECT a.ID, a.Name, a.Surname
+           FROM Chat_agent ca JOIN Agents a ON ca.id_agent = a.ID
+           WHERE ca.id_chat = ? AND a.deleted_at IS NULL""",
+        (chat_id,),
+    ).fetchall()
+    digest_to_agent_id: dict[str, int] = {}
+    for a in agents:
+        digest = _hmac_mod.new(
+            author_secret.encode(),
+            f"{a['Name']}:{a['Surname']}".encode(),
+            hashlib.sha256,
+        ).hexdigest()
+        digest_to_agent_id[digest] = a["ID"]
+
+    rows = db.execute(
+        """SELECT message, author FROM Chat_messages
+           WHERE ID_Chat = ? AND deleted_at IS NULL AND author IS NOT NULL
+           ORDER BY created_at ASC""",
+        (chat_id,),
+    ).fetchall()
+    messages = [{"author": r["author"], "message": r["message"]} for r in rows]
+
+    pid_result = {"persona_identification": metrics.get("persona_identification", {})}
+    fid_result = {"individual_fidelity": metrics.get("individual_fidelity", {})}
+    grp_result = {"group_fidelity": metrics.get("group_fidelity", {})}
+
+    report = _build_ui_report(
+        chat_id, pid_result, fid_result, grp_result,
+        author_map, digest_to_agent_id, messages,
+    )
+    # Patch in the original timestamp if available
+    if metrics.get("generated_at"):
+        report["ranAt"] = metrics["generated_at"]
+    return report
+
+
+@router.get("/admin/judged-chats")
+def admin_judged_chats(
+    db: sqlite3.Connection = Depends(get_db),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """Return {chat_id: ui_report} for every chat that has a saved evaluation."""
+    result: dict[int, dict] = {}
+    if not _EVAL_DIR.exists():
+        return result
+
+    for d in sorted(_EVAL_DIR.iterdir()):
+        if not (d.is_dir() and d.name.startswith("chat_")):
+            continue
+        try:
+            chat_id = int(d.name.split("_", 1)[1])
+        except ValueError:
+            continue
+
+        # Fast path: pre-built UI report
+        ui_path = d / "ui_report.json"
+        if ui_path.exists():
+            try:
+                result[chat_id] = json.loads(ui_path.read_text(encoding="utf-8"))
+                continue
+            except Exception:
+                pass
+
+        # Slow path: reconstruct from raw metrics + DB, then cache
+        metrics_path = d / "metrics_report.json"
+        if not metrics_path.exists():
+            continue
+        try:
+            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+            report = _reconstruct_ui_report(chat_id, metrics, db, settings.author_secret)
+            ui_path.write_text(json.dumps(report, cls=_NumpyEncoder), encoding="utf-8")
+            result[chat_id] = report
+        except Exception:
+            log.exception("failed to reconstruct UI report for chat %d", chat_id)
+
+    return result
 
 
 @router.post("/admin/judge-chat/{chat_id}", status_code=202)
