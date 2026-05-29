@@ -481,6 +481,31 @@ def ui_get_chat(
     }
 
 
+@router.get("/ui/chats/{chat_id}/status")
+def ui_chat_status(chat_id: int, db: sqlite3.Connection = Depends(get_db)) -> dict:
+    row = db.execute(
+        "SELECT status FROM Group_chat WHERE ID = ? AND deleted_at IS NULL", (chat_id,)
+    ).fetchone()
+    if row is None:
+        raise HTTPException(status_code=404, detail="Chat not found")
+    return {"status": row["status"] or "pending"}
+
+
+@router.post("/ui/chats/{chat_id}/stop", status_code=200)
+def ui_stop_chat(
+    chat_id: int,
+    current_user=Depends(get_current_user),
+    db: sqlite3.Connection = Depends(get_db),
+) -> dict:
+    chat = GroupChatService(db).get(chat_id)
+    if chat is None:
+        raise HTTPException(status_code=404, detail="Chat not found")
+    if chat.status not in ("running", "pending"):
+        raise HTTPException(status_code=409, detail=f"Chat is not running (status: {chat.status})")
+    GroupChatService(db).set_status(chat_id, "stopped")
+    return {"chat_id": chat_id, "status": "stopped"}
+
+
 @router.post("/ui/chats/{chat_id}/start", status_code=202)
 def ui_start_chat(
     chat_id: int,

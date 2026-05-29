@@ -69,6 +69,9 @@ const Icons = {
   Crown: (p) => <TablerIcon {...p}><path d="m3 8 4 4 5-7 5 7 4-4-2 11H5Z" /></TablerIcon>,
   Sun: (p) => <TablerIcon {...p}><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></TablerIcon>,
   Moon: (p) => <TablerIcon {...p}><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" /></TablerIcon>,
+  Pause: (p) => <TablerIcon {...p}><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></TablerIcon>,
+  Play: (p) => <TablerIcon {...p}><path d="M6 4l13 8-13 8V4Z" /></TablerIcon>,
+  Stop: (p) => <TablerIcon {...p}><rect x="4" y="4" width="16" height="16" rx="2" /></TablerIcon>,
 };
 
 window.Icons = Icons;

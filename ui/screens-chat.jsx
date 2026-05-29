@@ -99,6 +99,7 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
   const [messages, setMessages] = React.useState([]);
   const [draft, setDraft] = React.useState("");
   const [sending, setSending] = React.useState(false);
+  const [chatStatus, setChatStatus] = React.useState("pending");
   const scrollRef = React.useRef(null);
   // True when the user is within 100px of the bottom — used to decide whether
   // to auto-scroll on new messages. We use a ref (not state) so the scroll
@@ -130,15 +131,21 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
     isNearBottomRef.current = scrollHeight - scrollTop - clientHeight < 100;
   };
 
-  // Load messages and poll for agent replies
+  // Load messages + status and poll for agent replies
   React.useEffect(() => {
     if (!chat) return;
     let cancelled = false;
 
     const load = () => {
-      window.api.get(`/ui/chats/${chat.id}/messages`)
-        .then(msgs => { if (!cancelled) setMessages(msgs); })
-        .catch(() => { if (!cancelled) setMessages([]); });
+      const fetches = [window.api.get(`/ui/chats/${chat.id}/messages`)];
+      if (chat.type === "group") {
+        fetches.push(window.api.get(`/ui/chats/${chat.id}/status`).catch(() => null));
+      }
+      Promise.all(fetches).then(([msgs, statusData]) => {
+        if (cancelled) return;
+        setMessages(msgs);
+        if (statusData) setChatStatus(statusData.status);
+      }).catch(() => { if (!cancelled) setMessages([]); });
     };
 
     load();
@@ -162,6 +169,18 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
     } finally {
       setSending(false);
     }
+  };
+
+  const stopChat = () => {
+    window.api.post(`/ui/chats/${chat.id}/stop`, {})
+      .then(() => setChatStatus("stopped"))
+      .catch(err => console.error("Stop failed:", err));
+  };
+
+  const resumeChat = () => {
+    window.api.post(`/ui/chats/${chat.id}/start`, {})
+      .then(() => setChatStatus("running"))
+      .catch(err => console.error("Resume failed:", err));
   };
 
   if (!chat) return <Empty title="No chat selected" />;
@@ -209,6 +228,22 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
                   {chat.topics?.map(t => (
                     <span key={t} className="badge" style={{ height: 18 }}>#{t}</span>
                   ))}
+                  <span className="dot-sep" />
+                  {chatStatus === "running" && (
+                    <span style={{ display: "flex", alignItems: "center", gap: 4, color: "var(--ok)" }}>
+                      <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--ok)", animation: "typingDot 1.4s infinite" }} />
+                      <span className="mono" style={{ fontSize: 11 }}>live</span>
+                    </span>
+                  )}
+                  {chatStatus === "stopped" && (
+                    <span style={{ display: "flex", alignItems: "center", gap: 4, color: "var(--warn)" }}>
+                      <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--warn)" }} />
+                      <span className="mono" style={{ fontSize: 11 }}>paused</span>
+                    </span>
+                  )}
+                  {chatStatus === "done" && (
+                    <span className="mono" style={{ fontSize: 11, color: "var(--fg-3)" }}>finished</span>
+                  )}
                 </>
               ) : (
                 <>
@@ -221,6 +256,28 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
             </div>
           </div>
           <div className="row" style={{ gap: 6 }}>
+            {chat.type === "group" && chatStatus === "running" && (
+              <Btn
+                variant="outline"
+                size="sm"
+                icon={<Icons.Pause size={12} />}
+                onClick={stopChat}
+                title="Metti in pausa la generazione dei messaggi"
+              >
+                Pausa
+              </Btn>
+            )}
+            {chat.type === "group" && chatStatus === "stopped" && (
+              <Btn
+                variant="primary"
+                size="sm"
+                icon={<Icons.Play size={12} />}
+                onClick={resumeChat}
+                title="Riprendi la generazione dei messaggi"
+              >
+                Riprendi
+              </Btn>
+            )}
             <IconBtn icon={<Icons.Sliders size={14} />} title="Session settings" />
             <IconBtn icon={<Icons.More size={14} />} title="More" />
           </div>
