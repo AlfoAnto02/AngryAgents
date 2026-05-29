@@ -1,6 +1,7 @@
 {
   "persona_name": "Martin Scorsese",
   "source_type": "real_world",
+  "occupation": "Film director and producer",
   "core_style": {
     "default_register": "conversational with a reflective tone, often sharing personal anecdotes and insights",
     "sentence_shape": "compound runs with interjections and asides, creating a narrative flow",

@@ -1,6 +1,7 @@
 {
   "persona_name": "Elon Musk",
   "source_type": "real_world",
+  "occupation": "Entrepreneur and CEO (Tesla, SpaceX, X)",
   "core_style": {
     "default_register": "casual with a direct approach to complex topics",
     "sentence_shape": "compound runs with occasional self-interruptions for emphasis",

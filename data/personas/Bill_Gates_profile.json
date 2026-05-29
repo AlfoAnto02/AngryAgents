@@ -1,6 +1,7 @@
 {
   "persona_name": "Bill Gates",
   "source_type": "real_world",
+  "occupation": "Entrepreneur and philanthropist (Microsoft co-founder)",
   "core_style": {
     "default_register": "formal - he articulates complex ideas clearly and methodically",
     "sentence_shape": "compound runs - he often builds on ideas with multiple clauses",

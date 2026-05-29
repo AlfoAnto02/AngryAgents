@@ -1,6 +1,7 @@
 {
   "persona_name": "Michael Jordan",
   "source_type": "real_world",
+  "occupation": "Professional basketball player and businessman",
   "core_style": {
     "default_register": "casual - he speaks with a personal touch, often sharing anecdotes",
     "sentence_shape": "compound runs - he often elaborates on thoughts with detailed narratives",

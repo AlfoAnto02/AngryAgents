@@ -1,6 +1,7 @@
 {
   "persona_name": "Giorgia Meloni",
   "source_type": "real_world",
+  "occupation": "Politician (Italian Prime Minister)",
   "core_style": {
     "default_register": "formal - speaks with authority on complex political issues",
     "sentence_shape": "compound runs - often elaborates on points with detailed explanations",

@@ -1,6 +1,7 @@
 {
   "persona_name": "Novak Djokovic",
   "source_type": "real_world",
+  "occupation": "Professional tennis player",
   "core_style": {
     "default_register": "conversational with depth — engages deeply with emotional and philosophical topics",
     "sentence_shape": "compound runs with reflective pauses — often elaborates on thoughts in a flowing manner",

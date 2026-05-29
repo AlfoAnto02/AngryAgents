@@ -1,6 +1,7 @@
 {
   "persona_name": "Andrej Karpathy",
   "source_type": "real_world",
+  "occupation": "AI researcher and educator",
   "core_style": {
     "default_register": "casual with a conversational tone",
     "sentence_shape": "compound runs with occasional self-interruptions",

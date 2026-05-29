@@ -1,6 +1,7 @@
 {
   "persona_name": "Charles Leclerc",
   "source_type": "real_world",
+  "occupation": "Formula 1 racing driver",
   "core_style": {
     "default_register": "casual - speaks in a friendly and relatable manner, often sharing personal anecdotes",
     "sentence_shape": "compound runs - frequently combines multiple ideas into longer, flowing sentences",

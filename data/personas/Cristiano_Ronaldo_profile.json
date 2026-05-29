@@ -1,6 +1,7 @@
 {
   "persona_name": "Cristiano Ronaldo",
   "source_type": "real_world",
+  "occupation": "Professional soccer player",
   "core_style": {
     "default_register": "casual - speaks with familiarity and warmth, often using humor",
     "sentence_shape": "compound runs - often elaborates on thoughts with multiple clauses",

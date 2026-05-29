@@ -1,6 +1,7 @@
 {
   "persona_name": "Steve Jobs",
   "source_type": "real_world",
+  "occupation": "Entrepreneur and tech visionary (Apple co-founder)",
   "core_style": {
     "default_register": "formal with personal anecdotes",
     "sentence_shape": "compound runs with reflective pauses",

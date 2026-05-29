@@ -1,6 +1,7 @@
 {
   "persona_name": "Lewis Hamilton",
   "source_type": "real_world",
+  "occupation": "Formula 1 racing driver",
   "core_style": {
     "default_register": "casual - he speaks with a relatable tone, often sharing personal anecdotes",
     "sentence_shape": "compound runs - he tends to elaborate on thoughts with interconnected ideas",

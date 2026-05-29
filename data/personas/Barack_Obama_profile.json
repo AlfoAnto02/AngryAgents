@@ -1,6 +1,7 @@
 {
   "persona_name": "Barack Obama",
   "source_type": "real_world",
+  "occupation": "Politician and attorney (44th US President)",
   "core_style": {
     "default_register": "formal with a personal touch, often addressing the audience directly",
     "sentence_shape": "compound runs with interspersed rhetorical questions and emphatic statements",
