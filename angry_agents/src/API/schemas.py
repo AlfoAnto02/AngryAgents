@@ -52,6 +52,7 @@ class GroupChatOut(BaseModel):
     id: int | None = Field(None, description="Auto-generated primary key")
     id_topic: int = Field(..., description="Topic this chat belongs to")
     created_by: int | None = Field(None, description="FK to User.ID")
+    status: str | None = Field(None, description="Chat lifecycle state: pending | running | done | stopped | error")
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None
