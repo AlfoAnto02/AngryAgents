@@ -67,6 +67,8 @@ const Icons = {
   Adjustments: (p) => <TablerIcon {...p}><path d="M4 6h6M14 6h6M4 12h2M10 12h10M4 18h12M20 18h0" /><circle cx="12" cy="6" r="2" /><circle cx="8" cy="12" r="2" /><circle cx="18" cy="18" r="2" /></TablerIcon>,
   Sliders: (p) => <TablerIcon {...p}><path d="M5 3v18M19 3v18" /><circle cx="5" cy="8" r="2" /><circle cx="19" cy="14" r="2" /></TablerIcon>,
   Crown: (p) => <TablerIcon {...p}><path d="m3 8 4 4 5-7 5 7 4-4-2 11H5Z" /></TablerIcon>,
+  Sun: (p) => <TablerIcon {...p}><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></TablerIcon>,
+  Moon: (p) => <TablerIcon {...p}><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" /></TablerIcon>,
 };
 
 window.Icons = Icons;

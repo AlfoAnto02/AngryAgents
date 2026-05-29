@@ -254,6 +254,28 @@ const chartLabelStyle = {
   textTransform: "uppercase",
 };
 
+// ---- Theme toggle ------------------------------------------------------
+function ThemeToggle() {
+  const [light, setLight] = useState(() => document.documentElement.classList.contains("light"));
+  const toggle = () => {
+    const next = !document.documentElement.classList.contains("light");
+    if (next) {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
+    setLight(next);
+    localStorage.setItem("aa.theme", next ? "light" : "dark");
+  };
+  return (
+    <IconBtn
+      icon={light ? <Icons.Moon size={16} /> : <Icons.Sun size={16} />}
+      onClick={toggle}
+      title={light ? "Passa al tema scuro" : "Passa al tema chiaro"}
+    />
+  );
+}
+
 // ---- Top nav -----------------------------------------------------------
 // Role guard:
 //   - Admins see the Dashboard nav, direct "New chat" entries, AND a
@@ -355,6 +377,7 @@ function TopNav({ role, userRole, page, onNav, user, onLogout }) {
             <span style={{ fontSize: 10.5, color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>{user.handle}</span>
           </div>
         </div>
+        <ThemeToggle />
         <IconBtn icon={<Icons.Logout size={14} />} onClick={onLogout} title="Sign out" />
       </div>
     </header>
