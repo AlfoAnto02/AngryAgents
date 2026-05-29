@@ -396,6 +396,99 @@ def ui_create_chat(
 
 
 # ---------------------------------------------------------------------------
+# LLM / MCP chat creation (no auth — accepts explicit created_by)
+# ---------------------------------------------------------------------------
+
+class ChatCreateForLLM(BaseModel):
+    participants: list[int]
+    topics: list[str] = []
+    tone: str = "Debate"
+    opener: str | None = None
+    created_by: int | None = None
+
+
+@router.post("/ui/chats/create-for-llm", status_code=201)
+def create_chat_for_llm(
+    body: ChatCreateForLLM,
+    background_tasks: BackgroundTasks,
+    db: sqlite3.Connection = Depends(get_db),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    if not body.participants:
+        raise HTTPException(status_code=422, detail="participants must not be empty")
+    if len(body.participants) > 8:
+        raise HTTPException(status_code=422, detail="participants must be 2–8 for group chat or 1 for DM")
+
+    agent_ids: list[int] = []
+    for pid in body.participants:
+        row = db.execute(
+            "SELECT ID FROM Agents WHERE ID = ? AND deleted_at IS NULL", (pid,)
+        ).fetchone()
+        if row:
+            agent_ids.append(row["ID"])
+
+    if not agent_ids:
+        raise HTTPException(status_code=422, detail="No valid participants")
+
+    display_title = body.topics[0] if body.topics else "Untitled session"
+    unique_title = f"{display_title}__{int(_time.time() * 1000)}"
+    meta_json = json.dumps({"topics": body.topics, "tone": body.tone, "title": display_title})
+
+    cur = db.execute(
+        "INSERT INTO Topic (Title, Description, Created_by) VALUES (?, ?, ?)",
+        (unique_title, meta_json, body.created_by),
+    )
+    topic_id = cur.lastrowid
+
+    cur = db.execute(
+        "INSERT INTO Group_chat (ID_topic, Created_by) VALUES (?, ?)",
+        (topic_id, body.created_by),
+    )
+    chat_id = cur.lastrowid
+
+    for aid in agent_ids:
+        db.execute(
+            "INSERT OR IGNORE INTO Chat_agent (id_chat, id_agent) VALUES (?, ?)",
+            (chat_id, aid),
+        )
+
+    db.commit()
+
+    if body.opener and body.opener.strip():
+        ChatMessageService(db, settings.author_secret).create(
+            id_chat=chat_id,
+            message=body.opener.strip(),
+            created_by=body.created_by,
+        )
+
+    agents = db.execute(
+        "SELECT ID, Name, Surname FROM Agents WHERE ID IN ({})".format(
+            ",".join("?" * len(agent_ids))
+        ),
+        agent_ids,
+    ).fetchall()
+
+    chat_type = "dm" if len(agent_ids) == 1 else "group"
+    if chat_type == "group":
+        background_tasks.add_task(
+            _bg_run_conversation, chat_id, settings.db_path, settings.author_secret, _DEFAULT_TURNS
+        )
+        title = display_title
+    else:
+        title = f"{agents[0]['Name']} {agents[0]['Surname']}".strip().upper()
+
+    return {
+        "id": chat_id,
+        "type": chat_type,
+        "title": title,
+        "topics": body.topics,
+        "tone": body.tone,
+        "participants": agent_ids,
+        "status": "running" if chat_type == "group" else "pending",
+    }
+
+
+# ---------------------------------------------------------------------------
 # Group chat: start + SSE stream
 # ---------------------------------------------------------------------------
 
