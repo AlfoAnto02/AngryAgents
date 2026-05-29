@@ -4,16 +4,26 @@ const { useState, useEffect, useRef, useMemo, useCallback } = React;
 
 // ---- Avatar ------------------------------------------------------------
 function Avatar({ persona, size = "md", className = "", style = {} }) {
+  const [imgFailed, setImgFailed] = useState(false);
   const initials = persona?.name
     ? persona.name.split(/\s+/).slice(0, 2).map(w => w[0]).join("")
     : "?";
+  const slug = persona?.slug ? persona.slug.replace(/-+$/, "") : null;
+  const showImg = slug && !imgFailed;
   return (
     <div
       className={`avatar avatar-${size} ${className}`}
-      style={{ background: persona?.color || "#5E5E68", ...style }}
+      style={{ background: showImg ? "transparent" : (persona?.color || "#5E5E68"), overflow: "hidden", ...style }}
       title={persona?.name || ""}
     >
-      {initials}
+      {showImg ? (
+        <img
+          src={`${window.api.base}/icons/${slug}.webp`}
+          alt={persona?.name || ""}
+          onError={() => setImgFailed(true)}
+          style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit", display: "block" }}
+        />
+      ) : initials}
     </div>
   );
 }

@@ -3,9 +3,11 @@ from __future__ import annotations
 import logging
 import os
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from ..db.models.base import get_connection, init_db
 from .config import get_settings
@@ -132,3 +134,6 @@ app.include_router(chat_messages.router, tags=["messages"])
 app.include_router(judges.router, prefix="/judges", tags=["judges"])
 app.include_router(judge_evaluations.router, prefix="/evaluations", tags=["evaluations"])
 app.include_router(ui_routes.router, tags=["ui"])
+
+_ICONS_DIR = Path(__file__).parents[3] / "data" / "personas" / "icons" / "output"
+app.mount("/icons", StaticFiles(directory=str(_ICONS_DIR)), name="icons")
