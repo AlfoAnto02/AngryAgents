@@ -21,3 +21,10 @@ async def _post(path: str, json: dict[str, Any]) -> Any:
         r = await c.post(path, json=json)
         r.raise_for_status()
         return r.json()
+
+
+async def _patch(path: str, json: dict[str, Any]) -> Any:
+    async with httpx.AsyncClient(base_url=BASE_URL, timeout=TIMEOUT) as c:
+        r = await c.patch(path, json=json)
+        r.raise_for_status()
+        return r.json()

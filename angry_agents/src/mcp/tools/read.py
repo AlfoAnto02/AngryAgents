@@ -15,8 +15,12 @@ def register(mcp: FastMCP) -> None:
         limit: int = 100,
         offset: int = 0,
     ) -> list[dict[str, Any]]:
-        """[Tier 1] List persona agents. Filter by id_topic to narrow to one topic."""
-        return await _get("/agents", {"id_topic": id_topic, "limit": limit, "offset": offset})
+        """[Tier 1] List persona agents (compact — no summary). Filter by id_topic to narrow to one topic.
+        Use get_agent_by_id or get_agent_by_slug to fetch the full profile for a specific agent."""
+        agents = await _get("/agents", {"id_topic": id_topic, "limit": limit, "offset": offset})
+        for a in agents:
+            a.pop("summary", None)
+        return agents
 
     @mcp.tool()
     async def get_agent_by_id(id: int) -> dict[str, Any]:

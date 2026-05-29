@@ -20,6 +20,7 @@ class ChatCreate(BaseModel):
 
 class ChatPatch(BaseModel):
     id_topic: int | None = None
+    status: str | None = None
 
 
 def _out(obj) -> dict:
