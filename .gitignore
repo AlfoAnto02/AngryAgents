@@ -43,6 +43,12 @@ cookies.txt
 # --- OS ---
 .DS_Store
 Thumbs.db
+*.lnk
+
+# --- graphify (knowledge graph) ---
+graphify-out/cache/
+graphify-out/manifest.json
+graphify-out/cost.json
 
 # --- Linters / type checkers ---
 .ruff_cache/
