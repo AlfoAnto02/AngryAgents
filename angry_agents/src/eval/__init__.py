@@ -4,4 +4,6 @@ from angry_agents.src.eval import (  # noqa: F401
     metrics_fidelity,
     metrics_group,
     metrics_deliberation,
+    metrics_batch,
+    batch,
 )
