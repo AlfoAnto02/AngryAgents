@@ -1,493 +1,67 @@
 [
   {
-    "input": "data/youtube/arnold_SCHWARZENEGGER.json",
-    "name": "Arnold Schwarzenegger",
+    "input": "data/youtube/mark_zukenberg.json",
+    "name": "Mark_Zukenberg",
     "type": "podcast",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "data/youtube/barack_obama.json",
-    "name": "Barack Obama",
+    "input": "data/youtube/quentin_tarantino.json",
+    "name": "Quentin_Tarantino",
     "type": "podcast",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "data/youtube/bill_gates.json",
-    "name": "Bill Gates",
+    "input": "data/youtube/ricky_gervais.json",
+    "name": "Ricky_Gervais",
     "type": "podcast",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "data/youtube/billie_eilish.json",
-    "name": "Billie Eilish",
+    "input": "data/youtube/zlatan_ibrahimovic.json",
+    "name": "Zlatan_Ibrahimović",
     "type": "podcast",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "data/youtube/charles_leclerc.json",
-    "name": "Charles Leclerc",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/christopher_nolan.json",
-    "name": "Christopher Nolan",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/cicciogamer89.json",
-    "name": "Cicciogamer89",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/donald_trump.json",
-    "name": "Donald Trump",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/federico_frusciante.json",
-    "name": "Federico Frusciante",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/giorgia_meloni.json",
-    "name": "Giorgia Meloni",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/martin_scorsese.json",
-    "name": "Martin Scorsese",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/micheal_jordan.json",
-    "name": "Michael Jordan",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/novak_djokovic.json",
-    "name": "Novak Djokovic",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/stev_jobs.json",
-    "name": "Steve Jobs",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/youtube/valentino_rossi.json",
-    "name": "Valentino Rossi",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/twitter/andrej_karpathy.json",
-    "name": "Andrej Karpathy",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/twitter/elon_musk.json",
-    "name": "Elon Musk",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "data/twitter/sam_altman.json",
-    "name": "Sam Altman",
-    "type": "podcast",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/A-TRAIN.json",
-    "name": "A-train",
+    "input": "angry_agents/src/scraping/movies_transcripts/BOND.json",
+    "name": "James_Bond",
     "type": "fiction",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "angry_agents/src/scraping/movies_transcripts/ANNIE.json",
-    "name": "Annie January",
+    "input": "angry_agents/src/scraping/movies_transcripts/DEADPOOL.json",
+    "name": "Deadpool",
     "type": "fiction",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "angry_agents/src/scraping/movies_transcripts/BART.json",
-    "name": "Bartholomew Simpson",
+    "input": "angry_agents/src/scraping/movies_transcripts/HOLT.json",
+    "name": "Captain_Holt",
     "type": "fiction",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "angry_agents/src/scraping/movies_transcripts/BATMAN.json",
-    "name": "Bruce Wayne",
+    "input": "angry_agents/src/scraping/movies_transcripts/JAKE.json",
+    "name": "Jake_Peralta",
     "type": "fiction",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "angry_agents/src/scraping/movies_transcripts/BUTCHER.json",
-    "name": "Billy Butcher",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/CAMERON.json",
-    "name": "Cameron Tucker",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/CLAIRE.json",
-    "name": "Claire Dunphy",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/DEEP.json",
-    "name": "Kevin Moskowitz",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/DON_CORLEONE.json",
-    "name": "Vito Corleone",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/DUSTIN.json",
-    "name": "Dustin Henderson",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/DWIGHT.json",
-    "name": "Dwight Kurt Schrute",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/EDWARD.json",
-    "name": "Edward Scissorhands",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/ELEVEN.json",
-    "name": "Eleven Hopper",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/ELVIS.json",
-    "name": "Elvis Aaron Presley",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/FORREST.json",
-    "name": "Forrest Gump",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/FRODO.json",
-    "name": "Frodo Baggins",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/GANDALF.json",
-    "name": "Gandalf",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/GLORIA.json",
-    "name": "Gloria Delgado-Pritchett",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/GOLLUM.json",
-    "name": "Gollum",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/GUS.json",
-    "name": "Gustavo Fring",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/HAGRID.json",
-    "name": "Rubeus Hagrid",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/HARRY.json",
-    "name": "Harry James Potter",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/HERMIONE.json",
-    "name": "Hermione Jean Granger",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/HOMELANDER.json",
-    "name": "John Gillman",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/HOMER.json",
-    "name": "Homer Jay Simpson",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/HUGHIE.json",
-    "name": "Hughie Campbell",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/INDY.json",
-    "name": "Indiana Jones",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JACK.json",
-    "name": "Jack Sparrow",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JAY.json",
-    "name": "Jay Pritchett",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JERRY.json",
-    "name": "Jerry Smith",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JESSE.json",
-    "name": "Jesse Bruce Pinkman",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JIM.json",
-    "name": "James Duncan Halpert",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JIMMY.json",
-    "name": "James McGill",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JOHN.json",
-    "name": "John Watson",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JOKER.json",
-    "name": "Arthur Fleck",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/JORDAN.json",
-    "name": "Michael Jordan",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/KOOTHRAPPALI.json",
-    "name": "Rajesh Koothrappali",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/LEONARD.json",
-    "name": "Leonard Hofstadter",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/LISA.json",
-    "name": "Lisa Marie Simpson",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/LUKE.json",
-    "name": "Luke Skywalker",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/MARGE.json",
-    "name": "Marjorie Simpson",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/MARTY.json",
-    "name": "Martin McFly",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/MICHAEL.json",
-    "name": "Michael Gary Scott",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/MIKE.json",
-    "name": "Michael Wheeler",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/MITCHELL.json",
-    "name": "Mitchell Pritchett",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/MORTY.json",
-    "name": "Mortimer Smith",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/PAM.json",
-    "name": "Pam Beesly",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/PENNY.json",
-    "name": "Penny",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/PHIL.json",
-    "name": "Phillip Dunphy",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/PO.json",
-    "name": "Po Ping",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/RICK.json",
-    "name": "Rick Sanchez",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/RIGGAN.json",
-    "name": "Riggan Thomson",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/ROCKY.json",
-    "name": "Rocky Balboa",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/RON.json",
-    "name": "Ronald Weasley",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/SHELDON.json",
-    "name": "Sheldon Lee Cooper",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/SHERLOCK.json",
-    "name": "Sherlock Holmes",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/SHREK.json",
-    "name": "Shrek",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/STORMFRONT.json",
-    "name": "Anya Kravinoff",
+    "input": "angry_agents/src/scraping/movies_transcripts/MILES.json",
+    "name": "Miles_Morales_(Spiderman)",
     "type": "fiction",
     "knowledge_model": "gpt-4o"
   },
   {
     "input": "angry_agents/src/scraping/movies_transcripts/TONY.json",
-    "name": "Tony Soprano",
+    "name": "Tony_Montana",
     "type": "fiction",
     "knowledge_model": "gpt-4o"
   },
   {
-    "input": "angry_agents/src/scraping/movies_transcripts/VADER.json",
-    "name": "Darth Vader",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/VOLDEMORT.json",
-    "name": "Tom Marvolo Riddle",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/WALT.json",
-    "name": "Walter Hartwell White",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/WOLOWITZ.json",
-    "name": "Howard Joel Wolowitz",
-    "type": "fiction",
-    "knowledge_model": "gpt-4o"
-  },
-  {
-    "input": "angry_agents/src/scraping/movies_transcripts/YODA.json",
-    "name": "Yoda",
+    "input": "angry_agents/src/scraping/movies_transcripts/V.json",
+    "name": "V",
     "type": "fiction",
     "knowledge_model": "gpt-4o"
   }

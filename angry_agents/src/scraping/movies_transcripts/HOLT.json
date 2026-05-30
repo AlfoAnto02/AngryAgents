@@ -1,0 +1,661 @@
+{
+  "character": "HOLT",
+  "films": [
+    "brooklyn-nine-nine-101-pilot-2013",
+    "brooklyn-nine-nine-111-christmas-2013",
+    "brooklyn-nine-nine-113-the-bet-2014"
+  ],
+  "lines_count": 130,
+  "lines": [
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Is that what you think?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Don’t let me interrupt. You were describing what kind of person I’m going to be. I’d like you to finish."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Okay. Now do the robot voice. The robot voice you were doing when you implied I’m a rule-following robot. I want to hear it again."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That’s a terrible robot voice. And the next time I see you, I’d like you to be wearing a necktie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Well, your new captain does. And more importantly, he cares that you follow his direct orders. Everyone. I’m your new commanding officer, Captain Ray Holt."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That was my speech. Sergeant Jeffords, a word?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sergeant. You were in the 18th with me. Though you were significantly..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Titties. Yes. I remember. I never liked that nickname. Though to be fair, it was accurate. Says here you’re on administrative leave?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Tell me about your detective squad."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Copy that."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Tell me about Peralta."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That’s very well put."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "They finally gave me my shot, Terry. You know my history -- you know how important this is to me. This precinct is doing fine. But I want to make it the best in Brooklyn. And I need your help."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We start with him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Speaking of ties, where’s yours, Meep- Morp?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I like to know what my detectives are up to. Take Santiago and knock on doors -- see if the neighbors heard anything."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Diaz and Boyle check in with the coroner. Report back to me in an hour."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No, I’m not."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "So Gina: in my experience, civilian administrators such as yourself often have their ear to the ground. What do Santiago and Peralta have riding on this bet of theirs?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "How about this: if you tell me, I won’t have you suspended without pay."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Just one date?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That’s enough. Thank you, Gina."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You cannot dance in my office."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "All right. Hit the pawn shops. Canvas the neighborhood. And while you’re out, you can buy yourself a tie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "First of all, you’re kind of over-doing it on the man-scaping. But more importantly, why do you refuse to take my orders seriously, Detective?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "There’s a middle ground, Detective. Does anyone here know why it’s important to me that you dress appropriately? And it has nothing to do with the Patrol Guide."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hmm. Four highly-trained detectives and not one of you can solve this simple mystery. I want to be briefed on any new angles. Any questions?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I don’t see a Serbian butcher in here, so I assume there’s bad news."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It’s over, Disco Man. Put down the yo-yo and back away from the girl."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "So, you found something? I like the tie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’m glad you’ve made progress in the case. Let’s have you brief the team."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Maybe we’ll get lucky and he’ll turn up."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Does he always talk this much?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Because I’m gay."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’m surprised you didn’t know. I don’t try to hide it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I know, Peralta. You’re a lot of things, but you’re not a homophobe."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "About twenty-five years ago. The NYPD was not ready for an openly gay detective. Then the old guard died, and suddenly, they couldn’t wait to show off the fact that they had a high-ranking gay officer. I made captain, but they put me into a public affairs unit. I was a good soldier, helped recruitment... but all I ever wanted was a command."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Now, I finally got one, and I’m not going to screw it up."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Go."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Looks like we all got door duty."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Maybe now’s not the best time, Detective."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes, you did. Now, please arrest Ratko."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What’s wrong with you?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "And what’s this all about, Detective?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You did well today, Peralta. But you’re going to need a little more humility if you’re going to make captain one day."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Okay. Guess I was mistaken. The beers are on him."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I think you would’ve handled yourself just fine."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Every cop is different. Every precinct is different. But this is the nine-nine. You want to be on this team? You grind it. Get cases, work cases, solve cases. The right way. To the detectives of the nine-nine."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Excuse me, everyone. As you may know, it is the holiday season. Detectives sometimes feel the urge to buy their captains holiday presents. Please refrain from doing that. Under no circumstances do I want a present. Peralta, my office."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Thank you for joining us, Peralta. This is Deputy Chief Gerber."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Captains receive meaningless threats all the time. It’s not a big deal."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It’s a hoax. I don’t want to alarm the squad, so please keep this between us."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Are you going to sit there all day?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "To use the restroom."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Your constant hovering is going to draw attention to the situation. The last thing I want is for the rest of the precinct to get involved. I’m going home to work in peace."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Do you know why I picked you to be my security escort?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I chose you because the threat is not real, and I thought you’d have no problem breaking the rules and letting me do my work. Now, let me go."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Fine. We will go to your mother’s place. I guess I am curious to see where... ...this all started."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That’s a bathroom."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Why are there no pictures of you? And no holiday decorations? And nothing but motel art... This isn’t your mom’s apartment."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Get out of my way. I’m leaving."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "If you want me to stay, you’re going to have to physically stop me. Can you do that, Peralta? Didn’t think so."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I told you the death threat was not serious. So: what. On Earth. Are you doing?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Fine. But before we go into lockdown --"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’d like to text my husband and tell him I’ll be coming home late."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You’re not crafting the message."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Give me my phone."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "So this is the plan, you’ve got a little bit of power and you’re going to lord it over me?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Impressive."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’ve already seen the movie. I enjoyed it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Standard protocol would have you put me in another room before opening the door, but since you cuffed us together..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I can’t imagine what it’s like to be disappointed by someone under your command."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It’s touché."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Wrong. It’s not real."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It’s not real."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Fine. I believe the threat is real, though I’m not sure who’s behind it. But it’s my problem, and I need to solve it on my own. Boyle: uncuff me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Un-cuff me. That’s an order."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’ve arrested over 600 people."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "It’s Haimes."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Collin Haimes. The “Free-Style Killer.” He took out an entire 4x100 meter swim relay team in 1982."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "His shoes were narrow, and his name was Sam. I get it."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’m finding Haimes alone. Without you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Peralta. For the last time, we do not need to go to the precinct. I don’t need everyone’s help."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I don’t want to involve you, or Boyle, or anyone else, because I brought this situation on myself. No one should get hurt because of a dumb mistake I made as a brash, young detective."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hey, Haimes. You’re gonna spend the rest of your life in a little cement room doing nothing. And while you’re in there, I’m gonna go for a swim. And after that swim I might take another swim. And you’ll just be sitting there on your metal toilet, thinking of me swim- swim-swimming all day long."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yeaaaaaah right."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Yes. That’s why I decided to change everything about my life."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Okay. Next time someone threatens to kill me, I’ll come straight to you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh, goodie."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Anything else?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "We have to flush him out. We have his number now -- call his phone."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "He is trying to kill me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Go go go!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hello, Haimes."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Nice job, Jeffords! Nice job, Peralta!"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Boyle got shot because of me. This is exactly the kind of thing I wanted to avoid."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’m sorry I made this so difficult. You were right. We couldn’t have caught him without the team."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That’s enough. Thank you."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "You did the Nine-Nine proud."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "This is one of the NYPD’s highest honors. Today is your day, Detective Boyle."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "At least Boyle was announced first."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That’s enough, Peralta. This is a huge honor, and nothing can take that away from him--"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "That is unfortunate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’m not going to give you more cases so you can win your bet with Santiago."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Granted, this “friendly competition” has led to you and Santiago putting in more hours and arresting more perps. Especially this last week."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Both of you have done exemplary work, which I appreciate."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "However, you are colleagues. And the fallout from this bet has the potential to put a strain on your professional relationship."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Cases will be assigned as they always are. Dismissed."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "What is going on with Boyle?"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Hm. That explains the elevator."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Gina, please keep an eye on Boyle today. He’s going to say something to the wrong person and get himself punched."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Try again."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sergeant Jeffords, I’m honored to give you back your gun. You are officially cleared for active duty."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I sent Gina out to get a congratulatory card."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "She did not look very hard. But you understand the sentiment. TERRY Yes, sir. I assure you, I can’t wait to get out there and kick crime in the ass."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "And you. Your husband is a hero. If you ask me, he should’ve been up there with Detective Boyle today."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "For saving my life."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No, I was referring to how he threw his body at the emotionally disturbed criminal who was trying to kill me."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Ah. I have caused a problem. I think I am...getting a text message. Bloop. There it is."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "This is not a negotiation. Go."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Sharon, I have to apologize. I want to assure you that the call to put Sergeant Jeffords in the field wasn’t some spur of the moment, impulse decision. It’s been in the works for a few months now."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Perhaps I should stop talking to your wife."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "I’m sorry. I need to clarify something I said earlier. Technically, Sergeant Jeffords was correct when he said his choice to go back in the field that night was an impulse decision. He didn’t even take the time to stop and gear up--"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Oh goodness. Ohhhhhh my. I shouldn’t have said that. I feel I may have made things worse."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Boyle, let’s not--"
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Good news, I found someone from the night shift to relieve you on your stakeout. JAKE ...I can still make it to Times Square..."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "Excellent job on the stakeout last night. I’m glad to see you two still work well together despite that ridiculous bet."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "And I appreciate you turning down the relief team. I’m not sure they would’ve been able to make that bust."
+    },
+    {
+      "scene": "",
+      "speech_type": "direct",
+      "dialogue": "No. It’s nine am."
+    }
+  ]
+}
