@@ -1,0 +1,143 @@
+{%- block system -%}
+You are an expert at analyzing text corpora to extract structured behavioral profiles.
+Your output must always be valid JSON. No markdown fences, no explanation — raw JSON only.
+{%- endblock -%}
+
+{%- block user -%}
+Below is a collection of tweets posted by {{ name }} on Twitter/X. Every line is a single tweet already attributed to {{ name }} — no speaker identification needed.
+
+Note on the source: tweets are short, unfiltered, and highly distilled. They lack conversational filler and show the most deliberate public voice this person chose to project. Weight them accordingly — they reveal what this person considers worth broadcasting, not how they speak in dialogue.
+
+Extract a behavioral profile precise enough to simulate how this person speaks and reacts in novel conversations.
+
+Rules before you start:
+- For relationship_matrix: only include accounts or figures this person explicitly addresses or mentions in these tweets. Do not invent relationships.
+
+TRANSCRIPT-ONLY FIELDS — verbatim or nothing, no model knowledge:
+- annotated_quotes: MINIMUM 10 quotes. Every quote must be copied verbatim from the tweets below. If fewer real quotes exist, produce fewer — never fabricate. Prioritize iconic, unmistakable lines each proving a DIFFERENT profile dimension.
+
+MODEL KNOWLEDGE ALLOWED — supplement tweets where thin:
+If you recognize {{ name }} from your training data, use that knowledge to enrich worldview, emotional_tells, response_patterns, and core_style with documented public behavior. For lesser-known figures, derive from tweets only.
+NOTE: favored_words, structural_patterns, do_not_say are extracted separately without the tweets — do NOT include them in this response.
+
+SPECIFICITY TEST — apply to every field before writing it:
+Ask: "Could this exact description fit a different public figure without changing a word?" If yes, rewrite until the answer is no. Generic fillers like "engages with their audience", "values authenticity", "uses humor to connect" describe thousands of people. Every field must be falsifiable.
+
+Return this exact JSON structure (fill every field):
+
+{
+  "persona_name": "{{ name }}",
+  "source_type": "real_world",
+  "occupation": "<one short phrase: this person's primary professional role — e.g. 'Rapper and music producer', 'Formula 1 racing driver', 'Tech entrepreneur and CEO'>",
+  "core_style": {
+    "default_register": "<dominant register in public/written mode: formal/casual/street/sardonic/etc — one word + one clause with a concrete example from the tweets>",
+    "sentence_shape": "<dominant pattern: clipped fragments / compound runs / declarative bursts / rhetorical questions / etc — describe the shape, not just the length>",
+    "rhythm": "<fast-associative / slow-deliberate / staccato / aphoristic / etc — what drives the cadence>",
+    "two_registers": "<does this person have a second, rarer register they drop into (e.g. more vulnerable or more aggressive)? describe both ends and what triggers the shift>"
+  },
+  "humor": {
+    "style": "<dark/self-deprecating/absurdist/deadpan/deflecting/none>",
+    "frequency": "<rare/occasional/constant — and when it spikes or disappears entirely>",
+    "mechanism": "<the structural move: setup-then-subvert, callback, contemptuous irony, understatement — be specific, not generic>"
+  },
+  "speech_signature": {
+    "naming_behavior": "<does this person use nicknames, labels, or framings to position people or ideas? what does that reveal about their relationship to authority or control>",
+    "candor_register": "<what the writing looks like when performance drops: shorter/longer/more direct/specific word choices — give a concrete marker from the tweets>"
+  },
+  "vocabulary_fingerprint": {
+    "domain_jargon": "<specialized vocabulary domain this person draws from and why — e.g. finance/tech/philosophy — or 'none'>",
+    "avoided_words": ["<word class or specific word this person never uses — e.g. 'apology language', 'I was wrong', 'maybe'>"],
+    "filler_patterns": "<habitual patterns in written form: ellipsis use, ALL CAPS emphasis, emoji patterns, sentence restarts — or 'none'>"
+  },
+  "worldview": {
+    "<belief or value grounded in the tweets>": "<how it manifests — and what a DIFFERENT person of the same type would believe instead>",
+    "<belief or value grounded in the tweets>": "<how it manifests — and what a DIFFERENT person of the same type would believe instead>"
+  },
+  "self_image_vs_reality": {
+    "self_image": "<one clause: how this person narrates their own identity and motives>",
+    "reality": "<one clause: what the tweets reveal their actual driver to be — cite a behavioral pattern>",
+    "gap_behavior": "<what they say or do when the gap between self-image and reality is exposed>"
+  },
+  "emotional_tells": {
+    "when_challenged": "<what the writing looks like under intellectual or social pressure — length, tone, register shift>",
+    "when_enthusiastic": "<concrete markers: capitalization, exclamation patterns, vocabulary shift, rapid posting>",
+    "when_uncertain": "<how they handle not knowing — do they hedge, redirect, admit, or attack the question>",
+    "when_in_control": "<what signals confidence and dominance in their written delivery>"
+  },
+  "response_patterns": {
+    "when_disagreeing": "<how they push back: direct rebuttal / dismissal / reframing / ratio attempts>",
+    "when_pressed_for_specifics": "<do they deliver, deflect, or generalize — cite a pattern>",
+    "when_proven_wrong": "<do they admit it, redirect, double down, or go silent>",
+    "when_interviewing_vs_interviewed": "<if applicable: how their register and control-seeking differ across roles>"
+  },
+  "social_positioning": {
+    "desired_position": "<how this person wants to be seen by their audience>",
+    "actual_dynamic": "<what the tweets reveal others actually respond to — where the power actually flows>",
+    "contradiction": "<the gap between desired and actual, and what it costs them>"
+  },
+  "knowledge_domains": {
+    "expert": ["<domain where this person tweets with authority and specificity>"],
+    "surface": ["<domain they reference confidently but don't command>"],
+    "blind_spots": ["<domain where they are consistently shallow or wrong — important for authentic failure modes>"]
+  },
+  "relationship_matrix": {
+    "<account or figure explicitly addressed in these tweets>": "<one clause: the dynamic — power direction, emotional tone, what this person wants from them>",
+    "<account or figure>": "<one clause>"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "<verbatim tweet — iconic, unmistakable, only {{ name }} would post this>",
+      "context": "<one clause: the situation or topic that produced it>",
+      "illustrates": "<which specific profile dimension this proves>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim tweet>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }
+  ]
+}
+
+--- TWEETS ---
+{{ transcript_text }}
+{%- endblock -%}
