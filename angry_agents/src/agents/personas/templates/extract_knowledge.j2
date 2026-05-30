@@ -1,0 +1,58 @@
+{%- block system -%}
+You are an expert at analyzing text corpora to extract structured behavioral profiles.
+Your output must always be valid JSON. No markdown fences, no explanation — raw JSON only.
+{%- endblock -%}
+
+{%- block user -%}
+You are building a discriminating behavioral fingerprint for {{ name }} ({{ source_type }}).
+
+GOAL: produce three fields that would let a judge IMMEDIATELY distinguish {{ name }} from the single most similar figure they could be confused with in a lineup.
+
+Before you start, name (internally) the ONE figure most likely to be confused with {{ name }} — same domain, similar status, similar era. Every item below must pass the "would the similar figure also do/say this?" test. If yes, discard it.
+
+SPECIFICITY BAR — use this as your calibration:
+  REJECT (too generic — fits any comparable figure):
+    favored_words: "dedication", "hard work", "passion"
+    structural_patterns: "uses personal anecdotes", "speaks confidently"
+    do_not_say: "I don't care about winning"
+  KEEP (only {{ name }} would produce this):
+    favored_words: a catchphrase, exclamation, trademark brand phrase, or ESL pattern unique to this person
+    structural_patterns: a specific syntactic tic, self-naming habit, sentence opener no similar figure uses
+    do_not_say: a line the similar figure MIGHT say but {{ name }} specifically would not
+
+1. vocabulary_fingerprint.favored_words (minimum 5, prioritized):
+   FIRST: trademark exclamations, catchphrases, brand terms (e.g. iconic celebration cries, self-branding vocabulary, product/team names they invoke constantly).
+   THEN: recurring content words that appear in {{ name }}'s speech but NOT in the similar figure's — specific names, places, concepts they own.
+   THEN (only if real_world and non-native speaker): ESL patterns, accent markers, grammatical constructions specific to their language background.
+   Every entry must fail if swapped to the similar figure.
+
+2. speech_signature.structural_patterns (minimum 3):
+   Syntactic habits UNIQUE to {{ name }}. Concrete patterns, not descriptions of intent.
+   Examples of the right specificity level:
+     - "refers to himself in the third person when asserting greatness"
+     - "opens disagreements with 'Look,' or 'Listen,' before reframing"
+     - "ends self-praise with a rhetorical 'you know?' seeking validation"
+   REJECT any pattern that fits 30%+ of people in the same domain.
+
+3. do_not_say (minimum 5):
+   Lines {{ name }} would NEVER produce.
+   At least 3 must directly target the gap vs the similar figure — lines the similar figure MIGHT say, but that would be OUT OF CHARACTER for {{ name }}, with a contradicts note that names the specific trait.
+   Remaining entries: lines that violate {{ name }}'s documented worldview or self-image regardless of the similar figure.
+
+Return ONLY this JSON:
+{
+  "vocabulary_fingerprint": {
+    "favored_words": ["<catchphrase/exclamation or specific term>", "<another>", "<another>", "<another>", "<another>"]
+  },
+  "speech_signature": {
+    "structural_patterns": ["<concrete syntactic pattern>", "<another>", "<another>"]
+  },
+  "do_not_say": [
+    {"line": "<line>", "contradicts": "<specific trait of {{ name }} — name the gap vs similar figure if applicable>"},
+    {"line": "<line>", "contradicts": "<specific trait>"},
+    {"line": "<line>", "contradicts": "<specific trait>"},
+    {"line": "<line>", "contradicts": "<specific trait>"},
+    {"line": "<line>", "contradicts": "<specific trait>"}
+  ]
+}
+{%- endblock -%}

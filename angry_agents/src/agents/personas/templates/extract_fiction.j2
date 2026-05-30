@@ -1,0 +1,146 @@
+{%- block system -%}
+You are an expert at analyzing text corpora to extract structured behavioral profiles.
+Your output must always be valid JSON. No markdown fences, no explanation — raw JSON only.
+{%- endblock -%}
+
+{%- block user -%}
+Below is a movie/TV script. Extract a behavioral profile for the character "{{ character }}" precise enough to simulate how they speak and react in novel situations.
+
+Rules before you start:
+- For relationship_matrix: only include characters who actually appear in this script. Do not invent relationships.
+- For backstory_anchors: only include events explicitly referenced in dialogue — not implied by plot.
+
+TRANSCRIPT-ONLY FIELDS — verbatim or nothing, no model knowledge:
+- annotated_quotes: MINIMUM 10 quotes. Every quote must be copied verbatim from the script below. If fewer real lines exist, produce fewer — never fabricate. Prioritize iconic, unmistakable lines each proving a DIFFERENT profile dimension.
+
+MODEL KNOWLEDGE ALLOWED — supplement script where thin:
+If you recognize "{{ character }}" from your training data, use that knowledge to enrich worldview, emotional_tells, situational_behavior, and core_style with behavior from the full source material. For lesser-known characters, derive from script only.
+NOTE: favored_words, structural_patterns, do_not_say are extracted separately without the script — do NOT include them in this response.
+
+SPECIFICITY TEST — apply to every field before writing it:
+Ask: "Could this exact description fit a different character from the same genre without changing a word?" If yes, rewrite until the answer is no. Generic fillers like "brave and determined", "loyal to their friends", "haunted by their past" describe hundreds of characters. Every field must be falsifiable.
+
+Return this exact JSON structure (fill every field):
+
+{
+  "persona_name": "{{ character }}",
+  "source_type": "fiction",
+  "source_title": "{{ name }}",
+  "core_style": {
+    "default_register": "<the dominant register when performing or guarded: formal/casual/street/sardonic/etc — one word + one clause with a concrete example from the script>",
+    "sentence_shape": "<dominant pattern: clipped fragments / compound runs / self-interrupting pivots / etc — describe the shape, not just the length>",
+    "rhythm": "<fast-associative / slow-deliberate / staccato / etc — what drives the cadence>",
+    "two_registers": "<does this character have a second, rarer register they drop into? describe both ends and what separates them>"
+  },
+  "humor": {
+    "style": "<dark/self-deprecating/absurdist/deadpan/deflecting/none>",
+    "frequency": "<rare/occasional/constant — and when it spikes or disappears entirely>",
+    "mechanism": "<the structural move that makes jokes land: setup-then-subvert, nickname-as-weapon, understatement, callback, contemptuous irony — be specific, not generic>"
+  },
+  "speech_signature": {
+    "naming_behavior": "<does this character rename people or things? if so, what does that naming reveal about their relationship to power or control>",
+    "armor_off_register": "<what the speech looks like when the default register drops: shorter/longer/slower/specific word choices — give a concrete marker>"
+  },
+  "vocabulary_fingerprint": {
+    "domain_jargon": "<specialized vocabulary domain this character draws from and why — e.g. legal/chemistry/military — or 'none'>",
+    "avoided_words": ["<word class or specific word this character never uses — e.g. 'apology language', 'please', 'maybe'>"],
+    "filler_patterns": "<habitual filler or pause behavior: ellipsis use, sentence restarts, silence — or 'none'>"
+  },
+  "worldview": {
+    "<belief or value grounded in the transcript>": "<how it manifests — and what a DIFFERENT character of the same archetype would believe instead>",
+    "<belief or value grounded in the transcript>": "<how it manifests — and what a DIFFERENT character of the same archetype would believe instead>"
+  },
+  "self_image_vs_reality": {
+    "self_image": "<one clause: how this character narrates their own identity and motives>",
+    "reality": "<one clause: what the transcript reveals their actual driver to be — cite a behavioral pattern>",
+    "gap_behavior": "<what they say or do when the gap between self-image and reality is exposed>"
+  },
+  "emotional_tells": {
+    "when_guarded": "<what speech looks like in default protective mode — the surface the world sees>",
+    "when_genuinely_afraid": "<what changes in speech when fear is real: pace, line length, register, specific markers>",
+    "when_grieving_or_defeated": "<what the speech compresses to when the armor comes off — word count, directness, what disappears>",
+    "when_in_control": "<what signals confidence and dominance in their speech>"
+  },
+  "situational_behavior": {
+    "when_outmatched": "<what is their first move — banter/stall/attack/flee — and what do they do if that fails>",
+    "when_disagreeing_with_authority": "<how they push back against people who outrank them>",
+    "when_someone_they_protect_is_at_risk": "<how behavior and speech change>",
+    "when_proven_wrong": "<do they admit it, redirect, double down, or go silent>"
+  },
+  "escalation_pattern": "<the sequence of moves this character makes when not getting what they want — describe each stage and what triggers the next>",
+  "conversation_goals": [
+    "<what this character is typically trying to achieve in an interaction — e.g. 'establish dominance', 'extract information without revealing intent'>",
+    "<another recurring goal>",
+    "<another recurring goal>"
+  ],
+  "relationship_matrix": {
+    "<character name from this transcript>": "<one clause: the dynamic — power direction, emotional tone, what this character wants from them>",
+    "<character name from this transcript>": "<one clause>"
+  },
+  "knowledge_domains": {
+    "expert": ["<domain where this character speaks with authority and detail>"],
+    "surface": ["<domain they reference but don't command>"],
+    "ignorant": ["<domain where they are blind or wrong — important for authentic failure modes>"]
+  },
+  "social_positioning": {
+    "desired_position": "<how this character wants to be seen by others>",
+    "actual_dynamic": "<what the transcript shows others actually think of them or how power actually flows>",
+    "contradiction": "<the gap between desired and actual, and what it costs them>"
+  },
+  "annotated_quotes": [
+    {
+      "quote": "<verbatim line from script — iconic, unmistakable, only {{ character }} would say this>",
+      "context": "<one clause: the situation or emotional state that produced it>",
+      "illustrates": "<which specific profile dimension this proves>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    },
+    {
+      "quote": "<verbatim line>",
+      "context": "<one clause>",
+      "illustrates": "<specific dimension>"
+    }
+  ]
+}
+
+--- SCRIPT ---
+{{ transcript_text }}
+{%- endblock -%}
