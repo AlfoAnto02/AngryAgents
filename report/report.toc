@@ -3,70 +3,73 @@
 \contentsline {subsection}{\numberline {1.1}Interaction modes}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Persona types}{2}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}User roles}{2}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Project Evolution: From Commits to Architecture}{2}{section.2}%
+\contentsline {section}{\numberline {2}Project Evolution}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Phase I --- Foundation (May 5--13)}{2}{subsection.2.1}%
-\contentsline {paragraph}{Problem definition and SOTA.}{2}{subsection.2.1}%
-\contentsline {paragraph}{Database design v1.}{3}{subsection.2.1}%
-\contentsline {paragraph}{Scraping and first personas.}{3}{subsection.2.1}%
-\contentsline {paragraph}{First UI prototype.}{3}{subsection.2.1}%
+\contentsline {paragraph}{Starting from the question.}{2}{subsection.2.1}%
+\contentsline {paragraph}{First data model.}{3}{subsection.2.1}%
+\contentsline {paragraph}{First personas.}{3}{subsection.2.1}%
+\contentsline {paragraph}{First UI.}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Phase II --- Core Pipeline (May 14--24)}{3}{subsection.2.2}%
-\contentsline {paragraph}{Database v2 and full REST API.}{3}{subsection.2.2}%
-\contentsline {paragraph}{JWT authentication (commits 7a011e8, 63d13d2).}{4}{subsection.2.2}%
-\contentsline {paragraph}{Database v3 and User table.}{4}{subsection.2.2}%
+\contentsline {paragraph}{Rethinking the schema.}{3}{subsection.2.2}%
+\contentsline {paragraph}{Persistence and API layer.}{4}{subsection.2.2}%
 \contentsline {paragraph}{Judge architecture.}{4}{subsection.2.2}%
-\contentsline {paragraph}{PersonaAgent and GroupChatSession.}{4}{subsection.2.2}%
-\contentsline {paragraph}{Test suite.}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Phase III --- Integration (May 25--27)}{4}{subsection.2.3}%
-\contentsline {paragraph}{RAG evaluation pipeline (Alfonso Antognozzi).}{5}{subsection.2.3}%
-\contentsline {paragraph}{Hungarian algorithm for persona identification.}{5}{subsection.2.3}%
-\contentsline {paragraph}{Two-phase persona extraction (Gabriele Fronzoni).}{5}{subsection.2.3}%
-\contentsline {paragraph}{Full UI wiring (Kevin Shimaj).}{5}{subsection.2.3}%
-\contentsline {paragraph}{MCP layer (Kevin Shimaj).}{5}{subsection.2.3}%
-\contentsline {paragraph}{Evaluation metrics.}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Phase IV --- Polish and MCP (May 28--31)}{6}{subsection.2.4}%
+\contentsline {paragraph}{Persona runtime and group chat engine.}{4}{subsection.2.2}%
+\contentsline {paragraph}{First scalability wall.}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Phase III --- Integration (May 25--27)}{5}{subsection.2.3}%
+\contentsline {paragraph}{The scalability problem, solved.}{5}{subsection.2.3}%
+\contentsline {paragraph}{A flaw in persona identification.}{5}{subsection.2.3}%
+\contentsline {paragraph}{Deeper persona extraction.}{5}{subsection.2.3}%
+\contentsline {paragraph}{Closing the UI gap.}{5}{subsection.2.3}%
+\contentsline {paragraph}{MCP integration.}{5}{subsection.2.3}%
+\contentsline {paragraph}{Statistical evaluation engine.}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Phase IV --- Polish and Hardening (May 28--31)}{6}{subsection.2.4}%
+\contentsline {paragraph}{Evaluation refinements.}{6}{subsection.2.4}%
+\contentsline {paragraph}{UI and UX corrections.}{6}{subsection.2.4}%
+\contentsline {paragraph}{MCP hardening.}{6}{subsection.2.4}%
+\contentsline {paragraph}{Knowledge graph.}{6}{subsection.2.4}%
 \contentsline {section}{\numberline {3}System Architecture}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Technology stack}{6}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Layered architecture}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.1}Technology stack}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Layered architecture}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Database schema}{7}{subsection.3.3}%
 \contentsline {paragraph}{Soft-delete pattern.}{7}{table.1}%
-\contentsline {paragraph}{Author anonymisation.}{7}{table.1}%
-\contentsline {section}{\numberline {4}Persona Extraction and Profiles}{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Source material}{7}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Two-phase extraction pipeline}{7}{subsection.4.2}%
-\contentsline {paragraph}{Phase 1 --- Transcript-grounded fields.}{7}{subsection.4.2}%
+\contentsline {paragraph}{Author anonymisation.}{8}{table.1}%
+\contentsline {section}{\numberline {4}Persona Extraction and Profiles}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Source material}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Two-phase extraction pipeline}{8}{subsection.4.2}%
+\contentsline {paragraph}{Phase 1 --- Transcript-grounded fields.}{8}{subsection.4.2}%
 \contentsline {paragraph}{Phase 2 --- Model-knowledge fields.}{8}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Structured profile schema}{8}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Context Management}{8}{section.5}%
+\contentsline {section}{\numberline {5}Context Management}{9}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Token budget per turn}{9}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Mitigation mechanisms}{9}{subsection.5.2}%
 \contentsline {paragraph}{Sliding window + compression.}{9}{subsection.5.2}%
 \contentsline {paragraph}{Reflection.}{9}{subsection.5.2}%
 \contentsline {paragraph}{Perturbation (group chat only).}{9}{subsection.5.2}%
 \contentsline {paragraph}{Drift detection.}{9}{subsection.5.2}%
-\contentsline {paragraph}{Prompt caching.}{9}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Chat Simulation}{9}{section.6}%
-\contentsline {subsection}{\numberline {6.1}PersonaAgent}{9}{subsection.6.1}%
+\contentsline {paragraph}{Prompt caching.}{10}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Chat Simulation}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}PersonaAgent}{10}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}TurnScheduler}{10}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}GroupChatSession}{10}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}DM chat}{10}{subsection.6.4}%
 \contentsline {section}{\numberline {7}Evaluation Framework}{10}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Four fidelity dimensions}{10}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Phase 1 --- Independent evaluation}{10}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.1}Four fidelity dimensions}{11}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Phase 1 --- Independent evaluation}{11}{subsection.7.2}%
 \contentsline {paragraph}{RAG pre-filtering.}{11}{subsection.7.2}%
 \contentsline {paragraph}{Hungarian assignment.}{11}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Statistical metrics}{11}{subsection.7.3}%
 \contentsline {paragraph}{Persona identification.}{11}{subsection.7.3}%
 \contentsline {paragraph}{Individual fidelity.}{11}{equation.3}%
 \contentsline {paragraph}{Group fidelity.}{11}{equation.3}%
-\contentsline {paragraph}{Batch evaluation.}{11}{equation.3}%
-\contentsline {subsection}{\numberline {7.4}Phase 2 --- Deliberation (design)}{11}{subsection.7.4}%
+\contentsline {paragraph}{Batch evaluation.}{12}{equation.3}%
+\contentsline {subsection}{\numberline {7.4}Phase 2 --- Deliberation (design)}{12}{subsection.7.4}%
 \contentsline {section}{\numberline {8}MCP Layer}{12}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Architecture}{12}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Tool tiers}{12}{subsection.8.2}%
 \contentsline {paragraph}{Tier 1 --- Read (no confirmation required).}{12}{subsection.8.2}%
 \contentsline {paragraph}{Tier 2 --- Write (preview $\to $ confirm).}{12}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Knowledge Graph}{12}{section.9}%
+\contentsline {section}{\numberline {9}Knowledge Graph}{13}{section.9}%
 \contentsline {section}{\numberline {10}State-of-the-Art Positioning}{13}{section.10}%
-\contentsline {paragraph}{Novel contribution.}{13}{section.10}%
-\contentsline {section}{\numberline {11}Open Questions and Future Work}{13}{section.11}%
+\contentsline {paragraph}{Novel contribution.}{14}{section.10}%
+\contentsline {section}{\numberline {11}Open Questions and Future Work}{14}{section.11}%
 \contentsline {section}{\numberline {12}References}{14}{section.12}%

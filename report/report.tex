@@ -107,8 +107,8 @@
 \section{Introduction}
 
 \textbf{Angry Agents} is a web application in which users interact with AI persona-agents that
-faithfully represent real-world or fictional characters --- politicians, influencers, movie
-characters, podcast hosts, and more. Conversations are automatically evaluated by 20 judge-agents
+faithfully represent real-world or fictional characters --- politicians, influencers, movie and tv series
+characters, and more. Conversations can be evaluated by 20 judge-agents
 across four fidelity dimensions: persona identification, individual fidelity, group fidelity, and
 behavioral fidelity.
 
@@ -126,16 +126,15 @@ judge-agents can correctly identify it?}
 The platform supports two conversation types:
 
 \begin{description}[leftmargin=2cm,labelwidth=1.8cm]
-  \item[\textbf{DM}] One user converses one-on-one with a single persona-agent. The agent responds
-        in character after every user message.
-  \item[\textbf{Group chat}] The user sets a topic and selects 2--8 agents. The agents converse
-        autonomously in the background; the user can observe and inject messages.
+  \item[\textbf{DM}] One user converses one-on-one with a single persona-agent. The agent responds to the user's messages.
+  \item[\textbf{Group chat}] The user sets a topic and selects 2--8 agents. The agents start to converse
+        autonomously and the user can observe and inject messages.
 \end{description}
 
 \subsection{Persona types}
 
 \begin{description}[leftmargin=2cm,labelwidth=1.8cm]
-  \item[\textbf{Fiction}] Characters extracted from movie scripts, TV screenplays, and books
+  \item[\textbf{Fiction}] Characters extracted from movie scripts or TV screenplays
         (e.g.\ Batman, Darth Vader, Bart Simpson).
   \item[\textbf{Real-world}] People extracted from podcast transcripts, YouTube videos, and
         social-media corpora (e.g.\ Barack Obama, Andrej Karpathy, Bernie Sanders).
@@ -149,214 +148,211 @@ The platform supports two conversation types:
 \end{description}
 
 % -------------------------------------------------
-\section{Project Evolution: From Commits to Architecture}
+\section{Project Evolution}
 
-The repository contains \textbf{308 commits} spanning from May 5 to May 31, 2026, authored by
-five contributors. The commit history reveals four distinct development phases.
+The development did not follow a waterfall plan but grew organically:
+each week surfaced new problems that reshaped the design of the previous week. This section traces that evolution, describing what was built, what broke, and what had to be rebuilt.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
-\begin{tabular}{@{}lll@{}}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{9.6cm}@{}}
 \toprule
-\textbf{Phase} & \textbf{Dates} & \textbf{Peak activity} \\
+\textbf{Phase} & \textbf{Period} & \textbf{Main output} \\
 \midrule
-I --- Foundation         & May 5--13  & May 11 (21 commits), May 13 (11 commits) \\
-II --- Core pipeline     & May 14--24 & May 18 (28), May 20 (27), May 24 (26) \\
-III --- Integration      & May 25--27 & May 27 (38 commits --- busiest day) \\
-IV --- Polish \& MCP     & May 28--31 & May 28--31 (12--16/day) \\
+I - Foundation   & May 5--13  & Problem definition, SOTA, first DB schema, first personas, first UI \\
+II - Core pipeline & May 14--24 & Full REST API, auth, judge classes, persona runtime, chat engine \\
+III - Integration  & May 25--27 & RAG pipeline, Hungarian fix, two-phase extraction, UI wired, MCP \\
+IV - Polish        & May 28--31 & UI polish, evaluation refinements, batch metrics, MCP hardening \\
 \bottomrule
 \end{tabular}
-\caption{Commit density by phase. May 27 is the single most active day with 38 commits.}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\begin{tabular}{@{}lr@{}}
-\toprule
-\textbf{Contributor} & \textbf{Commits} \\
-\midrule
-Gabriele Fronzoni  &  98 \\
-Kevin Shimaj       &  79 \\
-Alfonso Antognozzi &  56 \\
-Davide Cabitza     &  41 \\
-Marco Massa        &  34 \\
-\bottomrule
-\end{tabular}
-\caption{Commit count per contributor.}
+\normalsize
+\caption{Project phases and their primary deliverables.}
 \end{figure}
 
 \subsection{Phase I --- Foundation (May 5--13)}
 
-\paragraph{Problem definition and SOTA.}
-The project opened with iterative refinement of the problem statement
-(\texttt{NEW\_PROBLEM.md}) and a five-paper literature review (\texttt{SOTA.md}) covering:
-Wason et al.\ [2024] on dialogue agent failure modes; Salewski et al.\ [2023] on in-context
-impersonation and demographic bias; Jiang et al.\ [2024] (PersonaLLM) on psychometric validation;
-Zhou et al.\ [2025] on behavioral fidelity for real-person agents; and Park et al.\ [2023]
-(Generative Agents) on memory, reflection, and group dynamics.
+\paragraph{Starting from the question.}
+The team began not from code but from a research question: can an LLM faithfully simulate a
+real or fictional person, to the point that independent judges cannot tell the difference?
+Answering this required agreeing on what \emph{faithful simulation} even means --- a question
+that took several days of iteration to pin down.
 
-Key insight from the review: \emph{personal detail features are the single most critical driver
-of behavioral fidelity} (Zhou et al., 2025), motivating the structured profile approach. Park et
-al.\ identified excessive agreeableness as a failure mode in group simulations --- directly
-motivating the perturbation mechanism.
+Five papers shaped the answer. Park et al.\ [2023] showed that long-running agents drift toward
+generic agreement without memory and reflection mechanisms. Zhou et al.\ [2025] demonstrated that
+\emph{personal detail features} --- not surface vocabulary --- are the strongest predictor of
+behavioral fidelity. Jiang et al.\ [2024] proved that raters who know they are reading AI output
+systematically underestimate personality fidelity, directly motivating a blind evaluation
+protocol. These findings were not background reading: they became design constraints.
 
-\paragraph{Database design v1.}
-Commit \texttt{ba58069} introduced the first schema (\texttt{DB\_v1.md}), with six tables:
-\texttt{Agents}, \texttt{Chat}, \texttt{Chat\_messages}, \texttt{Judges}, \texttt{Judge\_evaluation},
-and two context tables (\texttt{Podcast\_Agent\_Context}, \texttt{Fiction\_Agents\_Context}).
+\paragraph{First data model.}
+The earliest database design had six tables: \texttt{Agents}, \texttt{Chat}, \texttt{Chat\_messages}, \texttt{Judges}, \texttt{Judge\_evaluation}, and two separate
+context tables for fiction and podcast personas. At this stage the most consequential design
+decision was made: the \texttt{author} field in \texttt{Chat\_messages} would store a
+cryptographic hash of the agent's identity rather than a foreign key back to
+\texttt{Agents}. This single choice encoded the core requirement --- judges must not be able
+to link a message to a known persona --- at the schema level, making it impossible to
+violate accidentally.
 
-The most important privacy design decision appeared here: the \texttt{author} field in
-\texttt{Chat\_messages} stores \texttt{name + surname + DIGEST} --- a cryptographic hash
-preventing judges from linking messages back to known agent identities. Crucially,
-\textbf{no foreign key} from \texttt{Chat\_messages} to \texttt{Agents} was added; the
-anonymisation is enforced at the schema level.
+\paragraph{First personas.}
+Three scraping pipelines were started in parallel: YouTube transcript extraction for
+real-world personas (politicians, podcasters), movie-script PDF parsing for fictional
+characters, and IMSDB HTML scraping for additional screenplays. The first eleven fictional
+profiles were extracted: Darth Vader, Yoda, Indiana Jones, Jack Sparrow, Luke Skywalker,
+Batman, Joker, and others. Each profile was a structured JSON document capturing speaking
+style, worldview, emotional tells, and signature phrases --- a format informed directly by
+the Zhou et al.\ finding on personal detail importance.
 
-\paragraph{Scraping and first personas.}
-Three scraping pipelines were bootstrapped: YouTube transcript extraction
-(\texttt{4541c55}), movie-script PDF parsing (\texttt{ba4ec24}), and IMSDB scraping. The first
-batch of fictional personas was committed: Darth Vader, Yoda, Indiana Jones, Jack Sparrow, Luke
-Skywalker, Riggan, Batman, Joker, Po, Rocky, Tony Stark (11 profiles).
-
-\paragraph{First UI prototype.}
-Commit \texttt{7a822d6} landed the first React/JSX UI with ten components covering auth, home,
-library, DM and group chat wizard, active chat, and admin dashboard --- all wired to static mock
-data (\texttt{data.js}).
+\paragraph{First UI.}
+A React prototype with ten components covered the full user journey: authentication, persona
+library, DM chat wizard, group chat wizard, active chat, and admin dashboard. It ran entirely
+on static mock data. The purpose was not to ship a product but to expose interaction design
+questions early, before the backend was complete.
 
 \subsection{Phase II --- Core Pipeline (May 14--24)}
 
-\paragraph{Database v2 and full REST API.}
-The schema was revised to \texttt{DB\_v2.md}: the two separate context tables were unified into
-\texttt{Agent\_context} (storing arbitrary \texttt{signature\_phrases} as JSON), a \texttt{Topic}
-table was added, and all entities received \texttt{created\_at / updated\_at / deleted\_at}
-timestamps with server-side triggers. The \texttt{Chat} table was renamed to \texttt{Group\_chat}
-and gained \texttt{ID\_topic}.
+\paragraph{Rethinking the schema.}
+The two separate context tables from Phase I were a premature distinction. As the personas grew
+in complexity, both fiction and real-world agents needed the same structured JSON profile; the
+only difference was the \texttt{source\_type} field. The schema was consolidated: one
+\texttt{Agent\_context} table with a \texttt{signature\_phrases} JSON column. A \texttt{Topic}
+table was added to give group chats a shared theme. All entities gained
+\texttt{created\_at / updated\_at / deleted\_at} timestamps enforced by database triggers,
+enabling soft-delete across the board.
 
-Alfonso Antognozzi built the complete persistence stack: raw-SQL CRUD repositories for all
-eight entities, a service layer with business logic (HMAC author token, 20-evaluation cap per
-chat, PBKDF2-SHA256 passwords with 260\,000 iterations), and a FastAPI application with nine
-route files, Pydantic schemas, and Swagger UI.
+The most significant structural addition was the \texttt{User} table. The first schema had no
+concept of platform users at all --- agents, chats, and evaluations existed in isolation. Adding
+users required propagating a \texttt{Created\_by} foreign key through four tables
+(\texttt{Group\_chat}, \texttt{Topic}, \texttt{Agents}, \texttt{Chat\_messages}) and introducing
+role-based access (\texttt{common} vs.\ \texttt{admin}). This also unlocked proper authentication:
+JWT access tokens (15-minute expiry) paired with httpOnly refresh tokens whose SHA-256 hash is
+stored in a dedicated \texttt{RefreshToken} table.
 
-\paragraph{JWT authentication (commits 7a011e8, 63d13d2).}
-A full stateless auth system was added: HS256 access tokens (15-min expiry), httpOnly refresh
-tokens (7-day, SHA-256 hash stored in \texttt{RefreshToken} table), and \texttt{AUTH\_DISABLED=1}
-dev mode. The \texttt{require\_admin} dependency enforces role-based access.
-
-\paragraph{Database v3 and User table.}
-\texttt{DB\_v3.md} (May 19) introduced the \texttt{User} table with roles (\texttt{common} /
-\texttt{admin}) and propagated a \texttt{Created\_by} foreign key to four tables:
-\texttt{Group\_chat}, \texttt{Topic}, \texttt{Agents}, \texttt{Chat\_messages}. The
-\texttt{Judge\_evaluation} composite primary key \texttt{(ID\_judge, ID\_chat)} was formalised.
+\paragraph{Persistence and API layer.}
+The complete backend was built in this phase: raw-SQL CRUD repositories for all eight entities,
+a service layer enforcing business invariants (the 20-evaluation cap per chat, HMAC author token
+generation, PBKDF2-SHA256 password hashing with 260\,000 iterations), and a FastAPI application
+with nine route files and Pydantic schemas. A test suite of 291 tests covered all repositories
+and services, including boundary cases for soft-delete cascades, composite primary keys,
+password-hash opacity, JWT token lifecycle, and slug collision handling.
 
 \paragraph{Judge architecture.}
-Davide Cabitza implemented the judge class hierarchy (\texttt{BaseJudge} with four abstract
-evaluation methods) and three concrete specialisations:
+The evaluation design required judges with different focuses. Three concrete judge classes were
+implemented: \textbf{StyleJudge} (vocabulary, tone, rhetorical habits),
+\textbf{IdeologyJudge} (political views, moral stances), and \textbf{GeneralJudge} (all traits
+combined). Each extended an abstract \texttt{BaseJudge} with four evaluation methods ---
+persona identification, individual fidelity, group fidelity, and behavioral fidelity. Prompts
+were extracted from Python strings into Jinja2 \texttt{.j2} templates, making them versionable
+and enforceable (every template required explicit motivation-before-rating, a 1--5 rubric, and
+JSON output).
 
-\begin{itemize}
-  \item \textbf{StyleJudge} --- vocabulary, sentence structure, rhetorical habits.
-  \item \textbf{IdeologyJudge} --- political views, moral stances, belief systems.
-  \item \textbf{GeneralJudge} --- all observable traits combined.
-\end{itemize}
+\paragraph{Persona runtime and group chat engine.}
+The \texttt{PersonaAgent} class wrapped a database agent row into a live, chat-ready object.
+Rather than treating all agents as identical, the class derived behavioral parameters from the
+persona's own profile: \texttt{dominance\_weight} from social-positioning keywords,
+\texttt{cooldown\_turns} from the rhythm field in \texttt{core\_style}, and
+\texttt{burst\_size} from sentence-shape descriptors. A high-dominance agent would speak more
+and recover faster; a reserved agent would yield turns naturally.
 
-Jinja2 templates (\texttt{.j2} files) extracted prompts from Python, enforcing
-motivation-before-rating, explicit 1--5 rubric, and JSON response format.
+The \texttt{GroupChatSession} orchestrator connected a \texttt{TurnScheduler} (weighted-random
+or round-robin) with a \texttt{ContextWindow} (rolling or selective history trimming) to run
+fully autonomous multi-agent conversations. A dedicated \texttt{DMSession} handled the simpler
+one-on-one path. Both modes used the same persona engine but different prompt templates.
 
-\paragraph{PersonaAgent and GroupChatSession.}
-The \texttt{PersonaAgent} class was introduced, wrapping a DB agent row into a live
-chat-ready object with \texttt{dominance\_weight} (drives turn scheduling),
-\texttt{cooldown\_turns} (derived from \texttt{core\_style.rhythm}), and
-\texttt{burst\_size} (derived from \texttt{core\_style.sentence\_shape}).
-
-The \texttt{GroupChatSession} orchestrator was paired with a \texttt{TurnScheduler}
-(\texttt{round\_robin} or \texttt{weighted\_random}) and a \texttt{ContextWindow}
-(\texttt{rolling} or \texttt{selective} trimming of history).
-
-The \texttt{deviation()} logging convention was introduced
-(\texttt{STRICT\_MODE=1} turns warnings into hard raises, enabling strict CI).
-
-\paragraph{Test suite.}
-By end of Phase II the test suite covered 291 tests across all eight repositories and
-services. Tests include boundary cases for soft-delete, composite PKs, the 20-evaluation cap,
-password hashing, JWT lifecycle, and slug collision.
+\paragraph{First scalability wall.}
+Running persona identification with three judges against a 40-message transcript and seven
+personas already exceeded the local 120-second timeout. With the full design calling for twenty
+judges and a database of 100+ personas, the evaluation pipeline was clearly unviable at this
+scale. This problem was deferred to Phase III.
 
 \subsection{Phase III --- Integration (May 25--27)}
 
-May 27 produced the highest single-day commit count (38), reflecting the convergence of
-multiple parallel workstreams.
+Phase III was the most intensive period of the project. All major subsystems converged
+simultaneously, and several assumptions from earlier phases had to be corrected under pressure.
 
-\paragraph{RAG evaluation pipeline (Alfonso Antognozzi).}
-The entire \texttt{src/rag/} package was built from scratch:
-\begin{itemize}
-  \item \textbf{builder.py} --- splits each persona profile into typed semantic chunks
-        (\texttt{style}, \texttt{voice}, \texttt{worldview}, \texttt{behavior}, \texttt{quote})
-        with configurable field weights per judge role.
-  \item \textbf{indexer.py} --- embeds chunks using \texttt{text-embedding-3-small} and
-        stores them in ChromaDB under \texttt{data/chroma/}.
-  \item \textbf{retriever.py} --- queries ChromaDB, applies per-role field weights, runs
-        Maximal Marginal Relevance (MMR) re-ranking (\(\lambda = 0.7\)), and returns the
-        top-20 shortlist for each judge.
-\end{itemize}
+\paragraph{The scalability problem, solved.}
+The root cause of the evaluation bottleneck was that each judge had to consider every persona
+in the database for every message. The fix was a Retrieval-Augmented Generation (RAG)
+pre-filtering layer. Each persona's structured profile was split into typed semantic chunks
+(\texttt{style}, \texttt{voice}, \texttt{worldview}, \texttt{behavior}, \texttt{quote}),
+embedded with \texttt{text-embedding-3-small}, and stored in a ChromaDB index. Before scoring,
+each judge queried the index to receive a shortlist of the 20 most likely candidates, ranked by
+field-weighted cosine similarity and re-ranked by Maximal Marginal Relevance (to prevent a
+single ``attractor'' persona from dominating the shortlist). This reduced LLM calls from
+$\sim$2\,000 to $\sim$80 per run --- a 97\% reduction --- and brought latency from 33 minutes
+to $\sim$30 seconds.
 
-This reduced judge LLM calls from $\sim$2\,000 to $\sim$80 (-97\%) and latency from 33 minutes
-to $\sim$30 seconds for a full evaluation run.
+\paragraph{A flaw in persona identification.}
+An independent issue surfaced in the evaluation logic: the greedy argmax that assigned each
+persona to its highest-scoring author could assign the same author to multiple personas
+simultaneously. In a chat with eight agents, a single highly distinctive author could ``win''
+several persona slots, inflating accuracy artificially. The fix was to replace argmax with the
+\textbf{Hungarian algorithm} (\texttt{scipy.optimize.linear\_sum\_assignment}), which
+finds the assignment that maximises total score subject to the constraint that each author maps
+to exactly one persona and vice versa. This change made persona identification results valid.
 
-\paragraph{Hungarian algorithm for persona identification.}
-The greedy argmax had a critical flaw: a single high-scoring author could be assigned to
-multiple personas simultaneously. The fix replaced argmax with
-\texttt{scipy.optimize.linear\_sum\_assignment} (Hungarian algorithm), enforcing a
-bijective author $\leftrightarrow$ persona mapping.
+\paragraph{Deeper persona extraction.}
+Source transcripts alone could not fully specify some persona traits --- specifically,
+catchphrases and syntactic tics that are widely known but rarely appear verbatim in any
+single transcript. The extraction pipeline was redesigned as a two-stage process. The first
+call used \texttt{gpt-4o-mini} with the full transcript to ground all behavioral fields in real
+observed speech. The second call used \texttt{gpt-4o} with \emph{no transcript} to extract
+pure model-knowledge fields (\texttt{favored\_words}, \texttt{structural\_patterns},
+\texttt{do\_not\_say}) from the model's parametric knowledge. Each extracted entry had to fail
+a ``similar figure'' discriminability test: if the same line could plausibly come from a
+confusable persona, it was discarded. The total extraction cost for 80 personas was
+\textbf{\$0.57} (1.19M tokens).
 
-\paragraph{Two-phase persona extraction (Gabriele Fronzoni).}
-\texttt{extract\_profile.py} was rewritten to make two separate LLM calls per persona:
-\begin{description}[leftmargin=2cm,labelwidth=1.8cm]
-  \item[Phase 1] \texttt{gpt-4o-mini} with the full transcript --- grounds all behavioral
-        fields (\texttt{core\_style}, \texttt{worldview}, \texttt{emotional\_tells}, etc.)
-        in real observed speech.
-  \item[Phase 2] \texttt{gpt-4o} with \emph{no transcript} --- extracts pure
-        model-knowledge fields (\texttt{favored\_words}, \texttt{structural\_patterns},
-        \texttt{do\_not\_say}) that source transcripts alone under-specify. Each Phase 2
-        entry must pass a ``similar figure'' discriminability test.
-\end{description}
-Total extraction cost for 80 personas: \textbf{\$0.57} (1.19M tokens).
+\paragraph{Closing the UI gap.}
+The React prototype had been running on static mock data since Phase I. In this phase, all
+screens were wired to live API calls. A shared \texttt{api.js} HTTP client and an
+\texttt{agents-store.jsx} React context replaced \texttt{data.js}. The admin dashboard was
+connected to the evaluation output, rendering persona identification accuracy, the confusion
+matrix, per-persona fidelity scores, and the turn-distribution Gini coefficient in real time.
 
-\paragraph{Full UI wiring (Kevin Shimaj).}
-All static mock data in \texttt{data.js} was replaced with live API calls. New
-\texttt{api.js} and \texttt{agents-store.jsx} were added. The admin dashboard was wired to
-render \texttt{metrics\_report.json} output --- accuracy, confusion matrix, fidelity scores,
-Gini coefficient.
+\paragraph{MCP integration.}
+To allow AI agents to interact with the platform programmatically, a Model Context Protocol
+server was implemented. It exposed two tiers of tools: read-only operations requiring no
+confirmation, and write operations requiring an explicit preview-then-confirm step from the
+user. The LLM cannot stop a chat, launch a judging run, or post a message without the user
+approving the action first.
 
-\paragraph{MCP layer (Kevin Shimaj).}
-The Model Context Protocol server was implemented at \texttt{src/mcp/}, exposing the platform
-to any MCP-compatible LLM client (Claude Code, Claude Desktop). Two tiers of tools:
+\paragraph{Statistical evaluation engine.}
+The complete \texttt{src/eval/} package was finished: four metric modules covering persona
+identification (binomial exact CI, Cohen's kappa, confusion matrix), individual fidelity
+(median, IQR, bootstrap 95\% CI), group fidelity (Gini coefficient, cosine distance matrix),
+and deliberation convergence (variance reduction, F-test). All non-parametric estimates share
+a single \texttt{bootstrap\_ci()} helper with 10\,000 resamples.
 
-\begin{description}[leftmargin=2cm,labelwidth=1.8cm]
-  \item[Tier 1] Read-only tools (no confirmation): \texttt{get\_agents},
-        \texttt{get\_chat\_messages}, \texttt{get\_judge\_result}, etc.
-  \item[Tier 2] Write tools (preview $\to$ explicit user confirmation $\to$ execute):
-        \texttt{confirm\_create\_full\_chat}, \texttt{confirm\_start\_judging}, etc.
-\end{description}
+\subsection{Phase IV --- Polish and Hardening (May 28--31)}
 
-\paragraph{Evaluation metrics.}
-The statistical evaluation engine (\texttt{src/eval/}) was completed with four metric modules:
-\texttt{metrics\_persona\_id.py}, \texttt{metrics\_fidelity.py}, \texttt{metrics\_group.py},
-\texttt{metrics\_deliberation.py}, all backed by a shared non-parametric
-\texttt{bootstrap\_ci()} helper (10\,000 resamples).
+The final phase had no single large feature. Instead, it addressed a collection of gaps and
+inconsistencies that only became visible once the full system was running end-to-end.
 
-\subsection{Phase IV --- Polish and MCP (May 28--31)}
+\paragraph{Evaluation refinements.}
+The admin dashboard gained Mean Absolute Deviation (MAD) between all judge-type pairs, making
+systematic disagreement between style, ideology, general, and behavioral judges visible at a
+glance. A batch evaluation pipeline was added to aggregate results across multiple chat
+sessions: for fewer than 20 sessions it uses bootstrap resampling; for 20 or more it switches
+to the Central Limit Theorem normal approximation.
 
-The final phase focused on UI polish (white theme, responsive layout, info chats), MCP
-refinements (writing tools, reading tools, ui-routes updates), and evaluation improvements:
+\paragraph{UI and UX corrections.}
+Real-world personas had been displaying their surname as the subtitle in the agent library ---
+a fallback that exposed an internal implementation detail. The fix was to read the
+\texttt{occupation} field from the persona's structured profile and use it as the subtitle
+instead, making the library read as ``AI researcher'' rather than ``Karpathy''. Other fixes:
+a pause button for group chats, filters on the chat list, responsive layout adjustments, and
+a light theme.
 
-\begin{itemize}
-  \item MAD (Mean Absolute Deviation) between all judge types added to admin dashboard.
-  \item Occupation field added to real-world persona profiles and wired to the agent
-        library subtitle.
-  \item Batch evaluation pipeline (\texttt{EVAL\_BATCH.md}): aggregates per-chat
-        \texttt{metrics\_report.json} files using bootstrap CI for $n < 20$ chats and CLT
-        (normal approximation) for $n \geq 20$.
-  \item Knowledge graph (\texttt{graphify-out/graph.json}) committed --- 6\,920 nodes,
-        8\,337 edges, covering 20 community clusters.
-  \item Filters for chat list added; pause button for group chat; last icons.
-\end{itemize}
+\paragraph{MCP hardening.}
+The MCP read and write tool schemas were revised to match the current API. The documentation
+file was updated to reflect all available tools, their parameters, and the confirmation
+protocol for write operations.
+
+\paragraph{Knowledge graph.}
+A static knowledge graph of the entire codebase was generated and committed: 6\,920 nodes and
+8\,337 edges across 20 community clusters, providing a queryable map of architectural
+relationships between components.
 
 % -------------------------------------------------
 \section{System Architecture}
