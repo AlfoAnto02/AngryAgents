@@ -72,6 +72,7 @@ const Icons = {
   Pause: (p) => <TablerIcon {...p}><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></TablerIcon>,
   Play: (p) => <TablerIcon {...p}><path d="M6 4l13 8-13 8V4Z" /></TablerIcon>,
   Stop: (p) => <TablerIcon {...p}><rect x="4" y="4" width="16" height="16" rx="2" /></TablerIcon>,
+  Menu: (p) => <TablerIcon {...p}><path d="M4 6h16M4 12h16M4 18h16" /></TablerIcon>,
 };
 
 window.Icons = Icons;
