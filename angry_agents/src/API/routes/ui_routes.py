@@ -1279,6 +1279,55 @@ async def admin_judge_stream(chat_id: int):
     )
 
 
+@router.get("/admin/judge-chat/{chat_id}/status")
+def admin_judge_status(chat_id: int) -> dict:
+    """Poll judging job status without SSE. Safe to call repeatedly until status='done'."""
+    job = _judge_jobs.get(chat_id)
+    if job is None:
+        return {"status": "not_started", "progress": 0, "error": None}
+    return {
+        "status": job["status"],
+        "progress": job.get("progress", 0),
+        "error": job.get("error"),
+    }
+
+
+@router.get("/admin/judged-chats/{chat_id}")
+def admin_judged_chat(
+    chat_id: int,
+    db: sqlite3.Connection = Depends(get_db),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """Return the persisted evaluation report for a single chat. 404 if not judged yet."""
+    row = db.execute(
+        "SELECT report FROM Group_chat WHERE ID = ? AND is_judged = 1 AND report IS NOT NULL AND deleted_at IS NULL",
+        (chat_id,),
+    ).fetchone()
+    if row is not None:
+        try:
+            return json.loads(row["report"])
+        except Exception:
+            log.exception("failed to parse report for chat %d", chat_id)
+
+    # File-based fallback
+    chat_dir = _EVAL_DIR / f"chat_{chat_id}"
+    ui_path = chat_dir / "ui_report.json"
+    if ui_path.exists():
+        try:
+            return json.loads(ui_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    metrics_path = chat_dir / "metrics_report.json"
+    if metrics_path.exists():
+        try:
+            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+            return _reconstruct_ui_report(chat_id, metrics, db, settings.author_secret)
+        except Exception:
+            pass
+
+    raise HTTPException(status_code=404, detail="No evaluation report found for this chat")
+
+
 # ---------------------------------------------------------------------------
 # Admin
 # ---------------------------------------------------------------------------
