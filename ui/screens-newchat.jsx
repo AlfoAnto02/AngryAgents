@@ -25,6 +25,14 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
   const [sourceFilter, setSourceFilter] = React.useState(null); // null | "real_world" | source_title string
   const [sourceSearch, setSourceSearch] = React.useState("");
   const [sourceOpen, setSourceOpen] = React.useState(false);
+  const [allTopics, setAllTopics] = React.useState([]);
+  const [suggestions, setSuggestions] = React.useState([]);
+
+  React.useEffect(() => {
+    window.api.get("/topics?limit=500")
+      .then(data => setAllTopics(Array.isArray(data) ? data : []))
+      .catch(() => {});
+  }, []);
 
   // Unique fiction source_titles, sorted by how many agents belong to them (desc)
   const sourceTitles = React.useMemo(() => {
@@ -61,12 +69,14 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
     );
   };
 
-  const addTopic = () => {
-    const t = topicInput.trim();
+  const addTopic = (title) => {
+    const t = (title ?? topicInput).trim();
     if (!t) return;
-    if (topics.includes(t)) return;
+    const already = topics.some(x => x.toLowerCase() === t.toLowerCase());
+    if (already) { setTopicInput(""); setSuggestions([]); return; }
     setTopics([...topics, t]);
     setTopicInput("");
+    setSuggestions([]);
   };
 
   const removeTopic = (t) => setTopics(topics.filter(x => x !== t));
@@ -201,31 +211,84 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
 
             <div className="wizard-step2-grid" style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 32, alignItems: "start" }}>
               <div className="col" style={{ gap: 20 }}>
-                <Field label="Topics" hint="Press Enter to add. 1–5 topics works best.">
+                <Field label="Topics" hint="Press Enter to add. Suggestions appear from existing topics.">
                   <div className="row">
-                    <input
-                      className="input"
-                      placeholder='e.g. "free will" or "climate policy"'
-                      value={topicInput}
-                      onChange={e => setTopicInput(e.target.value)}
-                      onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); addTopic(); } }}
-                    />
-                    <Btn variant="outline" onClick={addTopic} icon={<Icons.Plus size={13} />}>Add</Btn>
+                    <div style={{ flex: 1, position: "relative" }}>
+                      <input
+                        className="input"
+                        placeholder='e.g. "free will" or "climate policy"'
+                        value={topicInput}
+                        onChange={e => {
+                          const val = e.target.value;
+                          setTopicInput(val);
+                          if (val.trim().length < 1) { setSuggestions([]); return; }
+                          const q = val.toLowerCase();
+                          setSuggestions(
+                            allTopics
+                              .filter(t =>
+                                t.title.toLowerCase().includes(q) &&
+                                !topics.some(x => x.toLowerCase() === t.title.toLowerCase())
+                              )
+                              .slice(0, 6)
+                          );
+                        }}
+                        onKeyDown={e => {
+                          if (e.key === "Enter") { e.preventDefault(); addTopic(); }
+                          if (e.key === "Escape") setSuggestions([]);
+                        }}
+                        onBlur={() => setTimeout(() => setSuggestions([]), 150)}
+                      />
+                      {suggestions.length > 0 && (
+                        <div style={{
+                          position: "absolute", top: "100%", left: 0, right: 0, zIndex: 20,
+                          background: "var(--bg-1)", border: "1px solid var(--border-1)",
+                          borderRadius: "var(--r-card)", marginTop: 4,
+                          boxShadow: "0 4px 16px rgba(0,0,0,0.25)", overflow: "hidden",
+                        }}>
+                          {suggestions.map(t => (
+                            <button
+                              key={t.id}
+                              type="button"
+                              onMouseDown={() => addTopic(t.title)}
+                              style={{
+                                width: "100%", textAlign: "left", padding: "8px 12px",
+                                background: "transparent", border: 0, color: "var(--fg-0)",
+                                fontSize: 13, cursor: "pointer", display: "flex",
+                                alignItems: "center", gap: 8, borderBottom: "1px solid var(--border-0)",
+                              }}
+                              onMouseEnter={e => e.currentTarget.style.background = "var(--bg-2)"}
+                              onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+                            >
+                              <Icons.Hash size={12} style={{ color: "var(--accent)", flexShrink: 0 }} />
+                              <span style={{ flex: 1 }}>{t.title}</span>
+                              <span style={{ fontSize: 11, color: "var(--fg-3)", fontFamily: "var(--font-mono)" }}>existing</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <Btn variant="outline" onClick={() => addTopic()} icon={<Icons.Plus size={13} />}>Add</Btn>
                   </div>
                   {topics.length > 0 && (
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
-                      {topics.map(t => (
-                        <span key={t} className="tag-chip active" style={{ height: 26, padding: "0 4px 0 10px" }}>
-                          {t}
-                          <button
-                            onClick={() => removeTopic(t)}
-                            className="btn btn-icon btn-icon-sm btn-ghost"
-                            style={{ height: 20, width: 20, marginLeft: 2 }}
-                          >
-                            <Icons.X size={11} />
-                          </button>
-                        </span>
-                      ))}
+                      {topics.map(t => {
+                        const isExisting = allTopics.some(x => x.title.toLowerCase() === t.toLowerCase());
+                        return (
+                          <span key={t} className="tag-chip active" style={{ height: 26, padding: "0 4px 0 10px" }}>
+                            {isExisting && (
+                              <Icons.Check size={10} sw={2.5} style={{ color: "var(--ok)", marginRight: 3 }} title="Existing topic" />
+                            )}
+                            {t}
+                            <button
+                              onClick={() => removeTopic(t)}
+                              className="btn btn-icon btn-icon-sm btn-ghost"
+                              style={{ height: 20, width: 20, marginLeft: 2 }}
+                            >
+                              <Icons.X size={11} />
+                            </button>
+                          </span>
+                        );
+                      })}
                     </div>
                   )}
                 </Field>

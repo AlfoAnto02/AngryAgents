@@ -334,19 +334,24 @@ def ui_create_chat(
         raise HTTPException(status_code=422, detail="No valid participants")
 
     display_title = body.topics[0] if body.topics else "Untitled session"
-    # Topic.Title is UNIQUE — append ms timestamp to avoid collisions
-    unique_title = f"{display_title}__{int(_time.time() * 1000)}"
     meta_json = json.dumps({
         "topics": body.topics,
         "tone": body.tone,
         "title": display_title,
     })
 
-    cur = db.execute(
-        "INSERT INTO Topic (Title, Description, Created_by) VALUES (?, ?, ?)",
-        (unique_title, meta_json, current_user.id),
-    )
-    topic_id = cur.lastrowid
+    existing_topic = db.execute(
+        "SELECT id FROM Topic WHERE lower(Title) = lower(?) AND deleted_at IS NULL",
+        (display_title,),
+    ).fetchone()
+    if existing_topic:
+        topic_id = existing_topic["id"]
+    else:
+        cur = db.execute(
+            "INSERT INTO Topic (Title, Description, Created_by) VALUES (?, ?, ?)",
+            (display_title, meta_json, current_user.id),
+        )
+        topic_id = cur.lastrowid
 
     cur = db.execute(
         "INSERT INTO Group_chat (ID_topic, Created_by) VALUES (?, ?)",
@@ -435,14 +440,20 @@ def create_chat_for_llm(
         raise HTTPException(status_code=422, detail="No valid participants")
 
     display_title = body.topics[0] if body.topics else "Untitled session"
-    unique_title = f"{display_title}__{int(_time.time() * 1000)}"
     meta_json = json.dumps({"topics": body.topics, "tone": body.tone, "title": display_title})
 
-    cur = db.execute(
-        "INSERT INTO Topic (Title, Description, Created_by) VALUES (?, ?, ?)",
-        (unique_title, meta_json, body.created_by),
-    )
-    topic_id = cur.lastrowid
+    existing_topic = db.execute(
+        "SELECT id FROM Topic WHERE lower(Title) = lower(?) AND deleted_at IS NULL",
+        (display_title,),
+    ).fetchone()
+    if existing_topic:
+        topic_id = existing_topic["id"]
+    else:
+        cur = db.execute(
+            "INSERT INTO Topic (Title, Description, Created_by) VALUES (?, ?, ?)",
+            (display_title, meta_json, body.created_by),
+        )
+        topic_id = cur.lastrowid
 
     cur = db.execute(
         "INSERT INTO Group_chat (ID_topic, Created_by) VALUES (?, ?)",

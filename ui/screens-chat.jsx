@@ -2,17 +2,178 @@
 
 function ChatSidebar({ chats, activeId, onSelect, onNewDM, onNewGroup, role, isOpen }) {
   const { byId } = window.useAgents();
+  const [searchQ, setSearchQ] = React.useState("");
+  const [topicQ, setTopicQ] = React.useState("");
+  const [agentQ, setAgentQ] = React.useState("");
+  const [topicSugg, setTopicSugg] = React.useState([]);
+  const [agentSugg, setAgentSugg] = React.useState([]);
+
+  // Unique topics that appear in at least one chat
+  const allChatTopics = React.useMemo(() => {
+    const s = new Set();
+    chats.forEach(c => (c.topics || []).forEach(t => t && s.add(t)));
+    return [...s].sort((a, b) => a.localeCompare(b));
+  }, [chats]);
+
+  // Unique agents that appear in at least one chat
+  const allChatAgents = React.useMemo(() => {
+    const map = new Map();
+    chats.forEach(c =>
+      (c.participants || []).forEach(id => {
+        if (!map.has(id)) { const p = byId(id); if (p) map.set(id, p); }
+      })
+    );
+    return [...map.values()].sort((a, b) => a.name.localeCompare(b.name));
+  }, [chats]);
+
+  const filtered = React.useMemo(() => {
+    return chats.filter(c => {
+      if (searchQ && !c.title.toLowerCase().includes(searchQ.toLowerCase())) return false;
+      if (topicQ) {
+        const q = topicQ.toLowerCase();
+        if (!(c.topics || []).some(t => t.toLowerCase().includes(q))) return false;
+      }
+      if (agentQ) {
+        const q = agentQ.toLowerCase();
+        const names = (c.participants || []).map(id => byId(id)?.name || "").join(" ").toLowerCase();
+        if (!names.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [chats, searchQ, topicQ, agentQ]);
+
+  const activeFilters = (topicQ ? 1 : 0) + (agentQ ? 1 : 0);
+
+  const filterInputStyle = {
+    width: "100%", height: 28, padding: "0 8px 0 28px",
+    background: "var(--bg-2)", border: "1px solid var(--border-0)",
+    borderRadius: "var(--r-input)", color: "var(--fg-0)",
+    fontSize: 12, outline: "none", fontFamily: "inherit",
+  };
+  const filterIconStyle = {
+    position: "absolute", left: 8, top: "50%",
+    transform: "translateY(-50%)", color: "var(--fg-3)", pointerEvents: "none",
+  };
+  const suggBoxStyle = {
+    position: "absolute", top: "100%", left: 0, right: 0, zIndex: 30,
+    background: "var(--bg-1)", border: "1px solid var(--border-1)",
+    borderRadius: "var(--r-card)", marginTop: 2,
+    boxShadow: "0 4px 12px rgba(0,0,0,0.25)", overflow: "hidden",
+  };
+  const suggItemStyle = {
+    width: "100%", textAlign: "left", padding: "6px 10px",
+    background: "transparent", border: 0, color: "var(--fg-0)",
+    fontSize: 12, cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
+  };
+
   return (
     <aside className={`chat-sidebar${isOpen ? " open" : ""}`}>
       <div className="chat-sidebar-head">
         <div className="t-eyebrow" style={{ flex: 1 }}>Conversations</div>
-        <span className="badge">{chats.length}</span>
+        {activeFilters > 0 && (
+          <span className="badge badge-accent" style={{ marginRight: 4 }}>{activeFilters} filter{activeFilters > 1 ? "s" : ""}</span>
+        )}
+        <span className="badge">{filtered.length}{filtered.length !== chats.length ? `/${chats.length}` : ""}</span>
       </div>
       <div className="chat-sidebar-search">
+        {/* Title search */}
         <div className="lib-search">
           <span className="lib-search-icon"><Icons.Search size={13} /></span>
-          <input className="input" placeholder="Search chats…" style={{ height: 32, fontSize: 12 }} />
+          <input
+            className="input"
+            placeholder="Search chats…"
+            value={searchQ}
+            onChange={e => setSearchQ(e.target.value)}
+            style={{ height: 32, fontSize: 12 }}
+          />
+          {searchQ && (
+            <button
+              style={{ position: "absolute", right: 6, top: "50%", transform: "translateY(-50%)", background: "none", border: 0, cursor: "pointer", color: "var(--fg-3)", padding: 2 }}
+              onMouseDown={() => setSearchQ("")}
+            >
+              <Icons.X size={11} />
+            </button>
+          )}
         </div>
+
+        {/* Topic filter */}
+        <div style={{ position: "relative", marginTop: 6 }}>
+          <span style={filterIconStyle}><Icons.Hash size={11} /></span>
+          <input
+            style={{ ...filterInputStyle, borderColor: topicQ ? "var(--accent-border)" : "var(--border-0)" }}
+            placeholder="Filter by topic…"
+            value={topicQ}
+            onChange={e => {
+              const v = e.target.value;
+              setTopicQ(v);
+              setTopicSugg(v.trim() ? allChatTopics.filter(t => t.toLowerCase().includes(v.toLowerCase())).slice(0, 5) : []);
+            }}
+            onBlur={() => setTimeout(() => setTopicSugg([]), 150)}
+            onKeyDown={e => { if (e.key === "Escape") { setTopicQ(""); setTopicSugg([]); } }}
+          />
+          {topicQ && (
+            <button
+              style={{ position: "absolute", right: 6, top: "50%", transform: "translateY(-50%)", background: "none", border: 0, cursor: "pointer", color: "var(--fg-3)", padding: 2 }}
+              onMouseDown={() => { setTopicQ(""); setTopicSugg([]); }}
+            >
+              <Icons.X size={10} />
+            </button>
+          )}
+          {topicSugg.length > 0 && (
+            <div style={suggBoxStyle}>
+              {topicSugg.map(t => (
+                <button key={t} style={suggItemStyle} type="button"
+                  onMouseEnter={e => e.currentTarget.style.background = "var(--bg-2)"}
+                  onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+                  onMouseDown={() => { setTopicQ(t); setTopicSugg([]); }}
+                >
+                  <Icons.Hash size={10} style={{ color: "var(--accent)", flexShrink: 0 }} />
+                  {t}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Agent filter */}
+        <div style={{ position: "relative", marginTop: 6 }}>
+          <span style={filterIconStyle}><Icons.User size={11} /></span>
+          <input
+            style={{ ...filterInputStyle, borderColor: agentQ ? "var(--accent-border)" : "var(--border-0)" }}
+            placeholder="Filter by character…"
+            value={agentQ}
+            onChange={e => {
+              const v = e.target.value;
+              setAgentQ(v);
+              setAgentSugg(v.trim() ? allChatAgents.filter(p => p.name.toLowerCase().includes(v.toLowerCase())).slice(0, 5) : []);
+            }}
+            onBlur={() => setTimeout(() => setAgentSugg([]), 150)}
+            onKeyDown={e => { if (e.key === "Escape") { setAgentQ(""); setAgentSugg([]); } }}
+          />
+          {agentQ && (
+            <button
+              style={{ position: "absolute", right: 6, top: "50%", transform: "translateY(-50%)", background: "none", border: 0, cursor: "pointer", color: "var(--fg-3)", padding: 2 }}
+              onMouseDown={() => { setAgentQ(""); setAgentSugg([]); }}
+            >
+              <Icons.X size={10} />
+            </button>
+          )}
+          {agentSugg.length > 0 && (
+            <div style={suggBoxStyle}>
+              {agentSugg.map(p => (
+                <button key={p.id} style={suggItemStyle} type="button"
+                  onMouseEnter={e => e.currentTarget.style.background = "var(--bg-2)"}
+                  onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+                  onMouseDown={() => { setAgentQ(p.name); setAgentSugg([]); }}
+                >
+                  <Avatar persona={p} size="xs" />
+                  {p.name}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
         <div className="row" style={{ gap: 6, marginTop: 8 }}>
           <Btn variant="primary" size="sm" block icon={<Icons.Plus size={12} sw={2.5} />} onClick={onNewDM}>
             New DM
@@ -23,7 +184,12 @@ function ChatSidebar({ chats, activeId, onSelect, onNewDM, onNewGroup, role, isO
         </div>
       </div>
       <div className="chat-list">
-        {chats.map(c => {
+        {filtered.length === 0 && (
+          <div style={{ padding: "24px 16px", textAlign: "center", color: "var(--fg-3)", fontSize: 12 }}>
+            No chats match these filters.
+          </div>
+        )}
+        {filtered.map(c => {
           const personas = c.participants.map(id => byId(id)).filter(Boolean);
           return (
             <div
