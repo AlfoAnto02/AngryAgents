@@ -2,7 +2,7 @@
 metrics_group.py — Group fidelity metrics.
 
 Inputs:
-  transcript_meta : transcript_meta.json from simulate_transcript.py
+  transcript_meta : transcript_meta dict (speaker_stats per persona)
   transcript      : transcript.jsonl (one JSON object per line)
   author_map      : author_map.json {author_tag: persona_id}
   embeddings_path : optional JSON {author_tag: [float, ...]} pre-computed embeddings
@@ -32,7 +32,16 @@ import numpy as np
 from scipy.stats import spearmanr
 
 from angry_agents.src.eval.bootstrap import bootstrap_ci
-from angry_agents.src.eval.simulate_transcript import gini as _gini
+
+
+def _gini(counts: list[float] | np.ndarray) -> float:
+    """Gini coefficient of a distribution. 0 = equal, 1 = one agent dominates."""
+    arr = np.sort(np.asarray(counts, dtype=float))
+    n = len(arr)
+    if n == 0 or arr.sum() == 0:
+        return 0.0
+    idx = np.arange(1, n + 1)
+    return float((2 * np.dot(idx, arr)) / (n * arr.sum()) - (n + 1) / n)
 
 
 REAL_CHAT_GINI_LO = 0.28
@@ -213,11 +222,7 @@ def run(
             result["spearman_vs_reference"] = {"note": "no reference matrix provided — skip Spearman"}
     else:
         result["cosine_distance_matrix"] = {
-            "note": (
-                "embeddings not provided. Generate with: "
-                "python -m angry_agents.src.eval.simulate_transcript "
-                "--embed-model nomic-embed-text"
-            )
+            "note": "embeddings not provided — pass embeddings_path to enable cosine distance matrix"
         }
         result["spearman_vs_reference"] = {"note": "requires embeddings"}
 

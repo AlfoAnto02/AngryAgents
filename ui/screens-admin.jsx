@@ -668,6 +668,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
             <ReportIndividualFidelity
               group={EVAL_GROUPS[1]}
               rows={report.fidelityRows.map(r => ({ ...r, persona: byId(r.personaId) })).filter(r => r.persona)}
+              judgeTypeAgreement={report.judgeTypeAgreement || { medians: {}, mad: {} }}
             />
           )}
           {stage === "done" && report && tab === "group_fidelity" && (
@@ -887,7 +888,12 @@ function ReportPersonaID({ group, accuracy, ciLow, ciHigh, pValue, cohenKappa, m
   );
 }
 
-function ReportIndividualFidelity({ group, rows }) {
+function ReportIndividualFidelity({ group, rows, judgeTypeAgreement }) {
+  const medians = judgeTypeAgreement?.medians || {};
+  const mad = judgeTypeAgreement?.mad || {};
+  const judgeTypes = Object.keys(medians);
+  const madPairs = Object.entries(mad);
+
   return (
     <>
       <ReportHeader group={group} />
@@ -936,6 +942,47 @@ function ReportIndividualFidelity({ group, rows }) {
           ))}
         </tbody>
       </table>
+
+      {judgeTypes.length > 0 && (
+        <div style={{ marginTop: 28 }}>
+          <div className="t-eyebrow" style={{ marginBottom: 12 }}>Judge type agreement</div>
+          <div className="metric-row" style={{ marginBottom: 20 }}>
+            {judgeTypes.map(jt => (
+              <MetricStat
+                key={jt}
+                label={jt.charAt(0).toUpperCase() + jt.slice(1)}
+                value={medians[jt].toFixed(2)}
+                sub="median score"
+              />
+            ))}
+          </div>
+          {madPairs.length > 0 && (
+            <table className="table" style={{ maxWidth: 480 }}>
+              <thead>
+                <tr>
+                  <th>Judge pair</th>
+                  <th style={{ width: 120 }}>MAD</th>
+                  <th style={{ width: 120 }}>Agreement</th>
+                </tr>
+              </thead>
+              <tbody>
+                {madPairs.map(([pair, val]) => {
+                  const badgeCls = val <= 0.3 ? "badge-ok" : val <= 0.6 ? "badge-admin" : "badge-danger";
+                  const label = val <= 0.3 ? "High" : val <= 0.6 ? "Moderate" : "Low";
+                  return (
+                    <tr key={pair}>
+                      <td className="mono" style={{ fontSize: 12 }}>{pair.replace(/_vs_/g, " vs ")}</td>
+                      <td className="col-mono">{val.toFixed(3)}</td>
+                      <td><span className={`badge ${badgeCls}`}>{label}</span></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
+        </div>
+      )}
+
       <PropsList group={group} />
     </>
   );

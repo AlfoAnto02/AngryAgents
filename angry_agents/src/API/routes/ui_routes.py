@@ -834,6 +834,13 @@ def _build_ui_report(
             "ciH": float(ci[1]),
         })
 
+    # ── Individual fidelity — judge type agreement ───────────────
+    jta = fid_result.get("individual_fidelity", {}).get("judge_type_agreement", {})
+    judge_type_agreement = {
+        "medians": {k: round(float(v), 4) for k, v in (jta.get("judge_median_scores") or {}).items()},
+        "mad": {k: round(float(v), 4) for k, v in (jta.get("mad_between_types") or {}).items()},
+    }
+
     # ── Group fidelity ───────────────────────────────────────────
     gini_data = grp_result.get("group_fidelity", {}).get("gini", {})
     gini = float(gini_data.get("gini") or 0.0)
@@ -883,6 +890,7 @@ def _build_ui_report(
         "cm": cm,
         "cmLabels": cm_labels,
         "fidelityRows": fidelity_rows,
+        "judgeTypeAgreement": judge_type_agreement,
         "gini": gini,
         "giniZ": gini_z,
         "giniCI": [float(gini_ci_raw[0]), float(gini_ci_raw[1])],
