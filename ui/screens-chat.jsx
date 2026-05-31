@@ -1,9 +1,9 @@
 // screens-chat.jsx — Active chat interface
 
-function ChatSidebar({ chats, activeId, onSelect, onNewDM, onNewGroup, role }) {
+function ChatSidebar({ chats, activeId, onSelect, onNewDM, onNewGroup, role, isOpen }) {
   const { byId } = window.useAgents();
   return (
-    <aside className="chat-sidebar">
+    <aside className={`chat-sidebar${isOpen ? " open" : ""}`}>
       <div className="chat-sidebar-head">
         <div className="t-eyebrow" style={{ flex: 1 }}>Conversations</div>
         <span className="badge">{chats.length}</span>
@@ -100,6 +100,9 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
   const [draft, setDraft] = React.useState("");
   const [sending, setSending] = React.useState(false);
   const [chatStatus, setChatStatus] = React.useState("pending");
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+  const [infoOpen, setInfoOpen] = React.useState(false);
+  const [profilePersona, setProfilePersona] = React.useState(null);
   const scrollRef = React.useRef(null);
   // True when the user is within 100px of the bottom — used to decide whether
   // to auto-scroll on new messages. We use a ref (not state) so the scroll
@@ -201,22 +204,38 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
 
   return (
     <div className="chat-shell" data-screen-label="active-chat">
+      {sidebarOpen && (
+        <div className="mobile-overlay open" onClick={() => setSidebarOpen(false)} />
+      )}
       <ChatSidebar
         chats={chats}
         activeId={chat.id}
-        onSelect={onSelectChat}
+        onSelect={(id) => { onSelectChat(id); setSidebarOpen(false); }}
         onNewDM={onNewDM}
         onNewGroup={onNewGroup}
         role={role}
+        isOpen={sidebarOpen}
       />
       <main className="chat-main">
         <header className="chat-header">
-          {chat.type === "group" ? (
-            <AvatarStack personas={personas} size="md" max={4} />
-          ) : (
-            <Avatar persona={personas[0]} size="md" />
-          )}
-          <div className="chat-header-info">
+          <button
+            className="btn btn-ghost btn-icon topnav-hamburger"
+            onClick={() => setSidebarOpen(o => !o)}
+            title="Show conversations"
+          >
+            <Icons.Menu size={20} />
+          </button>
+          <button
+            className="chat-header-id"
+            onClick={() => setInfoOpen(true)}
+            title="Informazioni chat"
+          >
+            {chat.type === "group" ? (
+              <AvatarStack personas={personas} size="md" max={4} />
+            ) : (
+              <Avatar persona={personas[0]} size="md" />
+            )}
+            <div className="chat-header-info">
             <div className="chat-header-title">{chat.title}</div>
             <div className="chat-header-sub">
               {chat.type === "group" ? (
@@ -255,6 +274,8 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
               )}
             </div>
           </div>
+          <Icons.ChevronDown size={14} style={{ color: "var(--fg-3)", flexShrink: 0 }} />
+          </button>
           <div className="row" style={{ gap: 6 }}>
             {chat.type === "group" && chatStatus === "running" && (
               <Btn
@@ -320,6 +341,68 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
           </div>
         </footer>
       </main>
+
+      <Modal
+        open={infoOpen}
+        onClose={() => setInfoOpen(false)}
+        width="440px"
+        title={<span><Icons.Info size={15} style={{ verticalAlign: "-2px", marginRight: 8 }} />Informazioni chat</span>}
+      >
+        <div className="col" style={{ gap: 18 }}>
+          <div>
+            <div className="t-eyebrow" style={{ marginBottom: 6 }}>Titolo</div>
+            <div style={{ fontSize: 16, fontWeight: 600 }}>{chat.title}</div>
+          </div>
+          <div className="row" style={{ flexWrap: "wrap", gap: 6 }}>
+            <span className="badge badge-accent">{chat.type === "group" ? "Gruppo" : "Messaggio diretto"}</span>
+            <span className="badge">{chat.tone || "Debate"}</span>
+            {chatStatus === "running" && <span className="badge badge-ok badge-dot">Live</span>}
+            {chatStatus === "stopped" && <span className="badge badge-dot">In pausa</span>}
+            {chatStatus === "done" && <span className="badge badge-dot">Conclusa</span>}
+          </div>
+          {chat.topics?.length > 0 && (
+            <div>
+              <div className="t-eyebrow" style={{ marginBottom: 8 }}>{chat.topics.length > 1 ? "Argomenti" : "Argomento"}</div>
+              <div className="row" style={{ flexWrap: "wrap", gap: 6 }}>
+                {chat.topics.map(t => (
+                  <span key={t} className="tag-chip"><span style={{ opacity: 0.6 }}>#</span>{t}</span>
+                ))}
+              </div>
+            </div>
+          )}
+          <div>
+            <div className="t-eyebrow" style={{ marginBottom: 8 }}>
+              {personas.length} partecipant{personas.length === 1 ? "e" : "i"}
+            </div>
+            <div className="col" style={{ gap: 6 }}>
+              {personas.map(p => (
+                <button
+                  key={p.id}
+                  className="chat-info-participant"
+                  onClick={() => { setInfoOpen(false); setProfilePersona(p); }}
+                  title={`Apri il profilo di ${p.name}`}
+                >
+                  <Avatar persona={p} size="md" />
+                  <div style={{ flex: 1, minWidth: 0, textAlign: "left" }}>
+                    <div className="mono" style={{ fontWeight: 600, fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.name}</div>
+                    <div className="t-meta" style={{ fontSize: 12, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {p.source_title || (p.source_type === "fiction" ? "Personaggio di fantasia" : "Persona reale")}
+                    </div>
+                  </div>
+                  <Icons.ChevronRight size={14} style={{ color: "var(--fg-3)", flexShrink: 0 }} />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+      {profilePersona && (
+        <AgentProfileModal
+          persona={profilePersona}
+          onClose={() => setProfilePersona(null)}
+        />
+      )}
     </div>
   );
 }

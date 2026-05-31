@@ -285,102 +285,121 @@ function ThemeToggle() {
 //   - Regular users see Home / Agents / Chats / New.
 function TopNav({ role, userRole, page, onNav, user, onLogout }) {
   const isAdmin = role === "admin";
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNav = (target) => {
+    setMenuOpen(false);
+    onNav(target);
+  };
+
   return (
-    <header className="topnav">
-      <button
-        className="topnav-brand"
-        onClick={() => onNav(isAdmin ? "admin" : "home")}
-        style={{ background: "transparent", border: 0, color: "inherit", cursor: "pointer", padding: 0, font: "inherit" }}
-        title="Home"
-      >
-        <BrandMark />
-      </button>
+    <>
+      {menuOpen && <div className="mobile-overlay open" onClick={() => setMenuOpen(false)} />}
+      <header className="topnav">
+        <button
+          className="topnav-brand"
+          onClick={() => handleNav(isAdmin ? "admin" : "home")}
+          style={{ background: "transparent", border: 0, color: "inherit", cursor: "pointer", padding: 0, font: "inherit" }}
+          title="Home"
+        >
+          <BrandMark />
+        </button>
 
-      <nav className="topnav-nav">
-        {!isAdmin && (
-          <>
-            <button
-              className={`topnav-nav-item ${page === "home" ? "active" : ""}`}
-              onClick={() => onNav("home")}
-            >
-              <Icons.Sparkles size={14} /> Home
-            </button>
-            <button
-              className={`topnav-nav-item ${page === "library" ? "active" : ""}`}
-              onClick={() => onNav("library")}
-            >
-              <Icons.Library size={14} /> Agents
-            </button>
-            <button
-              className={`topnav-nav-item ${["chat", "newdm", "newgroup"].includes(page) ? "active" : ""}`}
-              onClick={() => onNav("chat")}
-            >
-              <Icons.MessageDots size={14} /> Chats
-            </button>
-            <button
-              className={`topnav-nav-item`}
-              onClick={() => onNav("newgroup")}
-              style={{ marginLeft: 8, color: "var(--accent)" }}
-            >
-              <Icons.Plus size={13} sw={2.5} /> New
-            </button>
-          </>
-        )}
-        {isAdmin && (
-          <>
-            <button
-              className={`topnav-nav-item ${page === "admin" ? "active" : ""}`}
-              onClick={() => onNav("admin")}
-            >
-              <Icons.Shield size={14} /> Dashboard
-            </button>
-            <button
-              className={`topnav-nav-item ${page === "chat" ? "active" : ""}`}
-              onClick={() => onNav("chat")}
-              title="Open any chat and send messages as a participant"
-            >
-              <Icons.MessageDots size={14} /> Chats
-            </button>
-            <button
-              className={`topnav-nav-item ${page === "newgroup" ? "active" : ""}`}
-              onClick={() => onNav("newgroup")}
-              style={{ marginLeft: 8, color: "var(--admin)" }}
-              title="Create a new group chat session"
-            >
-              <Icons.Users size={13} /> New group
-            </button>
-            <button
-              className={`topnav-nav-item ${page === "newdm" ? "active" : ""}`}
-              onClick={() => onNav("newdm")}
-              style={{ color: "var(--admin)" }}
-              title="Create a new 1:1 chat with an agent"
-            >
-              <Icons.User size={13} /> New DM
-            </button>
-          </>
-        )}
-      </nav>
+        <button
+          className="btn btn-ghost btn-icon topnav-hamburger"
+          onClick={() => setMenuOpen(o => !o)}
+          title={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <Icons.X size={20} /> : <Icons.Menu size={20} />}
+        </button>
 
-      <div className="topnav-spacer" />
+        <nav className={`topnav-nav${menuOpen ? " open" : ""}`}>
+          {!isAdmin && (
+            <>
+              <button
+                className={`topnav-nav-item ${page === "home" ? "active" : ""}`}
+                onClick={() => handleNav("home")}
+              >
+                <Icons.Sparkles size={14} /> Home
+              </button>
+              <button
+                className={`topnav-nav-item ${page === "library" ? "active" : ""}`}
+                onClick={() => handleNav("library")}
+              >
+                <Icons.Library size={14} /> Agents
+              </button>
+              <button
+                className={`topnav-nav-item ${["chat", "newdm", "newgroup"].includes(page) ? "active" : ""}`}
+                onClick={() => handleNav("chat")}
+              >
+                <Icons.MessageDots size={14} /> Chats
+              </button>
+              <button
+                className={`topnav-nav-item`}
+                onClick={() => handleNav("newgroup")}
+                style={{ marginLeft: 8, color: "var(--accent)" }}
+              >
+                <Icons.Plus size={13} sw={2.5} /> New
+              </button>
+            </>
+          )}
+          {isAdmin && (
+            <>
+              <button
+                className={`topnav-nav-item ${page === "admin" ? "active" : ""}`}
+                onClick={() => handleNav("admin")}
+              >
+                <Icons.Shield size={14} /> Dashboard
+              </button>
+              <button
+                className={`topnav-nav-item ${page === "chat" ? "active" : ""}`}
+                onClick={() => handleNav("chat")}
+                title="Open any chat and send messages as a participant"
+              >
+                <Icons.MessageDots size={14} /> Chats
+              </button>
+              <button
+                className={`topnav-nav-item ${page === "newgroup" ? "active" : ""}`}
+                onClick={() => handleNav("newgroup")}
+                style={{ marginLeft: 8, color: "var(--admin)" }}
+                title="Create a new group chat session"
+              >
+                <Icons.Users size={13} /> New group
+              </button>
+              <button
+                className={`topnav-nav-item ${page === "newdm" ? "active" : ""}`}
+                onClick={() => handleNav("newdm")}
+                style={{ color: "var(--admin)" }}
+                title="Create a new 1:1 chat with an agent"
+              >
+                <Icons.User size={13} /> New DM
+              </button>
+            </>
+          )}
+        </nav>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 10, paddingLeft: 6 }}>
-        <span className={`badge ${isAdmin ? "badge-admin" : "badge-accent"} badge-dot`}>
-          {isAdmin ? "Admin" : "User"}
-        </span>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <Avatar
-            persona={{ name: user.name, color: isAdmin ? "var(--admin)" : "var(--accent)" }}
-            size="sm"
-          />
-          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
-            <span style={{ fontSize: 12, fontWeight: 500 }}>{user.name}</span>
-            <span style={{ fontSize: 10.5, color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>{user.handle}</span>
+        <div className="topnav-spacer" />
+
+        <div style={{ display: "flex", alignItems: "center", gap: 10, paddingLeft: 6 }}>
+          <span className={`topnav-role-badge badge ${isAdmin ? "badge-admin" : "badge-accent"} badge-dot`}>
+            {isAdmin ? "Admin" : "User"}
+          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <Avatar
+              persona={{ name: user.name, color: isAdmin ? "var(--admin)" : "var(--accent)" }}
+              size="sm"
+            />
+            <div className="topnav-user-text">
+              <span style={{ fontSize: 12, fontWeight: 500 }}>{user.name}</span>
+              <span style={{ fontSize: 10.5, color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>{user.handle}</span>
+            </div>
           </div>
+          <ThemeToggle />
+          <IconBtn icon={<Icons.Logout size={14} />} onClick={onLogout} title="Sign out" />
         </div>
-        <ThemeToggle />
-        <IconBtn icon={<Icons.Logout size={14} />} onClick={onLogout} title="Sign out" />
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 

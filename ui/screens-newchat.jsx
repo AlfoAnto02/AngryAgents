@@ -199,7 +199,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
               Add one or more topics. The agents will weave between them — the more pointed, the better.
             </p>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 32, alignItems: "start" }}>
+            <div className="wizard-step2-grid" style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 32, alignItems: "start" }}>
               <div className="col" style={{ gap: 20 }}>
                 <Field label="Topics" hint="Press Enter to add. 1–5 topics works best.">
                   <div className="row">

@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component {
 }
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "userAccent": "#EA580C",
+  "userAccent": "#7C3AED",
   "adminAccent": "#F59E0B",
   "density": "regular",
   "showSystemMessages": true,
@@ -26,7 +26,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 }/*EDITMODE-END*/;
 
 // User accent — orange family, matching the warmth of the app icon.
-const ACCENT_OPTIONS = ["#EA580C", "#F97316", "#DC2626", "#B45309"];
+const ACCENT_OPTIONS = ["#7C3AED", "#8B5CF6", "#9333EA", "#A21CAF"];
 const ADMIN_OPTIONS = ["#F59E0B", "#EC4899", "#06B6D4", "#A78BFA"];
 
 function App() {

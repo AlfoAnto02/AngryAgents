@@ -5,7 +5,7 @@
 //   • Chat Analytics: removed "Topic mix".
 //   • Added Judging launcher (per-session + a top-level CTA) with a full report modal.
 
-function AdminSidebar({ section, onSelect }) {
+function AdminSidebar({ section, onSelect, isOpen }) {
   const items = [
     { id: "overview", label: "Overview", icon: <Icons.ChartBar size={14} /> },
     { id: "analytics", label: "Chat Analytics", icon: <Icons.ChartLine size={14} /> },
@@ -15,7 +15,7 @@ function AdminSidebar({ section, onSelect }) {
     { id: "export", label: "Export", icon: <Icons.Download size={14} /> },
   ];
   return (
-    <aside className="admin-sidebar">
+    <aside className={`admin-sidebar${isOpen ? " open" : ""}`}>
       <div className="admin-sidebar-head">
         <Icons.Shield size={14} sw={2} style={{ color: "var(--admin)" }} />
         <div>
@@ -1079,6 +1079,7 @@ function ReportDeliberation({ group, convergenceRate, convCIL, convCIH, pearson,
 
 // ─── Admin shell ─────────────────────────────────────────────
 function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpenChat }) {
+  const [navOpen, setNavOpen] = React.useState(false);
   const [judging, setJudging] = React.useState(null);
   // sessionId (number) → cached UI report. Pre-loaded from the server on
   // mount so previously judged chats show "View report" after a page reload.
@@ -1103,19 +1104,33 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
 
   return (
     <div className="admin-shell" data-screen-label="admin-dashboard">
-      <AdminSidebar section={section} onSelect={onSection} />
+      {navOpen && <div className="mobile-overlay open" onClick={() => setNavOpen(false)} />}
+      <AdminSidebar
+        section={section}
+        onSelect={(s) => { onSection(s); setNavOpen(false); }}
+        isOpen={navOpen}
+      />
       <main className="admin-main">
         <div className="admin-header">
-          <div>
-            <div className="t-eyebrow">8 Angry Agents · {section}</div>
-            <h1 className="t-h1" style={{ marginTop: 4 }}>
-              {section === "overview" && "Overview"}
-              {section === "analytics" && "Chat Analytics"}
-              {section === "performance" && "Agent Performance"}
-              {section === "sessions" && "Session Log"}
-              {section === "judging" && "Judging"}
-              {section === "export" && "Export"}
-            </h1>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <button
+              className="btn btn-ghost btn-icon topnav-hamburger"
+              onClick={() => setNavOpen(o => !o)}
+              title="Toggle admin menu"
+            >
+              <Icons.Menu size={20} />
+            </button>
+            <div>
+              <div className="t-eyebrow">8 Angry Agents · {section}</div>
+              <h1 className="t-h1" style={{ marginTop: 4 }}>
+                {section === "overview" && "Overview"}
+                {section === "analytics" && "Chat Analytics"}
+                {section === "performance" && "Agent Performance"}
+                {section === "sessions" && "Session Log"}
+                {section === "judging" && "Judging"}
+                {section === "export" && "Export"}
+              </h1>
+            </div>
           </div>
           <div className="row" style={{ gap: 8 }}>
             <span className="badge badge-admin">
