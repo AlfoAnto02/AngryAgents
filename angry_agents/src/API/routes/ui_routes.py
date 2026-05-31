@@ -173,12 +173,17 @@ def ui_list_agents(db: sqlite3.Connection = Depends(get_db)) -> list:
             summary = json.loads(a["Summary"] or "{}")
         except Exception:
             pass
+        src_type = summary.get("source_type", "fiction")
+        if src_type == "real_world":
+            src_title = summary.get("occupation") or summary.get("source_title") or a["Surname"]
+        else:
+            src_title = summary.get("source_title") or a["Surname"]
         result.append({
             "id": a["ID"],
             "name": f"{a['Name']} {a['Surname']}".strip(),
             "slug": a["Slug"],
-            "source_type": summary.get("source_type", "fiction"),
-            "source_title": summary.get("source_title") or a["Surname"],
+            "source_type": src_type,
+            "source_title": src_title,
             "desc": _extract_desc(summary),
             "tags": _extract_tags(summary),
         })
@@ -198,12 +203,17 @@ def ui_get_agent(agent_id: int, db: sqlite3.Connection = Depends(get_db)) -> dic
         summary = json.loads(row["Summary"] or "{}")
     except Exception:
         pass
+    src_type = summary.get("source_type", "fiction")
+    if src_type == "real_world":
+        src_title = summary.get("occupation") or summary.get("source_title") or row["Surname"]
+    else:
+        src_title = summary.get("source_title") or row["Surname"]
     return {
         "id": row["ID"],
         "name": f"{row['Name']} {row['Surname']}".strip(),
         "slug": row["Slug"],
-        "source_type": summary.get("source_type", "fiction"),
-        "source_title": summary.get("source_title") or row["Surname"],
+        "source_type": src_type,
+        "source_title": src_title,
         "desc": _extract_desc(summary),
         "tags": _extract_tags(summary),
         "profile": summary,
