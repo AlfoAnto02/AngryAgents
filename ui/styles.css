@@ -1146,6 +1146,9 @@ input, textarea, select {
   overflow: hidden;
 }
 
+.table-scroll { overflow-x: auto; max-width: 100%; }
+.table-scroll .table { min-width: 640px; }
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -1671,6 +1674,13 @@ input, textarea, select {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
+  min-width: 0;
+  max-width: 160px;
+}
+.topnav-user-text > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Slide-in drawer backdrop */

@@ -149,6 +149,7 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
       {sessions.length === 0 ? (
         <Empty title="No sessions yet" sub="Sessions appear here once users start chatting." icon={<Icons.Database size={20} />} />
       ) : (
+      <div className="table-scroll">
       <table className="table">
         <thead>
           <tr>
@@ -221,6 +222,7 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
           })}
         </tbody>
       </table>
+      </div>
       )}
     </div>
   );
@@ -278,6 +280,7 @@ function AgentPerformanceSection() {
         <Empty title="No data yet" sub="Performance stats appear after agents participate in chats." icon={<Icons.Brain size={20} />} />
       ) : (
         <div className="card" style={{ overflow: "hidden" }}>
+          <div className="table-scroll">
           <table className="table">
             <thead>
               <tr>
@@ -291,6 +294,7 @@ function AgentPerformanceSection() {
             </thead>
             <tbody>{rows}</tbody>
           </table>
+          </div>
         </div>
       )}
     </>

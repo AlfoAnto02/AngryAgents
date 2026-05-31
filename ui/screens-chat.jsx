@@ -299,8 +299,6 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
                 Riprendi
               </Btn>
             )}
-            <IconBtn icon={<Icons.Sliders size={14} />} title="Session settings" />
-            <IconBtn icon={<Icons.More size={14} />} title="More" />
           </div>
         </header>
 
