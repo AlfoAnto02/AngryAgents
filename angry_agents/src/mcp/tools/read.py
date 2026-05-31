@@ -74,3 +74,45 @@ def register(mcp: FastMCP) -> None:
         """[Tier 1] List all messages in a chat ordered by creation time.
         The author field is an anonymised HMAC token — do not attempt to reverse-engineer it."""
         return await _get(f"/chats/{chat_id}/messages", {"limit": limit, "offset": offset})
+
+    # ── Admin dashboard ───────────────────────────────────────────────────────
+
+    @mcp.tool()
+    async def get_admin_overview() -> dict[str, Any]:
+        """[Tier 1 — Admin] Platform overview: sessions today, active users, avg session, judge confidence."""
+        return await _get("/admin/overview")
+
+    @mcp.tool()
+    async def get_admin_sessions(limit: int = 24) -> list[dict[str, Any]]:
+        """[Tier 1 — Admin] List recent chat sessions with display_id, topic, date, and is_judged flag.
+        Use is_judged to find chats ready for evaluation or already evaluated."""
+        return await _get("/admin/sessions", {"limit": limit})
+
+    @mcp.tool()
+    async def get_admin_agent_performance() -> list[dict[str, Any]]:
+        """[Tier 1 — Admin] Per-agent session count and fidelity metrics."""
+        return await _get("/admin/agent-performance")
+
+    # ── Judge evaluation ──────────────────────────────────────────────────────
+
+    @mcp.tool()
+    async def get_judged_chats() -> dict[str, Any]:
+        """[Tier 1 — Admin] Return all chats that have a completed evaluation report.
+        Keys are chat IDs (as strings). Each value is the full ui_report with accuracy,
+        fidelityRows, gini, confusion matrix, etc."""
+        return await _get("/admin/judged-chats")
+
+    @mcp.tool()
+    async def get_judge_result(chat_id: int) -> dict[str, Any]:
+        """[Tier 1 — Admin] Return the evaluation report for a single chat.
+        Contains: accuracy, ciLow, ciHigh, pValue, cohenKappa, macroF1, prfRows,
+        fidelityRows (mean/median/IQR/CI per persona), gini, giniZ, giniCI, turnShares, cm, cmLabels.
+        Raises 404 if judging has not completed for this chat."""
+        return await _get(f"/admin/judged-chats/{chat_id}")
+
+    @mcp.tool()
+    async def get_judge_status(chat_id: int) -> dict[str, Any]:
+        """[Tier 1 — Admin] Poll the judging job status for a chat without blocking.
+        Returns: status ('not_started' | 'running' | 'done' | 'error'), progress (0–100), error (str | null).
+        Call repeatedly until status='done', then use get_judge_result to fetch the full report."""
+        return await _get(f"/admin/judge-chat/{chat_id}/status")
