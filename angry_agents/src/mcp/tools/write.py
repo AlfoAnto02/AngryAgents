@@ -184,3 +184,34 @@ def register(mcp: FastMCP) -> None:
         Call ONLY after user confirmed the preview.
         The background agent conversation loop will halt within its next iteration (~0.5s)."""
         return await _patch(f"/chats/{chat_id}", {"status": "stopped"})
+
+    # ── start_judging ─────────────────────────────────────────────────────────
+
+    @mcp.tool()
+    async def preview_start_judging(chat_id: int) -> dict[str, Any]:
+        """[Tier 2 — PREVIEW] Show what will happen before starting the judge evaluation pipeline.
+        WARNING: Judging runs 20 LLM judges against all chat messages — costs ~$0.40 and takes ~9 minutes.
+        Display this to the user and ask for explicit 'yes' before calling confirm_start_judging."""
+        return {
+            "action": "start_judging",
+            "payload": {"chat_id": chat_id},
+            "instructions": (
+                "Show the user:\n"
+                "[CONFIRMATION REQUIRED]\n"
+                f"Action  : Start judge evaluation pipeline for chat id={chat_id}\n"
+                f"Cost    : ~$0.40 in LLM API calls\n"
+                f"Time    : ~9 minutes (runs in background)\n\n"
+                "After confirming, poll get_judge_status(chat_id) until status='done',\n"
+                "then call get_judge_result(chat_id) to fetch the full evaluation report.\n\n"
+                "Proceed? (yes / no) >\n\n"
+                "Call confirm_start_judging only if user answers 'yes'."
+            ),
+        }
+
+    @mcp.tool()
+    async def confirm_start_judging(chat_id: int) -> dict[str, Any]:
+        """[Tier 2 — EXECUTE] Start the judge evaluation pipeline for a chat.
+        Call ONLY after user confirmed the preview.
+        Returns immediately with status='running'. Poll get_judge_status(chat_id) for progress,
+        then get_judge_result(chat_id) once done."""
+        return await _post(f"/admin/judge-chat/{chat_id}", {})
