@@ -17,7 +17,8 @@ class JudgeEvaluationService:
         self,
         id_judge: int,
         id_chat: int,
-        score: list[float] | None = None,
+        persona_identification: list[dict] | None = None,
+        rag_candidates: list[str] | None = None,
     ) -> JudgeEvaluation:
         count = self.db.execute(
             "SELECT COUNT(*) FROM Judge_evaluation WHERE ID_chat = ? AND deleted_at IS NULL",
@@ -29,7 +30,12 @@ class JudgeEvaluationService:
             )
         return repo.create(
             self.db,
-            {"id_judge": id_judge, "id_chat": id_chat, "score": score},
+            {
+                "id_judge": id_judge,
+                "id_chat": id_chat,
+                "persona_identification": persona_identification,
+                "rag_candidates": rag_candidates,
+            },
         )
 
     def get(self, id_judge: int, id_chat: int) -> JudgeEvaluation | None:

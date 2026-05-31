@@ -8,15 +8,22 @@ from ..models.judge_evaluation import JudgeEvaluation
 
 # Composite PK: (ID_judge, ID_chat). get/update/delete take both keys.
 
-_COLS = {"score": "Score"}
+_COLS = {
+    "persona_identification": "persona_identification",
+    "rag_candidates": "rag_candidates",
+}
+_JSON_COLS = {"persona_identification", "rag_candidates"}
 
 
 def _row(row: sqlite3.Row) -> JudgeEvaluation:
-    raw = row["Score"]
+    keys = row.keys()
+    raw_pi = row["persona_identification"]
+    raw_rc = row["rag_candidates"] if "rag_candidates" in keys else None
     return JudgeEvaluation(
         id_judge=row["ID_judge"],
         id_chat=row["ID_chat"],
-        score=json.loads(raw) if raw is not None else None,
+        persona_identification=json.loads(raw_pi) if raw_pi is not None else None,
+        rag_candidates=json.loads(raw_rc) if raw_rc is not None else None,
         created_at=row["created_at"],
         updated_at=row["updated_at"],
         deleted_at=row["deleted_at"],
@@ -24,9 +31,16 @@ def _row(row: sqlite3.Row) -> JudgeEvaluation:
 
 
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> JudgeEvaluation:
+    pi = data.get("persona_identification")
+    rc = data.get("rag_candidates")
     db.execute(
-        "INSERT INTO Judge_evaluation (ID_judge, ID_chat, Score) VALUES (?, ?, ?)",
-        (data["id_judge"], data["id_chat"], json.dumps(data["score"]) if data.get("score") is not None else None),
+        "INSERT INTO Judge_evaluation (ID_judge, ID_chat, persona_identification, rag_candidates) VALUES (?, ?, ?, ?)",
+        (
+            data["id_judge"],
+            data["id_chat"],
+            json.dumps(pi) if pi is not None else None,
+            json.dumps(rc) if rc is not None else None,
+        ),
     )
     db.commit()
     return get(db, data["id_judge"], data["id_chat"])
@@ -47,7 +61,7 @@ def update(
 ) -> JudgeEvaluation:
     sets = [f"{_COLS[k]} = ?" for k in patch if k in _COLS]
     vals = [
-        json.dumps(patch[k]) if k == "score" and patch[k] is not None else patch[k]
+        json.dumps(patch[k]) if k in _JSON_COLS and patch[k] is not None else patch[k]
         for k in patch if k in _COLS
     ]
     if sets:

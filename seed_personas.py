@@ -118,12 +118,18 @@ def main():
         print("Make sure the API is running (uvicorn angry_agents.src.API.app:app --port 8000)")
         sys.exit(1)
 
-    delete_all_agents(token)
+    existing_agents = get("/agents", token=token)
+    existing_names = {
+        (a["name"].lower(), a["surname"].lower())
+        for a in existing_agents
+    }
+    print(f"Existing agents in DB: {len(existing_names)}\n")
 
     files = sorted(glob.glob("data/personas/*.json"))
     files = [f for f in files if "old" not in f]
 
     created = 0
+    skipped = 0
     failed = 0
 
     for path in files:
@@ -134,6 +140,11 @@ def main():
         name, surname = parse_name(persona_name)
         source_type = normalize_source_type(profile.get("source_type", "fiction"))
         source_title = clean_title(profile.get("source_title", ""))
+
+        if (name.lower(), surname.lower()) in existing_names:
+            print(f"  –  {name} {surname}  (already exists, skipped)")
+            skipped += 1
+            continue
 
         summary = json.dumps({**profile, "source_type": source_type, "source_title": source_title})
 
@@ -149,7 +160,7 @@ def main():
             print(f"  ✗  {name} {surname}  ERROR: {e}")
             failed += 1
 
-    print(f"\nDone. {created} created, {failed} failed.")
+    print(f"\nDone. {created} created, {skipped} skipped, {failed} failed.")
 
 
 if __name__ == "__main__":

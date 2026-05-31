@@ -5,17 +5,19 @@ import pytest
 from angry_agents.src.db.repositories import judges_repository as judges_repo, group_chat_repository as chat_repo
 from angry_agents.src.db.services import JudgeEvaluationService
 
+_PI = [{"persona_name": "VADER", "predicted": "Agent A x1y2", "scores": [{"author": "Agent A x1y2", "score": 4}]}]
+
 
 class TestCreate:
     def test_creates_evaluation(self, db, judge, chat):
-        ev = JudgeEvaluationService(db).create(judge.id, chat.id, score=[4.0])
+        ev = JudgeEvaluationService(db).create(judge.id, chat.id, persona_identification=_PI)
         assert ev.id_judge == judge.id
         assert ev.id_chat == chat.id
-        assert ev.score == [4.0]
+        assert ev.persona_identification == _PI
 
-    def test_score_optional(self, db, judge, chat):
+    def test_persona_identification_optional(self, db, judge, chat):
         ev = JudgeEvaluationService(db).create(judge.id, chat.id)
-        assert ev.score is None
+        assert ev.persona_identification is None
 
     def test_max_20_evaluations_enforced(self, db, chat, topic):
         svc = JudgeEvaluationService(db)
@@ -34,7 +36,6 @@ class TestCreate:
         for j in judges:
             svc.create(j.id, chat.id)
 
-        # chat2 has 0 evaluations — should still succeed
         ev = svc.create(judge.id, chat2.id)
         assert ev.id_chat == chat2.id
 
@@ -44,7 +45,6 @@ class TestCreate:
         for j in judges:
             svc.create(j.id, chat.id)
 
-        # Soft-delete one to free a slot
         svc.delete(judges[0].id, chat.id)
 
         judge_new = judges_repo.create(db, {"role": "general"})
@@ -55,20 +55,21 @@ class TestCreate:
 class TestGet:
     def test_returns_evaluation(self, db, judge, chat):
         svc = JudgeEvaluationService(db)
-        svc.create(judge.id, chat.id, score=[3.0])
+        svc.create(judge.id, chat.id, persona_identification=_PI)
         ev = svc.get(judge.id, chat.id)
-        assert ev.score == [3.0]
+        assert ev.persona_identification == _PI
 
     def test_missing_returns_none(self, db):
         assert JudgeEvaluationService(db).get(9999, 9999) is None
 
 
 class TestUpdate:
-    def test_updates_score(self, db, judge, chat):
+    def test_updates_persona_identification(self, db, judge, chat):
         svc = JudgeEvaluationService(db)
-        svc.create(judge.id, chat.id, score=[1.0])
-        updated = svc.update(judge.id, chat.id, {"score": [5.0]})
-        assert updated.score == [5.0]
+        svc.create(judge.id, chat.id, persona_identification=_PI)
+        updated_pi = [{"persona_name": "RICK", "predicted": "Agent C z9", "scores": [{"author": "Agent C z9", "score": 5}]}]
+        updated = svc.update(judge.id, chat.id, {"persona_identification": updated_pi})
+        assert updated.persona_identification == updated_pi
 
 
 class TestDelete:

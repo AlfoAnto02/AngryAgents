@@ -5,13 +5,15 @@ from typing import Any
 
 from ..models.judges import Judge
 
-_COLS = {"role": "Role", "temperature": "Temperature", "guess": "Guess"}
+_COLS = {"role": "Role", "name": "name", "temperature": "Temperature", "guess": "Guess"}
 
 
 def _row(row: sqlite3.Row) -> Judge:
+    keys = row.keys()
     return Judge(
         id=row["ID"],
         role=row["Role"],
+        name=row["name"] if "name" in keys else None,
         temperature=row["Temperature"],
         guess=row["Guess"],
         created_at=row["created_at"],
@@ -22,11 +24,18 @@ def _row(row: sqlite3.Row) -> Judge:
 
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> Judge:
     cur = db.execute(
-        "INSERT INTO Judges (Role, Temperature, Guess) VALUES (?, ?, ?)",
-        (data["role"], data.get("temperature"), data.get("guess")),
+        "INSERT INTO Judges (Role, name, Temperature, Guess) VALUES (?, ?, ?, ?)",
+        (data["role"], data.get("name"), data.get("temperature"), data.get("guess")),
     )
     db.commit()
     return get(db, cur.lastrowid)
+
+
+def get_by_name(db: sqlite3.Connection, name: str) -> Judge | None:
+    row = db.execute(
+        "SELECT * FROM Judges WHERE name = ? AND deleted_at IS NULL", (name,)
+    ).fetchone()
+    return _row(row) if row else None
 
 
 def get(db: sqlite3.Connection, id: int) -> Judge | None:

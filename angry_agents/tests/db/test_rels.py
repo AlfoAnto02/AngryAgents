@@ -24,11 +24,12 @@ class TestAddJudgeChat:
         ev = eval_repo.get(db, judge.id, chat.id)
         assert ev is not None
 
-    def test_score_stored_from_details(self, db, judge, chat):
-        rels.add(db, src=judge.id, tgt=chat.id, rel_type="judge_chat", details={"score": 4.5})
+    def test_persona_identification_stored_from_details(self, db, judge, chat):
+        pi = [{"persona_name": "VADER", "predicted": "Agent A x1", "scores": [{"author": "Agent A x1", "score": 4}]}]
+        rels.add(db, src=judge.id, tgt=chat.id, rel_type="judge_chat", details={"persona_identification": pi})
         from angry_agents.src.db.repositories import judge_evaluation_repository as eval_repo
         ev = eval_repo.get(db, judge.id, chat.id)
-        assert ev.score == 4.5
+        assert ev.persona_identification == pi
 
     def test_returns_correct_rel_id(self, db, judge, chat):
         rel_id = rels.add(db, src=judge.id, tgt=chat.id, rel_type="judge_chat")

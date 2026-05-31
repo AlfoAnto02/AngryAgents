@@ -20,6 +20,23 @@ class GroupChatService:
     def set_status(self, id: int, status: str) -> GroupChat:
         return repo.update(self.db, id, {"status": status})
 
+    def set_eval_meta(
+        self,
+        id: int,
+        author_map: dict,
+        speaker_stats: dict,
+    ) -> GroupChat:
+        return repo.update(self.db, id, {
+            "author_map": author_map,
+            "speaker_stats": speaker_stats,
+        })
+
+    def set_report(self, id: int, report: dict) -> GroupChat:
+        return repo.update(self.db, id, {
+            "report": report,
+            "is_judged": True,
+        })
+
     def update(self, id: int, patch: dict[str, Any]) -> GroupChat:
         return repo.update(self.db, id, patch)
 

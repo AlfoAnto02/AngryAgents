@@ -18,6 +18,7 @@ from pydantic import BaseModel
 from ...db.models.base import get_connection
 from ...db.services.chat_messages_service import ChatMessageService
 from ...db.services.group_chat_service import GroupChatService
+from ...db.services.judge_evaluation_service import JudgeEvaluationService
 from ...logging_setup import deviation
 from ..config import Settings, get_settings
 from ..deps import get_current_user, get_db
@@ -46,7 +47,10 @@ def _extract_desc(summary: dict) -> str:
 
 
 def _extract_tags(summary: dict) -> list[str]:
-    """Derive up to 4 tags from knowledge_domains, falling back to worldview keys."""
+    """Derive up to 4 tags: direct 'tags' list first, then knowledge_domains, then worldview keys."""
+    direct = summary.get("tags")
+    if isinstance(direct, list) and direct:
+        return [str(t).strip().lower() for t in direct if str(t).strip()][:4]
     kd = summary.get("knowledge_domains", {})
     domains: list[str] = []
     if isinstance(kd, dict):
@@ -1028,6 +1032,30 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         print(f"  [chat {chat_id}] ── LLM calls DONE   ({_t_llm_end - _t_llm_start:.1f}s)")
         _judge_jobs[chat_id]["progress"] = 88
 
+        # ── Persist per-judge evaluations to DB ──────────────────────
+        _conn_evals = get_connection(db_path)
+        try:
+            judge_rows = _conn_evals.execute(
+                "SELECT ID, name FROM Judges WHERE deleted_at IS NULL AND name IS NOT NULL"
+            ).fetchall()
+            judge_name_to_id = {r["name"]: r["ID"] for r in judge_rows}
+            svc_eval = JudgeEvaluationService(_conn_evals)
+            for rec in records:
+                if rec is None:
+                    continue
+                jid = judge_name_to_id.get(rec.get("judge_name"))
+                if jid is None:
+                    log.warning("No DB judge found for '%s' — skipping eval row", rec.get("judge_name"))
+                    continue
+                pi = rec.get("persona_identification")
+                cands = rec.get("rag_candidates")
+                if svc_eval.get(jid, chat_id) is None:
+                    svc_eval.create(jid, chat_id, persona_identification=pi, rag_candidates=cands)
+                else:
+                    svc_eval.update(jid, chat_id, {"persona_identification": pi, "rag_candidates": cands})
+        finally:
+            _conn_evals.close()
+
         # Build transcript_meta for group metrics (speaker_stats keyed by persona name)
         speaker_stats: dict[str, dict] = {}
         for msg in messages:
@@ -1064,6 +1092,13 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         # ── Persist UI-shaped report so it survives server restarts ──
         ui_path = _EVAL_DIR / f"chat_{chat_id}" / "ui_report.json"
         ui_path.write_text(json.dumps(result, cls=_NumpyEncoder), encoding="utf-8")
+
+        # ── Persist to DB (is_judged flag + report blob) ─────────────
+        _conn_report = get_connection(db_path)
+        try:
+            GroupChatService(_conn_report).set_report(chat_id, result)
+        finally:
+            _conn_report.close()
 
         _t_total = _time.monotonic() - _t_start
         _t_llm = _t_llm_end - _t_llm_start
@@ -1141,37 +1176,47 @@ def admin_judged_chats(
 ) -> dict:
     """Return {chat_id: ui_report} for every chat that has a saved evaluation."""
     result: dict[int, dict] = {}
-    if not _EVAL_DIR.exists():
-        return result
 
-    for d in sorted(_EVAL_DIR.iterdir()):
-        if not (d.is_dir() and d.name.startswith("chat_")):
-            continue
+    # Primary path: read from DB (is_judged = 1)
+    rows = db.execute(
+        "SELECT ID, report FROM Group_chat WHERE is_judged = 1 AND report IS NOT NULL AND deleted_at IS NULL"
+    ).fetchall()
+    for row in rows:
         try:
-            chat_id = int(d.name.split("_", 1)[1])
-        except ValueError:
-            continue
-
-        # Fast path: pre-built UI report
-        ui_path = d / "ui_report.json"
-        if ui_path.exists():
-            try:
-                result[chat_id] = json.loads(ui_path.read_text(encoding="utf-8"))
-                continue
-            except Exception:
-                pass
-
-        # Slow path: reconstruct from raw metrics + DB, then cache
-        metrics_path = d / "metrics_report.json"
-        if not metrics_path.exists():
-            continue
-        try:
-            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
-            report = _reconstruct_ui_report(chat_id, metrics, db, settings.author_secret)
-            ui_path.write_text(json.dumps(report, cls=_NumpyEncoder), encoding="utf-8")
-            result[chat_id] = report
+            result[row["ID"]] = json.loads(row["report"])
         except Exception:
-            log.exception("failed to reconstruct UI report for chat %d", chat_id)
+            log.exception("failed to parse report for chat %d", row["ID"])
+
+    # Backward-compat path: file-based reports not yet migrated to DB
+    if _EVAL_DIR.exists():
+        for d in sorted(_EVAL_DIR.iterdir()):
+            if not (d.is_dir() and d.name.startswith("chat_")):
+                continue
+            try:
+                chat_id = int(d.name.split("_", 1)[1])
+            except ValueError:
+                continue
+            if chat_id in result:
+                continue  # already loaded from DB
+
+            ui_path = d / "ui_report.json"
+            if ui_path.exists():
+                try:
+                    result[chat_id] = json.loads(ui_path.read_text(encoding="utf-8"))
+                    continue
+                except Exception:
+                    pass
+
+            metrics_path = d / "metrics_report.json"
+            if not metrics_path.exists():
+                continue
+            try:
+                metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+                report = _reconstruct_ui_report(chat_id, metrics, db, settings.author_secret)
+                ui_path.write_text(json.dumps(report, cls=_NumpyEncoder), encoding="utf-8")
+                result[chat_id] = report
+            except Exception:
+                log.exception("failed to reconstruct UI report for chat %d", chat_id)
 
     return result
 
@@ -1263,7 +1308,7 @@ def admin_sessions(
 ) -> list:
     chats = db.execute(
         """
-        SELECT gc.ID, gc.created_at,
+        SELECT gc.ID, gc.created_at, gc.is_judged,
                t.Title AS topic_title,
                t.Description AS topic_desc
         FROM Group_chat gc
@@ -1300,6 +1345,7 @@ def admin_sessions(
             "duration": "00:00:00",
             "date": (c["created_at"] or "")[:16].replace("T", " "),
             "status": "complete",
+            "is_judged": bool(c["is_judged"]),
         })
 
     return result

@@ -6,6 +6,7 @@ CREATE_TABLE = """
 CREATE TABLE IF NOT EXISTS Judges (
     ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     Role        TEXT    NOT NULL,
+    name        TEXT,
     Temperature REAL,
     Guess       TEXT,
     created_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
@@ -27,6 +28,7 @@ END;
 class Judge:
     role: str
     id: int | None = None
+    name: str | None = None   # canonical instance name: style_1 … behavioral_5
     temperature: float | None = None
     guess: str | None = None
     created_at: str | None = None

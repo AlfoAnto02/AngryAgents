@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import sqlite3
 from typing import Any
 
@@ -23,10 +24,10 @@ def add(
         db.execute("UPDATE Agents SET ID_topic = ? WHERE ID = ?", (tgt, src))
 
     elif rel_type == "judge_chat":
-        score = (details or {}).get("score")
+        pi = (details or {}).get("persona_identification")
         db.execute(
-            "INSERT INTO Judge_evaluation (ID_judge, ID_chat, Score) VALUES (?, ?, ?)",
-            (src, tgt, score),
+            "INSERT INTO Judge_evaluation (ID_judge, ID_chat, persona_identification) VALUES (?, ?, ?)",
+            (src, tgt, json.dumps(pi) if pi is not None else None),
         )
 
     else:

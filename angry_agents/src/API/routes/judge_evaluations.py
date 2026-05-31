@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import dataclasses
 import sqlite3
-from typing import Annotated
-
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 
@@ -14,17 +12,29 @@ from ..schemas import JudgeEvaluationOut
 router = APIRouter()
 
 
-_Score = Annotated[float, Field(ge=1.0, le=5.0)]
-
-
 class EvaluationCreate(BaseModel):
     id_judge: int = Field(..., description="FK to Judges")
     id_chat: int = Field(..., description="FK to Group_chat")
-    score: list[_Score] | None = Field(None, description="Fidelity scores 1–5")
+    persona_identification: list[dict] | None = Field(
+        None,
+        description="Per-persona scores from judge.persona_identification(). "
+                    "Format: [{persona_name, predicted, scores: [{author, score}]}]",
+    )
+    rag_candidates: list[str] | None = Field(
+        None,
+        description="Persona names the judge considered as candidates",
+    )
 
 
 class EvaluationPatch(BaseModel):
-    score: list[_Score] | None = Field(None, description="Fidelity scores 1–5")
+    persona_identification: list[dict] | None = Field(
+        None,
+        description="Updated persona_identification output from the judge",
+    )
+    rag_candidates: list[str] | None = Field(
+        None,
+        description="Updated RAG candidate list",
+    )
 
 
 def _out(obj) -> dict:
@@ -65,7 +75,8 @@ def create_evaluation(body: EvaluationCreate, db: sqlite3.Connection = Depends(g
             JudgeEvaluationService(db).create(
                 id_judge=body.id_judge,
                 id_chat=body.id_chat,
-                score=body.score,
+                persona_identification=body.persona_identification,
+                rag_candidates=body.rag_candidates,
             )
         )
     except ValueError as exc:

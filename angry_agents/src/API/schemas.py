@@ -53,6 +53,7 @@ class GroupChatOut(BaseModel):
     id_topic: int = Field(..., description="Topic this chat belongs to")
     created_by: int | None = Field(None, description="FK to User.ID")
     status: str | None = Field(None, description="Chat lifecycle state: pending | running | done | stopped | error")
+    is_judged: bool = Field(False, description="True when the judging pipeline has completed for this chat")
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None
@@ -76,6 +77,7 @@ class ChatMessageOut(BaseModel):
 class JudgeOut(BaseModel):
     id: int | None = Field(None, description="Auto-generated primary key")
     role: str = Field(..., description="One of: style | ideology | general | behavioral")
+    name: str | None = Field(None, description="Canonical instance name, e.g. style_1 … behavioral_5")
     temperature: float | None = Field(None, description="LLM sampling temperature for this judge")
     guess: str | None = Field(None, description="Judge's current persona guess")
     created_at: str | None = None
@@ -86,7 +88,14 @@ class JudgeOut(BaseModel):
 class JudgeEvaluationOut(BaseModel):
     id_judge: int = Field(..., description="FK to Judges")
     id_chat: int = Field(..., description="FK to Group_chat")
-    score: list[float] | None = Field(None, description="Fidelity scores 1–5")
+    persona_identification: list[dict] | None = Field(
+        None,
+        description="Per-persona scores: [{persona_name, predicted, scores:[{author, score}]}]",
+    )
+    rag_candidates: list[str] | None = Field(
+        None,
+        description="Persona names considered as candidates by this judge instance",
+    )
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None

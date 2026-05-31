@@ -1,19 +1,35 @@
 from __future__ import annotations
 
+import json
 import sqlite3
 from typing import Any
 
 from ..models.group_chat import GroupChat
 
-_COLS = {"id_topic": "ID_topic", "created_by": "Created_by", "status": "status"}
+_COLS = {
+    "id_topic": "ID_topic",
+    "created_by": "Created_by",
+    "status": "status",
+    "author_map": "author_map",
+    "speaker_stats": "speaker_stats",
+    "is_judged": "is_judged",
+    "report": "report",
+}
+
+_JSON_COLS = {"author_map", "speaker_stats", "report"}
 
 
 def _row(row: sqlite3.Row) -> GroupChat:
+    keys = row.keys()
     return GroupChat(
         id=row["ID"],
         id_topic=row["ID_topic"],
         created_by=row["Created_by"],
-        status=row["status"] if "status" in row.keys() else "pending",
+        status=row["status"] if "status" in keys else "pending",
+        author_map=json.loads(row["author_map"]) if "author_map" in keys and row["author_map"] else None,
+        speaker_stats=json.loads(row["speaker_stats"]) if "speaker_stats" in keys and row["speaker_stats"] else None,
+        is_judged=bool(row["is_judged"]) if "is_judged" in keys else False,
+        report=json.loads(row["report"]) if "report" in keys and row["report"] else None,
         created_at=row["created_at"],
         updated_at=row["updated_at"],
         deleted_at=row["deleted_at"],
@@ -35,8 +51,18 @@ def get(db: sqlite3.Connection, id: int) -> GroupChat | None:
 
 
 def update(db: sqlite3.Connection, id: int, patch: dict[str, Any]) -> GroupChat:
-    sets = [f"{_COLS[k]} = ?" for k in patch if k in _COLS]
-    vals = [patch[k] for k in patch if k in _COLS]
+    sets, vals = [], []
+    for k in patch:
+        if k not in _COLS:
+            continue
+        sets.append(f"{_COLS[k]} = ?")
+        v = patch[k]
+        if k in _JSON_COLS and v is not None:
+            vals.append(json.dumps(v))
+        elif k == "is_judged":
+            vals.append(1 if v else 0)
+        else:
+            vals.append(v)
     if sets:
         db.execute(
             f"UPDATE Group_chat SET {', '.join(sets)} WHERE ID = ?", (*vals, id)
