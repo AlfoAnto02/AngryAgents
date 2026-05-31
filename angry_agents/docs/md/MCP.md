@@ -64,6 +64,32 @@ The MCP server runs as a separate process launched by the MCP host via `.mcp.jso
 
 > **Note on `get_agents`**: the `summary` field (full JSON persona profile, 10k–50k tokens per agent) is stripped from the list response to prevent context overflow. Use `get_agent_by_id` or `get_agent_by_slug` for the full profile of a specific agent.
 
+#### Admin dashboard (Tier 1)
+
+| Tool | Endpoint | Returns |
+|---|---|---|
+| `get_admin_overview` | `GET /admin/overview` | Platform counters: sessions today, active users, avg session duration, judge confidence |
+| `get_admin_sessions(limit)` | `GET /admin/sessions` | Recent chat sessions — `display_id`, topic, date, `is_judged` flag |
+| `get_admin_agent_performance` | `GET /admin/agent-performance` | Per-agent session count, individual fidelity, group fidelity |
+| `get_judged_chats` | `GET /admin/judged-chats` | All chats with a completed evaluation report (`{chat_id: ui_report, ...}`) |
+| `get_judge_result(chat_id)` | `GET /admin/judged-chats/{id}` | Full evaluation report for one chat (see fields below) |
+| `get_judge_status(chat_id)` | `GET /admin/judge-chat/{id}/status` | Job status without blocking: `not_started \| running \| done \| error`, `progress` 0–100 |
+
+`get_judge_result` returns:
+
+```
+accuracy, ciLow, ciHigh    — persona ID accuracy with 95 % binomial CI
+pValue                     — binomial test vs random baseline (1/N agents)
+cohenKappa, macroF1        — inter-rater agreement and classification quality
+prfRows                    — precision / recall / F1 per persona
+fidelityRows               — mean / median / IQR / CI per persona (individual fidelity)
+gini, giniZ, giniCI        — turn-distribution Gini coefficient with z-score and CI
+turnShares                 — share of turns per persona
+cm, cmLabels               — confusion matrix with persona labels
+```
+
+> **Note on `get_judge_status`**: the job state is held in memory — it resets on server restart. If the server was restarted after judging completed, `get_judge_status` returns `not_started` but `get_judge_result` still works because results are persisted to the DB and to `data/eval/chat_{id}/`.
+
 ---
 
 ### Tier 2 — Write (preview → explicit confirmation → execute)
@@ -78,6 +104,7 @@ Every write action has **two** tools:
 | `preview_create_full_chat` | `confirm_create_full_chat` | Create a DM (1 agent) or group chat (2–8 agents) |
 | `preview_create_message` | `confirm_create_message` | Post a message to a chat |
 | `preview_stop_chat` | `confirm_stop_chat` | Stop the background loop of a group chat |
+| `preview_start_judging` | `confirm_start_judging` | Launch the 20-judge evaluation pipeline for a chat |
 
 #### `confirm_create_full_chat` — key parameters
 
@@ -106,6 +133,69 @@ created_by: int | None    # post as a user (null author token)
 #### `confirm_stop_chat`
 
 Calls `PATCH /chats/{id}` with `{"status": "stopped"}`. The background loop halts within ~0.5s.
+
+#### `confirm_start_judging` — key parameters
+
+```python
+chat_id: int   # the chat to evaluate
+```
+
+- Calls `POST /admin/judge-chat/{chat_id}` (returns immediately, job runs in background)
+- Runs **20 LLM judges** independently on all agent messages in the chat
+- Cost: **~$0.40** in LLM API calls; estimated duration: **~9 minutes**
+- After confirming, poll `get_judge_status(chat_id)` until `status='done'`, then call `get_judge_result(chat_id)`
+- Returns 409 if judging is already in progress for that chat
+
+---
+
+## Admin dashboard
+
+The LLM can act as an admin observer and evaluation trigger. All reads are free; launching the judge pipeline requires explicit user confirmation.
+
+### What the LLM can read
+
+- **Platform health** — `get_admin_overview` gives a snapshot of today's activity (sessions, unique users).
+- **Session inventory** — `get_admin_sessions` lists recent chats with their `is_judged` flag, so the LLM can identify which sessions still need evaluation.
+- **Agent performance** — `get_admin_agent_performance` shows how many sessions each persona has participated in and their aggregated fidelity scores.
+- **Evaluation reports** — `get_judged_chats` returns all completed reports at once; `get_judge_result(chat_id)` returns the full report for a single chat including the confusion matrix, per-persona fidelity statistics, and turn-distribution Gini coefficient.
+- **Live job progress** — `get_judge_status(chat_id)` can be polled to track an in-progress judging job without blocking.
+
+### What the LLM can trigger
+
+The LLM can propose launching the evaluation pipeline for any chat. The user must confirm explicitly before anything runs.
+
+```
+1. get_admin_sessions            → identify sessions where is_judged = false
+2. get_chat_messages(chat_id)    → verify the chat has sufficient agent messages
+3. preview_start_judging(chat_id)→ LLM shows cost/time warning to user
+4. [user: "yes"]
+5. confirm_start_judging         → pipeline starts in background
+6. get_judge_status(chat_id)     → poll until status = 'done'  (or call repeatedly)
+7. get_judge_result(chat_id)     → fetch full evaluation report
+```
+
+### Admin workflow example
+
+```
+"show me an overview of the platform"
+→ get_admin_overview
+
+"which sessions haven't been judged yet?"
+→ get_admin_sessions  →  filter is_judged = false
+
+"judge session 17"
+→ preview_start_judging(17), reply "yes"
+→ confirm_start_judging(17)   ← background job starts
+
+"how is the judging going?"
+→ get_judge_status(17)        ← returns progress 0–100
+
+"show me the results"
+→ get_judge_result(17)        ← accuracy, fidelity, confusion matrix, ...
+
+"how is Walter White performing across all sessions?"
+→ get_admin_agent_performance → filter by agent_id
+```
 
 ---
 
@@ -207,7 +297,29 @@ The MCP server starts automatically when the client loads the project config.
 → LLM calls preview_stop_chat, reply "yes"
 ```
 
-### 4. Restarting the MCP server
+### 4. Suggested admin test flow
+
+```
+# Platform overview
+"show me an overview of the platform"
+
+# Find unjudged sessions
+"which sessions haven't been judged yet?"
+
+# Trigger evaluation
+"judge session 17"
+→ LLM shows cost warning (~$0.40, ~9 min), reply "yes"
+
+# Poll progress
+"how is the judging going?"
+→ repeat until status = 'done'
+
+# Read results
+"show me the evaluation report for session 17"
+"how is Walter White performing across all sessions?"
+```
+
+### 5. Restarting the MCP server
 
 If you modify code under `src/mcp/`, restart the server to pick up changes:
 
@@ -221,7 +333,7 @@ pkill -f "angry_agents.src.mcp.mcp_server"
 ## What the LLM cannot do via MCP
 
 - Update or delete any entity (agents, topics, users)
-- Access judge data or evaluation results
+- Start the judge pipeline without explicit user confirmation
 - Stop a chat without explicit user confirmation
 - Call endpoints outside the defined tool set in `tools/`
 - Execute any Tier 2 tool without first showing the preview
