@@ -1145,6 +1145,14 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         all_pairs = acc.pop("all_pairs")
         cm_data = metrics_persona_id.confusion_matrix(all_pairs, chat_persona_names)
         pid_result = {"persona_identification": {**acc, "confusion_matrix": cm_data}}
+
+        agg = acc.get("aggregate", {})
+        print(f"  [chat {chat_id}] ── accuracy: {agg.get('correct')}/{agg.get('total')} "
+              f"= {agg.get('accuracy')} (baseline {agg.get('random_baseline')}, "
+              f"p={agg.get('p_value')}, significant={agg.get('significant')})")
+        for pj in acc.get("per_judge", []):
+            mark = "✓" if pj.get("accuracy", 0) == 1.0 else ("~" if pj.get("accuracy", 0) > 0 else "✗")
+            print(f"    {mark} {pj['judge_name']:20s} {pj['correct']}/{pj['total']} = {pj['accuracy']}")
         _t_metrics_start = _time.monotonic()
         print(f"  [chat {chat_id}] ── metrics START")
         _judge_jobs[chat_id]["progress"] = 93

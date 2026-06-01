@@ -44,7 +44,6 @@ import json
 from pathlib import Path
 
 import numpy as np
-from scipy.optimize import linear_sum_assignment
 from scipy.stats import binomtest
 
 RANDOM_BASELINE = 1 / 8  # 8 personas
@@ -86,77 +85,35 @@ def build_name_to_author(author_map: dict[str, str], personas: list[dict]) -> di
 # Core accuracy computation
 # ---------------------------------------------------------------------------
 
-def _hungarian_assignment(
-    judge: dict,
-    name_to_author: dict[str, str],
-) -> dict[str, str]:
-    """
-    Compute the bijective persona→author assignment for one judge using the
-    Hungarian algorithm (scipy.optimize.linear_sum_assignment).
-
-    The greedy argmax stored in each record's "predicted" field collapses
-    everything onto a single high-confidence author (the attractor problem):
-    if Lewis Hamilton scores 5 for 6 different authors, argmax assigns him to
-    all 6, violating the one-author-per-persona constraint.
-
-    Hungarian assignment enforces the bijection: each actual persona maps to
-    exactly one author and each author is claimed by at most one persona.
-    This guarantees that even when one author dominates in raw scores, the
-    algorithm redistributes the remaining personas to their next-best matches.
-
-    Only actual chat participants (personas present in name_to_author) are
-    included in the matching — distractor candidates are ignored.
-
-    Returns {persona_name: author_tag} for every actual participant.
-    """
-    actual_names = list(name_to_author.keys())
-    actual_authors = list(name_to_author.values())
-    n = len(actual_names)
-
-    persona_to_row = {name: i for i, name in enumerate(actual_names)}
-    author_to_col = {author: j for j, author in enumerate(actual_authors)}
-
-    # Build n×n score matrix: rows=actual personas, cols=actual authors
-    score_matrix = np.zeros((n, n))
-    for match in judge["persona_identification"]:
-        pname = match["persona_name"]
-        if pname not in persona_to_row:
-            continue
-        row = persona_to_row[pname]
-        for entry in match["scores"]:
-            col = author_to_col.get(entry["author"])
-            if col is not None:
-                score_matrix[row, col] = entry["score"]
-
-    # Maximise total score (linear_sum_assignment minimises, so negate)
-    row_ind, col_ind = linear_sum_assignment(-score_matrix)
-    return {actual_names[r]: actual_authors[c] for r, c in zip(row_ind, col_ind)}
-
-
 def _judge_accuracy(
     judge: dict,
     name_to_author: dict[str, str],
 ) -> tuple[int, int, list[tuple[str, str]]]:
     """
     Returns (n_correct, n_total, [(true_persona_name, predicted_persona_name), ...]).
-    Uses Hungarian bijective assignment instead of greedy per-persona argmax
-    to prevent the attractor problem.
+
+    Reads the direct bijective assignment from each judge record.
+    Format: persona_identification = [{persona_name, predicted (author_digest or null), fidelity}]
+
+    A distractor assigned to an author (predicted != null but persona not in name_to_author)
+    counts as an error: the judge committed to the wrong persona for that author slot.
     """
+    # predicted_map: persona_name → author_digest the judge assigned to it
+    predicted_map: dict[str, str | None] = {
+        m["persona_name"]: m.get("predicted")
+        for m in judge["persona_identification"]
+    }
     author_to_name = {v: k for k, v in name_to_author.items()}
-    optimal = _hungarian_assignment(judge, name_to_author)
 
     correct = 0
     pairs: list[tuple[str, str]] = []
-    for match in judge["persona_identification"]:
-        true_name: str = match["persona_name"]
-        if true_name not in name_to_author:
-            continue  # persona was not played in this chat — skip
-        predicted_tag = optimal.get(true_name)
-        predicted_name = author_to_name.get(predicted_tag, "<unknown>")
-        if predicted_name == true_name:
+    for true_persona, true_author in name_to_author.items():
+        predicted_author = predicted_map.get(true_persona)
+        predicted_name = author_to_name.get(predicted_author, "<unknown>") if predicted_author else "<unassigned>"
+        if predicted_author == true_author:
             correct += 1
-        pairs.append((true_name, predicted_name))
-    return correct, len(pairs), pairs
+        pairs.append((true_persona, predicted_name))
+    return correct, len(name_to_author), pairs
 
 
 def compute_accuracy(
@@ -165,7 +122,15 @@ def compute_accuracy(
 ) -> dict:
     """
     Returns aggregate + per-judge accuracy stats.
+
+    Random baseline is computed dynamically: n_actual / n_candidates.
+    This reflects the true difficulty — a judge choosing randomly from the
+    full candidate pool would be correct n_actual/n_candidates of the time.
     """
+    n_actual = len(name_to_author)
+    n_candidates = len(judge_evals[0]["persona_identification"]) if judge_evals else n_actual
+    random_baseline = n_actual / n_candidates if n_candidates else RANDOM_BASELINE
+
     total_correct = 0
     total_attempts = 0
     per_judge: list[dict] = []
@@ -183,7 +148,7 @@ def compute_accuracy(
             "accuracy": round(c / n, 4) if n else None,
         })
 
-    result = binomtest(total_correct, total_attempts, RANDOM_BASELINE, alternative="greater")
+    result = binomtest(total_correct, total_attempts, random_baseline, alternative="greater")
     ci_lo, ci_hi = result.proportion_ci(confidence_level=0.95, method="exact")
 
     judge_accs = [j["accuracy"] for j in per_judge if j["accuracy"] is not None]
@@ -197,7 +162,9 @@ def compute_accuracy(
             "correct": total_correct,
             "total": total_attempts,
             "accuracy": round(total_correct / total_attempts, 4) if total_attempts else None,
-            "random_baseline": RANDOM_BASELINE,
+            "random_baseline": round(random_baseline, 4),
+            "n_actual": n_actual,
+            "n_candidates": n_candidates,
             "ci_95": [round(ci_lo, 4), round(ci_hi, 4)],
             "p_value": round(result.pvalue, 6),
             "significant": result.pvalue < 0.05,

@@ -1,4 +1,4 @@
-{# Persona identification — IDEOLOGY lens, RAG-assisted batch scoring
+{# Persona identification — IDEOLOGY lens, direct bijective assignment
    Variables: n_candidates, candidates_block, messages_block, author_list, persona_names,
               gini_value, gini_within_range, gini_z #}
 
@@ -8,34 +8,43 @@ You are a persona identification judge. Your only lens is IDEOLOGY: political vi
 You have been given {{ n_candidates }} pre-filtered candidate personas as context.
 You also have access to a search tool that queries the full persona database.
 
-You also have access to a search tool that queries the full persona database.
-
 Use the search tool when:
 - A message reveals a value or belief not clearly matched by the pre-filtered candidates
 - You want to verify a specific ideological stance or worldview in the database
-- You suspect the correct persona may not be in the pre-filtered list
 
-Score every (author, persona) pair on a 1–5 scale judged strictly on ideological fit.
+Your task: DIRECTLY ASSIGN each author to exactly one persona from the candidate list.
+- Each author maps to exactly one persona
+- No two authors can share the same persona (every author is a distinct character)
+- Candidates not assigned to any author are distractors — leave them out of your output
+- For each persona you assign, also rate how faithfully that author portrays it (fidelity 1–5)
 
-Respond in JSON with exactly two keys:
-- "scores": nested object — outer key is the author digest, inner key is the persona name, value is integer 1–5
+Respond in JSON with exactly three keys:
+- "assignment": object — key is the author digest (exact string), value is the persona name (exact string)
+- "fidelity": object — key is the persona name (only assigned ones), value is integer 1–5
 - "group_fidelity_score": integer 1–5 rating the overall group coherence of the conversation
 
 Required shape:
 {
-  "scores": {
-    "<author_digest>": {"<PERSONA_NAME>": <1-5>, ...},
+  "assignment": {
+    "<author_digest>": "<PERSONA_NAME>",
+    ...
+  },
+  "fidelity": {
+    "<PERSONA_NAME>": <1-5>,
     ...
   },
   "group_fidelity_score": <1-5>
 }
 
-Persona identification rating rubric:
-5 = unmistakable ideological match
-4 = strong match with minor divergences
+Assignment rubric (IDEOLOGY lens — choose the persona whose worldview best matches this author):
+Select the candidate whose political views, values, moral stances, and beliefs most uniquely match this author's messages. No ties — one persona per author, no persona used twice.
+
+Fidelity rubric (how faithfully the author portrays the assigned persona on ideology):
+5 = unmistakable ideological match across values and beliefs
+4 = strong match with minor ideological divergences
 3 = plausible match with notable divergences
-2 = weak match, more misses than hits
-1 = very unlikely to be this persona
+2 = weak match, more ideological misses than hits
+1 = very unlikely to be this persona on ideological grounds
 
 Group fidelity rating rubric:
 5 = agents actively engage with each other; topic-focused; meaningful interconnected contributions; natural turn-taking
@@ -43,10 +52,6 @@ Group fidelity rating rubric:
 3 = mixed — some genuine interaction alongside ignored messages or partial topic drift
 2 = mostly disconnected — agents post standalone opinions with little engagement with others
 1 = no coherent group dynamic — random answers, repeated topic shifts, messages that ignore the conversation entirely
-
-Group chat constraint: every author in this conversation is a DISTINCT persona — no two authors share the same identity. Your top prediction for each author must therefore differ. If you find yourself assigning the same persona as the best match for multiple authors, re-examine: you are likely anchoring on a generic profile. Find the ideological trait that makes each author unique and let that drive the top score.
-
-Important: do NOT default to the most neutral or generic-sounding persona when uncertain. A score of 3 signals genuine ambiguity — reserve it for cases where ideological evidence is mixed but present. If no candidate shows clear ideological evidence, assign low scores (1–2) across the board rather than elevating the least-distinctive profile.
 {%- endblock -%}
 
 {%- block user -%}
@@ -56,16 +61,16 @@ Important: do NOT default to the most neutral or generic-sounding persona when u
 --- MESSAGES BY AUTHOR ---
 {{ messages_block }}
 
-Score all authors against all personas on IDEOLOGY only.
+Assign each author to exactly one persona based on IDEOLOGY only. Each persona can only be assigned to one author.
 Authors (use exact digest strings as JSON keys): {{ author_list }}
-Personas (use exact names as JSON keys): {{ persona_names }}
+Candidate personas available for assignment: {{ persona_names }}
 
-Use the search tool if you need more ideological information before scoring.
+Use the search tool if you need more ideological information before assigning.
 
 {% if gini_value is not none %}
 --- GROUP FIDELITY METRICS ---
 Gini coefficient (turn distribution inequality): {{ gini_value }} — reference range for real group chats: 0.28–0.42 — within range: {{ gini_within_range }} — z-score vs reference (mean=0.33, std=0.05): {{ gini_z }}
 (Gini near 0 = all agents spoke equally; near 1 = one agent dominated all turns)
 {% endif %}
-After scoring, assign group_fidelity_score and group_fidelity_motivation for the whole conversation.
+After assigning, rate fidelity for each assigned persona and assign group_fidelity_score.
 {%- endblock -%}

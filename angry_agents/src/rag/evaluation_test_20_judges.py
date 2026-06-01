@@ -18,11 +18,14 @@ Requires the ChromaDB index to be built first:
 
 import argparse
 import json
+import logging
 import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
+
+log = logging.getLogger(__name__)
 
 from .judge_with_tools import run_persona_identification_with_tools
 from .retriever import retrieve_candidates
@@ -122,21 +125,39 @@ def _build_record(
 ) -> dict:
     now = datetime.now(timezone.utc).isoformat()
 
-    # Persona-centric format expected by src/eval/metrics_persona_id.py:
-    # for each persona, which author did the judge predict played it + all author scores.
-    persona_names = [s.persona_name for s in result.matches[0].scores] if result.matches else []
+    # Build assignment map: persona_name → (author_digest, fidelity_score)
+    # result.matches has one AuthorMatch per author; each has one PersonaScore
+    # (the assigned persona + fidelity from the direct-assignment prompt).
+    assigned_map: dict[str, tuple[str, int]] = {}
+    for m in result.matches:
+        if m.scores:
+            ps = m.scores[0]
+            assigned_map[ps.persona_name] = (m.author, ps.score)
+
+    # One entry per candidate persona: assigned ones carry predicted+fidelity, distractors get null.
     persona_identification = []
-    for pname in persona_names:
-        author_scores = [
-            {"author": m.author, "score": next((s.score for s in m.scores if s.persona_name == pname), 1)}
-            for m in result.matches
-        ]
-        predicted = max(author_scores, key=lambda x: x["score"])["author"]
-        persona_identification.append({
-            "persona_name": pname,
-            "predicted": predicted,
-            "scores": author_scores,
-        })
+    distractor_count = 0
+    for pname in candidate_names:
+        if pname in assigned_map:
+            author, fidelity = assigned_map[pname]
+            persona_identification.append({
+                "persona_name": pname,
+                "predicted": author,
+                "fidelity": fidelity,
+            })
+        else:
+            distractor_count += 1
+            persona_identification.append({
+                "persona_name": pname,
+                "predicted": None,
+                "fidelity": None,
+            })
+
+    log.info(
+        "judge %s [%s]: assigned %d/%d personas, %d distractors unassigned | gf_score=%s",
+        judge.get("name", "?"), judge.get("role", "?"),
+        len(assigned_map), len(candidate_names), distractor_count, gf_score,
+    )
 
     return {
         "ID_judge": judge_id,

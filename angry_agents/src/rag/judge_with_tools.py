@@ -126,36 +126,61 @@ def _openai_tool_loop(
     return final.choices[0].message.content
 
 
-def _parse_batch_scores(
+def _parse_assignment(
     raw: str,
     authors: list[str],
     candidates: list[dict],
 ) -> dict[str, list[PersonaScore]]:
     """
-    Parse batch JSON output:
-      {"scores": {"<author_digest>": {"<PERSONA_NAME>": <1-5>, ...}, ...}}
+    Parse direct assignment JSON output:
+      {"assignment": {"<author_digest>": "<PERSONA_NAME>", ...},
+       "fidelity":   {"<PERSONA_NAME>": <1-5>, ...}}
 
-    Missing authors or personas default to score 1.
+    Each author gets exactly one PersonaScore: the assigned persona + fidelity.
+    Authors missing from assignment default to the first candidate with fidelity 1.
+    Validates that no two authors share the same persona (bijection). If violated,
+    later duplicate assignments are dropped and logged.
     """
     try:
         data = json.loads(raw)
     except json.JSONDecodeError:
-        log.warning("batch parse: invalid JSON, defaulting all scores to 1")
+        log.warning("assignment parse: invalid JSON, using empty assignment")
         data = {}
 
-    scores_map: dict = data.get("scores", {})
+    assignment: dict = data.get("assignment", {})
+    fidelity: dict = data.get("fidelity", {})
+
+    # Validate bijection
+    seen_personas: set[str] = set()
+    clean_assignment: dict[str, str] = {}
+    for author, persona in assignment.items():
+        if persona in seen_personas:
+            log.warning("assignment parse: duplicate persona '%s' for author %s — dropped", persona, author[:12])
+        else:
+            seen_personas.add(persona)
+            clean_assignment[author] = persona
+
+    fallback_persona = candidates[0]["persona_name"] if candidates else "unknown"
     result: dict[str, list[PersonaScore]] = {}
 
-    for author in authors:
-        author_scores = scores_map.get(author, {})
-        result[author] = [
-            PersonaScore(
-                persona_name=p["persona_name"],
-                score=int(author_scores.get(p["persona_name"], 1)),
-            )
-            for p in candidates
-        ]
+    unassigned_authors = [a for a in authors if a not in clean_assignment]
+    if unassigned_authors:
+        log.warning(
+            "assignment parse: %d/%d authors unassigned by LLM — using fallback '%s'",
+            len(unassigned_authors), len(authors), fallback_persona,
+        )
 
+    for author in authors:
+        assigned_persona = clean_assignment.get(author, fallback_persona)
+        score = int(fidelity.get(assigned_persona, 1))
+        score = max(1, min(5, score))
+        result[author] = [PersonaScore(persona_name=assigned_persona, score=score)]
+
+    log.info(
+        "assignment parse: %d authors → %s",
+        len(result),
+        {a[:8] + "...": ps[0].persona_name + " (f=%d)" % ps[0].score for a, ps in result.items()},
+    )
     return result
 
 
@@ -237,7 +262,7 @@ def run_persona_identification_with_tools(
         log.warning("judge %s: missing or invalid group_fidelity_score, defaulting to 3", judge_name)
         gf_score = 3
 
-    author_persona_scores = _parse_batch_scores(raw, authors, candidates)
+    author_persona_scores = _parse_assignment(raw, authors, candidates)
 
     matches = [
         AuthorMatch(author=a, scores=author_persona_scores[a])

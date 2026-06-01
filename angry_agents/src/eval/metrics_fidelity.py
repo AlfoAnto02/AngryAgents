@@ -54,13 +54,11 @@ def _fidelity_scores_for_persona(
         judge_name = judge["judge_name"]
         for match in judge["persona_identification"]:
             pname = match["persona_name"]
-            true_author = name_to_author.get(pname)
-            if true_author is None:
-                continue
-            for s in match["scores"]:
-                if s["author"] == true_author:
-                    result[pname][judge_name].append(s["score"])
-                    break
+            if name_to_author.get(pname) is None:
+                continue  # distractor — skip
+            fidelity = match.get("fidelity")
+            if fidelity is not None:
+                result[pname][judge_name].append(int(fidelity))
 
     return result
 
