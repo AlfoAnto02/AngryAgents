@@ -118,6 +118,7 @@ def _build_record(
     chat_id: int,
     result,
     candidate_names: list[str],
+    gf_score: int | None = None,
 ) -> dict:
     now = datetime.now(timezone.utc).isoformat()
 
@@ -148,6 +149,7 @@ def _build_record(
         "judge_role": judge["role"],
         "rag_candidates": candidate_names,
         "persona_identification": persona_identification,
+        "group_fidelity_score": gf_score,
     }
 
 
@@ -170,6 +172,7 @@ def run_evaluation_from_db_data(
     progress_callback=None,
     forced_names: list[str] | None = None,
     out_dir: "Path | None" = None,
+    gini_data: dict | None = None,
 ) -> list[dict]:
     """
     Run the 20-judge pipeline on already-loaded chat data (from the database).
@@ -203,18 +206,19 @@ def run_evaluation_from_db_data(
             role=judge["role"],
         )
         candidate_names = [p["persona_name"] for p in candidates]
-        result = run_persona_identification_with_tools(
+        result, gf_score = run_persona_identification_with_tools(
             focus=judge["focus"],
             chat=chat,
             candidates=candidates,
             role=judge["role"],
             judge_name=judge["name"],
             tracker=tracker,
+            gini_data=gini_data,
         )
         _completed[0] += 1
         if progress_callback:
             progress_callback(_completed[0], len(JUDGES))
-        return _build_record(judge_id, judge, chat_id, result, candidate_names)
+        return _build_record(judge_id, judge, chat_id, result, candidate_names, gf_score)
 
     # Keep concurrency low to stay within gpt-4o-mini TPM limits.
     # Each prompt is ~27k tokens; 3 workers × 29k tokens × 3 calls/min ≈ 260k TPM
@@ -288,7 +292,7 @@ def main() -> None:
         )
         candidate_names = [p["persona_name"] for p in candidates]
         print(f"  [{judge['name']}] → {candidate_names}")
-        result = run_persona_identification_with_tools(
+        result, gf_score = run_persona_identification_with_tools(
             focus=judge["focus"],
             chat=chat,
             candidates=candidates,
@@ -297,7 +301,7 @@ def main() -> None:
             tracker=tracker,
         )
         _print_result(judge, result, candidate_names)
-        return _build_record(judge_id, judge, chat_id, result, candidate_names)
+        return _build_record(judge_id, judge, chat_id, result, candidate_names, gf_score)
 
     futures_map: dict = {}
     with ThreadPoolExecutor(max_workers=3) as pool:

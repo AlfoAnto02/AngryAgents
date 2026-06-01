@@ -230,6 +230,41 @@ def run(
 
 
 # ---------------------------------------------------------------------------
+# Judge-score aggregation
+# ---------------------------------------------------------------------------
+
+def compute_judge_scores(records: list[dict]) -> dict:
+    """
+    Aggregate group_fidelity_score values from 20 judge records.
+
+    Returns a dict suitable for merging into the group_fidelity result:
+      {"judge_scores": {"n": 20, "mean": ..., "median": ..., "iqr": ..., "ci_95": [...]}}
+    """
+    scores = [
+        r["group_fidelity_score"]
+        for r in records
+        if isinstance(r.get("group_fidelity_score"), int)
+    ]
+    if not scores:
+        return {"judge_scores": {"note": "no group_fidelity_score in records"}}
+
+    arr = np.array(scores, dtype=float)
+    q1 = float(np.percentile(arr, 25))
+    q3 = float(np.percentile(arr, 75))
+    ci = bootstrap_ci(arr, np.median, n=10_000)
+
+    return {
+        "judge_scores": {
+            "n": len(scores),
+            "mean": round(float(arr.mean()), 4),
+            "median": round(float(np.median(arr)), 4),
+            "iqr": round(q3 - q1, 4),
+            "ci_95": [round(ci[0], 4), round(ci[1], 4)],
+        }
+    }
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 

@@ -167,7 +167,8 @@ def run_persona_identification_with_tools(
     role: str = "general",
     judge_name: str = "unknown",
     tracker: "TokenTracker | None" = None,
-) -> PersonaIdentificationResult:
+    gini_data: dict | None = None,
+) -> tuple[PersonaIdentificationResult, int]:
     """
     Identify personas using a single RAG-assisted LLM call per judge.
 
@@ -201,6 +202,10 @@ def run_persona_identification_with_tools(
         for p in candidates
     )
 
+    gini_value = gini_data.get("gini") if gini_data else None
+    gini_within_range = gini_data.get("within_reference_range") if gini_data else None
+    gini_z = gini_data.get("z_vs_reference") if gini_data else None
+
     system, user = render_prompt(
         template,
         n_candidates=len(candidates),
@@ -208,6 +213,9 @@ def run_persona_identification_with_tools(
         messages_block=messages_block,
         author_list=author_list,
         persona_names=persona_names,
+        gini_value=gini_value,
+        gini_within_range=gini_within_range,
+        gini_z=gini_z,
     )
 
     raw = _openai_tool_loop(
@@ -218,10 +226,21 @@ def run_persona_identification_with_tools(
         judge_role=role,
         tracker=tracker,
     )
+
+    try:
+        raw_data = json.loads(raw)
+    except json.JSONDecodeError:
+        raw_data = {}
+
+    gf_score = raw_data.get("group_fidelity_score")
+    if not isinstance(gf_score, int) or not (1 <= gf_score <= 5):
+        log.warning("judge %s: missing or invalid group_fidelity_score, defaulting to 3", judge_name)
+        gf_score = 3
+
     author_persona_scores = _parse_batch_scores(raw, authors, candidates)
 
     matches = [
         AuthorMatch(author=a, scores=author_persona_scores[a])
         for a in authors
     ]
-    return PersonaIdentificationResult(matches=matches)
+    return PersonaIdentificationResult(matches=matches), gf_score

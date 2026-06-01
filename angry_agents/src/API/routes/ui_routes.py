@@ -863,10 +863,12 @@ def _build_ui_report(
     }
 
     # ── Group fidelity ───────────────────────────────────────────
-    gini_data = grp_result.get("group_fidelity", {}).get("gini", {})
+    gf = grp_result.get("group_fidelity", {})
+    gini_data = gf.get("gini", {})
     gini = float(gini_data.get("gini") or 0.0)
     gini_ci_raw = gini_data.get("ci_95") or [0.0, 0.0]
     gini_z = float(gini_data.get("z_vs_reference") or 0.0)
+    judge_scores_data = gf.get("judge_scores", {})
 
     # Turn distribution from raw messages
     turn_counts: dict[str, int] = {}
@@ -915,6 +917,10 @@ def _build_ui_report(
         "gini": gini,
         "giniZ": gini_z,
         "giniCI": [float(gini_ci_raw[0]), float(gini_ci_raw[1])],
+        "groupFidelityMean": float(judge_scores_data.get("mean") or 0.0),
+        "groupFidelityMedian": float(judge_scores_data.get("median") or 0.0),
+        "groupFidelityCIL": float((judge_scores_data.get("ci_95") or [0.0, 0.0])[0]),
+        "groupFidelityCIH": float((judge_scores_data.get("ci_95") or [0.0, 0.0])[1]),
         "driftScore": 0.0,
         "turnShares": turn_shares,
         # Phase 2 deliberation not yet implemented
@@ -1050,12 +1056,27 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         chat = {"messages": messages}
         # Force-include only active participants — silent agents have no messages to match against.
         forced_names = [name for digest, name in author_map.items() if digest in active_digests]
+
+        # Build speaker_stats and compute Gini before the judge pipeline so
+        # the structural signal can be injected into each judge's prompt.
+        speaker_stats: dict[str, dict] = {}
+        for msg in messages:
+            author = msg.get("author")
+            if author and author in author_map:
+                pid = author_map[author]
+                speaker_stats.setdefault(pid, {"turns": 0})
+                speaker_stats[pid]["turns"] += 1
+        transcript_meta = {"speaker_stats": speaker_stats}
+        grp_result = metrics_group.run(transcript_meta)
+        gini_data = grp_result.get("group_fidelity", {}).get("gini")
+
         _t_llm_start = _time.monotonic()
         print(f"  [chat {chat_id}] ── LLM calls START  (20 judges × {len(all_profiles)} profiles → {len(forced_names or [])} forced)")
         records = run_evaluation_from_db_data(
             chat, all_profiles, chat_id, _progress,
             forced_names=forced_names,
             out_dir=_EVAL_DIR / f"chat_{chat_id}",
+            gini_data=gini_data,
         )
         _t_llm_end = _time.monotonic()
         print(f"  [chat {chat_id}] ── LLM calls DONE   ({_t_llm_end - _t_llm_start:.1f}s)")
@@ -1085,16 +1106,6 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         finally:
             _conn_evals.close()
 
-        # Build transcript_meta for group metrics (speaker_stats keyed by persona name)
-        speaker_stats: dict[str, dict] = {}
-        for msg in messages:
-            author = msg.get("author")
-            if author and author in author_map:
-                pid = author_map[author]
-                speaker_stats.setdefault(pid, {"turns": 0})
-                speaker_stats[pid]["turns"] += 1
-        transcript_meta = {"speaker_stats": speaker_stats}
-
         # author_map is {digest: "Claire Dunphy"} — only map personas whose authors spoke.
         # Silent participants can never be identified correctly; excluding them prevents
         # their 20 guaranteed-wrong predictions from dragging down the accuracy denominator.
@@ -1109,7 +1120,7 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         _judge_jobs[chat_id]["progress"] = 93
         fid_result = metrics_fidelity.compute_fidelity(records, name_to_author)
         _judge_jobs[chat_id]["progress"] = 97
-        grp_result = metrics_group.run(transcript_meta)
+        grp_result["group_fidelity"].update(metrics_group.compute_judge_scores(records))
         _t_metrics_end = _time.monotonic()
         print(f"  [chat {chat_id}] ── metrics DONE     ({_t_metrics_end - _t_metrics_start:.1f}s)")
 
