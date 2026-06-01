@@ -126,7 +126,6 @@ def main():
     print(f"Existing agents in DB: {len(existing_names)}\n")
 
     files = sorted(glob.glob("data/personas/*.json"))
-    files = [f for f in files if "old" not in f]
 
     created = 0
     skipped = 0
