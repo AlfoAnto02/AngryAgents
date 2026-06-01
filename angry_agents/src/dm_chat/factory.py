@@ -40,7 +40,7 @@ class DMFactory:
 
         agent = AgentFactory.from_db(db, row["ID"], model)
         if topic:
-            agent.bind_to_chat(chat_id, topic, template_name="persona_chat.j2")
+            agent.bind_to_chat(chat_id, topic, template_name="dm_persona_chat.j2")
 
         return DMSession(
             chat_id=chat_id,

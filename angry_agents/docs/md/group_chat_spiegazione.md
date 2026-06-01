@@ -46,7 +46,7 @@ Fin qui è solo un contenitore. Diventa un agente attivo quando si chiama `bind_
 
 ```python
 def bind_to_chat(self, _chat_id: int, topic: Topic,
-                 template_name: str = "group_persona_chat.j2") -> None:
+                 template_name: str = "group_dm_persona_chat.j2") -> None:
 ```
 
 Questo metodo fa tutto il lavoro costoso **una volta sola** prima che la chat inizi. Calcola e
@@ -163,7 +163,7 @@ presente, altrimenti dal token grezzo. Imposta `reground = (turn_count % 20 == 0
 
 Il sistema ora usa **due** template separati a seconda del tipo di chat.
 
-### `group_persona_chat.j2` — conversazione autonoma tra agenti
+### `group_dm_persona_chat.j2` — conversazione autonoma tra agenti
 
 Usato per le chat di gruppo in cui gli agenti parlano tra loro senza utente. Caratteristiche
 distinctive:
@@ -181,7 +181,7 @@ distinctive:
   `[1] … [2] … [3] …` con frammenti di max 10 parole. Se `message_count == 2`, due frammenti
   connessi. Se `message_count == 1`, un messaggio completo di max 2 frasi.
 
-### `persona_chat.j2` — chat diretta con utente umano (DM)
+### `dm_persona_chat.j2` — chat diretta con utente umano (DM)
 
 Usato per le sessioni DM. Differenze rispetto al template di gruppo:
 
@@ -469,7 +469,7 @@ DMFactory.build_session(
 ```
 
 Carica il singolo agente con `AgentFactory.from_db()`, chiama
-`agent.bind_to_chat(..., template_name="persona_chat.j2")` esplicitamente — garantendo che
+`agent.bind_to_chat(..., template_name="dm_persona_chat.j2")` esplicitamente — garantendo che
 il template DM (con la regola di lingua e le istruzioni utente) venga usato al posto di quello
 di gruppo.
 
@@ -548,7 +548,7 @@ GroupChatSession.run_turn(db)
         ├─ agent.message_count = 3 → respond_burst(trimmed, turn_count=21, ...)
         │      ├─ _render() → serializza storia con etichette "Agent1/2/3..."
         │      │              reground = (21 % 20 == 1 → False; al turno 20 sarebbe True)
-        │      │              template = "group_persona_chat.j2"
+        │      │              template = "group_dm_persona_chat.j2"
         │      ├─ llm_call(system, user, "mistral")
         │      │      → "[1] La forza è debole in voi.\n[2] Sempre fu così.\n[3] Non cambierà."
         │      └─ regex split → ["La forza è debole in voi.", "Sempre fu così.", "Non cambierà."]
