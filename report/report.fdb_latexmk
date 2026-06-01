@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1780258889.70897 "/Users/fronzofronzo/Desktop/ai-work/angry-agents/report/report.tex" "report.pdf" "report" 1780258890.35761 0
+["pdflatex"] 1780307420.87662 "/Users/fronzofronzo/Desktop/ai-work/angry-agents/report/report.tex" "report.pdf" "report" 1780307421.50443 0
   "../ui/logo.png" 1779964628.54573 1162045 924d46d6ab803a3e52f97eb67781af1f ""
-  "/Users/fronzofronzo/Desktop/ai-work/angry-agents/report/report.tex" 1780258889.53442 40057 63fcebaf0f427d90676ddbb3966d6efb ""
+  "/Users/fronzofronzo/Desktop/ai-work/angry-agents/report/report.tex" 1780307420.66498 40055 706e4ad785cc77f95981ee09e5111cb9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -128,10 +128,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1761832571 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1761832535 3345739 954fc44d626a7619330490339f9142a4 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "report.aux" 1780258890.27911 9382 372e659f030aa7e0ed941a6cce19b5a6 "pdflatex"
-  "report.out" 1780258890.28008 5965 7e01017c49081b6dc2b295db64a6dab4 "pdflatex"
-  "report.tex" 1780258889.53442 40057 63fcebaf0f427d90676ddbb3966d6efb ""
-  "report.toc" 1780258890.28023 5756 39286d8aa0bc76efed1c25ff0027a430 "pdflatex"
+  "report.aux" 1780307421.43298 9382 372e659f030aa7e0ed941a6cce19b5a6 "pdflatex"
+  "report.out" 1780307421.43386 5965 7e01017c49081b6dc2b295db64a6dab4 "pdflatex"
+  "report.tex" 1780307420.66498 40055 706e4ad785cc77f95981ee09e5111cb9 ""
+  "report.toc" 1780307421.43403 5756 39286d8aa0bc76efed1c25ff0027a430 "pdflatex"
   (generated)
   "report.aux"
   "report.log"

@@ -173,17 +173,14 @@ IV - Polish        & May 28--31 & UI polish, evaluation refinements, batch metri
 \subsection{Phase I --- Foundation (May 5--13)}
 
 \paragraph{Starting from the question.}
-The team began not from code but from a research question: can an LLM faithfully simulate a
-real or fictional person, to the point that independent judges cannot tell the difference?
-Answering this required agreeing on what \emph{faithful simulation} even means --- a question
-that took several days of iteration to pin down.
+Our work started from asking ourselves  \textit{"What's the real application scope?"}. We started defying the problem and understand what the application should have done. The main challenge was to understand how to conduct the evaluation, since the definition of clear eval parameters and pipeline was crucial to realize a good judgment system.
 
-Five papers shaped the answer. Park et al.\ [2023] showed that long-running agents drift toward
+To help us to better understand problem scope, we searched and analyzed some papers. Park et al.\ [2023] showed that long-running agents drift toward
 generic agreement without memory and reflection mechanisms. Zhou et al.\ [2025] demonstrated that
 \emph{personal detail features} --- not surface vocabulary --- are the strongest predictor of
 behavioral fidelity. Jiang et al.\ [2024] proved that raters who know they are reading AI output
 systematically underestimate personality fidelity, directly motivating a blind evaluation
-protocol. These findings were not background reading: they became design constraints.
+protocol.
 
 \paragraph{First data model.}
 The earliest database design had six tables: \texttt{Agents}, \texttt{Chat}, \texttt{Chat\_messages}, \texttt{Judges}, \texttt{Judge\_evaluation}, and two separate
