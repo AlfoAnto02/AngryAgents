@@ -344,7 +344,13 @@ def ui_create_chat(
     if not agent_ids:
         raise HTTPException(status_code=422, detail="No valid participants")
 
-    display_title = body.topics[0] if body.topics else "Untitled session"
+    is_dm = len(agent_ids) == 1
+    if body.topics:
+        display_title = body.topics[0]
+    elif is_dm:
+        display_title = "No topic chat"
+    else:
+        display_title = "No topic chat"
     meta_json = json.dumps({
         "topics": body.topics,
         "tone": body.tone,
@@ -450,7 +456,7 @@ def create_chat_for_llm(
     if not agent_ids:
         raise HTTPException(status_code=422, detail="No valid participants")
 
-    display_title = body.topics[0] if body.topics else "Untitled session"
+    display_title = body.topics[0] if body.topics else "No topic chat"
     meta_json = json.dumps({"topics": body.topics, "tone": body.tone, "title": display_title})
 
     existing_topic = db.execute(
@@ -1457,18 +1463,25 @@ def admin_sessions(
 
         agents = db.execute(
             """
-            SELECT a.ID FROM Chat_agent ca
+            SELECT a.ID, a.Name, a.Surname FROM Chat_agent ca
             JOIN Agents a ON ca.id_agent = a.ID
             WHERE ca.id_chat = ?
             """,
             (c["ID"],),
         ).fetchall()
 
+        is_dm = len(agents) == 1
+        if is_dm and agents:
+            agent_name = f"{agents[0]['Name']} {agents[0]['Surname']}".strip()
+            topic_display = f"DM · {agent_name}"
+        else:
+            topic_display = meta.get("title") or c["topic_title"]
+
         result.append({
             "id": c["ID"],
             "display_id": f"S-{c['ID']:04d}",
             "participants": [a["ID"] for a in agents],
-            "topic": meta.get("title") or c["topic_title"],
+            "topic": topic_display,
             "duration": "00:00:00",
             "date": (c["created_at"] or "")[:16].replace("T", " "),
             "status": "complete",

@@ -16,7 +16,7 @@ function Stepper({ step }) {
 // ─── New Group Chat ──────────────────────────────────────────
 function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
   const { agents, byId } = window.useAgents();
-  const [step, setStep] = React.useState(1);
+  const [step, setStep] = React.useState(initialSelection.length >= 2 ? 2 : 1);
   const [selected, setSelected] = React.useState(initialSelection);
   const [topics, setTopics] = React.useState([]);
   const [topicInput, setTopicInput] = React.useState("");
@@ -27,6 +27,8 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
   const [sourceOpen, setSourceOpen] = React.useState(false);
   const [allTopics, setAllTopics] = React.useState([]);
   const [suggestions, setSuggestions] = React.useState([]);
+  const [profilePersona, setProfilePersona] = React.useState(null);
+  const [noTopic, setNoTopic] = React.useState(false);
 
   React.useEffect(() => {
     window.api.get("/topics?limit=500")
@@ -77,13 +79,15 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
     setTopics([...topics, t]);
     setTopicInput("");
     setSuggestions([]);
+    setNoTopic(false);
   };
 
   const removeTopic = (t) => setTopics(topics.filter(x => x !== t));
 
-  const canNext = step === 1 ? selected.length >= 2 : topics.length >= 1;
+  const canNext = step === 1 ? selected.length >= 2 : (topics.length >= 1 || noTopic);
 
   return (
+    <React.Fragment>
     <div className="wizard-shell" data-screen-label="new-group-chat">
       <div className="wizard-main">
         <Stepper step={step} />
@@ -175,28 +179,14 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
 
             <div className="lib-grid">
               {filtered.map(p => (
-                <div
+                <AgentCard
                   key={p.id}
-                  className={`card card-hov agent-card ${selected.includes(p.id) ? "selected" : ""}`}
-                  onClick={() => toggle(p.id)}
-                >
-                  <div className="agent-card-head">
-                    <Checkbox checked={selected.includes(p.id)} onChange={() => toggle(p.id)} />
-                    <Avatar persona={p} size="md" />
-                    <div className="agent-card-meta">
-                      <div className="agent-name">{p.name}</div>
-                      <div className="agent-source">{p.source_title}</div>
-                    </div>
-                  </div>
-                  <div className="agent-desc">{p.desc}</div>
-                  <div className="agent-tags">
-                    {p.tags.slice(0, 3).map(t => (
-                      <span key={t} className="tag-chip" style={{ pointerEvents: "none" }}>
-                        <span style={{ opacity: 0.6 }}>#</span>{t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                  persona={p}
+                  selected={selected.includes(p.id)}
+                  onAdd={() => toggle(p.id)}
+                  onSelect={() => setProfilePersona(p)}
+                  showDM={false}
+                />
               ))}
             </div>
           </>
@@ -268,6 +258,23 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
                       )}
                     </div>
                     <Btn variant="outline" onClick={() => addTopic()} icon={<Icons.Plus size={13} />}>Add</Btn>
+                    {topics.length === 0 && (
+                      <button
+                        type="button"
+                        onClick={() => setNoTopic(t => !t)}
+                        style={{
+                          display: "inline-flex", alignItems: "center", gap: 6,
+                          padding: "0 12px", height: 36, borderRadius: "var(--r-input)",
+                          border: `1px solid ${noTopic ? "var(--accent-border)" : "var(--border-1)"}`,
+                          background: noTopic ? "var(--accent-soft)" : "transparent",
+                          color: noTopic ? "var(--accent)" : "var(--fg-2)",
+                          fontSize: 13, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap",
+                        }}
+                      >
+                        {noTopic ? <Icons.Check size={12} sw={2.5} /> : <Icons.X size={12} />}
+                        No topic
+                      </button>
+                    )}
                   </div>
                   {topics.length > 0 && (
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
@@ -428,6 +435,17 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
         </div>
       </aside>
     </div>
+
+    {profilePersona && (
+      <AgentProfileModal
+        persona={profilePersona}
+        onClose={() => setProfilePersona(null)}
+        onAddToSession={(p) => { toggle(p.id); setProfilePersona(null); }}
+        inSession={selected.includes(profilePersona.id)}
+        showStartDM={false}
+      />
+    )}
+    </React.Fragment>
   );
 }
 
@@ -438,6 +456,7 @@ function NewDMScreen({ onCancel, onLaunch }) {
   const [selectedId, setSelectedId] = React.useState(null);
   const [opener, setOpener] = React.useState("");
   const [q, setQ] = React.useState("");
+  const [profilePersona, setProfilePersona] = React.useState(null);
 
   const persona = selectedId ? byId(selectedId) : null;
   const filtered = agents.filter(p =>
@@ -545,34 +564,56 @@ function NewDMScreen({ onCancel, onLaunch }) {
           />
         </div>
         <div className="col" style={{ gap: 6, maxHeight: 380, overflow: "auto" }}>
-          {filtered.map(p => (
-            <div
-              key={p.id}
-              className={`card card-hov ${selectedId === p.id ? "selected" : ""}`}
-              style={{
-                padding: 10,
-                display: "flex",
-                gap: 10,
-                alignItems: "center",
-                cursor: "pointer",
-                borderColor: selectedId === p.id ? "var(--accent)" : undefined,
-                background: selectedId === p.id ? "var(--accent-soft)" : undefined,
-              }}
-              onClick={() => setSelectedId(p.id)}
-            >
-              <Avatar persona={p} size="sm" />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div className="mono" style={{ fontSize: 12.5, fontWeight: 600 }}>{p.name}</div>
-                <div className="t-meta" style={{ fontSize: 11.5, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.desc}</div>
+          {filtered.map(p => {
+            const isSelected = selectedId === p.id;
+            return (
+              <div
+                key={p.id}
+                className={`card ${isSelected ? "selected" : "card-hov"}`}
+                style={{
+                  padding: 10,
+                  display: "flex",
+                  gap: 10,
+                  alignItems: "center",
+                  cursor: "pointer",
+                  borderColor: isSelected ? "var(--accent)" : undefined,
+                  background: isSelected ? "var(--accent-soft)" : undefined,
+                }}
+                onClick={() => setProfilePersona(p)}
+              >
+                <Avatar persona={p} size="sm" />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div className="mono" style={{ fontSize: 12.5, fontWeight: 600 }}>{p.name}</div>
+                  <div className="t-meta" style={{ fontSize: 11.5, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.desc}</div>
+                </div>
+                <span className="badge" style={{ height: 18 }}>
+                  {p.source_type === "fiction" ? "Fiction" : "Real-world"}
+                </span>
+                <Btn
+                  variant={isSelected ? "outline" : "primary"}
+                  size="sm"
+                  icon={isSelected ? <Icons.Check size={11} sw={2.5} /> : null}
+                  onClick={(e) => { e.stopPropagation(); setSelectedId(p.id); }}
+                >
+                  {isSelected ? "Selected" : "Select"}
+                </Btn>
               </div>
-              <span className="badge" style={{ height: 18 }}>
-                {p.source_type === "fiction" ? "Fiction" : "Real-world"}
-              </span>
-              {selectedId === p.id && <Icons.Check size={14} sw={2.2} style={{ color: "var(--accent)" }} />}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Modal>
+
+      {profilePersona && (
+        <AgentProfileModal
+          persona={profilePersona}
+          onClose={() => setProfilePersona(null)}
+          inSession={selectedId === profilePersona.id}
+          showAddToSession={false}
+          showStartDM={true}
+          selectLabel="Select"
+          onStartDM={(p) => { setSelectedId(p.id); setProfilePersona(null); }}
+        />
+      )}
     </div>
   );
 }

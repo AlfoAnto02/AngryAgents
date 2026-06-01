@@ -265,6 +265,16 @@ function App() {
             onNewDM={handleNewDM}
             onNewGroup={handleNewGroup}
             onOpenChat={handleOpenChat}
+            onNav={setPage}
+            user={user}
+          />
+        )}
+        {role === "admin" && page === "library" && (
+          <LibraryScreen
+            session={sessionDraft}
+            onAddToSession={handleAddToSession}
+            onStartDM={(p) => handleLaunchDM({ persona: p, opener: "" })}
+            onOpenAgent={handleOpenAgent}
           />
         )}
         {role === "user" && page === "home" && (
@@ -312,7 +322,7 @@ function App() {
         )}
       </div>
 
-      {role === "user" && page === "library" && sessionDraft.length > 0 && (
+      {page === "library" && sessionDraft.length > 0 && (
         <div style={{
           position: "fixed",
           bottom: 16,

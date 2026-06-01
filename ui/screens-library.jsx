@@ -1,6 +1,6 @@
 // screens-library.jsx — Agent Library
 
-function AgentCard({ persona, selected, onAdd, onSelect, addLabel = "Add to session", compact = false }) {
+function AgentCard({ persona, selected, onAdd, onSelect, addLabel = "Add to session", compact = false, showDM = true }) {
   return (
     <div
       className={`card card-hov agent-card ${selected ? "selected" : ""}`}
@@ -40,12 +40,14 @@ function AgentCard({ persona, selected, onAdd, onSelect, addLabel = "Add to sess
           >
             {selected ? "In session" : addLabel}
           </Btn>
-          <button
-            className="btn btn-ghost btn-sm"
-            onClick={(e) => { e.stopPropagation(); onSelect?.(); }}
-          >
-            <Icons.MessageDots size={12} /> Start DM
-          </button>
+          {showDM && (
+            <button
+              className="btn btn-ghost btn-sm"
+              onClick={(e) => { e.stopPropagation(); onSelect?.(); }}
+            >
+              <Icons.MessageDots size={12} /> Start DM
+            </button>
+          )}
           <div className="spacer" />
           <span className="t-meta mono" style={{ fontSize: 10 }}>{String(persona.id)}</span>
         </div>
@@ -57,25 +59,41 @@ function AgentCard({ persona, selected, onAdd, onSelect, addLabel = "Add to sess
 function LibraryScreen({ session, onAddToSession, onStartDM, onOpenAgent }) {
   const { agents } = window.useAgents();
   const [q, setQ] = React.useState("");
-  const [activeTag, setActiveTag] = React.useState(null);
-  const [sourceFilter, setSourceFilter] = React.useState("all"); // all | fiction | real_world
-  const [sort, setSort] = React.useState("name");
+  const [sourceFilter, setSourceFilter] = React.useState(null); // null | "real_world" | source_title string
+  const [sourceSearch, setSourceSearch] = React.useState("");
+  const [sourceOpen, setSourceOpen] = React.useState(false);
 
-  let list = agents.filter(p => {
-    if (q && !(p.name.toLowerCase().includes(q.toLowerCase()) || p.desc.toLowerCase().includes(q.toLowerCase()))) return false;
-    if (activeTag && !p.tags.includes(activeTag)) return false;
-    if (sourceFilter !== "all" && p.source_type !== sourceFilter) return false;
-    return true;
-  });
-  if (sort === "name") list = [...list].sort((a, b) => a.name.localeCompare(b.name));
-  if (sort === "source") list = [...list].sort((a, b) => a.source_type.localeCompare(b.source_type) || a.name.localeCompare(b.name));
+  // Unique fiction source_titles sorted by count
+  const sourceTitles = React.useMemo(() => {
+    const counts = {};
+    agents.forEach(p => {
+      if (p.source_type === "fiction" && p.source_title) {
+        counts[p.source_title] = (counts[p.source_title] || 0) + 1;
+      }
+    });
+    return Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+  }, [agents]);
 
-  const topTags = ["politics", "philosophy", "science", "fiction", "economics", "technology", "humor", "sports"];
+  const visibleTitles = sourceSearch
+    ? sourceTitles.filter(t => t.toLowerCase().includes(sourceSearch.toLowerCase()))
+    : sourceTitles;
+
+  const list = React.useMemo(() => {
+    return agents
+      .filter(p => {
+        if (q && !(p.name.toLowerCase().includes(q.toLowerCase()) || p.desc.toLowerCase().includes(q.toLowerCase()))) return false;
+        if (sourceFilter === "real_world" && p.source_type !== "real_world") return false;
+        if (sourceFilter && sourceFilter !== "real_world" && p.source_title !== sourceFilter) return false;
+        return true;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [agents, q, sourceFilter]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }} data-screen-label="agent-library">
-      <div className="lib-toolbar">
-        <div className="lib-search">
+      <div className="lib-toolbar" style={{ flexWrap: "wrap", gap: 8 }}>
+        {/* Search */}
+        <div className="lib-search" style={{ flex: "0 1 360px" }}>
           <span className="lib-search-icon"><Icons.Search size={14} /></span>
           <input
             className="input"
@@ -84,37 +102,77 @@ function LibraryScreen({ session, onAddToSession, onStartDM, onOpenAgent }) {
             onChange={e => setQ(e.target.value)}
           />
         </div>
-        <div className="lib-filters">
-          <TagChip prefix="" active={!activeTag} onClick={() => setActiveTag(null)}>all</TagChip>
-          {topTags.map(t => (
-            <TagChip key={t} active={activeTag === t} onClick={() => setActiveTag(activeTag === t ? null : t)}>
-              {t}
-            </TagChip>
-          ))}
-        </div>
-        <div className="spacer" />
-        <div className="row" style={{ gap: 6 }}>
-          <button
-            className={`btn btn-sm ${sourceFilter === "all" ? "btn-outline" : "btn-ghost"}`}
-            onClick={() => setSourceFilter("all")}
-          >All</button>
-          <button
-            className={`btn btn-sm ${sourceFilter === "fiction" ? "btn-outline" : "btn-ghost"}`}
-            onClick={() => setSourceFilter(sourceFilter === "fiction" ? "all" : "fiction")}
-          >Fiction</button>
-          <button
-            className={`btn btn-sm ${sourceFilter === "real_world" ? "btn-outline" : "btn-ghost"}`}
-            onClick={() => setSourceFilter(sourceFilter === "real_world" ? "all" : "real_world")}
-          >Real-world</button>
-          <button
-            className={`btn btn-sm btn-ghost`}
-            title="Sort"
-            onClick={() => setSort(s => s === "name" ? "source" : "name")}
-          >
-            <Icons.Adjustments size={12} /> {sort === "name" ? "A→Z" : "By source"}
-          </button>
-        </div>
+
+        {/* Source filter button */}
+        <Btn
+          variant={sourceFilter ? "outline" : "ghost"}
+          size="sm"
+          icon={<Icons.Filter size={13} />}
+          onClick={() => setSourceOpen(o => !o)}
+          style={sourceFilter ? { borderColor: "var(--accent)", color: "var(--accent)" } : {}}
+        >
+          Source{sourceFilter ? `: ${sourceFilter === "real_world" ? "Real World" : sourceFilter}` : ""}
+          <Icons.ChevronDown size={11} style={{ marginLeft: 2, transform: sourceOpen ? "rotate(180deg)" : "none", transition: "transform .15s" }} />
+        </Btn>
+
+        {/* Clear filter */}
+        {sourceFilter && (
+          <IconBtn
+            icon={<Icons.X size={12} />}
+            title="Clear source filter"
+            onClick={() => { setSourceFilter(null); setSourceSearch(""); }}
+          />
+        )}
       </div>
+
+      {/* Source filter panel */}
+      {sourceOpen && (
+        <div style={{ padding: "10px 24px 14px", borderBottom: "1px solid var(--border-0)", background: "var(--bg-0)" }}>
+          <div className="card" style={{ padding: "12px 14px", background: "var(--bg-2)" }}>
+            <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 10 }}>
+              <div className="lib-search" style={{ flex: "0 1 240px" }}>
+                <span className="lib-search-icon"><Icons.Search size={12} /></span>
+                <input
+                  className="input"
+                  placeholder="Find a source…"
+                  value={sourceSearch}
+                  onChange={e => setSourceSearch(e.target.value)}
+                  style={{ height: 30, fontSize: 13 }}
+                  autoFocus
+                />
+              </div>
+              {sourceSearch && (
+                <IconBtn icon={<Icons.X size={11} />} onClick={() => setSourceSearch("")} title="Clear search" />
+              )}
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+              <TagChip prefix="" active={!sourceFilter} onClick={() => { setSourceFilter(null); setSourceOpen(false); }}>
+                All
+              </TagChip>
+              <TagChip
+                prefix=""
+                active={sourceFilter === "real_world"}
+                onClick={() => { setSourceFilter(sourceFilter === "real_world" ? null : "real_world"); setSourceOpen(false); }}
+              >
+                Real World
+              </TagChip>
+              {visibleTitles.map(title => (
+                <TagChip
+                  key={title}
+                  prefix=""
+                  active={sourceFilter === title}
+                  onClick={() => { setSourceFilter(sourceFilter === title ? null : title); setSourceOpen(false); }}
+                >
+                  {title}
+                </TagChip>
+              ))}
+              {sourceSearch && visibleTitles.length === 0 && (
+                <span className="t-meta" style={{ padding: "2px 4px" }}>No source found</span>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="lib-body">
         <div className="lib-section-head">
@@ -124,10 +182,12 @@ function LibraryScreen({ session, onAddToSession, onStartDM, onOpenAgent }) {
             </div>
             <h2 className="t-h2">Agent library</h2>
           </div>
-          <div className="row">
-            <span className="t-meta">In your session</span>
-            <span className="badge badge-accent">{session.length} / 8</span>
-          </div>
+          {session.length > 0 && (
+            <div className="row">
+              <span className="t-meta">In your session</span>
+              <span className="badge badge-accent">{session.length} / 8</span>
+            </div>
+          )}
         </div>
 
         {list.length === 0 ? (
@@ -135,7 +195,7 @@ function LibraryScreen({ session, onAddToSession, onStartDM, onOpenAgent }) {
             title="No agents match"
             sub="Try clearing filters or searching for a different descriptor."
             icon={<Icons.Search size={20} />}
-            action={<Btn variant="outline" size="sm" onClick={() => { setQ(""); setActiveTag(null); setSourceFilter("all"); }}>Clear filters</Btn>}
+            action={<Btn variant="outline" size="sm" onClick={() => { setQ(""); setSourceFilter(null); }}>Clear filters</Btn>}
           />
         ) : (
           <div className="lib-grid">

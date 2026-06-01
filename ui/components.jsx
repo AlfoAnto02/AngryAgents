@@ -353,6 +353,12 @@ function TopNav({ role, userRole, page, onNav, user, onLogout }) {
                 <Icons.Shield size={14} /> Dashboard
               </button>
               <button
+                className={`topnav-nav-item ${page === "library" ? "active" : ""}`}
+                onClick={() => handleNav("library")}
+              >
+                <Icons.Library size={14} /> Agents
+              </button>
+              <button
                 className={`topnav-nav-item ${page === "chat" ? "active" : ""}`}
                 onClick={() => handleNav("chat")}
                 title="Open any chat and send messages as a participant"
@@ -537,7 +543,7 @@ function PIBlock({ title, children }) {
   );
 }
 
-function AgentProfileModal({ persona, onClose, onStartDM, onAddToSession, inSession }) {
+function AgentProfileModal({ persona, onClose, onStartDM, onAddToSession, inSession, showAddToSession = true, showStartDM = true, selectLabel }) {
   const [profile, setProfile] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
 
@@ -591,13 +597,17 @@ function AgentProfileModal({ persona, onClose, onStartDM, onAddToSession, inSess
       }
       footer={
         <div style={{ display: "flex", gap: 8, width: "100%" }}>
-          <Btn variant="outline" size="sm" onClick={() => { onAddToSession?.(persona); onClose(); }}>
-            {inSession ? "✓ In session" : "+ Add to session"}
-          </Btn>
+          {showAddToSession && (
+            <Btn variant="outline" size="sm" onClick={() => { onAddToSession?.(persona); onClose(); }}>
+              {inSession ? "✓ In session" : "+ Add to session"}
+            </Btn>
+          )}
           <div style={{ flex: 1 }} />
-          <Btn variant="primary" size="sm" onClick={() => { onClose(); onStartDM?.(persona); }}>
-            Start DM
-          </Btn>
+          {showStartDM && (
+            <Btn variant="primary" size="sm" onClick={() => { onClose(); onStartDM?.(persona); }}>
+              {selectLabel || "Start DM"}
+            </Btn>
+          )}
         </div>
       }
     >
