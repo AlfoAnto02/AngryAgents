@@ -265,6 +265,16 @@ function App() {
             onNewDM={handleNewDM}
             onNewGroup={handleNewGroup}
             onOpenChat={handleOpenChat}
+            onNav={setPage}
+            user={user}
+          />
+        )}
+        {role === "admin" && page === "library" && (
+          <LibraryScreen
+            session={[]}
+            onAddToSession={() => {}}
+            onStartDM={(p) => handleLaunchDM({ persona: p, opener: "" })}
+            onOpenAgent={handleOpenAgent}
           />
         )}
         {role === "user" && page === "home" && (

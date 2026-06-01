@@ -11,8 +11,6 @@ function AdminSidebar({ section, onSelect, isOpen }) {
     { id: "analytics", label: "Chat Analytics", icon: <Icons.ChartLine size={14} /> },
     { id: "performance", label: "Agent Performance", icon: <Icons.Brain size={14} /> },
     { id: "sessions", label: "Session Log", icon: <Icons.Database size={14} /> },
-    { id: "judging", label: "Judging", icon: <Icons.Sparkles size={14} /> },
-    { id: "export", label: "Export", icon: <Icons.Download size={14} /> },
   ];
   return (
     <aside className={`admin-sidebar${isOpen ? " open" : ""}`}>
@@ -62,65 +60,138 @@ function StatusPill({ status }) {
   return <span className={`badge badge-dot ${v.cls}`}>{v.label}</span>;
 }
 
-// ─── Overview ────────────────────────────────────────────────
-function OverviewSection() {
+// ─── Admin Home (Overview) ────────────────────────────────────
+function AdminHomeSection({ user, onSection, onNav, chats }) {
+  const { agents } = window.useAgents();
   const [kpis, setKpis] = React.useState(null);
+
   React.useEffect(() => {
     window.api.get("/admin/overview")
-      .then(data => setKpis([
-        { label: "Sessions today", value: String(data.sessions_today.value), delta: `${data.sessions_today.delta_pct >= 0 ? "+" : ""}${data.sessions_today.delta_pct}%`, up: data.sessions_today.delta_pct >= 0, spark: data.sessions_today.spark },
-        { label: "Active users",   value: String(data.active_users.value),   delta: `${data.active_users.delta_pct >= 0 ? "+" : ""}${data.active_users.delta_pct}%`,   up: data.active_users.delta_pct >= 0,   spark: data.active_users.spark },
-      ]))
-      .catch(() => setKpis([]));
+      .then(data => setKpis({
+        sessions: data.sessions_today.value,
+        users: data.active_users.value,
+      }))
+      .catch(() => setKpis({ sessions: 0, users: 0 }));
   }, []);
 
-  if (!kpis) return <div style={{ padding: 24, color: "var(--fg-2)" }}>Loading…</div>;
+  const tileStyle = {
+    textAlign: "left", padding: 24, display: "flex", flexDirection: "column",
+    gap: 18, cursor: "pointer", background: "var(--bg-1)",
+    border: "1px solid var(--border-0)", borderRadius: 8, minHeight: 180,
+    fontFamily: "inherit", color: "inherit",
+  };
+  const iconBox = (extra = {}) => ({
+    width: 40, height: 40, borderRadius: 6,
+    background: "var(--admin-soft)", color: "var(--admin)",
+    display: "flex", alignItems: "center", justifyContent: "center",
+    border: "1px solid var(--admin-border)", ...extra,
+  });
 
   return (
-    <>
-      <div className="kpi-grid kpi-grid-2">
-        {kpis.map(k => (
-          <div key={k.label} className="card kpi">
-            <div className="kpi-label">{k.label}</div>
-            <div className="kpi-value">{k.value}</div>
-            <div className={`kpi-delta ${k.up ? "up" : "down"}`}>
-              {k.up ? "▲" : "▼"} {k.delta} <span className="t-meta" style={{ color: "var(--fg-3)" }}>vs. yesterday</span>
-            </div>
-            <Sparkline data={k.spark} color={k.up ? "var(--admin)" : "var(--danger)"} />
-          </div>
-        ))}
-      </div>
+    <div style={{ flex: 1, overflowY: "auto" }}>
+      <div style={{ maxWidth: 980, margin: "0 auto", padding: "48px 0 64px" }}>
 
-      <div className="chart-grid">
-        <div className="card chart-card">
-          <div className="chart-card-head">
-            <div>
-              <div className="t-eyebrow">Sessions per hour</div>
-              <div className="t-h3" style={{ marginTop: 4 }}>Last 24h</div>
-            </div>
-            <div className="row" style={{ gap: 6 }}>
-              <span className="badge">24h</span>
-              <span className="badge" style={{ opacity: 0.5 }}>7d</span>
-              <span className="badge" style={{ opacity: 0.5 }}>30d</span>
-            </div>
-          </div>
-          <BarChartPlaceholder label="Metrics coming soon" />
+        {/* Hero */}
+        <div style={{ marginBottom: 36 }}>
+          <div className="t-eyebrow">Welcome back, {user?.name?.split(" ")[0] || "Admin"}</div>
+          <h1 style={{ fontFamily: "var(--font-mono)", fontSize: 40, fontWeight: 600, letterSpacing: "-0.01em", margin: "10px 0 6px" }}>
+            Admin Console
+          </h1>
+          <p style={{ fontSize: 14, color: "var(--fg-2)", margin: 0, maxWidth: 520 }}>
+            Manage sessions, evaluate personas, browse agents and monitor analytics.
+          </p>
         </div>
 
-        {/* Renamed: Judge role mix → Judge Accuracy */}
-        <div className="card chart-card">
-          <div className="chart-card-head">
-            <div>
-              <div className="t-eyebrow">Persona-ID hit rate</div>
-              <div className="t-h3" style={{ marginTop: 4 }}>Judge Accuracy</div>
+        {/* 4 tiles */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 28 }}>
+
+          {/* Agents tile */}
+          <button className="card card-hov" onClick={() => onNav?.("library")} style={tileStyle}>
+            <div className="row" style={{ justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div style={iconBox()}><Icons.Library size={20} sw={1.6} /></div>
+              <Icons.ArrowRight size={16} style={{ color: "var(--fg-2)" }} />
             </div>
-            <span className="badge">baseline 12.5%</span>
-          </div>
-          <PieChartPlaceholder label="Per judge type" />
+            <div>
+              <div className="t-eyebrow">01 — Browse</div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 20, fontWeight: 600, marginTop: 4 }}>Agents</div>
+              <div className="t-meta" style={{ marginTop: 6, fontSize: 13 }}>
+                {agents.length} personas in the library · search and filter.
+              </div>
+            </div>
+          </button>
+
+          {/* Sessions tile */}
+          <button className="card card-hov" onClick={() => onSection("sessions")} style={tileStyle}>
+            <div className="row" style={{ justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div style={iconBox()}><Icons.Database size={20} sw={1.6} /></div>
+              <Icons.ArrowRight size={16} style={{ color: "var(--fg-2)" }} />
+            </div>
+            <div>
+              <div className="t-eyebrow">02 — Evaluate</div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 20, fontWeight: 600, marginTop: 4 }}>Session Log</div>
+              <div className="t-meta" style={{ marginTop: 6, fontSize: 13 }}>
+                Launch the judging pipeline · view cached reports.
+              </div>
+            </div>
+            {kpis && (
+              <div style={{ marginTop: "auto", display: "flex", gap: 6, flexWrap: "wrap" }}>
+                <span className="badge">{kpis.sessions} sessions today</span>
+                <span className="badge">{kpis.users} active users</span>
+              </div>
+            )}
+          </button>
+
+          {/* Analytics tile */}
+          <button className="card card-hov" onClick={() => onSection("analytics")} style={tileStyle}>
+            <div className="row" style={{ justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div style={iconBox()}><Icons.ChartLine size={20} sw={1.6} /></div>
+              <Icons.ArrowRight size={16} style={{ color: "var(--fg-2)" }} />
+            </div>
+            <div>
+              <div className="t-eyebrow">03 — Analyse</div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 20, fontWeight: 600, marginTop: 4 }}>Chat Analytics</div>
+              <div className="t-meta" style={{ marginTop: 6, fontSize: 13 }}>
+                Turn distribution · Gini coefficient · deliberation convergence.
+              </div>
+            </div>
+          </button>
+
+          {/* Agent Performance tile */}
+          <button className="card card-hov" onClick={() => onSection("performance")} style={tileStyle}>
+            <div className="row" style={{ justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div style={iconBox()}><Icons.Brain size={20} sw={1.6} /></div>
+              <Icons.ArrowRight size={16} style={{ color: "var(--fg-2)" }} />
+            </div>
+            <div>
+              <div className="t-eyebrow">04 — Monitor</div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 20, fontWeight: 600, marginTop: 4 }}>Agent Performance</div>
+              <div className="t-meta" style={{ marginTop: 6, fontSize: 13 }}>
+                Per-agent fidelity scores · individual and group metrics.
+              </div>
+            </div>
+          </button>
         </div>
+
+        {/* Quick start */}
+        <div style={{
+          padding: "14px 16px", background: "var(--bg-1)", border: "1px solid var(--border-0)",
+          borderRadius: 6, display: "flex", alignItems: "center", gap: 12, marginBottom: 36,
+        }}>
+          <Icons.Sparkles size={16} sw={1.6} style={{ color: "var(--admin)" }} />
+          <div style={{ flex: 1, fontSize: 13 }}>
+            <strong style={{ fontWeight: 500 }}>Quick start.</strong>{" "}
+            <span className="t-dim">Create a new session to evaluate.</span>
+          </div>
+          <Btn variant="outline" size="sm" icon={<Icons.MessageDots size={12} />} onClick={() => onNav?.("newdm")}>
+            New DM
+          </Btn>
+          <Btn variant="primary" size="sm" icon={<Icons.Users size={12} />} onClick={() => onNav?.("newgroup")}>
+            New group chat
+          </Btn>
+        </div>
+
       </div>
-      {/* Removed: "Persona ID accuracy" rolling-7d line chart */}
-    </>
+    </div>
   );
 }
 
@@ -193,7 +264,7 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
                         Open
                       </Btn>
                     )}
-                    {judged ? (
+                    {s.participants.length > 1 && (judged ? (
                       <Btn
                         variant="outline"
                         size="sm"
@@ -213,7 +284,7 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
                       >
                         Judge
                       </Btn>
-                    )}
+                    ))}
                     <IconBtn size="sm" icon={<Icons.ChevronRight size={13} />} />
                   </div>
                 </td>
@@ -338,59 +409,42 @@ function ChatAnalyticsSection() {
   );
 }
 
-function ExportSection() {
-  return (
-    <>
-      <div className="t-eyebrow">Data</div>
-      <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 16 }}>Export</h2>
-      <div className="card" style={{ padding: 24, maxWidth: 640 }}>
-        <div className="col" style={{ gap: 14 }}>
-          {["Sessions (JSONL)", "Judge evaluations (CSV)", "Persona profiles (JSON)", "Aggregated metrics (Parquet)"].map(opt => (
-            <div key={opt} className="row" style={{ padding: 12, border: "1px solid var(--border-0)", borderRadius: 6 }}>
-              <Icons.Database size={16} sw={1.6} style={{ color: "var(--admin)" }} />
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 500, fontSize: 13 }}>{opt}</div>
-                <div className="t-meta" style={{ marginTop: 2 }}>Last generated 18 min ago · 4.2 MB</div>
-              </div>
-              <Btn variant="outline" size="sm" icon={<Icons.Download size={12} />}>Download</Btn>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-}
 
-// ─── Judging launcher section (Change 3) ─────────────────────
-// Lists eligible sessions; chats already judged are tagged so the admin sees
-// at a glance which ones have a cached report.
-function JudgingSection({ onJudge, reports, onOpenChat }) {
+// ─── Session Log + Judging (merged) ──────────────────────────
+function SessionLogSection({ onJudge, reports, onOpenChat }) {
   const { byId } = window.useAgents();
+  const [sessions, setSessions] = React.useState([]);
   const [q, setQ] = React.useState("");
-  const [allSessions, setAllSessions] = React.useState([]);
+  const [expandedId, setExpandedId] = React.useState(null);
+
   React.useEffect(() => {
     window.api.get("/admin/sessions?limit=100")
-      .then(data => setAllSessions(data))
-      .catch(() => setAllSessions([]));
+      .then(data => setSessions(data))
+      .catch(() => setSessions([]));
   }, []);
-  const sessions = allSessions.filter(s =>
-    !q || (s.display_id || String(s.id)).toLowerCase().includes(q.toLowerCase()) || s.topic.toLowerCase().includes(q.toLowerCase())
+
+  const filtered = sessions.filter(s =>
+    !q ||
+    (s.display_id || String(s.id)).toLowerCase().includes(q.toLowerCase()) ||
+    s.topic.toLowerCase().includes(q.toLowerCase())
   );
+
+  const judgedCount = sessions.filter(s => !!reports?.[s.id]).length;
+
+  const toggleExpand = (id) => setExpandedId(prev => prev === id ? null : id);
+
   return (
     <>
-      <div className="t-eyebrow">Evaluation</div>
-      <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 6 }}>Run judging</h2>
-      <p className="t-meta" style={{ marginBottom: 16, maxWidth: 620 }}>
-        Pick a session and launch the judging pipeline. The report covers persona identification,
-        individual + group fidelity, deliberation convergence, and per-group properties as defined
-        in <span className="mono">EVAL.md</span>. Once a chat is judged, the report is cached —
-        click <strong>View report</strong> to reopen it without re-running the pipeline.
+      <p className="t-meta" style={{ marginBottom: 16, maxWidth: 680 }}>
+        All chat sessions. Launch the judging pipeline on any session to evaluate persona fidelity,
+        turn distribution, and deliberation convergence. Sessions already judged show a cached
+        report — click <strong>View report</strong> to reopen without re-running the pipeline.
       </p>
 
-      <div className="judge-launcher card">
-        <div className="judge-launcher-head">
+      <div className="card" style={{ overflow: "hidden" }}>
+        <div className="chart-card-head" style={{ padding: "12px 14px" }}>
           <div className="lib-search" style={{ flex: "0 1 360px" }}>
-            <span className="lib-search-icon"><Icons.Search size={14} /></span>
+            <span className="lib-search-icon"><Icons.Search size={13} /></span>
             <input
               className="input"
               placeholder="Search by session ID or topic…"
@@ -398,42 +452,176 @@ function JudgingSection({ onJudge, reports, onOpenChat }) {
               onChange={e => setQ(e.target.value)}
             />
           </div>
-          <div className="t-meta">{sessions.length} eligible session{sessions.length === 1 ? "" : "s"}</div>
+          <div className="row" style={{ gap: 10 }}>
+            {judgedCount > 0 && (
+              <span className="badge badge-ok">
+                <Icons.Check size={10} sw={2.5} /> {judgedCount} judged
+              </span>
+            )}
+            <div className="t-meta">{filtered.length} session{filtered.length !== 1 ? "s" : ""}</div>
+            <Btn variant="outline" size="sm" icon={<Icons.Download size={12} />}>Export CSV</Btn>
+          </div>
         </div>
-        <div className="judge-launcher-list">
-          {sessions.map(s => {
-            const judged = !!reports?.[s.id];
-            return (
-              <div key={s.id} className="judge-launcher-row">
-                <div className="col-mono" style={{ width: 80, color: "var(--fg-1)" }}>{s.display_id}</div>
-                <AvatarStack personas={s.participants.map(id => byId(id)).filter(Boolean)} size="xs" max={4} />
-                <div style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{s.topic}</div>
-                <div className="t-meta col-mono" style={{ width: 90 }}>{s.duration}</div>
-                <StatusPill status={s.status} />
-                {judged && <span className="badge badge-ok"><Icons.Check size={10} sw={2.5} /> Judged</span>}
-                {onOpenChat && (
-                  <Btn
-                    variant="outline"
-                    size="sm"
-                    icon={<Icons.MessageDots size={12} />}
-                    onClick={() => onOpenChat(s)}
-                    title="Open this chat and post as a participant"
-                  >
-                    Open
-                  </Btn>
-                )}
-                <Btn
-                  variant={judged ? "outline" : "primary"}
-                  size="sm"
-                  icon={judged ? <Icons.ChartBar size={12} /> : <Icons.Sparkles size={12} sw={2} />}
-                  onClick={() => onJudge(s)}
-                >
-                  {judged ? "View report" : "Launch judging"}
-                </Btn>
-              </div>
-            );
-          })}
-        </div>
+
+        {sessions.length === 0 ? (
+          <Empty title="No sessions yet" sub="Sessions appear here once users start chatting." icon={<Icons.Database size={20} />} />
+        ) : filtered.length === 0 ? (
+          <div style={{ padding: "24px 16px", textAlign: "center", color: "var(--fg-3)", fontSize: 13 }}>
+            No sessions match "{q}"
+          </div>
+        ) : (
+          <div className="table-scroll">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th style={{ width: 32 }}></th>
+                  <th>Session ID</th>
+                  <th>Participants</th>
+                  <th>Topic</th>
+                  <th style={{ width: 100 }}>Duration</th>
+                  <th style={{ width: 145 }}>Date</th>
+                  <th style={{ width: 120 }}>Status</th>
+                  <th style={{ width: 260 }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map(s => {
+                  const judged = !!reports?.[s.id];
+                  const expanded = expandedId === s.id;
+                  const personas = s.participants.map(id => byId(id)).filter(Boolean);
+                  return (
+                    <React.Fragment key={s.id}>
+                      {/* ── Main row ── */}
+                      <tr
+                        style={{ cursor: "pointer" }}
+                        onClick={() => toggleExpand(s.id)}
+                      >
+                        <td style={{ textAlign: "center", paddingRight: 0 }}>
+                          <Icons.ChevronRight
+                            size={13}
+                            style={{
+                              color: "var(--fg-3)",
+                              transform: expanded ? "rotate(90deg)" : "none",
+                              transition: "transform .15s",
+                            }}
+                          />
+                        </td>
+                        <td className="col-mono">{s.display_id}</td>
+                        <td>
+                          <div className="row" style={{ gap: 8 }}>
+                            <AvatarStack personas={personas} size="xs" max={4} />
+                            <span className="t-meta">{s.participants.length}</span>
+                          </div>
+                        </td>
+                        <td style={{ maxWidth: 240, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={s.topic}>
+                          {s.topic}
+                        </td>
+                        <td className="col-mono">{s.duration}</td>
+                        <td className="t-meta col-mono">{s.date}</td>
+                        <td onClick={e => e.stopPropagation()}>
+                          <StatusPill status={s.status} />
+                        </td>
+                        <td onClick={e => e.stopPropagation()}>
+                          <div className="row" style={{ gap: 4, justifyContent: "flex-end" }}>
+                            {judged && s.participants.length > 1 && (
+                              <span className="badge badge-ok" style={{ whiteSpace: "nowrap" }}>
+                                <Icons.Check size={10} sw={2.5} /> Judged
+                              </span>
+                            )}
+                            {s.participants.length > 1 && (
+                              <Btn
+                                variant={judged ? "outline" : "primary"}
+                                size="sm"
+                                icon={judged ? <Icons.ChartBar size={12} /> : <Icons.Sparkles size={12} sw={2} />}
+                                onClick={() => onJudge?.(s)}
+                              >
+                                {judged ? "View report" : "Launch judging"}
+                              </Btn>
+                            )}
+                          </div>
+                        </td>
+                      </tr>
+
+                      {/* ── Expanded detail row ── */}
+                      {expanded && (
+                        <tr style={{ background: "var(--bg-2)" }}>
+                          <td colSpan={8} style={{ padding: "14px 16px 16px 40px", borderTop: "1px solid var(--border-0)" }}>
+                            <div style={{ display: "flex", gap: 32, alignItems: "flex-start", flexWrap: "wrap" }}>
+                              {/* Participants */}
+                              <div style={{ flex: "0 0 auto" }}>
+                                <div className="t-eyebrow" style={{ marginBottom: 8 }}>Participants ({personas.length})</div>
+                                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                                  {personas.map(p => (
+                                    <div key={p.id} className="row" style={{ gap: 8 }}>
+                                      <Avatar persona={p} size="sm" />
+                                      <div>
+                                        <div style={{ fontSize: 13, fontWeight: 500, fontFamily: "var(--font-mono)" }}>{p.name}</div>
+                                        <div style={{ fontSize: 11, color: "var(--fg-3)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{p.source_title}</div>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* Session info */}
+                              <div style={{ flex: "1 1 200px" }}>
+                                <div className="t-eyebrow" style={{ marginBottom: 8 }}>Session info</div>
+                                <div className="col" style={{ gap: 4 }}>
+                                  <div className="row" style={{ gap: 6 }}>
+                                    <span style={{ fontSize: 12, color: "var(--fg-3)", width: 70 }}>ID</span>
+                                    <span className="mono" style={{ fontSize: 12 }}>{s.display_id}</span>
+                                  </div>
+                                  <div className="row" style={{ gap: 6 }}>
+                                    <span style={{ fontSize: 12, color: "var(--fg-3)", width: 70 }}>Topic</span>
+                                    <span style={{ fontSize: 12 }}>{s.topic}</span>
+                                  </div>
+                                  <div className="row" style={{ gap: 6 }}>
+                                    <span style={{ fontSize: 12, color: "var(--fg-3)", width: 70 }}>Date</span>
+                                    <span className="mono" style={{ fontSize: 12 }}>{s.date}</span>
+                                  </div>
+                                  <div className="row" style={{ gap: 6 }}>
+                                    <span style={{ fontSize: 12, color: "var(--fg-3)", width: 70 }}>Duration</span>
+                                    <span className="mono" style={{ fontSize: 12 }}>{s.duration}</span>
+                                  </div>
+                                  <div className="row" style={{ gap: 6 }}>
+                                    <span style={{ fontSize: 12, color: "var(--fg-3)", width: 70 }}>Status</span>
+                                    <StatusPill status={s.status} />
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Actions */}
+                              <div style={{ flex: "0 0 auto", display: "flex", flexDirection: "column", gap: 8, alignSelf: "center" }}>
+                                {onOpenChat && (
+                                  <Btn
+                                    variant="primary"
+                                    icon={<Icons.MessageDots size={13} />}
+                                    onClick={() => onOpenChat(s)}
+                                  >
+                                    Go to chat
+                                  </Btn>
+                                )}
+                                {s.participants.length > 1 && (
+                                  <Btn
+                                    variant="outline"
+                                    icon={judged ? <Icons.ChartBar size={13} /> : <Icons.Sparkles size={13} sw={2} />}
+                                    onClick={() => onJudge?.(s)}
+                                  >
+                                    {judged ? "View report" : "Launch judging"}
+                                  </Btn>
+                                )}
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </React.Fragment>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </>
   );
@@ -1082,7 +1270,7 @@ function ReportDeliberation({ group, convergenceRate, convCIL, convCIH, pearson,
 }
 
 // ─── Admin shell ─────────────────────────────────────────────
-function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpenChat }) {
+function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpenChat, onNav, user }) {
   const [navOpen, setNavOpen] = React.useState(false);
   const [judging, setJudging] = React.useState(null);
   // sessionId (number) → cached UI report. Pre-loaded from the server on
@@ -1114,74 +1302,53 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
         onSelect={(s) => { onSection(s); setNavOpen(false); }}
         isOpen={navOpen}
       />
-      <main className="admin-main">
-        <div className="admin-header">
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <button
-              className="btn btn-ghost btn-icon topnav-hamburger"
-              onClick={() => setNavOpen(o => !o)}
-              title="Toggle admin menu"
-            >
-              <Icons.Menu size={20} />
-            </button>
-            <div>
-              <div className="t-eyebrow">8 Angry Agents · {section}</div>
-              <h1 className="t-h1" style={{ marginTop: 4 }}>
-                {section === "overview" && "Overview"}
-                {section === "analytics" && "Chat Analytics"}
-                {section === "performance" && "Agent Performance"}
-                {section === "sessions" && "Session Log"}
-                {section === "judging" && "Judging"}
-                {section === "export" && "Export"}
-              </h1>
+
+      {/* ── Overview: full-width home layout (no admin-main padding) ── */}
+      {section === "overview" && (
+        <AdminHomeSection
+          user={user}
+          onSection={onSection}
+          onNav={onNav}
+          chats={chats}
+        />
+      )}
+
+      {/* ── Other sections: standard admin-main shell ── */}
+      {section !== "overview" && (
+        <main className="admin-main">
+          <div className="admin-header">
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <button
+                className="btn btn-ghost btn-icon topnav-hamburger"
+                onClick={() => setNavOpen(o => !o)}
+                title="Toggle admin menu"
+              >
+                <Icons.Menu size={20} />
+              </button>
+              <div>
+                <div className="t-eyebrow">8 Angry Agents · {section}</div>
+                <h1 className="t-h1" style={{ marginTop: 4 }}>
+                  {section === "analytics" && "Chat Analytics"}
+                  {section === "performance" && "Agent Performance"}
+                  {section === "sessions" && "Session Log"}
+                </h1>
+              </div>
+            </div>
+            <div className="row" style={{ gap: 8 }}>
+              <span className="badge badge-admin">
+                <Icons.Crown size={11} /> Admin
+              </span>
+              <Btn variant="outline" size="sm" icon={<Icons.User size={12} />} onClick={onNewDM}>New DM</Btn>
+              <Btn variant="outline" size="sm" icon={<Icons.Users size={12} />} onClick={onNewGroup}>New group</Btn>
             </div>
           </div>
-          <div className="row" style={{ gap: 8 }}>
-            <span className="badge badge-admin">
-              <Icons.Crown size={11} /> Admin
-            </span>
-            <Btn variant="outline" size="sm" icon={<Icons.Calendar size={12} />}>May 19, 2026</Btn>
-            <Btn
-              variant="outline"
-              size="sm"
-              icon={<Icons.User size={12} />}
-              onClick={onNewDM}
-              title="Create a new 1:1 chat with an agent"
-            >
-              New DM
-            </Btn>
-            <Btn
-              variant="outline"
-              size="sm"
-              icon={<Icons.Users size={12} />}
-              onClick={onNewGroup}
-              title="Create a new group chat session"
-            >
-              New group
-            </Btn>
-            <Btn
-              variant="primary"
-              size="sm"
-              icon={<Icons.Sparkles size={12} sw={2} />}
-              onClick={() => onSection("judging")}
-            >
-              Launch judging
-            </Btn>
-          </div>
-        </div>
 
-        {section === "overview" && (
-          <>
-            <OverviewSection />
-            <RecentSessionsTable onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />
-          </>
-        )}
-        {section === "analytics" && <ChatAnalyticsSection />}
-        {section === "performance" && <AgentPerformanceSection />}
-        {section === "sessions" && <RecentSessionsTable onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />}
-        {section === "judging" && <JudgingSection onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />}
-        {section === "export" && <ExportSection />}
-      </main>
+          {section === "analytics" && <ChatAnalyticsSection />}
+          {section === "performance" && <AgentPerformanceSection />}
+          {section === "sessions" && <SessionLogSection onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />}
+        </main>
+      )}
+
 
       <JudgingModal
         session={judging}

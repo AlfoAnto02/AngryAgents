@@ -449,9 +449,9 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
                 size="sm"
                 icon={<Icons.Pause size={12} />}
                 onClick={stopChat}
-                title="Metti in pausa la generazione dei messaggi"
+                title="Pause group chat messages"
               >
-                Pausa
+                Pause
               </Btn>
             )}
             {chat.type === "group" && chatStatus === "stopped" && (
@@ -460,9 +460,9 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
                 size="sm"
                 icon={<Icons.Play size={12} />}
                 onClick={resumeChat}
-                title="Riprendi la generazione dei messaggi"
+                title="Resume group chat messages"
               >
-                Riprendi
+                Resume
               </Btn>
             )}
           </div>
@@ -510,23 +510,23 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
         open={infoOpen}
         onClose={() => setInfoOpen(false)}
         width="440px"
-        title={<span><Icons.Info size={15} style={{ verticalAlign: "-2px", marginRight: 8 }} />Informazioni chat</span>}
+        title={<span><Icons.Info size={15} style={{ verticalAlign: "-2px", marginRight: 8 }} />Chat info</span>}
       >
         <div className="col" style={{ gap: 18 }}>
           <div>
-            <div className="t-eyebrow" style={{ marginBottom: 6 }}>Titolo</div>
+            <div className="t-eyebrow" style={{ marginBottom: 6 }}>Title</div>
             <div style={{ fontSize: 16, fontWeight: 600 }}>{chat.title}</div>
           </div>
           <div className="row" style={{ flexWrap: "wrap", gap: 6 }}>
-            <span className="badge badge-accent">{chat.type === "group" ? "Gruppo" : "Messaggio diretto"}</span>
+            <span className="badge badge-accent">{chat.type === "group" ? "Group" : "Direct message"}</span>
             <span className="badge">{chat.tone || "Debate"}</span>
             {chatStatus === "running" && <span className="badge badge-ok badge-dot">Live</span>}
-            {chatStatus === "stopped" && <span className="badge badge-dot">In pausa</span>}
-            {chatStatus === "done" && <span className="badge badge-dot">Conclusa</span>}
+            {chatStatus === "stopped" && <span className="badge badge-dot">Paused</span>}
+            {chatStatus === "done" && <span className="badge badge-dot">Finished</span>}
           </div>
           {chat.topics?.length > 0 && (
             <div>
-              <div className="t-eyebrow" style={{ marginBottom: 8 }}>{chat.topics.length > 1 ? "Argomenti" : "Argomento"}</div>
+              <div className="t-eyebrow" style={{ marginBottom: 8 }}>{chat.topics.length > 1 ? "Topics" : "Topic"}</div>
               <div className="row" style={{ flexWrap: "wrap", gap: 6 }}>
                 {chat.topics.map(t => (
                   <span key={t} className="tag-chip"><span style={{ opacity: 0.6 }}>#</span>{t}</span>
@@ -536,7 +536,7 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
           )}
           <div>
             <div className="t-eyebrow" style={{ marginBottom: 8 }}>
-              {personas.length} partecipant{personas.length === 1 ? "e" : "i"}
+              {personas.length} participant{personas.length === 1 ? "" : "s"}
             </div>
             <div className="col" style={{ gap: 6 }}>
               {personas.map(p => (
@@ -544,13 +544,13 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
                   key={p.id}
                   className="chat-info-participant"
                   onClick={() => { setInfoOpen(false); setProfilePersona(p); }}
-                  title={`Apri il profilo di ${p.name}`}
+                  title={`Open profile of ${p.name}`}
                 >
                   <Avatar persona={p} size="md" />
                   <div style={{ flex: 1, minWidth: 0, textAlign: "left" }}>
                     <div className="mono" style={{ fontWeight: 600, fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.name}</div>
                     <div className="t-meta" style={{ fontSize: 12, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                      {p.source_title || (p.source_type === "fiction" ? "Personaggio di fantasia" : "Persona reale")}
+                      {p.source_title || (p.source_type === "fiction" ? "Fiction character" : "Real person")}
                     </div>
                   </div>
                   <Icons.ChevronRight size={14} style={{ color: "var(--fg-3)", flexShrink: 0 }} />
