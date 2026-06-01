@@ -47,6 +47,13 @@ _ROLE_TEMPLATES: dict[str, str] = {
     "behavioral": "persona_id_behavioral_batch.j2",
 }
 
+_FIDELITY_TEMPLATES: dict[str, str] = {
+    "style": "individual_fidelity_style.j2",
+    "ideology": "individual_fidelity_ideology.j2",
+    "general": "individual_fidelity_general.j2",
+    "behavioral": "individual_fidelity_behavioral.j2",
+}
+
 
 def _openai_tool_loop(
     system: str,
@@ -133,11 +140,11 @@ def _parse_assignment(
 ) -> dict[str, list[PersonaScore]]:
     """
     Parse direct assignment JSON output:
-      {"assignment": {"<author_digest>": "<PERSONA_NAME>", ...},
-       "fidelity":   {"<PERSONA_NAME>": <1-5>, ...}}
+      {"assignment": {"<author_digest>": "<PERSONA_NAME>", ...}}
 
-    Each author gets exactly one PersonaScore: the assigned persona + fidelity.
-    Authors missing from assignment default to the first candidate with fidelity 1.
+    Each author gets exactly one PersonaScore with a neutral score (3) — fidelity
+    is no longer requested during identification; it is evaluated separately via
+    run_individual_fidelity_with_tools().
     Validates that no two authors share the same persona (bijection). If violated,
     later duplicate assignments are dropped and logged.
     """
@@ -148,7 +155,6 @@ def _parse_assignment(
         data = {}
 
     assignment: dict = data.get("assignment", {})
-    fidelity: dict = data.get("fidelity", {})
 
     # Validate bijection
     seen_personas: set[str] = set()
@@ -172,14 +178,122 @@ def _parse_assignment(
 
     for author in authors:
         assigned_persona = clean_assignment.get(author, fallback_persona)
-        score = int(fidelity.get(assigned_persona, 1))
-        score = max(1, min(5, score))
-        result[author] = [PersonaScore(persona_name=assigned_persona, score=score)]
+        result[author] = [PersonaScore(persona_name=assigned_persona, score=3)]
 
     log.info(
         "assignment parse: %d authors → %s",
         len(result),
-        {a[:8] + "...": ps[0].persona_name + " (f=%d)" % ps[0].score for a, ps in result.items()},
+        {a[:8] + "...": ps[0].persona_name for a, ps in result.items()},
+    )
+    return result
+
+
+def _openai_simple_call(
+    system: str,
+    user: str,
+    model: str,
+    judge_name: str = "unknown",
+    judge_role: str = "general",
+    tracker: "TokenTracker | None" = None,
+) -> str:
+    """Single OpenAI completion without tool use. Used for individual fidelity evaluation."""
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        response_format={"type": "json_object"},
+        temperature=0,
+    )
+    if tracker and response.usage:
+        tracker.record(
+            judge_name=judge_name,
+            judge_role=judge_role,
+            call_type="individual_fidelity",
+            prompt_tokens=response.usage.prompt_tokens,
+            completion_tokens=response.usage.completion_tokens,
+        )
+    return response.choices[0].message.content or ""
+
+
+def run_individual_fidelity_with_tools(
+    role: str,
+    messages_by_digest: dict[str, list[str]],
+    true_mapping: dict[str, str],
+    all_profiles: dict[str, dict],
+    model: str = OPENAI_MODEL,
+    judge_name: str = "unknown",
+    tracker: "TokenTracker | None" = None,
+) -> dict[str, int]:
+    """
+    Evaluate individual fidelity given the true author–persona mapping.
+
+    For each (author_digest, persona_name) pair in true_mapping, the judge
+    rates how faithfully that author portrays the persona using their role lens.
+
+    Returns {persona_name: fidelity_score} for all pairs in true_mapping.
+    Requires LLM_BACKEND=openai.
+    """
+    if LLM_BACKEND != "openai":
+        raise RuntimeError(
+            "run_individual_fidelity_with_tools requires LLM_BACKEND=openai. "
+            f"Current backend: {LLM_BACKEND!r}."
+        )
+
+    template = _FIDELITY_TEMPLATES.get(role, "individual_fidelity_general.j2")
+
+    pair_blocks: list[str] = []
+    for i, (digest, persona_name) in enumerate(true_mapping.items(), start=1):
+        msgs = messages_by_digest.get(digest, [])
+        profile = all_profiles.get(persona_name)
+        profile_text = format_profile(profile) if profile else "(profile not found)"
+        msg_lines = "\n".join(f"- {m}" for m in msgs) if msgs else "(no messages)"
+        pair_blocks.append(
+            f"--- Pair {i} ---\n"
+            f"Author: {digest}\n"
+            f"Messages:\n{msg_lines}\n\n"
+            f"Persona: {persona_name}\n"
+            f"{profile_text}"
+        )
+
+    pairs_block = "\n\n".join(pair_blocks)
+    system, user = render_prompt(
+        template,
+        n_pairs=len(true_mapping),
+        pairs_block=pairs_block,
+    )
+
+    raw = _openai_simple_call(
+        system,
+        user,
+        model,
+        judge_name=judge_name,
+        judge_role=role,
+        tracker=tracker,
+    )
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        log.warning("individual fidelity parse: invalid JSON for judge %s", judge_name)
+        data = {}
+
+    raw_scores: dict = data.get("individual_fidelity", {})
+    result: dict[str, int] = {}
+    for pname in true_mapping.values():
+        score = raw_scores.get(pname)
+        if isinstance(score, int):
+            result[pname] = max(1, min(5, score))
+        else:
+            log.warning("individual fidelity: missing score for '%s' in judge %s, defaulting to 1", pname, judge_name)
+            result[pname] = 1
+
+    log.info(
+        "individual fidelity judge %s [%s]: %s",
+        judge_name, role,
+        {p: s for p, s in result.items()},
     )
     return result
 

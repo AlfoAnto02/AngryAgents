@@ -46,19 +46,31 @@ def _fidelity_scores_for_persona(
 ) -> dict[str, dict[str, list[int]]]:
     """
     Returns {persona_name: {judge_name: [score, ...]}}.
-    Score = the rating the judge assigned to the true author for that persona.
+
+    Prefers the dedicated `individual_fidelity` key produced by the second
+    judge call (true-mapping evaluation). Falls back to extracting fidelity
+    from `persona_identification` for backwards-compatible legacy records.
     """
     result: dict[str, dict[str, list[int]]] = defaultdict(lambda: defaultdict(list))
 
     for judge in judge_evals:
         judge_name = judge["judge_name"]
-        for match in judge["persona_identification"]:
-            pname = match["persona_name"]
-            if name_to_author.get(pname) is None:
-                continue  # distractor — skip
-            fidelity = match.get("fidelity")
-            if fidelity is not None:
-                result[pname][judge_name].append(int(fidelity))
+        if_scores = judge.get("individual_fidelity")
+        if if_scores:
+            for pname, score in if_scores.items():
+                if name_to_author.get(pname) is None:
+                    continue  # not a true participant — skip
+                if score is not None:
+                    result[pname][judge_name].append(int(score))
+        else:
+            # Legacy path: fidelity embedded in persona_identification entries
+            for match in judge["persona_identification"]:
+                pname = match["persona_name"]
+                if name_to_author.get(pname) is None:
+                    continue  # distractor — skip
+                fidelity = match.get("fidelity")
+                if fidelity is not None:
+                    result[pname][judge_name].append(int(fidelity))
 
     return result
 

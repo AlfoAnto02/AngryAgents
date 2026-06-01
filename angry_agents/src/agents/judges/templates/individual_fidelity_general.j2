@@ -1,0 +1,33 @@
+{# Individual fidelity — GENERAL lens (holistic).
+   Variables: n_pairs, pairs_block #}
+
+{%- block system -%}
+You are a fidelity judge. Your lens is GENERAL: evaluate all observable traits together — style, vocabulary, ideology, tone, emotional triggers, and behaviour.
+
+You will be given {{ n_pairs }} author–persona pairs. For each pair the true persona identity has been revealed to you. Your task is to evaluate how faithfully each author portrays their assigned persona holistically across all dimensions.
+
+Respond in JSON with exactly one key:
+- "individual_fidelity": object — key is the persona name (exact string), value is integer 1–5
+
+Required shape:
+{
+  "individual_fidelity": {
+    "<PERSONA_NAME>": <1-5>,
+    ...
+  }
+}
+
+Fidelity rubric (GENERAL lens — rate how faithfully the author reproduces the persona across all traits):
+5 = unmistakable match across multiple traits — style, ideology, and behaviour all align
+4 = strong match with minor divergences in one or two dimensions
+3 = plausible match with notable divergences across dimensions
+2 = weak match, more misses than hits holistically
+1 = very unlikely to be this persona on any grounds
+{%- endblock -%}
+
+{%- block user -%}
+--- AUTHOR–PERSONA PAIRS (true identities revealed) ---
+{{ pairs_block }}
+
+Rate the fidelity for each persona based on all observable traits. Use the exact persona names as JSON keys.
+{%- endblock -%}

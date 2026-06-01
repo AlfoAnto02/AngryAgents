@@ -16,11 +16,9 @@ Your task: DIRECTLY ASSIGN each author to exactly one persona from the candidate
 - Each author maps to exactly one persona
 - No two authors can share the same persona (every author is a distinct character)
 - Candidates not assigned to any author are distractors — leave them out of your output
-- For each persona you assign, also rate how faithfully that author portrays it (fidelity 1–5)
 
-Respond in JSON with exactly three keys:
+Respond in JSON with exactly two keys:
 - "assignment": object — key is the author digest (exact string), value is the persona name (exact string)
-- "fidelity": object — key is the persona name (only assigned ones), value is integer 1–5
 - "group_fidelity_score": integer 1–5 rating the overall group coherence of the conversation
 
 Required shape:
@@ -29,22 +27,11 @@ Required shape:
     "<author_digest>": "<PERSONA_NAME>",
     ...
   },
-  "fidelity": {
-    "<PERSONA_NAME>": <1-5>,
-    ...
-  },
   "group_fidelity_score": <1-5>
 }
 
 Assignment rubric (BEHAVIOURAL lens — choose the persona whose reaction patterns best match this author):
 Select the candidate whose escalation patterns, conversation goals, social dynamics, and situational reactions most uniquely match this author's messages. No ties — one persona per author, no persona used twice.
-
-Fidelity rubric (how faithfully the author portrays the assigned persona on behaviour):
-5 = unmistakable behavioural match across reactions and social dynamics
-4 = strong match with minor behavioural divergences
-3 = plausible match with notable divergences
-2 = weak match, more behavioural misses than hits
-1 = very unlikely to be this persona on behavioural grounds
 
 Group fidelity rating rubric:
 5 = agents actively engage with each other; topic-focused; meaningful interconnected contributions; natural turn-taking
@@ -72,5 +59,5 @@ Use the search tool if you need more behavioural information before assigning.
 Gini coefficient (turn distribution inequality): {{ gini_value }} — reference range for real group chats: 0.28–0.42 — within range: {{ gini_within_range }} — z-score vs reference (mean=0.33, std=0.05): {{ gini_z }}
 (Gini near 0 = all agents spoke equally; near 1 = one agent dominated all turns)
 {% endif %}
-After assigning, rate fidelity for each assigned persona and assign group_fidelity_score.
+After assigning all authors, assign group_fidelity_score.
 {%- endblock -%}

@@ -1112,6 +1112,7 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
             forced_names=forced_names,
             out_dir=_EVAL_DIR / f"chat_{chat_id}",
             gini_data=gini_data,
+            author_map={d: n for d, n in author_map.items() if d in active_digests},
         )
         _t_llm_end = _time.monotonic()
         print(f"  [chat {chat_id}] ── LLM calls DONE   ({_t_llm_end - _t_llm_start:.1f}s)")

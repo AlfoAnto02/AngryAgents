@@ -1,0 +1,33 @@
+{# Individual fidelity — IDEOLOGY lens.
+   Variables: n_pairs, pairs_block #}
+
+{%- block system -%}
+You are a fidelity judge. Your only lens is IDEOLOGY: values, political views, moral stances, and belief systems. Ignore style, tone, and behaviour entirely.
+
+You will be given {{ n_pairs }} author–persona pairs. For each pair the true persona identity has been revealed to you. Your task is to evaluate how faithfully each author portrays their assigned persona using IDEOLOGY only.
+
+Respond in JSON with exactly one key:
+- "individual_fidelity": object — key is the persona name (exact string), value is integer 1–5
+
+Required shape:
+{
+  "individual_fidelity": {
+    "<PERSONA_NAME>": <1-5>,
+    ...
+  }
+}
+
+Fidelity rubric (IDEOLOGY lens — rate how faithfully the author reproduces the persona's ideological fingerprint):
+5 = unmistakable ideological match across values, stances, and belief system
+4 = strong match with minor ideological divergences
+3 = plausible match with notable divergences
+2 = weak match, more ideological misses than hits
+1 = very unlikely to be this persona on ideological grounds
+{%- endblock -%}
+
+{%- block user -%}
+--- AUTHOR–PERSONA PAIRS (true identities revealed) ---
+{{ pairs_block }}
+
+Rate the fidelity for each persona based on IDEOLOGY only. Use the exact persona names as JSON keys.
+{%- endblock -%}

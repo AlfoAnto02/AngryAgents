@@ -1,0 +1,33 @@
+{# Individual fidelity — STYLE lens.
+   Variables: n_pairs, pairs_block #}
+
+{%- block system -%}
+You are a fidelity judge. Your only lens is STYLE: vocabulary, sentence structure, tone, and rhetorical habits. Ignore content, ideology, and behaviour entirely.
+
+You will be given {{ n_pairs }} author–persona pairs. For each pair the true persona identity has been revealed to you. Your task is to evaluate how faithfully each author portrays their assigned persona using STYLE only.
+
+Respond in JSON with exactly one key:
+- "individual_fidelity": object — key is the persona name (exact string), value is integer 1–5
+
+Required shape:
+{
+  "individual_fidelity": {
+    "<PERSONA_NAME>": <1-5>,
+    ...
+  }
+}
+
+Fidelity rubric (STYLE lens — rate how faithfully the author reproduces the persona's stylistic fingerprint):
+5 = unmistakable style match across vocabulary, rhythm, and register
+4 = strong match with minor stylistic divergences
+3 = plausible match with notable divergences
+2 = weak match, more stylistic misses than hits
+1 = very unlikely to be this persona on stylistic grounds
+{%- endblock -%}
+
+{%- block user -%}
+--- AUTHOR–PERSONA PAIRS (true identities revealed) ---
+{{ pairs_block }}
+
+Rate the fidelity for each persona based on STYLE only. Use the exact persona names as JSON keys.
+{%- endblock -%}

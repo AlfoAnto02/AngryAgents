@@ -27,7 +27,7 @@ from pathlib import Path
 
 log = logging.getLogger(__name__)
 
-from .judge_with_tools import run_persona_identification_with_tools
+from .judge_with_tools import run_individual_fidelity_with_tools, run_persona_identification_with_tools
 from .retriever import retrieve_candidates
 from .token_tracker import TokenTracker
 
@@ -122,28 +122,28 @@ def _build_record(
     result,
     candidate_names: list[str],
     gf_score: int | None = None,
+    individual_fidelity: dict[str, int] | None = None,
 ) -> dict:
     now = datetime.now(timezone.utc).isoformat()
 
-    # Build assignment map: persona_name → (author_digest, fidelity_score)
+    # Build assignment map: persona_name → author_digest
     # result.matches has one AuthorMatch per author; each has one PersonaScore
-    # (the assigned persona + fidelity from the direct-assignment prompt).
-    assigned_map: dict[str, tuple[str, int]] = {}
+    # (the assigned persona only — fidelity is no longer part of identification).
+    assigned_map: dict[str, str] = {}
     for m in result.matches:
         if m.scores:
-            ps = m.scores[0]
-            assigned_map[ps.persona_name] = (m.author, ps.score)
+            assigned_map[m.scores[0].persona_name] = m.author
 
-    # One entry per candidate persona: assigned ones carry predicted+fidelity, distractors get null.
+    # One entry per candidate persona: assigned ones carry predicted, distractors get null.
+    # fidelity is always None here — it is populated separately in individual_fidelity.
     persona_identification = []
     distractor_count = 0
     for pname in candidate_names:
         if pname in assigned_map:
-            author, fidelity = assigned_map[pname]
             persona_identification.append({
                 "persona_name": pname,
-                "predicted": author,
-                "fidelity": fidelity,
+                "predicted": assigned_map[pname],
+                "fidelity": None,
             })
         else:
             distractor_count += 1
@@ -171,6 +171,7 @@ def _build_record(
         "rag_candidates": candidate_names,
         "persona_identification": persona_identification,
         "group_fidelity_score": gf_score,
+        "individual_fidelity": individual_fidelity,
     }
 
 
@@ -194,6 +195,7 @@ def run_evaluation_from_db_data(
     forced_names: list[str] | None = None,
     out_dir: "Path | None" = None,
     gini_data: dict | None = None,
+    author_map: dict[str, str] | None = None,
 ) -> list[dict]:
     """
     Run the 20-judge pipeline on already-loaded chat data (from the database).
@@ -204,6 +206,8 @@ def run_evaluation_from_db_data(
     progress_callback: optional callable(done_count, total) called after each judge completes
     forced_names: persona names to always include as candidates (e.g. actual chat participants)
     out_dir: if provided, writes token_report.json into this directory after all judges finish
+    author_map: {digest: persona_name} ground-truth mapping; when provided each judge runs a
+                second individual-fidelity call against the true pairs (separate from identification)
     """
     from ..agents.agent_config import OPENAI_MODEL
 
@@ -241,10 +245,20 @@ def run_evaluation_from_db_data(
             tracker=tracker,
             gini_data=gini_data,
         )
+        individual_fidelity_scores: dict[str, int] | None = None
+        if author_map:
+            individual_fidelity_scores = run_individual_fidelity_with_tools(
+                role=judge["role"],
+                messages_by_digest=messages_by_digest,
+                true_mapping=author_map,
+                all_profiles=all_profiles,
+                judge_name=judge["name"],
+                tracker=tracker,
+            )
         _completed[0] += 1
         if progress_callback:
             progress_callback(_completed[0], len(JUDGES))
-        return _build_record(judge_id, judge, chat_id, result, candidate_names, gf_score)
+        return _build_record(judge_id, judge, chat_id, result, candidate_names, gf_score, individual_fidelity_scores)
 
     # Keep concurrency low to stay within gpt-4o-mini TPM limits.
     # Each prompt is ~27k tokens; 3 workers × 29k tokens × 3 calls/min ≈ 260k TPM
