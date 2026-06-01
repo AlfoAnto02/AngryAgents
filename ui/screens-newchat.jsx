@@ -16,7 +16,7 @@ function Stepper({ step }) {
 // ─── New Group Chat ──────────────────────────────────────────
 function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
   const { agents, byId } = window.useAgents();
-  const [step, setStep] = React.useState(1);
+  const [step, setStep] = React.useState(initialSelection.length >= 2 ? 2 : 1);
   const [selected, setSelected] = React.useState(initialSelection);
   const [topics, setTopics] = React.useState([]);
   const [topicInput, setTopicInput] = React.useState("");
@@ -28,6 +28,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
   const [allTopics, setAllTopics] = React.useState([]);
   const [suggestions, setSuggestions] = React.useState([]);
   const [profilePersona, setProfilePersona] = React.useState(null);
+  const [noTopic, setNoTopic] = React.useState(false);
 
   React.useEffect(() => {
     window.api.get("/topics?limit=500")
@@ -78,11 +79,12 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
     setTopics([...topics, t]);
     setTopicInput("");
     setSuggestions([]);
+    setNoTopic(false);
   };
 
   const removeTopic = (t) => setTopics(topics.filter(x => x !== t));
 
-  const canNext = step === 1 ? selected.length >= 2 : topics.length >= 1;
+  const canNext = step === 1 ? selected.length >= 2 : (topics.length >= 1 || noTopic);
 
   return (
     <React.Fragment>
@@ -256,6 +258,23 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
                       )}
                     </div>
                     <Btn variant="outline" onClick={() => addTopic()} icon={<Icons.Plus size={13} />}>Add</Btn>
+                    {topics.length === 0 && (
+                      <button
+                        type="button"
+                        onClick={() => setNoTopic(t => !t)}
+                        style={{
+                          display: "inline-flex", alignItems: "center", gap: 6,
+                          padding: "0 12px", height: 36, borderRadius: "var(--r-input)",
+                          border: `1px solid ${noTopic ? "var(--accent-border)" : "var(--border-1)"}`,
+                          background: noTopic ? "var(--accent-soft)" : "transparent",
+                          color: noTopic ? "var(--accent)" : "var(--fg-2)",
+                          fontSize: 13, cursor: "pointer", fontFamily: "inherit", whiteSpace: "nowrap",
+                        }}
+                      >
+                        {noTopic ? <Icons.Check size={12} sw={2.5} /> : <Icons.X size={12} />}
+                        No topic
+                      </button>
+                    )}
                   </div>
                   {topics.length > 0 && (
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>

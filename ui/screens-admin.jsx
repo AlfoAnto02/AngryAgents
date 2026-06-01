@@ -151,7 +151,7 @@ function AdminHomeSection({ user, onSection, onNav, chats }) {
               <div className="t-eyebrow">03 — Analyse</div>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 20, fontWeight: 600, marginTop: 4 }}>Chat Analytics</div>
               <div className="t-meta" style={{ marginTop: 6, fontSize: 13 }}>
-                Turn distribution · Gini coefficient · deliberation convergence.
+                Turn distribution · Gini coefficient · agent performance.
               </div>
             </div>
           </button>
@@ -398,13 +398,6 @@ function ChatAnalyticsSection() {
           <BarChartPlaceholder label="By session" />
         </div>
       </div>
-      <div className="card chart-card">
-        <div className="chart-card-head">
-          <div className="t-h3">Deliberation variance reduction</div>
-          <span className="badge">round 0 → final</span>
-        </div>
-        <LineChartPlaceholder label="Δ variance across rounds" />
-      </div>
     </>
   );
 }
@@ -437,7 +430,7 @@ function SessionLogSection({ onJudge, reports, onOpenChat }) {
     <>
       <p className="t-meta" style={{ marginBottom: 16, maxWidth: 680 }}>
         All chat sessions. Launch the judging pipeline on any session to evaluate persona fidelity,
-        turn distribution, and deliberation convergence. Sessions already judged show a cached
+        turn distribution, and group fidelity. Sessions already judged show a cached
         report — click <strong>View report</strong> to reopen without re-running the pipeline.
       </p>
 
@@ -667,18 +660,6 @@ const EVAL_GROUPS = [
       { k: "Drift score (optional)",       desc: "Mean pairwise cosine sim of last messages; > 0.85 triggers perturbation." },
     ],
   },
-  {
-    id: "deliberation",
-    label: "Deliberation",
-    summary: "When judges discuss disagreements (Phase 2), do they converge — and do more-confident judges get more accurate?",
-    props: [
-      { k: "Variance reduction",           desc: "Round 0 vs final-round rating variance per case." },
-      { k: "F-test on variance",           desc: "Significance of variance drop (p < 0.05)." },
-      { k: "Convergence rate + CI",        desc: "n_converged / n_total with two-sided binomial CI." },
-      { k: "Δconfidence vs Δaccuracy",     desc: "Pearson r; positive → well-calibrated, negative → overconfidence." },
-      { k: "Calibration curve",            desc: "Accuracy at each self-reported confidence level 1–5." },
-    ],
-  },
 ];
 
 function JudgingModal({ session, cached, onClose, onSaveReport }) {
@@ -864,13 +845,6 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
               group={EVAL_GROUPS[2]}
               gini={report.gini} giniZ={report.giniZ} giniCI={report.giniCI} driftScore={report.driftScore}
               turnShares={report.turnShares}
-            />
-          )}
-          {stage === "done" && report && tab === "deliberation" && (
-            <ReportDeliberation
-              group={EVAL_GROUPS[3]}
-              convergenceRate={report.convergenceRate} convCIL={report.convCIL} convCIH={report.convCIH}
-              pearson={report.pearson} fTestP={report.fTestP} calibration={report.calibration}
             />
           )}
         </div>
@@ -1225,49 +1199,6 @@ function ReportGroupFidelity({ group, gini, giniZ, giniCI, driftScore, turnShare
   );
 }
 
-function ReportDeliberation({ group, convergenceRate, convCIL, convCIH, pearson, fTestP, calibration }) {
-  const calibrated = pearson > 0;
-  return (
-    <>
-      <ReportHeader group={group} />
-      <div className="metric-row">
-        <MetricStat
-          label="Convergence rate"
-          value={`${(convergenceRate * 100).toFixed(1)}%`}
-          sub={`CI [${(convCIL * 100).toFixed(0)}, ${(convCIH * 100).toFixed(0)}]%`}
-          tone={convergenceRate > 0.6 ? "good" : "warn"}
-        />
-        <MetricStat
-          label="F-test p-value"
-          value={fTestP < 0.001 ? "<0.001" : fTestP.toFixed(3)}
-          sub={fTestP < 0.05 ? "Significant variance drop" : "Not significant"}
-          tone={fTestP < 0.05 ? "good" : "warn"}
-        />
-        <MetricStat
-          label="Δconf vs Δacc (Pearson r)"
-          value={pearson.toFixed(2)}
-          sub={calibrated ? "Well calibrated" : "Overconfidence flag"}
-          tone={calibrated ? "good" : "warn"}
-        />
-      </div>
-
-      <div className="t-eyebrow" style={{ margin: "20px 0 8px" }}>Calibration curve</div>
-      <div className="calibration">
-        {calibration.map(({ c, acc }) => (
-          <div key={c} className="cal-col">
-            <div className="cal-bar-wrap">
-              <div className="cal-bar" style={{ height: `${acc * 100}%` }} />
-            </div>
-            <div className="mono cal-label">conf {c}</div>
-            <div className="mono cal-val">{(acc * 100).toFixed(0)}%</div>
-          </div>
-        ))}
-      </div>
-
-      <PropsList group={group} />
-    </>
-  );
-}
 
 // ─── Admin shell ─────────────────────────────────────────────
 function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpenChat, onNav, user }) {
