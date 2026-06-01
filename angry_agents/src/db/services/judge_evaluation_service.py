@@ -19,6 +19,7 @@ class JudgeEvaluationService:
         id_chat: int,
         persona_identification: list[dict] | None = None,
         rag_candidates: list[str] | None = None,
+        group_fidelity_score: int | None = None,
     ) -> JudgeEvaluation:
         count = self.db.execute(
             "SELECT COUNT(*) FROM Judge_evaluation WHERE ID_chat = ? AND deleted_at IS NULL",
@@ -35,6 +36,7 @@ class JudgeEvaluationService:
                 "id_chat": id_chat,
                 "persona_identification": persona_identification,
                 "rag_candidates": rag_candidates,
+                "group_fidelity_score": group_fidelity_score,
             },
         )
 

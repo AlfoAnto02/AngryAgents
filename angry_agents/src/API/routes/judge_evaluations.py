@@ -24,6 +24,10 @@ class EvaluationCreate(BaseModel):
         None,
         description="Persona names the judge considered as candidates",
     )
+    group_fidelity_score: int | None = Field(
+        None, ge=1, le=5,
+        description="Judge's 1–5 group fidelity rating",
+    )
 
 
 class EvaluationPatch(BaseModel):
@@ -34,6 +38,10 @@ class EvaluationPatch(BaseModel):
     rag_candidates: list[str] | None = Field(
         None,
         description="Updated RAG candidate list",
+    )
+    group_fidelity_score: int | None = Field(
+        None, ge=1, le=5,
+        description="Updated group fidelity rating",
     )
 
 
@@ -77,6 +85,7 @@ def create_evaluation(body: EvaluationCreate, db: sqlite3.Connection = Depends(g
                 id_chat=body.id_chat,
                 persona_identification=body.persona_identification,
                 rag_candidates=body.rag_candidates,
+                group_fidelity_score=body.group_fidelity_score,
             )
         )
     except ValueError as exc:

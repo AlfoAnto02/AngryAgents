@@ -84,7 +84,7 @@ New module `src/agents/personas/` with two public classes:
 | Method | Behaviour |
 |---|---|
 | `bind_to_chat(chat_id, topic)` | Resolves persona name, profile block, and topic block from DB data; derives `dominance_weight` from `social_positioning` keywords in context |
-| `respond(history, turn_count)` | Renders `persona_chat.j2`, calls `llm_call`, returns the raw reply string |
+| `respond(history, turn_count)` | Renders `dm_persona_chat.j2`, calls `llm_call`, returns the raw reply string |
 | `update_summary(chat_id, message, summary)` | Increments `turn_count` in the agent's JSON summary dict |
 
 `dominance_weight` drives turn scheduling: `assertive`/`dominant`/`leader` → 0.7, `reserved`/`quiet`/`passive` → 0.3, default → 0.5.
@@ -94,7 +94,7 @@ New module `src/agents/personas/` with two public classes:
 - `from_db(db, agent_id, model)` — loads one agent + its contexts from the DB and returns a `PersonaAgent`.
 - `for_chat(db, chat_id, model)` — looks up all agents bound to the chat's topic, instantiates and binds them all, returns the full list.
 
-**`persona_chat.j2`** — Jinja2 prompt template with `{% block system %}` (persona identity, profile, topic, behavioural rules) and `{% block user %}` (conversation history + reground reminder every 20 turns). The reground block is injected conditionally to prevent persona drift over long sessions.
+**`dm_persona_chat.j2`** — Jinja2 prompt template with `{% block system %}` (persona identity, profile, topic, behavioural rules) and `{% block user %}` (conversation history + reground reminder every 20 turns). The reground block is injected conditionally to prevent persona drift over long sessions.
 
 Documented in `docs/md/agents_system_guide.md` (440 lines).
 
@@ -173,7 +173,7 @@ Extended `PersonaAgent` with two new behavioural attributes derived from `signat
 
 Fixed `_extract_dominance_weight`: fiction profiles store `social_positioning` as a nested dict (keys `desired_position`, `actual_dynamic`, `contradiction`), not a plain string. The function now flattens the dict values before keyword matching; all fiction agents previously fell through to the 0.5 default.
 
-Added `_template_name` field (default `"group_persona_chat.j2"`), set by `bind_to_chat()` and used by `respond()` to select the correct Jinja2 template.
+Added `_template_name` field (default `"group_dm_persona_chat.j2"`), set by `bind_to_chat()` and used by `respond()` to select the correct Jinja2 template.
 
 ---
 
@@ -201,8 +201,8 @@ Redesigned the group chat flow from a user-triggered per-message model to a full
 - `GroupChatService.set_status(id, status)` added.
 
 **New templates**
-- `persona_chat.j2` revised: now correctly scoped to **DM** (one-on-one with a human user).
-- `group_persona_chat.j2` new: autonomous peer conversation between agents, no external user, cold-open rule added for the first message.
+- `dm_persona_chat.j2` revised: now correctly scoped to **DM** (one-on-one with a human user).
+- `group_dm_persona_chat.j2` new: autonomous peer conversation between agents, no external user, cold-open rule added for the first message.
 
 **New endpoints in `ui_routes.py`**
 
@@ -226,11 +226,11 @@ New module `src/dm_chat/` separating DM logic from the group chat path:
 
 **`DMFactory`** (`factory.py`) — `build_session(db, chat_id, model, author_secret, ...)`:
 - Loads the single agent from `Chat_agent` join.
-- Calls `agent.bind_to_chat(chat_id, topic, template_name="persona_chat.j2")` explicitly.
+- Calls `agent.bind_to_chat(chat_id, topic, template_name="dm_persona_chat.j2")` explicitly.
 - Default `window_strategy="rolling"` (DM history is linear, no need for selective anchoring).
 
 `_dm_run_agent_turn` in `ui_routes.py` now delegates to `DMFactory` + `DMSession.respond()`.
-`GroupChatFactory` simplified: DM template selection removed, always uses `group_persona_chat.j2`.
+`GroupChatFactory` simplified: DM template selection removed, always uses `group_dm_persona_chat.j2`.
 
 ---
 

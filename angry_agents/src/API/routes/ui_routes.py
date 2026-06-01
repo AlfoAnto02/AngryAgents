@@ -108,6 +108,7 @@ def _bg_run_conversation(
             try:
                 session.run_turn(conn, stop_check=_is_stopped)
             except Exception as exc:
+                log.exception("group turn failed chat_id=%s: %s", chat_id, exc)
                 deviation("group turn failed", chat_id=chat_id, exc=str(exc))
             # Interruptible sleep: check for stop every 0.5 s
             deadline = _time.time() + random.uniform(_TURN_DELAY_MIN, _TURN_DELAY_MAX)
@@ -734,6 +735,31 @@ def _build_author_lookup(db: sqlite3.Connection, chat_id: int, secret: str) -> d
     return lookup
 
 
+def _build_label_lookup(db: sqlite3.Connection, chat_id: int, secret: str) -> dict[str, str]:
+    """Map HMAC digest → 'AgentN' label, in the same order GroupChatSession assigns them."""
+    import hashlib
+    import hmac as _hmac
+
+    agents = db.execute(
+        """
+        SELECT a.Name, a.Surname
+        FROM Chat_agent ca
+        JOIN Agents a ON ca.id_agent = a.ID
+        WHERE ca.id_chat = ? AND a.deleted_at IS NULL
+        """,
+        (chat_id,),
+    ).fetchall()
+    lookup: dict[str, str] = {}
+    for i, a in enumerate(agents, 1):
+        digest = _hmac.new(
+            secret.encode(),
+            f"{a['Name']}:{a['Surname']}".encode(),
+            hashlib.sha256,
+        ).hexdigest()
+        lookup[digest] = f"Agent{i}"
+    return lookup
+
+
 @router.get("/ui/chats/{chat_id}/messages")
 def ui_list_messages(
     chat_id: int,
@@ -751,6 +777,7 @@ def ui_list_messages(
     ).fetchall()
 
     author_to_agent = _build_author_lookup(db, chat_id, settings.author_secret)
+    author_to_label = _build_label_lookup(db, chat_id, settings.author_secret)
 
     result = []
     for m in rows:
@@ -761,11 +788,13 @@ def ui_list_messages(
         else:
             kind = "system"
         persona_id = author_to_agent.get(m["author"]) if m["author"] else None
+        agent_label = author_to_label.get(m["author"]) if m["author"] else None
         result.append({
             "kind": kind,
             "text": m["message"],
             "author": m["author"],
             "persona_id": persona_id,
+            "agent_label": agent_label,
             "ts": m["created_at"],
             "time": _short_time(m["created_at"]),
         })
@@ -1099,10 +1128,11 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
                     continue
                 pi = rec.get("persona_identification")
                 cands = rec.get("rag_candidates")
+                gfs = rec.get("group_fidelity_score")
                 if svc_eval.get(jid, chat_id) is None:
-                    svc_eval.create(jid, chat_id, persona_identification=pi, rag_candidates=cands)
+                    svc_eval.create(jid, chat_id, persona_identification=pi, rag_candidates=cands, group_fidelity_score=gfs)
                 else:
-                    svc_eval.update(jid, chat_id, {"persona_identification": pi, "rag_candidates": cands})
+                    svc_eval.update(jid, chat_id, {"persona_identification": pi, "rag_candidates": cands, "group_fidelity_score": gfs})
         finally:
             _conn_evals.close()
 

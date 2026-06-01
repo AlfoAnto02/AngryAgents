@@ -222,7 +222,7 @@ function ChatSidebar({ chats, activeId, onSelect, onNewDM, onNewGroup, role, isO
   );
 }
 
-function MessageBubble({ msg, withAuthor }) {
+function MessageBubble({ msg, withAuthor, showAgentLabel }) {
   const { byId } = window.useAgents();
   if (msg.kind === "system") {
     return <div className="msg-system">{msg.text}</div>;
@@ -244,13 +244,16 @@ function MessageBubble({ msg, withAuthor }) {
   const p = msg.persona_id ? byId(msg.persona_id) : null;
   const authorColor = p?.color || "var(--fg-1)";
   const displayAuthor = p?.name || (msg.author ? msg.author.split("::")[0] : "AGENT");
+  const authorText = showAgentLabel && msg.agent_label
+    ? `${displayAuthor} — ${msg.agent_label}`
+    : displayAuthor;
   return (
     <div className="msg-row">
       {withAuthor ? <Avatar persona={p} size="sm" /> : <div style={{ width: 28, height: 28, flexShrink: 0 }} />}
       <div className="msg-col">
         {withAuthor && (
           <div className="msg-meta">
-            <span className="msg-author" style={{ color: authorColor }}>{displayAuthor}</span>
+            <span className="msg-author" style={{ color: authorColor }}>{authorText}</span>
             <span className="msg-time">{msg.time}</span>
           </div>
         )}
@@ -470,7 +473,7 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
 
         <div className="chat-messages" ref={scrollRef} onScroll={handleChatScroll}>
           {decorated.map((m, i) => (
-            <MessageBubble key={i} msg={m} withAuthor={m._withAuthor !== false} />
+            <MessageBubble key={i} msg={m} withAuthor={m._withAuthor !== false} showAgentLabel={chat.type === "group"} />
           ))}
           {decorated.length === 0 && (
             <Empty title="No messages yet" sub="Type below to kick things off." icon={<Icons.MessageDots size={20} />} />
