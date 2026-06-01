@@ -196,11 +196,16 @@ def run_evaluation_from_db_data(
     tracker = TokenTracker(chat_id=chat_id, model=OPENAI_MODEL)
     _completed = [0]
 
+    # Dynamic pool: 2.5× the number of actual participants, minimum n_actual+1.
+    # Fallback to the default top_k from judge config when forced_names is unknown.
+    n_actual = len(forced_names) if forced_names else 0
+    dynamic_top_k = max(n_actual + 1, round(n_actual * 2.5)) if n_actual else None
+
     def _run_judge(judge_id: int, judge: dict) -> dict:
         candidates = retrieve_candidates(
             messages_by_digest=messages_by_digest,
             profiles_by_name=all_profiles,
-            top_k=judge["top_k"],
+            top_k=dynamic_top_k if dynamic_top_k is not None else judge["top_k"],
             field_filter=judge["rag_fields"],
             forced_names=forced_names,
             role=judge["role"],
