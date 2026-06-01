@@ -184,11 +184,10 @@ protocol.
 
 \paragraph{First data model.}
 The earliest database design had six tables: \texttt{Agents}, \texttt{Chat}, \texttt{Chat\_messages}, \texttt{Judges}, \texttt{Judge\_evaluation}, and two separate
-context tables for fiction and podcast personas. At this stage the most consequential design
-decision was made: the \texttt{author} field in \texttt{Chat\_messages} would store a
+context tables for fiction and podcast personas. At this stage, the most we made an important design decision: the \texttt{author} field in \texttt{Chat\_messages} would store a
 cryptographic hash of the agent's identity rather than a foreign key back to
-\texttt{Agents}. This single choice encoded the core requirement --- judges must not be able
-to link a message to a known persona --- at the schema level, making it impossible to
+\texttt{Agents}. This single choice encoded the core requirement - judges must not be able
+to link a message to a known persona - at the schema level, making it impossible to
 violate accidentally.
 
 \paragraph{First personas.}
