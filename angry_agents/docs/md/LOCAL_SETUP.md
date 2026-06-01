@@ -76,9 +76,14 @@ print('Admin created')
 
 # Seed persona profiles (requires the API to be running on :8000)
 python seed_personas.py
+
+# Build the RAG index for the judge pipeline (run once; re-run if personas change)
+python -m angry_agents.src.rag.build_index
 ```
 
 Default admin credentials: `admin@example.com` / `password123`
+
+> **Note:** The 20 judge rows in the DB are created automatically when the server starts (`init_db` calls `_seed_judges` on startup). No separate judge seed command is needed.
 
 ---
 

@@ -22,6 +22,7 @@ _MIGRATIONS = [
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_judges_name ON Judges(name) WHERE name IS NOT NULL",
     "ALTER TABLE Judge_evaluation ADD COLUMN persona_identification TEXT",
     "ALTER TABLE Judge_evaluation ADD COLUMN rag_candidates TEXT",
+    "ALTER TABLE Judge_evaluation ADD COLUMN group_fidelity_score INTEGER",
 ]
 
 # Canonical 20 judge instances: 5 per role × 4 roles.

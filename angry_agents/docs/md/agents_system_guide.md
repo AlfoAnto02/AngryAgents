@@ -23,7 +23,7 @@ src/agents/personas/
     factory.py               # AgentFactory (loads from DB)
     templates/
         __init__.py          # render_prompt() — identical pattern to judges/templates
-        persona_chat.j2      # system + user blocks for every agent turn
+        dm_persona_chat.j2      # system + user blocks for every agent turn
 
 src/group_chat/
     __init__.py              # exports GroupChatSession, ContextWindow, TurnScheduler, GroupChatFactory
@@ -154,7 +154,7 @@ class PersonaAgent:
         Called once before the chat starts — JSON parsing happens here, not per turn."""
 
     def respond(self, history: list[ChatMessage], turn_count: int = 0) -> str:
-        """Renders persona_chat.j2 with cached profile + per-turn history, then calls llm_call().
+        """Renders dm_persona_chat.j2 with cached profile + per-turn history, then calls llm_call().
         One LLM call per turn."""
 
     def update_summary(self, chat_id: int, _new_message: str, current_summary: dict) -> dict:
@@ -167,7 +167,7 @@ Prompt text lives in Jinja2 templates, not in Python — same pattern as the jud
 `render_prompt(template_name, **kwargs) -> (system, user)` is defined in `templates/__init__.py`
 and is identical in structure to `src/agents/judges/templates/__init__.py`.
 
-**`persona_chat.j2`** — variables: `persona_name`, `profile_block`, `topic_block`, `history_block`, `reground` (bool)
+**`dm_persona_chat.j2`** — variables: `persona_name`, `profile_block`, `topic_block`, `history_block`, `reground` (bool)
 
 ```
 {%- block system -%}
@@ -211,7 +211,7 @@ def respond(self, history: list[ChatMessage], turn_count: int = 0) -> str:
     history_block = "\n".join(f"[{m.author or 'User'}]: {m.message}" for m in history)
     reground = turn_count > 0 and turn_count % 20 == 0
     system, user = render_prompt(
-        "persona_chat.j2",
+        "dm_persona_chat.j2",
         persona_name=self._persona_name,
         profile_block=self._profile_block,
         topic_block=self._topic_block,
@@ -382,7 +382,7 @@ class GroupChatFactory:
 Three layered defences:
 
 1. **Prompt anchor** — The persona's name and identity appear in both the system and user
-   blocks of `persona_chat.j2`. The system block is rebuilt each turn, so it is never stale.
+   blocks of `dm_persona_chat.j2`. The system block is rebuilt each turn, so it is never stale.
 
 2. **Selective context window** — First K messages preserve the topic framing across the
    full chat length. Agents cannot drift away from the original topic.
@@ -407,7 +407,7 @@ GroupChatSession.run_turn(db)
     ├─ context_window.trim(history, agent)                 → list[ChatMessage]   (pure)
     │
     ├─ agent.respond(trimmed, turn_count)
-    │      ├─ render_prompt("persona_chat.j2", ...)        → (system, user)      (template render)
+    │      ├─ render_prompt("dm_persona_chat.j2", ...)        → (system, user)      (template render)
     │      └─ llm_call(system, user, model)                → str                 (LLM call)
     │
     ├─ svc.create(id_chat, message, agent_id=..., ...)     → ChatMessage         (DB write)
@@ -426,8 +426,8 @@ occasional third for the summary update.
 - [x] `PersonaAgent` with `bind_to_chat()`, `respond()`, `update_summary()`
 - [x] `bind_to_chat()` precomputes `_persona_name`, `_profile_block`, `_topic_block` — JSON parsing done once
 - [x] `templates/__init__.py` — `render_prompt()` using Jinja2, identical pattern to judge templates
-- [x] `templates/persona_chat.j2` — system block (identity + rules) + user block (history + reground)
-- [x] `respond()` calls `render_prompt("persona_chat.j2", ...)` — prompt text owned by template, not Python
+- [x] `templates/dm_persona_chat.j2` — system block (identity + rules) + user block (history + reground)
+- [x] `respond()` calls `render_prompt("dm_persona_chat.j2", ...)` — prompt text owned by template, not Python
 - [x] `AgentFactory.from_db()` uses `AgentService(db).get()` + `AgentContextService(db).query()`
 - [x] `AgentFactory.for_chat()` uses `GroupChatService`, `TopicService`, `AgentService` — no standalone functions
 - [x] `ContextWindow` with `rolling` and `selective` strategies; uses `ChatMessage` domain type

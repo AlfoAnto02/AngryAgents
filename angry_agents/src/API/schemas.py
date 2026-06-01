@@ -96,6 +96,10 @@ class JudgeEvaluationOut(BaseModel):
         None,
         description="Persona names considered as candidates by this judge instance",
     )
+    group_fidelity_score: int | None = Field(
+        None,
+        description="Judge's 1–5 assessment of how well the group behaved as a coherent ensemble",
+    )
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None
