@@ -108,6 +108,7 @@ def _bg_run_conversation(
             try:
                 session.run_turn(conn, stop_check=_is_stopped)
             except Exception as exc:
+                log.exception("group turn failed chat_id=%s: %s", chat_id, exc)
                 deviation("group turn failed", chat_id=chat_id, exc=str(exc))
             # Interruptible sleep: check for stop every 0.5 s
             deadline = _time.time() + random.uniform(_TURN_DELAY_MIN, _TURN_DELAY_MAX)
