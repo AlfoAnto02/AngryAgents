@@ -1100,10 +1100,11 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
                     continue
                 pi = rec.get("persona_identification")
                 cands = rec.get("rag_candidates")
+                gfs = rec.get("group_fidelity_score")
                 if svc_eval.get(jid, chat_id) is None:
-                    svc_eval.create(jid, chat_id, persona_identification=pi, rag_candidates=cands)
+                    svc_eval.create(jid, chat_id, persona_identification=pi, rag_candidates=cands, group_fidelity_score=gfs)
                 else:
-                    svc_eval.update(jid, chat_id, {"persona_identification": pi, "rag_candidates": cands})
+                    svc_eval.update(jid, chat_id, {"persona_identification": pi, "rag_candidates": cands, "group_fidelity_score": gfs})
         finally:
             _conn_evals.close()
 

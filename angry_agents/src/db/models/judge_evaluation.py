@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS Judge_evaluation (
     ID_chat                INTEGER NOT NULL REFERENCES Group_chat(ID),
     persona_identification TEXT,
     rag_candidates         TEXT,
+    group_fidelity_score   INTEGER,
     created_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     updated_at  TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
     deleted_at  TEXT,
@@ -29,7 +30,8 @@ class JudgeEvaluation:
     id_judge: int
     id_chat: int
     persona_identification: list[dict] | None = None
-    rag_candidates: list[str] | None = None   # persona names retrieved as candidates
+    rag_candidates: list[str] | None = None
+    group_fidelity_score: int | None = None   # judge's 1–5 assessment of group fidelity
     created_at: str | None = None
     updated_at: str | None = None
     deleted_at: str | None = None

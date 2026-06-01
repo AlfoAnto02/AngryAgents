@@ -11,6 +11,7 @@ from ..models.judge_evaluation import JudgeEvaluation
 _COLS = {
     "persona_identification": "persona_identification",
     "rag_candidates": "rag_candidates",
+    "group_fidelity_score": "group_fidelity_score",
 }
 _JSON_COLS = {"persona_identification", "rag_candidates"}
 
@@ -24,6 +25,7 @@ def _row(row: sqlite3.Row) -> JudgeEvaluation:
         id_chat=row["ID_chat"],
         persona_identification=json.loads(raw_pi) if raw_pi is not None else None,
         rag_candidates=json.loads(raw_rc) if raw_rc is not None else None,
+        group_fidelity_score=row["group_fidelity_score"] if "group_fidelity_score" in keys else None,
         created_at=row["created_at"],
         updated_at=row["updated_at"],
         deleted_at=row["deleted_at"],
@@ -33,13 +35,17 @@ def _row(row: sqlite3.Row) -> JudgeEvaluation:
 def create(db: sqlite3.Connection, data: dict[str, Any]) -> JudgeEvaluation:
     pi = data.get("persona_identification")
     rc = data.get("rag_candidates")
+    gfs = data.get("group_fidelity_score")
     db.execute(
-        "INSERT INTO Judge_evaluation (ID_judge, ID_chat, persona_identification, rag_candidates) VALUES (?, ?, ?, ?)",
+        "INSERT INTO Judge_evaluation "
+        "(ID_judge, ID_chat, persona_identification, rag_candidates, group_fidelity_score) "
+        "VALUES (?, ?, ?, ?, ?)",
         (
             data["id_judge"],
             data["id_chat"],
             json.dumps(pi) if pi is not None else None,
             json.dumps(rc) if rc is not None else None,
+            gfs,
         ),
     )
     db.commit()
