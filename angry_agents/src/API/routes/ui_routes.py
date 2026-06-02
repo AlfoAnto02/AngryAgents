@@ -294,13 +294,11 @@ def ui_list_chats(
         last_time = ""
         if last_msg:
             preview = (last_msg["message"] or "")[:60]
-            if last_msg["author"]:
-                label = last_msg["author"].split("::")[0] + ": "
-            elif last_msg["Created_by"]:
+            if last_msg["Created_by"]:
                 label = "You: "
             else:
                 label = ""
-            last = f'{label}"{preview}"'
+            last = f'{label}{preview}'
             last_time = _relative_time(last_msg["created_at"])
 
         result.append({
@@ -583,13 +581,8 @@ def ui_get_chat(
     last_time = ""
     if last_msg:
         preview = (last_msg["message"] or "")[:60]
-        if last_msg["author"]:
-            label = last_msg["author"].split("::")[0] + ": "
-        elif last_msg["Created_by"]:
-            label = "You: "
-        else:
-            label = ""
-        last = f'{label}"{preview}"'
+        label = "You: " if last_msg["Created_by"] else ""
+        last = f'{label}{preview}'
         last_time = _relative_time(last_msg["created_at"])
 
     return {

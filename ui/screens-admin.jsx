@@ -899,7 +899,6 @@ const EVAL_GROUPS = [
       { k: "z-score vs reference",         desc: "z = (gini − 0.33) / 0.05." },
       { k: "Bootstrap 95% CI on Gini",     desc: "10,000-resample non-parametric CI." },
       { k: "Cosine distance matrix (8×8)", desc: "Pairwise 1 − cosine_sim on averaged message embeddings." },
-      { k: "Drift score (optional)",       desc: "Mean pairwise cosine sim of last messages; > 0.85 triggers perturbation." },
     ],
   },
 ];
@@ -1124,7 +1123,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
           {stage === "done" && activeReport && tab === "group_fidelity" && (
             <ReportGroupFidelity
               group={EVAL_GROUPS[2]}
-              gini={activeReport.gini} giniZ={activeReport.giniZ} giniCI={activeReport.giniCI} driftScore={activeReport.driftScore}
+              gini={activeReport.gini} giniZ={activeReport.giniZ} giniCI={activeReport.giniCI}
               turnShares={activeReport.turnShares}
               groupFidelityMean={activeReport.groupFidelityMean ?? 0}
               groupFidelityMedian={activeReport.groupFidelityMedian ?? 0}
@@ -1530,7 +1529,7 @@ function ReportIndividualFidelity({ group, rows, judgeTypeAgreement }) {
   );
 }
 
-function ReportGroupFidelity({ group, gini, giniZ, giniCI, driftScore, turnShares, groupFidelityMean, groupFidelityMedian }) {
+function ReportGroupFidelity({ group, gini, giniZ, giniCI, turnShares, groupFidelityMean, groupFidelityMedian }) {
   const { byId } = window.useAgents();
   const inRange = gini >= 0.28 && gini <= 0.42;
   const rows = (turnShares || []).map(t => ({ ...t, persona: byId(t.personaId) })).filter(r => r.persona);
@@ -1583,12 +1582,6 @@ function ReportGroupFidelity({ group, gini, giniZ, giniCI, driftScore, turnShare
           label="Bootstrap CI (95%)"
           value={`${giniCI[0].toFixed(2)} – ${giniCI[1].toFixed(2)}`}
           sub="10,000 resamples"
-        />
-        <MetricStat
-          label="Drift score"
-          value={driftScore.toFixed(2)}
-          sub={driftScore > 0.85 ? "Perturbation triggered" : "Below threshold"}
-          tone={driftScore > 0.85 ? "warn" : "good"}
         />
         {groupFidelityMean > 0 && (
           <MetricStat label="Mean judge score" value={groupFidelityMean.toFixed(2)} sub="group fidelity" />
