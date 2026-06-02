@@ -129,6 +129,19 @@ class TokenTracker:
         total_tokens = total_prompt + total_completion
         n_calls = len(calls_snapshot)
 
+        # Per-call-type breakdown
+        call_type_totals: dict[str, dict] = {}
+        for c in calls_snapshot:
+            if c.call_type not in call_type_totals:
+                call_type_totals[c.call_type] = {
+                    "prompt_tokens": 0, "completion_tokens": 0,
+                    "total_tokens": 0, "n_calls": 0,
+                }
+            call_type_totals[c.call_type]["prompt_tokens"] += c.prompt_tokens
+            call_type_totals[c.call_type]["completion_tokens"] += c.completion_tokens
+            call_type_totals[c.call_type]["total_tokens"] += c.total_tokens
+            call_type_totals[c.call_type]["n_calls"] += 1
+
         # Per-role breakdown
         role_totals: dict[str, dict] = {}
         for c in calls_snapshot:
@@ -189,6 +202,7 @@ class TokenTracker:
                 "total_cost": round(total_cost, 6),
                 "total_cost_readable": f"${total_cost:.4f}",
             },
+            "by_call_type": call_type_totals,
             "by_role": role_totals,
             "by_judge": judge_totals,
             "calls": [c.to_dict() for c in calls_snapshot],
