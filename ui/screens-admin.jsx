@@ -301,71 +301,149 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
 function AgentPerformanceSection() {
   const { byId } = window.useAgents();
   const [perf, setPerf] = React.useState([]);
+  const [reports, setReports] = React.useState(null);
+  const [sortKey, setSortKey] = React.useState("individual_fidelity");
+  const [sortDir, setSortDir] = React.useState(-1); // -1 desc, 1 asc
+
   React.useEffect(() => {
-    window.api.get("/admin/agent-performance")
-      .then(data => setPerf(data))
-      .catch(() => setPerf([]));
+    Promise.all([
+      window.api.get("/admin/agent-performance"),
+      window.api.get("/admin/judged-chats"),
+    ]).then(([p, r]) => { setPerf(p); setReports(r); })
+      .catch(() => {});
   }, []);
 
-  const rows = perf.map(entry => {
-    const p = byId(entry.agent_id);
-    if (!p) return null;
-    return (
-      <tr key={entry.agent_id}>
-        <td>
-          <div className="row" style={{ gap: 10 }}>
-            <Avatar persona={p} size="sm" />
-            <div>
-              <div className="mono" style={{ fontSize: 12, fontWeight: 600 }}>{p.name}</div>
-              <div className="t-meta" style={{ fontSize: 10.5 }}>{String(entry.agent_id)}</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          <span className="badge">{p.source_type === "fiction" ? "Fiction" : "Real-world"}</span>
-        </td>
-        <td className="col-mono">{entry.sessions}</td>
-        <td>
-          <FidelityBar value={entry.individual_fidelity / 5} label={Number(entry.individual_fidelity).toFixed(2)} />
-        </td>
-        <td>
-          <FidelityBar value={entry.group_fidelity / 5} label={Number(entry.group_fidelity).toFixed(2)} color="var(--accent)" />
-        </td>
-        <td>
-          {entry.flagged > 4 ? (
-            <span className="badge badge-danger">{entry.flagged}</span>
-          ) : (
-            <span className="badge">{entry.flagged}</span>
-          )}
-        </td>
-      </tr>
-    );
-  }).filter(Boolean);
+  // Compute per-agent fidelity from judged-chats reports
+  const agentIndFid = {}; // agentId -> [score, ...]
+  const agentGrpFid = {}; // agentId -> [score, ...]
+  if (reports) {
+    Object.values(reports).forEach(rep => {
+      (rep.fidelityRows || []).forEach(row => {
+        if (!agentIndFid[row.personaId]) agentIndFid[row.personaId] = [];
+        agentIndFid[row.personaId].push(row.mean ?? 0);
+      });
+      const grp = rep.groupFidelityMean ?? 0;
+      (rep.turnShares || []).forEach(ts => {
+        if (!agentGrpFid[ts.personaId]) agentGrpFid[ts.personaId] = [];
+        agentGrpFid[ts.personaId].push(grp);
+      });
+    });
+  }
+  const avg = arr => arr && arr.length ? arr.reduce((s, v) => s + v, 0) / arr.length : 0;
+
+  const enriched = perf.map(e => ({
+    ...e,
+    individual_fidelity: avg(agentIndFid[e.agent_id]),
+    group_fidelity: avg(agentGrpFid[e.agent_id]),
+    judged_sessions: (agentIndFid[e.agent_id] || []).length,
+  })).filter(e => byId(e.agent_id));
+
+  const sorted = [...enriched].sort((a, b) => {
+    const aHas = a.judged_sessions > 0, bHas = b.judged_sessions > 0;
+    if (aHas !== bHas) return aHas ? -1 : 1; // unjudged always last
+    return sortDir * (a[sortKey] - b[sortKey]);
+  });
+
+  const toggleSort = key => {
+    if (sortKey === key) setSortDir(d => -d);
+    else { setSortKey(key); setSortDir(-1); }
+  };
+  const SortIcon = ({ k }) => sortKey === k
+    ? <span style={{ marginLeft: 3, fontSize: 9 }}>{sortDir < 0 ? "▼" : "▲"}</span>
+    : null;
+
+  // KPIs
+  const judgedAgents = enriched.filter(e => e.judged_sessions > 0);
+  const avgInd = avg(judgedAgents.map(e => e.individual_fidelity));
+  const avgGrp = avg(judgedAgents.map(e => e.group_fidelity));
+  const totalSessions = enriched.reduce((s, e) => s + e.sessions, 0);
+
+  const SCALE = ["#ef4444", "#f97316", "#eab308", "#84cc16", "#22c55e"];
+  const scoreColor = v => v >= 4 ? SCALE[4] : v >= 3.5 ? SCALE[3] : v >= 2.5 ? SCALE[2] : v >= 1.5 ? SCALE[1] : SCALE[0];
 
   return (
     <>
       <div className="t-eyebrow">Per-agent fidelity</div>
       <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 16 }}>Agent performance</h2>
-      {rows.length === 0 ? (
-        <Empty title="No data yet" sub="Performance stats appear after agents participate in chats." icon={<Icons.Brain size={20} />} />
+
+      {enriched.length === 0 ? (
+        <Empty title="No data yet" sub="Performance stats appear after agents participate in judged chats." icon={<Icons.Brain size={20} />} />
       ) : (
-        <div className="card" style={{ overflow: "hidden" }}>
-          <div className="table-scroll">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Agent</th>
-                <th>Source</th>
-                <th style={{ width: 120 }}>Sessions</th>
-                <th style={{ width: 160 }}>Individual fidelity</th>
-                <th style={{ width: 140 }}>Group fidelity</th>
-                <th style={{ width: 90 }}>Flagged</th>
-              </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-          </table>
+        <>
+          {/* ── KPI row ── */}
+          <div className="metric-row" style={{ marginBottom: 20 }}>
+            <MetricStat label="Active agents" value={enriched.length} sub={`${enriched.filter(e => e.sessions > 0).length} in at least 1 chat`} />
+            <MetricStat label="Total sessions" value={totalSessions} sub="across all agents" />
+            <MetricStat label="Avg ind. fidelity" value={judgedAgents.length ? avgInd.toFixed(2) : "—"}
+              sub={judgedAgents.length ? `${judgedAgents.length} agents judged` : "no judged sessions"}
+              tone={avgInd >= 4 ? "good" : avgInd >= 3 ? undefined : "warn"} />
+            <MetricStat label="Avg group fidelity" value={judgedAgents.length ? avgGrp.toFixed(2) : "—"}
+              sub="avg from judged sessions"
+              tone={avgGrp >= 4 ? "good" : avgGrp >= 3 ? undefined : "warn"} />
           </div>
-        </div>
+
+          {/* ── Full table ── */}
+          <div className="card" style={{ overflow: "hidden" }}>
+            <div className="table-scroll">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Agent</th>
+                    <th>Source</th>
+                    <th style={{ width: 100, cursor: "pointer" }} onClick={() => toggleSort("sessions")}>
+                      Sessions <SortIcon k="sessions" />
+                    </th>
+                    <th style={{ width: 160, cursor: "pointer" }} onClick={() => toggleSort("individual_fidelity")}>
+                      Ind. fidelity <SortIcon k="individual_fidelity" />
+                    </th>
+                    <th style={{ width: 160, cursor: "pointer" }} onClick={() => toggleSort("group_fidelity")}>
+                      Group fidelity <SortIcon k="group_fidelity" />
+                    </th>
+                    <th style={{ width: 80, cursor: "pointer" }} onClick={() => toggleSort("judged_sessions")}>
+                      Judged <SortIcon k="judged_sessions" />
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sorted.map(entry => {
+                    const p = byId(entry.agent_id);
+                    const hasScore = entry.judged_sessions > 0;
+                    return (
+                      <tr key={entry.agent_id}>
+                        <td>
+                          <div className="row" style={{ gap: 10 }}>
+                            <Avatar persona={p} size="sm" />
+                            <div>
+                              <div className="mono" style={{ fontSize: 12, fontWeight: 600 }}>{p.name}</div>
+                              <div className="t-meta" style={{ fontSize: 10.5 }}>{p.source_title || p.slug}</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td style={{ whiteSpace: "nowrap" }}>
+                          <span className="badge">{p.source_type === "fiction" ? "Fiction" : "Real-world"}</span>
+                        </td>
+                        <td className="col-mono">{entry.sessions}</td>
+                        <td>
+                          {hasScore
+                            ? <FidelityBar value={entry.individual_fidelity / 5} label={entry.individual_fidelity.toFixed(2)} color={scoreColor(entry.individual_fidelity)} />
+                            : <span className="t-meta" style={{ fontSize: 11 }}>—</span>}
+                        </td>
+                        <td>
+                          {hasScore
+                            ? <FidelityBar value={entry.group_fidelity / 5} label={entry.group_fidelity.toFixed(2)} color={scoreColor(entry.group_fidelity)} />
+                            : <span className="t-meta" style={{ fontSize: 11 }}>—</span>}
+                        </td>
+                        <td className="col-mono" style={{ color: entry.judged_sessions > 0 ? "var(--fg-0)" : "var(--fg-3)" }}>
+                          {entry.judged_sessions}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
       )}
     </>
   );
@@ -382,21 +460,187 @@ function FidelityBar({ value, label, color = "var(--admin)" }) {
   );
 }
 
+// ─── Reusable bar chart (no external lib) ─────────────────────
+function BarChart({ data, yMin = 0, yMax = 1, target = null, formatY, chartHeight = 220 }) {
+  const fmt = formatY || (v => v.toFixed(2));
+
+  if (!data || data.length === 0) {
+    return (
+      <div style={{ height: chartHeight, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span style={{ fontSize: 12, color: "var(--fg-3)", fontFamily: "var(--font-mono)" }}>
+          No judged sessions yet — run the pipeline on at least one session.
+        </span>
+      </div>
+    );
+  }
+
+  const VW = 800, VH = chartHeight;
+  const ML = 46, MB = 26, MT = 10, MR = 8;
+  const cW = VW - ML - MR, cH = VH - MT - MB;
+  const sy = v => MT + cH * (1 - (v - yMin) / (yMax - yMin));
+  const baseY = sy(yMin);
+  const slot = cW / data.length;
+  const bW = Math.max(8, slot * 0.55);
+  const bX = i => ML + slot * i + (slot - bW) / 2;
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map(t => yMin + t * (yMax - yMin));
+
+  return (
+    <div style={{ height: chartHeight }}>
+      <svg viewBox={`0 0 ${VW} ${VH}`} width="100%" height="100%" preserveAspectRatio="none">
+        {/* target band */}
+        {target && (() => {
+          const y1 = sy(Math.min(target.hi, yMax));
+          const y2 = sy(Math.max(target.lo, yMin));
+          return (
+            <>
+              <rect x={ML} y={y1} width={cW} height={y2 - y1} fill="rgba(34,197,94,0.09)" />
+              <line x1={ML} x2={ML + cW} y1={y1} y2={y1} stroke="rgba(34,197,94,0.4)" strokeWidth="1" strokeDasharray="4 3" />
+              <line x1={ML} x2={ML + cW} y1={y2} y2={y2} stroke="rgba(34,197,94,0.4)" strokeWidth="1" strokeDasharray="4 3" />
+            </>
+          );
+        })()}
+        {/* grid + y-axis labels */}
+        {ticks.map((v, i) => (
+          <g key={i}>
+            <line x1={ML} x2={ML + cW} y1={sy(v)} y2={sy(v)} stroke="var(--border-0)" strokeWidth="1" strokeDasharray="3 4" />
+            <text x={ML - 5} y={sy(v) + 3.5} textAnchor="end" fontSize={9} fill="var(--fg-3)" fontFamily="monospace">{fmt(v)}</text>
+          </g>
+        ))}
+        {/* bars */}
+        {data.map((d, i) => {
+          const x = bX(i), y = sy(d.value), h = Math.max(2, baseY - y);
+          return (
+            <g key={i}>
+              <rect x={x} y={y} width={bW} height={h} fill={d.color || "var(--admin)"} rx={2} opacity={0.85}>
+                <title>{d.tooltip || `${d.label}: ${fmt(d.value)}`}</title>
+              </rect>
+            </g>
+          );
+        })}
+        {/* x-axis labels */}
+        {data.map((d, i) => (
+          <text key={i} x={bX(i) + bW / 2} y={VH - 5} textAnchor="middle" fontSize={8} fill="var(--fg-3)" fontFamily="monospace">
+            {d.label}
+          </text>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
+// ─── Chat Analytics (real data) ───────────────────────────────
 function ChatAnalyticsSection() {
-  // Change 2: removed the "Topic mix" pie chart card.
+  const [reports, setReports] = React.useState(null);
+  const [sessions, setSessions] = React.useState([]);
+
+  React.useEffect(() => {
+    Promise.all([
+      window.api.get("/admin/judged-chats"),
+      window.api.get("/admin/sessions?limit=100"),
+    ]).then(([r, s]) => { setReports(r); setSessions(s); })
+      .catch(() => {});
+  }, []);
+
+  const sessMap = {};
+  sessions.forEach(s => { sessMap[s.id] = s; });
+
+  const entries = reports
+    ? Object.entries(reports)
+        .map(([id, r]) => ({ id: Number(id), r, s: sessMap[Number(id)] }))
+        .filter(e => e.s)
+        .sort((a, b) => a.id - b.id)
+    : [];
+
+  const lbl = e => e.s.display_id || `S-${e.id}`;
+
+  const giniData = entries.map(e => ({
+    label: lbl(e), value: e.r.gini ?? 0,
+    color: (e.r.gini >= 0.28 && e.r.gini <= 0.42) ? "#22c55e" : "#f97316",
+    tooltip: `${lbl(e)} · Gini ${(e.r.gini ?? 0).toFixed(3)}`,
+  }));
+
+  const accData = entries.map(e => ({
+    label: lbl(e), value: (e.r.accuracy ?? 0) * 100,
+    color: (e.r.pValue ?? 1) < 0.05 ? "#22c55e" : "#94a3b8",
+    tooltip: `${lbl(e)} · ${((e.r.accuracy ?? 0) * 100).toFixed(1)}% (p=${(e.r.pValue ?? 1).toFixed(3)})`,
+  }));
+
+  const grpData = entries.map(e => ({
+    label: lbl(e), value: e.r.groupFidelityMean ?? 0,
+    color: (e.r.groupFidelityMean ?? 0) >= 4 ? "#22c55e" : (e.r.groupFidelityMean ?? 0) >= 3 ? "#eab308" : "#ef4444",
+    tooltip: `${lbl(e)} · Group fidelity ${(e.r.groupFidelityMean ?? 0).toFixed(2)}`,
+  }));
+
+  const indData = entries.map(e => {
+    const rows = e.r.fidelityRows || [];
+    const mean = rows.length ? rows.reduce((s, r) => s + (r.mean ?? 0), 0) / rows.length : 0;
+    return {
+      label: lbl(e), value: mean,
+      color: mean >= 4 ? "#22c55e" : mean >= 3 ? "#eab308" : "#ef4444",
+      tooltip: `${lbl(e)} · Ind. fidelity ${mean.toFixed(2)}`,
+    };
+  });
+
   return (
     <>
       <div className="t-eyebrow">Quantitative</div>
       <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 16 }}>Chat analytics</h2>
-      <div className="chart-grid">
-        <div className="card chart-card" style={{ gridColumn: "span 2" }}>
-          <div className="chart-card-head">
-            <div className="t-h3">Turn distribution (Gini)</div>
-            <span className="badge">target 0.28–0.42</span>
+
+      {entries.length === 0 ? (
+        <div className="card" style={{ padding: "40px 24px", textAlign: "center" }}>
+          <div style={{ fontSize: 13, color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>
+            {reports === null ? "Loading…" : "No judged sessions yet — launch the pipeline on a session to see analytics."}
           </div>
-          <BarChartPlaceholder label="By session" />
         </div>
-      </div>
+      ) : (
+        <>
+          {/* Gini — full width */}
+          <div className="chart-grid" style={{ marginBottom: 12 }}>
+            <div className="card chart-card" style={{ gridColumn: "span 2" }}>
+              <div className="chart-card-head">
+                <div className="t-h3">Turn distribution (Gini)</div>
+                <span className="badge">target 0.28 – 0.42</span>
+              </div>
+              <BarChart data={giniData} yMin={0} yMax={1}
+                target={{ lo: 0.28, hi: 0.42 }}
+                formatY={v => v.toFixed(2)} chartHeight={220} />
+            </div>
+          </div>
+
+          {/* Accuracy + Group fidelity — side by side */}
+          <div className="chart-grid" style={{ marginBottom: 12 }}>
+            <div className="card chart-card">
+              <div className="chart-card-head">
+                <div className="t-h3">Persona ID accuracy</div>
+                <span className="badge">baseline 12.5%</span>
+              </div>
+              <BarChart data={accData} yMin={0} yMax={100}
+                target={{ lo: 0, hi: 12.5 }}
+                formatY={v => `${v.toFixed(0)}%`} chartHeight={200} />
+            </div>
+            <div className="card chart-card">
+              <div className="chart-card-head">
+                <div className="t-h3">Group fidelity score</div>
+                <span className="badge">avg from 20 judges</span>
+              </div>
+              <BarChart data={grpData} yMin={0} yMax={5}
+                formatY={v => v.toFixed(1)} chartHeight={200} />
+            </div>
+          </div>
+
+          {/* Individual fidelity — full width */}
+          <div className="chart-grid">
+            <div className="card chart-card" style={{ gridColumn: "span 2" }}>
+              <div className="chart-card-head">
+                <div className="t-h3">Individual fidelity (mean across personas)</div>
+                <span className="badge">1 – 5 scale</span>
+              </div>
+              <BarChart data={indData} yMin={0} yMax={5}
+                formatY={v => v.toFixed(1)} chartHeight={200} />
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 }
@@ -882,6 +1126,8 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
               group={EVAL_GROUPS[2]}
               gini={activeReport.gini} giniZ={activeReport.giniZ} giniCI={activeReport.giniCI} driftScore={activeReport.driftScore}
               turnShares={activeReport.turnShares}
+              groupFidelityMean={activeReport.groupFidelityMean ?? 0}
+              groupFidelityMedian={activeReport.groupFidelityMedian ?? 0}
             />
           )}
         </div>
@@ -1122,18 +1368,21 @@ function ReportIndividualFidelity({ group, rows, judgeTypeAgreement }) {
               <td>
                 <div style={{ display: "flex", gap: 4, height: 28, alignItems: "flex-end" }}>
                   {[1, 2, 3, 4, 5].map(s => {
-                    // distance-weighted height; the closer to median, the taller.
                     const d = Math.abs(s - r.median);
                     const h = Math.max(4, 28 - d * 11);
                     const active = s >= Math.floor(r.median) && s <= Math.ceil(r.median);
-                    // Red → orange → amber → lime → green across scores 1–5.
                     const SCALE = ["#ef4444", "#f97316", "#eab308", "#84cc16", "#22c55e"];
                     return (
                       <div key={s} style={{
                         flex: 1, height: h, borderRadius: 2,
                         background: active ? SCALE[s - 1] : "var(--bg-3)",
                         opacity: active ? 0.9 : 0.6,
-                      }} />
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}>
+                        {active && (
+                          <span style={{ fontSize: 9, fontWeight: 700, color: "#fff", lineHeight: 1 }}>{s}</span>
+                        )}
+                      </div>
                     );
                   })}
                 </div>
@@ -1145,41 +1394,134 @@ function ReportIndividualFidelity({ group, rows, judgeTypeAgreement }) {
 
       {judgeTypes.length > 0 && (
         <div style={{ marginTop: 28 }}>
-          <div className="t-eyebrow" style={{ marginBottom: 12 }}>Judge type agreement</div>
-          <div className="metric-row" style={{ marginBottom: 20 }}>
-            {judgeTypes.map(jt => (
-              <MetricStat
-                key={jt}
-                label={jt.charAt(0).toUpperCase() + jt.slice(1)}
-                value={medians[jt].toFixed(2)}
-                sub="median score"
-              />
-            ))}
-          </div>
-          {madPairs.length > 0 && (
-            <table className="table" style={{ maxWidth: 480 }}>
-              <thead>
-                <tr>
-                  <th>Judge pair</th>
-                  <th style={{ width: 120 }}>MAD</th>
-                  <th style={{ width: 120 }}>Agreement</th>
-                </tr>
-              </thead>
-              <tbody>
-                {madPairs.map(([pair, val]) => {
-                  const badgeCls = val <= 0.3 ? "badge-ok" : val <= 0.6 ? "badge-admin" : "badge-danger";
-                  const label = val <= 0.3 ? "High" : val <= 0.6 ? "Moderate" : "Low";
-                  return (
-                    <tr key={pair}>
-                      <td className="mono" style={{ fontSize: 12 }}>{pair.replace(/_vs_/g, " vs ")}</td>
-                      <td className="col-mono">{val.toFixed(3)}</td>
-                      <td><span className={`badge ${badgeCls}`}>{label}</span></td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          )}
+          <div className="t-eyebrow" style={{ marginBottom: 14 }}>Judge type agreement</div>
+          {(() => {
+            const TYPE_COLOR = {
+              style:      "#8b5cf6",
+              ideology:   "#3b82f6",
+              general:    "#14b8a6",
+              behavioral: "#f97316",
+            };
+            // Build symmetric MAD lookup
+            const madMap = {};
+            madPairs.forEach(([pair, val]) => {
+              const parts = pair.split("_vs_");
+              if (parts.length === 2) {
+                madMap[`${parts[0]}_${parts[1]}`] = val;
+                madMap[`${parts[1]}_${parts[0]}`] = val;
+              }
+            });
+            const madCell = (a, b) => madMap[`${a}_${b}`];
+            const cellBg = v => v === undefined ? "var(--bg-1)"
+              : v <= 0.3 ? "rgba(34,197,94,0.18)"
+              : v <= 0.6 ? "rgba(234,179,8,0.18)"
+              : "rgba(239,68,68,0.18)";
+            const cellColor = v => v === undefined ? "var(--fg-3)"
+              : v <= 0.3 ? "#16a34a"
+              : v <= 0.6 ? "#a16207"
+              : "#dc2626";
+
+            return (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" }}>
+
+                {/* ── Left: median bars ── */}
+                <div>
+                  <div className="t-meta" style={{ marginBottom: 10, fontWeight: 600 }}>Median score by role</div>
+                  {judgeTypes.map(jt => (
+                    <div key={jt} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                      <div style={{ width: 76, fontSize: 11, fontFamily: "var(--font-mono)", color: TYPE_COLOR[jt] || "var(--fg-1)", flexShrink: 0 }}>
+                        {jt.charAt(0).toUpperCase() + jt.slice(1)}
+                      </div>
+                      <div style={{ flex: 1, height: 20, background: "var(--bg-2)", borderRadius: 4, overflow: "hidden" }}>
+                        <div style={{
+                          width: `${(medians[jt] / 5) * 100}%`,
+                          height: "100%",
+                          background: TYPE_COLOR[jt] || "var(--admin)",
+                          borderRadius: 4,
+                          opacity: 0.75,
+                          transition: "width 0.4s ease",
+                        }} />
+                      </div>
+                      <div style={{ width: 32, fontSize: 12, fontFamily: "var(--font-mono)", textAlign: "right", color: "var(--fg-0)" }}>
+                        {medians[jt].toFixed(2)}
+                      </div>
+                    </div>
+                  ))}
+                  <div style={{ display: "flex", gap: 8, marginTop: 6 }}>
+                    {[1, 2, 3, 4, 5].map(n => (
+                      <div key={n} style={{ flex: 1, textAlign: "center", fontSize: 9, fontFamily: "var(--font-mono)", color: "var(--fg-3)" }}>{n}</div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ── Right: MAD heatmap matrix ── */}
+                {madPairs.length > 0 && (
+                  <div>
+                    <div className="t-meta" style={{ marginBottom: 10, fontWeight: 600 }}>Pairwise MAD matrix</div>
+                    <div style={{
+                      display: "grid",
+                      gridTemplateColumns: `48px repeat(${judgeTypes.length}, 1fr)`,
+                      gap: 3,
+                    }}>
+                      {/* header row */}
+                      <div />
+                      {judgeTypes.map(jt => (
+                        <div key={jt} style={{
+                          textAlign: "center", fontSize: 9,
+                          fontFamily: "var(--font-mono)", fontWeight: 700,
+                          color: TYPE_COLOR[jt] || "var(--fg-2)",
+                          paddingBottom: 2, letterSpacing: "0.05em",
+                        }}>
+                          {jt.slice(0, 3).toUpperCase()}
+                        </div>
+                      ))}
+                      {/* data rows */}
+                      {judgeTypes.map(row => [
+                        <div key={`lbl-${row}`} style={{
+                          fontSize: 9, fontFamily: "var(--font-mono)", fontWeight: 700,
+                          color: TYPE_COLOR[row] || "var(--fg-2)",
+                          display: "flex", alignItems: "center",
+                          letterSpacing: "0.05em",
+                        }}>
+                          {row.slice(0, 3).toUpperCase()}
+                        </div>,
+                        ...judgeTypes.map(col => {
+                          const v = row === col ? undefined : madCell(row, col);
+                          return (
+                            <div key={`${row}-${col}`} style={{
+                              background: row === col ? "var(--bg-1)" : cellBg(v),
+                              borderRadius: 4,
+                              padding: "5px 2px",
+                              textAlign: "center",
+                              fontSize: 10,
+                              fontFamily: "var(--font-mono)",
+                              fontWeight: 600,
+                              color: row === col ? "var(--fg-3)" : cellColor(v),
+                            }}>
+                              {row === col ? "—" : v !== undefined ? v.toFixed(2) : "·"}
+                            </div>
+                          );
+                        }),
+                      ])}
+                    </div>
+                    {/* legend */}
+                    <div style={{ display: "flex", gap: 12, marginTop: 10, alignItems: "center" }}>
+                      {[
+                        { color: "rgba(34,197,94,0.18)", text: "16a34a", label: "≤ 0.3 high" },
+                        { color: "rgba(234,179,8,0.18)",  text: "a16207", label: "≤ 0.6 mod." },
+                        { color: "rgba(239,68,68,0.18)",  text: "dc2626", label: "> 0.6 low" },
+                      ].map(({ color, text, label }) => (
+                        <div key={label} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                          <div style={{ width: 10, height: 10, borderRadius: 2, background: color }} />
+                          <span style={{ fontSize: 9, fontFamily: "var(--font-mono)", color: `#${text}` }}>{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </div>
       )}
 
@@ -1188,13 +1530,43 @@ function ReportIndividualFidelity({ group, rows, judgeTypeAgreement }) {
   );
 }
 
-function ReportGroupFidelity({ group, gini, giniZ, giniCI, driftScore, turnShares }) {
+function ReportGroupFidelity({ group, gini, giniZ, giniCI, driftScore, turnShares, groupFidelityMean, groupFidelityMedian }) {
   const { byId } = window.useAgents();
   const inRange = gini >= 0.28 && gini <= 0.42;
   const rows = (turnShares || []).map(t => ({ ...t, persona: byId(t.personaId) })).filter(r => r.persona);
   return (
     <>
       <ReportHeader group={group} />
+
+      {groupFidelityMean > 0 && (
+        <div style={{ marginBottom: 24 }}>
+          <div className="t-eyebrow" style={{ marginBottom: 10 }}>Group fidelity score</div>
+          <div style={{ display: "flex", gap: 6, height: 40, alignItems: "flex-end", maxWidth: 260 }}>
+            {[1, 2, 3, 4, 5].map(s => {
+              const d = Math.abs(s - groupFidelityMean);
+              const h = Math.max(6, 40 - d * 14);
+              const active = s >= Math.floor(groupFidelityMean) && s <= Math.ceil(groupFidelityMean);
+              const SCALE = ["#ef4444", "#f97316", "#eab308", "#84cc16", "#22c55e"];
+              return (
+                <div key={s} style={{
+                  flex: 1, height: h, borderRadius: 3,
+                  background: active ? SCALE[s - 1] : "var(--bg-3)",
+                  opacity: active ? 0.9 : 0.6,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  {active && (
+                    <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", fontFamily: "var(--font-mono)" }}>{s}</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: 6, fontSize: 11, color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>
+            Average score from 20 judges
+          </div>
+        </div>
+      )}
+
       <div className="metric-row">
         <MetricStat
           label="Gini coefficient"
@@ -1218,6 +1590,12 @@ function ReportGroupFidelity({ group, gini, giniZ, giniCI, driftScore, turnShare
           sub={driftScore > 0.85 ? "Perturbation triggered" : "Below threshold"}
           tone={driftScore > 0.85 ? "warn" : "good"}
         />
+        {groupFidelityMean > 0 && (
+          <MetricStat label="Mean judge score" value={groupFidelityMean.toFixed(2)} sub="group fidelity" />
+        )}
+        {groupFidelityMedian > 0 && (
+          <MetricStat label="Median judge score" value={groupFidelityMedian.toFixed(2)} sub="group fidelity" />
+        )}
       </div>
 
       <div className="t-eyebrow" style={{ margin: "20px 0 8px" }}>Turn distribution</div>
