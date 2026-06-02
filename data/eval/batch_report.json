@@ -1,43 +1,101 @@
 {
-  "n_chats": 1,
+  "n_chats": 4,
   "chat_ids": [
-    9
+    18,
+    26,
+    3,
+    5
   ],
   "accuracy": {
-    "n": 1,
-    "mean": 0.39,
-    "variance": 0.0,
-    "std": 0.0,
+    "n": 4,
+    "mean": 0.5762,
+    "variance": 0.102923,
+    "std": 0.3208,
     "ci_95": [
-      0.39,
-      0.39
+      0.3138,
+      0.875
     ],
     "method": "bootstrap"
   },
   "fidelity_median": {
-    "n": 1,
-    "mean": 5.0,
-    "variance": 0.0,
-    "std": 0.0,
+    "n": 4,
+    "mean": 4.0,
+    "variance": 0.666667,
+    "std": 0.8165,
     "ci_95": [
-      5.0,
+      3.0,
       5.0
     ],
     "method": "bootstrap"
   },
   "gini": {
-    "n": 1,
-    "mean": 0.3909,
-    "variance": 0.0,
-    "std": 0.0,
+    "n": 4,
+    "mean": 0.2752,
+    "variance": 0.01096,
+    "std": 0.1047,
     "ci_95": [
-      0.3909,
-      0.3909
+      0.1771,
+      0.3457
     ],
     "method": "bootstrap"
   },
   "per_persona_fidelity": {
-    "Darth Vader": {
+    "A-Train": {
+      "n": 1,
+      "mean": 2.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        2.0,
+        2.0
+      ],
+      "method": "bootstrap"
+    },
+    "Annie January": {
+      "n": 1,
+      "mean": 2.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        2.0,
+        2.0
+      ],
+      "method": "bootstrap"
+    },
+    "Bart Simpson": {
+      "n": 1,
+      "mean": 5.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        5.0,
+        5.0
+      ],
+      "method": "bootstrap"
+    },
+    "Billy Butcher": {
+      "n": 1,
+      "mean": 4.5,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        4.5,
+        4.5
+      ],
+      "method": "bootstrap"
+    },
+    "Cristiano Ronaldo": {
+      "n": 1,
+      "mean": 2.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        2.0,
+        2.0
+      ],
+      "method": "bootstrap"
+    },
+    "Danny Lazzarin": {
       "n": 1,
       "mean": 4.0,
       "variance": 0.0,
@@ -61,16 +119,38 @@
     },
     "Gustavo Fring": {
       "n": 1,
-      "mean": 2.5,
+      "mean": 4.0,
       "variance": 0.0,
       "std": 0.0,
       "ci_95": [
-        2.5,
-        2.5
+        4.0,
+        4.0
       ],
       "method": "bootstrap"
     },
-    "Joker": {
+    "Homelander": {
+      "n": 1,
+      "mean": 4.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        4.0,
+        4.0
+      ],
+      "method": "bootstrap"
+    },
+    "Kobe Bryant": {
+      "n": 1,
+      "mean": 4.5,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        4.5,
+        4.5
+      ],
+      "method": "bootstrap"
+    },
+    "Michael Jordan": {
       "n": 1,
       "mean": 5.0,
       "variance": 0.0,
@@ -81,7 +161,18 @@
       ],
       "method": "bootstrap"
     },
-    "Voldemort": {
+    "Mortimer Smith": {
+      "n": 1,
+      "mean": 2.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        2.0,
+        2.0
+      ],
+      "method": "bootstrap"
+    },
+    "Novak Djokovic": {
       "n": 1,
       "mean": 5.0,
       "variance": 0.0,
@@ -89,83 +180,744 @@
       "ci_95": [
         5.0,
         5.0
+      ],
+      "method": "bootstrap"
+    },
+    "Rocky Balboa": {
+      "n": 1,
+      "mean": 4.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        4.0,
+        4.0
+      ],
+      "method": "bootstrap"
+    },
+    "Salmo": {
+      "n": 2,
+      "mean": 4.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        4.0,
+        4.0
+      ],
+      "method": "bootstrap"
+    },
+    "Sherlock Holmes": {
+      "n": 1,
+      "mean": 5.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        5.0,
+        5.0
+      ],
+      "method": "bootstrap"
+    },
+    "Shrek": {
+      "n": 1,
+      "mean": 5.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        5.0,
+        5.0
+      ],
+      "method": "bootstrap"
+    },
+    "Valentino Rossi": {
+      "n": 1,
+      "mean": 4.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        4.0,
+        4.0
+      ],
+      "method": "bootstrap"
+    },
+    "Walter White": {
+      "n": 1,
+      "mean": 4.0,
+      "variance": 0.0,
+      "std": 0.0,
+      "ci_95": [
+        4.0,
+        4.0
       ],
       "method": "bootstrap"
     }
   },
   "pooled_confusion_matrix": {
     "labels": [
-      "Darth Vader",
+      "A-Train",
+      "Annie January",
+      "Bart Simpson",
+      "Billy Butcher",
+      "Bruce Wayne / Batman",
+      "Cristiano Ronaldo",
+      "Danny Lazzarin",
+      "Elvis Presley",
       "Gollum",
       "Gustavo Fring",
-      "Joker",
-      "Voldemort"
+      "Homelander",
+      "Kobe Bryant",
+      "Michael Jordan",
+      "Mortimer Smith",
+      "Morty Smith",
+      "Novak Djokovic",
+      "Rocky Balboa",
+      "Salmo",
+      "Sherlock Holmes",
+      "Shrek",
+      "Valentino Rossi",
+      "Walter White"
     ],
     "matrix": [
       [
-        12,
         0,
         0,
         0,
-        2
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ],
       [
+        2,
+        0,
         0,
         18,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0
       ],
       [
-        1,
         0,
-        3,
         0,
-        0
-      ],
-      [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         2,
         0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
         3,
-        15
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        2,
+        0,
+        13,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        17,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        1
       ],
       [
         0,
         0,
         11,
         0,
-        3
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        13,
+        2,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        14,
+        0,
+        0,
+        4
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        12,
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        2,
+        0,
+        0,
+        12
       ]
     ],
     "per_persona": {
-      "Darth Vader": {
-        "precision": 0.9231,
-        "recall": 0.8571,
-        "f1": 0.8889
+      "A-Train": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Annie January": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Bart Simpson": {
+        "precision": 0.4,
+        "recall": 0.4,
+        "f1": 0.4
+      },
+      "Billy Butcher": {
+        "precision": 0.2388,
+        "recall": 0.8,
+        "f1": 0.3678
+      },
+      "Bruce Wayne / Batman": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Cristiano Ronaldo": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Danny Lazzarin": {
+        "precision": 0.85,
+        "recall": 0.85,
+        "f1": 0.85
+      },
+      "Elvis Presley": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
       },
       "Gollum": {
-        "precision": 0.9,
-        "recall": 1.0,
-        "f1": 0.9474
+        "precision": 0.9091,
+        "recall": 0.5,
+        "f1": 0.6452
       },
       "Gustavo Fring": {
-        "precision": 0.2143,
-        "recall": 0.75,
-        "f1": 0.3333
-      },
-      "Joker": {
         "precision": 1.0,
-        "recall": 0.15,
-        "f1": 0.2609
+        "recall": 1.0,
+        "f1": 1.0
       },
-      "Voldemort": {
-        "precision": 0.15,
-        "recall": 0.2143,
-        "f1": 0.1765
+      "Homelander": {
+        "precision": 0.3333,
+        "recall": 0.1,
+        "f1": 0.1538
+      },
+      "Kobe Bryant": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Michael Jordan": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "Mortimer Smith": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "Morty Smith": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Novak Djokovic": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "Rocky Balboa": {
+        "precision": 0.9,
+        "recall": 0.9,
+        "f1": 0.9
+      },
+      "Salmo": {
+        "precision": 0.3421,
+        "recall": 0.4643,
+        "f1": 0.3939
+      },
+      "Sherlock Holmes": {
+        "precision": 0.7778,
+        "recall": 0.7,
+        "f1": 0.7368
+      },
+      "Shrek": {
+        "precision": 0.4444,
+        "recall": 0.4,
+        "f1": 0.4211
+      },
+      "Valentino Rossi": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "Walter White": {
+        "precision": 0.6667,
+        "recall": 0.6,
+        "f1": 0.6316
       }
     },
-    "macro_f1": 0.5214,
-    "kappa": 0.4523
+    "macro_f1": 0.4773,
+    "kappa": 0.5507
   }
 }

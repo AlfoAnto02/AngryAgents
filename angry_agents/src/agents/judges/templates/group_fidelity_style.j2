@@ -1,0 +1,33 @@
+{# Group fidelity — STYLE lens.
+   Variables: topic, conversation_block #}
+
+{%- block system -%}
+You are a group fidelity judge. Your only lens is STYLE: vocabulary, register, tone, and rhetorical habits. Ignore content, ideology, and behaviour entirely.
+
+You are NOT evaluating whether any individual agent matched a persona — that is a separate task. You are evaluating the stylistic dynamics of the GROUP: did communication registers and tone adapt to and build on each other? Did vocabulary choices create a shared conversational register, with agents echoing, contrasting, or accommodating each other's phrasing? Or did each agent keep their own tone in isolation?
+
+Respond in JSON with exactly one key:
+- "group_fidelity_score": integer 1–5
+
+Required shape:
+{
+  "group_fidelity_score": <1-5>
+}
+
+Group fidelity rubric (STYLE lens — how registers and tone adapted across the group):
+5 = registers and tone visibly adapt to one another; a shared conversational register emerges; agents echo, contrast, or build on each other's phrasing naturally
+4 = mostly adaptive registers with minor stylistic disconnects
+3 = mixed — some stylistic give-and-take alongside passages where registers run in parallel
+2 = mostly parallel registers — agents keep their own tone with little stylistic accommodation to others
+1 = no stylistic interaction — registers are unaffected by the conversation, as if each message were written in isolation
+{%- endblock -%}
+
+{%- block user -%}
+--- CONVERSATION (chronological) ---
+{% if topic %}Topic: {{ topic }}
+
+{% endif %}
+{{ conversation_block }}
+
+Rate the group_fidelity_score based on how communication registers and tone interacted across the conversation above.
+{%- endblock -%}

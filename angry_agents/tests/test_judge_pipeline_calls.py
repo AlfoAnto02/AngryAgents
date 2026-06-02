@@ -11,6 +11,7 @@ import pytest
 
 from angry_agents.src.rag.judge_with_tools import (
     _parse_assignment,
+    run_group_fidelity_with_tools,
     run_individual_fidelity_with_tools,
     run_persona_identification_with_tools,
 )
@@ -62,14 +63,13 @@ class TestPersonaIdentificationCall:
                 messages_block="...",
                 author_list="a, b",
                 persona_names="P1, P2, P3",
-                gini_value=None,
-                gini_within_range=None,
-                gini_z=None,
             )
             assert '"fidelity"' not in system, f"{role}: fidelity key in system prompt"
             assert '"fidelity"' not in user, f"{role}: fidelity key in user prompt"
             assert "fidelity rubric" not in system.lower(), f"{role}: fidelity rubric still present"
-            assert "group_fidelity_score" in system, f"{role}: group_fidelity_score missing"
+            # Group fidelity is now a dedicated call/template — it must not leak into persona ID.
+            assert "group_fidelity_score" not in system, f"{role}: group_fidelity_score leaked into persona ID system prompt"
+            assert "group_fidelity_score" not in user, f"{role}: group_fidelity_score leaked into persona ID user prompt"
 
     def test_parse_assignment_returns_no_fidelity_signal(self):
         raw = json.dumps({
@@ -181,6 +181,86 @@ class TestIndividualFidelityCall:
             )
         assert all(v == 1 for v in result.values())
         assert set(result.keys()) == {"Forrest Gump", "Rick Sanchez"}
+
+
+# ---------------------------------------------------------------------------
+# Call 3 — group fidelity (dedicated call, independent of persona ID / fidelity)
+# ---------------------------------------------------------------------------
+
+class TestGroupFidelityCall:
+    def test_group_fidelity_templates_render_with_score_key(self):
+        from angry_agents.src.agents.judges.templates import render_prompt
+
+        for role in ("style", "ideology", "general", "behavioral"):
+            system, user = render_prompt(
+                f"group_fidelity_{role}.j2",
+                topic="Climate policy",
+                conversation_block="[aaa]: We must act now.\n[bbb]: Says who?",
+            )
+            assert '"group_fidelity_score"' in system, f"{role}: group_fidelity_score key missing"
+            # A group fidelity template must NOT ask for per-persona individual fidelity.
+            assert '"individual_fidelity"' not in system, f"{role}: individual_fidelity leaked into group fidelity"
+            # Topic and the chronological conversation must both reach the prompt.
+            assert "Climate policy" in user, f"{role}: topic missing from prompt"
+            assert "[aaa]:" in user and "[bbb]:" in user, f"{role}: conversation missing from prompt"
+
+    def test_group_fidelity_topic_omitted_when_none(self):
+        from angry_agents.src.agents.judges.templates import render_prompt
+
+        _, user = render_prompt(
+            "group_fidelity_general.j2",
+            topic=None,
+            conversation_block="[aaa]: hi\n[bbb]: yo",
+        )
+        assert "Topic:" not in user  # {% if topic %} guard drops the line when None
+
+    def test_group_fidelity_parses_and_defaults_out_of_range(self):
+        # In-range int kept; out-of-range / non-int → neutral default 3 (with warning).
+        for raw_score, expected in [(4, 4), (1, 1), (5, 5), (9, 3), (0, 3), ("bad", 3)]:
+            fake = json.dumps({"group_fidelity_score": raw_score})
+            with patch(
+                "angry_agents.src.rag.judge_with_tools._openai_simple_call",
+                return_value=fake,
+            ):
+                score = run_group_fidelity_with_tools(
+                    role="general", chat=_CHAT, judge_name="general_1",
+                )
+            assert score == expected, f"raw={raw_score!r} → {score}, expected {expected}"
+
+    def test_group_fidelity_invalid_json_defaults_to_3(self):
+        with patch(
+            "angry_agents.src.rag.judge_with_tools._openai_simple_call",
+            return_value="not json",
+        ):
+            score = run_group_fidelity_with_tools(role="style", chat=_CHAT, judge_name="style_1")
+        assert score == 3
+
+    def test_group_fidelity_sends_chronological_transcript(self):
+        """The judge must see messages in chronological order, not grouped by author."""
+        captured: dict = {}
+
+        def _capture(system, user, model, **kwargs):
+            captured["user"] = user
+            captured["call_type"] = kwargs.get("call_type")
+            return json.dumps({"group_fidelity_score": 5})
+
+        with patch(
+            "angry_agents.src.rag.judge_with_tools._openai_simple_call",
+            side_effect=_capture,
+        ):
+            score = run_group_fidelity_with_tools(
+                role="behavioral", chat=_CHAT, judge_name="behavioral_1",
+            )
+
+        assert score == 5
+        # Token usage must be attributed to the dedicated group_fidelity call type.
+        assert captured["call_type"] == "group_fidelity"
+        user = captured["user"]
+        # _CHAT order is A, A, B, B — chronological order must be preserved in the prompt.
+        i_a1 = user.index("Life is like a box of chocolates")
+        i_a2 = user.index("Mama always said")
+        i_b1 = user.index("Wubba lubba dub dub")
+        assert i_a1 < i_a2 < i_b1, "conversation_block is not chronological"
 
 
 # ---------------------------------------------------------------------------

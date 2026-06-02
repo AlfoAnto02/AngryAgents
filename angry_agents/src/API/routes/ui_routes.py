@@ -1099,8 +1099,9 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         # Force-include only active participants — silent agents have no messages to match against.
         forced_names = [name for digest, name in author_map.items() if digest in active_digests]
 
-        # Build speaker_stats and compute Gini before the judge pipeline so
-        # the structural signal can be injected into each judge's prompt.
+        # Build speaker_stats and compute the structural group-fidelity metrics
+        # (Gini on the turn distribution) for the dashboard report. Judges score
+        # group fidelity qualitatively and independently — no metric is injected.
         speaker_stats: dict[str, dict] = {}
         for msg in messages:
             author = msg.get("author")
@@ -1110,7 +1111,6 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
                 speaker_stats[pid]["turns"] += 1
         transcript_meta = {"speaker_stats": speaker_stats}
         grp_result = metrics_group.run(transcript_meta)
-        gini_data = grp_result.get("group_fidelity", {}).get("gini")
 
         _t_llm_start = _time.monotonic()
         print(f"  [chat {chat_id}] ── LLM calls START  (20 judges × {len(all_profiles)} profiles → {len(forced_names or [])} forced)")
@@ -1118,7 +1118,6 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
             chat, all_profiles, chat_id, _progress,
             forced_names=forced_names,
             out_dir=_EVAL_DIR / f"chat_{chat_id}",
-            gini_data=gini_data,
             author_map={d: n for d, n in author_map.items() if d in active_digests},
         )
         _t_llm_end = _time.monotonic()

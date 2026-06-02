@@ -54,6 +54,13 @@ _FIDELITY_TEMPLATES: dict[str, str] = {
     "behavioral": "individual_fidelity_behavioral.j2",
 }
 
+_GROUP_FIDELITY_TEMPLATES: dict[str, str] = {
+    "style": "group_fidelity_style.j2",
+    "ideology": "group_fidelity_ideology.j2",
+    "general": "group_fidelity_general.j2",
+    "behavioral": "group_fidelity_behavioral.j2",
+}
+
 
 def _openai_tool_loop(
     system: str,
@@ -194,9 +201,10 @@ def _openai_simple_call(
     model: str,
     judge_name: str = "unknown",
     judge_role: str = "general",
+    call_type: str = "individual_fidelity",
     tracker: "TokenTracker | None" = None,
 ) -> str:
-    """Single OpenAI completion without tool use. Used for individual fidelity evaluation."""
+    """Single OpenAI completion without tool use. Used for fidelity evaluations."""
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     response = client.chat.completions.create(
         model=model,
@@ -211,7 +219,7 @@ def _openai_simple_call(
         tracker.record(
             judge_name=judge_name,
             judge_role=judge_role,
-            call_type="individual_fidelity",
+            call_type=call_type,
             prompt_tokens=response.usage.prompt_tokens,
             completion_tokens=response.usage.completion_tokens,
         )
@@ -298,6 +306,92 @@ def run_individual_fidelity_with_tools(
     return result
 
 
+def _format_conversation(chat: dict) -> str:
+    """
+    Render the chat as a chronological transcript: one '[author]: message' per line.
+
+    Distinct from format_messages(), which groups messages by author. Chronological
+    order lets the group-fidelity judge observe turn-taking, who responded to whom,
+    and the overall conversational flow.
+    """
+    lines: list[str] = []
+    for msg in chat.get("messages", []):
+        author = msg.get("author")
+        if not author:
+            continue
+        lines.append(f"[{author}]: {msg['message']}")
+    return "\n".join(lines)
+
+
+def run_group_fidelity_with_tools(
+    role: str,
+    chat: dict,
+    model: str = OPENAI_MODEL,
+    judge_name: str = "unknown",
+    tracker: "TokenTracker | None" = None,
+) -> int:
+    """
+    Evaluate group fidelity: did the agents behave as a coherent group conversation?
+
+    Independent of persona identity and individual fidelity. The judge reads the full
+    conversation in chronological order and scores the group dynamic through its role
+    lens (style / ideology / general / behavioral) on a 1–5 scale. No persona profiles
+    or true identities are needed — group dynamics are observable from the anonymised
+    transcript alone.
+
+    Returns the group_fidelity_score (1–5); defaults to 3 with a warning when the
+    response is missing or invalid. Requires LLM_BACKEND=openai.
+    """
+    if LLM_BACKEND != "openai":
+        raise RuntimeError(
+            "run_group_fidelity_with_tools requires LLM_BACKEND=openai. "
+            f"Current backend: {LLM_BACKEND!r}."
+        )
+
+    template = _GROUP_FIDELITY_TEMPLATES.get(role, "group_fidelity_general.j2")
+
+    conversation_block = _format_conversation(chat)
+    if not conversation_block:
+        raise ValueError(
+            "run_group_fidelity_with_tools: chat has no messages with authors."
+        )
+
+    system, user = render_prompt(
+        template,
+        topic=chat.get("topic"),
+        conversation_block=conversation_block,
+    )
+
+    raw = _openai_simple_call(
+        system,
+        user,
+        model,
+        judge_name=judge_name,
+        judge_role=role,
+        call_type="group_fidelity",
+        tracker=tracker,
+    )
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        log.warning("group fidelity parse: invalid JSON for judge %s", judge_name)
+        data = {}
+
+    score = data.get("group_fidelity_score")
+    if isinstance(score, int) and 1 <= score <= 5:
+        result = score
+    else:
+        log.warning(
+            "group fidelity: missing or invalid score for judge %s, defaulting to 3",
+            judge_name,
+        )
+        result = 3
+
+    log.info("group fidelity judge %s [%s]: %d", judge_name, role, result)
+    return result
+
+
 def run_persona_identification_with_tools(
     focus: str,
     chat: dict,
@@ -306,8 +400,7 @@ def run_persona_identification_with_tools(
     role: str = "general",
     judge_name: str = "unknown",
     tracker: "TokenTracker | None" = None,
-    gini_data: dict | None = None,
-) -> tuple[PersonaIdentificationResult, int]:
+) -> PersonaIdentificationResult:
     """
     Identify personas using a single RAG-assisted LLM call per judge.
 
@@ -341,10 +434,6 @@ def run_persona_identification_with_tools(
         for p in candidates
     )
 
-    gini_value = gini_data.get("gini") if gini_data else None
-    gini_within_range = gini_data.get("within_reference_range") if gini_data else None
-    gini_z = gini_data.get("z_vs_reference") if gini_data else None
-
     system, user = render_prompt(
         template,
         n_candidates=len(candidates),
@@ -352,9 +441,6 @@ def run_persona_identification_with_tools(
         messages_block=messages_block,
         author_list=author_list,
         persona_names=persona_names,
-        gini_value=gini_value,
-        gini_within_range=gini_within_range,
-        gini_z=gini_z,
     )
 
     raw = _openai_tool_loop(
@@ -366,20 +452,10 @@ def run_persona_identification_with_tools(
         tracker=tracker,
     )
 
-    try:
-        raw_data = json.loads(raw)
-    except json.JSONDecodeError:
-        raw_data = {}
-
-    gf_score = raw_data.get("group_fidelity_score")
-    if not isinstance(gf_score, int) or not (1 <= gf_score <= 5):
-        log.warning("judge %s: missing or invalid group_fidelity_score, defaulting to 3", judge_name)
-        gf_score = 3
-
     author_persona_scores = _parse_assignment(raw, authors, candidates)
 
     matches = [
         AuthorMatch(author=a, scores=author_persona_scores[a])
         for a in authors
     ]
-    return PersonaIdentificationResult(matches=matches), gf_score
+    return PersonaIdentificationResult(matches=matches)

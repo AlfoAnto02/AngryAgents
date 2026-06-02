@@ -27,7 +27,11 @@ from pathlib import Path
 
 log = logging.getLogger(__name__)
 
-from .judge_with_tools import run_individual_fidelity_with_tools, run_persona_identification_with_tools
+from .judge_with_tools import (
+    run_group_fidelity_with_tools,
+    run_individual_fidelity_with_tools,
+    run_persona_identification_with_tools,
+)
 from .retriever import retrieve_candidates
 from .token_tracker import TokenTracker
 
@@ -194,7 +198,6 @@ def run_evaluation_from_db_data(
     progress_callback=None,
     forced_names: list[str] | None = None,
     out_dir: "Path | None" = None,
-    gini_data: dict | None = None,
     author_map: dict[str, str] | None = None,
 ) -> list[dict]:
     """
@@ -236,14 +239,19 @@ def run_evaluation_from_db_data(
             role=judge["role"],
         )
         candidate_names = [p["persona_name"] for p in candidates]
-        result, gf_score = run_persona_identification_with_tools(
+        result = run_persona_identification_with_tools(
             focus=judge["focus"],
             chat=chat,
             candidates=candidates,
             role=judge["role"],
             judge_name=judge["name"],
             tracker=tracker,
-            gini_data=gini_data,
+        )
+        gf_score = run_group_fidelity_with_tools(
+            role=judge["role"],
+            chat=chat,
+            judge_name=judge["name"],
+            tracker=tracker,
         )
         individual_fidelity_scores: dict[str, int] | None = None
         if author_map:
@@ -332,11 +340,17 @@ def main() -> None:
         )
         candidate_names = [p["persona_name"] for p in candidates]
         print(f"  [{judge['name']}] → {candidate_names}")
-        result, gf_score = run_persona_identification_with_tools(
+        result = run_persona_identification_with_tools(
             focus=judge["focus"],
             chat=chat,
             candidates=candidates,
             role=judge["role"],
+            judge_name=judge["name"],
+            tracker=tracker,
+        )
+        gf_score = run_group_fidelity_with_tools(
+            role=judge["role"],
+            chat=chat,
             judge_name=judge["name"],
             tracker=tracker,
         )
