@@ -79,7 +79,7 @@ def _openai_tool_loop(
             model=model,
             messages=messages,
             tools=[SEARCH_TOOL],
-            tool_choice="auto",
+            tool_choice="none",
             response_format={"type": "json_object"},
             temperature=0,
         )

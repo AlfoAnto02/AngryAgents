@@ -1,6 +1,5 @@
 {# Persona identification — IDEOLOGY lens, direct bijective assignment
-   Variables: n_candidates, candidates_block, messages_block, author_list, persona_names,
-              gini_value, gini_within_range, gini_z #}
+   Variables: n_candidates, candidates_block, messages_block, author_list, persona_names #}
 
 {%- block system -%}
 You are a persona identification judge. Your only lens is IDEOLOGY: political views, values, moral stances, and belief systems. Ignore style, tone, and behaviour entirely.
@@ -17,28 +16,19 @@ Your task: DIRECTLY ASSIGN each author to exactly one persona from the candidate
 - No two authors can share the same persona (every author is a distinct character)
 - Candidates not assigned to any author are distractors — leave them out of your output
 
-Respond in JSON with exactly two keys:
+Respond in JSON with exactly one key:
 - "assignment": object — key is the author digest (exact string), value is the persona name (exact string)
-- "group_fidelity_score": integer 1–5 rating the overall group coherence of the conversation
 
 Required shape:
 {
   "assignment": {
     "<author_digest>": "<PERSONA_NAME>",
     ...
-  },
-  "group_fidelity_score": <1-5>
+  }
 }
 
 Assignment rubric (IDEOLOGY lens — choose the persona whose worldview best matches this author):
 Select the candidate whose political views, values, moral stances, and beliefs most uniquely match this author's messages. No ties — one persona per author, no persona used twice.
-
-Group fidelity rating rubric:
-5 = agents actively engage with each other; topic-focused; meaningful interconnected contributions; natural turn-taking
-4 = mostly engaged with minor lapses in responsiveness or brief topic drift
-3 = mixed — some genuine interaction alongside ignored messages or partial topic drift
-2 = mostly disconnected — agents post standalone opinions with little engagement with others
-1 = no coherent group dynamic — random answers, repeated topic shifts, messages that ignore the conversation entirely
 {%- endblock -%}
 
 {%- block user -%}
@@ -53,11 +43,5 @@ Authors (use exact digest strings as JSON keys): {{ author_list }}
 Candidate personas available for assignment: {{ persona_names }}
 
 Use the search tool if you need more ideological information before assigning.
-
-{% if gini_value is not none %}
---- GROUP FIDELITY METRICS ---
-Gini coefficient (turn distribution inequality): {{ gini_value }} — reference range for real group chats: 0.28–0.42 — within range: {{ gini_within_range }} — z-score vs reference (mean=0.33, std=0.05): {{ gini_z }}
-(Gini near 0 = all agents spoke equally; near 1 = one agent dominated all turns)
-{% endif %}
-After assigning all authors, assign group_fidelity_score.
+Once you have assigned every author, output your final JSON answer.
 {%- endblock -%}
