@@ -1072,6 +1072,20 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         # Digests that actually appear in the chat — silent participants cannot be identified.
         active_digests = {msg["author"] for msg in messages}
 
+        # Fail fast: if no active digest matches author_map, the ANGRY_AUTHOR_SECRET
+        # in .env differs from the one used when messages were created. Detect this
+        # before spending money on LLM calls.
+        if not any(d in active_digests for d in author_map):
+            err = (
+                "ANGRY_AUTHOR_SECRET mismatch: none of the message digests match "
+                "the agents in this chat. The secret used when messages were created "
+                "differs from the current .env value. Ask the teammate who last ran "
+                "the server to share their ANGRY_AUTHOR_SECRET."
+            )
+            _judge_jobs[chat_id] = {"status": "error", "progress": 0, "result": None, "error": err}
+            log.error("chat %d: %s", chat_id, err)
+            return
+
         from ...rag.evaluation_test_20_judges import _load_all_profiles, run_evaluation_from_db_data
         from ...eval import metrics_persona_id, metrics_fidelity, metrics_group
 
@@ -1302,6 +1316,19 @@ def admin_judged_chats(
             except Exception:
                 log.exception("failed to reconstruct UI report for chat %d", chat_id)
 
+    return result
+
+
+@router.get("/admin/batch-report")
+def admin_batch_report() -> dict:
+    """Run batch aggregation over all chat_*/metrics_report.json and return results."""
+    from ...eval.batch import run_batch
+    if not _EVAL_DIR.exists():
+        raise HTTPException(status_code=404, detail="No eval data directory found.")
+    try:
+        result = run_batch(_EVAL_DIR)
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
     return result
 
 

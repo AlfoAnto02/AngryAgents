@@ -528,16 +528,123 @@ function BarChart({ data, yMin = 0, yMax = 1, target = null, formatY, chartHeigh
   );
 }
 
+// ─── Batch Summary Panel ──────────────────────────────────────
+function BatchSummaryPanel({ batch }) {
+  if (!batch) return null;
+
+  const fmt = (v, digits = 2) => v != null ? Number(v).toFixed(digits) : "—";
+  const ci = (arr) => arr ? `[${fmt(arr[0])}, ${fmt(arr[1])}]` : "—";
+  const methodBadge = (m) => (
+    <span className="badge" style={{ marginLeft: 6, fontSize: 10 }}>{m}</span>
+  );
+
+  const cm = batch.pooled_confusion_matrix || {};
+  const ppf = batch.per_persona_fidelity || {};
+
+  return (
+    <div style={{ marginBottom: 24 }}>
+      <div className="t-eyebrow" style={{ marginBottom: 8 }}>Batch aggregate ({batch.n_chats} chat{batch.n_chats !== 1 ? "s" : ""})</div>
+
+      {/* Top-level scalars */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 16 }}>
+        {[
+          {
+            label: "Accuracy (mean)",
+            stat: batch.accuracy,
+            format: v => `${(v * 100).toFixed(1)}%`,
+            formatCI: arr => arr ? `[${(arr[0]*100).toFixed(1)}%, ${(arr[1]*100).toFixed(1)}%]` : "—",
+            tone: batch.accuracy?.mean > 0.125 ? "good" : "default",
+          },
+          {
+            label: "Fidelity median (mean)",
+            stat: batch.fidelity_median,
+            format: v => fmt(v),
+            formatCI: ci,
+            tone: batch.fidelity_median?.mean >= 3 ? "good" : "warn",
+          },
+          {
+            label: "Gini (mean)",
+            stat: batch.gini,
+            format: v => fmt(v, 3),
+            formatCI: ci,
+            tone: (batch.gini?.mean >= 0.28 && batch.gini?.mean <= 0.42) ? "good" : "warn",
+          },
+        ].map(({ label, stat, format, formatCI, tone }) => stat && (
+          <div key={label} className="card" style={{ padding: "14px 16px" }}>
+            <div className="metric-stat-label" style={{ fontSize: 11, marginBottom: 4 }}>{label}</div>
+            <div className="metric-stat-value" style={{ fontSize: 22, fontWeight: 700, color: tone === "good" ? "#22c55e" : tone === "warn" ? "#eab308" : "var(--fg-1)" }}>
+              {format(stat.mean)}{methodBadge(stat.method)}
+            </div>
+            <div style={{ fontSize: 11, color: "var(--fg-2)", fontFamily: "var(--font-mono)", marginTop: 2 }}>
+              95% CI {formatCI(stat.ci_95)} · std {fmt(stat.std)}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Pooled confusion matrix summary */}
+      {(cm.macro_f1 != null || cm.kappa != null) && (
+        <div className="card" style={{ padding: "14px 16px", marginBottom: 16, display: "flex", gap: 32 }}>
+          <div>
+            <div className="metric-stat-label" style={{ fontSize: 11, marginBottom: 4 }}>Pooled macro F1</div>
+            <div style={{ fontSize: 20, fontWeight: 700 }}>{fmt(cm.macro_f1)}</div>
+          </div>
+          <div>
+            <div className="metric-stat-label" style={{ fontSize: 11, marginBottom: 4 }}>Cohen's κ (pooled)</div>
+            <div style={{ fontSize: 20, fontWeight: 700 }}>{fmt(cm.kappa)}</div>
+            <div style={{ fontSize: 11, color: "var(--fg-2)" }}>{kappaLabel(cm.kappa)}</div>
+          </div>
+        </div>
+      )}
+
+      {/* Per-persona fidelity table */}
+      {Object.keys(ppf).length > 0 && (
+        <div className="card" style={{ padding: "14px 16px" }}>
+          <div className="t-h3" style={{ marginBottom: 10 }}>Per-persona fidelity (cross-chat)</div>
+          <table style={{ width: "100%", fontSize: 12, borderCollapse: "collapse" }}>
+            <thead>
+              <tr style={{ color: "var(--fg-2)", borderBottom: "1px solid var(--border)" }}>
+                <th style={{ textAlign: "left", padding: "4px 8px 8px 0", fontWeight: 500 }}>Persona</th>
+                <th style={{ textAlign: "right", padding: "4px 8px 8px", fontWeight: 500 }}>n</th>
+                <th style={{ textAlign: "right", padding: "4px 8px 8px", fontWeight: 500 }}>Mean</th>
+                <th style={{ textAlign: "right", padding: "4px 8px 8px", fontWeight: 500 }}>Std</th>
+                <th style={{ textAlign: "right", padding: "4px 0 8px", fontWeight: 500 }}>95% CI</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(ppf).sort((a, b) => (b[1].mean ?? 0) - (a[1].mean ?? 0)).map(([name, s]) => (
+                <tr key={name} style={{ borderBottom: "1px solid var(--border-faint, #1e293b)" }}>
+                  <td style={{ padding: "6px 8px 6px 0", fontWeight: 500 }}>{name}</td>
+                  <td style={{ textAlign: "right", padding: "6px 8px", color: "var(--fg-2)" }}>{s.n}</td>
+                  <td style={{ textAlign: "right", padding: "6px 8px", fontFamily: "var(--font-mono)" }}>
+                    <span style={{ color: s.mean >= 3 ? "#22c55e" : s.mean >= 2 ? "#eab308" : "#ef4444" }}>
+                      {fmt(s.mean)}
+                    </span>
+                  </td>
+                  <td style={{ textAlign: "right", padding: "6px 8px", color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>{fmt(s.std)}</td>
+                  <td style={{ textAlign: "right", padding: "6px 0", color: "var(--fg-2)", fontFamily: "var(--font-mono)", fontSize: 11 }}>{ci(s.ci_95)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Chat Analytics (real data) ───────────────────────────────
 function ChatAnalyticsSection() {
   const [reports, setReports] = React.useState(null);
   const [sessions, setSessions] = React.useState([]);
+  const [batch, setBatch] = React.useState(null);
 
   React.useEffect(() => {
     Promise.all([
       window.api.get("/admin/judged-chats"),
       window.api.get("/admin/sessions?limit=100"),
-    ]).then(([r, s]) => { setReports(r); setSessions(s); })
+      window.api.get("/admin/batch-report").catch(() => null),
+    ]).then(([r, s, b]) => { setReports(r); setSessions(s); setBatch(b); })
       .catch(() => {});
   }, []);
 
@@ -586,60 +693,14 @@ function ChatAnalyticsSection() {
       <div className="t-eyebrow">Quantitative</div>
       <h2 className="t-h2" style={{ marginTop: 4, marginBottom: 16 }}>Chat analytics</h2>
 
-      {entries.length === 0 ? (
+      {batch ? (
+        <BatchSummaryPanel batch={batch} />
+      ) : (
         <div className="card" style={{ padding: "40px 24px", textAlign: "center" }}>
           <div style={{ fontSize: 13, color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>
             {reports === null ? "Loading…" : "No judged sessions yet — launch the pipeline on a session to see analytics."}
           </div>
         </div>
-      ) : (
-        <>
-          {/* Gini — full width */}
-          <div className="chart-grid" style={{ marginBottom: 12 }}>
-            <div className="card chart-card" style={{ gridColumn: "span 2" }}>
-              <div className="chart-card-head">
-                <div className="t-h3">Turn distribution (Gini)</div>
-                <span className="badge">target 0.28 – 0.42</span>
-              </div>
-              <BarChart data={giniData} yMin={0} yMax={1}
-                target={{ lo: 0.28, hi: 0.42 }}
-                formatY={v => v.toFixed(2)} chartHeight={220} />
-            </div>
-          </div>
-
-          {/* Accuracy + Group fidelity — side by side */}
-          <div className="chart-grid" style={{ marginBottom: 12 }}>
-            <div className="card chart-card">
-              <div className="chart-card-head">
-                <div className="t-h3">Persona ID accuracy</div>
-                <span className="badge">baseline 12.5%</span>
-              </div>
-              <BarChart data={accData} yMin={0} yMax={100}
-                target={{ lo: 0, hi: 12.5 }}
-                formatY={v => `${v.toFixed(0)}%`} chartHeight={200} />
-            </div>
-            <div className="card chart-card">
-              <div className="chart-card-head">
-                <div className="t-h3">Group fidelity score</div>
-                <span className="badge">avg from 20 judges</span>
-              </div>
-              <BarChart data={grpData} yMin={0} yMax={5}
-                formatY={v => v.toFixed(1)} chartHeight={200} />
-            </div>
-          </div>
-
-          {/* Individual fidelity — full width */}
-          <div className="chart-grid">
-            <div className="card chart-card" style={{ gridColumn: "span 2" }}>
-              <div className="chart-card-head">
-                <div className="t-h3">Individual fidelity (mean across personas)</div>
-                <span className="badge">1 – 5 scale</span>
-              </div>
-              <BarChart data={indData} yMin={0} yMax={5}
-                formatY={v => v.toFixed(1)} chartHeight={200} />
-            </div>
-          </div>
-        </>
       )}
     </>
   );
