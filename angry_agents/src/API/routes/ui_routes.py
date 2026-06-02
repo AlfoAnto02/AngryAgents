@@ -1175,8 +1175,14 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
         _save_eval_report(chat_id, records, pid_result, fid_result, grp_result, author_map)
 
         # ── Persist UI-shaped report so it survives server restarts ──
-        ui_path = _EVAL_DIR / f"chat_{chat_id}" / "ui_report.json"
+        chat_eval_dir = _EVAL_DIR / f"chat_{chat_id}"
+        ui_path = chat_eval_dir / "ui_report.json"
         ui_path.write_text(json.dumps(result, cls=_NumpyEncoder), encoding="utf-8")
+
+        # Keep a timestamped snapshot so the history endpoint can serve all past runs.
+        ts_tag = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        ts_path = chat_eval_dir / f"ui_report_{ts_tag}.json"
+        ts_path.write_text(json.dumps(result, cls=_NumpyEncoder), encoding="utf-8")
 
         # ── Persist to DB (is_judged flag + report blob) ─────────────
         _conn_report = get_connection(db_path)
@@ -1411,6 +1417,41 @@ def admin_judged_chat(
             pass
 
     raise HTTPException(status_code=404, detail="No evaluation report found for this chat")
+
+
+@router.get("/admin/judged-chats/{chat_id}/history")
+def admin_judged_chat_history(
+    chat_id: int,
+    db: sqlite3.Connection = Depends(get_db),
+    settings: Settings = Depends(get_settings),
+) -> list:
+    """Return all past evaluation reports for a chat, newest-first.
+
+    Each element is the full UI-report dict.  The list has at least one entry
+    when the chat is judged (the current report); it has more when the chat
+    has been re-judged.
+    """
+    chat_dir = _EVAL_DIR / f"chat_{chat_id}"
+    reports: list[dict] = []
+
+    if chat_dir.exists():
+        # Collect timestamped snapshots: ui_report_YYYYMMDD_HHMMSS.json
+        for p in sorted(chat_dir.glob("ui_report_*.json"), reverse=True):
+            try:
+                reports.append(json.loads(p.read_text(encoding="utf-8")))
+            except Exception:
+                log.exception("failed to parse %s", p)
+
+    # If no snapshots exist yet (chat was judged before the timestamping feature
+    # was added), fall back to the single ui_report.json / DB report.
+    if not reports:
+        try:
+            single = admin_judged_chat(chat_id, db=db, settings=settings)
+            reports.append(single)
+        except HTTPException:
+            pass
+
+    return reports
 
 
 # ---------------------------------------------------------------------------

@@ -214,7 +214,6 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
         </div>
         <div className="row" style={{ gap: 6 }}>
           <Btn variant="outline" size="sm" icon={<Icons.Filter size={12} />}>Filter</Btn>
-          <Btn variant="outline" size="sm" icon={<Icons.Download size={12} />}>Export CSV</Btn>
         </div>
       </div>
       {sessions.length === 0 ? (
@@ -452,7 +451,6 @@ function SessionLogSection({ onJudge, reports, onOpenChat }) {
               </span>
             )}
             <div className="t-meta">{filtered.length} session{filtered.length !== 1 ? "s" : ""}</div>
-            <Btn variant="outline" size="sm" icon={<Icons.Download size={12} />}>Export CSV</Btn>
           </div>
         </div>
 
@@ -670,6 +668,10 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
   const [report, setReport] = React.useState(cached || null);
   // Bumps every time the admin asks for a fresh re-run from inside the modal.
   const [runKey, setRunKey] = React.useState(0);
+  // History of all past runs for this session (newest first).
+  const [history, setHistory] = React.useState([]);
+  // Which history entry is currently displayed (null = the live/latest report).
+  const [historyIdx, setHistoryIdx] = React.useState(null);
 
   // Keep refs to the latest values without making them effect dependencies.
   // The pipeline effect should ONLY re-fire when the session or runKey changes —
@@ -740,13 +742,28 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session?.id, runKey]);
 
-  // Reset run key when switching to a different session.
+  // Reset run key and history when switching to a different session.
   React.useEffect(() => {
     setRunKey(0);
+    setHistory([]);
+    setHistoryIdx(null);
   }, [session?.id]);
+
+  // Fetch run history whenever the modal reaches "done" (initial load or re-run).
+  React.useEffect(() => {
+    if (stage !== "done" || !session) return;
+    window.api.get(`/admin/judged-chats/${session.id}/history`)
+      .then(list => {
+        setHistory(list || []);
+        setHistoryIdx(null); // always default to latest
+      })
+      .catch(() => {});
+  }, [stage, session?.id]);
 
   if (!session) return null;
   const personas = (session.participants || []).map(id => byId(id)).filter(Boolean);
+  // When the user picks a history pill, show that run; otherwise show the live report.
+  const activeReport = historyIdx !== null ? history[historyIdx] : report;
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -763,16 +780,36 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
                 <span className="mono">{personas.length} agents</span>
                 <span className="dot-sep" />
                 <StatusPill status={session.status} />
-                {stage === "done" && report?.ranAt && (
+                {stage === "done" && activeReport?.ranAt && (
                   <>
                     <span className="dot-sep" />
-                    <span className="mono">judged · {new Date(report.ranAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                    <span className="mono">judged · {new Date(activeReport.ranAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
                   </>
                 )}
               </div>
             </div>
             <IconBtn icon={<Icons.X size={14} />} onClick={onClose} />
           </div>
+          {stage === "done" && history.length > 1 && (
+            <div className="judge-history-bar">
+              <span className="t-eyebrow" style={{ fontSize: 10, color: "var(--fg-2)", marginRight: 6 }}>Runs</span>
+              {history.map((h, i) => {
+                const d = new Date(h.ranAt);
+                const label = `${d.toLocaleDateString([], { month: "short", day: "numeric" })} ${d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+                const isActive = historyIdx === i || (historyIdx === null && i === 0);
+                return (
+                  <button
+                    key={h.ranAt + i}
+                    className={`judge-history-pill${isActive ? " active" : ""}`}
+                    onClick={() => setHistoryIdx(i === 0 && historyIdx === null ? null : i)}
+                    title={label}
+                  >
+                    {i === 0 ? <><Icons.Sparkles size={10} sw={2} /> Latest</> : label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
           {stage === "running" ? (
             <div className="judge-progress">
               <div className="judge-progress-row">
@@ -823,28 +860,28 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
             </div>
           )}
 
-          {stage === "done" && report && tab === "persona_id" && (
+          {stage === "done" && activeReport && tab === "persona_id" && (
             <ReportPersonaID
               group={EVAL_GROUPS[0]}
-              accuracy={report.accuracy} ciLow={report.ciLow} ciHigh={report.ciHigh} pValue={report.pValue}
-              cohenKappa={report.cohenKappa ?? 0} macroF1={report.macroF1 ?? 0}
-              prfRows={report.prfRows || []}
-              judgeVarMean={report.judgeVarMean ?? 0} judgeVarStd={report.judgeVarStd ?? 0}
-              cm={report.cm} cmLabels={report.cmLabels || []} personas={personas}
+              accuracy={activeReport.accuracy} ciLow={activeReport.ciLow} ciHigh={activeReport.ciHigh} pValue={activeReport.pValue}
+              cohenKappa={activeReport.cohenKappa ?? 0} macroF1={activeReport.macroF1 ?? 0}
+              prfRows={activeReport.prfRows || []}
+              judgeVarMean={activeReport.judgeVarMean ?? 0} judgeVarStd={activeReport.judgeVarStd ?? 0}
+              cm={activeReport.cm} cmLabels={activeReport.cmLabels || []} personas={personas}
             />
           )}
-          {stage === "done" && report && tab === "individual_fidelity" && (
+          {stage === "done" && activeReport && tab === "individual_fidelity" && (
             <ReportIndividualFidelity
               group={EVAL_GROUPS[1]}
-              rows={report.fidelityRows.map(r => ({ ...r, persona: byId(r.personaId) })).filter(r => r.persona)}
-              judgeTypeAgreement={report.judgeTypeAgreement || { medians: {}, mad: {} }}
+              rows={activeReport.fidelityRows.map(r => ({ ...r, persona: byId(r.personaId) })).filter(r => r.persona)}
+              judgeTypeAgreement={activeReport.judgeTypeAgreement || { medians: {}, mad: {} }}
             />
           )}
-          {stage === "done" && report && tab === "group_fidelity" && (
+          {stage === "done" && activeReport && tab === "group_fidelity" && (
             <ReportGroupFidelity
               group={EVAL_GROUPS[2]}
-              gini={report.gini} giniZ={report.giniZ} giniCI={report.giniCI} driftScore={report.driftScore}
-              turnShares={report.turnShares}
+              gini={activeReport.gini} giniZ={activeReport.giniZ} giniCI={activeReport.giniCI} driftScore={activeReport.driftScore}
+              turnShares={activeReport.turnShares}
             />
           )}
         </div>
@@ -853,8 +890,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
           <Btn variant="ghost" onClick={onClose}>Close</Btn>
           {stage === "done" && (
             <>
-              <Btn variant="outline" icon={<Icons.Download size={12} />}>Export JSON</Btn>
-              <Btn
+<Btn
                 variant="primary"
                 icon={<Icons.Sparkles size={12} sw={2} />}
                 onClick={() => setRunKey(k => k + 1)}
@@ -1090,11 +1126,13 @@ function ReportIndividualFidelity({ group, rows, judgeTypeAgreement }) {
                     const d = Math.abs(s - r.median);
                     const h = Math.max(4, 28 - d * 11);
                     const active = s >= Math.floor(r.median) && s <= Math.ceil(r.median);
+                    // Red → orange → amber → lime → green across scores 1–5.
+                    const SCALE = ["#ef4444", "#f97316", "#eab308", "#84cc16", "#22c55e"];
                     return (
                       <div key={s} style={{
                         flex: 1, height: h, borderRadius: 2,
-                        background: active ? "var(--admin)" : "var(--bg-3)",
-                        opacity: active ? 0.9 : 0.7,
+                        background: active ? SCALE[s - 1] : "var(--bg-3)",
+                        opacity: active ? 0.9 : 0.6,
                       }} />
                     );
                   })}

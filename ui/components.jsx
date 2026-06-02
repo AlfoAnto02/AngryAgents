@@ -336,11 +336,20 @@ function TopNav({ role, userRole, page, onNav, user, onLogout }) {
                 <Icons.MessageDots size={14} /> Chats
               </button>
               <button
-                className={`topnav-nav-item`}
+                className={`topnav-nav-item ${page === "newgroup" ? "active" : ""}`}
                 onClick={() => handleNav("newgroup")}
                 style={{ marginLeft: 8, color: "var(--accent)" }}
+                title="Create a new group chat session"
               >
-                <Icons.Plus size={13} sw={2.5} /> New
+                <Icons.Users size={13} /> New group
+              </button>
+              <button
+                className={`topnav-nav-item ${page === "newdm" ? "active" : ""}`}
+                onClick={() => handleNav("newdm")}
+                style={{ color: "var(--accent)" }}
+                title="Create a new 1:1 chat with an agent"
+              >
+                <Icons.User size={13} /> New DM
               </button>
             </>
           )}

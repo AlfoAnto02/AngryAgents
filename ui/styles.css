@@ -1441,6 +1441,30 @@ input, textarea, select {
 }
 
 /* Tabs along the bottom of the modal head */
+.judge-history-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0 2px;
+  flex-wrap: wrap;
+}
+.judge-history-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border-1);
+  background: var(--bg-1);
+  color: var(--fg-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.judge-history-pill:hover { border-color: var(--admin); color: var(--fg-0); }
+.judge-history-pill.active { background: var(--admin); border-color: var(--admin); color: #fff; }
+
 .judge-tabs {
   display: flex;
   gap: 4px;
@@ -1699,29 +1723,8 @@ input, textarea, select {
   .topnav-role-badge { display: none; }
 }
 
-/* ---- Tablet (<= 1023px) ---- */
-@media (max-width: 1023px) {
-  .chat-sidebar { width: 240px; }
-  .admin-sidebar { width: 200px; }
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-  .chart-grid { grid-template-columns: 1fr; }
-  .wizard-shell { grid-template-columns: 1fr 340px; }
-  .lib-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-}
-
-/* ---- Mobile (<= 768px) ---- */
-@media (max-width: 768px) {
-  /* Comfortable tap targets (height grows, type scale stays intact) */
-  .btn { min-height: 40px; }
-  .btn-sm { min-height: 34px; }
-  .btn-lg { min-height: 46px; }
-  .btn-icon { width: 40px; height: 40px; }
-  .btn-icon-sm { width: 34px; height: 34px; }
-  .topnav-nav-item { min-height: 44px; }
-  .admin-nav-item { min-height: 42px; }
-  .tag-chip { height: 30px; padding: 0 12px; }
-
-  /* Top nav -> hamburger menu */
+/* ---- Condensed desktop / split-screen (≤ 960px): hamburger ---- */
+@media (max-width: 960px) {
   .topnav { height: 56px; padding: 0 14px; gap: 10px; }
   .topnav-logo { width: 30px; height: 30px; }
   .topnav-nav { display: none; }
@@ -1745,6 +1748,29 @@ input, textarea, select {
   }
   .topnav-hamburger { display: inline-flex; }
   .topnav-user-text { display: none !important; }
+}
+
+/* ---- Tablet (<= 1023px) ---- */
+@media (max-width: 1023px) {
+  .chat-sidebar { width: 240px; }
+  .admin-sidebar { width: 200px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .chart-grid { grid-template-columns: 1fr; }
+  .wizard-shell { grid-template-columns: 1fr 340px; }
+  .lib-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+
+/* ---- Mobile (<= 768px) ---- */
+@media (max-width: 768px) {
+  /* Comfortable tap targets (height grows, type scale stays intact) */
+  .btn { min-height: 40px; }
+  .btn-sm { min-height: 34px; }
+  .btn-lg { min-height: 46px; }
+  .btn-icon { width: 40px; height: 40px; }
+  .btn-icon-sm { width: 34px; height: 34px; }
+  .topnav-nav-item { min-height: 44px; }
+  .admin-nav-item { min-height: 42px; }
+  .tag-chip { height: 30px; padding: 0 12px; }
 
   /* Chat sidebar -> slide-in drawer */
   .chat-sidebar {
