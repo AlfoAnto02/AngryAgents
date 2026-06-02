@@ -15,12 +15,7 @@ Follow [LOCAL_SETUP.md](LOCAL_SETUP.md) steps 1–3 to install dependencies, con
 Stop the API server, then run:
 
 ```bash
-# Windows
 python restore_db.py
-
-# Mac / Linux
-./restore_db.sh
-# or: python restore_db.py
 ```
 
 This imports `seed_database.sql` into `angry_agents.db`. Your existing DB (if any) is automatically backed up before being replaced.
@@ -96,6 +91,28 @@ uvicorn angry_agents.src.API.app:app --port 8000 --reload
 | `Judge_evaluation` | Evaluation results (if any chats were judged) |
 
 **Not included:** `.env` secrets, the ChromaDB/RAG index (`data/chroma/`), per-chat evaluation reports (`data/eval/`).
+
+---
+
+## ⚠️ Critical: ANGRY_AUTHOR_SECRET must match
+
+The messages in `Chat_messages.author` are **HMAC digests** computed with `ANGRY_AUTHOR_SECRET` at the time the chat was created. The judging pipeline recomputes these digests live to match judges to messages.
+
+**If your `ANGRY_AUTHOR_SECRET` differs from the one used to create the DB, the judging pipeline will fail** with an error like:
+```
+ValueError: n must be an integer not less than 1
+```
+because no digest matches and the pipeline receives an empty participant list.
+
+### Fix
+
+Everyone on the team must use **the same `ANGRY_AUTHOR_SECRET`** in their `.env`. Agree on a shared value and put it in all `.env` files:
+
+```env
+ANGRY_AUTHOR_SECRET=shared-team-secret-changeme
+```
+
+> This value never goes into git (`.env` is gitignored). Share it out-of-band (Slack DM, password manager, etc.).
 
 ---
 
