@@ -44,7 +44,6 @@ MINIMAL_REPORT = {
     "group_fidelity": {
         "gini": {"gini": 0.33, "ci_95": [0.28, 0.38], "within_reference_range": True, "z_vs_reference": 0.0},
     },
-    "deliberation": {"note": "no deliberation rounds provided — Phase 2 not evaluated"},
 }
 
 

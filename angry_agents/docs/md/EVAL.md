@@ -198,66 +198,6 @@ z = (gini - 0.33) / 0.05
 
 Bootstrap CI on Gini is also computed (same 10,000-resample method as above).
 
-## Step 4 — Deliberation (`metrics_deliberation.py`)
-
-**Question:** When judges discuss disagreements together (Phase 2), do they converge on correct answers? Do judges who become more confident actually become more accurate?
-
-### Variance Reduction (Convergence)
-
-For each contested case, judges submit ratings across multiple rounds (round 0 = initial, round 1–3+ = after deliberation). We compute variance of ratings at each round:
-
-```
-variance_round_r = Σ(rating_i - mean_rating)² / (n - 1)
-```
-
-A case **converged** if `variance_final_round < variance_round_0`. This is a simple but direct test: did the judges agree more after talking?
-
-We also run an **F-test** between round 0 and the final round ratings to check whether the variance reduction is statistically significant:
-
-```
-F-test: H₀ = variance_round_0 == variance_final_round
-p-value < 0.05 → significant variance reduction
-```
-
-### Convergence Rate with Binomial CI
-
-```
-convergence_rate = n_converged_cases / n_total_cases
-```
-
-We wrap this in a **two-sided binomial CI** (same exact method as persona identification) to give a range around the convergence rate.
-
-### Confidence Calibration (To consider if it is worthy or not)
-
-Judges also report self-rated **confidence** (1–5) per round. We track how confidence changes from round 0 to the final round: `Δconfidence = final_confidence - initial_confidence`.
-
-**a. Δconfidence vs Δaccuracy — Pearson correlation**
-
-If ground truth ratings are available (the "real" correct answer per case), we compute:
-
-```
-Δaccuracy = (1 if final_rating == ground_truth else 0) - (1 if initial_rating == ground_truth else 0)
-```
-
-Then: `r, p = pearsonr(Δconfidence_list, Δaccuracy_list)`
-
-- `r > 0` → judges who become more confident actually get more accurate (good calibration)
-- `r < 0` → judges who become more confident are getting *less* accurate (overconfidence — a flag)
-
-Bootstrap CI on r is computed with 5,000 resamples.
-
-**b. Calibration Curve**
-
-At the final round, for each confidence level 1–5, we compute: among all (judge, case) pairs where the judge reported that confidence level, what fraction got the correct answer?
-
-```
-accuracy_at_confidence_level_c = correct_at_c / total_at_c
-```
-
-A well-calibrated judge at confidence=5 should have high accuracy. If accuracy at confidence=5 is similar to accuracy at confidence=1, the judge's confidence is meaningless.
-
----
-
 ## The Bootstrap Engine (`bootstrap.py`)
 
 Nearly every module calls `bootstrap_ci()`. It's general-purpose: you pass it any array and any statistic function, and it returns a CI without assuming any particular distribution.
@@ -271,6 +211,6 @@ lo = percentile(stats, 2.5%)
 hi = percentile(stats, 97.5%)
 ```
 
-This is used for: median CI on fidelity scores, Gini CI, Spearman rho CI, Pearson r CI on calibration. All non-parametric, all safe for small samples.
+This is used for: median CI on fidelity scores, Gini CI, Spearman rho CI. All non-parametric, all safe for small samples.
 
 ---

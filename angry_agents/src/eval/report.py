@@ -1,15 +1,13 @@
 """
 report.py — Aggregate metrics CLI entry point.
 
-Calls all four metrics modules and writes a single metrics_report.json.
+Calls all three metrics modules and writes a single metrics_report.json.
 
 Usage:
   python -m angry_agents.src.eval.report \\
     --eval-dir data/eval/ \\
     --judge-evals data/eval/judge_evals.json \\
     --personas-dir data/personas/ \\
-    [--deliberation-rounds data/eval/deliberation_rounds.json] \\
-    [--ground-truth-ratings data/eval/ground_truth_ratings.json] \\
     [--embeddings data/eval/agent_embeddings.json] \\
     [--reference-matrix data/eval/reference_distance_matrix.json] \\
     [--out data/eval/metrics_report.json]
@@ -23,8 +21,6 @@ Required files:
   personas-dir/*_profile.json      ← persona profiles
 
 Optional:
-  deliberation-rounds              ← Phase 2 round-by-round judge entries
-  ground-truth-ratings             ← {case_id: correct_rating} for calibration
   embeddings                       ← {author_tag: [float]} for cosine matrix
   reference-matrix                 ← reference distance matrix for Spearman
 """
@@ -37,7 +33,7 @@ from pathlib import Path
 
 import numpy as np
 
-from angry_agents.src.eval import metrics_persona_id, metrics_fidelity, metrics_group, metrics_deliberation
+from angry_agents.src.eval import metrics_persona_id, metrics_fidelity, metrics_group
 from angry_agents.src.eval.simulate_transcript import load_personas as _load_personas_from_dir
 
 
@@ -68,8 +64,6 @@ def run_all(
     eval_dir: Path,
     judge_evals_path: Path,
     personas_dir: Path,
-    deliberation_rounds_path: Path | None = None,
-    ground_truth_ratings_path: Path | None = None,
     embeddings_path: Path | None = None,
     reference_matrix_path: Path | None = None,
 ) -> dict:
@@ -92,15 +86,6 @@ def run_all(
     print("Computing group fidelity metrics...")
     report.update(metrics_group.run(transcript_meta, embeddings_path, reference_matrix_path))
 
-    # --- Deliberation (Phase 2) ---
-    if deliberation_rounds_path is not None:
-        print("Computing deliberation metrics...")
-        rounds = _load_json(deliberation_rounds_path)
-        gt_ratings = _load_json(ground_truth_ratings_path) if ground_truth_ratings_path else None
-        report.update(metrics_deliberation.run(rounds, gt_ratings))
-    else:
-        report["deliberation"] = {"note": "no deliberation rounds provided — Phase 2 not evaluated"}
-
     return report
 
 
@@ -109,8 +94,6 @@ def main() -> None:
     parser.add_argument("--eval-dir", type=Path, required=True, help="Dir with author_map.json, transcript_meta.json.")
     parser.add_argument("--judge-evals", type=Path, required=True, help="Phase 1 judge eval JSON.")
     parser.add_argument("--personas-dir", type=Path, required=True, help="Dir with *_profile.json files.")
-    parser.add_argument("--deliberation-rounds", type=Path, default=None)
-    parser.add_argument("--ground-truth-ratings", type=Path, default=None)
     parser.add_argument("--embeddings", type=Path, default=None, help="{author_tag: [float]} JSON.")
     parser.add_argument("--reference-matrix", type=Path, default=None)
     parser.add_argument("--out", type=Path, default=None, help="Output path (default: eval-dir/metrics_report.json).")
@@ -122,8 +105,6 @@ def main() -> None:
         eval_dir=args.eval_dir,
         judge_evals_path=args.judge_evals,
         personas_dir=args.personas_dir,
-        deliberation_rounds_path=args.deliberation_rounds,
-        ground_truth_ratings_path=args.ground_truth_ratings,
         embeddings_path=args.embeddings,
         reference_matrix_path=args.reference_matrix,
     )
