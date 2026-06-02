@@ -1495,6 +1495,33 @@ def admin_sessions(
         (limit,),
     ).fetchall()
 
+    # Compute duration (first → last message) for all chats in one query
+    chat_ids = [c["ID"] for c in chats]
+    duration_map: dict[int, str] = {}
+    if chat_ids:
+        placeholders = ",".join("?" * len(chat_ids))
+        msg_rows = db.execute(
+            f"""
+            SELECT ID_Chat,
+                   MIN(created_at) AS first_msg,
+                   MAX(created_at) AS last_msg
+            FROM Chat_messages
+            WHERE ID_Chat IN ({placeholders}) AND deleted_at IS NULL
+            GROUP BY ID_Chat
+            """,
+            chat_ids,
+        ).fetchall()
+        for row in msg_rows:
+            try:
+                t0 = datetime.fromisoformat(row["first_msg"].replace("Z", "+00:00"))
+                t1 = datetime.fromisoformat(row["last_msg"].replace("Z", "+00:00"))
+                secs = int((t1 - t0).total_seconds())
+                h, rem = divmod(secs, 3600)
+                m, s = divmod(rem, 60)
+                duration_map[row["ID_Chat"]] = f"{h:02d}:{m:02d}:{s:02d}"
+            except Exception:
+                pass
+
     result = []
     for c in chats:
         meta: dict = {}
@@ -1524,7 +1551,7 @@ def admin_sessions(
             "display_id": f"S-{c['ID']:04d}",
             "participants": [a["ID"] for a in agents],
             "topic": topic_display,
-            "duration": "00:00:00",
+            "duration": duration_map.get(c["ID"], "—"),
             "date": (c["created_at"] or "")[:16].replace("T", " "),
             "status": "complete",
             "is_judged": bool(c["is_judged"]),

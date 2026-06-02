@@ -199,7 +199,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
               Add one or more topics. The agents will weave between them — the more pointed, the better.
             </p>
 
-            <div className="wizard-step2-grid" style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 32, alignItems: "start" }}>
+            <div className="wizard-step2-grid" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <div className="col" style={{ gap: 20 }}>
                 <Field label="Topics" hint="Press Enter to add. Suggestions appear from existing topics.">
                   <div className="row">
@@ -300,32 +300,6 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
                   )}
                 </Field>
 
-                <Field label="Conversation tone" hint="Sets the default register the agents adopt.">
-                  <div className="role-switch" style={{ height: 38, padding: 4 }}>
-                    {["Formal", "Casual", "Debate"].map(opt => (
-                      <button
-                        key={opt}
-                        className={`role-switch-btn ${tone === opt ? "active" : ""}`}
-                        style={{ height: 30, flex: 1, justifyContent: "center", fontSize: 12 }}
-                        onClick={() => setTone(opt)}
-                        type="button"
-                      >
-                        {opt === "Formal" && <Icons.Brain size={12} />}
-                        {opt === "Casual" && <Icons.Mood size={12} />}
-                        {opt === "Debate" && <Icons.Flame size={12} />}
-                        {opt}
-                      </button>
-                    ))}
-                  </div>
-                </Field>
-
-                <Field label="Optional ground rules" hint="A short brief the agents will treat as house rules.">
-                  <textarea
-                    className="input textarea"
-                    rows={3}
-                    placeholder="e.g. Stay on topic. No personal attacks. Cite evidence when possible."
-                  />
-                </Field>
               </div>
 
               <div className="card" style={{ padding: 16 }}>
@@ -334,15 +308,23 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
                   {topics[0] || "Untitled session"}{topics.length > 1 ? ` + ${topics.length - 1} more` : ""}
                 </div>
                 <div className="t-meta" style={{ marginTop: 4 }}>
-                  {selected.length} agents · {tone.toLowerCase()} tone
+                  {selected.length} agents
                 </div>
                 <hr className="divider" style={{ margin: "12px 0" }} />
-                <div className="col" style={{ gap: 8 }}>
+                <div className="col" style={{ gap: 4 }}>
                   {selected.slice(0, 6).map(id => {
                     const p = byId(id);
                     if (!p) return null;
                     return (
-                      <div key={id} className="row" style={{ gap: 8 }}>
+                      <div
+                        key={id}
+                        className="row"
+                        style={{ gap: 8, padding: "4px 6px", borderRadius: "var(--r-input)", cursor: "pointer" }}
+                        onClick={() => setProfilePersona(p)}
+                        onMouseEnter={e => e.currentTarget.style.background = "var(--bg-2)"}
+                        onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+                        title={`View ${p.name}'s profile`}
+                      >
                         <Avatar persona={p} size="sm" />
                         <span className="mono" style={{ fontSize: 12, fontWeight: 500 }}>{p.name}</span>
                         <div className="spacer" />
@@ -353,7 +335,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
                     );
                   })}
                   {selected.length > 6 && (
-                    <div className="t-meta">+ {selected.length - 6} more</div>
+                    <div className="t-meta" style={{ paddingLeft: 6 }}>+ {selected.length - 6} more</div>
                   )}
                 </div>
               </div>
@@ -440,8 +422,7 @@ function NewGroupScreen({ initialSelection = [], onCancel, onLaunch }) {
       <AgentProfileModal
         persona={profilePersona}
         onClose={() => setProfilePersona(null)}
-        onAddToSession={(p) => { toggle(p.id); setProfilePersona(null); }}
-        inSession={selected.includes(profilePersona.id)}
+        showAddToSession={false}
         showStartDM={false}
       />
     )}

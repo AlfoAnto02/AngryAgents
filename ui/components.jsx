@@ -271,7 +271,7 @@ function ThemeToggle() {
     <IconBtn
       icon={light ? <Icons.Moon size={16} /> : <Icons.Sun size={16} />}
       onClick={toggle}
-      title={light ? "Passa al tema scuro" : "Passa al tema chiaro"}
+      title={light ? "Switch to dark mode" : "Switch to light mode"}
     />
   );
 }
@@ -591,7 +591,7 @@ function AgentProfileModal({ persona, onClose, onStartDM, onAddToSession, inSess
     <Modal
       open={true}
       onClose={onClose}
-      width="660px"
+      width="min(860px, 90vw)"
       title={
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <Avatar persona={persona} size="lg" />

@@ -397,7 +397,7 @@ function ChatScreen({ chats, activeId, onSelectChat, onNewDM, onNewGroup, role }
           <button
             className="chat-header-id"
             onClick={() => setInfoOpen(true)}
-            title="Informazioni chat"
+            title="Chat info"
           >
             {chat.type === "group" ? (
               <AvatarStack personas={personas} size="md" max={4} />

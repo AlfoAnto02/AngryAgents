@@ -6,6 +6,9 @@ function AuthShell({ children }) {
   return (
     <div className="auth-shell">
       <div className="auth-bg-grid" />
+      <div style={{ position: "fixed", top: 16, right: 16, zIndex: 100 }}>
+        <ThemeToggle />
+      </div>
       <div className="auth-content">
         <div className="auth-card">
           <div className="auth-brand">
