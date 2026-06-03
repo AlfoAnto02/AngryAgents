@@ -1351,6 +1351,7 @@ def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
                 "accuracy": float(r["accuracy"]),
                 "fidelity_median": fidelity_median,
                 "gini": float(r["gini"]),
+                "group_fidelity_mean": float(r.get("groupFidelityMean") or 0.0),
                 "confusion": (r["cmLabels"], r["cm"]),
             })
         except (KeyError, TypeError, json.JSONDecodeError):
@@ -1366,6 +1367,9 @@ def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
         "accuracy": metrics_batch.aggregate_accuracy([r["accuracy"] for r in reports]),
         "fidelity_median": metrics_batch.aggregate_fidelity([r["fidelity_median"] for r in reports]),
         "gini": metrics_batch.aggregate_gini([r["gini"] for r in reports]),
+        "group_fidelity": metrics_batch.aggregate_group_fidelity(
+            [r["group_fidelity_mean"] for r in reports]
+        ),
         "pooled_confusion_matrix": metrics_batch.pool_confusion_matrices(
             [r["confusion"] for r in reports]
         ),
@@ -1638,12 +1642,37 @@ def admin_agent_performance(db: sqlite3.Connection = Depends(get_db)) -> list:
         """
     ).fetchall()
 
+    reports = db.execute(
+        "SELECT report FROM Group_chat WHERE is_judged = 1 AND report IS NOT NULL AND deleted_at IS NULL"
+    ).fetchall()
+
+    agent_if: dict[int, list[float]] = {}
+    agent_gf: dict[int, list[float]] = {}
+    for r in reports:
+        try:
+            rep = json.loads(r["report"])
+        except (json.JSONDecodeError, TypeError):
+            continue
+        gfm = rep.get("groupFidelityMean") or 0.0
+        for fr in rep.get("fidelityRows") or []:
+            aid = fr.get("personaId")
+            if not aid:
+                continue
+            med = fr.get("median")
+            if med is not None:
+                agent_if.setdefault(aid, []).append(float(med))
+            if gfm:
+                agent_gf.setdefault(aid, []).append(float(gfm))
+
+    def _mean(lst: list[float]) -> float:
+        return round(sum(lst) / len(lst), 4) if lst else 0.0
+
     return [
         {
             "agent_id": r["agent_id"],
             "sessions": r["sessions"],
-            "individual_fidelity": 0.0,
-            "group_fidelity": 0.0,
+            "individual_fidelity": _mean(agent_if.get(r["agent_id"], [])),
+            "group_fidelity": _mean(agent_gf.get(r["agent_id"], [])),
             "flagged": 0,
         }
         for r in rows

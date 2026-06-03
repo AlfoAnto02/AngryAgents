@@ -308,6 +308,7 @@ function AgentPerformanceSection() {
   const { byId } = window.useAgents();
   const [perf, setPerf] = React.useState([]);
   const [reports, setReports] = React.useState(null);
+  const [batch, setBatch] = React.useState(null);
   const [sortKey, setSortKey] = React.useState("individual_fidelity");
   const [sortDir, setSortDir] = React.useState(-1); // -1 desc, 1 asc
 
@@ -315,7 +316,8 @@ function AgentPerformanceSection() {
     Promise.all([
       window.api.get("/admin/agent-performance"),
       window.api.get("/admin/judged-chats"),
-    ]).then(([p, r]) => { setPerf(p); setReports(r); })
+      window.api.get("/admin/batch-report").catch(() => null),
+    ]).then(([p, r, b]) => { setPerf(p); setReports(r); setBatch(b); })
       .catch(() => {});
   }, []);
 
@@ -380,12 +382,18 @@ function AgentPerformanceSection() {
           <div className="metric-row" style={{ marginBottom: 20 }}>
             <MetricStat label="Active agents" value={enriched.length} sub={`${enriched.filter(e => e.sessions > 0).length} in at least 1 chat`} />
             <MetricStat label="Total sessions" value={totalSessions} sub="across all agents" />
-            <MetricStat label="Avg ind. fidelity" value={judgedAgents.length ? avgInd.toFixed(2) : "—"}
-              sub={judgedAgents.length ? `${judgedAgents.length} agents judged` : "no judged sessions"}
-              tone={avgInd >= 4 ? "good" : avgInd >= 3 ? undefined : "warn"} />
-            <MetricStat label="Avg group fidelity" value={judgedAgents.length ? avgGrp.toFixed(2) : "—"}
-              sub="avg from judged sessions"
-              tone={avgGrp >= 4 ? "good" : avgGrp >= 3 ? undefined : "warn"} />
+            <MetricStat label="Avg ind. fidelity"
+              value={batch?.fidelity_median ? batch.fidelity_median.mean.toFixed(2) : (judgedAgents.length ? avgInd.toFixed(2) : "—")}
+              sub={batch?.fidelity_median ? (
+                <>{judgedAgents.length} agents judged<br /><span style={{fontFamily:"var(--font-mono)",fontSize:10}}>std {batch.fidelity_median.std.toFixed(2)} · 95% CI [{batch.fidelity_median.ci_95[0].toFixed(2)}, {batch.fidelity_median.ci_95[1].toFixed(2)}]</span></>
+              ) : (judgedAgents.length ? `${judgedAgents.length} agents judged` : "no judged sessions")}
+              tone={(batch?.fidelity_median?.mean ?? avgInd) >= 4 ? "good" : (batch?.fidelity_median?.mean ?? avgInd) >= 3 ? undefined : "warn"} />
+            <MetricStat label="Avg group fidelity"
+              value={batch?.group_fidelity ? batch.group_fidelity.mean.toFixed(2) : (judgedAgents.length ? avgGrp.toFixed(2) : "—")}
+              sub={batch?.group_fidelity ? (
+                <>avg from judged sessions<br /><span style={{fontFamily:"var(--font-mono)",fontSize:10}}>std {batch.group_fidelity.std.toFixed(2)} · 95% CI [{batch.group_fidelity.ci_95[0].toFixed(2)}, {batch.group_fidelity.ci_95[1].toFixed(2)}]</span></>
+              ) : "avg from judged sessions"}
+              tone={(batch?.group_fidelity?.mean ?? avgGrp) >= 4 ? "good" : (batch?.group_fidelity?.mean ?? avgGrp) >= 3 ? undefined : "warn"} />
           </div>
 
           {/* ── Full table ── */}
