@@ -65,6 +65,10 @@ def aggregate_gini(per_chat_ginis: list[float]) -> dict:
     return aggregate_scalar(per_chat_ginis, bootstrap_stat_fn=np.mean)
 
 
+def aggregate_group_fidelity(per_chat_means: list[float]) -> dict:
+    return aggregate_scalar(per_chat_means, bootstrap_stat_fn=np.mean)
+
+
 def pool_confusion_matrices(
     matrices_with_labels: list[tuple[list[str], list[list[int]]]],
 ) -> dict:

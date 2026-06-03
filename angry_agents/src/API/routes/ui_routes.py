@@ -1350,6 +1350,7 @@ def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
                 "accuracy": float(r["accuracy"]),
                 "fidelity_median": fidelity_median,
                 "gini": float(r["gini"]),
+                "group_fidelity_mean": float(r.get("groupFidelityMean") or 0.0),
                 "confusion": (r["cmLabels"], r["cm"]),
             })
         except (KeyError, TypeError, json.JSONDecodeError):
@@ -1365,6 +1366,9 @@ def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
         "accuracy": metrics_batch.aggregate_accuracy([r["accuracy"] for r in reports]),
         "fidelity_median": metrics_batch.aggregate_fidelity([r["fidelity_median"] for r in reports]),
         "gini": metrics_batch.aggregate_gini([r["gini"] for r in reports]),
+        "group_fidelity": metrics_batch.aggregate_group_fidelity(
+            [r["group_fidelity_mean"] for r in reports]
+        ),
         "pooled_confusion_matrix": metrics_batch.pool_confusion_matrices(
             [r["confusion"] for r in reports]
         ),
