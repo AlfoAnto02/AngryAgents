@@ -196,7 +196,7 @@ function AdminHomeSection({ user, onSection, onNav, chats }) {
 }
 
 // ─── Sessions table (with optional per-row Judge / View report action) ─────
-function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
+function RecentSessionsTable({ onJudge, reports, onOpenChat, bgJobs = {} }) {
   const { byId } = window.useAgents();
   const [sessions, setSessions] = React.useState([]);
   React.useEffect(() => {
@@ -263,27 +263,33 @@ function RecentSessionsTable({ onJudge, reports, onOpenChat }) {
                         Open
                       </Btn>
                     )}
-                    {s.participants.length > 1 && (judged ? (
-                      <Btn
-                        variant="outline"
-                        size="sm"
-                        icon={<Icons.ChartBar size={12} />}
-                        onClick={() => onJudge?.(s)}
-                        title="View saved judging report"
-                      >
-                        View report
-                      </Btn>
-                    ) : (
-                      <Btn
-                        variant="outline"
-                        size="sm"
-                        icon={<Icons.Sparkles size={12} />}
-                        onClick={() => onJudge?.(s)}
-                        title="Run judging pipeline"
-                      >
-                        Judge
-                      </Btn>
-                    ))}
+                    {s.participants.length > 1 && (
+                      bgJobs[s.id] ? (
+                        <span className="badge badge-admin" style={{ whiteSpace: "nowrap" }}>
+                          <Icons.Sparkles size={10} sw={2} /> {Math.round(bgJobs[s.id].progress)}%
+                        </span>
+                      ) : judged ? (
+                        <Btn
+                          variant="outline"
+                          size="sm"
+                          icon={<Icons.ChartBar size={12} />}
+                          onClick={() => onJudge?.(s)}
+                          title="View saved judging report"
+                        >
+                          View report
+                        </Btn>
+                      ) : (
+                        <Btn
+                          variant="outline"
+                          size="sm"
+                          icon={<Icons.Sparkles size={12} />}
+                          onClick={() => onJudge?.(s)}
+                          title="Run judging pipeline"
+                        >
+                          Judge
+                        </Btn>
+                      )
+                    )}
                     <IconBtn size="sm" icon={<Icons.ChevronRight size={13} />} />
                   </div>
                 </td>
@@ -708,7 +714,7 @@ function ChatAnalyticsSection() {
 
 
 // ─── Session Log + Judging (merged) ──────────────────────────
-function SessionLogSection({ onJudge, reports, onOpenChat }) {
+function SessionLogSection({ onJudge, reports, onOpenChat, bgJobs = {}, onStopJob, judgeQueue = [], onDequeue }) {
   const { byId } = window.useAgents();
   const [sessions, setSessions] = React.useState([]);
   const [q, setQ] = React.useState("");
@@ -818,23 +824,84 @@ function SessionLogSection({ onJudge, reports, onOpenChat }) {
                           <StatusPill status={s.status} />
                         </td>
                         <td onClick={e => e.stopPropagation()}>
-                          <div className="row" style={{ gap: 4, justifyContent: "flex-end" }}>
-                            {judged && s.participants.length > 1 && (
-                              <span className="badge badge-ok" style={{ whiteSpace: "nowrap" }}>
-                                <Icons.Check size={10} sw={2.5} /> Judged
-                              </span>
-                            )}
-                            {s.participants.length > 1 && (
-                              <Btn
-                                variant={judged ? "outline" : "primary"}
-                                size="sm"
-                                icon={judged ? <Icons.ChartBar size={12} /> : <Icons.Sparkles size={12} sw={2} />}
-                                onClick={() => onJudge?.(s)}
-                              >
-                                {judged ? "View report" : "Launch judging"}
-                              </Btn>
-                            )}
-                          </div>
+                          {(() => {
+                            const inBg = bgJobs[s.id];
+                            const queuePos = judgeQueue.findIndex(q => q.id === s.id);
+                            const isQueued = queuePos >= 0;
+                            return (
+                              <div className="row" style={{ gap: 4, justifyContent: "flex-end" }}>
+                                {judged && s.participants.length > 1 && !inBg && !isQueued && (
+                                  <span className="badge badge-ok" style={{ whiteSpace: "nowrap" }}>
+                                    <Icons.Check size={10} sw={2.5} /> Judged
+                                  </span>
+                                )}
+                                {s.participants.length > 1 && (
+                                  inBg ? (
+                                    <div className="row" style={{ gap: 6, flex: 1, justifyContent: "flex-end", alignItems: "center", minWidth: 180 }}>
+                                      <div
+                                        className="row"
+                                        style={{ flex: 1, alignItems: "center", gap: 8, cursor: "pointer", maxWidth: 200 }}
+                                        onClick={e => { e.stopPropagation(); onJudge?.(s); }}
+                                        title="Click to open judging report"
+                                      >
+                                        <div style={{ flex: 1, height: 8, background: "var(--bg-3)", borderRadius: 999, overflow: "hidden" }}>
+                                          <div style={{
+                                            width: `${inBg.progress}%`,
+                                            height: "100%",
+                                            background: "var(--admin)",
+                                            borderRadius: 999,
+                                            transition: "width 0.4s ease",
+                                          }} />
+                                        </div>
+                                        <span className="mono" style={{ fontSize: 11, color: "var(--fg-1)", width: 34, textAlign: "right", flexShrink: 0 }}>
+                                          {Math.round(inBg.progress)}%
+                                        </span>
+                                      </div>
+                                      <button
+                                        style={{
+                                          width: 24, height: 24, borderRadius: 4,
+                                          background: "#ef4444", border: "none", cursor: "pointer",
+                                          display: "flex", alignItems: "center", justifyContent: "center",
+                                          flexShrink: 0,
+                                        }}
+                                        onClick={e => { e.stopPropagation(); onStopJob?.(s.id); }}
+                                        title="Stop judging"
+                                      >
+                                        <div style={{ width: 8, height: 8, background: "white", borderRadius: 1 }} />
+                                      </button>
+                                    </div>
+                                  ) : isQueued ? (
+                                    <div className="row" style={{ gap: 6, alignItems: "center" }}>
+                                      <span className="badge" style={{ whiteSpace: "nowrap", color: "var(--fg-2)" }}>
+                                        #{queuePos + 1} in queue
+                                      </span>
+                                      <button
+                                        style={{
+                                          width: 20, height: 20, borderRadius: 4,
+                                          background: "var(--bg-3)", border: "1px solid var(--border-0)",
+                                          cursor: "pointer", display: "flex", alignItems: "center",
+                                          justifyContent: "center", flexShrink: 0,
+                                        }}
+                                        onClick={e => { e.stopPropagation(); onDequeue?.(s.id); }}
+                                        title="Remove from queue"
+                                      >
+                                        <Icons.X size={10} style={{ color: "var(--fg-2)" }} />
+                                      </button>
+                                    </div>
+                                  ) : (
+                                    <Btn
+                                      variant={judged ? "outline" : "primary"}
+                                      size="sm"
+                                      icon={judged ? <Icons.ChartBar size={12} /> : <Icons.Sparkles size={12} sw={2} />}
+                                      onClick={() => onJudge?.(s)}
+                                    >
+                                      {judged ? "View report" : "Launch judging"}
+                                    </Btn>
+                                  )
+                                )}
+                              </div>
+                            );
+                          })()}
                         </td>
                       </tr>
 
@@ -897,15 +964,72 @@ function SessionLogSection({ onJudge, reports, onOpenChat }) {
                                     Go to chat
                                   </Btn>
                                 )}
-                                {s.participants.length > 1 && (
-                                  <Btn
-                                    variant="outline"
-                                    icon={judged ? <Icons.ChartBar size={13} /> : <Icons.Sparkles size={13} sw={2} />}
-                                    onClick={() => onJudge?.(s)}
-                                  >
-                                    {judged ? "View report" : "Launch judging"}
-                                  </Btn>
-                                )}
+                                {s.participants.length > 1 && (() => {
+                                  const inBg = bgJobs[s.id];
+                                  const queuePos = judgeQueue.findIndex(q => q.id === s.id);
+                                  if (inBg) return (
+                                    <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 180 }}>
+                                      <div
+                                        style={{ flex: 1, display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}
+                                        onClick={() => onJudge?.(s)}
+                                        title="Click to open judging report"
+                                      >
+                                        <div style={{ flex: 1, height: 8, background: "var(--bg-3)", borderRadius: 999, overflow: "hidden" }}>
+                                          <div style={{
+                                            width: `${inBg.progress}%`,
+                                            height: "100%",
+                                            background: "var(--admin)",
+                                            borderRadius: 999,
+                                            transition: "width 0.4s ease",
+                                          }} />
+                                        </div>
+                                        <span className="mono" style={{ fontSize: 11, color: "var(--fg-1)", width: 34, textAlign: "right", flexShrink: 0 }}>
+                                          {Math.round(inBg.progress)}%
+                                        </span>
+                                      </div>
+                                      <button
+                                        style={{
+                                          width: 24, height: 24, borderRadius: 4,
+                                          background: "#ef4444", border: "none", cursor: "pointer",
+                                          display: "flex", alignItems: "center", justifyContent: "center",
+                                          flexShrink: 0,
+                                        }}
+                                        onClick={() => onStopJob?.(s.id)}
+                                        title="Stop judging"
+                                      >
+                                        <div style={{ width: 8, height: 8, background: "white", borderRadius: 1 }} />
+                                      </button>
+                                    </div>
+                                  );
+                                  if (queuePos >= 0) return (
+                                    <div className="row" style={{ gap: 6, alignItems: "center" }}>
+                                      <span className="badge" style={{ color: "var(--fg-2)" }}>
+                                        #{queuePos + 1} in queue
+                                      </span>
+                                      <button
+                                        style={{
+                                          width: 20, height: 20, borderRadius: 4,
+                                          background: "var(--bg-3)", border: "1px solid var(--border-0)",
+                                          cursor: "pointer", display: "flex", alignItems: "center",
+                                          justifyContent: "center",
+                                        }}
+                                        onClick={() => onDequeue?.(s.id)}
+                                        title="Remove from queue"
+                                      >
+                                        <Icons.X size={10} style={{ color: "var(--fg-2)" }} />
+                                      </button>
+                                    </div>
+                                  );
+                                  return (
+                                    <Btn
+                                      variant="outline"
+                                      icon={judged ? <Icons.ChartBar size={13} /> : <Icons.Sparkles size={13} sw={2} />}
+                                      onClick={() => onJudge?.(s)}
+                                    >
+                                      {judged ? "View report" : "Launch judging"}
+                                    </Btn>
+                                  );
+                                })()}
                               </div>
                             </div>
                           </td>
@@ -964,7 +1088,7 @@ const EVAL_GROUPS = [
   },
 ];
 
-function JudgingModal({ session, cached, onClose, onSaveReport }) {
+function JudgingModal({ session, cached, onClose, onSaveReport, onJobProgress, onJobDone, onJobBackground }) {
   const { byId } = window.useAgents();
   const [tab, setTab] = React.useState("persona_id");
   const [stage, setStage] = React.useState(cached ? "done" : "running");
@@ -986,6 +1110,16 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
   React.useEffect(() => { cachedRef.current = cached; }, [cached]);
   React.useEffect(() => { onSaveReportRef.current = onSaveReport; }, [onSaveReport]);
 
+  // keepAliveRef: when true, cleanup skips closing the EventSource so the
+  // backend job keeps running after the modal is dismissed.
+  const keepAliveRef = React.useRef(false);
+  const onJobProgressRef = React.useRef(onJobProgress);
+  const onJobDoneRef = React.useRef(onJobDone);
+  const onJobBackgroundRef = React.useRef(onJobBackground);
+  React.useEffect(() => { onJobProgressRef.current = onJobProgress; }, [onJobProgress]);
+  React.useEffect(() => { onJobDoneRef.current = onJobDone; }, [onJobDone]);
+  React.useEffect(() => { onJobBackgroundRef.current = onJobBackground; }, [onJobBackground]);
+
   // ─── real pipeline via API + SSE ─────────────────────────────
   React.useEffect(() => {
     if (!session) return;
@@ -1006,41 +1140,44 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
     let cancelled = false;
 
     window.api.post(`/admin/judge-chat/${session.id}`, {})
+      .catch(() => null) // 409 already-running → fall through to SSE reconnect
       .then(() => {
         if (cancelled) return;
         // Open SSE stream for progress updates and the final result.
         es = new EventSource(`${window.api.base}/admin/judge-chat/${session.id}/stream`);
 
         es.onmessage = (evt) => {
-          if (cancelled) { es.close(); return; }
+          if (cancelled) { if (!keepAliveRef.current) es.close(); return; }
           let data;
           try { data = JSON.parse(evt.data); } catch { return; }
 
           if (data.type === "progress") {
             setProgress(data.progress);
+            onJobProgressRef.current?.(session.id, data.progress);
           } else if (data.type === "result") {
             const fresh = { ...data.result };
             setReport(fresh);
             setStage("done");
             setProgress(100);
             onSaveReportRef.current?.(session.id, fresh);
+            onJobDoneRef.current?.(session.id);
             es.close();
           } else if (data.type === "error") {
             setStage("error");
+            onJobDoneRef.current?.(session.id);
             es.close();
           }
         };
 
         es.onerror = () => {
-          if (!cancelled) setStage("error");
+          if (!cancelled) { setStage("error"); onJobDoneRef.current?.(session.id); }
           es.close();
         };
       })
-      .catch(() => { if (!cancelled) setStage("error"); });
 
     return () => {
       cancelled = true;
-      es?.close();
+      if (!keepAliveRef.current) es?.close();
     };
     // Intentionally NOT depending on `cached` / `onSaveReport` — see refs above.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1051,6 +1188,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
     setRunKey(0);
     setHistory([]);
     setHistoryIdx(null);
+    keepAliveRef.current = false;
   }, [session?.id]);
 
   // Fetch run history whenever the modal reaches "done" (initial load or re-run).
@@ -1064,13 +1202,21 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
       .catch(() => {});
   }, [stage, session?.id]);
 
+  const handleClose = () => {
+    if (stage === 'running') {
+      keepAliveRef.current = true;
+      onJobBackgroundRef.current?.(session.id, progress);
+    }
+    onClose();
+  };
+
   if (!session) return null;
   const personas = (session.participants || []).map(id => byId(id)).filter(Boolean);
   // When the user picks a history pill, show that run; otherwise show the live report.
   const activeReport = historyIdx !== null ? history[historyIdx] : report;
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div className="modal-backdrop" onClick={handleClose}>
       <div className="modal modal-judge" onClick={e => e.stopPropagation()} style={{ width: 880 }}>
         <div className="modal-head" style={{ flexDirection: "column", alignItems: "stretch", gap: 10, paddingBottom: 0 }}>
           <div className="row" style={{ alignItems: "flex-start" }}>
@@ -1092,7 +1238,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
                 )}
               </div>
             </div>
-            <IconBtn icon={<Icons.X size={14} />} onClick={onClose} />
+            <IconBtn icon={<Icons.X size={14} />} onClick={handleClose} />
           </div>
           {stage === "done" && history.length > 1 && (
             <div className="judge-history-bar">
@@ -1193,7 +1339,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport }) {
         </div>
 
         <div className="modal-foot">
-          <Btn variant="ghost" onClick={onClose}>Close</Btn>
+          <Btn variant="ghost" onClick={handleClose}>Close</Btn>
           {stage === "done" && (
             <>
 <Btn
@@ -1430,7 +1576,7 @@ function ReportIndividualFidelity({ group, rows, judgeTypeAgreement }) {
                   {[1, 2, 3, 4, 5].map(s => {
                     const d = Math.abs(s - r.median);
                     const h = Math.max(4, 28 - d * 11);
-                    const active = s >= Math.floor(r.median) && s <= Math.ceil(r.median);
+                    const active = s === Math.round(r.median);
                     const SCALE = ["#ef4444", "#f97316", "#eab308", "#84cc16", "#22c55e"];
                     return (
                       <div key={s} style={{
@@ -1605,7 +1751,7 @@ function ReportGroupFidelity({ group, gini, giniZ, giniCI, turnShares, groupFide
             {[1, 2, 3, 4, 5].map(s => {
               const d = Math.abs(s - groupFidelityMean);
               const h = Math.max(6, 40 - d * 14);
-              const active = s >= Math.floor(groupFidelityMean) && s <= Math.ceil(groupFidelityMean);
+              const active = s === Math.round(groupFidelityMean);
               const SCALE = ["#ef4444", "#f97316", "#eab308", "#84cc16", "#22c55e"];
               return (
                 <div key={s} style={{
@@ -1689,11 +1835,100 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
       .catch(() => {});
   }, []);
 
-  const openJudging = (s) => setJudging(s);
+  const openJudging = (s) => {
+    if (bgJobs[String(s.id)]) stopBgJob(s.id);
+    setJudging(s);
+  };
   const closeJudging = () => setJudging(null);
   const saveReport = React.useCallback((sessionId, report) => {
     setReports(r => ({ ...r, [sessionId]: report }));
   }, []);
+
+  // Background judging jobs: sessions whose modal was closed while the pipeline
+  // was still running. Keyed by string(sessionId) → { progress: 0-100 }.
+  const [bgJobs, setBgJobs] = React.useState({});
+
+  const handleJobProgress = React.useCallback((sid, p) => {
+    setBgJobs(j => j[String(sid)] ? { ...j, [String(sid)]: { progress: p } } : j);
+  }, []);
+
+  const handleJobDone = React.useCallback((sid) => {
+    setBgJobs(j => { const n = { ...j }; delete n[String(sid)]; return n; });
+  }, []);
+
+  const handleJobBackground = React.useCallback((sid, lastProgress) => {
+    setBgJobs(j => ({ ...j, [String(sid)]: { progress: lastProgress ?? 0 } }));
+  }, []);
+
+  const stopBgJob = React.useCallback((sid) => {
+    setBgJobs(j => { const n = { ...j }; delete n[String(sid)]; return n; });
+  }, []);
+
+  // ── Judge queue ──────────────────────────────────────────────
+  // Sessions waiting to be judged. Starts automatically when nothing is running.
+  const [judgeQueue, setJudgeQueue] = React.useState([]);
+
+  const dequeueJob = React.useCallback((sid) => {
+    setJudgeQueue(q => q.filter(s => s.id !== sid));
+  }, []);
+
+  // Scheduler: when nothing is running and the queue is non-empty, start next.
+  React.useEffect(() => {
+    if (judgeQueue.length === 0) return;
+    if (Object.keys(bgJobs).length > 0) return;
+    if (judging !== null) return;
+    const [next, ...rest] = judgeQueue;
+    setJudgeQueue(rest);
+    setBgJobs(j => ({ ...j, [String(next.id)]: { progress: 0 } }));
+    window.api.post(`/admin/judge-chat/${next.id}`, {}).catch(() => null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [judgeQueue.length, Object.keys(bgJobs).length, judging]);
+
+  // Central launch handler: opens modal if idle, queues otherwise.
+  const launchJudging = React.useCallback((s) => {
+    // Re-open a background job in the modal
+    if (bgJobs[String(s.id)]) { stopBgJob(s.id); setJudging(s); return; }
+    // Already queued — ignore double-clicks
+    if (judgeQueue.find(q => q.id === s.id)) return;
+    const busy = Object.keys(bgJobs).length > 0 || judging !== null;
+    if (busy) {
+      setJudgeQueue(q => [...q, s]);
+    } else {
+      setJudging(s);
+    }
+  }, [bgJobs, judging, judgeQueue, stopBgJob]);
+
+  // Poll status for background jobs every 2s.
+  const saveReportRef = React.useRef(saveReport);
+  React.useEffect(() => { saveReportRef.current = saveReport; }, [saveReport]);
+
+  React.useEffect(() => {
+    const ids = Object.keys(bgJobs);
+    if (ids.length === 0) return;
+    const iv = setInterval(() => {
+      ids.forEach(sidStr => {
+        const sid = Number(sidStr);
+        window.api.get(`/admin/judge-chat/${sid}/status`)
+          .then(r => {
+            if (r.progress != null) {
+              setBgJobs(j => j[sidStr] ? { ...j, [sidStr]: { progress: r.progress } } : j);
+            }
+            if (r.status === 'done') {
+              window.api.get('/admin/judged-chats')
+                .then(data => {
+                  Object.entries(data).forEach(([k, v]) => saveReportRef.current(Number(k), v));
+                  setBgJobs(j => { const n = { ...j }; delete n[sidStr]; return n; });
+                })
+                .catch(() => setBgJobs(j => { const n = { ...j }; delete n[sidStr]; return n; }));
+            } else if (r.status === 'error') {
+              setBgJobs(j => { const n = { ...j }; delete n[sidStr]; return n; });
+            }
+          })
+          .catch(() => {});
+      });
+    }, 2000);
+    return () => clearInterval(iv);
+  }, [Object.keys(bgJobs).join(',')]);
 
   return (
     <div className="admin-shell" data-screen-label="admin-dashboard">
@@ -1746,7 +1981,7 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
 
           {section === "analytics" && <ChatAnalyticsSection />}
           {section === "performance" && <AgentPerformanceSection />}
-          {section === "sessions" && <SessionLogSection onJudge={openJudging} reports={reports} onOpenChat={onOpenChat} />}
+          {section === "sessions" && <SessionLogSection onJudge={launchJudging} reports={reports} onOpenChat={onOpenChat} bgJobs={bgJobs} onStopJob={stopBgJob} judgeQueue={judgeQueue} onDequeue={dequeueJob} />}
         </main>
       )}
 
@@ -1756,6 +1991,9 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
         cached={judging ? reports[judging.id] : null}
         onClose={closeJudging}
         onSaveReport={saveReport}
+        onJobProgress={handleJobProgress}
+        onJobDone={handleJobDone}
+        onJobBackground={handleJobBackground}
       />
     </div>
   );
