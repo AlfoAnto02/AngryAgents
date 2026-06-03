@@ -11,7 +11,7 @@ import sqlite3
 import time as _time
 from datetime import datetime, timezone
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Body, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
@@ -1020,7 +1020,7 @@ def _save_eval_report(
     log.info("eval report saved → %s", out_dir)
 
 
-def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
+def _bg_run_judging(chat_id: int, db_path: str, author_secret: str, model: str | None = None) -> None:
     """Background task: run 20 real judges on a DB chat then compute metrics via src/eval."""
     _judge_jobs[chat_id] = {"status": "running", "progress": 2, "result": None, "error": None}
     _t_start = _time.monotonic()
@@ -1119,6 +1119,7 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
             forced_names=forced_names,
             out_dir=_EVAL_DIR / f"chat_{chat_id}",
             author_map={d: n for d, n in author_map.items() if d in active_digests},
+            model=model,
         )
         _t_llm_end = _time.monotonic()
         print(f"  [chat {chat_id}] ── LLM calls DONE   ({_t_llm_end - _t_llm_start:.1f}s)")
@@ -1371,10 +1372,15 @@ def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
     }
 
 
+class _JudgeRequest(BaseModel):
+    model: str | None = None
+
+
 @router.post("/admin/judge-chat/{chat_id}", status_code=202)
 def admin_start_judging(
     chat_id: int,
-    background_tasks: BackgroundTasks,
+    body: _JudgeRequest = Body(default_factory=_JudgeRequest),
+    background_tasks: BackgroundTasks = BackgroundTasks(),
     db: sqlite3.Connection = Depends(get_db),
     settings: Settings = Depends(get_settings),
 ) -> dict:
@@ -1388,8 +1394,8 @@ def admin_start_judging(
     if job and job["status"] == "running":
         raise HTTPException(status_code=409, detail="Judging already in progress")
 
-    background_tasks.add_task(_bg_run_judging, chat_id, settings.db_path, settings.author_secret)
-    return {"chat_id": chat_id, "status": "running"}
+    background_tasks.add_task(_bg_run_judging, chat_id, settings.db_path, settings.author_secret, body.model)
+    return {"chat_id": chat_id, "status": "running", "model": body.model}
 
 
 @router.get("/admin/judge-chat/{chat_id}/stream")

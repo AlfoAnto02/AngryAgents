@@ -1055,7 +1055,7 @@ const EVAL_GROUPS = [
   },
 ];
 
-function JudgingModal({ session, cached, onClose, onSaveReport, onJobProgress, onJobDone, onJobBackground }) {
+function JudgingModal({ session, cached, onClose, onSaveReport, onJobProgress, onJobDone, onJobBackground, judgeModel = "gpt-4o-mini", onModelChange }) {
   const { byId } = window.useAgents();
   const [tab, setTab] = React.useState("persona_id");
   const [stage, setStage] = React.useState(cached ? "done" : "running");
@@ -1106,7 +1106,7 @@ function JudgingModal({ session, cached, onClose, onSaveReport, onJobProgress, o
     let es = null;
     let cancelled = false;
 
-    window.api.post(`/admin/judge-chat/${session.id}`, {})
+    window.api.post(`/admin/judge-chat/${session.id}`, { model: judgeModel })
       .catch(() => null) // 409 already-running → fall through to SSE reconnect
       .then(() => {
         if (cancelled) return;
@@ -1307,26 +1307,45 @@ function JudgingModal({ session, cached, onClose, onSaveReport, onJobProgress, o
 
         <div className="modal-foot">
           <Btn variant="ghost" onClick={handleClose}>Close</Btn>
-          {stage === "done" && (
-            <>
-<Btn
+          {(stage === "done" || stage === "error") && (
+            <div className="row" style={{ gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+              <div className="row" style={{ gap: 6, alignItems: "center" }}>
+                <label style={{ fontSize: 12, color: "var(--fg-2)", whiteSpace: "nowrap" }}>Model:</label>
+                <select
+                  value={judgeModel}
+                  onChange={e => onModelChange?.(e.target.value)}
+                  style={{
+                    fontSize: 12, padding: "3px 6px", borderRadius: 6,
+                    border: "1px solid var(--border-0)", background: "var(--bg-2)",
+                    color: "var(--fg-0)", cursor: "pointer",
+                  }}
+                >
+                  <option value="gpt-4o-mini">gpt-4o-mini (cheap)</option>
+                  <option value="gpt-4o">gpt-4o (balanced)</option>
+                  <option value="gpt-5">gpt-5 (best quality)</option>
+                </select>
+                {judgeModel === "gpt-4o" && (
+                  <span style={{ fontSize: 11, color: "#f59e0b", display: "flex", alignItems: "center", gap: 3 }}>
+                    <Icons.AlertCircle size={12} sw={2} />
+                    ~16× more expensive than mini
+                  </span>
+                )}
+                {judgeModel === "gpt-5" && (
+                  <span style={{ fontSize: 11, color: "#f59e0b", display: "flex", alignItems: "center", gap: 3 }}>
+                    <Icons.AlertCircle size={12} sw={2} />
+                    ~8× more expensive than mini
+                  </span>
+                )}
+              </div>
+              <Btn
                 variant="primary"
                 icon={<Icons.Sparkles size={12} sw={2} />}
                 onClick={() => setRunKey(k => k + 1)}
                 title="Re-run the judging pipeline for this chat"
               >
-                Launch judging again
+                {stage === "error" ? "Retry" : "Launch judging again"}
               </Btn>
-            </>
-          )}
-          {stage === "error" && (
-            <Btn
-              variant="primary"
-              icon={<Icons.Sparkles size={12} sw={2} />}
-              onClick={() => setRunKey(k => k + 1)}
-            >
-              Retry
-            </Btn>
+            </div>
           )}
         </div>
       </div>
@@ -1834,6 +1853,7 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
   // ── Judge queue ──────────────────────────────────────────────
   // Sessions waiting to be judged. Starts automatically when nothing is running.
   const [judgeQueue, setJudgeQueue] = React.useState([]);
+  const [judgeModel, setJudgeModel] = React.useState("gpt-4o-mini");
 
   const dequeueJob = React.useCallback((sid) => {
     setJudgeQueue(q => q.filter(s => s.id !== sid));
@@ -1847,7 +1867,7 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
     const [next, ...rest] = judgeQueue;
     setJudgeQueue(rest);
     setBgJobs(j => ({ ...j, [String(next.id)]: { progress: 0 } }));
-    window.api.post(`/admin/judge-chat/${next.id}`, {}).catch(() => null);
+    window.api.post(`/admin/judge-chat/${next.id}`, { model: judgeModel }).catch(() => null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [judgeQueue.length, Object.keys(bgJobs).length, judging]);
 
@@ -1961,6 +1981,8 @@ function AdminDashboard({ section, onSection, chats, onNewGroup, onNewDM, onOpen
         onJobProgress={handleJobProgress}
         onJobDone={handleJobDone}
         onJobBackground={handleJobBackground}
+        judgeModel={judgeModel}
+        onModelChange={setJudgeModel}
       />
     </div>
   );

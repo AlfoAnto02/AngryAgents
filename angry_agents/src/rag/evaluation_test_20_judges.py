@@ -199,6 +199,7 @@ def run_evaluation_from_db_data(
     forced_names: list[str] | None = None,
     out_dir: "Path | None" = None,
     author_map: dict[str, str] | None = None,
+    model: str | None = None,
 ) -> list[dict]:
     """
     Run the 20-judge pipeline on already-loaded chat data (from the database).
@@ -211,8 +212,11 @@ def run_evaluation_from_db_data(
     out_dir: if provided, writes token_report.json into this directory after all judges finish
     author_map: {digest: persona_name} ground-truth mapping; when provided each judge runs a
                 second individual-fidelity call against the true pairs (separate from identification)
+    model: override the OpenAI model (defaults to OPENAI_MODEL from agent_config)
     """
     from ..agents.agent_config import OPENAI_MODEL
+
+    active_model = model or OPENAI_MODEL
 
     messages_by_digest = _messages_by_digest(chat)
 
@@ -221,7 +225,7 @@ def run_evaluation_from_db_data(
     if not all_profiles:
         raise ValueError("No persona profiles loaded")
 
-    tracker = TokenTracker(chat_id=chat_id, model=OPENAI_MODEL)
+    tracker = TokenTracker(chat_id=chat_id, model=active_model)
     _completed = [0]
 
     # Dynamic pool: 2.5× the number of actual participants, minimum n_actual+1.
@@ -246,12 +250,14 @@ def run_evaluation_from_db_data(
             role=judge["role"],
             judge_name=judge["name"],
             tracker=tracker,
+            model=active_model,
         )
         gf_score = run_group_fidelity_with_tools(
             role=judge["role"],
             chat=chat,
             judge_name=judge["name"],
             tracker=tracker,
+            model=active_model,
         )
         individual_fidelity_scores: dict[str, int] | None = None
         if author_map:
@@ -262,6 +268,7 @@ def run_evaluation_from_db_data(
                 all_profiles=all_profiles,
                 judge_name=judge["name"],
                 tracker=tracker,
+                model=active_model,
             )
         _completed[0] += 1
         if progress_callback:
