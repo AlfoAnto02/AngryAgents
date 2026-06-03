@@ -142,9 +142,27 @@ confirm_stop_chat(chat_id)
 - **Lingua**: bastato scrivere il primo messaggio in italiano perché l'agente rispondesse in italiano per tutta la conversazione, senza istruzioni esplicite.
 - **Latenza**: ogni chiamata `confirm_create_message` risponde in ~200ms; l'intera sessione (60 messaggi + 6 chat lifecycle) ha richiesto circa 8 minuti.
 
-### Errore riscontrato e risolto
+### Errori riscontrati e risolti
+
+**Errore 1 — `422 Unprocessable Content` sui messaggi utente**
 
 Durante la prima chat, il tentativo di postare un messaggio utente con `created_by=None` ha restituito `422 Unprocessable Content`. Il backend richiede che almeno uno tra `agent_id` e `created_by` sia valorizzato. Risolto usando `created_by=1` (admin user).
+
+**Errore 2 — Chat DM non visibili nella UI dopo il riavvio**
+
+Dopo aver killato i processi e riavviato il server, le 6 chat DM non apparivano nella lista chat dell'utente admin.
+
+*Causa*: `confirm_create_full_chat` era stato chiamato senza passare `created_by=1`, quindi il campo `Created_by` era `NULL` sia in `Group_chat` che in `Topic`. L'endpoint `GET /ui/chats` ([ui_routes.py:249](../src/API/routes/ui_routes.py)) filtra con `AND gc.Created_by = ?` usando l'ID dell'utente autenticato — le chat con `NULL` non venivano mai restituite.
+
+Le chat erano però presenti nel DB e visibili nell'admin sessions dashboard (`GET /admin/sessions`), che non filtra per `Created_by`.
+
+*Fix applicato*:
+```sql
+UPDATE Group_chat SET Created_by = 1 WHERE ID IN (22,23,24,25,26,27) AND Created_by IS NULL;
+UPDATE Topic      SET Created_by = 1 WHERE ID IN (SELECT ID_topic FROM Group_chat WHERE ID IN (22,23,24,25,26,27)) AND Created_by IS NULL;
+```
+
+*Prevenzione*: passare sempre `created_by=<user_id>` a `confirm_create_full_chat` quando si creano chat tramite MCP.
 
 ---
 
