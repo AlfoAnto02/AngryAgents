@@ -83,7 +83,7 @@
   \vspace{1.2cm}
   {\large AI Design 2026 --- Final Project Report}\par
   \vspace{0.5cm}
-  {\normalsize May 2026}\par
+  {\normalsize June 2026}\par
   \vspace{1.2cm}
   \rule{0.6\textwidth}{0.4pt}\par
   \vspace{1.2cm}
@@ -164,6 +164,7 @@ I - Foundation   & May 5--13  & Problem definition, SOTA, first DB schema, first
 II - Core pipeline & May 14--24 & Full REST API, auth, judge classes, persona runtime, chat engine \\
 III - Integration  & May 25--27 & RAG pipeline, Hungarian fix, two-phase extraction, UI wired, MCP \\
 IV - Polish        & May 28--31 & UI polish, evaluation refinements, batch metrics, MCP hardening \\
+V - Final run      & Jun 1--3   & DB v4, judge pipeline overhaul, group fidelity decoupled, deliberation dropped, full evaluation run \\
 \bottomrule
 \end{tabular}
 \normalsize
@@ -186,18 +187,15 @@ protocol.
 The earliest database design had six tables: \texttt{Agents}, \texttt{Chat}, \texttt{Chat\_messages}, \texttt{Judges}, \texttt{Judge\_evaluation}, and two separate
 context tables for fiction and podcast personas. At this stage, the most we made an important design decision: the \texttt{author} field in \texttt{Chat\_messages} would store a
 cryptographic hash of the agent's identity rather than a foreign key back to
-\texttt{Agents}. This single choice encoded the core requirement - judges must not be able
+\texttt{Agents}. This single choice encoded the core requirement -  judges must not be able
 to link a message to a known persona - at the schema level, making it impossible to
 violate accidentally.
 
 \paragraph{First personas.}
 Three scraping pipelines were started in parallel: YouTube transcript extraction for
 real-world personas (politicians, podcasters), movie-script PDF parsing for fictional
-characters, and IMSDB HTML scraping for additional screenplays. The first eleven fictional
-profiles were extracted: Darth Vader, Yoda, Indiana Jones, Jack Sparrow, Luke Skywalker,
-Batman, Joker, and others. Each profile was a structured JSON document capturing speaking
-style, worldview, emotional tells, and signature phrases --- a format informed directly by
-the Zhou et al.\ finding on personal detail importance.
+characters, and IMSDB HTML scraping for additional screenplays. Each profile was a structured JSON document capturing speaking
+style, worldview, emotional tells, and signature phrases.
 
 \paragraph{First UI.}
 A React prototype with ten components covered the full user journey: authentication, persona
@@ -208,7 +206,7 @@ questions early, before the backend was complete.
 \subsection{Phase II --- Core Pipeline (May 14--24)}
 
 \paragraph{Rethinking the schema.}
-The two separate context tables from Phase I were a premature distinction. As the personas grew
+The two separate context tables from Phase I were first design idea. As the personas grew
 in complexity, both fiction and real-world agents needed the same structured JSON profile; the
 only difference was the \texttt{source\_type} field. The schema was consolidated: one
 \texttt{Agent\_context} table with a \texttt{signature\_phrases} JSON column. A \texttt{Topic}
@@ -264,8 +262,7 @@ scale. This problem was deferred to Phase III.
 \subsection{Phase III --- Integration (May 25--27)}
 
 Phase III was the most intensive period of the project. All major subsystems converged
-simultaneously, and several assumptions from earlier phases had to be corrected under pressure.
-
+simultaneously, and several assumptions from earlier phases had to be corrected.
 \paragraph{The scalability problem, solved.}
 The root cause of the evaluation bottleneck was that each judge had to consider every persona
 in the database for every message. The fix was a Retrieval-Augmented Generation (RAG)
@@ -350,6 +347,72 @@ A static knowledge graph of the entire codebase was generated and committed: 6\,
 8\,337 edges across 20 community clusters, providing a queryable map of architectural
 relationships between components.
 
+\subsection{Phase V --- Final Evaluation Run (June 1--3)}
+
+The final phase hardened the judge pipeline against empirical results, collected a full
+corpus of evaluated conversations, and closed remaining documentation gaps.
+
+\paragraph{DB schema v4.}
+Three structural changes closed gaps found during the first end-to-end evaluation run.
+\texttt{Judges} gained a canonical \texttt{name} field
+(\texttt{style\_1}\ldots\texttt{behavioral\_5}) and is now auto-seeded at startup.
+\texttt{Judge\_evaluation} replaced the opaque \texttt{Score} column with three typed
+fields: \texttt{persona\_identification} (the assignment result), \texttt{rag\_candidates}
+(the pre-filter shortlist), and \texttt{group\_fidelity\_score}.
+\texttt{Group\_chat} gained five operational columns: \texttt{status}, \texttt{author\_map},
+\texttt{speaker\_stats}, \texttt{is\_judged}, and \texttt{report}.
+
+\paragraph{Judge pipeline overhaul.}
+Two changes to persona identification were driven by empirical accuracy testing.
+First, the scoring method shifted from a 1--5 matrix to \textbf{direct bijective
+assignment}: each judge directly assigns each author digest to one persona name;
+Hungarian enforcement operates at the outer aggregation level. The 1--5 intermediate
+representation had added noise without improving accuracy. Second, the RAG candidate pool
+was made \textbf{dynamic}: instead of a fixed \texttt{top\_k}, it scales to
+$\max(n_{\text{actual}} + 1,\; \lfloor 2.5 \cdot n_{\text{actual}} \rfloor)$, ensuring
+the shortlist is always proportionally sized to the number of chat participants.
+
+\paragraph{Group fidelity as a dedicated call.}
+Group fidelity was previously a second output of the persona identification call, coupling
+two unrelated concerns. The fix was complete separation: each judge now makes a focused
+call through its role-specific \texttt{group\_fidelity\_\{role\}.j2} template. The
+template receives the conversation in \emph{chronological} order (who responded to whom),
+not grouped by author, so the judge can observe turn-taking and responsiveness
+independently of persona correctness. Each role lens is distinct:
+\texttt{style}~--- did registers adapt to each other;
+\texttt{ideology}~--- were ideological tensions actively navigated;
+\texttt{behavioral}~--- did turn-taking reflect real group dynamics;
+\texttt{general}~--- holistic group coherence.
+
+\paragraph{Deliberation dropped.}
+The Phase~2 deliberation mechanism --- designed in Phase~III but never executed ---
+was removed. The pipeline now ends with
+Phase~1 independent evaluation plus the dedicated group fidelity call. The design rationale
+is preserved in the documentation but is out of scope for this iteration.
+
+\paragraph{Tool usage calibration.}
+The RAG search tool inside persona identification prompts was found empirically to add
+latency without improving accuracy for well-represented personas. Judge templates were
+simplified to invoke the tool only when no shortlist candidate clearly matches on the
+judge's lens, removing the unconditional tool call that had appeared in all four role
+templates.
+
+\paragraph{UI completion.}
+The Chat Analytics dashboard was wired to the batch evaluation pipeline: it now displays
+all aggregated metrics in real time --- persona ID accuracy with CI, per-persona median
+fidelity and IQR, group fidelity scores, Gini coefficient, and MAD between judge types.
+An Agent Performance panel was added, showing per-persona aggregate results across all
+evaluated chats. A token-cost tracker for individual fidelity calls was integrated into
+the judge session report.
+
+\paragraph{Data collection and final run.}
+The shared database was populated with a full corpus of group chats and DM sessions. The
+MCP layer was used to create DM conversations programmatically via Claude. All group chats
+were run through the 20-judge pipeline and results stored in
+\texttt{data/eval/batch\_report.json}. Platform documentation was consolidated: the two
+separate setup guides (\texttt{DATABASE\_SHARING.md} and \texttt{LOCAL\_SETUP.md}) were
+merged into a single \texttt{SETUP.md}.
+
 % -------------------------------------------------
 \section{System Architecture}
 
@@ -382,7 +445,8 @@ The backend follows a strict layered pattern:
         enforces invariants (e.g.\ 20-evaluation cap, slug uniqueness).
   \item \textbf{Repositories} (\texttt{src/db/repositories/}) --- Raw SQL CRUD.
         Every entity exposes: \texttt{create}, \texttt{get}, \texttt{get\_by\_slug},
-        \texttt{update}, \texttt{delete(hard=False)}, \texttt{query(filters,limit,offset)}.
+        \texttt{update}, \texttt{delete(hard=False)},
+        \texttt{query(filters,limit,offset)}.
   \item \textbf{Models} (\texttt{src/db/models/}) --- Python dataclasses mirroring DB tables.
 \end{enumerate}
 
@@ -391,9 +455,10 @@ plain Python objects.
 
 \subsection{Database schema}
 
-The final schema (v3, implemented in \texttt{src/db/models/base.py}) comprises ten tables:
+The final schema (v4, implemented in \texttt{src/db/models/base.py}) comprises ten tables:
 
-\begin{longtable}{@{}lll@{}}
+{\small\setlength\tabcolsep{3pt}
+\begin{longtable}{@{}p{3.5cm}p{3cm}p{10cm}@{}}
 \toprule
 \textbf{Table} & \textbf{Purpose} & \textbf{Notable constraints} \\
 \midrule
@@ -404,11 +469,12 @@ The final schema (v3, implemented in \texttt{src/db/models/base.py}) comprises t
 \texttt{Group\_chat} & Chat sessions & \texttt{status}: pending|running|done|stopped|error \\
 \texttt{Chat\_agent} & Chat$\leftrightarrow$Agent junction & Composite PK (\texttt{id\_chat}, \texttt{id\_agent}) \\
 \texttt{Chat\_messages} & Messages & \texttt{author}: name+surname+DIGEST; no FK to Agents \\
-\texttt{Judges} & Judge instances & \texttt{Role}: style|ideology|general|behavioral \\
-\texttt{Judge\_evaluation} & Evaluation scores & Composite PK; max 20 per chat enforced in service \\
+\texttt{Judges} & Judge instances & \texttt{Role}: style|ideology|general|behavioral; \texttt{name}: auto-seeded canonical ID \\
+\texttt{Judge\_evaluation} & Evaluation scores & \texttt{persona\_identification}, \texttt{rag\_candidates}, \texttt{group\_fidelity\_score}; max 20 per chat \\
 \texttt{RefreshToken} & JWT refresh tokens & Stores SHA-256 hash, never plaintext \\
 \bottomrule
 \end{longtable}
+}
 
 \paragraph{Soft-delete pattern.}
 All tables have \texttt{deleted\_at}. Queries always filter \texttt{WHERE deleted\_at IS NULL}.
@@ -618,9 +684,10 @@ Before scoring, each judge queries ChromaDB to receive a shortlist of 20 candida
 (from potentially 100+). Field-weighted retrieval boosts chunks relevant to the judge's role.
 MMR re-ranking ensures diversity in the shortlist.
 
-\paragraph{Hungarian assignment.}
-Author $\leftrightarrow$ persona matching uses \texttt{scipy.optimize.linear\_sum\_assignment}
-to enforce a bijective assignment --- each author maps to exactly one persona.
+\paragraph{Direct assignment + Hungarian enforcement.}
+Each judge directly assigns author digests to persona names (no intermediate score matrix).
+At the aggregation level, \texttt{scipy.optimize.linear\_sum\_assignment} enforces
+bijectivity across all judge votes, ensuring each author maps to exactly one persona.
 
 \subsection{Statistical metrics}
 
@@ -647,16 +714,13 @@ The batch pipeline (\texttt{src/eval/batch.py}) aggregates per-chat metrics acro
 CI method: bootstrap for $n < 20$ chats; CLT normal approximation
 ($\text{CI} = \bar{x} \pm 1.96 \cdot \sigma / \sqrt{n}$) for $n \geq 20$.
 
-\subsection{Phase 2 --- Deliberation (design)}
+\subsection{Phase 2 --- Deliberation (out of scope)}
 
-Phase 2 takes high-variance cases from Phase 1 into structured deliberation:
-\begin{enumerate}
-  \item Identify cases where judge variance exceeds threshold.
-  \item Run 3--5 deliberation rounds. Judges explain evidence, revise ratings.
-  \item Track variance per round; convergence = $\text{var}_{\text{final}} < \text{var}_0$.
-  \item F-test between round 0 and final round variances.
-  \item Track confidence calibration: $r(\Delta\text{confidence}, \Delta\text{accuracy})$.
-\end{enumerate}
+Phase 2 deliberation was designed but removed in Phase~V as out of scope for this
+iteration. The intended mechanism would have taken high-variance cases from Phase~1 into
+structured multi-round deliberation (3--5 rounds, judges explain evidence and revise
+ratings), with variance reduction tracked per round and tested via F-test. The design is
+preserved in documentation for future work.
 
 % -------------------------------------------------
 \section{MCP Layer}
@@ -765,10 +829,11 @@ The project's evaluation framework constitutes the novel scientific contribution
 
 \begin{description}[leftmargin=0em]
   \item[\textbf{Deliberation (Phase 2)}]
-        The phase 2 pipeline is designed (documented in \texttt{EXPERIMENTATION.MD} and
-        \texttt{EVAL.md}) but not yet fully implemented. Implementing structured
-        multi-round deliberation and measuring variance reduction would complete the
-        evaluation pipeline.
+        The phase 2 deliberation mechanism was explicitly removed in Phase~V: it was
+        designed but never executed, and the added complexity was judged not worth the
+        scope cost for this iteration. The design rationale is preserved in documentation.
+        Implementing structured multi-round deliberation and measuring inter-round variance
+        reduction remains a natural extension for future work.
   \item[\textbf{Behavioral fidelity}]
         Unlike persona identification (clean baseline) and individual fidelity (Likert
         scores), behavioral fidelity --- whether an agent reads as human-produced ---
@@ -792,6 +857,8 @@ The project's evaluation framework constitutes the novel scientific contribution
         Varying candidate set size for judge shortlisting and measuring the effect on
         final accuracy would quantify the RAG retrieval quality vs. judge workload
         trade-off.
+      \item[\textbf{More sources for personas}] Personas can be built also using for example fictional, philosopical or biographical books. The process need to define new template and maybe modify persona structure.
+      \item[\textbf{Persona creation for users}] Application's users may be able to create new personas by uploading their own sources.
 \end{description}
 
 % -------------------------------------------------

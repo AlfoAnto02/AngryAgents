@@ -56,19 +56,12 @@ def _extract(report: dict, chat_id: int) -> dict | None:
         cm = pi["confusion_matrix"]
         confusion = (cm["labels"], cm["matrix"])
 
-        per_persona = {
-            pname: data["overall"]["median"]
-            for pname, data in fi["per_persona"].items()
-            if data["overall"]["median"] is not None
-        }
-
         return {
             "chat_id": chat_id,
             "accuracy": accuracy,
             "fidelity_median": fidelity_median,
             "gini": gini,
             "confusion": confusion,
-            "per_persona": per_persona,
         }
     except (KeyError, TypeError) as exc:
         log.warning("chat_%d: skipped — missing key in metrics_report: %s", chat_id, exc)
@@ -115,9 +108,6 @@ def run_batch(
         "accuracy": metrics_batch.aggregate_accuracy([r["accuracy"] for r in rows]),
         "fidelity_median": metrics_batch.aggregate_fidelity([r["fidelity_median"] for r in rows]),
         "gini": metrics_batch.aggregate_gini([r["gini"] for r in rows]),
-        "per_persona_fidelity": metrics_batch.aggregate_per_persona_fidelity(
-            [r["per_persona"] for r in rows]
-        ),
         "pooled_confusion_matrix": metrics_batch.pool_confusion_matrices(
             [r["confusion"] for r in rows]
         ),

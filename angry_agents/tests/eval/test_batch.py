@@ -110,19 +110,6 @@ class TestPoolConfusionMatrices:
         assert set(result["per_persona"].keys()) == set(labels)
 
 
-class TestAggregatePerPersona:
-    def test_groups_by_persona(self):
-        per_chat = [
-            {"Alice": 3.5, "Bob": 4.0},
-            {"Alice": 3.8, "Bob": 3.6},
-            {"Alice": 4.1},  # Bob missing in this chat
-        ]
-        result = metrics_batch.aggregate_per_persona_fidelity(per_chat)
-        assert "Alice" in result
-        assert "Bob" in result
-        assert result["Alice"]["n"] == 3
-        assert result["Bob"]["n"] == 2
-
 
 # ---------------------------------------------------------------------------
 # batch.py integration tests (filesystem, no DB)
@@ -158,7 +145,6 @@ class TestExtract:
         assert row["fidelity_median"] == 3.5
         assert row["gini"] == 0.33
         assert row["confusion"] == (["A", "B"], [[8, 2], [3, 7]])
-        assert set(row["per_persona"].keys()) == {"A", "B"}
 
     def test_returns_none_on_missing_key(self):
         row = _extract({"persona_identification": {}}, chat_id=99)
@@ -209,5 +195,5 @@ class TestRunBatch:
         _write_report(tmp_path, 1, MINIMAL_REPORT)
         result = run_batch(tmp_path)
         for key in ("n_chats", "chat_ids", "accuracy", "fidelity_median", "gini",
-                    "per_persona_fidelity", "pooled_confusion_matrix"):
+                    "pooled_confusion_matrix"):
             assert key in result
