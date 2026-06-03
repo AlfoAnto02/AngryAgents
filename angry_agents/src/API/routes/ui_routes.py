@@ -1319,16 +1319,56 @@ def admin_judged_chats(
 
 
 @router.get("/admin/batch-report")
-def admin_batch_report() -> dict:
-    """Run batch aggregation over all chat_*/metrics_report.json and return results."""
+def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
+    """Batch aggregation: primary = file-based reports; fallback = DB ui_reports."""
     from ...eval.batch import run_batch
-    if not _EVAL_DIR.exists():
-        raise HTTPException(status_code=404, detail="No eval data directory found.")
-    try:
-        result = run_batch(_EVAL_DIR)
-    except ValueError as exc:
-        raise HTTPException(status_code=404, detail=str(exc))
-    return result
+    from ...eval import metrics_batch
+    import numpy as np
+
+    if _EVAL_DIR.exists():
+        try:
+            return run_batch(_EVAL_DIR)
+        except ValueError:
+            pass
+
+    # Fallback: compute from DB report column (ui_report format)
+    rows = db.execute(
+        "SELECT ID, report FROM Group_chat WHERE is_judged = 1 AND report IS NOT NULL AND deleted_at IS NULL"
+    ).fetchall()
+    if not rows:
+        raise HTTPException(status_code=404, detail="No judged chats found.")
+
+    reports = []
+    for row in rows:
+        try:
+            r = json.loads(row["report"])
+            fidelity_rows = r.get("fidelityRows") or []
+            medians = [float(fr["median"]) for fr in fidelity_rows if fr.get("median") is not None]
+            fidelity_median = float(np.median(medians)) if medians else 0.0
+            reports.append({
+                "chat_id": row["ID"],
+                "accuracy": float(r["accuracy"]),
+                "fidelity_median": fidelity_median,
+                "gini": float(r["gini"]),
+                "confusion": (r["cmLabels"], r["cm"]),
+            })
+        except (KeyError, TypeError, json.JSONDecodeError):
+            log.warning("batch-report: skipped chat %d — malformed report", row["ID"])
+
+    if not reports:
+        raise HTTPException(status_code=404, detail="No valid reports found in DB.")
+
+    n = len(reports)
+    return {
+        "n_chats": n,
+        "chat_ids": [r["chat_id"] for r in reports],
+        "accuracy": metrics_batch.aggregate_accuracy([r["accuracy"] for r in reports]),
+        "fidelity_median": metrics_batch.aggregate_fidelity([r["fidelity_median"] for r in reports]),
+        "gini": metrics_batch.aggregate_gini([r["gini"] for r in reports]),
+        "pooled_confusion_matrix": metrics_batch.pool_confusion_matrices(
+            [r["confusion"] for r in reports]
+        ),
+    }
 
 
 @router.post("/admin/judge-chat/{chat_id}", status_code=202)
