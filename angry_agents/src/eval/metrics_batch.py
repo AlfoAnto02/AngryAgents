@@ -119,19 +119,3 @@ def pool_confusion_matrices(
     }
 
 
-def aggregate_per_persona_fidelity(
-    per_chat_per_persona: list[dict[str, float]],
-) -> dict[str, dict]:
-    """
-    For each persona, aggregate per-chat fidelity medians across chats.
-    Input: one dict per chat mapping persona_name → median fidelity score.
-    """
-    persona_medians: dict[str, list[float]] = defaultdict(list)
-    for chat_pp in per_chat_per_persona:
-        for pname, median in chat_pp.items():
-            persona_medians[pname].append(median)
-
-    return {
-        pname: aggregate_scalar(medians, bootstrap_stat_fn=np.median)
-        for pname, medians in sorted(persona_medians.items())
-    }

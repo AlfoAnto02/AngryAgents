@@ -545,7 +545,6 @@ function BatchSummaryPanel({ batch }) {
   );
 
   const cm = batch.pooled_confusion_matrix || {};
-  const ppf = batch.per_persona_fidelity || {};
 
   return (
     <div style={{ marginBottom: 24 }}>
@@ -603,38 +602,6 @@ function BatchSummaryPanel({ batch }) {
         </div>
       )}
 
-      {/* Per-persona fidelity table */}
-      {Object.keys(ppf).length > 0 && (
-        <div className="card" style={{ padding: "14px 16px" }}>
-          <div className="t-h3" style={{ marginBottom: 10 }}>Per-persona fidelity (cross-chat)</div>
-          <table style={{ width: "100%", fontSize: 12, borderCollapse: "collapse" }}>
-            <thead>
-              <tr style={{ color: "var(--fg-2)", borderBottom: "1px solid var(--border)" }}>
-                <th style={{ textAlign: "left", padding: "4px 8px 8px 0", fontWeight: 500 }}>Persona</th>
-                <th style={{ textAlign: "right", padding: "4px 8px 8px", fontWeight: 500 }}>n</th>
-                <th style={{ textAlign: "right", padding: "4px 8px 8px", fontWeight: 500 }}>Mean</th>
-                <th style={{ textAlign: "right", padding: "4px 8px 8px", fontWeight: 500 }}>Std</th>
-                <th style={{ textAlign: "right", padding: "4px 0 8px", fontWeight: 500 }}>95% CI</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(ppf).sort((a, b) => (b[1].mean ?? 0) - (a[1].mean ?? 0)).map(([name, s]) => (
-                <tr key={name} style={{ borderBottom: "1px solid var(--border-faint, #1e293b)" }}>
-                  <td style={{ padding: "6px 8px 6px 0", fontWeight: 500 }}>{name}</td>
-                  <td style={{ textAlign: "right", padding: "6px 8px", color: "var(--fg-2)" }}>{s.n}</td>
-                  <td style={{ textAlign: "right", padding: "6px 8px", fontFamily: "var(--font-mono)" }}>
-                    <span style={{ color: s.mean >= 3 ? "#22c55e" : s.mean >= 2 ? "#eab308" : "#ef4444" }}>
-                      {fmt(s.mean)}
-                    </span>
-                  </td>
-                  <td style={{ textAlign: "right", padding: "6px 8px", color: "var(--fg-2)", fontFamily: "var(--font-mono)" }}>{fmt(s.std)}</td>
-                  <td style={{ textAlign: "right", padding: "6px 0", color: "var(--fg-2)", fontFamily: "var(--font-mono)", fontSize: 11 }}>{ci(s.ci_95)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
     </div>
   );
 }
