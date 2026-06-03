@@ -1636,12 +1636,37 @@ def admin_agent_performance(db: sqlite3.Connection = Depends(get_db)) -> list:
         """
     ).fetchall()
 
+    reports = db.execute(
+        "SELECT report FROM Group_chat WHERE is_judged = 1 AND report IS NOT NULL AND deleted_at IS NULL"
+    ).fetchall()
+
+    agent_if: dict[int, list[float]] = {}
+    agent_gf: dict[int, list[float]] = {}
+    for r in reports:
+        try:
+            rep = json.loads(r["report"])
+        except (json.JSONDecodeError, TypeError):
+            continue
+        gfm = rep.get("groupFidelityMean") or 0.0
+        for fr in rep.get("fidelityRows") or []:
+            aid = fr.get("personaId")
+            if not aid:
+                continue
+            med = fr.get("median")
+            if med is not None:
+                agent_if.setdefault(aid, []).append(float(med))
+            if gfm:
+                agent_gf.setdefault(aid, []).append(float(gfm))
+
+    def _mean(lst: list[float]) -> float:
+        return round(sum(lst) / len(lst), 4) if lst else 0.0
+
     return [
         {
             "agent_id": r["agent_id"],
             "sessions": r["sessions"],
-            "individual_fidelity": 0.0,
-            "group_fidelity": 0.0,
+            "individual_fidelity": _mean(agent_if.get(r["agent_id"], [])),
+            "group_fidelity": _mean(agent_gf.get(r["agent_id"], [])),
             "flagged": 0,
         }
         for r in rows
