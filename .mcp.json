@@ -1,9 +1,12 @@
 {
   "mcpServers": {
     "angry-agents": {
-      "command": "/Users/shimajkevin/Desktop/angry-agents/.venv/bin/python",
-      "args": ["-m", "angry_agents.src.mcp.mcp_server"],
-      "cwd": "/Users/shimajkevin/Desktop/angry-agents"
+      "command": "C:\\Users\\marco\\UNI_TRENTO\\DLSAI\\angry-agents\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "angry_agents.src.mcp.mcp_server"
+      ],
+      "cwd": "C:\\Users\\marco\\UNI_TRENTO\\DLSAI\\angry-agents"
     }
   }
 }

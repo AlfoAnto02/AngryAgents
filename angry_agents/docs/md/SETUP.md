@@ -119,6 +119,19 @@ Open `http://localhost:8001`.
 
 ---
 
+## MCP setup (one-time, per machine)
+
+The MCP server lets Claude Code create chats, post messages and launch judging directly from the IDE. Configuration requires absolute paths, so each machine generates its own `.mcp.json`:
+
+```bash
+# with venv activated:
+python setup_mcp.py
+```
+
+Then restart Claude Code to load the server. The generated `.mcp.json` is git-ignored.
+
+---
+
 ## Daily restart checklist
 
 ```bash
