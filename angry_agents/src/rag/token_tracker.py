@@ -32,6 +32,7 @@ from pathlib import Path
 # Keys are matched by prefix — most specific prefix wins.
 _RATES: list[tuple[str, float, float]] = [
     # prefix                   input/1M   output/1M
+    ("gpt-5",                  1.25,      10.00),
     ("gpt-4o-mini",            0.15,      0.60),
     ("gpt-4o-2024-08-06",      2.50,      10.00),
     ("gpt-4o",                 2.50,      10.00),

@@ -248,7 +248,7 @@ def run_persona_identification(
             messages_block=messages_block,
             author_list=author_list,
         )
-        raw = llm_call(system, user, model, json_mode=True, temperature=0)
+        raw = llm_call(system, user, model, json_mode=True)
         author_scores = _parse_json_scores(raw, authors)
         for author, score in author_scores.items():
             author_persona_scores[author].append(PersonaScore(persona_name=name, score=score))

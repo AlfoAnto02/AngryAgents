@@ -43,6 +43,7 @@ MINIMAL_REPORT = {
     },
     "group_fidelity": {
         "gini": {"gini": 0.33, "ci_95": [0.28, 0.38], "within_reference_range": True, "z_vs_reference": 0.0},
+        "judge_scores": {"mean": 3.7, "median": 4.0, "n": 20, "iqr": 1.0, "ci_95": [3.5, 4.0]},
     },
 }
 
@@ -195,5 +196,5 @@ class TestRunBatch:
         _write_report(tmp_path, 1, MINIMAL_REPORT)
         result = run_batch(tmp_path)
         for key in ("n_chats", "chat_ids", "accuracy", "fidelity_median", "gini",
-                    "pooled_confusion_matrix"):
+                    "group_fidelity", "pooled_confusion_matrix"):
             assert key in result

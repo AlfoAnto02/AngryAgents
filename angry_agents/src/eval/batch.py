@@ -52,6 +52,7 @@ def _extract(report: dict, chat_id: int) -> dict | None:
         accuracy = pi["aggregate"]["accuracy"]
         fidelity_median = fi["aggregate"]["median"]
         gini = gf["gini"]["gini"]
+        group_fidelity_mean = (gf.get("judge_scores") or {}).get("mean")
 
         cm = pi["confusion_matrix"]
         confusion = (cm["labels"], cm["matrix"])
@@ -61,6 +62,7 @@ def _extract(report: dict, chat_id: int) -> dict | None:
             "accuracy": accuracy,
             "fidelity_median": fidelity_median,
             "gini": gini,
+            "group_fidelity_mean": group_fidelity_mean,
             "confusion": confusion,
         }
     except (KeyError, TypeError) as exc:
@@ -108,6 +110,9 @@ def run_batch(
         "accuracy": metrics_batch.aggregate_accuracy([r["accuracy"] for r in rows]),
         "fidelity_median": metrics_batch.aggregate_fidelity([r["fidelity_median"] for r in rows]),
         "gini": metrics_batch.aggregate_gini([r["gini"] for r in rows]),
+        "group_fidelity": metrics_batch.aggregate_group_fidelity(
+            [r["group_fidelity_mean"] for r in rows if r.get("group_fidelity_mean") is not None]
+        ),
         "pooled_confusion_matrix": metrics_batch.pool_confusion_matrices(
             [r["confusion"] for r in rows]
         ),

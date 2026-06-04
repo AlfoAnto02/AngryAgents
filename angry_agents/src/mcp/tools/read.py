@@ -116,3 +116,12 @@ def register(mcp: FastMCP) -> None:
         Returns: status ('not_started' | 'running' | 'done' | 'error'), progress (0–100), error (str | null).
         Call repeatedly until status='done', then use get_judge_result to fetch the full report."""
         return await _get(f"/admin/judge-chat/{chat_id}/status")
+
+    @mcp.tool()
+    async def get_batch_report() -> dict[str, Any]:
+        """[Tier 1 — Admin] Aggregate evaluation statistics across all judged chats.
+        Returns: n_chats, accuracy (mean/std/ci_95), fidelity_median (mean/std/ci_95),
+        group_fidelity (mean/std/ci_95), gini (mean/std/ci_95), pooled_confusion_matrix
+        (labels, matrix, per_persona precision/recall/F1, macro_F1, Cohen's kappa).
+        Reads from DB — no local JSON files required."""
+        return await _get("/admin/batch-report")

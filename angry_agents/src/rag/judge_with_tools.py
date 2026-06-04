@@ -88,7 +88,6 @@ def _openai_tool_loop(
             tools=[SEARCH_TOOL],
             tool_choice="none",
             response_format={"type": "json_object"},
-            temperature=0,
         )
         choice = response.choices[0]
 
@@ -127,7 +126,7 @@ def _openai_tool_loop(
         model=model,
         messages=messages,
         response_format={"type": "json_object"},
-        temperature=0,
+
     )
     if tracker and final.usage:
         tracker.record(
@@ -213,7 +212,7 @@ def _openai_simple_call(
             {"role": "user", "content": user},
         ],
         response_format={"type": "json_object"},
-        temperature=0,
+
     )
     if tracker and response.usage:
         tracker.record(

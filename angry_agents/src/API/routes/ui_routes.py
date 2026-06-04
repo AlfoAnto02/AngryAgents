@@ -11,7 +11,7 @@ import sqlite3
 import time as _time
 from datetime import datetime, timezone
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Body, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
@@ -1020,7 +1020,7 @@ def _save_eval_report(
     log.info("eval report saved → %s", out_dir)
 
 
-def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
+def _bg_run_judging(chat_id: int, db_path: str, author_secret: str, model: str | None = None) -> None:
     """Background task: run 20 real judges on a DB chat then compute metrics via src/eval."""
     _judge_jobs[chat_id] = {"status": "running", "progress": 2, "result": None, "error": None}
     _t_start = _time.monotonic()
@@ -1119,6 +1119,7 @@ def _bg_run_judging(chat_id: int, db_path: str, author_secret: str) -> None:
             forced_names=forced_names,
             out_dir=_EVAL_DIR / f"chat_{chat_id}",
             author_map={d: n for d, n in author_map.items() if d in active_digests},
+            model=model,
         )
         _t_llm_end = _time.monotonic()
         print(f"  [chat {chat_id}] ── LLM calls DONE   ({_t_llm_end - _t_llm_start:.1f}s)")
@@ -1350,6 +1351,7 @@ def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
                 "accuracy": float(r["accuracy"]),
                 "fidelity_median": fidelity_median,
                 "gini": float(r["gini"]),
+                "group_fidelity_mean": float(r.get("groupFidelityMean") or 0.0),
                 "confusion": (r["cmLabels"], r["cm"]),
             })
         except (KeyError, TypeError, json.JSONDecodeError):
@@ -1365,16 +1367,24 @@ def admin_batch_report(db: sqlite3.Connection = Depends(get_db)) -> dict:
         "accuracy": metrics_batch.aggregate_accuracy([r["accuracy"] for r in reports]),
         "fidelity_median": metrics_batch.aggregate_fidelity([r["fidelity_median"] for r in reports]),
         "gini": metrics_batch.aggregate_gini([r["gini"] for r in reports]),
+        "group_fidelity": metrics_batch.aggregate_group_fidelity(
+            [r["group_fidelity_mean"] for r in reports]
+        ),
         "pooled_confusion_matrix": metrics_batch.pool_confusion_matrices(
             [r["confusion"] for r in reports]
         ),
     }
 
 
+class _JudgeRequest(BaseModel):
+    model: str | None = None
+
+
 @router.post("/admin/judge-chat/{chat_id}", status_code=202)
 def admin_start_judging(
     chat_id: int,
-    background_tasks: BackgroundTasks,
+    body: _JudgeRequest = Body(default_factory=_JudgeRequest),
+    background_tasks: BackgroundTasks = BackgroundTasks(),
     db: sqlite3.Connection = Depends(get_db),
     settings: Settings = Depends(get_settings),
 ) -> dict:
@@ -1388,8 +1398,8 @@ def admin_start_judging(
     if job and job["status"] == "running":
         raise HTTPException(status_code=409, detail="Judging already in progress")
 
-    background_tasks.add_task(_bg_run_judging, chat_id, settings.db_path, settings.author_secret)
-    return {"chat_id": chat_id, "status": "running"}
+    background_tasks.add_task(_bg_run_judging, chat_id, settings.db_path, settings.author_secret, body.model)
+    return {"chat_id": chat_id, "status": "running", "model": body.model}
 
 
 @router.get("/admin/judge-chat/{chat_id}/stream")
@@ -1632,12 +1642,37 @@ def admin_agent_performance(db: sqlite3.Connection = Depends(get_db)) -> list:
         """
     ).fetchall()
 
+    reports = db.execute(
+        "SELECT report FROM Group_chat WHERE is_judged = 1 AND report IS NOT NULL AND deleted_at IS NULL"
+    ).fetchall()
+
+    agent_if: dict[int, list[float]] = {}
+    agent_gf: dict[int, list[float]] = {}
+    for r in reports:
+        try:
+            rep = json.loads(r["report"])
+        except (json.JSONDecodeError, TypeError):
+            continue
+        gfm = rep.get("groupFidelityMean") or 0.0
+        for fr in rep.get("fidelityRows") or []:
+            aid = fr.get("personaId")
+            if not aid:
+                continue
+            med = fr.get("median")
+            if med is not None:
+                agent_if.setdefault(aid, []).append(float(med))
+            if gfm:
+                agent_gf.setdefault(aid, []).append(float(gfm))
+
+    def _mean(lst: list[float]) -> float:
+        return round(sum(lst) / len(lst), 4) if lst else 0.0
+
     return [
         {
             "agent_id": r["agent_id"],
             "sessions": r["sessions"],
-            "individual_fidelity": 0.0,
-            "group_fidelity": 0.0,
+            "individual_fidelity": _mean(agent_if.get(r["agent_id"], [])),
+            "group_fidelity": _mean(agent_gf.get(r["agent_id"], [])),
             "flagged": 0,
         }
         for r in rows
