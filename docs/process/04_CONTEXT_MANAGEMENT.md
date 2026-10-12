@@ -1,5 +1,9 @@
 # Context Management for Persona Agents
 
+> **📜 Process document, kept as written.** Design proposal by Kevin Shimaj, Sprint 1 (May 11, 2026), written before the chat engine was implemented. The token-budget estimate (~2,550 vs ~30,000 tokens per turn) comes from this document.
+>
+> **What changed afterwards:** the implemented version of these mechanisms (`ContextWindow`, re-grounding, perturbation, drift threshold) is described in [architecture/agents_system_guide.md](../architecture/agents_system_guide.md).
+
 ## Overview
 
 Three distinct problems arise when running LLM-based persona agents in a multi-turn chat:

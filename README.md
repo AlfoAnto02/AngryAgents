@@ -171,7 +171,15 @@ python -m angry_agents.src.rag.build_index
 python -m http.server 8001 -d ui/
 ```
 
-Full instructions, including starting from an empty database, are in [`angry_agents/docs/md/SETUP.md`](angry_agents/docs/md/SETUP.md). MCP setup is described in [`angry_agents/src/mcp/MCP_SETUP.md`](angry_agents/src/mcp/MCP_SETUP.md).
+Full instructions, including starting from an empty database, are in [`docs/architecture/SETUP.md`](docs/architecture/SETUP.md). MCP setup is described in [`angry_agents/src/mcp/MCP_SETUP.md`](angry_agents/src/mcp/MCP_SETUP.md).
+
+---
+
+## How this project evolved
+
+The final system looks quite different from the first plan. A design that called for 2,000 LLM calls per evaluation was cut to 80, a metric that silently inflated accuracy was replaced, and a whole judging phase was dropped to ship a measured one. **[`docs/DECISIONS.md`](docs/DECISIONS.md)** walks through the 16 decisions behind that, each linked to the document where it was first recorded.
+
+All design documents written along the way are kept in [`docs/process/`](docs/process/), unedited apart from a banner that says what changed afterwards. Per-person sprint notes are in [`docs/sprints/`](docs/sprints/). The [docs index](docs/README.md) suggests a reading order.
 
 ---
 
@@ -190,7 +198,13 @@ angry_agents/src/
 └── mcp/          Model Context Protocol server and tools
 ui/               React front end
 data/             persona profiles and raw source corpora
-report/           full project report (LaTeX + PDF)
+docs/
+├── DECISIONS.md  the 16 decisions that shaped the system
+├── architecture/ how the system works now
+├── process/      design documents written along the way, in order
+├── sprints/      per-person sprint notes and progress reports
+├── presentations/ course presentations, including the final one
+└── report/       full technical report (LaTeX + PDF)
 ```
 
 ---
@@ -210,6 +224,22 @@ report/           full project report (LaTeX + PDF)
 
 The design draws on Park et al. (2023, *Generative Agents*) for memory, reflection and the agreeableness problem in groups; Jiang et al. (2024, *PersonaLLM*) for the blind evaluation protocol; Zhou et al. (2025) for the role of personal details in behavioural fidelity; Salewski et al. (2023) on demographic bias in persona prompts; and Wason et al. (2024) on context management in dialogue agents. The novel contribution is a single experimental pipeline that combines persona identification, individual, group and behavioural fidelity on personas extracted from real text corpora.
 
-The full write-up is available in [`report/report.pdf`](report/report.pdf).
+The full write-up is available in [`docs/report/report.pdf`](docs/report/report.pdf).
+
+---
+
+## Team
+
+Built by a team of five over five one-week sprints (May 5 – June 3, 2026):
+
+| Name | Primary area |
+|---|---|
+| Gabriele Fronzoni | Scraping, persona extraction, technical report |
+| Alfonso Antognozzi | Database, API, RAG, UI |
+| Kevin Shimaj | Evaluation pipeline, MCP layer |
+| Davide Cabitza | Persona agents, group/DM chat, judges, state of the art |
+| Marco Massa | UI, persona seeding, DB versioning |
+
+Per-sprint detail for each person is in [`docs/sprints/`](docs/sprints/).
 
 <p align="center"><sub>Developed for the course <i>Designing Large Scale AI Systems</i>, AI Design 2026.</sub></p>

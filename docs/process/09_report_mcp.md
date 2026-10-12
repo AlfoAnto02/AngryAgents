@@ -1,5 +1,9 @@
 # Report MCP — Angry Agents
 
+> **📜 Process document: session log (in Italian).** Written by Marco Massa, Sprint 5 (June 3, 2026).
+>
+> **English summary:** a log of using Claude Code through the project's MCP server to generate demo data. In about 8 minutes it created 6 DM chats (Walter White, Tony Stark, Sherlock Holmes, Yoda, Valentino Rossi, Giorgia Meloni; 4 in English, 2 in Italian) with 60 messages in total, entirely through `preview_*` / `confirm_*` tool pairs and without using the UI. Two issues came up and were fixed: a `422` when posting user messages without `created_by`, and chats missing from the user's list because `created_by` was `NULL` on creation. Writing the first message in Italian was enough for the agent to answer in Italian for the rest of the chat. **MCP reference:** [architecture/MCP.md](../architecture/MCP.md).
+
 Sessione del **3 giugno 2026** — generazione di chat DM tramite Claude Code + MCP.
 
 ---
@@ -152,7 +156,7 @@ Durante la prima chat, il tentativo di postare un messaggio utente con `created_
 
 Dopo aver killato i processi e riavviato il server, le 6 chat DM non apparivano nella lista chat dell'utente admin.
 
-*Causa*: `confirm_create_full_chat` era stato chiamato senza passare `created_by=1`, quindi il campo `Created_by` era `NULL` sia in `Group_chat` che in `Topic`. L'endpoint `GET /ui/chats` ([ui_routes.py:249](../src/API/routes/ui_routes.py)) filtra con `AND gc.Created_by = ?` usando l'ID dell'utente autenticato — le chat con `NULL` non venivano mai restituite.
+*Causa*: `confirm_create_full_chat` era stato chiamato senza passare `created_by=1`, quindi il campo `Created_by` era `NULL` sia in `Group_chat` che in `Topic`. L'endpoint `GET /ui/chats` ([ui_routes.py:249](../../angry_agents/src/API/routes/ui_routes.py)) filtra con `AND gc.Created_by = ?` usando l'ID dell'utente autenticato — le chat con `NULL` non venivano mai restituite.
 
 Le chat erano però presenti nel DB e visibili nell'admin sessions dashboard (`GET /admin/sessions`), che non filtra per `Created_by`.
 

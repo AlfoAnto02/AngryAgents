@@ -1,5 +1,9 @@
 # Evaluation Design: Open Questions and Trade-off Analysis
 
+> **📜 Process document, kept as written.** Design trade-off analysis by Marco Massa, Sprint 3 (May 21, 2026).
+>
+> **How the questions were resolved:** (1) *Candidate set size*: none of the fixed-K options. A RAG shortlist whose size scales with the number of participants was used instead (`max(n+1, ⌊2.5·n⌋)`). (2) *Response format*: hard guess (Option A), with a 1:1 mapping enforced by the Hungarian algorithm; an intermediate 1–5 scoring step was tried and removed. (3) *Fidelity protocol*: a single pool of 20 judges rates individual fidelity after the true mapping is revealed (closest to Option A), with group fidelity as a separate call. See [DECISIONS.md](../DECISIONS.md).
+
 **Project:** Multi-Agent Persona Evaluation System  
 **Document type:** Design discussion
 **Date:** May 2026  

@@ -1,5 +1,9 @@
 # Angry Agents — AI Agent Tool Manifest v1
 
+> **📜 Process document, superseded.** First tool manifest by Alfonso Antognozzi, Sprint 2 (May 18, 2026), written before the MCP server existed. It introduced the two-tier read/write autonomy boundary and the confirm-before-write protocol, both of which survived into the final design.
+>
+> **What changed afterwards:** `create_chat` became `create_full_chat`, every write turned into a `preview_*` / `confirm_*` pair, and admin/judging tools were added. **Current reference:** [architecture/MCP.md](../architecture/MCP.md).
+
 This document is the authoritative description of what an AI agent **can and cannot do** inside
 the Angry Agents platform. Read it completely before attempting any tool invocation.
 It is structured following the principle that rich, integrated descriptions — not just

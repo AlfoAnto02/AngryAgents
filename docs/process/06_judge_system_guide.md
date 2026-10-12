@@ -1,5 +1,9 @@
 # Judge System Guide — Angry Agents
 
+> **📜 Process document, superseded.** First judge architecture by Davide Cabitza, Sprint 3 (May 19, 2026).
+>
+> **What changed afterwards:** the per-type judge classes (`style_judge.py`, `ideology_judge.py`, …) were replaced by a single `base_judge.py` plus role-specific Jinja2 templates. The 20 judges now run in parallel behind a RAG pre-filter (`src/rag/judge_with_tools.py`). The single `Score` column was replaced by structured fields in [DB v4](../architecture/DB_v4.md), and Phase 2 deliberation was dropped. **Current reference:** [architecture/EVAL.md](../architecture/EVAL.md), [`src/rag/RAG_EXPLANATION.md`](../../angry_agents/src/rag/RAG_EXPLANATION.md) and [DECISIONS.md](../DECISIONS.md).
+
 A reference for understanding and extending the multi-judge evaluation pipeline in this project.
 
 ---

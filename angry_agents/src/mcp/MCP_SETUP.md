@@ -8,7 +8,7 @@ The MCP layer lets Claude Code talk directly to the Angry Agents API — read da
 
 - Python 3.12+
 - `.venv` set up and dependencies installed (`pip install -r requirements.txt`)
-- A working `.env` file in the project root (see `LOCAL_SETUP.md`)
+- A working `.env` file in the project root (see [`docs/architecture/SETUP.md`](../../../docs/architecture/SETUP.md))
 
 ---
 
@@ -31,7 +31,7 @@ Leave this terminal open. The API must stay running.
 claude
 ```
 
-Claude Code automatically reads `.mcp.json` in the project root and connects to the MCP server. No extra setup needed.
+Claude Code automatically reads `.mcp.json` in the project root and connects to the MCP server. The file contains absolute paths for your machine, so it is not committed. Generate it once with `python setup_mcp.py`.
 
 > If Claude says "MCP server not connected", make sure the API is running on `:8000` first.
 

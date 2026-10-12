@@ -48,6 +48,14 @@ cookies.txt
 Thumbs.db
 *.lnk
 
+# --- LaTeX build outputs (keep only report.tex and report.pdf) ---
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+
 # --- graphify (knowledge graph) ---
 graphify-out/cache/
 graphify-out/manifest.json

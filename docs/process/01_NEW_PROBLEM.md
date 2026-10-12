@@ -1,5 +1,9 @@
 # Problem definition
 
+> **📜 Process document, kept as written.** Problem statement by Gabriele Fronzoni, Sprint 1 (May 5–11, 2026), revised over many iterations before the scope was locked.
+>
+> **What changed afterwards:** Phase 2 collaborative judging (point 2 below) was designed but dropped in June. The external omniscient agent was never built. Group chats ended up supporting 2–8 agents rather than a fixed 8, and behavioural fidelity became one of the four judge lenses instead of a separate metric. See [DECISIONS.md](../DECISIONS.md) for why.
+
 The project's objective is to create a chat appplication in which a user can chat with agents that represent real-world personas.
 The application permits the user to write direct messagges to agents or to chat in group with them. The agents' behaviour is supervised and evaluated by 
 AI judges. 

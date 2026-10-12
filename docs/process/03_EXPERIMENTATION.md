@@ -1,4 +1,8 @@
 # Experimentation pipeline
+
+> **📜 Process document, kept as written.** Methodology plan by Kevin Shimaj, Sprint 1 (May 6–11, 2026), written before any code existed.
+>
+> **What changed afterwards:** "Phase Two: Collaborative Judge Evaluation" and its deliberation metrics were dropped in June. Several proposed metrics were pruned once implemented. The metrics actually computed are described in [architecture/EVAL.md](../architecture/EVAL.md) and [architecture/EVAL_BATCH.md](../architecture/EVAL_BATCH.md).
 This document defines the experimental methodology that will be used to evaluate the system.
 The goal is to analyze and discuss the problems that have to be adressed in each stage.
 

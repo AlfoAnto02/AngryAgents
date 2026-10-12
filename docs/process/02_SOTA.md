@@ -1,4 +1,6 @@
 # State of the Art: 
+
+> **📜 Process document, kept as written.** Literature review by Davide Cabitza, Sprint 1 (May 6–11, 2026). It shaped the blind evaluation protocol (Jiang et al.) and the anti-drift mechanisms (Park et al.). The final positioning against this literature is in the [technical report](../report/report.pdf), section "State-of-the-Art Positioning".
 This document defines the current state of the art in multi-agent personality simulation using Large Language Models.
 The goal is to analyze existing literature and discuss the research gaps and known failure modes that have to be addressed in the project.
 

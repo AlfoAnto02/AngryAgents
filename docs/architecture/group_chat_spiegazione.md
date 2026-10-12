@@ -1,5 +1,9 @@
 # Come funziona il Group Chat — Spiegazione del sistema
 
+> **🇮🇹 Written in Italian.** Davide Cabitza, May 20 – June 1, 2026. Describes the current group-chat and DM engine.
+>
+> **English summary:** `src/group_chat/` solves three problems at once: staying faithful to the persona over dozens of turns, calling the LLM only when it is an agent's turn, and keeping authors anonymous to the judges through HMAC `author` tokens. Four classes work together: `PersonaAgent` (derives speaking weight, cooldown and burst size from the profile, and periodically re-grounds itself), `TurnScheduler` (`round_robin` or `weighted_random` with cooldowns), `ContextWindow` (`full`, `rolling` or `selective` history) and `GroupChatSession` (the turn loop). `GroupChatFactory` is the only public entry point. DMs live in a separate module, `src/dm_chat/`. For the same material in English, see [agents_system_guide.md](agents_system_guide.md).
+
 ## Il problema da risolvere
 
 Immaginate di voler mettere in piedi una conversazione di gruppo in cui partecipano otto personaggi

@@ -1,5 +1,7 @@
 # Group Fidelity Refactor
 
+> **📜 Process document: change record.** Written by Davide Cabitza, Sprint 5 (June 3, 2026). It records why group fidelity was split out of the persona-identification call. This change is part of the final system.
+
 ## Summary
 
 Group fidelity was originally a secondary output of the persona identification judge call — each judge returned `group_fidelity_score` as a second key in the same JSON response as the persona assignment. This had two problems:
